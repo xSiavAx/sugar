@@ -8,12 +8,40 @@
 
 /* Begin PBXBuildFile section */
 		99D29643223D3057003FD9F0 /* SSSugar.h in Headers */ = {isa = PBXBuildFile; fileRef = 99D29641223D3057003FD9F0 /* SSSugar.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		99D2964F223D3107003FD9F0 /* SSRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D2964D223D3107003FD9F0 /* SSRootView.swift */; };
+		99D29650223D3107003FD9F0 /* SSRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D2964E223D3107003FD9F0 /* SSRootViewController.swift */; };
+		99D29656223D3681003FD9F0 /* SSTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D29652223D3681003FD9F0 /* SSTextField.swift */; };
+		99D29657223D3681003FD9F0 /* SSActivityProtectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D29653223D3681003FD9F0 /* SSActivityProtectionView.swift */; };
+		99D29658223D3681003FD9F0 /* SSWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D29654223D3681003FD9F0 /* SSWindow.swift */; };
+		99D29659223D3681003FD9F0 /* SSScrollContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D29655223D3681003FD9F0 /* SSScrollContainerView.swift */; };
+		99D2965C223D3710003FD9F0 /* SSViewBlockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D2965B223D3710003FD9F0 /* SSViewBlockable.swift */; };
+		99D29669223D3763003FD9F0 /* UIViewControllerSugar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D29660223D3763003FD9F0 /* UIViewControllerSugar.swift */; };
+		99D2966B223D3763003FD9F0 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D29662223D3763003FD9F0 /* Common.swift */; };
+		99D2966C223D3763003FD9F0 /* UIColorSugar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D29663223D3763003FD9F0 /* UIColorSugar.swift */; };
+		99D2966D223D3763003FD9F0 /* DispatchQueueSugar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D29664223D3763003FD9F0 /* DispatchQueueSugar.swift */; };
+		99D2966E223D3763003FD9F0 /* CGRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D29665223D3763003FD9F0 /* CGRect.swift */; };
+		99D2966F223D3763003FD9F0 /* UIViewSugar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D29666223D3763003FD9F0 /* UIViewSugar.swift */; };
+		99D29670223D3763003FD9F0 /* UIButtonSugar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D29667223D3763003FD9F0 /* UIButtonSugar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		99D2963E223D3057003FD9F0 /* SSSugar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SSSugar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		99D29641223D3057003FD9F0 /* SSSugar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSSugar.h; sourceTree = "<group>"; };
 		99D29642223D3057003FD9F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		99D2964D223D3107003FD9F0 /* SSRootView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSRootView.swift; sourceTree = "<group>"; };
+		99D2964E223D3107003FD9F0 /* SSRootViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSRootViewController.swift; sourceTree = "<group>"; };
+		99D29652223D3681003FD9F0 /* SSTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSTextField.swift; sourceTree = "<group>"; };
+		99D29653223D3681003FD9F0 /* SSActivityProtectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSActivityProtectionView.swift; sourceTree = "<group>"; };
+		99D29654223D3681003FD9F0 /* SSWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSWindow.swift; sourceTree = "<group>"; };
+		99D29655223D3681003FD9F0 /* SSScrollContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSScrollContainerView.swift; sourceTree = "<group>"; };
+		99D2965B223D3710003FD9F0 /* SSViewBlockable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSViewBlockable.swift; sourceTree = "<group>"; };
+		99D29660223D3763003FD9F0 /* UIViewControllerSugar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewControllerSugar.swift; sourceTree = "<group>"; };
+		99D29662223D3763003FD9F0 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		99D29663223D3763003FD9F0 /* UIColorSugar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColorSugar.swift; sourceTree = "<group>"; };
+		99D29664223D3763003FD9F0 /* DispatchQueueSugar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DispatchQueueSugar.swift; sourceTree = "<group>"; };
+		99D29665223D3763003FD9F0 /* CGRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRect.swift; sourceTree = "<group>"; };
+		99D29666223D3763003FD9F0 /* UIViewSugar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewSugar.swift; sourceTree = "<group>"; };
+		99D29667223D3763003FD9F0 /* UIButtonSugar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonSugar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,10 +74,80 @@
 		99D29640223D3057003FD9F0 /* SSSugar */ = {
 			isa = PBXGroup;
 			children = (
+				99D29672223D37BD003FD9F0 /* Extensions */,
+				99D29671223D37A2003FD9F0 /* Classes */,
+				99D2965F223D3763003FD9F0 /* Other */,
+				99D2965A223D3710003FD9F0 /* Protocols */,
 				99D29641223D3057003FD9F0 /* SSSugar.h */,
 				99D29642223D3057003FD9F0 /* Info.plist */,
 			);
 			path = SSSugar;
+			sourceTree = "<group>";
+		};
+		99D2964B223D3107003FD9F0 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				99D2964C223D3107003FD9F0 /* Root */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		99D2964C223D3107003FD9F0 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				99D2964D223D3107003FD9F0 /* SSRootView.swift */,
+				99D2964E223D3107003FD9F0 /* SSRootViewController.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		99D29651223D3681003FD9F0 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				99D29652223D3681003FD9F0 /* SSTextField.swift */,
+				99D29653223D3681003FD9F0 /* SSActivityProtectionView.swift */,
+				99D29654223D3681003FD9F0 /* SSWindow.swift */,
+				99D29655223D3681003FD9F0 /* SSScrollContainerView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		99D2965A223D3710003FD9F0 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				99D2965B223D3710003FD9F0 /* SSViewBlockable.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		99D2965F223D3763003FD9F0 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				99D29662223D3763003FD9F0 /* Common.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		99D29671223D37A2003FD9F0 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				99D2964B223D3107003FD9F0 /* ViewControllers */,
+				99D29651223D3681003FD9F0 /* Views */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		99D29672223D37BD003FD9F0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				99D29660223D3763003FD9F0 /* UIViewControllerSugar.swift */,
+				99D29663223D3763003FD9F0 /* UIColorSugar.swift */,
+				99D29664223D3763003FD9F0 /* DispatchQueueSugar.swift */,
+				99D29665223D3763003FD9F0 /* CGRect.swift */,
+				99D29666223D3763003FD9F0 /* UIViewSugar.swift */,
+				99D29667223D3763003FD9F0 /* UIButtonSugar.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -130,6 +228,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99D2966C223D3763003FD9F0 /* UIColorSugar.swift in Sources */,
+				99D29657223D3681003FD9F0 /* SSActivityProtectionView.swift in Sources */,
+				99D2965C223D3710003FD9F0 /* SSViewBlockable.swift in Sources */,
+				99D29669223D3763003FD9F0 /* UIViewControllerSugar.swift in Sources */,
+				99D2966B223D3763003FD9F0 /* Common.swift in Sources */,
+				99D29658223D3681003FD9F0 /* SSWindow.swift in Sources */,
+				99D29650223D3107003FD9F0 /* SSRootViewController.swift in Sources */,
+				99D2964F223D3107003FD9F0 /* SSRootView.swift in Sources */,
+				99D29670223D3763003FD9F0 /* UIButtonSugar.swift in Sources */,
+				99D2966D223D3763003FD9F0 /* DispatchQueueSugar.swift in Sources */,
+				99D29656223D3681003FD9F0 /* SSTextField.swift in Sources */,
+				99D29659223D3681003FD9F0 /* SSScrollContainerView.swift in Sources */,
+				99D2966F223D3763003FD9F0 /* UIViewSugar.swift in Sources */,
+				99D2966E223D3763003FD9F0 /* CGRect.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
