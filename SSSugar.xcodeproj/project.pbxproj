@@ -22,6 +22,8 @@
 		99D2966E223D3763003FD9F0 /* CGRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D29665223D3763003FD9F0 /* CGRect.swift */; };
 		99D2966F223D3763003FD9F0 /* UIViewSugar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D29666223D3763003FD9F0 /* UIViewSugar.swift */; };
 		99D29670223D3763003FD9F0 /* UIButtonSugar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D29667223D3763003FD9F0 /* UIButtonSugar.swift */; };
+		99EABD7A22401B8A0037645B /* SSMarkableCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EABD7922401B8A0037645B /* SSMarkableCollectionCell.swift */; };
+		99EABD7C22401D550037645B /* SSMarkbaleCollectionCellHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EABD7B22401D550037645B /* SSMarkbaleCollectionCellHelper.swift */; };
 		99EABD7E22401EF60037645B /* SSSelectionMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EABD7D22401EF60037645B /* SSSelectionMarkView.swift */; };
 		99EABD80224025CC0037645B /* CGSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EABD7F224025CC0037645B /* CGSize.swift */; };
 /* End PBXBuildFile section */
@@ -44,6 +46,8 @@
 		99D29665223D3763003FD9F0 /* CGRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRect.swift; sourceTree = "<group>"; };
 		99D29666223D3763003FD9F0 /* UIViewSugar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewSugar.swift; sourceTree = "<group>"; };
 		99D29667223D3763003FD9F0 /* UIButtonSugar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonSugar.swift; sourceTree = "<group>"; };
+		99EABD7922401B8A0037645B /* SSMarkableCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSMarkableCollectionCell.swift; sourceTree = "<group>"; };
+		99EABD7B22401D550037645B /* SSMarkbaleCollectionCellHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSMarkbaleCollectionCellHelper.swift; sourceTree = "<group>"; };
 		99EABD7D22401EF60037645B /* SSSelectionMarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSelectionMarkView.swift; sourceTree = "<group>"; };
 		99EABD7F224025CC0037645B /* CGSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSize.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,6 +82,7 @@
 		99D29640223D3057003FD9F0 /* SSSugar */ = {
 			isa = PBXGroup;
 			children = (
+				99EABD7722401B3A0037645B /* Utils */,
 				99D29672223D37BD003FD9F0 /* Extensions */,
 				99D29671223D37A2003FD9F0 /* Classes */,
 				99D2965F223D3763003FD9F0 /* Other */,
@@ -154,6 +159,23 @@
 				99D29667223D3763003FD9F0 /* UIButtonSugar.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		99EABD7722401B3A0037645B /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				99EABD7822401B470037645B /* Collections Custom Select */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		99EABD7822401B470037645B /* Collections Custom Select */ = {
+			isa = PBXGroup;
+			children = (
+				99EABD7922401B8A0037645B /* SSMarkableCollectionCell.swift */,
+				99EABD7B22401D550037645B /* SSMarkbaleCollectionCellHelper.swift */,
+			);
+			path = "Collections Custom Select";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -234,11 +256,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99EABD7C22401D550037645B /* SSMarkbaleCollectionCellHelper.swift in Sources */,
 				99EABD7E22401EF60037645B /* SSSelectionMarkView.swift in Sources */,
 				99D2966C223D3763003FD9F0 /* UIColorSugar.swift in Sources */,
 				99D29657223D3681003FD9F0 /* SSActivityProtectionView.swift in Sources */,
 				99D2965C223D3710003FD9F0 /* SSViewBlockable.swift in Sources */,
 				99D29669223D3763003FD9F0 /* UIViewControllerSugar.swift in Sources */,
+				99EABD7A22401B8A0037645B /* SSMarkableCollectionCell.swift in Sources */,
 				99D2966B223D3763003FD9F0 /* Common.swift in Sources */,
 				99D29658223D3681003FD9F0 /* SSWindow.swift in Sources */,
 				99D29650223D3107003FD9F0 /* SSRootViewController.swift in Sources */,
