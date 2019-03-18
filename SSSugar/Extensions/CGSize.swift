@@ -1,9 +1,7 @@
-//
-//  CGSize.swift
-//  SSSugar
-//
-//  Created by Stanislav Dmitriyev on 18/3/19.
-//  Copyright © 2019 Stanislav Dmitriyev. All rights reserved.
-//
+import UIKit
 
-import Foundation
+public extension CGSize {
+    func union(with size: CGSize) -> CGSize {
+        return CGSize(width:max(width, size.width), height:max(height, size.height))
+    }
+}
