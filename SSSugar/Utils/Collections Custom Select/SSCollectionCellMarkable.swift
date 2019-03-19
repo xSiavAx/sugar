@@ -1,6 +1,6 @@
 import Foundation
 
-public protocol SSMarkableCollectionCell {
+public protocol SSCollectionCellMarkable {
     var marking : Bool { get set }
     var marked  : Bool { get set }
     
@@ -8,7 +8,7 @@ public protocol SSMarkableCollectionCell {
     func setMarked(_ marked : Bool, animated : Bool)
 }
 
-extension SSMarkableCollectionCell {
+extension SSCollectionCellMarkable {
     func setMarking(_ marking : Bool) {
         setMarking(marking, animated: false)
     }

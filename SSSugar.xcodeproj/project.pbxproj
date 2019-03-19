@@ -22,7 +22,8 @@
 		99D2966E223D3763003FD9F0 /* CGRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D29665223D3763003FD9F0 /* CGRect.swift */; };
 		99D2966F223D3763003FD9F0 /* UIViewSugar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D29666223D3763003FD9F0 /* UIViewSugar.swift */; };
 		99D29670223D3763003FD9F0 /* UIButtonSugar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D29667223D3763003FD9F0 /* UIButtonSugar.swift */; };
-		99EABD7A22401B8A0037645B /* SSMarkableCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EABD7922401B8A0037645B /* SSMarkableCollectionCell.swift */; };
+		99E85E292240F3A0005E2B13 /* SSCollectionViewMarkabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E85E282240F3A0005E2B13 /* SSCollectionViewMarkabel.swift */; };
+		99EABD7A22401B8A0037645B /* SSCollectionCellMarkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EABD7922401B8A0037645B /* SSCollectionCellMarkable.swift */; };
 		99EABD7C22401D550037645B /* SSMarkbaleCollectionCellHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EABD7B22401D550037645B /* SSMarkbaleCollectionCellHelper.swift */; };
 		99EABD7E22401EF60037645B /* SSSelectionMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EABD7D22401EF60037645B /* SSSelectionMarkView.swift */; };
 		99EABD80224025CC0037645B /* CGSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EABD7F224025CC0037645B /* CGSize.swift */; };
@@ -46,7 +47,8 @@
 		99D29665223D3763003FD9F0 /* CGRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRect.swift; sourceTree = "<group>"; };
 		99D29666223D3763003FD9F0 /* UIViewSugar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewSugar.swift; sourceTree = "<group>"; };
 		99D29667223D3763003FD9F0 /* UIButtonSugar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonSugar.swift; sourceTree = "<group>"; };
-		99EABD7922401B8A0037645B /* SSMarkableCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSMarkableCollectionCell.swift; sourceTree = "<group>"; };
+		99E85E282240F3A0005E2B13 /* SSCollectionViewMarkabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkabel.swift; sourceTree = "<group>"; };
+		99EABD7922401B8A0037645B /* SSCollectionCellMarkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionCellMarkable.swift; sourceTree = "<group>"; };
 		99EABD7B22401D550037645B /* SSMarkbaleCollectionCellHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSMarkbaleCollectionCellHelper.swift; sourceTree = "<group>"; };
 		99EABD7D22401EF60037645B /* SSSelectionMarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSelectionMarkView.swift; sourceTree = "<group>"; };
 		99EABD7F224025CC0037645B /* CGSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSize.swift; sourceTree = "<group>"; };
@@ -172,8 +174,9 @@
 		99EABD7822401B470037645B /* Collections Custom Select */ = {
 			isa = PBXGroup;
 			children = (
-				99EABD7922401B8A0037645B /* SSMarkableCollectionCell.swift */,
+				99EABD7922401B8A0037645B /* SSCollectionCellMarkable.swift */,
 				99EABD7B22401D550037645B /* SSMarkbaleCollectionCellHelper.swift */,
+				99E85E282240F3A0005E2B13 /* SSCollectionViewMarkabel.swift */,
 			);
 			path = "Collections Custom Select";
 			sourceTree = "<group>";
@@ -221,6 +224,7 @@
 				TargetAttributes = {
 					99D2963D223D3057003FD9F0 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -261,8 +265,9 @@
 				99D2966C223D3763003FD9F0 /* UIColorSugar.swift in Sources */,
 				99D29657223D3681003FD9F0 /* SSActivityProtectionView.swift in Sources */,
 				99D2965C223D3710003FD9F0 /* SSViewBlockable.swift in Sources */,
+				99E85E292240F3A0005E2B13 /* SSCollectionViewMarkabel.swift in Sources */,
 				99D29669223D3763003FD9F0 /* UIViewControllerSugar.swift in Sources */,
-				99EABD7A22401B8A0037645B /* SSMarkableCollectionCell.swift in Sources */,
+				99EABD7A22401B8A0037645B /* SSCollectionCellMarkable.swift in Sources */,
 				99D2966B223D3763003FD9F0 /* Common.swift in Sources */,
 				99D29658223D3681003FD9F0 /* SSWindow.swift in Sources */,
 				99D29650223D3107003FD9F0 /* SSRootViewController.swift in Sources */,
@@ -405,6 +410,7 @@
 		99D29647223D3057003FD9F0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -423,6 +429,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.byteslight.SSSugar;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -431,6 +438,7 @@
 		99D29648223D3057003FD9F0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
