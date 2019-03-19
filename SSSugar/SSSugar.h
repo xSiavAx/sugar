@@ -11,4 +11,5 @@ FOUNDATION_EXPORT const unsigned char SSSugarVersionString[];
 
 //TODO: Need to decide how to make tests for framework and write some tests.
 //TODO: Need to test SSMarkbaleCollectionCellHelper protocol properties implementation works.
+//TODO: Implements "Sugar" from UkrNet
 

@@ -26,6 +26,7 @@
 		99E85E2B2240F5AC005E2B13 /* SSCollectionViewMarkableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E85E2A2240F5AC005E2B13 /* SSCollectionViewMarkableController.swift */; };
 		99E85E2D224103C6005E2B13 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E85E2C224103C6005E2B13 /* Array.swift */; };
 		99E85E2F22410806005E2B13 /* Range.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E85E2E22410806005E2B13 /* Range.swift */; };
+		99E85E3122411583005E2B13 /* UITableVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E85E3022411583005E2B13 /* UITableVIew.swift */; };
 		99EABD7A22401B8A0037645B /* SSCollectionViewCellMarkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EABD7922401B8A0037645B /* SSCollectionViewCellMarkable.swift */; };
 		99EABD7C22401D550037645B /* SSMarkbaleCollectionCellHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EABD7B22401D550037645B /* SSMarkbaleCollectionCellHelper.swift */; };
 		99EABD7E22401EF60037645B /* SSSelectionMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EABD7D22401EF60037645B /* SSSelectionMarkView.swift */; };
@@ -54,6 +55,7 @@
 		99E85E2A2240F5AC005E2B13 /* SSCollectionViewMarkableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableController.swift; sourceTree = "<group>"; };
 		99E85E2C224103C6005E2B13 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
 		99E85E2E22410806005E2B13 /* Range.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Range.swift; sourceTree = "<group>"; };
+		99E85E3022411583005E2B13 /* UITableVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableVIew.swift; sourceTree = "<group>"; };
 		99EABD7922401B8A0037645B /* SSCollectionViewCellMarkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewCellMarkable.swift; sourceTree = "<group>"; };
 		99EABD7B22401D550037645B /* SSMarkbaleCollectionCellHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSMarkbaleCollectionCellHelper.swift; sourceTree = "<group>"; };
 		99EABD7D22401EF60037645B /* SSSelectionMarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSelectionMarkView.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				99D29667223D3763003FD9F0 /* UIButtonSugar.swift */,
 				99E85E2C224103C6005E2B13 /* Array.swift */,
 				99E85E2E22410806005E2B13 /* Range.swift */,
+				99E85E3022411583005E2B13 /* UITableVIew.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -288,6 +291,7 @@
 				99D29656223D3681003FD9F0 /* SSTextField.swift in Sources */,
 				99D29659223D3681003FD9F0 /* SSScrollContainerView.swift in Sources */,
 				99D2966F223D3763003FD9F0 /* UIViewSugar.swift in Sources */,
+				99E85E3122411583005E2B13 /* UITableVIew.swift in Sources */,
 				99E85E2B2240F5AC005E2B13 /* SSCollectionViewMarkableController.swift in Sources */,
 				99EABD80224025CC0037645B /* CGSize.swift in Sources */,
 				99D2966E223D3763003FD9F0 /* CGRect.swift in Sources */,
