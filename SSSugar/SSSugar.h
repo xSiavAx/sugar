@@ -8,8 +8,7 @@ FOUNDATION_EXPORT const unsigned char SSSugarVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <SSSugar/PublicHeader.h>
 
-
-//TODO: Implements "Sugar" from UkrNet
+//TODO: Check SSMarkbaleCollectionCellHelper.setMarked(true) calls SSMarkbaleCollectionCellHelper.setMarked(true, animated:false) using logs
 
 //TODO: Write marking marked TestCase
 //TODO: Write unmark TestCase
@@ -18,3 +17,5 @@ FOUNDATION_EXPORT const unsigned char SSSugarVersionString[];
 //TODO: Write deactivate TestCase
 //TODO: Write deactivate non active TestCase
 //TODO: Write SSCollectionViewMarkableController TestCases
+
+//TODO: Implements "Sugar" from UkrNet
