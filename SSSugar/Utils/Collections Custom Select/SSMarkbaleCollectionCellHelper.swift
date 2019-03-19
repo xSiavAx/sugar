@@ -35,7 +35,7 @@ class SSMarkbaleCollectionCellHelper {
     
     //MARK: - public
     
-    //call it just after super call, and before subviews realisation
+    /// Call it just after super call, and before subviews realisation
     func onLayoutSubviews() {
         originalContentFrame = contentView.frame;
         updateContentAndMarkFrames()
@@ -54,7 +54,8 @@ class SSMarkbaleCollectionCellHelper {
 
 //MARK: - Markable Collection Cell
 
-extension SSMarkbaleCollectionCellHelper: SSCollectionCellMarkable {
+extension SSMarkbaleCollectionCellHelper: SSCollectionViewCellMarkable {
+    //TODO: Test this iFaces
     func setMarked(_ mMarked: Bool, animated: Bool) {
         guard marked == mMarked else {
             return
