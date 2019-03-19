@@ -55,7 +55,6 @@ class SSMarkbaleCollectionCellHelper {
 //MARK: - Markable Collection Cell
 
 extension SSMarkbaleCollectionCellHelper: SSCollectionViewCellMarkable {
-    //TODO: Test this iFaces
     func setMarked(_ mMarked: Bool, animated: Bool) {
         guard marked == mMarked else {
             return
