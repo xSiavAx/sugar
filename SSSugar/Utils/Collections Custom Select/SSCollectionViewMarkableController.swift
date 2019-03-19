@@ -63,7 +63,7 @@ public class SSCollectionViewMarkableController {
         }
     }
     
-    /// Select/Deselect rows at passed index paths
+    /// Select/Deselect rows at passed index paths. Use it instead tv.selectRow(at:)
     ///
     /// - Parameters:
     ///   - marked: Select or deselect state
@@ -77,7 +77,7 @@ public class SSCollectionViewMarkableController {
         }
     }
     
-    /// Select/Deselect row at passed index path
+    /// Select/Deselect row at passed index path. Use it instead tv.selectRow(at:)
     /// Important! Much more faster then use setCellsMarked(_ marked: at indexPaths: animated:)
     ///
     /// - Parameters:
@@ -92,7 +92,7 @@ public class SSCollectionViewMarkableController {
         }
     }
     
-    /// Select/Deselect all rows
+    /// Select/Deselect all rows. Use it instead tv.selectRow(at:)
     /// Important! Much more faster then use setCellsMarked(_ marked: at indexPaths: animated:)
     ///
     /// - Parameters:
