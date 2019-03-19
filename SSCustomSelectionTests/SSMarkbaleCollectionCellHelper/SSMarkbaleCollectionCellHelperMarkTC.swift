@@ -27,6 +27,4 @@ class SSMarkbaleCollectionCellHelperMarkingTC: SSMarkbaleCollectionCellHelperBas
         XCTAssertEqual(testableCellHelper.marking, true)
         XCTAssertEqual(testableCellHelper.marked, true)
     }
-    
-    //add unmark tests
 }
