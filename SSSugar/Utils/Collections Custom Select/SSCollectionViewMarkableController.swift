@@ -7,19 +7,17 @@ import UIKit
 public class SSCollectionViewMarkableController {
     //MARK: - private properties
     
-    private var pActive: Bool;
     private unowned var collectionView: UIView & SSCollectionViewMarkable
     
     //MARK: - public properties
     
-    public var active: Bool { get { return pActive } set { setActive(newValue, animated: false) } }
+    public var active: Bool = false
     weak var delegate : SSCollectionViewMarkableControllerDelegate?
     
     //MARK: - init
     
     init(collectionView mCollectionView : UIView & SSCollectionViewMarkable) {
         collectionView = mCollectionView
-        pActive = false
     }
     
     //MARK: - public
@@ -53,7 +51,10 @@ public class SSCollectionViewMarkableController {
     ///   - mActive: Selection state
     ///   - animated: Define transition animated or not
     func setActive(_ mActive: Bool, animated: Bool = false) {
-        pActive = mActive
+        guard active != mActive else {
+            return
+        }
+        active = mActive
         if (active) {
             prepareAllCells(animated: animated)
             delegate?.markControllerDidActivate(self)
