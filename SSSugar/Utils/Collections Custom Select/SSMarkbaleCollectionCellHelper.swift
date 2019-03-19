@@ -1,13 +1,19 @@
 import UIKit
 
 class SSMarkbaleCollectionCellHelper {
+    //MARK: - constants
     private static let kDefaultMarkViewPadding: CGFloat = 16
     private static let kDefaultAnimatioDuration: TimeInterval = 0.25
+    
+    //MARK: - private properies
     private unowned let cell: UIView //Cell
     private unowned let contentView: UIView //cell's content view, will be used to move content on markView appear/disappear
     private let markView: SSSelectionMarkView
     private var originalContentFrame: CGRect!
     
+    //MARK: - public properies
+    var marking = false
+    var marked = false
     var animationDuration = kDefaultAnimatioDuration
     var markViewPadding = kDefaultMarkViewPadding {
         didSet {
@@ -17,8 +23,7 @@ class SSMarkbaleCollectionCellHelper {
         }
     }
     
-    var marking: Bool
-    var marked: Bool
+    //MARK - iunit
     
     init(cell mCell: UIView, contentView mContentView: UIView, markedImage : UIImage, emptyImage : UIImage) {
         guard mContentView.hasParent(mCell) else {
@@ -27,8 +32,6 @@ class SSMarkbaleCollectionCellHelper {
         cell = mCell
         contentView = mContentView
         markView = SSSelectionMarkView(markedImage: markedImage, emptyImage: emptyImage)
-        marking = false
-        marked = false
         
         cell.addSubview(markView)
     }
@@ -44,19 +47,20 @@ class SSMarkbaleCollectionCellHelper {
     //MARK: - private
     
     func updateContentAndMarkFrames() {
-        let markWidth = marking ? markView.sizeThatFits(originalContentFrame.size).width + markViewPadding : 0
-        let (markFrame, contentFrame) = originalContentFrame.divided(atDistance: markWidth, from: .minXEdge)
-        
-        markView.frame = markFrame.cuted(amount: markViewPadding, side: .minXEdge)
-        contentView.frame = contentFrame
+        if let contentFrame = originalContentFrame {
+            let markWidth = marking ? markView.sizeThatFits(contentFrame.size).width + markViewPadding : 0
+            let (markFrame, contentFrame) = contentFrame.divided(atDistance: markWidth, from: .minXEdge)
+            
+            markView.frame = markFrame.cuted(amount: markViewPadding, side: .minXEdge)
+            contentView.frame = contentFrame
+        }
     }
 }
 
-//MARK: - Markable Collection Cell
-
+//MARK: - SSCollectionViewCellMarkable
 extension SSMarkbaleCollectionCellHelper: SSCollectionViewCellMarkable {
     func setMarked(_ mMarked: Bool, animated: Bool) {
-        guard marked == mMarked else {
+        guard marking && marked != mMarked else {
             return
         }
         marked = mMarked
@@ -64,7 +68,7 @@ extension SSMarkbaleCollectionCellHelper: SSCollectionViewCellMarkable {
     }
     
     func setMarking(_ mMarking: Bool, animated: Bool) {
-        guard marking == mMarking else {
+        guard marking != mMarking else {
             return
         }
         marking = mMarking
