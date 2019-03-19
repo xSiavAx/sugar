@@ -3,8 +3,8 @@ import UIKit
 class SSMarkbaleCollectionCellHelper {
     private static let kDefaultMarkViewPadding: CGFloat = 16
     private static let kDefaultAnimatioDuration: TimeInterval = 0.25
-    private let cell: UIView //Cell
-    private let contentView: UIView //cell's content view, will be used to move content on markView appear/disappear
+    private unowned let cell: UIView //Cell
+    private unowned let contentView: UIView //cell's content view, will be used to move content on markView appear/disappear
     private let markView: SSSelectionMarkView
     private var originalContentFrame: CGRect!
     
