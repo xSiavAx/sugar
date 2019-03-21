@@ -4,22 +4,19 @@ class SSMarkbaleCollectionCellHelperMarkNonActiveTC: SSMarkbaleCollectionCellHel
     func testMarkNonActive() {
         testableCellHelper.setMarked(true, animated: false)
         
-        XCTAssertEqual(testableCellHelper.marking, false)
-        XCTAssertEqual(testableCellHelper.marked, false)
+        checkCell(marking: false, marked: false)
     }
     
     func testMarkNonActiveAnimated() {
         testableCellHelper.setMarked(true, animated: true)
         
-        XCTAssertEqual(testableCellHelper.marking, false)
-        XCTAssertEqual(testableCellHelper.marked, false)
+        checkCell(marking: false, marked: false)
     }
     
     func testMarkNonActiveExplicitNonAnimated() {
         testableCellHelper.setMarked(true, animated: false)
         
-        XCTAssertEqual(testableCellHelper.marking, false)
-        XCTAssertEqual(testableCellHelper.marked, false)
+        checkCell(marking: false, marked: false)
     }
 
 }

@@ -1,7 +1,12 @@
 import XCTest
 @testable import SSSugar
 
-class SSMarkbaleCollectionCellHelperActivateTC: SSMarkbaleCollectionCellHelperBaseTC {
+class SSMarkbaleCollectionCellHelperActivateActivatedTC: SSMarkbaleCollectionCellHelperBaseTC {
+    override func setUp() {
+        super.setUp()
+        testableCellHelper.setMarking(true)
+    }
+    
     func testActivate() {
         testableCellHelper.setMarking(true)
         
