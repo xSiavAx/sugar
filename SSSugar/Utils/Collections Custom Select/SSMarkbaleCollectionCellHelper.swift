@@ -1,11 +1,14 @@
 import UIKit
 
+/// Class that incapsulate cell marking logic. It creates mark view, add it to cell subviews. Can animate mark view.
+/// Create it just inside Cell init and pass cell and it's contentview as arguments
 class SSMarkbaleCollectionCellHelper {
     //MARK: - constants
     private static let kDefaultMarkViewPadding: CGFloat = 16
     private static let kDefaultAnimatioDuration: TimeInterval = 0.25
     
     //MARK: - private properies
+    
     private unowned let cell: UIView //Cell
     private unowned let contentView: UIView //cell's content view, will be used to move content on markView appear/disappear
     private let markView: SSSelectionMarkView
@@ -14,6 +17,7 @@ class SSMarkbaleCollectionCellHelper {
     private var pMarked = false
     
     //MARK: - public properies
+    
     public var animationDuration = kDefaultAnimatioDuration
     public var markViewPadding = kDefaultMarkViewPadding {
         didSet {
@@ -23,8 +27,15 @@ class SSMarkbaleCollectionCellHelper {
         }
     }
     
-    //MARK - iunit
-    
+    //MARK - init
+
+    /// Create helper.
+    ///
+    /// - Parameters:
+    ///   - mCell: Subject cell. Mark view will be added to it.
+    ///   - mContentView: Content view of subject cell. It wiil be used for creating space for Mark view.
+    ///   - markedImage: Image that will be ued for active checkbox
+    ///   - emptyImage: Image that will be ued for empty checkbox
     public init(cell mCell: UIView, contentView mContentView: UIView, markedImage : UIImage, emptyImage : UIImage) {
         guard mContentView.hasParent(mCell) else {
             fatalError("Cell has contain Content view in it's hierarchy.\nCell is \(mCell), Content view is \(mContentView)")
@@ -38,7 +49,7 @@ class SSMarkbaleCollectionCellHelper {
     
     //MARK: - public
     
-    /// Call it just after super call, and before subviews realisation
+    /// Call it in Cell's layoutSubviews just after super.layoutSubviews and before other realisation
     public func onLayoutSubviews() {
         originalContentFrame = contentView.frame;
         updateContentAndMarkFrames()
@@ -62,6 +73,11 @@ extension SSMarkbaleCollectionCellHelper: SSCollectionViewCellMarkable {
     public var marked   : Bool { get {return self.pMarked}  set {setMarked(newValue, animated: false)} }
     public var marking  : Bool { get {return self.pMarking} set {setMarking(newValue, animated: false)} }
     
+    /// Switch cell mark. Cell marking has be true, otherwise this method do nothing.
+    ///
+    /// - Parameters:
+    ///   - mMarked: New state
+    ///   - animated: Define transition animated or not
     func setMarked(_ mMarked: Bool, animated: Bool = false) {
         guard marking && (marked != mMarked) else {
             return
@@ -70,6 +86,11 @@ extension SSMarkbaleCollectionCellHelper: SSCollectionViewCellMarkable {
         markView.active = marked
     }
     
+    /// Switch cell marking/regular state; show/hide marking view.
+    ///
+    /// - Parameters:
+    ///   - mMarking: New state
+    ///   - animated: Define transition animated or not
     func setMarking(_ mMarking: Bool, animated: Bool = false) {
         guard marking != mMarking else {
             return
