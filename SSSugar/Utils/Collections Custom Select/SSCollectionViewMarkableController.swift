@@ -1,8 +1,14 @@
 import UIKit
 
-/// Apply this controller inside CollectionViewController (like TableViewController, CollectionViewController or any custom one) to manage custom selectable cells (CollectionCellMarkable).
+/// Controller for custom selection realisation on any Collection thats implements `SSCollectionViewMarkable` and whose cells implements `SSCollectionViewCellMarkable`
+///
+/// Apply this controller inside CollectionViewController (like `UITableViewController`, `CollectionViewController` or any custom one) to manage custom selectable cells (`CollectionCellMarkable`).
 /// Controller don't do any logic, except working with cells – preparing, config, mark activation, mark/unmark;
-/// Use controller instance to work with custom selection instead of standart selction methods (tv.editing, tv.selectRow(at:), etc)
+/// Use controller instance to work with custom selection instead of standart selction methods (`tv.editing`, `tv.selectRow(at:)`, etc)
+///
+/// - Important:
+/// Store selected indexes or entites in some model, cuz controller don't allow getting positions for selected rows (like standart tableview do).
+///
 
 public class SSCollectionViewMarkableController {
     //MARK: - private properties
@@ -12,7 +18,7 @@ public class SSCollectionViewMarkableController {
     
     //MARK: - public properties
     
-    /// State for control selection. Set true to start selection, and false for end it.
+    /// State for control selection. Set true to start selection and false for end it.
     public var active: Bool { get {return pActive} set{setActive(newValue, animated:false)} }
     
     /// The object that acts as the delegate of SSCollectionViewMarkableController
@@ -56,7 +62,7 @@ public class SSCollectionViewMarkableController {
     ///
     /// - Parameters:
     ///   - mActive: Selection state
-    ///   - animated: Define transition animated or not
+    ///   - animated: Define transition animated or not, default is `false`
     public func setActive(_ mActive: Bool, animated: Bool = false) {
         guard active != mActive else {
             return
@@ -71,17 +77,17 @@ public class SSCollectionViewMarkableController {
         }
     }
     
-    /// Select/Deselect rows at passed index paths. Use it instead tv.selectRow(at:)
+    /// Select/Deselect rows at passed index paths. Use it instead `tv.selectRow(at:)`
     ///
     /// - Important:
-    /// Use setCellMarked or setAllCellsMarked instead if possible
+    /// Use `setCellMarked` or `setAllCellsMarked` instead if possible
     /// - Complexity: O(log(N)*k), N - number of index paths to select, k - number of visible rows
     ///
     /// - Parameters:
     ///   - marked: Select or deselect state
     ///   - indexPaths: Index paths to process
-    ///   - animated: Define transition animated or not
-    public func setCellstMarked(_ marked: Bool, at indexPaths: [IndexPath], animated: Bool = false) {
+    ///   - animated: Define transition animated or not, default is `false`
+    public func setCellsMarked(_ marked: Bool, at indexPaths: [IndexPath], animated: Bool = false) {
         collectionView.indexPathsForVisibleRows().forEach { [unowned self] (indexPath) in
             if (indexPaths.binarySearch(needle: indexPath){$0.compare($1)} != nil) {
                 self.setCellMarked(marked, at: indexPath, animated: animated)
@@ -89,8 +95,8 @@ public class SSCollectionViewMarkableController {
         }
     }
     
-    /// Select/Deselect row at passed index path. Use it instead tv.selectRow(at:)
-    /// **Important!** Much more faster then use setCellsMarked(_ marked: at indexPaths: animated:)
+    /// Select/Deselect row at passed index path. Use it instead `tv.selectRow(at:)`
+    /// **Important!** Much more faster then use `setCellsMarked(_ marked: at indexPaths: animated:)`
     ///
     /// - Important:
     /// Much more faster then use setCellsMarked(_ marked: at indexPaths: animated:)
@@ -99,7 +105,7 @@ public class SSCollectionViewMarkableController {
     /// - Parameters:
     ///   - marked: Select or deselect state
     ///   - indexPaths: Index path to process
-    ///   - animated: Define transition animated or not
+    ///   - animated: Define transition animated or not, default is `false`
     public func setCellMarked(_ marked: Bool, at indexPath: IndexPath, animated: Bool = false) {
         if let cell = collectionView.cellForRow(at: indexPath) {
             if (cell.marked != marked) {
@@ -108,14 +114,14 @@ public class SSCollectionViewMarkableController {
         }
     }
     
-    /// Select/Deselect all rows. Use it instead tv.selectRow(at:)
+    /// Select/Deselect all rows. Use it instead `tv.selectRow(at:)`
     ///
     /// - Important:
-    /// Much more faster then use setCellsMarked(_ marked: at indexPaths: animated:)
+    /// Much more faster then use `setCellsMarked(_ marked: at indexPaths: animated:)`
     /// - Complexity: O(k), k - number of visible rows
     /// - Parameters:
     ///   - marked: Select or deselect state
-    ///   - animated: Define transition animated or not
+    ///   - animated: Define transition animated or not, default is `false`
     public func setAllCellsMarked(_ marked: Bool, animated: Bool = false) {
         collectionView.indexPathsForVisibleRows().forEach { [unowned self](indexPath) in
             self.setCellMarked(marked, at: indexPath, animated: animated)

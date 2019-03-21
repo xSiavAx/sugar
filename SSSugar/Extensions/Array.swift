@@ -18,4 +18,17 @@ extension Array {
         }
         return nil
     }
+    
+    func forEach(_ body: (Element, Int) throws -> Void) rethrows {
+        var idx = 0;
+        
+        try self.forEach { (element) in
+            try body(element, idx)
+            idx += 1
+        }
+    }
+    
+    static func array(size: Int, buildblock:(Int)->(Element)) -> Array {
+        return (0..<size).map(buildblock)
+    }
 }

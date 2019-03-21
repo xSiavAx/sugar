@@ -18,6 +18,11 @@
 		99B1A779224176D300D96BEE /* SSMarkbaleCollectionCellHelperMarkNonActiveTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A778224176D300D96BEE /* SSMarkbaleCollectionCellHelperMarkNonActiveTC.swift */; };
 		99B1A77B2241783B00D96BEE /* SSMarkbaleCollectionCellHelperBaseTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A7762241766C00D96BEE /* SSMarkbaleCollectionCellHelperBaseTC.swift */; };
 		99B1A77D22417E1E00D96BEE /* SSMarkbaleCollectionCellHelperActivateTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A77C22417E1E00D96BEE /* SSMarkbaleCollectionCellHelperActivateTC.swift */; };
+		99B1A77F22441F9800D96BEE /* SSCollectionViewMarkableControllerBaseTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A77E22441F9800D96BEE /* SSCollectionViewMarkableControllerBaseTC.swift */; };
+		99B1A78222442BD600D96BEE /* SSCollectionViewMarkableControllerActivateTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A78122442BD600D96BEE /* SSCollectionViewMarkableControllerActivateTC.swift */; };
+		99B1A784224430CC00D96BEE /* SSCollectionViewMarkableControllerActivateAlreadyActiveTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A783224430CC00D96BEE /* SSCollectionViewMarkableControllerActivateAlreadyActiveTC.swift */; };
+		99B1A786224431B200D96BEE /* SSCollectionViewMarkableControllerDeactivateAlreadyDeactiveTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A785224431B200D96BEE /* SSCollectionViewMarkableControllerDeactivateAlreadyDeactiveTC.swift */; };
+		99B1A78822443EC700D96BEE /* SSCollectionViewMarkableControllerDeactivateTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A78722443EC700D96BEE /* SSCollectionViewMarkableControllerDeactivateTC.swift */; };
 		99D29643223D3057003FD9F0 /* SSSugar.h in Headers */ = {isa = PBXBuildFile; fileRef = 99D29641223D3057003FD9F0 /* SSSugar.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		99D2964F223D3107003FD9F0 /* SSRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D2964D223D3107003FD9F0 /* SSRootView.swift */; };
 		99D29650223D3107003FD9F0 /* SSRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D2964E223D3107003FD9F0 /* SSRootViewController.swift */; };
@@ -67,6 +72,11 @@
 		99B1A7762241766C00D96BEE /* SSMarkbaleCollectionCellHelperBaseTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSMarkbaleCollectionCellHelperBaseTC.swift; sourceTree = "<group>"; };
 		99B1A778224176D300D96BEE /* SSMarkbaleCollectionCellHelperMarkNonActiveTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSMarkbaleCollectionCellHelperMarkNonActiveTC.swift; sourceTree = "<group>"; };
 		99B1A77C22417E1E00D96BEE /* SSMarkbaleCollectionCellHelperActivateTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSMarkbaleCollectionCellHelperActivateTC.swift; sourceTree = "<group>"; };
+		99B1A77E22441F9800D96BEE /* SSCollectionViewMarkableControllerBaseTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerBaseTC.swift; sourceTree = "<group>"; };
+		99B1A78122442BD600D96BEE /* SSCollectionViewMarkableControllerActivateTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerActivateTC.swift; sourceTree = "<group>"; };
+		99B1A783224430CC00D96BEE /* SSCollectionViewMarkableControllerActivateAlreadyActiveTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerActivateAlreadyActiveTC.swift; sourceTree = "<group>"; };
+		99B1A785224431B200D96BEE /* SSCollectionViewMarkableControllerDeactivateAlreadyDeactiveTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerDeactivateAlreadyDeactiveTC.swift; sourceTree = "<group>"; };
+		99B1A78722443EC700D96BEE /* SSCollectionViewMarkableControllerDeactivateTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerDeactivateTC.swift; sourceTree = "<group>"; };
 		99D2963E223D3057003FD9F0 /* SSSugar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SSSugar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		99D29641223D3057003FD9F0 /* SSSugar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSSugar.h; sourceTree = "<group>"; };
 		99D29642223D3057003FD9F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -117,6 +127,7 @@
 		996F380022417014007FF8B6 /* SSCustomSelectionTests */ = {
 			isa = PBXGroup;
 			children = (
+				99B1A78022441FAE00D96BEE /* SSCollectionViewMarkableController */,
 				99B1A77A224177AC00D96BEE /* SSMarkbaleCollectionCellHelper */,
 				996F380322417014007FF8B6 /* Info.plist */,
 			);
@@ -138,6 +149,18 @@
 				996F380122417014007FF8B6 /* SSMarkbaleCollectionCellHelperMarkTC.swift */,
 			);
 			path = SSMarkbaleCollectionCellHelper;
+			sourceTree = "<group>";
+		};
+		99B1A78022441FAE00D96BEE /* SSCollectionViewMarkableController */ = {
+			isa = PBXGroup;
+			children = (
+				99B1A78122442BD600D96BEE /* SSCollectionViewMarkableControllerActivateTC.swift */,
+				99B1A77E22441F9800D96BEE /* SSCollectionViewMarkableControllerBaseTC.swift */,
+				99B1A78722443EC700D96BEE /* SSCollectionViewMarkableControllerDeactivateTC.swift */,
+				99B1A785224431B200D96BEE /* SSCollectionViewMarkableControllerDeactivateAlreadyDeactiveTC.swift */,
+				99B1A783224430CC00D96BEE /* SSCollectionViewMarkableControllerActivateAlreadyActiveTC.swift */,
+			);
+			path = SSCollectionViewMarkableController;
 			sourceTree = "<group>";
 		};
 		99D29634223D3057003FD9F0 = {
@@ -371,14 +394,19 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99B1A786224431B200D96BEE /* SSCollectionViewMarkableControllerDeactivateAlreadyDeactiveTC.swift in Sources */,
 				998F2DCB22440162001FFA3A /* SSMarkbaleCollectionCellHelperActivateActivatedTC.swift in Sources */,
+				99B1A78822443EC700D96BEE /* SSCollectionViewMarkableControllerDeactivateTC.swift in Sources */,
 				998F2DC92243F96E001FFA3A /* SSMarkbaleCollectionCellHelperUnmarkNonMarkedTC.swift in Sources */,
 				99B1A77B2241783B00D96BEE /* SSMarkbaleCollectionCellHelperBaseTC.swift in Sources */,
 				998F2DCD224401EC001FFA3A /* SSMarkbaleCollectionCellHelperDeactivateTC.swift in Sources */,
 				998F2DC52243F7FA001FFA3A /* SSMarkbaleCollectionCellHelperMarkMarkedTC.swift in Sources */,
+				99B1A78222442BD600D96BEE /* SSCollectionViewMarkableControllerActivateTC.swift in Sources */,
 				996F380222417014007FF8B6 /* SSMarkbaleCollectionCellHelperMarkTC.swift in Sources */,
 				998F2DCF2244021C001FFA3A /* SSMarkbaleCollectionCellHelperDeactivateDeactivatedTC.swift in Sources */,
+				99B1A77F22441F9800D96BEE /* SSCollectionViewMarkableControllerBaseTC.swift in Sources */,
 				998F2DC72243F86B001FFA3A /* SSMarkbaleCollectionCellHelperUnmarkTC.swift in Sources */,
+				99B1A784224430CC00D96BEE /* SSCollectionViewMarkableControllerActivateAlreadyActiveTC.swift in Sources */,
 				99B1A77D22417E1E00D96BEE /* SSMarkbaleCollectionCellHelperActivateTC.swift in Sources */,
 				99B1A779224176D300D96BEE /* SSMarkbaleCollectionCellHelperMarkNonActiveTC.swift in Sources */,
 			);
