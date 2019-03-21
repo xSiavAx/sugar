@@ -8,14 +8,21 @@ public class SSCollectionViewMarkableController {
     //MARK: - private properties
     
     private unowned var collectionView: UIView & SSCollectionViewMarkable
+    private var pActive = false
     
     //MARK: - public properties
     
-    public var active: Bool = false
+    /// State for control selection. Set true to start selection, and false for end it.
+    public var active: Bool { get {return pActive} set{setActive(newValue, animated:false)} }
+    
+    /// The object that acts as the delegate of SSCollectionViewMarkableController
     public weak var delegate : SSCollectionViewMarkableControllerDelegate?
     
     //MARK: - init
     
+    /// Initializes and returns a controller object having the given view as Markable Collection.
+    ///
+    /// - Parameter mCollectionView: Markable Collection to control
     public init(collectionView mCollectionView : UIView & SSCollectionViewMarkable) {
         collectionView = mCollectionView
     }
@@ -54,7 +61,7 @@ public class SSCollectionViewMarkableController {
         guard active != mActive else {
             return
         }
-        active = mActive
+        pActive = mActive
         if (active) {
             prepareAllCells(animated: animated)
             delegate?.markControllerDidActivate(self)

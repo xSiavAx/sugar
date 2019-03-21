@@ -2,15 +2,16 @@ import UIKit
 
 /// Class that incapsulate cell marking logic. It creates mark view, add it to cell subviews. Can animate mark view.
 /// Create it just inside Cell init and pass cell and it's contentview as arguments
-class SSMarkbaleCollectionCellHelper {
+
+public class SSMarkbaleCollectionCellHelper {
     //MARK: - constants
     private static let kDefaultMarkViewPadding: CGFloat = 16
     private static let kDefaultAnimatioDuration: TimeInterval = 0.25
     
     //MARK: - private properies
     
-    private unowned let cell: UIView //Cell
-    private unowned let contentView: UIView //cell's content view, will be used to move content on markView appear/disappear
+    private unowned let cell: UIView
+    private unowned let contentView: UIView
     private let markView: SSSelectionMarkView
     private var originalContentFrame: CGRect!
     private var pMarking = false
@@ -18,7 +19,10 @@ class SSMarkbaleCollectionCellHelper {
     
     //MARK: - public properies
     
+    /// Animation transition duration
     public var animationDuration = kDefaultAnimatioDuration
+    
+    /// Padding for markview
     public var markViewPadding = kDefaultMarkViewPadding {
         didSet {
             if (marking) {
@@ -29,7 +33,7 @@ class SSMarkbaleCollectionCellHelper {
     
     //MARK - init
 
-    /// Create helper.
+    /// Create and return helper.
     ///
     /// - Parameters:
     ///   - mCell: Subject cell. Mark view will be added to it.
@@ -70,7 +74,9 @@ class SSMarkbaleCollectionCellHelper {
 
 //MARK: - SSCollectionViewCellMarkable
 extension SSMarkbaleCollectionCellHelper: SSCollectionViewCellMarkable {
+    /// Marked state of cell
     public var marked   : Bool { get {return self.pMarked}  set {setMarked(newValue, animated: false)} }
+    /// Marking state of cell
     public var marking  : Bool { get {return self.pMarking} set {setMarking(newValue, animated: false)} }
     
     /// Switch cell mark. Cell marking has be true, otherwise this method do nothing.
@@ -78,7 +84,7 @@ extension SSMarkbaleCollectionCellHelper: SSCollectionViewCellMarkable {
     /// - Parameters:
     ///   - mMarked: New state
     ///   - animated: Define transition animated or not
-    func setMarked(_ mMarked: Bool, animated: Bool = false) {
+    public func setMarked(_ mMarked: Bool, animated: Bool = false) {
         guard marking && (marked != mMarked) else {
             return
         }
@@ -91,7 +97,7 @@ extension SSMarkbaleCollectionCellHelper: SSCollectionViewCellMarkable {
     /// - Parameters:
     ///   - mMarking: New state
     ///   - animated: Define transition animated or not
-    func setMarking(_ mMarking: Bool, animated: Bool = false) {
+    public func setMarking(_ mMarking: Bool, animated: Bool = false) {
         guard marking != mMarking else {
             return
         }
