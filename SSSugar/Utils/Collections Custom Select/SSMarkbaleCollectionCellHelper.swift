@@ -63,7 +63,7 @@ extension SSMarkbaleCollectionCellHelper: SSCollectionViewCellMarkable {
     public var marking  : Bool { get {return self.pMarking} set {setMarking(newValue, animated: false)} }
     
     func setMarked(_ mMarked: Bool, animated: Bool = false) {
-        guard marking && marked != mMarked else {
+        guard marking && (marked != mMarked) else {
             return
         }
         pMarked = mMarked
