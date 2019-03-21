@@ -36,8 +36,8 @@ public class SSMarkbaleCollectionCellHelper {
     /// Create and return helper.
     ///
     /// - Parameters:
-    ///   - mCell: Subject cell. Mark view will be added to it.
-    ///   - mContentView: Content view of subject cell. It wiil be used for creating space for Mark view.
+    ///   - cell: Subject cell. Mark view will be added to it.
+    ///   - contentView: Content view of subject cell. It wiil be used for creating space for Mark view.
     ///   - markedImage: Image that will be ued for active checkbox
     ///   - emptyImage: Image that will be ued for empty checkbox
     public init(cell mCell: UIView, contentView mContentView: UIView, markedImage : UIImage, emptyImage : UIImage) {
@@ -53,7 +53,9 @@ public class SSMarkbaleCollectionCellHelper {
     
     //MARK: - public
     
+    /// Layout content and mark subviews
     /// Call it in Cell's layoutSubviews just after super.layoutSubviews and before other realisation
+    /// - Important: Don't use it elsewere cuz method rely on content view has it's original frame
     public func onLayoutSubviews() {
         originalContentFrame = contentView.frame;
         updateContentAndMarkFrames()
@@ -82,7 +84,7 @@ extension SSMarkbaleCollectionCellHelper: SSCollectionViewCellMarkable {
     /// Switch cell mark. Cell marking has be true, otherwise this method do nothing.
     ///
     /// - Parameters:
-    ///   - mMarked: New state
+    ///   - marked: New state
     ///   - animated: Define transition animated or not
     public func setMarked(_ mMarked: Bool, animated: Bool = false) {
         guard marking && (marked != mMarked) else {
@@ -95,7 +97,7 @@ extension SSMarkbaleCollectionCellHelper: SSCollectionViewCellMarkable {
     /// Switch cell marking/regular state; show/hide marking view.
     ///
     /// - Parameters:
-    ///   - mMarking: New state
+    ///   - marking: New state
     ///   - animated: Define transition animated or not
     public func setMarking(_ mMarking: Bool, animated: Bool = false) {
         guard marking != mMarking else {

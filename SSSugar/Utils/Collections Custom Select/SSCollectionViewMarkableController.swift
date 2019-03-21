@@ -73,6 +73,10 @@ public class SSCollectionViewMarkableController {
     
     /// Select/Deselect rows at passed index paths. Use it instead tv.selectRow(at:)
     ///
+    /// - Important:
+    /// Use setCellMarked or setAllCellsMarked instead if possible
+    /// - Complexity: O(log(N)*k), N - number of index paths to select, k - number of visible rows
+    ///
     /// - Parameters:
     ///   - marked: Select or deselect state
     ///   - indexPaths: Index paths to process
@@ -86,7 +90,11 @@ public class SSCollectionViewMarkableController {
     }
     
     /// Select/Deselect row at passed index path. Use it instead tv.selectRow(at:)
-    /// Important! Much more faster then use setCellsMarked(_ marked: at indexPaths: animated:)
+    /// **Important!** Much more faster then use setCellsMarked(_ marked: at indexPaths: animated:)
+    ///
+    /// - Important:
+    /// Much more faster then use setCellsMarked(_ marked: at indexPaths: animated:)
+    /// - Complexity: O(1)
     ///
     /// - Parameters:
     ///   - marked: Select or deselect state
@@ -101,8 +109,10 @@ public class SSCollectionViewMarkableController {
     }
     
     /// Select/Deselect all rows. Use it instead tv.selectRow(at:)
-    /// Important! Much more faster then use setCellsMarked(_ marked: at indexPaths: animated:)
     ///
+    /// - Important:
+    /// Much more faster then use setCellsMarked(_ marked: at indexPaths: animated:)
+    /// - Complexity: O(k), k - number of visible rows
     /// - Parameters:
     ///   - marked: Select or deselect state
     ///   - animated: Define transition animated or not
