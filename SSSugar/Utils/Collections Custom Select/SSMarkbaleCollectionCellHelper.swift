@@ -66,7 +66,7 @@ extension SSMarkbaleCollectionCellHelper: SSCollectionViewCellMarkable {
         guard marking && marked != mMarked else {
             return
         }
-        marked = mMarked
+        pMarked = mMarked
         markView.active = marked
     }
     
