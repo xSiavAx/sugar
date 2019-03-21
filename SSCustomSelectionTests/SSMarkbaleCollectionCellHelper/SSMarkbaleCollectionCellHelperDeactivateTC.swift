@@ -4,23 +4,23 @@ import XCTest
 class SSMarkbaleCollectionCellHelperDeactivateTC: SSMarkbaleCollectionCellHelperBaseTC {
     override func setUp() {
         super.setUp()
-        testableCellHelper.setMarking(true)
+        cellHelper.setMarking(true)
     }
     
     func testActivate() {
-        testableCellHelper.setMarking(false)
+        cellHelper.setMarking(false)
         
         checkCell(marking: false, marked: false)
     }
     
     func testActivateExplicitNonAnimated() {
-        testableCellHelper.setMarking(false, animated: false)
+        cellHelper.setMarking(false, animated: false)
         
         checkCell(marking: false, marked: false)
     }
     
     func testActivateAnimated() {
-        testableCellHelper.setMarking(false, animated: true)
+        cellHelper.setMarking(false, animated: true)
         
         checkCell(marking: false, marked: false)
     }

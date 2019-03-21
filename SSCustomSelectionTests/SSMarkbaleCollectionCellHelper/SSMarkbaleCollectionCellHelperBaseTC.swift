@@ -2,21 +2,25 @@ import XCTest
 @testable import SSSugar
 
 class SSMarkbaleCollectionCellHelperBaseTC: XCTestCase {
-    var testableCellHelper: SSMarkbaleCollectionCellHelper!
+    var cellHelper: SSMarkbaleCollectionCellHelper!
+    var cell: UIView!
+    var content: UIView!
     
     override func setUp() {
-        let cell = UIView()
-        let content = UIView()
+        cell    = UIView()
+        content = UIView()
+        
         cell.addSubview(content)
-        testableCellHelper = SSMarkbaleCollectionCellHelper(cell: cell, contentView: content, markedImage: UIImage(), emptyImage: UIImage())
+        
+        cellHelper = SSMarkbaleCollectionCellHelper(cell: cell, contentView: content, markedImage: UIImage(), emptyImage: UIImage())
     }
     
     override func tearDown() {
-        testableCellHelper = nil
+        cellHelper = nil
     }
     
     func checkCell(marking: Bool, marked: Bool) {
-        XCTAssertEqual(testableCellHelper.marking, marking)
-        XCTAssertEqual(testableCellHelper.marked, marked)
+        XCTAssertEqual(cellHelper.marking, marking)
+        XCTAssertEqual(cellHelper.marked, marked)
     }
 }
