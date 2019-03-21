@@ -12,11 +12,11 @@ public class SSCollectionViewMarkableController {
     //MARK: - public properties
     
     public var active: Bool = false
-    weak var delegate : SSCollectionViewMarkableControllerDelegate?
+    public weak var delegate : SSCollectionViewMarkableControllerDelegate?
     
     //MARK: - init
     
-    init(collectionView mCollectionView : UIView & SSCollectionViewMarkable) {
+    public init(collectionView mCollectionView : UIView & SSCollectionViewMarkable) {
         collectionView = mCollectionView
     }
     
@@ -27,7 +27,7 @@ public class SSCollectionViewMarkableController {
     /// - Parameters:
     ///   - cell: cell to be configured
     ///   - marked: current custom selection cell state
-    func configCell(_ cell: SSCollectionViewCellMarkable, marked: Bool) {
+    public func configCell(_ cell: SSCollectionViewCellMarkable, marked: Bool) {
         if (active) {
             if (!cell.marking) {
                 cell.setMarking(true)
@@ -50,7 +50,7 @@ public class SSCollectionViewMarkableController {
     /// - Parameters:
     ///   - mActive: Selection state
     ///   - animated: Define transition animated or not
-    func setActive(_ mActive: Bool, animated: Bool = false) {
+    public func setActive(_ mActive: Bool, animated: Bool = false) {
         guard active != mActive else {
             return
         }
@@ -70,7 +70,7 @@ public class SSCollectionViewMarkableController {
     ///   - marked: Select or deselect state
     ///   - indexPaths: Index paths to process
     ///   - animated: Define transition animated or not
-    func setCellstMarked(_ marked: Bool, at indexPaths: [IndexPath], animated: Bool = false) {
+    public func setCellstMarked(_ marked: Bool, at indexPaths: [IndexPath], animated: Bool = false) {
         collectionView.indexPathsForVisibleRows().forEach { [unowned self] (indexPath) in
             if (indexPaths.binarySearch(needle: indexPath){$0.compare($1)} != nil) {
                 self.setCellMarked(marked, at: indexPath, animated: animated)
@@ -85,7 +85,7 @@ public class SSCollectionViewMarkableController {
     ///   - marked: Select or deselect state
     ///   - indexPaths: Index path to process
     ///   - animated: Define transition animated or not
-    func setCellMarked(_ marked: Bool, at indexPath: IndexPath, animated: Bool = false) {
+    public func setCellMarked(_ marked: Bool, at indexPath: IndexPath, animated: Bool = false) {
         if let cell = collectionView.cellForRow(at: indexPath) {
             if (cell.marked != marked) {
                 cell.setMarked(marked, animated: animated);
@@ -99,7 +99,7 @@ public class SSCollectionViewMarkableController {
     /// - Parameters:
     ///   - marked: Select or deselect state
     ///   - animated: Define transition animated or not
-    func setAllCellsMarked(_ marked: Bool, animated: Bool = false) {
+    public func setAllCellsMarked(_ marked: Bool, animated: Bool = false) {
         collectionView.indexPathsForVisibleRows().forEach { [unowned self](indexPath) in
             self.setCellMarked(marked, at: indexPath, animated: animated)
         }
@@ -107,11 +107,11 @@ public class SSCollectionViewMarkableController {
     
     //MARK: - private
     
-    func prepareAllCells(animated:Bool) {
+    private func prepareAllCells(animated:Bool) {
         enumerateVisibleCells { $0.setMarking(true, animated: animated) }
     }
     
-    func deactivateAllCells(animated:Bool) {
+    private func deactivateAllCells(animated:Bool) {
         enumerateVisibleCells { (cell) in
             if (cell.marked) {
                 cell.setMarked(false, animated: false)
@@ -120,7 +120,7 @@ public class SSCollectionViewMarkableController {
         }
     }
     
-    func enumerateVisibleCells(handler: (SSCollectionViewCellMarkable)->Void ) {
+    private func enumerateVisibleCells(handler: (SSCollectionViewCellMarkable)->Void ) {
         collectionView.indexPathsForVisibleRows().forEach {[unowned self] (indexPath) in
             if let cell = self.collectionView.cellForRow(at: indexPath) {
                 handler(cell)
@@ -131,7 +131,7 @@ public class SSCollectionViewMarkableController {
 
 //MARK: - 
 
-protocol SSCollectionViewMarkableControllerDelegate: AnyObject {
+public protocol SSCollectionViewMarkableControllerDelegate: AnyObject {
     func markControllerDidActivate(_ controller: SSCollectionViewMarkableController)
     func markControllerDidDeactivate(_ controller: SSCollectionViewMarkableController)
 }
