@@ -11,9 +11,9 @@ extension Array {
             case .orderedSame:
                 return middle
             case .orderedAscending:
-                range = range.suffix(from: middle + 1)
+                range = range.prefix(upTo: middle)
             case .orderedDescending:
-                range = range.prefix(upTo: middle - 1)
+                range = range.suffix(from: middle + 1)
             }
         }
         return nil
