@@ -14,6 +14,6 @@ extension SSCollectionViewCellMarkable {
     }
     
     func setMarked(_ marked : Bool) {
-        setMarking(marked, animated: false)
+        setMarked(marked, animated: false)
     }
 }
