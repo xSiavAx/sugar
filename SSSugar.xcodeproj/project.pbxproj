@@ -25,6 +25,7 @@
 		99B1A784224430CC00D96BEE /* SSCollectionViewMarkableControllerActivateAlreadyActiveTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A783224430CC00D96BEE /* SSCollectionViewMarkableControllerActivateAlreadyActiveTC.swift */; };
 		99B1A786224431B200D96BEE /* SSCollectionViewMarkableControllerDeactivateAlreadyDeactiveTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A785224431B200D96BEE /* SSCollectionViewMarkableControllerDeactivateAlreadyDeactiveTC.swift */; };
 		99B1A78822443EC700D96BEE /* SSCollectionViewMarkableControllerDeactivateTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A78722443EC700D96BEE /* SSCollectionViewMarkableControllerDeactivateTC.swift */; };
+		99B1A7902246751300D96BEE /* Comparable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A78F2246751300D96BEE /* Comparable.swift */; };
 		99D29643223D3057003FD9F0 /* SSSugar.h in Headers */ = {isa = PBXBuildFile; fileRef = 99D29641223D3057003FD9F0 /* SSSugar.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		99D2964F223D3107003FD9F0 /* SSRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D2964D223D3107003FD9F0 /* SSRootView.swift */; };
 		99D29650223D3107003FD9F0 /* SSRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D2964E223D3107003FD9F0 /* SSRootViewController.swift */; };
@@ -81,6 +82,7 @@
 		99B1A783224430CC00D96BEE /* SSCollectionViewMarkableControllerActivateAlreadyActiveTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerActivateAlreadyActiveTC.swift; sourceTree = "<group>"; };
 		99B1A785224431B200D96BEE /* SSCollectionViewMarkableControllerDeactivateAlreadyDeactiveTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerDeactivateAlreadyDeactiveTC.swift; sourceTree = "<group>"; };
 		99B1A78722443EC700D96BEE /* SSCollectionViewMarkableControllerDeactivateTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerDeactivateTC.swift; sourceTree = "<group>"; };
+		99B1A78F2246751300D96BEE /* Comparable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comparable.swift; sourceTree = "<group>"; };
 		99D2963E223D3057003FD9F0 /* SSSugar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SSSugar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		99D29641223D3057003FD9F0 /* SSSugar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSSugar.h; sourceTree = "<group>"; };
 		99D29642223D3057003FD9F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 				99E85E2C224103C6005E2B13 /* Array.swift */,
 				99E85E2E22410806005E2B13 /* Range.swift */,
 				99E85E3022411583005E2B13 /* UITableVIew.swift */,
+				99B1A78F2246751300D96BEE /* Comparable.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -433,6 +436,7 @@
 				99E85E292240F3A0005E2B13 /* SSCollectionViewMarkable.swift in Sources */,
 				99D29669223D3763003FD9F0 /* UIViewControllerSugar.swift in Sources */,
 				99EABD7A22401B8A0037645B /* SSCollectionViewCellMarkable.swift in Sources */,
+				99B1A7902246751300D96BEE /* Comparable.swift in Sources */,
 				99D2966B223D3763003FD9F0 /* Common.swift in Sources */,
 				99E85E2D224103C6005E2B13 /* Array.swift in Sources */,
 				99D29658223D3681003FD9F0 /* SSWindow.swift in Sources */,
