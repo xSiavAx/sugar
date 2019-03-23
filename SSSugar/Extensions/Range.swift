@@ -2,6 +2,6 @@ import Foundation
 
 extension Range where Bound == Int {
     func middle() -> Bound {
-        return (upperBound - lowerBound) / 2
+        return (lowerBound + upperBound) / 2
     }
 }
