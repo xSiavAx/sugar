@@ -25,8 +25,8 @@ class SSMarkableCollectionViewStub: UIView, SSCollectionViewMarkable {
     static let cellsCount = 5
     var cells = [SSCollectionViewMarkableCellStub].array(size: cellsCount) { _ in SSCollectionViewMarkableCellStub() }
     var viewPortRows = cellsCount - 2;
-    var viewPortStartIndex = 0;
-    var viewPortRange: Range<Int> { get { return viewPortStartIndex..<viewPortStartIndex + viewPortRows } }
+    var viewPortOffset = 0;
+    var viewPortRange: Range<Int> { get { return viewPortOffset..<viewPortOffset + viewPortRows } }
     
     func cellForRow(at: IndexPath) -> SSCollectionViewCellMarkable? {
         guard viewPortRange.contains(at.row) else {
@@ -36,13 +36,17 @@ class SSMarkableCollectionViewStub: UIView, SSCollectionViewMarkable {
     }
     
     func indexPathsForVisibleRows() -> [IndexPath] {
-        return (viewPortStartIndex..<viewPortRows).map{IndexPath(row: $0, section: 0)}
+        return (viewPortOffset..<viewPortOffset+viewPortRows).map{IndexPath(row: $0, section: 0)}
     }
 }
 
-class SSCollectionViewMarkableCellStub: UIView, SSCollectionViewCellMarkable {
+class SSCollectionViewMarkableCellStub: UIView {
     var marking: Bool
     var marked: Bool
+    
+    override var description: String {
+        return "\(super.description) \(marking) \(marked)"
+    }
     
     init(marking mMarking: Bool = false, marked mMarked: Bool = false) {
         marking = mMarking
@@ -68,7 +72,9 @@ class SSCollectionViewMarkableCellStub: UIView, SSCollectionViewCellMarkable {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+}
+
+extension SSCollectionViewMarkableCellStub: SSCollectionViewCellMarkable{
     func setMarking(_ marking: Bool, animated: Bool) {
         self.marking = marking
     }

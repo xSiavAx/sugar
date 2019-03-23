@@ -25,7 +25,12 @@
 		99B1A784224430CC00D96BEE /* SSCollectionViewMarkableControllerActivateAlreadyActiveTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A783224430CC00D96BEE /* SSCollectionViewMarkableControllerActivateAlreadyActiveTC.swift */; };
 		99B1A786224431B200D96BEE /* SSCollectionViewMarkableControllerDeactivateAlreadyDeactiveTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A785224431B200D96BEE /* SSCollectionViewMarkableControllerDeactivateAlreadyDeactiveTC.swift */; };
 		99B1A78822443EC700D96BEE /* SSCollectionViewMarkableControllerDeactivateTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A78722443EC700D96BEE /* SSCollectionViewMarkableControllerDeactivateTC.swift */; };
+		99B1A78A224658D700D96BEE /* SSCollectionViewMarkableControllerMarkNonActiveTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A789224658D700D96BEE /* SSCollectionViewMarkableControllerMarkNonActiveTC.swift */; };
+		99B1A78C22465DA100D96BEE /* SSCollectionViewMarkableControllerMarkTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A78B22465DA100D96BEE /* SSCollectionViewMarkableControllerMarkTC.swift */; };
 		99B1A7902246751300D96BEE /* Comparable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A78F2246751300D96BEE /* Comparable.swift */; };
+		99B1A798224678B400D96BEE /* SSSugarPlaygroundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A797224678B400D96BEE /* SSSugarPlaygroundTests.swift */; };
+		99B1A79A224678B400D96BEE /* SSSugar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99D2963E223D3057003FD9F0 /* SSSugar.framework */; };
+		99B1A7A122467D8900D96BEE /* SSCollectionViewMarkableControllerMarkAlreadyMarkedTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A7A022467D8900D96BEE /* SSCollectionViewMarkableControllerMarkAlreadyMarkedTC.swift */; };
 		99D29643223D3057003FD9F0 /* SSSugar.h in Headers */ = {isa = PBXBuildFile; fileRef = 99D29641223D3057003FD9F0 /* SSSugar.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		99D2964F223D3107003FD9F0 /* SSRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D2964D223D3107003FD9F0 /* SSRootView.swift */; };
 		99D29650223D3107003FD9F0 /* SSRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D2964E223D3107003FD9F0 /* SSRootViewController.swift */; };
@@ -60,6 +65,13 @@
 			remoteGlobalIDString = 99D2963D223D3057003FD9F0;
 			remoteInfo = SSSugar;
 		};
+		99B1A79B224678B400D96BEE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 99D29635223D3057003FD9F0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 99D2963D223D3057003FD9F0;
+			remoteInfo = SSSugar;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -82,7 +94,13 @@
 		99B1A783224430CC00D96BEE /* SSCollectionViewMarkableControllerActivateAlreadyActiveTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerActivateAlreadyActiveTC.swift; sourceTree = "<group>"; };
 		99B1A785224431B200D96BEE /* SSCollectionViewMarkableControllerDeactivateAlreadyDeactiveTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerDeactivateAlreadyDeactiveTC.swift; sourceTree = "<group>"; };
 		99B1A78722443EC700D96BEE /* SSCollectionViewMarkableControllerDeactivateTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerDeactivateTC.swift; sourceTree = "<group>"; };
+		99B1A789224658D700D96BEE /* SSCollectionViewMarkableControllerMarkNonActiveTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerMarkNonActiveTC.swift; sourceTree = "<group>"; };
+		99B1A78B22465DA100D96BEE /* SSCollectionViewMarkableControllerMarkTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerMarkTC.swift; sourceTree = "<group>"; };
 		99B1A78F2246751300D96BEE /* Comparable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comparable.swift; sourceTree = "<group>"; };
+		99B1A795224678B400D96BEE /* SSSugarPlaygroundTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SSSugarPlaygroundTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		99B1A797224678B400D96BEE /* SSSugarPlaygroundTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarPlaygroundTests.swift; sourceTree = "<group>"; };
+		99B1A799224678B400D96BEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		99B1A7A022467D8900D96BEE /* SSCollectionViewMarkableControllerMarkAlreadyMarkedTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerMarkAlreadyMarkedTC.swift; sourceTree = "<group>"; };
 		99D2963E223D3057003FD9F0 /* SSSugar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SSSugar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		99D29641223D3057003FD9F0 /* SSSugar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSSugar.h; sourceTree = "<group>"; };
 		99D29642223D3057003FD9F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -117,6 +135,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				996F380422417014007FF8B6 /* SSSugar.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		99B1A792224678B400D96BEE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				99B1A79A224678B400D96BEE /* SSSugar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -160,6 +186,7 @@
 		99B1A78022441FAE00D96BEE /* SSCollectionViewMarkableController */ = {
 			isa = PBXGroup;
 			children = (
+				99B1A7A022467D8900D96BEE /* SSCollectionViewMarkableControllerMarkAlreadyMarkedTC.swift */,
 				99AB3459224547BF004959B1 /* SSCollectionViewMarkableControllerConfigCellTC.swift */,
 				99AB345522454466004959B1 /* SSCollectionViewMarkableControllerConfigCellNonActvieTC.swift */,
 				99B1A78122442BD600D96BEE /* SSCollectionViewMarkableControllerActivateTC.swift */,
@@ -167,8 +194,19 @@
 				99B1A78722443EC700D96BEE /* SSCollectionViewMarkableControllerDeactivateTC.swift */,
 				99B1A785224431B200D96BEE /* SSCollectionViewMarkableControllerDeactivateAlreadyDeactiveTC.swift */,
 				99B1A783224430CC00D96BEE /* SSCollectionViewMarkableControllerActivateAlreadyActiveTC.swift */,
+				99B1A78B22465DA100D96BEE /* SSCollectionViewMarkableControllerMarkTC.swift */,
+				99B1A789224658D700D96BEE /* SSCollectionViewMarkableControllerMarkNonActiveTC.swift */,
 			);
 			path = SSCollectionViewMarkableController;
+			sourceTree = "<group>";
+		};
+		99B1A796224678B400D96BEE /* SSSugarPlaygroundTests */ = {
+			isa = PBXGroup;
+			children = (
+				99B1A797224678B400D96BEE /* SSSugarPlaygroundTests.swift */,
+				99B1A799224678B400D96BEE /* Info.plist */,
+			);
+			path = SSSugarPlaygroundTests;
 			sourceTree = "<group>";
 		};
 		99D29634223D3057003FD9F0 = {
@@ -176,6 +214,7 @@
 			children = (
 				99D29640223D3057003FD9F0 /* SSSugar */,
 				996F380022417014007FF8B6 /* SSCustomSelectionTests */,
+				99B1A796224678B400D96BEE /* SSSugarPlaygroundTests */,
 				99D2963F223D3057003FD9F0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -185,6 +224,7 @@
 			children = (
 				99D2963E223D3057003FD9F0 /* SSSugar.framework */,
 				996F37FF22417014007FF8B6 /* SSCustomSelectionTests.xctest */,
+				99B1A795224678B400D96BEE /* SSSugarPlaygroundTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -326,6 +366,24 @@
 			productReference = 996F37FF22417014007FF8B6 /* SSCustomSelectionTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		99B1A794224678B400D96BEE /* SSSugarPlaygroundTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 99B1A79D224678B400D96BEE /* Build configuration list for PBXNativeTarget "SSSugarPlaygroundTests" */;
+			buildPhases = (
+				99B1A791224678B400D96BEE /* Sources */,
+				99B1A792224678B400D96BEE /* Frameworks */,
+				99B1A793224678B400D96BEE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				99B1A79C224678B400D96BEE /* PBXTargetDependency */,
+			);
+			name = SSSugarPlaygroundTests;
+			productName = SSSugarPlaygroundTests;
+			productReference = 99B1A795224678B400D96BEE /* SSSugarPlaygroundTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		99D2963D223D3057003FD9F0 /* SSSugar */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 99D29646223D3057003FD9F0 /* Build configuration list for PBXNativeTarget "SSSugar" */;
@@ -357,6 +415,9 @@
 					996F37FE22417014007FF8B6 = {
 						CreatedOnToolsVersion = 10.1;
 					};
+					99B1A794224678B400D96BEE = {
+						CreatedOnToolsVersion = 10.1;
+					};
 					99D2963D223D3057003FD9F0 = {
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1010;
@@ -377,12 +438,20 @@
 			targets = (
 				99D2963D223D3057003FD9F0 /* SSSugar */,
 				996F37FE22417014007FF8B6 /* SSCustomSelectionTests */,
+				99B1A794224678B400D96BEE /* SSSugarPlaygroundTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
 		996F37FD22417014007FF8B6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		99B1A793224678B400D96BEE /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -413,13 +482,24 @@
 				998F2DC52243F7FA001FFA3A /* SSMarkbaleCollectionCellHelperMarkMarkedTC.swift in Sources */,
 				99B1A78222442BD600D96BEE /* SSCollectionViewMarkableControllerActivateTC.swift in Sources */,
 				996F380222417014007FF8B6 /* SSMarkbaleCollectionCellHelperMarkTC.swift in Sources */,
+				99B1A7A122467D8900D96BEE /* SSCollectionViewMarkableControllerMarkAlreadyMarkedTC.swift in Sources */,
 				998F2DCF2244021C001FFA3A /* SSMarkbaleCollectionCellHelperDeactivateDeactivatedTC.swift in Sources */,
 				99B1A77F22441F9800D96BEE /* SSCollectionViewMarkableControllerBaseTC.swift in Sources */,
 				99AB345A224547BF004959B1 /* SSCollectionViewMarkableControllerConfigCellTC.swift in Sources */,
 				998F2DC72243F86B001FFA3A /* SSMarkbaleCollectionCellHelperUnmarkTC.swift in Sources */,
+				99B1A78C22465DA100D96BEE /* SSCollectionViewMarkableControllerMarkTC.swift in Sources */,
 				99B1A784224430CC00D96BEE /* SSCollectionViewMarkableControllerActivateAlreadyActiveTC.swift in Sources */,
 				99B1A77D22417E1E00D96BEE /* SSMarkbaleCollectionCellHelperActivateTC.swift in Sources */,
 				99B1A779224176D300D96BEE /* SSMarkbaleCollectionCellHelperMarkNonActiveTC.swift in Sources */,
+				99B1A78A224658D700D96BEE /* SSCollectionViewMarkableControllerMarkNonActiveTC.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		99B1A791224678B400D96BEE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				99B1A798224678B400D96BEE /* SSSugarPlaygroundTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,6 +542,11 @@
 			target = 99D2963D223D3057003FD9F0 /* SSSugar */;
 			targetProxy = 996F380522417014007FF8B6 /* PBXContainerItemProxy */;
 		};
+		99B1A79C224678B400D96BEE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 99D2963D223D3057003FD9F0 /* SSSugar */;
+			targetProxy = 99B1A79B224678B400D96BEE /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
@@ -497,6 +582,44 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.byteslight.SSSugarTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		99B1A79E224678B400D96BEE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3W67N7QUBL;
+				INFOPLIST_FILE = SSSugarPlaygroundTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.byteslight.SSSugarPlaygroundTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		99B1A79F224678B400D96BEE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3W67N7QUBL;
+				INFOPLIST_FILE = SSSugarPlaygroundTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.byteslight.SSSugarPlaygroundTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -688,6 +811,15 @@
 			buildConfigurations = (
 				996F380722417014007FF8B6 /* Debug */,
 				996F380822417014007FF8B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		99B1A79D224678B400D96BEE /* Build configuration list for PBXNativeTarget "SSSugarPlaygroundTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				99B1A79E224678B400D96BEE /* Debug */,
+				99B1A79F224678B400D96BEE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
