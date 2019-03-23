@@ -21,6 +21,29 @@ public extension CGRect {
         return inset(toSize:toSize)
     }
     
+    mutating func cut(amount : CGFloat, side : CGRectEdge) {
+        switch side {
+        case .maxXEdge:
+            size.width -= amount
+        case .minXEdge:
+            origin.x += amount
+            size.width -= amount
+        case .maxYEdge:
+            size.height -= amount
+        case .minYEdge:
+            origin.y += amount
+            size.height -= amount
+        }
+    }
+    
+    func cuted(amount : CGFloat, side : CGRectEdge) -> CGRect {
+        var rect = self
+        
+        rect.cut(amount: amount, side: side)
+        
+        return rect
+    }
+    
     //MARK: - deprecated
     @available(*, deprecated, message: "Use inset(toWidth:toHeight:) instead")
     func inset(toX: CGFloat = -1, toY: CGFloat = -1) -> CGRect {

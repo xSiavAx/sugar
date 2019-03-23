@@ -7,6 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		996F380222417014007FF8B6 /* SSMarkbaleCollectionCellHelperMarkTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996F380122417014007FF8B6 /* SSMarkbaleCollectionCellHelperMarkTC.swift */; };
+		996F380422417014007FF8B6 /* SSSugar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99D2963E223D3057003FD9F0 /* SSSugar.framework */; };
+		998F2DC52243F7FA001FFA3A /* SSMarkbaleCollectionCellHelperMarkMarkedTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998F2DC42243F7FA001FFA3A /* SSMarkbaleCollectionCellHelperMarkMarkedTC.swift */; };
+		998F2DC72243F86B001FFA3A /* SSMarkbaleCollectionCellHelperUnmarkTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998F2DC62243F86B001FFA3A /* SSMarkbaleCollectionCellHelperUnmarkTC.swift */; };
+		998F2DC92243F96E001FFA3A /* SSMarkbaleCollectionCellHelperUnmarkNonMarkedTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998F2DC82243F96E001FFA3A /* SSMarkbaleCollectionCellHelperUnmarkNonMarkedTC.swift */; };
+		998F2DCB22440162001FFA3A /* SSMarkbaleCollectionCellHelperActivateActivatedTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998F2DCA22440162001FFA3A /* SSMarkbaleCollectionCellHelperActivateActivatedTC.swift */; };
+		998F2DCD224401EC001FFA3A /* SSMarkbaleCollectionCellHelperDeactivateTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998F2DCC224401EC001FFA3A /* SSMarkbaleCollectionCellHelperDeactivateTC.swift */; };
+		998F2DCF2244021C001FFA3A /* SSMarkbaleCollectionCellHelperDeactivateDeactivatedTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998F2DCE2244021C001FFA3A /* SSMarkbaleCollectionCellHelperDeactivateDeactivatedTC.swift */; };
+		99AB345622454466004959B1 /* SSCollectionViewMarkableControllerConfigCellNonActvieTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AB345522454466004959B1 /* SSCollectionViewMarkableControllerConfigCellNonActvieTC.swift */; };
+		99AB345A224547BF004959B1 /* SSCollectionViewMarkableControllerConfigCellTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AB3459224547BF004959B1 /* SSCollectionViewMarkableControllerConfigCellTC.swift */; };
+		99B1A779224176D300D96BEE /* SSMarkbaleCollectionCellHelperMarkNonActiveTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A778224176D300D96BEE /* SSMarkbaleCollectionCellHelperMarkNonActiveTC.swift */; };
+		99B1A77B2241783B00D96BEE /* SSMarkbaleCollectionCellHelperBaseTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A7762241766C00D96BEE /* SSMarkbaleCollectionCellHelperBaseTC.swift */; };
+		99B1A77D22417E1E00D96BEE /* SSMarkbaleCollectionCellHelperActivateTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A77C22417E1E00D96BEE /* SSMarkbaleCollectionCellHelperActivateTC.swift */; };
+		99B1A77F22441F9800D96BEE /* SSCollectionViewMarkableControllerBaseTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A77E22441F9800D96BEE /* SSCollectionViewMarkableControllerBaseTC.swift */; };
+		99B1A78222442BD600D96BEE /* SSCollectionViewMarkableControllerActivateTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A78122442BD600D96BEE /* SSCollectionViewMarkableControllerActivateTC.swift */; };
+		99B1A784224430CC00D96BEE /* SSCollectionViewMarkableControllerActivateAlreadyActiveTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A783224430CC00D96BEE /* SSCollectionViewMarkableControllerActivateAlreadyActiveTC.swift */; };
+		99B1A786224431B200D96BEE /* SSCollectionViewMarkableControllerDeactivateAlreadyDeactiveTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A785224431B200D96BEE /* SSCollectionViewMarkableControllerDeactivateAlreadyDeactiveTC.swift */; };
+		99B1A78822443EC700D96BEE /* SSCollectionViewMarkableControllerDeactivateTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A78722443EC700D96BEE /* SSCollectionViewMarkableControllerDeactivateTC.swift */; };
+		99B1A78A224658D700D96BEE /* SSCollectionViewMarkableControllerMarkNonActiveTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A789224658D700D96BEE /* SSCollectionViewMarkableControllerMarkNonActiveTC.swift */; };
+		99B1A78C22465DA100D96BEE /* SSCollectionViewMarkableControllerMarkTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A78B22465DA100D96BEE /* SSCollectionViewMarkableControllerMarkTC.swift */; };
+		99B1A7902246751300D96BEE /* Comparable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A78F2246751300D96BEE /* Comparable.swift */; };
+		99B1A798224678B400D96BEE /* SSSugarPlaygroundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A797224678B400D96BEE /* SSSugarPlaygroundTests.swift */; };
+		99B1A79A224678B400D96BEE /* SSSugar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99D2963E223D3057003FD9F0 /* SSSugar.framework */; };
+		99B1A7A122467D8900D96BEE /* SSCollectionViewMarkableControllerMarkAlreadyMarkedTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A7A022467D8900D96BEE /* SSCollectionViewMarkableControllerMarkAlreadyMarkedTC.swift */; };
 		99D29643223D3057003FD9F0 /* SSSugar.h in Headers */ = {isa = PBXBuildFile; fileRef = 99D29641223D3057003FD9F0 /* SSSugar.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		99D2964F223D3107003FD9F0 /* SSRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D2964D223D3107003FD9F0 /* SSRootView.swift */; };
 		99D29650223D3107003FD9F0 /* SSRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D2964E223D3107003FD9F0 /* SSRootViewController.swift */; };
@@ -22,11 +46,61 @@
 		99D2966E223D3763003FD9F0 /* CGRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D29665223D3763003FD9F0 /* CGRect.swift */; };
 		99D2966F223D3763003FD9F0 /* UIViewSugar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D29666223D3763003FD9F0 /* UIViewSugar.swift */; };
 		99D29670223D3763003FD9F0 /* UIButtonSugar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D29667223D3763003FD9F0 /* UIButtonSugar.swift */; };
+		99E85E292240F3A0005E2B13 /* SSCollectionViewMarkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E85E282240F3A0005E2B13 /* SSCollectionViewMarkable.swift */; };
+		99E85E2B2240F5AC005E2B13 /* SSCollectionViewMarkableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E85E2A2240F5AC005E2B13 /* SSCollectionViewMarkableController.swift */; };
+		99E85E2D224103C6005E2B13 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E85E2C224103C6005E2B13 /* Array.swift */; };
+		99E85E2F22410806005E2B13 /* Range.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E85E2E22410806005E2B13 /* Range.swift */; };
+		99E85E3122411583005E2B13 /* UITableVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E85E3022411583005E2B13 /* UITableVIew.swift */; };
+		99EABD7A22401B8A0037645B /* SSCollectionViewCellMarkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EABD7922401B8A0037645B /* SSCollectionViewCellMarkable.swift */; };
+		99EABD7C22401D550037645B /* SSMarkbaleCollectionCellHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EABD7B22401D550037645B /* SSMarkbaleCollectionCellHelper.swift */; };
 		99EABD7E22401EF60037645B /* SSSelectionMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EABD7D22401EF60037645B /* SSSelectionMarkView.swift */; };
 		99EABD80224025CC0037645B /* CGSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EABD7F224025CC0037645B /* CGSize.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		996F380522417014007FF8B6 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 99D29635223D3057003FD9F0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 99D2963D223D3057003FD9F0;
+			remoteInfo = SSSugar;
+		};
+		99B1A79B224678B400D96BEE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 99D29635223D3057003FD9F0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 99D2963D223D3057003FD9F0;
+			remoteInfo = SSSugar;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
+		996F37FF22417014007FF8B6 /* SSCustomSelectionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SSCustomSelectionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		996F380122417014007FF8B6 /* SSMarkbaleCollectionCellHelperMarkTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSMarkbaleCollectionCellHelperMarkTC.swift; sourceTree = "<group>"; };
+		996F380322417014007FF8B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		998F2DC42243F7FA001FFA3A /* SSMarkbaleCollectionCellHelperMarkMarkedTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSMarkbaleCollectionCellHelperMarkMarkedTC.swift; sourceTree = "<group>"; };
+		998F2DC62243F86B001FFA3A /* SSMarkbaleCollectionCellHelperUnmarkTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSMarkbaleCollectionCellHelperUnmarkTC.swift; sourceTree = "<group>"; };
+		998F2DC82243F96E001FFA3A /* SSMarkbaleCollectionCellHelperUnmarkNonMarkedTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSMarkbaleCollectionCellHelperUnmarkNonMarkedTC.swift; sourceTree = "<group>"; };
+		998F2DCA22440162001FFA3A /* SSMarkbaleCollectionCellHelperActivateActivatedTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSMarkbaleCollectionCellHelperActivateActivatedTC.swift; sourceTree = "<group>"; };
+		998F2DCC224401EC001FFA3A /* SSMarkbaleCollectionCellHelperDeactivateTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSMarkbaleCollectionCellHelperDeactivateTC.swift; sourceTree = "<group>"; };
+		998F2DCE2244021C001FFA3A /* SSMarkbaleCollectionCellHelperDeactivateDeactivatedTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSMarkbaleCollectionCellHelperDeactivateDeactivatedTC.swift; sourceTree = "<group>"; };
+		99AB345522454466004959B1 /* SSCollectionViewMarkableControllerConfigCellNonActvieTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerConfigCellNonActvieTC.swift; sourceTree = "<group>"; };
+		99AB3459224547BF004959B1 /* SSCollectionViewMarkableControllerConfigCellTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerConfigCellTC.swift; sourceTree = "<group>"; };
+		99B1A7762241766C00D96BEE /* SSMarkbaleCollectionCellHelperBaseTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSMarkbaleCollectionCellHelperBaseTC.swift; sourceTree = "<group>"; };
+		99B1A778224176D300D96BEE /* SSMarkbaleCollectionCellHelperMarkNonActiveTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSMarkbaleCollectionCellHelperMarkNonActiveTC.swift; sourceTree = "<group>"; };
+		99B1A77C22417E1E00D96BEE /* SSMarkbaleCollectionCellHelperActivateTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSMarkbaleCollectionCellHelperActivateTC.swift; sourceTree = "<group>"; };
+		99B1A77E22441F9800D96BEE /* SSCollectionViewMarkableControllerBaseTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerBaseTC.swift; sourceTree = "<group>"; };
+		99B1A78122442BD600D96BEE /* SSCollectionViewMarkableControllerActivateTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerActivateTC.swift; sourceTree = "<group>"; };
+		99B1A783224430CC00D96BEE /* SSCollectionViewMarkableControllerActivateAlreadyActiveTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerActivateAlreadyActiveTC.swift; sourceTree = "<group>"; };
+		99B1A785224431B200D96BEE /* SSCollectionViewMarkableControllerDeactivateAlreadyDeactiveTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerDeactivateAlreadyDeactiveTC.swift; sourceTree = "<group>"; };
+		99B1A78722443EC700D96BEE /* SSCollectionViewMarkableControllerDeactivateTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerDeactivateTC.swift; sourceTree = "<group>"; };
+		99B1A789224658D700D96BEE /* SSCollectionViewMarkableControllerMarkNonActiveTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerMarkNonActiveTC.swift; sourceTree = "<group>"; };
+		99B1A78B22465DA100D96BEE /* SSCollectionViewMarkableControllerMarkTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerMarkTC.swift; sourceTree = "<group>"; };
+		99B1A78F2246751300D96BEE /* Comparable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comparable.swift; sourceTree = "<group>"; };
+		99B1A795224678B400D96BEE /* SSSugarPlaygroundTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SSSugarPlaygroundTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		99B1A797224678B400D96BEE /* SSSugarPlaygroundTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarPlaygroundTests.swift; sourceTree = "<group>"; };
+		99B1A799224678B400D96BEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		99B1A7A022467D8900D96BEE /* SSCollectionViewMarkableControllerMarkAlreadyMarkedTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerMarkAlreadyMarkedTC.swift; sourceTree = "<group>"; };
 		99D2963E223D3057003FD9F0 /* SSSugar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SSSugar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		99D29641223D3057003FD9F0 /* SSSugar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSSugar.h; sourceTree = "<group>"; };
 		99D29642223D3057003FD9F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -44,11 +118,34 @@
 		99D29665223D3763003FD9F0 /* CGRect.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRect.swift; sourceTree = "<group>"; };
 		99D29666223D3763003FD9F0 /* UIViewSugar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewSugar.swift; sourceTree = "<group>"; };
 		99D29667223D3763003FD9F0 /* UIButtonSugar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonSugar.swift; sourceTree = "<group>"; };
+		99E85E282240F3A0005E2B13 /* SSCollectionViewMarkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkable.swift; sourceTree = "<group>"; };
+		99E85E2A2240F5AC005E2B13 /* SSCollectionViewMarkableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableController.swift; sourceTree = "<group>"; };
+		99E85E2C224103C6005E2B13 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		99E85E2E22410806005E2B13 /* Range.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Range.swift; sourceTree = "<group>"; };
+		99E85E3022411583005E2B13 /* UITableVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableVIew.swift; sourceTree = "<group>"; };
+		99EABD7922401B8A0037645B /* SSCollectionViewCellMarkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewCellMarkable.swift; sourceTree = "<group>"; };
+		99EABD7B22401D550037645B /* SSMarkbaleCollectionCellHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSMarkbaleCollectionCellHelper.swift; sourceTree = "<group>"; };
 		99EABD7D22401EF60037645B /* SSSelectionMarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSelectionMarkView.swift; sourceTree = "<group>"; };
 		99EABD7F224025CC0037645B /* CGSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSize.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		996F37FC22417014007FF8B6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				996F380422417014007FF8B6 /* SSSugar.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		99B1A792224678B400D96BEE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				99B1A79A224678B400D96BEE /* SSSugar.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		99D2963B223D3057003FD9F0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -59,10 +156,65 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		996F380022417014007FF8B6 /* SSCustomSelectionTests */ = {
+			isa = PBXGroup;
+			children = (
+				99B1A78022441FAE00D96BEE /* SSCollectionViewMarkableController */,
+				99B1A77A224177AC00D96BEE /* SSMarkbaleCollectionCellHelper */,
+				996F380322417014007FF8B6 /* Info.plist */,
+			);
+			path = SSCustomSelectionTests;
+			sourceTree = "<group>";
+		};
+		99B1A77A224177AC00D96BEE /* SSMarkbaleCollectionCellHelper */ = {
+			isa = PBXGroup;
+			children = (
+				998F2DCE2244021C001FFA3A /* SSMarkbaleCollectionCellHelperDeactivateDeactivatedTC.swift */,
+				998F2DCC224401EC001FFA3A /* SSMarkbaleCollectionCellHelperDeactivateTC.swift */,
+				998F2DCA22440162001FFA3A /* SSMarkbaleCollectionCellHelperActivateActivatedTC.swift */,
+				998F2DC82243F96E001FFA3A /* SSMarkbaleCollectionCellHelperUnmarkNonMarkedTC.swift */,
+				998F2DC62243F86B001FFA3A /* SSMarkbaleCollectionCellHelperUnmarkTC.swift */,
+				998F2DC42243F7FA001FFA3A /* SSMarkbaleCollectionCellHelperMarkMarkedTC.swift */,
+				99B1A7762241766C00D96BEE /* SSMarkbaleCollectionCellHelperBaseTC.swift */,
+				99B1A77C22417E1E00D96BEE /* SSMarkbaleCollectionCellHelperActivateTC.swift */,
+				99B1A778224176D300D96BEE /* SSMarkbaleCollectionCellHelperMarkNonActiveTC.swift */,
+				996F380122417014007FF8B6 /* SSMarkbaleCollectionCellHelperMarkTC.swift */,
+			);
+			path = SSMarkbaleCollectionCellHelper;
+			sourceTree = "<group>";
+		};
+		99B1A78022441FAE00D96BEE /* SSCollectionViewMarkableController */ = {
+			isa = PBXGroup;
+			children = (
+				99B1A7A022467D8900D96BEE /* SSCollectionViewMarkableControllerMarkAlreadyMarkedTC.swift */,
+				99AB3459224547BF004959B1 /* SSCollectionViewMarkableControllerConfigCellTC.swift */,
+				99AB345522454466004959B1 /* SSCollectionViewMarkableControllerConfigCellNonActvieTC.swift */,
+				99B1A78122442BD600D96BEE /* SSCollectionViewMarkableControllerActivateTC.swift */,
+				99B1A77E22441F9800D96BEE /* SSCollectionViewMarkableControllerBaseTC.swift */,
+				99B1A78722443EC700D96BEE /* SSCollectionViewMarkableControllerDeactivateTC.swift */,
+				99B1A785224431B200D96BEE /* SSCollectionViewMarkableControllerDeactivateAlreadyDeactiveTC.swift */,
+				99B1A783224430CC00D96BEE /* SSCollectionViewMarkableControllerActivateAlreadyActiveTC.swift */,
+				99B1A78B22465DA100D96BEE /* SSCollectionViewMarkableControllerMarkTC.swift */,
+				99B1A789224658D700D96BEE /* SSCollectionViewMarkableControllerMarkNonActiveTC.swift */,
+			);
+			path = SSCollectionViewMarkableController;
+			sourceTree = "<group>";
+		};
+		99B1A796224678B400D96BEE /* SSSugarPlaygroundTests */ = {
+			isa = PBXGroup;
+			children = (
+				99B1A797224678B400D96BEE /* SSSugarPlaygroundTests.swift */,
+				99B1A799224678B400D96BEE /* Info.plist */,
+			);
+			path = SSSugarPlaygroundTests;
+			sourceTree = "<group>";
+		};
 		99D29634223D3057003FD9F0 = {
 			isa = PBXGroup;
 			children = (
 				99D29640223D3057003FD9F0 /* SSSugar */,
+				996F380022417014007FF8B6 /* SSCustomSelectionTests */,
+				99B1A796224678B400D96BEE /* SSSugarPlaygroundTests */,
 				99D2963F223D3057003FD9F0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -71,6 +223,8 @@
 			isa = PBXGroup;
 			children = (
 				99D2963E223D3057003FD9F0 /* SSSugar.framework */,
+				996F37FF22417014007FF8B6 /* SSCustomSelectionTests.xctest */,
+				99B1A795224678B400D96BEE /* SSSugarPlaygroundTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -78,6 +232,7 @@
 		99D29640223D3057003FD9F0 /* SSSugar */ = {
 			isa = PBXGroup;
 			children = (
+				99EABD7722401B3A0037645B /* Utils */,
 				99D29672223D37BD003FD9F0 /* Extensions */,
 				99D29671223D37A2003FD9F0 /* Classes */,
 				99D2965F223D3763003FD9F0 /* Other */,
@@ -152,8 +307,31 @@
 				99EABD7F224025CC0037645B /* CGSize.swift */,
 				99D29666223D3763003FD9F0 /* UIViewSugar.swift */,
 				99D29667223D3763003FD9F0 /* UIButtonSugar.swift */,
+				99E85E2C224103C6005E2B13 /* Array.swift */,
+				99E85E2E22410806005E2B13 /* Range.swift */,
+				99E85E3022411583005E2B13 /* UITableVIew.swift */,
+				99B1A78F2246751300D96BEE /* Comparable.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		99EABD7722401B3A0037645B /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				99EABD7822401B470037645B /* Collections Custom Select */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		99EABD7822401B470037645B /* Collections Custom Select */ = {
+			isa = PBXGroup;
+			children = (
+				99EABD7922401B8A0037645B /* SSCollectionViewCellMarkable.swift */,
+				99E85E282240F3A0005E2B13 /* SSCollectionViewMarkable.swift */,
+				99EABD7B22401D550037645B /* SSMarkbaleCollectionCellHelper.swift */,
+				99E85E2A2240F5AC005E2B13 /* SSCollectionViewMarkableController.swift */,
+			);
+			path = "Collections Custom Select";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -170,6 +348,42 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		996F37FE22417014007FF8B6 /* SSCustomSelectionTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 996F380922417014007FF8B6 /* Build configuration list for PBXNativeTarget "SSCustomSelectionTests" */;
+			buildPhases = (
+				996F37FB22417014007FF8B6 /* Sources */,
+				996F37FC22417014007FF8B6 /* Frameworks */,
+				996F37FD22417014007FF8B6 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				996F380622417014007FF8B6 /* PBXTargetDependency */,
+			);
+			name = SSCustomSelectionTests;
+			productName = SSSugarTests;
+			productReference = 996F37FF22417014007FF8B6 /* SSCustomSelectionTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		99B1A794224678B400D96BEE /* SSSugarPlaygroundTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 99B1A79D224678B400D96BEE /* Build configuration list for PBXNativeTarget "SSSugarPlaygroundTests" */;
+			buildPhases = (
+				99B1A791224678B400D96BEE /* Sources */,
+				99B1A792224678B400D96BEE /* Frameworks */,
+				99B1A793224678B400D96BEE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				99B1A79C224678B400D96BEE /* PBXTargetDependency */,
+			);
+			name = SSSugarPlaygroundTests;
+			productName = SSSugarPlaygroundTests;
+			productReference = 99B1A795224678B400D96BEE /* SSSugarPlaygroundTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 		99D2963D223D3057003FD9F0 /* SSSugar */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 99D29646223D3057003FD9F0 /* Build configuration list for PBXNativeTarget "SSSugar" */;
@@ -194,11 +408,19 @@
 		99D29635223D3057003FD9F0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 1010;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Stanislav Dmitriyev";
 				TargetAttributes = {
+					996F37FE22417014007FF8B6 = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					99B1A794224678B400D96BEE = {
+						CreatedOnToolsVersion = 10.1;
+					};
 					99D2963D223D3057003FD9F0 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -215,11 +437,27 @@
 			projectRoot = "";
 			targets = (
 				99D2963D223D3057003FD9F0 /* SSSugar */,
+				996F37FE22417014007FF8B6 /* SSCustomSelectionTests */,
+				99B1A794224678B400D96BEE /* SSSugarPlaygroundTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		996F37FD22417014007FF8B6 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		99B1A793224678B400D96BEE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		99D2963C223D3057003FD9F0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -230,16 +468,57 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		996F37FB22417014007FF8B6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				99B1A786224431B200D96BEE /* SSCollectionViewMarkableControllerDeactivateAlreadyDeactiveTC.swift in Sources */,
+				998F2DCB22440162001FFA3A /* SSMarkbaleCollectionCellHelperActivateActivatedTC.swift in Sources */,
+				99B1A78822443EC700D96BEE /* SSCollectionViewMarkableControllerDeactivateTC.swift in Sources */,
+				99AB345622454466004959B1 /* SSCollectionViewMarkableControllerConfigCellNonActvieTC.swift in Sources */,
+				998F2DC92243F96E001FFA3A /* SSMarkbaleCollectionCellHelperUnmarkNonMarkedTC.swift in Sources */,
+				99B1A77B2241783B00D96BEE /* SSMarkbaleCollectionCellHelperBaseTC.swift in Sources */,
+				998F2DCD224401EC001FFA3A /* SSMarkbaleCollectionCellHelperDeactivateTC.swift in Sources */,
+				998F2DC52243F7FA001FFA3A /* SSMarkbaleCollectionCellHelperMarkMarkedTC.swift in Sources */,
+				99B1A78222442BD600D96BEE /* SSCollectionViewMarkableControllerActivateTC.swift in Sources */,
+				996F380222417014007FF8B6 /* SSMarkbaleCollectionCellHelperMarkTC.swift in Sources */,
+				99B1A7A122467D8900D96BEE /* SSCollectionViewMarkableControllerMarkAlreadyMarkedTC.swift in Sources */,
+				998F2DCF2244021C001FFA3A /* SSMarkbaleCollectionCellHelperDeactivateDeactivatedTC.swift in Sources */,
+				99B1A77F22441F9800D96BEE /* SSCollectionViewMarkableControllerBaseTC.swift in Sources */,
+				99AB345A224547BF004959B1 /* SSCollectionViewMarkableControllerConfigCellTC.swift in Sources */,
+				998F2DC72243F86B001FFA3A /* SSMarkbaleCollectionCellHelperUnmarkTC.swift in Sources */,
+				99B1A78C22465DA100D96BEE /* SSCollectionViewMarkableControllerMarkTC.swift in Sources */,
+				99B1A784224430CC00D96BEE /* SSCollectionViewMarkableControllerActivateAlreadyActiveTC.swift in Sources */,
+				99B1A77D22417E1E00D96BEE /* SSMarkbaleCollectionCellHelperActivateTC.swift in Sources */,
+				99B1A779224176D300D96BEE /* SSMarkbaleCollectionCellHelperMarkNonActiveTC.swift in Sources */,
+				99B1A78A224658D700D96BEE /* SSCollectionViewMarkableControllerMarkNonActiveTC.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		99B1A791224678B400D96BEE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				99B1A798224678B400D96BEE /* SSSugarPlaygroundTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		99D2963A223D3057003FD9F0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99EABD7C22401D550037645B /* SSMarkbaleCollectionCellHelper.swift in Sources */,
+				99E85E2F22410806005E2B13 /* Range.swift in Sources */,
 				99EABD7E22401EF60037645B /* SSSelectionMarkView.swift in Sources */,
 				99D2966C223D3763003FD9F0 /* UIColorSugar.swift in Sources */,
 				99D29657223D3681003FD9F0 /* SSActivityProtectionView.swift in Sources */,
 				99D2965C223D3710003FD9F0 /* SSViewBlockable.swift in Sources */,
+				99E85E292240F3A0005E2B13 /* SSCollectionViewMarkable.swift in Sources */,
 				99D29669223D3763003FD9F0 /* UIViewControllerSugar.swift in Sources */,
+				99EABD7A22401B8A0037645B /* SSCollectionViewCellMarkable.swift in Sources */,
+				99B1A7902246751300D96BEE /* Comparable.swift in Sources */,
 				99D2966B223D3763003FD9F0 /* Common.swift in Sources */,
+				99E85E2D224103C6005E2B13 /* Array.swift in Sources */,
 				99D29658223D3681003FD9F0 /* SSWindow.swift in Sources */,
 				99D29650223D3107003FD9F0 /* SSRootViewController.swift in Sources */,
 				99D2964F223D3107003FD9F0 /* SSRootView.swift in Sources */,
@@ -248,6 +527,8 @@
 				99D29656223D3681003FD9F0 /* SSTextField.swift in Sources */,
 				99D29659223D3681003FD9F0 /* SSScrollContainerView.swift in Sources */,
 				99D2966F223D3763003FD9F0 /* UIViewSugar.swift in Sources */,
+				99E85E3122411583005E2B13 /* UITableVIew.swift in Sources */,
+				99E85E2B2240F5AC005E2B13 /* SSCollectionViewMarkableController.swift in Sources */,
 				99EABD80224025CC0037645B /* CGSize.swift in Sources */,
 				99D2966E223D3763003FD9F0 /* CGRect.swift in Sources */,
 			);
@@ -255,7 +536,96 @@
 		};
 /* End PBXSourcesBuildPhase section */
 
+/* Begin PBXTargetDependency section */
+		996F380622417014007FF8B6 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 99D2963D223D3057003FD9F0 /* SSSugar */;
+			targetProxy = 996F380522417014007FF8B6 /* PBXContainerItemProxy */;
+		};
+		99B1A79C224678B400D96BEE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 99D2963D223D3057003FD9F0 /* SSSugar */;
+			targetProxy = 99B1A79B224678B400D96BEE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
 /* Begin XCBuildConfiguration section */
+		996F380722417014007FF8B6 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3W67N7QUBL;
+				INFOPLIST_FILE = SSCustomSelectionTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.byteslight.SSSugarTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		996F380822417014007FF8B6 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3W67N7QUBL;
+				INFOPLIST_FILE = SSCustomSelectionTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.byteslight.SSSugarTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		99B1A79E224678B400D96BEE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3W67N7QUBL;
+				INFOPLIST_FILE = SSSugarPlaygroundTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.byteslight.SSSugarPlaygroundTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		99B1A79F224678B400D96BEE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3W67N7QUBL;
+				INFOPLIST_FILE = SSSugarPlaygroundTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.byteslight.SSSugarPlaygroundTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		99D29644223D3057003FD9F0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -381,6 +751,7 @@
 		99D29647223D3057003FD9F0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -399,6 +770,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.byteslight.SSSugar;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -407,6 +779,7 @@
 		99D29648223D3057003FD9F0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -433,6 +806,24 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		996F380922417014007FF8B6 /* Build configuration list for PBXNativeTarget "SSCustomSelectionTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				996F380722417014007FF8B6 /* Debug */,
+				996F380822417014007FF8B6 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		99B1A79D224678B400D96BEE /* Build configuration list for PBXNativeTarget "SSSugarPlaygroundTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				99B1A79E224678B400D96BEE /* Debug */,
+				99B1A79F224678B400D96BEE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		99D29638223D3057003FD9F0 /* Build configuration list for PBXProject "SSSugar" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

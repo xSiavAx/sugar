@@ -10,4 +10,16 @@ public extension UIView {
             addSubview(subview)
         }
     }
+    
+    func hasParent(_ needle: UIView) -> Bool {
+        var view = self
+        
+        while let sView = view.superview {
+            if (sView === needle) {
+                return true
+            }
+            view = sView
+        }
+        return false
+    }
 }
