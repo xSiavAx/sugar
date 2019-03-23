@@ -88,9 +88,12 @@ public class SSCollectionViewMarkableController {
     ///   - indexPaths: Index paths to process
     ///   - animated: Define transition animated or not, default is `false`
     public func setCellsMarked(_ marked: Bool, at indexPaths: [IndexPath], animated: Bool = false) {
+        guard active else {
+            return
+        }
         collectionView.indexPathsForVisibleRows().forEach { [unowned self] (indexPath) in
-            if (indexPaths.binarySearch(needle: indexPath){$0.compare($1)} != nil) {
-                self.setCellMarked(marked, at: indexPath, animated: animated)
+            if (indexPaths.binarySearch(indexPath){$0.compare($1)} != nil) {
+                self.pSetCellMarked(marked, at: indexPath, animated: animated)
             }
         }
     }
@@ -107,11 +110,10 @@ public class SSCollectionViewMarkableController {
     ///   - indexPaths: Index path to process
     ///   - animated: Define transition animated or not, default is `false`
     public func setCellMarked(_ marked: Bool, at indexPath: IndexPath, animated: Bool = false) {
-        if let cell = collectionView.cellForRow(at: indexPath) {
-            if (cell.marked != marked) {
-                cell.setMarked(marked, animated: animated);
-            }
+        guard active else {
+            return
         }
+        self.pSetCellMarked(marked, at: indexPath, animated: animated)
     }
     
     /// Select/Deselect all rows. Use it instead `tv.selectRow(at:)`
@@ -123,12 +125,23 @@ public class SSCollectionViewMarkableController {
     ///   - marked: Select or deselect state
     ///   - animated: Define transition animated or not, default is `false`
     public func setAllCellsMarked(_ marked: Bool, animated: Bool = false) {
+        guard active else {
+            return
+        }
         collectionView.indexPathsForVisibleRows().forEach { [unowned self](indexPath) in
-            self.setCellMarked(marked, at: indexPath, animated: animated)
+            self.pSetCellMarked(marked, at: indexPath, animated: animated)
         }
     }
     
     //MARK: - private
+    
+    private func pSetCellMarked(_ marked: Bool, at indexPath: IndexPath, animated: Bool) {
+        if let cell = collectionView.cellForRow(at: indexPath) {
+            if (cell.marked != marked) {
+                cell.setMarked(marked, animated: animated);
+            }
+        }
+    }
     
     private func prepareAllCells(animated:Bool) {
         enumerateVisibleCells { $0.setMarking(true, animated: animated) }
