@@ -1,7 +1,7 @@
 import Foundation
 
 extension Array {
-    func binarySearch(needle: Element, comparator: (Element, Element)->ComparisonResult) -> Int? {
+    func binarySearch(_ needle: Element, comparator: (Element, Element)->ComparisonResult) -> Int? {
         var range = 0..<count
         
         while !range.isEmpty {
@@ -30,5 +30,11 @@ extension Array {
     
     static func array(size: Int, buildblock:(Int)->(Element)) -> Array {
         return (0..<size).map(buildblock)
+    }
+}
+
+extension Array where Element : Comparable {
+    func binarySearch(_ needle: Element) -> Int? {
+        return binarySearch(needle) {$0.compare($1)}
     }
 }
