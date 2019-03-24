@@ -5,7 +5,7 @@ extension Array {
         var range = 0..<count
         
         while !range.isEmpty {
-            let middle = range.middle()
+            let middle = range.middle
 
             switch comparator(needle, self[middle]) {
             case .orderedSame:
