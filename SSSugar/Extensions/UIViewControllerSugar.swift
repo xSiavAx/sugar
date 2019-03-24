@@ -1,8 +1,8 @@
 import UIKit
 
 //MARK: - Alerts
-public extension UIViewController {
-    func showAlert(title: String,
+extension UIViewController {
+    public func showAlert(title: String,
                    message: String,
                    btnTitle: String,
                    onSbmt: (() -> Void)?) {
@@ -17,7 +17,7 @@ public extension UIViewController {
         self.present(avc, animated: true, completion: nil)
     }
     
-    func showErrorAlert(message: String,
+    public func showErrorAlert(message: String,
                    btnTitle: String,
                    onSbmt: (() -> Void)? = nil) {
         showAlert(title: NSLocalizedString("Error"),
@@ -26,7 +26,7 @@ public extension UIViewController {
                   onSbmt:onSbmt)
     }
     
-    func showWarningAlert(message: String,
+    public func showWarningAlert(message: String,
                         btnTitle: String,
                         onSbmt: (() -> Void)? = nil) {
         showAlert(title: NSLocalizedString("Warning"),
@@ -72,9 +72,8 @@ extension UIViewController {
 }
 
 //MARK: - Controllers relations
-
 extension UIViewController {
-    func dismissAll(animated: Bool = true, onFinish: (() -> Void)?) {
+    public func dismissAll(animated: Bool = true, onFinish: (() -> Void)?) {
         if (self.presentedViewController != nil) {
             self.dismiss(animated: animated, completion: onFinish)
         } else {
@@ -84,7 +83,10 @@ extension UIViewController {
         }
     }
     
-    func rootController() -> UIViewController {
+    /// Find and return Root View Controller in controllers hierarchy. Usually it's current window's root view controller.
+    ///
+    /// - Returns: Root View Controller
+    public func rootController() -> UIViewController {
         var root = self
         
         while let mParent = root.parent {
