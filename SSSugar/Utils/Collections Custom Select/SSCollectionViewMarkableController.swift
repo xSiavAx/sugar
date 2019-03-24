@@ -167,6 +167,7 @@ public class SSCollectionViewMarkableController {
 
 //MARK: - 
 
+/// Methods for managing activation in `SSCollectionViewMarkableController`
 public protocol SSCollectionViewMarkableControllerDelegate: AnyObject {
     func markControllerDidActivate(_ controller: SSCollectionViewMarkableController)
     func markControllerDidDeactivate(_ controller: SSCollectionViewMarkableController)
