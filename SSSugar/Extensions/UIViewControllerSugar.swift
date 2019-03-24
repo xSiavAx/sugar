@@ -8,14 +8,14 @@ extension UIViewController {
     /// - Parameters:
     ///   - title: Title for alert view
     ///   - message: Message for alert view
-    ///   - btnTitle: title for alert's action button, default value is `"Ok"`
-    ///   - onSbmt: code that will be executed on button tap
+    ///   - btnTitle: Title for alert's action button. Default value is `"Ok"`
+    ///   - onSbmt: Code that will be executed on close button tap
     ///
     /// - Important: Both `title` and `message` can't be nil same time
     public func showAlert(title: String? = nil,
-                   message: String? = nil,
-                   btnTitle: String = "Ok",
-                   onSbmt: (() -> Void)? = nil) {
+                          message: String? = nil,
+                          btnTitle: String = "Ok",
+                          onSbmt: (() -> Void)? = nil) {
         guard title != nil || message != nil else {
             fatalError("Both title and message can't be nil same time")
         }
@@ -31,12 +31,12 @@ extension UIViewController {
         self.present(avc, animated: true, completion: nil)
     }
     
-    /// Shortcut for presenting `UIAlertController` with Error title'. See showAlert(title: message: btnTitle: onSbmt:) for more info.
+    /// Shortcut for presenting `UIAlertController` with Error title. See showAlert(title: message: btnTitle: onSbmt:) for more info.
     ///
     /// - Parameters:
     ///   - message: Message for alert view
-    ///   - btnTitle: title for alert's action button, default value is `"Ok"`
-    ///   - onSbmt: code that will be executed on button tap
+    ///   - btnTitle: Title for alert's action button. Default value is `"Ok"`
+    ///   - onSbmt: Code that will be executed on close button tap
     public func showErrorAlert(message: String,
                                btnTitle: String = "Ok",
                                onSbmt: (() -> Void)? = nil) {
@@ -46,12 +46,12 @@ extension UIViewController {
                   onSbmt:onSbmt)
     }
     
-    /// Shortcut for presenting `UIAlertController` with Warning title'. See showAlert(title: message: btnTitle: onSbmt:) for more info.
+    /// Shortcut for presenting `UIAlertController` with Warning title. See showAlert(title: message: btnTitle: onSbmt:) for more info.
     ///
     /// - Parameters:
     ///   - message: Message for alert view
-    ///   - btnTitle: title for alert's action button, default value is `"Ok"`
-    ///   - onSbmt: code that will be executed on button tap
+    ///   - btnTitle: Title for alert's action button. Default value is `"Ok"`
+    ///   - onSbmt: Code that will be executed on close button tap
     public func showWarningAlert(message: String,
                                  btnTitle: String = "Ok",
                                  onSbmt: (() -> Void)? = nil) {
@@ -64,6 +64,9 @@ extension UIViewController {
 
 //MARK: - Keyboard
 extension UIViewController {
+    /// Register controller for Keyboard Notifications. Use it to recieve kbDidChangeHeightTo(:) callbacks.
+    /// - Note: Usually you have to call this method inside `init` or `loadView`.
+    /// - Important: Don't forget call `unregisterFromKBNotifications()` somewhere. See it's documentation for more info.
     public func registerForKBNotifications() {
         NotificationCenter.default.addObserver(
             self,
@@ -77,39 +80,54 @@ extension UIViewController {
             object: nil)
     }
     
+    /// Unregister controller from Keyboard Notifications. Use it if you have used `registerForKBNotifications()`
+    /// - Note: Usually you have to call this method inside deinit.
     public func unregisterFromKBNotifications() {
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardDidShowNotification, object: nil)
         NotificationCenter.default.removeObserver(self, name: UIResponder.keyboardDidHideNotification, object: nil)
     }
     
-    @objc func kbDidShow(notification : Notification) {
+    /// Method that calls on Keyboard chnaged it's height (incliuding it's appearance/disappearance). Override it to manage anything based on Keyboard height.
+    ///
+    /// - Parameter height: new keyboard height
+    @objc open func kbDidChangeHeightTo(_ height : CGFloat) {
+        
+    }
+    
+    @objc private func kbDidShow(notification : Notification) {
         if let keyboardFrame: NSValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
             kbDidChangeHeightTo(keyboardFrame.cgRectValue.height)
         }
     }
     
-    @objc func kbDidHide(notification : Notification) {
+    @objc private func kbDidHide(notification : Notification) {
         kbDidChangeHeightTo(0)
-    }
-    
-    @objc open func kbDidChangeHeightTo(_ height : CGFloat) {
-        
     }
 }
 
 //MARK: - Controllers relations
 extension UIViewController {
-    public func dismissAll(animated: Bool = true, onFinish: (() -> Void)?) {
-        if (self.presentedViewController != nil) {
-            self.dismiss(animated: animated, completion: onFinish)
+    /// Dismiss presented controller if subject controller has one. Otherwise do nothing. Complition will be called anyway.
+    /// - Note: Default SDK's `dissmiss(animated: copmplition:)` will dimsmiss subject controller if it has no presented controller. This method will not.
+    ///
+    /// - Parameters:
+    ///   - animated: Do transition animated or not. Default value is false
+    ///   - onFinish: Complision handler
+    public func dismissPresented(animated: Bool = false, onFinish: (() -> Void)?) {
+        if (presentedViewController != nil) {
+            dismiss(animated: animated, completion: onFinish)
         } else {
-            if let mOnFinish = onFinish {
-                mOnFinish()
+            DispatchQueue.main.async {
+                if let mOnFinish = onFinish {
+                    mOnFinish()
+                }
             }
         }
     }
     
     /// Find and return Root View Controller in controllers hierarchy. Usually it's current window's root view controller.
+    ///
+    /// - Note: Method will return subject controller if it have no parent controller.
     ///
     /// - Returns: Root View Controller
     public func rootController() -> UIViewController {
@@ -119,5 +137,13 @@ extension UIViewController {
             root = mParent
         }
         return root
+    }
+    
+    //MARK: - deprecated
+    /// See `dismissPresented(animated:, onFinish:)`
+    /// - Important: **Deprecated**. For versions greater then 1.1.0
+    @available(*, deprecated, message: "Use inset(toWidth:toHeight:) instead")
+    public func dismissAll(animated: Bool = true, onFinish: (() -> Void)?) {
+        self.dismissPresented(animated: animated, onFinish: onFinish)
     }
 }
