@@ -2,33 +2,59 @@ import UIKit
 
 //MARK: - Alerts
 extension UIViewController {
-    public func showAlert(title: String,
-                   message: String,
-                   btnTitle: String,
-                   onSbmt: (() -> Void)?) {
+    
+    /// Shortcut for presenting `UIAlertController` with given title, message and close button title. Method will execute closure on close if corresponding arg will be provided.
+    ///
+    /// - Parameters:
+    ///   - title: Title for alert view
+    ///   - message: Message for alert view
+    ///   - btnTitle: title for alert's action button, default value is `"Ok"`
+    ///   - onSbmt: code that will be executed on button tap
+    ///
+    /// - Important: Both `title` and `message` can't be nil same time
+    public func showAlert(title: String? = nil,
+                   message: String? = nil,
+                   btnTitle: String = "Ok",
+                   onSbmt: (() -> Void)? = nil) {
+        guard title != nil || message != nil else {
+            fatalError("Both title and message can't be nil same time")
+        }
         let avc = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        var handler : ((UIAlertAction)->Void)?
         
         if let cOnSbmt = onSbmt {
-            avc.addAction(UIAlertAction(title: btnTitle, style: .default, handler: { (action) in
-                cOnSbmt()
-            }))
+            handler = { (action) in cOnSbmt() }
         }
+        
+        avc.addAction(UIAlertAction(title: btnTitle, style: .default, handler:handler))
         
         self.present(avc, animated: true, completion: nil)
     }
     
+    /// Shortcut for presenting `UIAlertController` with Error title'. See showAlert(title: message: btnTitle: onSbmt:) for more info.
+    ///
+    /// - Parameters:
+    ///   - message: Message for alert view
+    ///   - btnTitle: title for alert's action button, default value is `"Ok"`
+    ///   - onSbmt: code that will be executed on button tap
     public func showErrorAlert(message: String,
-                   btnTitle: String,
-                   onSbmt: (() -> Void)? = nil) {
+                               btnTitle: String = "Ok",
+                               onSbmt: (() -> Void)? = nil) {
         showAlert(title: NSLocalizedString("Error"),
                   message: message,
                   btnTitle: btnTitle,
                   onSbmt:onSbmt)
     }
     
+    /// Shortcut for presenting `UIAlertController` with Warning title'. See showAlert(title: message: btnTitle: onSbmt:) for more info.
+    ///
+    /// - Parameters:
+    ///   - message: Message for alert view
+    ///   - btnTitle: title for alert's action button, default value is `"Ok"`
+    ///   - onSbmt: code that will be executed on button tap
     public func showWarningAlert(message: String,
-                        btnTitle: String,
-                        onSbmt: (() -> Void)? = nil) {
+                                 btnTitle: String = "Ok",
+                                 onSbmt: (() -> Void)? = nil) {
         showAlert(title: NSLocalizedString("Warning"),
                   message: message,
                   btnTitle: btnTitle,
