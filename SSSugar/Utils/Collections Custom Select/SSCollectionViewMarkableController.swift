@@ -9,7 +9,6 @@ import UIKit
 /// - Important:
 /// Store selected indexes or entites in some model, cuz controller don't allow getting positions for selected rows (like standart tableview do).
 ///
-
 public class SSCollectionViewMarkableController {
     //MARK: - private properties
     
