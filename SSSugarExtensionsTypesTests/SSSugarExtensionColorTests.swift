@@ -6,7 +6,7 @@ class SSSugarExtensionColorTests: XCTestCase {
     func testDefaultAll() {
         XCTAssertEqual(UIColor(alpha:1), UIColor(red: 0, green: 0, blue: 0, alpha: 1))
     }
-   
+    
     func testDefaultRed() {
         XCTAssertEqual(UIColor(greenV: 255, blueV: 127), UIColor(red: 0, green: 1, blue: 127/255, alpha: 1))
     }
