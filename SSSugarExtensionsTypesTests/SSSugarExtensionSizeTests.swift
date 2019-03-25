@@ -21,6 +21,14 @@ class SSSugarExtensionSizeTests: XCTestCase {
         checkUnited(lW: 100, lH: 75, rW: 75, rH: 100, eW: 100, eH: 100)
     }
     
+    func testUnitedWithZero() {
+        checkUnited(lW: 100, lH: 75, rW: 0, rH: 0, eW: 100, eH: 75)
+    }
+    
+    func testUnitedBothZero() {
+        checkUnited(lW: 0, lH: 0, rW: 0, rH: 0, eW: 0, eH: 0)
+    }
+    
     func checkUnited(lW:CGFloat, lH:CGFloat, rW:CGFloat, rH:CGFloat, eW:CGFloat, eH:CGFloat) {
         XCTAssertEqual(CGSize(width:lW, height:lH).united(with:CGSize(width:rW, height:rH)), CGSize(width:eW, height:eH))
     }
