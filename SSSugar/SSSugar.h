@@ -8,9 +8,6 @@ FOUNDATION_EXPORT const unsigned char SSSugarVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <SSSugar/PublicHeader.h>
 
-//TODO: Add intersected to CGSize, with docs and tests
-//TODO: Check zero valus sizes to CGSize tests
-//TODO: Add negative values checks to method. Add corresponding tests. (Size can have negative values when it used as Vector)
 
 //TODO: Write tests for Types extensions. Especially tests CGRect insets methods with larger resulting rect.
 
