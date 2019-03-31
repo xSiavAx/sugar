@@ -19,6 +19,7 @@ public extension CGRect {
     
     /// Returns a rectangle whith specified size and with the same center point as source rectangle.
     ///
+    /// If resulting rectangle has negative size, 'nil' will be returned.
     /// - Parameter toSize: Value to use to adjust rectangle's size
     /// - Returns: Resized rectangle
     func inset(toSize: CGSize) -> CGRect {
@@ -28,11 +29,16 @@ public extension CGRect {
     
     /// Returns a rectangle whith specified height and/or width and with the same center point as source rectangle.
     ///
+    /// If resulting rectangle has negative size, 'nil' will be returned.
+    /// - Important: One of parametes has been passed (as not default)
     /// - Parameters:
-    ///   - toWidth: Value to use to adjust rectangle's width
-    ///   - toHeight: Value to use to adjust rectangle's height
+    ///   - toWidth: Value to use to adjust rectangle's width. Default value is equal to current `width`.
+    ///   - toHeight: Value to use to adjust rectangle's height. Default value is equal to current `height`.
     /// - Returns: Resized rectangle
     func inset(toWidth: CGFloat = -1, toHeight: CGFloat = -1) -> CGRect {
+        guard toWidth != -1 || toHeight != -1 else {
+            fatalError("Invalid usage. Both parameters can't be default same time")
+        }
         let toSize = CGSize(width:toWidth == -1 ? width : toWidth,
                             height:toHeight == -1 ? height : toHeight)
         return inset(toSize:toSize)
