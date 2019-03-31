@@ -2,8 +2,7 @@ import Foundation
 
 public extension Array {
     init(size: Int, buildBlock:(Int)->(Element)) {
-        let source = Array.array(size: size, buildBlock: buildBlock)
-        self.init(source)
+        self.init((0..<size).map(buildBlock))
     }
     
     func binarySearch(_ needle: Element, comparator: (Element, Element)->ComparisonResult) -> Int? {
@@ -33,6 +32,9 @@ public extension Array {
         }
     }
     
+    //MARK: - deprecated
+    /// - Warning: **Deprecated**. Use `init(size:buildBlock:)` instead.
+    @available(*, deprecated, message: "Use `init(size:buildBlock:)` instead")
     static func array(size: Int, buildBlock:(Int)->(Element)) -> Array<Element> {
         return (0..<size).map(buildBlock)
     }

@@ -24,8 +24,6 @@ public extension CGSize {
         return CGSize(width:min(width, size.width), height:min(height, size.height))
     }
     
-    //TODO: Add intersected
-    
     //MARK: - deprecated
     /// - Warning: **Deprecated**. Use `united(with:)` instead.
     @available(*, deprecated, message: "Use united(with:) instead")
