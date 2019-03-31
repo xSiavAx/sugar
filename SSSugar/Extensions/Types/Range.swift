@@ -1,6 +1,6 @@
 import Foundation
 
-extension Range where Bound == Int {
+public extension Range where Bound == Int {
     /// Returns middle for range with `Int` bounds. Calculated property.
     /// - Note: **Examples**:
     /// ```

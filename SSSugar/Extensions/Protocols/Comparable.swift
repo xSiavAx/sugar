@@ -1,6 +1,6 @@
 import Foundation
 
-extension Comparable {
+public extension Comparable {
     func compare(_ other: Self) -> ComparisonResult {
         if (self == other) {
             return .orderedSame

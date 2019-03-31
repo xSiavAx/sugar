@@ -1,6 +1,11 @@
 import Foundation
 
-extension Array {
+public extension Array {
+    init(size: Int, buildBlock:(Int)->(Element)) {
+        let source = Array.array(size: size, buildBlock: buildBlock)
+        self.init(source)
+    }
+    
     func binarySearch(_ needle: Element, comparator: (Element, Element)->ComparisonResult) -> Int? {
         var range = 0..<count
         
@@ -28,12 +33,12 @@ extension Array {
         }
     }
     
-    static func array(size: Int, buildblock:(Int)->(Element)) -> Array {
-        return (0..<size).map(buildblock)
+    static func array(size: Int, buildBlock:(Int)->(Element)) -> Array<Element> {
+        return (0..<size).map(buildBlock)
     }
 }
 
-extension Array where Element : Comparable {
+public extension Array where Element : Comparable {
     func binarySearch(_ needle: Element) -> Int? {
         return binarySearch(needle) {$0.compare($1)}
     }
