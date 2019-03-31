@@ -62,6 +62,8 @@
 		99FA1FED22495A9400C534E3 /* SSSugarExtensionCGRectCenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1FEC22495A9400C534E3 /* SSSugarExtensionCGRectCenterTests.swift */; };
 		99FA1FEF2250F0AA00C534E3 /* SSSugarExtensionCGRectInsetToSizeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1FEE2250F0AA00C534E3 /* SSSugarExtensionCGRectInsetToSizeTests.swift */; };
 		99FA1FF12250F46500C534E3 /* SSSugarExtensionCGRectInsetToWHTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1FF02250F46500C534E3 /* SSSugarExtensionCGRectInsetToWHTests.swift */; };
+		99FA1FF42250FA5700C534E3 /* SSSugarExtensionCGRectInitCenterSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1FF22250FA0D00C534E3 /* SSSugarExtensionCGRectInitCenterSize.swift */; };
+		99FA1FF72250FD3700C534E3 /* SSSugarExtensionCGRectCuttedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1FF52250FD2900C534E3 /* SSSugarExtensionCGRectCuttedTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -149,6 +151,8 @@
 		99FA1FEC22495A9400C534E3 /* SSSugarExtensionCGRectCenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SSSugarExtensionCGRectCenterTests.swift; path = SSSugarExtensionsTypesTests/SSSugarExtensionCGRectCenterTests.swift; sourceTree = SOURCE_ROOT; };
 		99FA1FEE2250F0AA00C534E3 /* SSSugarExtensionCGRectInsetToSizeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SSSugarExtensionCGRectInsetToSizeTests.swift; path = SSSugarExtensionsTypesTests/SSSugarExtensionCGRectInsetToSizeTests.swift; sourceTree = SOURCE_ROOT; };
 		99FA1FF02250F46500C534E3 /* SSSugarExtensionCGRectInsetToWHTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SSSugarExtensionCGRectInsetToWHTests.swift; path = SSSugarExtensionsTypesTests/SSSugarExtensionCGRectInsetToWHTests.swift; sourceTree = SOURCE_ROOT; };
+		99FA1FF22250FA0D00C534E3 /* SSSugarExtensionCGRectInitCenterSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarExtensionCGRectInitCenterSize.swift; sourceTree = "<group>"; };
+		99FA1FF52250FD2900C534E3 /* SSSugarExtensionCGRectCuttedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarExtensionCGRectCuttedTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +203,11 @@
 		997E314822493587006A5B7C /* SSSugarExtensionsTypesTests */ = {
 			isa = PBXGroup;
 			children = (
+				99FA1FF52250FD2900C534E3 /* SSSugarExtensionCGRectCuttedTests.swift */,
+				99FA1FF22250FA0D00C534E3 /* SSSugarExtensionCGRectInitCenterSize.swift */,
+				99FA1FF02250F46500C534E3 /* SSSugarExtensionCGRectInsetToWHTests.swift */,
+				99FA1FEE2250F0AA00C534E3 /* SSSugarExtensionCGRectInsetToSizeTests.swift */,
+				99FA1FEC22495A9400C534E3 /* SSSugarExtensionCGRectCenterTests.swift */,
 				997E315222493AC8006A5B7C /* SSSugarExtensionSizeUnitedIntersectedTests.swift */,
 				99FA1FE72249549D00C534E3 /* SSSugarExtensionColorInitTests.swift */,
 				99FA1FE52249544B00C534E3 /* SSSugarExtensionRangeMiddleTests.swift */,
@@ -227,9 +236,6 @@
 		99B1A78022441FAE00D96BEE /* SSCollectionViewMarkableController */ = {
 			isa = PBXGroup;
 			children = (
-				99FA1FF02250F46500C534E3 /* SSSugarExtensionCGRectInsetToWHTests.swift */,
-				99FA1FEE2250F0AA00C534E3 /* SSSugarExtensionCGRectInsetToSizeTests.swift */,
-				99FA1FEC22495A9400C534E3 /* SSSugarExtensionCGRectCenterTests.swift */,
 				99B1A7A022467D8900D96BEE /* SSCollectionViewMarkableControllerMarkAlreadyMarkedTC.swift */,
 				99AB3459224547BF004959B1 /* SSCollectionViewMarkableControllerConfigCellTC.swift */,
 				99AB345522454466004959B1 /* SSCollectionViewMarkableControllerConfigCellNonActvieTC.swift */,
@@ -617,7 +623,9 @@
 				99FA1FEF2250F0AA00C534E3 /* SSSugarExtensionCGRectInsetToSizeTests.swift in Sources */,
 				99FA1FE82249549D00C534E3 /* SSSugarExtensionColorInitTests.swift in Sources */,
 				997E315322493AC8006A5B7C /* SSSugarExtensionSizeUnitedIntersectedTests.swift in Sources */,
+				99FA1FF72250FD3700C534E3 /* SSSugarExtensionCGRectCuttedTests.swift in Sources */,
 				99FA1FE9224954E600C534E3 /* SSSugarExtensionRangeMiddleTests.swift in Sources */,
+				99FA1FF42250FA5700C534E3 /* SSSugarExtensionCGRectInitCenterSize.swift in Sources */,
 				99FA1FF12250F46500C534E3 /* SSSugarExtensionCGRectInsetToWHTests.swift in Sources */,
 				99FA1FED22495A9400C534E3 /* SSSugarExtensionCGRectCenterTests.swift in Sources */,
 			);
