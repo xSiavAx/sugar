@@ -30,6 +30,7 @@ public extension Array {
     /// Obviously passed array should be sorted. Otherwise method may produce unexpected result.
     /// - Note:
     /// Argument `comparator` may be skipped for Arrays whose elements implement `Comparable`. See `binarySearch(forInsert needle: Element) -> Int`
+    /// - Complexity: O(logN)
     /// - Parameters:
     ///   - needle: An object to search insert position for
     ///   - comparator: Comparator to check objects equality and search direction, should return `ComparisonResult` for passed arguments.
