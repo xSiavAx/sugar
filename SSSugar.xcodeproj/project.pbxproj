@@ -60,6 +60,7 @@
 		99EABD7E22401EF60037645B /* SSSelectionMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EABD7D22401EF60037645B /* SSSelectionMarkView.swift */; };
 		99EABD80224025CC0037645B /* CGSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EABD7F224025CC0037645B /* CGSize.swift */; };
 		99FA1D5D225A22FF00AD2FB5 /* SSSugarExtensionContainersArrayBinarySearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1D5C225A22FF00AD2FB5 /* SSSugarExtensionContainersArrayBinarySearchTests.swift */; };
+		99FA1D61226392A900AD2FB5 /* SSSugarExtensionContainersArrayForEachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1D60226392A900AD2FB5 /* SSSugarExtensionContainersArrayForEachTests.swift */; };
 		99FA1FE82249549D00C534E3 /* SSSugarExtensionColorInitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1FE72249549D00C534E3 /* SSSugarExtensionColorInitTests.swift */; };
 		99FA1FE9224954E600C534E3 /* SSSugarExtensionRangeMiddleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1FE52249544B00C534E3 /* SSSugarExtensionRangeMiddleTests.swift */; };
 		99FA1FED22495A9400C534E3 /* SSSugarExtensionCGRectCenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1FEC22495A9400C534E3 /* SSSugarExtensionCGRectCenterTests.swift */; };
@@ -160,6 +161,7 @@
 		99EABD7D22401EF60037645B /* SSSelectionMarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSelectionMarkView.swift; sourceTree = "<group>"; };
 		99EABD7F224025CC0037645B /* CGSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSize.swift; sourceTree = "<group>"; };
 		99FA1D5C225A22FF00AD2FB5 /* SSSugarExtensionContainersArrayBinarySearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SSSugarExtensionContainersArrayBinarySearchTests.swift; path = SSSugarExtensionContainersTests/SSSugarExtensionContainersArrayBinarySearchTests.swift; sourceTree = SOURCE_ROOT; };
+		99FA1D60226392A900AD2FB5 /* SSSugarExtensionContainersArrayForEachTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarExtensionContainersArrayForEachTests.swift; sourceTree = "<group>"; };
 		99FA1FE52249544B00C534E3 /* SSSugarExtensionRangeMiddleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarExtensionRangeMiddleTests.swift; sourceTree = "<group>"; };
 		99FA1FE72249549D00C534E3 /* SSSugarExtensionColorInitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarExtensionColorInitTests.swift; sourceTree = "<group>"; };
 		99FA1FEC22495A9400C534E3 /* SSSugarExtensionCGRectCenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SSSugarExtensionCGRectCenterTests.swift; path = SSSugarExtensionsTypesTests/SSSugarExtensionCGRectCenterTests.swift; sourceTree = SOURCE_ROOT; };
@@ -225,6 +227,7 @@
 		997B344D225A134B00F2A3A0 /* SSSugarExtensionContainersTests */ = {
 			isa = PBXGroup;
 			children = (
+				99FA1D60226392A900AD2FB5 /* SSSugarExtensionContainersArrayForEachTests.swift */,
 				99FA1D5C225A22FF00AD2FB5 /* SSSugarExtensionContainersArrayBinarySearchTests.swift */,
 				997B344E225A134B00F2A3A0 /* SSSugarExtensionContainersArrayInitBuildBlockTests.swift */,
 				997B3450225A134B00F2A3A0 /* Info.plist */,
@@ -688,6 +691,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99FA1D61226392A900AD2FB5 /* SSSugarExtensionContainersArrayForEachTests.swift in Sources */,
 				997B344F225A134B00F2A3A0 /* SSSugarExtensionContainersArrayInitBuildBlockTests.swift in Sources */,
 				99FA1D5D225A22FF00AD2FB5 /* SSSugarExtensionContainersArrayBinarySearchTests.swift in Sources */,
 			);

@@ -1,17 +1,6 @@
 import XCTest
 
 @testable import SSSugar
-// for search and insert:
-//first pos
-//last pos
-//mid pos
-//empty
-//No such element
-
-//sames
-//sames sequance
-
-
 
 class SSSugarExtensionContainersArrayBinarySearchTests: XCTestCase {
     func testFirstPos() {
