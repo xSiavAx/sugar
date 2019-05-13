@@ -59,6 +59,7 @@
 		99EABD7C22401D550037645B /* SSMarkbaleCollectionCellHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EABD7B22401D550037645B /* SSMarkbaleCollectionCellHelper.swift */; };
 		99EABD7E22401EF60037645B /* SSSelectionMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EABD7D22401EF60037645B /* SSSelectionMarkView.swift */; };
 		99EABD80224025CC0037645B /* CGSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EABD7F224025CC0037645B /* CGSize.swift */; };
+		99F6A187228981CE00183436 /* AutoMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F6A186228981CE00183436 /* AutoMap.swift */; };
 		99FA1D5D225A22FF00AD2FB5 /* SSSugarExtensionContainersArrayBinarySearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1D5C225A22FF00AD2FB5 /* SSSugarExtensionContainersArrayBinarySearchTests.swift */; };
 		99FA1D61226392A900AD2FB5 /* SSSugarExtensionContainersArrayForEachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1D60226392A900AD2FB5 /* SSSugarExtensionContainersArrayForEachTests.swift */; };
 		99FA1FE82249549D00C534E3 /* SSSugarExtensionColorInitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1FE72249549D00C534E3 /* SSSugarExtensionColorInitTests.swift */; };
@@ -160,6 +161,7 @@
 		99EABD7B22401D550037645B /* SSMarkbaleCollectionCellHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSMarkbaleCollectionCellHelper.swift; sourceTree = "<group>"; };
 		99EABD7D22401EF60037645B /* SSSelectionMarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSelectionMarkView.swift; sourceTree = "<group>"; };
 		99EABD7F224025CC0037645B /* CGSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSize.swift; sourceTree = "<group>"; };
+		99F6A186228981CE00183436 /* AutoMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMap.swift; sourceTree = "<group>"; };
 		99FA1D5C225A22FF00AD2FB5 /* SSSugarExtensionContainersArrayBinarySearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SSSugarExtensionContainersArrayBinarySearchTests.swift; path = SSSugarExtensionContainersTests/SSSugarExtensionContainersArrayBinarySearchTests.swift; sourceTree = SOURCE_ROOT; };
 		99FA1D60226392A900AD2FB5 /* SSSugarExtensionContainersArrayForEachTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarExtensionContainersArrayForEachTests.swift; sourceTree = "<group>"; };
 		99FA1FE52249544B00C534E3 /* SSSugarExtensionRangeMiddleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarExtensionRangeMiddleTests.swift; sourceTree = "<group>"; };
@@ -425,6 +427,7 @@
 		99D29671223D37A2003FD9F0 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				99F6A185228981BF00183436 /* Containers */,
 				99D2964B223D3107003FD9F0 /* ViewControllers */,
 				99D29651223D3681003FD9F0 /* Views */,
 			);
@@ -461,6 +464,14 @@
 				99E85E2A2240F5AC005E2B13 /* SSCollectionViewMarkableController.swift */,
 			);
 			path = "Collections Custom Select";
+			sourceTree = "<group>";
+		};
+		99F6A185228981BF00183436 /* Containers */ = {
+			isa = PBXGroup;
+			children = (
+				99F6A186228981CE00183436 /* AutoMap.swift */,
+			);
+			path = Containers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -746,6 +757,7 @@
 				99D2966F223D3763003FD9F0 /* UIView.swift in Sources */,
 				99E85E3122411583005E2B13 /* UITableVIew.swift in Sources */,
 				99E85E2B2240F5AC005E2B13 /* SSCollectionViewMarkableController.swift in Sources */,
+				99F6A187228981CE00183436 /* AutoMap.swift in Sources */,
 				99EABD80224025CC0037645B /* CGSize.swift in Sources */,
 				99D2966E223D3763003FD9F0 /* CGRect.swift in Sources */,
 			);
