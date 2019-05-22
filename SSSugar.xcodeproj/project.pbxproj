@@ -60,6 +60,9 @@
 		99EABD7E22401EF60037645B /* SSSelectionMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EABD7D22401EF60037645B /* SSSelectionMarkView.swift */; };
 		99EABD80224025CC0037645B /* CGSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EABD7F224025CC0037645B /* CGSize.swift */; };
 		99F6A187228981CE00183436 /* AutoMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F6A186228981CE00183436 /* AutoMap.swift */; };
+		99F6A1932295AF5C00183436 /* SSSugarContainersAutoMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F6A1922295AF5C00183436 /* SSSugarContainersAutoMapTests.swift */; };
+		99F6A1952295AF5C00183436 /* SSSugar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99D2963E223D3057003FD9F0 /* SSSugar.framework */; };
+		99F6A19C2295B11800183436 /* SSSugarContainersAutoMapAddTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F6A19B2295B11800183436 /* SSSugarContainersAutoMapAddTests.swift */; };
 		99FA1D5D225A22FF00AD2FB5 /* SSSugarExtensionContainersArrayBinarySearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1D5C225A22FF00AD2FB5 /* SSSugarExtensionContainersArrayBinarySearchTests.swift */; };
 		99FA1D61226392A900AD2FB5 /* SSSugarExtensionContainersArrayForEachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1D60226392A900AD2FB5 /* SSSugarExtensionContainersArrayForEachTests.swift */; };
 		99FA1FE82249549D00C534E3 /* SSSugarExtensionColorInitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1FE72249549D00C534E3 /* SSSugarExtensionColorInitTests.swift */; };
@@ -94,6 +97,13 @@
 			remoteInfo = SSSugar;
 		};
 		99B1A79B224678B400D96BEE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 99D29635223D3057003FD9F0 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 99D2963D223D3057003FD9F0;
+			remoteInfo = SSSugar;
+		};
+		99F6A1962295AF5C00183436 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 99D29635223D3057003FD9F0 /* Project object */;
 			proxyType = 1;
@@ -162,6 +172,10 @@
 		99EABD7D22401EF60037645B /* SSSelectionMarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSelectionMarkView.swift; sourceTree = "<group>"; };
 		99EABD7F224025CC0037645B /* CGSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSize.swift; sourceTree = "<group>"; };
 		99F6A186228981CE00183436 /* AutoMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMap.swift; sourceTree = "<group>"; };
+		99F6A1902295AF5C00183436 /* SSSugarContainersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SSSugarContainersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		99F6A1922295AF5C00183436 /* SSSugarContainersAutoMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarContainersAutoMapTests.swift; sourceTree = "<group>"; };
+		99F6A1942295AF5C00183436 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		99F6A19B2295B11800183436 /* SSSugarContainersAutoMapAddTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarContainersAutoMapAddTests.swift; sourceTree = "<group>"; };
 		99FA1D5C225A22FF00AD2FB5 /* SSSugarExtensionContainersArrayBinarySearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SSSugarExtensionContainersArrayBinarySearchTests.swift; path = SSSugarExtensionContainersTests/SSSugarExtensionContainersArrayBinarySearchTests.swift; sourceTree = SOURCE_ROOT; };
 		99FA1D60226392A900AD2FB5 /* SSSugarExtensionContainersArrayForEachTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarExtensionContainersArrayForEachTests.swift; sourceTree = "<group>"; };
 		99FA1FE52249544B00C534E3 /* SSSugarExtensionRangeMiddleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarExtensionRangeMiddleTests.swift; sourceTree = "<group>"; };
@@ -210,6 +224,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		99F6A18D2295AF5C00183436 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				99F6A1952295AF5C00183436 /* SSSugar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,6 +371,7 @@
 				99B1A796224678B400D96BEE /* SSSugarPlaygroundTests */,
 				997E314822493587006A5B7C /* SSSugarExtensionsTypesTests */,
 				997B344D225A134B00F2A3A0 /* SSSugarExtensionContainersTests */,
+				99F6A1912295AF5C00183436 /* SSSugarContainersTests */,
 				99D2963F223D3057003FD9F0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -361,6 +384,7 @@
 				99B1A795224678B400D96BEE /* SSSugarPlaygroundTests.xctest */,
 				997E314722493587006A5B7C /* SSSugarExtensionsTypesTests.xctest */,
 				997B344C225A134B00F2A3A0 /* SSSugarExtensionContainersTests.xctest */,
+				99F6A1902295AF5C00183436 /* SSSugarContainersTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -474,6 +498,16 @@
 			path = Containers;
 			sourceTree = "<group>";
 		};
+		99F6A1912295AF5C00183436 /* SSSugarContainersTests */ = {
+			isa = PBXGroup;
+			children = (
+				99F6A19B2295B11800183436 /* SSSugarContainersAutoMapAddTests.swift */,
+				99F6A1922295AF5C00183436 /* SSSugarContainersAutoMapTests.swift */,
+				99F6A1942295AF5C00183436 /* Info.plist */,
+			);
+			path = SSSugarContainersTests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -578,13 +612,31 @@
 			productReference = 99D2963E223D3057003FD9F0 /* SSSugar.framework */;
 			productType = "com.apple.product-type.framework";
 		};
+		99F6A18F2295AF5C00183436 /* SSSugarContainersTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 99F6A19A2295AF5C00183436 /* Build configuration list for PBXNativeTarget "SSSugarContainersTests" */;
+			buildPhases = (
+				99F6A18C2295AF5C00183436 /* Sources */,
+				99F6A18D2295AF5C00183436 /* Frameworks */,
+				99F6A18E2295AF5C00183436 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				99F6A1972295AF5C00183436 /* PBXTargetDependency */,
+			);
+			name = SSSugarContainersTests;
+			productName = SSSugarContainersTests;
+			productReference = 99F6A1902295AF5C00183436 /* SSSugarContainersTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		99D29635223D3057003FD9F0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1010;
+				LastSwiftUpdateCheck = 1020;
 				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = "Stanislav Dmitriyev";
 				TargetAttributes = {
@@ -608,6 +660,9 @@
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1020;
 					};
+					99F6A18F2295AF5C00183436 = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
 				};
 			};
 			buildConfigurationList = 99D29638223D3057003FD9F0 /* Build configuration list for PBXProject "SSSugar" */;
@@ -628,6 +683,7 @@
 				99B1A794224678B400D96BEE /* SSSugarPlaygroundTests */,
 				997E314622493587006A5B7C /* SSSugarExtensionsTypesTests */,
 				997B344B225A134B00F2A3A0 /* SSSugarExtensionContainersTests */,
+				99F6A18F2295AF5C00183436 /* SSSugarContainersTests */,
 			);
 		};
 /* End PBXProject section */
@@ -662,6 +718,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		99D2963C223D3057003FD9F0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		99F6A18E2295AF5C00183436 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -763,6 +826,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		99F6A18C2295AF5C00183436 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				99F6A19C2295B11800183436 /* SSSugarContainersAutoMapAddTests.swift in Sources */,
+				99F6A1932295AF5C00183436 /* SSSugarContainersAutoMapTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -785,6 +857,11 @@
 			isa = PBXTargetDependency;
 			target = 99D2963D223D3057003FD9F0 /* SSSugar */;
 			targetProxy = 99B1A79B224678B400D96BEE /* PBXContainerItemProxy */;
+		};
+		99F6A1972295AF5C00183436 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 99D2963D223D3057003FD9F0 /* SSSugar */;
+			targetProxy = 99F6A1962295AF5C00183436 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -1118,6 +1195,44 @@
 			};
 			name = Release;
 		};
+		99F6A1982295AF5C00183436 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3W67N7QUBL;
+				INFOPLIST_FILE = SSSugarContainersTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.byteslight.SSSugarContainersTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		99F6A1992295AF5C00183436 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 3W67N7QUBL;
+				INFOPLIST_FILE = SSSugarContainersTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.byteslight.SSSugarContainersTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1171,6 +1286,15 @@
 			buildConfigurations = (
 				99D29647223D3057003FD9F0 /* Debug */,
 				99D29648223D3057003FD9F0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		99F6A19A2295AF5C00183436 /* Build configuration list for PBXNativeTarget "SSSugarContainersTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				99F6A1982295AF5C00183436 /* Debug */,
+				99F6A1992295AF5C00183436 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

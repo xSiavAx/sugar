@@ -8,10 +8,13 @@ public protocol ReplaceableCollection : Collection where Element : Equatable {
 
 public struct AutoMap<Key : Hashable, Container : ReplaceableCollection> {
     public typealias Value = Container.Element
+    public typealias Keys = Dictionary<Key, Container>.Keys
     private (set) var count = 0
     private var map = [Key : Container]()
     
-    mutating func add(key: Key, _ element: Value) -> Bool {
+    public var keys : Keys { return map.keys }
+    
+   @discardableResult mutating func add(_ element: Value, for key: Key) -> Bool {
         if map[key] == nil {
             map[key] = Container()
         }
@@ -29,18 +32,18 @@ public struct AutoMap<Key : Hashable, Container : ReplaceableCollection> {
         set {
             if let container = newValue {
                 do {
-                    try replace(key: key, container: container)
+                    try replace(container, for: key)
                 } catch {
                     fatalError(error.localizedDescription)
                 }
             } else {
-                remove(key: key)
+                remove(for: key)
             }
 
         }
     }
     
-    @discardableResult mutating func remove(key: Key, element: Value) -> Bool {
+    @discardableResult mutating func remove(_ element: Value, for key: Key) -> Bool {
         if (map[key]?.remove(e:element) ?? false) {
             if (map[key]?.count == 0) {
                 map.removeValue(forKey: key)
@@ -51,7 +54,7 @@ public struct AutoMap<Key : Hashable, Container : ReplaceableCollection> {
         return false
     }
     
-    @discardableResult mutating func remove(key: Key) -> Container? {
+    @discardableResult mutating func remove(for key: Key) -> Container? {
         if let container = map.removeValue(forKey: key) {
             count -= container.count
             return container
@@ -67,11 +70,11 @@ public struct AutoMap<Key : Hashable, Container : ReplaceableCollection> {
         return Array(containers)
     }
     
-    @discardableResult mutating func replace(key: Key, container: Container) throws -> Container? {
+    @discardableResult mutating func replace(_ container: Container, for key: Key) throws -> Container? {
         guard container.count > 0 else {
             throw AutoMapError.invalidContainer
         }
-        let oldContainer = remove(key: key)
+        let oldContainer = remove(for: key)
         
         map[key] = container
         count += container.count
@@ -128,14 +131,14 @@ extension AutoMap where Container : RangeReplaceableCollection & MutableCollecti
         }
         set {
             if let mValue = newValue {
-                update(key: key, at: index, element: mValue)
+                update(mValue, for: key, at: index)
             } else {
-                remove(key: key, at: index)
+                remove(for: key, at: index)
             }
         }
     }
     
-    mutating func insert(key: Key, at index: Container.Index, element: Value) {
+    mutating func insert(_ element: Value, for key: Key, at index: Container.Index) {
         if map[key] == nil {
             map[key] = Container()
         }
@@ -143,7 +146,7 @@ extension AutoMap where Container : RangeReplaceableCollection & MutableCollecti
         count += 1;
     }
     
-    mutating func update(key: Key, at index: Container.Index, element: Value) {
+    mutating func update(_ element: Value, for key: Key, at index: Container.Index) {
         if map[key] == nil {
             map[key] = Container()
         }
@@ -151,8 +154,8 @@ extension AutoMap where Container : RangeReplaceableCollection & MutableCollecti
         count += 1;
     }
     
-    private mutating func remove(key: Key, at: Container.Index) {
-        map[key]?.remove(at: at)
+    private mutating func remove(for key: Key, at index: Container.Index) {
+        map[key]?.remove(at: index)
         count -= 1
         if (map[key]?.count == 0) {
             map.removeValue(forKey: key)

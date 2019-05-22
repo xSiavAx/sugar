@@ -8,6 +8,7 @@ FOUNDATION_EXPORT const unsigned char SSSugarVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <SSSugar/PublicHeader.h>
 
+//TODO: Write AutoMap containers tests
 //TODO: Write UIViewController extensions tests
 //TODO: Write Comparable extension's docs
 //TODO: Write Comparable extension's tests
