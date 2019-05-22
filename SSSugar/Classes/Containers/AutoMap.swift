@@ -69,7 +69,7 @@ public struct AutoMap<Key : Hashable, Container : ReplaceableCollection> {
     
     @discardableResult mutating func replace(key: Key, container: Container) throws -> Container? {
         guard container.count > 0 else {
-            throw AutoMapError.invalidUsage
+            throw AutoMapError.invalidContainer
         }
         let oldContainer = remove(key: key)
         
@@ -165,9 +165,8 @@ extension AutoMap : CustomStringConvertible {
 }
 
 extension AutoMap {
-    //TODO: Add cases
     enum AutoMapError: Error {
-        case invalidUsage
+        case invalidContainer
     }
 }
 
