@@ -10,75 +10,99 @@ public struct AutoMap<Key : Hashable, Container : ReplaceableCollection> {
     public typealias Value = Container.Element
     public typealias Keys = Dictionary<Key, Container>.Keys
     private (set) var count = 0
-    private var map = [Key : Container]()
+    private (set) var containers : [Key : Container]
     
-    public var keys : Keys { return map.keys }
+    public var keys : Keys { return containers.keys }
     
-   @discardableResult mutating func add(_ element: Value, for key: Key) -> Bool {
-        if map[key] == nil {
-            map[key] = Container()
+    init(map mMap : [Key : Container]) {
+        count   = mMap.reduce(0) { $0 + $1.value.count }
+        containers     = mMap.filter { return $1.count > 0 }
+    }
+    
+    init() {
+        self.init(map:[Key : Container]())
+    }
+    
+    subscript(key: Key) -> Container? {
+        get {
+            return containers[key]
         }
-        if (map[key]!.insert(e:element)) {
+        set {
+            if let container = newValue {
+                replace(container, for: key)
+            } else {
+                remove(for: key)
+            }
+            
+        }
+    }
+    
+    @discardableResult mutating func add(container: Container, for key: Key) -> Bool {
+        guard container.count != 0 && containers[key] == nil else {
+            return false
+        }
+        addContainer(container, key: key)
+        return true
+    }
+    
+    @discardableResult mutating func add(_ element: Value, for key: Key) -> Bool {
+        createContainerIfNeeded(for: key)
+        if (containers[key]!.insert(e:element)) {
             count += 1
             return true
         }
         return false
     }
     
-    subscript(key: Key) -> Container? {
-        get {
-            return map[key]
+    @discardableResult mutating func replace(_ container: Container, for key: Key) -> Container? {
+        guard container.count > 0 else {
+            fatalError("Invalid argument. Container shouldn't be empty.")
         }
-        set {
-            if let container = newValue {
-                do {
-                    try replace(container, for: key)
-                } catch {
-                    fatalError(error.localizedDescription)
-                }
-            } else {
-                remove(for: key)
-            }
-
-        }
+        let oldContainer = remove(for: key)
+        
+        addContainer(container, key: key)
+        return oldContainer
     }
     
-    @discardableResult mutating func remove(_ element: Value, for key: Key) -> Bool {
-        if (map[key]?.remove(e:element) ?? false) {
-            if (map[key]?.count == 0) {
-                map.removeValue(forKey: key)
-            }
-            count -= 1
-            return true
-        }
-        return false
-    }
     
     @discardableResult mutating func remove(for key: Key) -> Container? {
-        if let container = map.removeValue(forKey: key) {
+        if let container = containers.removeValue(forKey: key) {
             count -= container.count
             return container
         }
         return nil
     }
     
-    @discardableResult mutating func removeAll() -> [Container] {
-        let containers = map.values
-        
-        map.removeAll()
-        count = 0
-        return Array(containers)
+    @discardableResult mutating func remove(_ element: Value, for key: Key) -> Bool {
+        if (containers[key]?.remove(e:element) ?? false) {
+            if (containers[key]?.count == 0) {
+                containers.removeValue(forKey: key)
+            }
+            count -= 1
+            return true
+        }
+        return false
+    }
+
+    
+    @discardableResult mutating func removeAll() -> Bool {
+        if count > 0 {
+            containers.removeAll()
+            count = 0
+            return true
+        }
+        return false
     }
     
-    @discardableResult mutating func replace(_ container: Container, for key: Key) throws -> Container? {
-        guard container.count > 0 else {
-            throw AutoMapError.invalidContainer
-        }
-        let oldContainer = remove(for: key)
-        
-        map[key] = container
+    private mutating func addContainer(_ container : Container, key : Key) {
+        containers[key] = container
         count += container.count
-        return oldContainer
+    }
+    
+    private mutating func createContainerIfNeeded(for key: Key) {
+        if containers[key] == nil {
+            containers[key] = Container()
+        }
     }
 }
 
@@ -86,7 +110,7 @@ extension AutoMap : Sequence {
     public typealias Element = (Key, Container, Value)
     
     public __consuming func makeIterator() -> AutoMap<Key, Container>.Iterator {
-        return Iterator.init(map: map)
+        return Iterator.init(map: containers)
     }
     
     public class Iterator : IteratorProtocol {
@@ -127,7 +151,7 @@ extension AutoMap where Container : RangeReplaceableCollection & MutableCollecti
     
     subscript(key: Key, index: Index) -> Value? {
         get {
-            return map[key]?[index]
+            return containers[key]?[index]
         }
         set {
             if let mValue = newValue {
@@ -139,38 +163,56 @@ extension AutoMap where Container : RangeReplaceableCollection & MutableCollecti
     }
     
     mutating func insert(_ element: Value, for key: Key, at index: Container.Index) {
-        if map[key] == nil {
-            map[key] = Container()
-        }
-        map[key]!.insert(element, at: index)
+        createContainerIfNeeded(for: key)
+        containers[key]!.insert(element, at: index)
         count += 1;
     }
     
-    mutating func update(_ element: Value, for key: Key, at index: Container.Index) {
-        if map[key] == nil {
-            map[key] = Container()
+    @discardableResult mutating func update(_ element: Value, for key: Key, at index: Container.Index) -> Value? {
+        if let old = containers[key]?[index] {
+            containers[key]![index] = element
+            return old
         }
-        map[key]![index] = element
-        count += 1;
+        createContainerIfNeeded(for: key)
+        count += 1
+        containers[key]![index] = element
+        return nil
     }
     
-    private mutating func remove(for key: Key, at index: Container.Index) {
-        map[key]?.remove(at: index)
-        count -= 1
-        if (map[key]?.count == 0) {
-            map.removeValue(forKey: key)
+    @discardableResult private mutating func remove(for key: Key, at index: Container.Index) -> Value? {
+        if let old = containers[key]?.remove(at: index) {
+            count -= 1
+            if (containers[key]?.count == 0) {
+                containers.removeValue(forKey: key)
+            }
+            return old
         }
+        return nil
+    }
+    
+    @discardableResult private mutating func remove(forKeyAndIndexes keysAndIndexes: AutoMap<Key, [Index]>) -> AutoMap<Key, [Value]> {
+        var result = AutoMap<Key, [Value]>()
+
+        for (key, indexes) in keysAndIndexes.containers {
+            if containers[key] != nil {
+                var values = [Value]()
+                
+                for index in indexes.reversed() {
+                    values.append(containers[key]!.remove(at: index))
+                }
+                result.add(container: values.reversed(), for: key)
+                if containers[key]!.count == 0 {
+                    containers.removeValue(forKey: key)
+                }
+            }
+        }
+        count -= result.count
+        return result
     }
 }
 
 extension AutoMap : CustomStringConvertible {
-    public var description: String { return "\(map)" }
-}
-
-extension AutoMap {
-    enum AutoMapError: Error {
-        case invalidContainer
-    }
+    public var description: String { return "\(containers)" }
 }
 
 extension Array : ReplaceableCollection where Element : Equatable {
@@ -186,6 +228,16 @@ extension Array : ReplaceableCollection where Element : Equatable {
 }
 
 extension Set : ReplaceableCollection {
+    public mutating func insert(e: Element) -> Bool {
+        return insert(e).inserted
+    }
+    
+    public mutating func remove(e: Element) -> Bool {
+        return remove(e) != nil
+    }
+}
+
+extension IndexSet : ReplaceableCollection {
     public mutating func insert(e: Element) -> Bool {
         return insert(e).inserted
     }
