@@ -15,8 +15,8 @@ public struct AutoMap<Key : Hashable, Container : ReplaceableCollection> {
     public var keys : Keys { return containers.keys }
     
     init(map mMap : [Key : Container]) {
-        count   = mMap.reduce(0) { $0 + $1.value.count }
-        containers     = mMap.filter { return $1.count > 0 }
+        count       = mMap.reduce(0) { $0 + $1.value.count }
+        containers  = mMap.filter { return $1.count > 0 }
     }
     
     init() {
@@ -208,6 +208,20 @@ extension AutoMap where Container : RangeReplaceableCollection & MutableCollecti
         }
         count -= result.count
         return result
+    }
+}
+
+extension AutoMap : Equatable where Container : Equatable {
+    public static func == (lhs: AutoMap<Key, Container>, rhs: AutoMap<Key, Container>) -> Bool {
+        if lhs.count != rhs.count {
+            return false
+        }
+        for key in lhs.keys {
+            if (lhs[key] != rhs[key]) {
+                return false
+            }
+        }
+        return true
     }
 }
 

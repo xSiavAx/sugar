@@ -3,7 +3,8 @@ import XCTest
 @testable import SSSugar
 
 class SSSugarContainersAutoMapTests: XCTestCase {
-    public var automap : AutoMap<String, Set<Int>>!
+    public var automapSet : AutoMap<String, Set<Int>>!
+    public var automapArr : AutoMap<String, [Int]>!
     
 //    Тесты с сетом
 //
@@ -28,16 +29,13 @@ class SSSugarContainersAutoMapTests: XCTestCase {
 //    Множественное удаление. С ключами и ндексами. С ключами которые частично есть. С ключами которых нет вовсе. С индексами которых нет.
 //    subscript. get. По ключу и индексу. По ключу которого нет. По индексу которого нет. По ключу и индексу которых нет.
 //    subscript. set. По ключу и индексу. По ключу которого нет. По индексу которого нет. По ключу и индексу которых нет.
-    
-    override func setUp() {
-         automap = AutoMap<String, Set<Int>>()
-    }
 
     override func tearDown() {
-        automap = nil
+        automapSet = nil
+        automapArr = nil
     }
     
-    func checkWith(dict : [String : Set<Int>]) {
+    func checkWith<Container : ReplaceableCollection & Equatable>(_ automap : AutoMap<String, Container>, _ dict : [String : Container]) {
         XCTAssertEqual(automap.keys, dict.keys)
         
         for key in automap.keys {
