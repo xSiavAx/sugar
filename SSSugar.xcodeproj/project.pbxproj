@@ -51,6 +51,10 @@
 		99D2966F223D3763003FD9F0 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D29666223D3763003FD9F0 /* UIView.swift */; };
 		99D29670223D3763003FD9F0 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D29667223D3763003FD9F0 /* UIButton.swift */; };
 		99DB1A77229D83C7005C4823 /* SSSugarContainersAutoMapInitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DB1A74229D8384005C4823 /* SSSugarContainersAutoMapInitTests.swift */; };
+		99DB1A79229ED6BB005C4823 /* SSSugarContainersAutoMapContainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DB1A78229ED6BB005C4823 /* SSSugarContainersAutoMapContainTests.swift */; };
+		99DB1A7B229ED9FC005C4823 /* SSSugarContainersAutoMapSubsriptTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DB1A7A229ED9FC005C4823 /* SSSugarContainersAutoMapSubsriptTests.swift */; };
+		99DB1A7D229EE2F7005C4823 /* SSSugarContainersAutoMapTestsWithSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DB1A7C229EE2F7005C4823 /* SSSugarContainersAutoMapTestsWithSetup.swift */; };
+		99DB1A7F229EE36D005C4823 /* SSSugarContainersAutoMapAddContainerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DB1A7E229EE36D005C4823 /* SSSugarContainersAutoMapAddContainerTests.swift */; };
 		99E85E292240F3A0005E2B13 /* SSCollectionViewMarkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E85E282240F3A0005E2B13 /* SSCollectionViewMarkable.swift */; };
 		99E85E2B2240F5AC005E2B13 /* SSCollectionViewMarkableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E85E2A2240F5AC005E2B13 /* SSCollectionViewMarkableController.swift */; };
 		99E85E2D224103C6005E2B13 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E85E2C224103C6005E2B13 /* Array.swift */; };
@@ -164,6 +168,10 @@
 		99D29666223D3763003FD9F0 /* UIView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
 		99D29667223D3763003FD9F0 /* UIButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
 		99DB1A74229D8384005C4823 /* SSSugarContainersAutoMapInitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarContainersAutoMapInitTests.swift; sourceTree = "<group>"; };
+		99DB1A78229ED6BB005C4823 /* SSSugarContainersAutoMapContainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarContainersAutoMapContainTests.swift; sourceTree = "<group>"; };
+		99DB1A7A229ED9FC005C4823 /* SSSugarContainersAutoMapSubsriptTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarContainersAutoMapSubsriptTests.swift; sourceTree = "<group>"; };
+		99DB1A7C229EE2F7005C4823 /* SSSugarContainersAutoMapTestsWithSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarContainersAutoMapTestsWithSetup.swift; sourceTree = "<group>"; };
+		99DB1A7E229EE36D005C4823 /* SSSugarContainersAutoMapAddContainerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarContainersAutoMapAddContainerTests.swift; sourceTree = "<group>"; };
 		99E85E282240F3A0005E2B13 /* SSCollectionViewMarkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkable.swift; sourceTree = "<group>"; };
 		99E85E2A2240F5AC005E2B13 /* SSCollectionViewMarkableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableController.swift; sourceTree = "<group>"; };
 		99E85E2C224103C6005E2B13 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
@@ -504,6 +512,10 @@
 		99F6A1912295AF5C00183436 /* SSSugarContainersTests */ = {
 			isa = PBXGroup;
 			children = (
+				99DB1A7E229EE36D005C4823 /* SSSugarContainersAutoMapAddContainerTests.swift */,
+				99DB1A7C229EE2F7005C4823 /* SSSugarContainersAutoMapTestsWithSetup.swift */,
+				99DB1A7A229ED9FC005C4823 /* SSSugarContainersAutoMapSubsriptTests.swift */,
+				99DB1A78229ED6BB005C4823 /* SSSugarContainersAutoMapContainTests.swift */,
 				99F6A19B2295B11800183436 /* SSSugarContainersAutoMapAddTests.swift */,
 				99F6A1922295AF5C00183436 /* SSSugarContainersAutoMapTests.swift */,
 				99F6A1942295AF5C00183436 /* Info.plist */,
@@ -834,7 +846,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				99F6A19C2295B11800183436 /* SSSugarContainersAutoMapAddTests.swift in Sources */,
+				99DB1A7B229ED9FC005C4823 /* SSSugarContainersAutoMapSubsriptTests.swift in Sources */,
+				99DB1A79229ED6BB005C4823 /* SSSugarContainersAutoMapContainTests.swift in Sources */,
+				99DB1A7F229EE36D005C4823 /* SSSugarContainersAutoMapAddContainerTests.swift in Sources */,
 				99F6A1932295AF5C00183436 /* SSSugarContainersAutoMapTests.swift in Sources */,
+				99DB1A7D229EE2F7005C4823 /* SSSugarContainersAutoMapTestsWithSetup.swift in Sources */,
 				99DB1A77229D83C7005C4823 /* SSSugarContainersAutoMapInitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

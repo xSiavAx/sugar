@@ -33,8 +33,11 @@ public struct AutoMap<Key : Hashable, Container : ReplaceableCollection> {
             } else {
                 remove(for: key)
             }
-            
         }
+    }
+    
+    func contains(_ value : Value, for key : Key) -> Bool {
+        return containers[key]?.contains(value) ?? false
     }
     
     @discardableResult mutating func add(container: Container, for key: Key) -> Bool {

@@ -5,10 +5,8 @@ import Foundation
 
 class SSSugarPlaygroundTests: XCTestCase {
     func testMain() {
-
     }
     
     func testSecond() {
-
     }
 }

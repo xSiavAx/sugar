@@ -4,6 +4,7 @@ public extension Array {
     init(size: Int, buildBlock:(Int)->(Element)) {
         #warning("Swift 5.1")
         //FIXME: Replace by new swift 5.1 array constructor
+        
         self.init((0..<size).map(buildBlock))
     }
     
