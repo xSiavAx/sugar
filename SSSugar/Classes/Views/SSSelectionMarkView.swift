@@ -24,7 +24,7 @@ open class SSSelectionMarkView: UIView {
     //MARK: - lifecycle
     open override func sizeThatFits(_ size: CGSize) -> CGSize {
         let (markedSize, emptySize) = self.imageViewSizesThatFits(size)
-        return markedSize.union(with: emptySize)
+        return markedSize.united(with: emptySize)
     }
     
     open override func layoutSubviews() {

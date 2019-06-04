@@ -2,6 +2,7 @@ import UIKit
 
 /// Class that incapsulate cell marking logic. It creates mark view, add it to cell subviews. Can animate mark view.
 /// Create it just inside Cell init and pass cell and it's contentview as arguments
+/// - Warning: Dont forget call `onLayoutSubviews()`
 
 public class SSMarkbaleCollectionCellHelper {
     //MARK: - constants

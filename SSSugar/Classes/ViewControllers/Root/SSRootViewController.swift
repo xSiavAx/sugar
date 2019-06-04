@@ -8,14 +8,13 @@ open class SSRootViewController: UIViewController {
         return contentController
     }
     
-    init(withContentController contentController: UIViewController) {
-        self.contentController = contentController
+    public init(withContentController mContentController: UIViewController) {
+        contentController = mContentController
         super.init(nibName: nil, bundle: nil)
     }
     
-    //MARK: public
-    
-    func replaceContentController(by newController: UIViewController, animated : Bool = false) {
+    //MARK: - public
+    public func replaceContentController(by newController: UIViewController, animated : Bool = false) {
         let oldController = contentController!
         
         contentController = newController
@@ -27,15 +26,14 @@ open class SSRootViewController: UIViewController {
         newController.didMove(toParent: self)
     }
     
-    //MARK: Controller Life Cycle
-
+    //MARK: - Controller Life Cycle
     open override func loadView() {
         addChild(self.contentController)
         view = SSRootView(withContentView: contentController.view)
         contentController.didMove(toParent: self)
     }
     
-    //MARK: private
+    //MARK: - private
     
     public required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

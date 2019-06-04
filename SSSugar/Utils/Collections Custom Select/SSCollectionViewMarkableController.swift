@@ -9,7 +9,6 @@ import UIKit
 /// - Important:
 /// Store selected indexes or entites in some model, cuz controller don't allow getting positions for selected rows (like standart tableview do).
 ///
-
 public class SSCollectionViewMarkableController {
     //MARK: - private properties
     
@@ -167,6 +166,7 @@ public class SSCollectionViewMarkableController {
 
 //MARK: - 
 
+/// Methods for managing activation in `SSCollectionViewMarkableController`
 public protocol SSCollectionViewMarkableControllerDelegate: AnyObject {
     func markControllerDidActivate(_ controller: SSCollectionViewMarkableController)
     func markControllerDidDeactivate(_ controller: SSCollectionViewMarkableController)

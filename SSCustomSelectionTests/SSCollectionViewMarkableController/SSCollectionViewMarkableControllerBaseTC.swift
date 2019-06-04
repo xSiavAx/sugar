@@ -23,7 +23,7 @@ class SSCollectionViewMarkableControllerBaseTC: XCTestCase {
 
 class SSMarkableCollectionViewStub: UIView, SSCollectionViewMarkable {
     static let cellsCount = 5
-    var cells = [SSCollectionViewMarkableCellStub].array(size: cellsCount) { _ in SSCollectionViewMarkableCellStub() }
+    var cells = [SSCollectionViewMarkableCellStub](size: cellsCount) { _ in SSCollectionViewMarkableCellStub() }
     var viewPortRows = cellsCount - 2;
     var viewPortOffset = 0;
     var viewPortRange: Range<Int> { get { return viewPortOffset..<viewPortOffset + viewPortRows } }
