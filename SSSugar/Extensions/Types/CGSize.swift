@@ -13,6 +13,13 @@ public extension CGSize {
         return CGSize(width:max(width, size.width), height:max(height, size.height))
     }
     
+    func added(to size: CGSize, vetically : Bool = true) -> CGSize {
+        if (vetically) {
+            return CGSize(width:max(width, size.width), height:height + size.height)
+        }
+        return CGSize(width:width + size.width, height:max(height, size.height))
+    }
+    
     /// Returns size that are intersection of subject size and passed one.
     ///
     /// ```
