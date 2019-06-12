@@ -13,6 +13,14 @@ public extension CGSize {
         return CGSize(width:max(width, size.width), height:max(height, size.height))
     }
     
+    func extended(by size: CGSize) -> CGSize {
+        return CGSize(width: size.width, height: size.height)
+    }
+    
+    func extended(dx: CGFloat, dy: CGFloat) -> CGSize {
+        return CGSize(width: width + dx, height: height + dy)
+    }
+    
     func added(to size: CGSize, vetically : Bool = true) -> CGSize {
         if (vetically) {
             return CGSize(width:max(width, size.width), height:height + size.height)
