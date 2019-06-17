@@ -37,7 +37,10 @@ open class SSProgressView : UIView {
     
     //MARK: - override
     open override func sizeThatFits(_ size: CGSize) -> CGSize {
-        return label.sizeThatFits(size).extended(dx: paddings, dy: paddings)
+        if (labelDidInit) {
+            return label.sizeThatFits(size).extended(dx: paddings, dy: paddings)
+        }
+        return CGSize(width: paddings, height: paddings)
     }
     
     open override func layoutSubviews() {
