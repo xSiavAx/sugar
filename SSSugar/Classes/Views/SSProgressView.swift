@@ -36,11 +36,6 @@ open class SSProgressView : UIView {
     }
     
     //MARK: - override
-    open override func tintColorDidChange() {
-        super.tintColorDidChange()
-        progressColor = tintColor
-    }
-    
     open override func sizeThatFits(_ size: CGSize) -> CGSize {
         return label.sizeThatFits(size).extended(dx: paddings, dy: paddings)
     }
