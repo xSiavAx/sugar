@@ -1,19 +1,22 @@
 import UIKit
 
 open class SSProgressView : UIView {
-    public let progressLayer = CALayer()
     public var progressColor : UIColor = UIColor.orange { didSet { updateProgressLayerColor() } }
     public var progressOpacity : Float { get { return progressLayer.opacity } set { progressLayer.opacity = newValue } }
     public var cornerRadius : CGFloat { get { return layer.cornerRadius } set { setCornerRadius(newValue) } }
     public var paddings : CGFloat = 8.0
     public lazy var label = createLabel()
+    private (set) var labelDidInit = false
     open override var frame: CGRect { didSet { updateProgressLayer() } }
+    private let progressLayer = CALayer()
+    private let progressBoundsLayer = CALayer()
     private var progress : CGFloat = 0.0 { didSet { validateProgress() } }
     
     public init() {
         super.init(frame: .zero)
         backgroundColor = .gray
-        layer.addSublayer(progressLayer)
+        layer.addSublayer(progressBoundsLayer)
+        progressBoundsLayer.addSublayer(progressLayer)
     }
     
     //MARK: - public
@@ -44,15 +47,21 @@ open class SSProgressView : UIView {
     
     open override func layoutSubviews() {
         super.layoutSubviews()
-        let size = label.sizeThatFits(bounds.size)
         
-        label.frame = bounds.inset(toSize: size)
+        updateProgressLayer()
+        progressBoundsLayer.frame = bounds
+        if (labelDidInit) {
+            label.frame = bounds
+        }
     }
     
     //MARK: - private
     
     private func createLabel() -> UILabel {
         let label = UILabel()
+        
+        label.textAlignment = .center
+        labelDidInit = true
         
         addSubview(label)
         return label
@@ -66,7 +75,7 @@ open class SSProgressView : UIView {
     
     private func updateProgressLayer() {
         let cutAmount = (1.0 - progress) * bounds.size.width
-        progressLayer.frame = bounds.cuted(amount: cutAmount, side: .maxXEdge)
+        progressLayer.frame = progressBoundsLayer.bounds.cuted(amount: cutAmount, side: .maxXEdge)
     }
     
     private func updateProgressLayerColor() {
