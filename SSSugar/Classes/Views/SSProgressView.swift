@@ -14,7 +14,7 @@ open class SSProgressView : UIView {
     
     public init() {
         super.init(frame: .zero)
-        backgroundColor = UIColor(red: 0.95, green: 0.95, blue: 0.95)
+        backgroundColor = UIColor(white: 0.95, alpha: 1.0)
         layer.addSublayer(progressBoundsLayer)
         progressBoundsLayer.addSublayer(progressLayer)
     }
