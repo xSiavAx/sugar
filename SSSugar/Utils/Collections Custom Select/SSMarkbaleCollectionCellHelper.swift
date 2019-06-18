@@ -57,6 +57,8 @@ public class SSMarkbaleCollectionCellHelper {
     /// Layout content and mark subviews
     /// Call it in Cell's layoutSubviews just after super.layoutSubviews and before other realisation
     /// - Important: Don't use it elsewere cuz method rely on content view has it's original frame
+    /// - Warning: May cause performance issues (for ex. on insert 100 cells). Cuz cell's contentView frame will change twice (on cell super.layoutSibiews and inside this method). To avoid this problem override contentView getter and return fakeContentView when super.layoutSubviews. Then using fakeContentView frame apply this method. And based on final frame set cell's contentView frame only once.
+    ///
     public func onLayoutSubviews() {
         originalContentFrame = contentView.frame;
         updateContentAndMarkFrames()
