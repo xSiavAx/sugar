@@ -20,7 +20,6 @@ open class SSProgressView : UIView {
     }
     
     //MARK: - public
-    
     open func setProgress(_ mProgress : CGFloat, animated: Bool = false, duration: TimeInterval = 0.25) {
         progress = mProgress
 
@@ -46,8 +45,8 @@ open class SSProgressView : UIView {
     open override func layoutSubviews() {
         super.layoutSubviews()
         
-        updateProgressLayer()
         progressBoundsLayer.frame = bounds
+        updateProgressLayer()
         if (labelDidInit) {
             label.frame = bounds
         }
