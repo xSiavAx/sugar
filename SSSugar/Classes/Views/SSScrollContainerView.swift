@@ -58,7 +58,7 @@ open class SSScrollContainerView: UIView, SSViewBlockable {
     
     //MARK: - SSViewBlockable
     func placeContentView() {
-        var newContentSize = contentView.sizeThatFits(bounds.size);
+        var newContentSize = contentView.sizeThatFits(safeFrame.size);
         
         newContentSize.height = max(newContentSize.height, safeFrame.height)
         
