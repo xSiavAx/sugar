@@ -14,13 +14,12 @@ open class SSProgressView : UIView {
     
     public init() {
         super.init(frame: .zero)
-        backgroundColor = .gray
+        backgroundColor = UIColor(white: 0.95, alpha: 1.0)
         layer.addSublayer(progressBoundsLayer)
         progressBoundsLayer.addSublayer(progressLayer)
     }
     
     //MARK: - public
-    
     open func setProgress(_ mProgress : CGFloat, animated: Bool = false, duration: TimeInterval = 0.25) {
         progress = mProgress
 
@@ -37,14 +36,17 @@ open class SSProgressView : UIView {
     
     //MARK: - override
     open override func sizeThatFits(_ size: CGSize) -> CGSize {
-        return label.sizeThatFits(size).extended(dx: paddings, dy: paddings)
+        if (labelDidInit) {
+            return label.sizeThatFits(size).extended(dx: paddings, dy: paddings)
+        }
+        return CGSize(width: paddings, height: paddings)
     }
     
     open override func layoutSubviews() {
         super.layoutSubviews()
         
-        updateProgressLayer()
         progressBoundsLayer.frame = bounds
+        updateProgressLayer()
         if (labelDidInit) {
             label.frame = bounds
         }
