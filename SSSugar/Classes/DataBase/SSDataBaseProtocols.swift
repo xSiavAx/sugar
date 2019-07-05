@@ -1,6 +1,6 @@
 import Foundation
 
-public protocol SSDataBaseStatementProtocol {
+public protocol SSDataBaseStatementProtocol : SSReleasable {
     func bind(int : Int, pos : Int)
     func bind(int64 : Int64, pos : Int)
     func bind(double : Double, pos : Int)
@@ -16,20 +16,10 @@ public protocol SSDataBaseStatementProtocol {
     func select() -> Bool
     func commit() throws
     func clear()
-    func release()
 }
 
-public protocol SSDataBaseSavePointProtocol {
+public protocol SSDataBaseSavePointProtocol: SSReleasable {
     func rollBack()
-    func release()
-}
-
-public protocol SSTransacted {
-    var isTransactionStarted : Bool {get}
-    
-    func beginTransaction()
-    func commitTransaction()
-    func cancelTransaction()
 }
 
 public protocol SSDataBaseStatementCreator {

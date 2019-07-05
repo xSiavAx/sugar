@@ -2,9 +2,13 @@ import Foundation
 
 public class SSDataBase {
     let connection: SSDataBaseConnectionProtocol
+    let transactionController : SSDataBaseTransactionController
     
     init(path: URL) {
         connection = SSDataBaseConnection(path: path)
+        transactionController = SSDataBaseTransactionController()
+        
+        transactionController.transactionCreator = self
     }
 }
 
@@ -19,19 +23,19 @@ extension SSDataBase: SSDataBaseProtocol {
 
 extension SSDataBase: SSTransacted {
     public var isTransactionStarted: Bool {
-        
+        return transactionController.isTransactionStarted
     }
     
-    public func beginTransaction() {
-        
+    public func beginTransaction() throws {
+        try transactionController.beginTransaction()
     }
     
-    public func commitTransaction() {
-        
+    public func commitTransaction() throws {
+        try transactionController.commitTransaction()
     }
     
-    public func cancelTransaction() {
-        
+    public func cancelTransaction() throws {
+        try transactionController.cancelTransaction()
     }
 }
 
@@ -40,6 +44,25 @@ extension SSDataBase: SSTransacted {
 extension SSDataBase: SSDataBaseStatementCreator {
     public func statement(forQuery: String) -> SSDataBaseStatementProtocol {
         
+    }
+}
+
+//MARK: - SSDataBaseTransactionCreator
+
+extension SSDataBase: SSDataBaseTransactionCreator {
+    func createTransaction() -> SSDataBaseTransaction {
+        return SSDataBaseTransaction(executor: self)
+    }
+}
+
+//MARK: - SSDataBaseTransactionCreator
+
+extension SSDataBase: SSDataBaseQueryExecutor {
+    func exec(query: String) {
+        let stmt = statement(forQuery: query)
+        
+        do {try stmt.commit()} catch { fatalError("\(error)") }
+        stmt.release()
     }
 }
 
