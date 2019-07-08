@@ -9,7 +9,7 @@ class SSDataBaseSavePointReleaseDecorator: SSReleaseDecorator {
 }
 
 extension SSDataBaseSavePointReleaseDecorator: SSDataBaseSavePointProtocol {
-    func rollBack() {
-        savePoint.rollBack()
+    func rollBack() throws {
+        try savePoint.rollBack()
     }
 }

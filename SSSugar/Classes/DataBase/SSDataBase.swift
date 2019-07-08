@@ -14,8 +14,10 @@ public class SSDataBase {
 
 //MARK: - SSDataBaseProtocol
 extension SSDataBase: SSDataBaseProtocol {
-    public func createSavePoint(withTitle: String) -> SSDataBaseSavePointProtocol {
+    public func createSavePoint(withTitle: String) throws -> SSDataBaseSavePointProtocol {
+        let sp = SSDataBaseSavePoint(executor: self, title: withTitle)
         
+        return try transactionController.registerSavePoint(sp)
     }
 }
 
@@ -63,6 +65,18 @@ extension SSDataBase: SSDataBaseQueryExecutor {
         
         do {try stmt.commit()} catch { fatalError("\(error)") }
         stmt.release()
+    }
+}
+
+//MARK: - SSCacheContainer
+
+extension SSDataBase: SSCacheContainer {
+    public func fitCache() {
+        
+    }
+    
+    public func clearCache() {
+        
     }
 }
 

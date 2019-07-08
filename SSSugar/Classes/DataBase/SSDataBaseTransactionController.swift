@@ -12,7 +12,7 @@ protocol SSDataBaseTransactionCreator: AnyObject {
 class SSDataBaseTransactionController {
     enum mError: Error {
         case alreadyStarted
-        case alreadyFinished
+        case noTransactionStarted
         case statemtnsHasnRelease
         case savePointsHasnRelease
     }
@@ -89,7 +89,7 @@ extension SSDataBaseTransactionController : SSTransacted {
     
     private func ensureStarted() throws {
         guard isTransactionStarted else {
-            throw mError.alreadyFinished
+            throw mError.noTransactionStarted
         }
     }
     

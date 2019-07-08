@@ -9,7 +9,7 @@ class SSDataBaseTransaction {
     private var closed = false
     
     enum mError: Error {
-        case transactionAlreadyClosed
+        case alreadyClosed
     }
     
     init(executor mExecutor: SSDataBaseQueryExecutor) {
@@ -39,7 +39,7 @@ class SSDataBaseTransaction {
     //MARK: - private
     func ensureOpen() throws {
         guard !closed else {
-            throw mError.transactionAlreadyClosed
+            throw mError.alreadyClosed
         }
     }
 }

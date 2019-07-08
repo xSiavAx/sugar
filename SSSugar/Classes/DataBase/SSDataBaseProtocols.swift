@@ -19,13 +19,13 @@ public protocol SSDataBaseStatementProtocol : SSReleasable {
 }
 
 public protocol SSDataBaseSavePointProtocol: SSReleasable {
-    func rollBack()
+    func rollBack() throws
 }
 
 public protocol SSDataBaseStatementCreator {
     func statement(forQuery : String) -> SSDataBaseStatementProtocol
 }
 
-public protocol SSDataBaseProtocol: SSTransacted, SSDataBaseStatementCreator {
-    func createSavePoint(withTitle: String) -> SSDataBaseSavePointProtocol
+public protocol SSDataBaseProtocol: SSTransacted, SSDataBaseStatementCreator, SSCacheContainer {
+    func createSavePoint(withTitle: String) throws -> SSDataBaseSavePointProtocol
 }
