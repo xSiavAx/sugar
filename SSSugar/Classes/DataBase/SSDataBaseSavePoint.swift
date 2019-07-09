@@ -4,7 +4,7 @@ class SSDataBaseSavePoint {
     enum mError: Error {
         case alreadyFinished
     }
-    private let title : String
+    let title : String
     private var finished = false
     private unowned let executor: SSDataBaseQueryExecutor
     
@@ -33,7 +33,7 @@ extension SSDataBaseSavePoint: SSDataBaseSavePointProtocol {
 
 //MARK: SSReleasable
 extension SSDataBaseSavePoint: SSReleasable {
-    #warning("Throw exception")
+    #warning("DB: Throw exception")
     //TODO: Decide what to do with exception.
     //We can add 'throws' to 'SSReleasable' but Statement implement it too and don't need any 'exceptions'
     func release() {

@@ -1,11 +1,7 @@
 import Foundation
 import SQLite3
 
-public protocol SSDataBaseStatementCompiler {
-    func compileStatement(query: String) throws -> SSDataBaseStatementProtocol?
-}
-
-public protocol SSDataBaseConnectionProtocol: SSDataBaseStatementCompiler {
+public protocol SSDataBaseConnectionProtocol: SSDataBaseStatementCreator {
     var isOpen : Bool {get}
     func open()
     func close()
@@ -34,8 +30,8 @@ extension SSDataBaseConnection: SSDataBaseConnectionProtocol {
         isOpen = false
     }
     
-    public func compileStatement(query: String) throws -> SSDataBaseStatementProtocol? {
-        return try SSDataBaseStatement(query: query, db: db)
+    public func statement(forQuery: String) throws -> SSDataBaseStatementProtocol {
+        return try SSDataBaseStatement(query: forQuery, db: db)
     }
 }
 

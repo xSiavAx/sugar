@@ -1,12 +1,18 @@
 import Foundation
 
+#warning("DB: Move cache outside of DB")
+//It may be better to move cache outside of DB as 'DB cache decorator' or directly to it's controller
+//Think about it
+
 public class SSDataBase {
     let connection: SSDataBaseConnectionProtocol
     let transactionController : SSDataBaseTransactionController
+    let statementsCache : SSDataBaseStatementCache
     
     init(path: URL) {
         connection = SSDataBaseConnection(path: path)
         transactionController = SSDataBaseTransactionController()
+        statementsCache = SSDataBaseStatementCache(statementsCreator: connection)
         
         transactionController.transactionCreator = self
     }
@@ -14,7 +20,7 @@ public class SSDataBase {
 
 //MARK: - SSDataBaseProtocol
 extension SSDataBase: SSDataBaseProtocol {
-    public func createSavePoint(withTitle: String) throws -> SSDataBaseSavePointProtocol {
+    public func savePoint(withTitle: String) throws -> SSDataBaseSavePointProtocol {
         let sp = SSDataBaseSavePoint(executor: self, title: withTitle)
         
         return try transactionController.registerSavePoint(sp)
@@ -44,8 +50,8 @@ extension SSDataBase: SSTransacted {
 //MARK: SSDataBaseStatementCreator
 
 extension SSDataBase: SSDataBaseStatementCreator {
-    public func statement(forQuery: String) -> SSDataBaseStatementProtocol {
-        
+    public func statement(forQuery: String) throws -> SSDataBaseStatementProtocol {
+        return try statementsCache.statement(query: forQuery)
     }
 }
 
@@ -61,10 +67,12 @@ extension SSDataBase: SSDataBaseTransactionCreator {
 
 extension SSDataBase: SSDataBaseQueryExecutor {
     func exec(query: String) {
-        let stmt = statement(forQuery: query)
-        
-        do {try stmt.commit()} catch { fatalError("\(error)") }
-        stmt.release()
+        do {
+            let stmt = try statement(forQuery: query)
+            
+            try stmt.commit()
+            stmt.release()
+        } catch { fatalError("\(error)") }
     }
 }
 
@@ -72,11 +80,11 @@ extension SSDataBase: SSDataBaseQueryExecutor {
 
 extension SSDataBase: SSCacheContainer {
     public func fitCache() {
-        
+        statementsCache.clearOld()
     }
     
-    public func clearCache() {
-        
+    public func clearCache() throws {
+        try statementsCache.clearAll()
     }
 }
 

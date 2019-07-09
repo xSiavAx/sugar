@@ -22,10 +22,10 @@ public protocol SSDataBaseSavePointProtocol: SSReleasable {
     func rollBack() throws
 }
 
-public protocol SSDataBaseStatementCreator {
-    func statement(forQuery : String) -> SSDataBaseStatementProtocol
+public protocol SSDataBaseStatementCreator: AnyObject {
+    func statement(forQuery : String) throws -> SSDataBaseStatementProtocol
 }
 
 public protocol SSDataBaseProtocol: SSTransacted, SSDataBaseStatementCreator, SSCacheContainer {
-    func createSavePoint(withTitle: String) throws -> SSDataBaseSavePointProtocol
+    func savePoint(withTitle: String) throws -> SSDataBaseSavePointProtocol
 }

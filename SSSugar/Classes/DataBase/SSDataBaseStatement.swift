@@ -12,7 +12,7 @@ class SSDataBaseStatement {
     }
     private (set) var stmt: OpaquePointer!
     
-    init?(query: String, db: OpaquePointer) throws {
+    init(query: String, db: OpaquePointer) throws {
         let result = sqlite3_prepare_v2(db, query, -1, &stmt, nil)
         
         guard result == SQLITE_OK else {

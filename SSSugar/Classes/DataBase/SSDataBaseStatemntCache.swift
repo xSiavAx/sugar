@@ -1,7 +1,7 @@
 import Foundation
 
 protocol SSDataBaseStatementCacheProtocol {
-    func statement(query: String) -> SSDataBaseStatementProtocol
+    func statement(query: String) throws -> SSDataBaseStatementProtocol
     func clearOld()
     func clearOlderThen(interval: TimeInterval)
     func clearAll() throws
@@ -27,8 +27,8 @@ class SSDataBaseStatementCache {
 //MARK: - SSDataBaseStatementCacheProtocol
 
 extension SSDataBaseStatementCache: SSDataBaseStatementCacheProtocol {
-    func statement(query: String) -> SSDataBaseStatementProtocol {
-        let holder = cachedHolderByQuery(query) ?? createHolderForQuery(query)
+    func statement(query: String) throws -> SSDataBaseStatementProtocol {
+        let holder = try (cachedHolderByQuery(query) ?? createHolderForQuery(query))
         
         return SSDataBaseStatementReleaseDecorator(statement: holder.statement, onCreate: { [unowned self] (stmt) in
             self.occupyHolder(holder)
@@ -80,8 +80,8 @@ extension SSDataBaseStatementCache: SSDataBaseStatementCacheProtocol {
         return nil
     }
     
-    private func createHolderForQuery(_ query: String) -> SSDataBaseStatementCacheHolder {
-        let holder = SSDataBaseStatementCacheHolder(stmt: creator.statement(forQuery: query))
+    private func createHolderForQuery(_ query: String) throws -> SSDataBaseStatementCacheHolder {
+        let holder = SSDataBaseStatementCacheHolder(stmt: try creator.statement(forQuery: query))
         
         holders.add(holder, for: query)
         return holder

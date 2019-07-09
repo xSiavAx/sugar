@@ -1,6 +1,6 @@
 import Foundation
 
-#warning("Try to use GENERIC to avoid properties and init arguments casts in inheritors")
+#warning("TODO: Try to use GENERIC to avoid properties and init arguments casts in inheritors")
 
 class SSReleaseDecorator: SSReleasable {
     let decorated : SSReleasable
