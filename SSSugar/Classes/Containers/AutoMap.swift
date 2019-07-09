@@ -12,6 +12,7 @@ public protocol ReplaceableCollection : InsertableCollection {
 public struct AutoMap<Key : Hashable, Container : InsertableCollection> {
     public typealias Value = Container.Element
     public typealias Keys = Dictionary<Key, Container>.Keys
+    public var isEmpty : Bool { return count == 0 }
     private (set) var count = 0
     private (set) var containers : [Key : Container]
     
@@ -190,7 +191,7 @@ extension AutoMap where Container : RangeReplaceableCollection & MutableCollecti
         return nil
     }
     
-    @discardableResult private mutating func remove(for key: Key, at index: Container.Index) -> Value? {
+    @discardableResult mutating func remove(for key: Key, at index: Container.Index) -> Value? {
         if let old = containers[key]?.remove(at: index) {
             count -= 1
             if (containers[key]?.count == 0) {
@@ -201,7 +202,7 @@ extension AutoMap where Container : RangeReplaceableCollection & MutableCollecti
         return nil
     }
     
-    @discardableResult private mutating func remove(forKeyAndIndexes keysAndIndexes: AutoMap<Key, [Index]>) -> AutoMap<Key, [Value]> {
+    @discardableResult mutating func remove(forKeyAndIndexes keysAndIndexes: AutoMap<Key, [Index]>) -> AutoMap<Key, [Value]> {
         var result = AutoMap<Key, [Value]>()
         
         for (key, indexes) in keysAndIndexes.containers {

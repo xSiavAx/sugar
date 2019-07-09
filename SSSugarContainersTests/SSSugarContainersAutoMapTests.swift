@@ -6,6 +6,8 @@ class SSSugarContainersAutoMapTests: XCTestCase {
     public var automapSet : AutoMap<String, Set<Int>>!
     public var automapArr : AutoMap<String, [Int]>!
     
+    #warning("Tests for AutoMap")
+    
 //    Тесты с сетом
 //
 //    [Done] Инициализация с картой. С обычной кратой. С пустой картой. С картой с пустыми контейнерами.
@@ -29,6 +31,11 @@ class SSSugarContainersAutoMapTests: XCTestCase {
 //    subscript. get. По ключу и индексу. По ключу которого нет. По индексу которого нет. По ключу и индексу которых нет.
 //    subscript. set. По ключу и индексу. По ключу которого нет. По индексу которого нет. По ключу и индексу которых нет.
 
+//    Изменение! Поведение карты теперь разное для контейнеров типа InsertbaleCollection и ReplacableCollection учесть это в уже написанных тестах и тестах будующих
+//    Изменение! Добавился метод isEmpty, добавить тестов для него
+    
+//    Проверить доступность методов AutoMap как составляющую импортированного фреймворка (public)
+    
     override func tearDown() {
         automapSet = nil
         automapArr = nil
