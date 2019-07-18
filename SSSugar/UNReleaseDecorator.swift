@@ -13,8 +13,8 @@ class SSReleaseDecorator: SSReleasable {
     }
     
     //MARK: - Releasable
-    func release() {
-        decorated.release()
+    func release() throws {
+        try decorated.release()
         onRelease(decorated)
     }
 }

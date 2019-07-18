@@ -128,7 +128,7 @@ extension SSDataBaseStatementProcessor : SSDataBaseStatementProtocol {
         stmt.clear()
     }
     
-    public func release() {
-        stmt.release()
+    public func release() throws {
+        try stmt.release()
     }
 }

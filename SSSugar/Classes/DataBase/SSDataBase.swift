@@ -1,9 +1,5 @@
 import Foundation
 
-#warning("DB: Move cache outside of DB")
-//It may be better to move cache outside of DB as 'DB cache decorator' or directly to it's controller
-//Think about it
-
 #warning("DB: Error msg")
 //TODO: Add error messages to all DB exceptions (like cantCompile inside stmt)
 
@@ -75,7 +71,7 @@ extension SSDataBase: SSDataBaseQueryExecutor {
             let stmt = try statement(forQuery: query)
             
             try stmt.commit()
-            stmt.release()
+            try stmt.release()
         } catch { fatalError("\(error)") }
     }
 }
