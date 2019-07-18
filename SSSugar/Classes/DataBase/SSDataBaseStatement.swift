@@ -4,6 +4,7 @@ import SQLite3
 //Error's code list
 //https://www.sqlite.org/rescode.html
 
+/// Bind and get starts from zero
 class SSDataBaseStatement {
     enum IError: Error {
         case cantCompile(sqliteCode: Int)

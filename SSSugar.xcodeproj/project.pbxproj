@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		993E8A0E22E0C8BE00688555 /* SSDBStatementProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993E8A0D22E0C8BE00688555 /* SSDBStatementProcessor.swift */; };
 		9944ED5D22CF9D09005B129A /* SSDataBaseTransactionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9944ED5C22CF9D09005B129A /* SSDataBaseTransactionController.swift */; };
 		9944ED5F22CF9DC9005B129A /* SSDataBaseTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9944ED5E22CF9DC9005B129A /* SSDataBaseTransaction.swift */; };
 		9944ED6122CFA660005B129A /* UNReleaseDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9944ED6022CFA660005B129A /* UNReleaseDecorator.swift */; };
@@ -134,6 +135,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		993E8A0D22E0C8BE00688555 /* SSDBStatementProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDBStatementProcessor.swift; sourceTree = "<group>"; };
 		9944ED5C22CF9D09005B129A /* SSDataBaseTransactionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDataBaseTransactionController.swift; sourceTree = "<group>"; };
 		9944ED5E22CF9DC9005B129A /* SSDataBaseTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDataBaseTransaction.swift; sourceTree = "<group>"; };
 		9944ED6022CFA660005B129A /* UNReleaseDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UNReleaseDecorator.swift; sourceTree = "<group>"; };
@@ -294,6 +296,7 @@
 				9944ED6822CFAB81005B129A /* SSDataBaseSavePointReleaseDecorator.swift */,
 				9967832322D3993D00E33300 /* SSDataBaseStatemntCache.swift */,
 				9967832522D39B4000E33300 /* SSDataBaseStatementCacheHolder.swift */,
+				993E8A0D22E0C8BE00688555 /* SSDBStatementProcessor.swift */,
 			);
 			path = DataBase;
 			sourceTree = "<group>";
@@ -891,6 +894,7 @@
 				99D2966B223D3763003FD9F0 /* Common.swift in Sources */,
 				99E85E2D224103C6005E2B13 /* Array.swift in Sources */,
 				9944ED6322CFA6C6005B129A /* SSReleasable.swift in Sources */,
+				993E8A0E22E0C8BE00688555 /* SSDBStatementProcessor.swift in Sources */,
 				99D29658223D3681003FD9F0 /* SSWindow.swift in Sources */,
 				99D29650223D3107003FD9F0 /* SSRootViewController.swift in Sources */,
 				99D2964F223D3107003FD9F0 /* SSRootView.swift in Sources */,
