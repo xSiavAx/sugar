@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		993E8A0A22E0C00100688555 /* SSViewConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993E8A0922E0C00100688555 /* SSViewConfigurable.swift */; };
+		993E8A0C22E0C06700688555 /* SSViewConfigReplacable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993E8A0B22E0C06700688555 /* SSViewConfigReplacable.swift */; };
 		996F380222417014007FF8B6 /* SSMarkbaleCollectionCellHelperMarkTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996F380122417014007FF8B6 /* SSMarkbaleCollectionCellHelperMarkTC.swift */; };
 		996F380422417014007FF8B6 /* SSSugar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99D2963E223D3057003FD9F0 /* SSSugar.framework */; };
 		997B344F225A134B00F2A3A0 /* SSSugarExtensionContainersArrayInitBuildBlockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997B344E225A134B00F2A3A0 /* SSSugarExtensionContainersArrayInitBuildBlockTests.swift */; };
@@ -119,6 +121,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		993E8A0922E0C00100688555 /* SSViewConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSViewConfigurable.swift; sourceTree = "<group>"; };
+		993E8A0B22E0C06700688555 /* SSViewConfigReplacable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSViewConfigReplacable.swift; sourceTree = "<group>"; };
 		996F37FF22417014007FF8B6 /* SSCustomSelectionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SSCustomSelectionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		996F380122417014007FF8B6 /* SSMarkbaleCollectionCellHelperMarkTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSMarkbaleCollectionCellHelperMarkTC.swift; sourceTree = "<group>"; };
 		996F380322417014007FF8B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -450,6 +454,8 @@
 			isa = PBXGroup;
 			children = (
 				99D2965B223D3710003FD9F0 /* SSViewBlockable.swift */,
+				993E8A0922E0C00100688555 /* SSViewConfigurable.swift */,
+				993E8A0B22E0C06700688555 /* SSViewConfigReplacable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -817,6 +823,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				99EABD7C22401D550037645B /* SSMarkbaleCollectionCellHelper.swift in Sources */,
+				993E8A0C22E0C06700688555 /* SSViewConfigReplacable.swift in Sources */,
 				99E85E2F22410806005E2B13 /* Range.swift in Sources */,
 				99EABD7E22401EF60037645B /* SSSelectionMarkView.swift in Sources */,
 				99D2966C223D3763003FD9F0 /* UIColor.swift in Sources */,
@@ -832,6 +839,7 @@
 				99D29650223D3107003FD9F0 /* SSRootViewController.swift in Sources */,
 				99D2964F223D3107003FD9F0 /* SSRootView.swift in Sources */,
 				99D29670223D3763003FD9F0 /* UIButton.swift in Sources */,
+				993E8A0A22E0C00100688555 /* SSViewConfigurable.swift in Sources */,
 				99D2966D223D3763003FD9F0 /* DispatchQueue.swift in Sources */,
 				99D29656223D3681003FD9F0 /* SSTextField.swift in Sources */,
 				99D29659223D3681003FD9F0 /* SSScrollContainerView.swift in Sources */,
