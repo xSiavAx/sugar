@@ -7,7 +7,7 @@ import SQLite3
 /// Bind and get starts from zero
 class SSDataBaseStatement {
     enum IError: Error {
-        case cantCompile(sqliteCode: Int)
+        case cantCompile(sqliteCode: Int, msg: String)
         case outOfMemory
         case commitError(sqliteCode: Int)
     }
@@ -17,7 +17,7 @@ class SSDataBaseStatement {
         let result = sqlite3_prepare_v2(db, query, -1, &stmt, nil)
         
         guard result == SQLITE_OK else {
-            throw IError.cantCompile(sqliteCode: Int(result))
+            throw IError.cantCompile(sqliteCode: Int(result), msg:String(cString: sqlite3_errmsg(db)))
         }
     }
 }

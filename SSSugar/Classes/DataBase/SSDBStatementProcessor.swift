@@ -5,7 +5,7 @@ public class SSDataBaseStatementProcessor {
     var getIndex = 0
     private let stmt : SSDataBaseStatementProtocol
     
-    init(_ mStmt: SSDataBaseStatementProtocol) {
+    public init(_ mStmt: SSDataBaseStatementProtocol) {
         stmt = mStmt
     }
     

@@ -4,17 +4,21 @@ import Foundation
 //It may be better to move cache outside of DB as 'DB cache decorator' or directly to it's controller
 //Think about it
 
+#warning("DB: Error msg")
+//TODO: Add error messages to all DB exceptions (like cantCompile inside stmt)
+
 public class SSDataBase {
     let connection: SSDataBaseConnectionProtocol
     let transactionController : SSDataBaseTransactionController
     let statementsCache : SSDataBaseStatementCache
     
-    init(path: URL) {
+    public init(path: URL) {
         connection = SSDataBaseConnection(path: path)
         transactionController = SSDataBaseTransactionController()
         statementsCache = SSDataBaseStatementCache(statementsCreator: connection)
         
         transactionController.transactionCreator = self
+        connection.open()
     }
 }
 

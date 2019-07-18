@@ -3,8 +3,8 @@ import Foundation
 class SSDataBaseStatementReleaseDecorator: SSReleaseDecorator {
     var statement : SSDataBaseStatementProtocol { return decorated as! SSDataBaseStatementProtocol }
     
-    init(statement: SSDataBaseStatementProtocol, onCreate: @escaping (SSDataBaseStatementProtocol) -> Void, onRelease mOnRelease: @escaping (SSDataBaseStatementProtocol) -> Void) {
-        super.init(decorated: statement, onCreate: onCreate as! (SSReleasable) -> Void, onRelease: mOnRelease as! (SSReleasable) -> Void)
+    init(statement: SSDataBaseStatementProtocol, onCreate: @escaping (SSDataBaseStatementProtocol) -> Void, onRelease: @escaping (SSDataBaseStatementProtocol) -> Void) {
+        super.init(decorated: statement, onCreate: {onCreate($0 as! SSDataBaseStatementProtocol)}, onRelease: {onRelease($0 as! SSDataBaseStatementProtocol)})
     }
 }
 
