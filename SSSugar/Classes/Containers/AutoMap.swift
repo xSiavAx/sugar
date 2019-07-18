@@ -1,14 +1,18 @@
 import Foundation
 
-public protocol ReplaceableCollection : Collection where Element : Equatable {
+public protocol InsertableCollection : Collection {
     init()
-    @discardableResult mutating func insert(e: Element) -> Bool
-    @discardableResult mutating func remove(e: Element) -> Bool
+    mutating func insert(e: Element) -> Bool
 }
 
-public struct AutoMap<Key : Hashable, Container : ReplaceableCollection> {
+public protocol ReplaceableCollection : InsertableCollection {
+    mutating func remove(e: Element) -> Bool
+}
+
+public struct AutoMap<Key : Hashable, Container : InsertableCollection> {
     public typealias Value = Container.Element
     public typealias Keys = Dictionary<Key, Container>.Keys
+    public var isEmpty : Bool { return count == 0 }
     private (set) var count = 0
     private (set) var containers : [Key : Container]
     
@@ -34,10 +38,6 @@ public struct AutoMap<Key : Hashable, Container : ReplaceableCollection> {
                 remove(for: key)
             }
         }
-    }
-    
-    func contains(_ value : Value, for key : Key) -> Bool {
-        return containers[key]?.contains(value) ?? false
     }
     
     @discardableResult mutating func add(container: Container, for key: Key) -> Bool {
@@ -76,18 +76,6 @@ public struct AutoMap<Key : Hashable, Container : ReplaceableCollection> {
         return nil
     }
     
-    @discardableResult mutating func remove(_ element: Value, for key: Key) -> Bool {
-        if (containers[key]?.remove(e:element) ?? false) {
-            if (containers[key]?.count == 0) {
-                containers.removeValue(forKey: key)
-            }
-            count -= 1
-            return true
-        }
-        return false
-    }
-
-    
     @discardableResult mutating func removeAll() -> Bool {
         if count > 0 {
             containers.removeAll()
@@ -96,6 +84,8 @@ public struct AutoMap<Key : Hashable, Container : ReplaceableCollection> {
         }
         return false
     }
+    
+    //MARK: - private
     
     private mutating func addContainer(_ container : Container, key : Key) {
         containers[key] = container
@@ -106,6 +96,25 @@ public struct AutoMap<Key : Hashable, Container : ReplaceableCollection> {
         if containers[key] == nil {
             containers[key] = Container()
         }
+    }
+}
+
+extension AutoMap where Container : ReplaceableCollection {
+    @discardableResult mutating func remove(_ element: Value, for key: Key) -> Bool {
+        if (containers[key]?.remove(e:element) ?? false) {
+            if (containers[key]?.count == 0) {
+                containers.removeValue(forKey: key)
+            }
+            count -= 1
+            return true
+        }
+        return false
+    }
+}
+
+extension AutoMap where Value : Equatable {
+    func contains(_ value : Value, for key : Key) -> Bool {
+        return containers[key]?.contains(value) ?? false
     }
 }
 
@@ -182,7 +191,7 @@ extension AutoMap where Container : RangeReplaceableCollection & MutableCollecti
         return nil
     }
     
-    @discardableResult private mutating func remove(for key: Key, at index: Container.Index) -> Value? {
+    @discardableResult mutating func remove(for key: Key, at index: Container.Index) -> Value? {
         if let old = containers[key]?.remove(at: index) {
             count -= 1
             if (containers[key]?.count == 0) {
@@ -193,9 +202,9 @@ extension AutoMap where Container : RangeReplaceableCollection & MutableCollecti
         return nil
     }
     
-    @discardableResult private mutating func remove(forKeyAndIndexes keysAndIndexes: AutoMap<Key, [Index]>) -> AutoMap<Key, [Value]> {
+    @discardableResult mutating func remove(forKeyAndIndexes keysAndIndexes: AutoMap<Key, [Index]>) -> AutoMap<Key, [Value]> {
         var result = AutoMap<Key, [Value]>()
-
+        
         for (key, indexes) in keysAndIndexes.containers {
             if containers[key] != nil {
                 var values = [Value]()
@@ -232,19 +241,23 @@ extension AutoMap : CustomStringConvertible {
     public var description: String { return "\(containers)" }
 }
 
-extension Array : ReplaceableCollection where Element : Equatable {
+//MARK: - Standart Containers Extensions
+
+extension Array : InsertableCollection {
     public mutating func insert(e: Element) -> Bool {
         append(e)
         return true
     }
+}
 
+extension Array : ReplaceableCollection where Element : Equatable {
     public mutating func remove(e: Element) -> Bool {
         remove(at: firstIndex(of: e)!)
         return true
     }
 }
 
-extension Set : ReplaceableCollection {
+extension Set : InsertableCollection {
     public mutating func insert(e: Element) -> Bool {
         return insert(e).inserted
     }
@@ -254,7 +267,7 @@ extension Set : ReplaceableCollection {
     }
 }
 
-extension IndexSet : ReplaceableCollection {
+extension IndexSet : InsertableCollection {
     public mutating func insert(e: Element) -> Bool {
         return insert(e).inserted
     }
