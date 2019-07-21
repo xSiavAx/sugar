@@ -1,7 +1,6 @@
 import Foundation
 
-#warning("TODO: Try to use GENERIC to avoid properties and init arguments casts in inheritors")
-
+//There is no way to use Generic. Will run into 'Protocol 'Releasable' doesn't conform to protocolo 'Releasable'
 class SSReleaseDecorator: SSReleasable {
     let decorated : SSReleasable
     let onRelease : (SSReleasable)->Void
