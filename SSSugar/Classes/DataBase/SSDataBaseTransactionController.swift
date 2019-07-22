@@ -23,20 +23,22 @@ class SSDataBaseTransactionController {
     unowned var transactionCreator : SSDataBaseTransactionCreator!
     
     //MARK: - private
-    func didRegister(stmt: SSDataBaseStatementProtocol) {
+    private func didRegister(stmt: SSDataBaseStatementProtocol) {
         statemetnsCount += 1
     }
     
-    func didRegister(sp: SSDataBaseSavePointProtocol) {
+    private func didRegister(sp: SSDataBaseSavePointProtocol) {
         savePointsCount += 1
     }
     
-    func didRelease(stmt: SSDataBaseStatementProtocol) {
+    private func didRelease(stmt: SSDataBaseStatementProtocol) -> Bool {
         statemetnsCount -= 1
+        return true
     }
     
-    func didRelease(sp: SSDataBaseSavePointProtocol) {
+    private func didRelease(sp: SSDataBaseSavePointProtocol) -> Bool {
         savePointsCount -= 1
+        return true
     }
 }
 
@@ -45,12 +47,12 @@ class SSDataBaseTransactionController {
 extension SSDataBaseTransactionController: SSDataBaseTransactionControllerProtocol {
     func registerStatement(_ stmt: SSDataBaseStatementProtocol) throws -> SSDataBaseStatementProtocol {
         try ensureStarted()
-        return SSDataBaseStatementReleaseDecorator(statement: stmt, onCreate: didRegister(stmt:), onRelease: didRelease(stmt:))
+        return SSReleaseDecorator(decorated: SSDataBaseStatementProxy(statement: stmt), onCreate: didRegister(stmt:), onRelease: didRelease(stmt:))
     }
     
     func registerSavePoint(_ sp: SSDataBaseSavePointProtocol) throws -> SSDataBaseSavePointProtocol {
         try ensureStarted()
-        return SSDataBaseSavePointReleaseDecorator(savePoint: sp, onCreate: didRelease(sp:), onRelease: didRelease(sp:))
+        return SSReleaseDecorator(decorated: SSDataBaseSavePointProxy(savePoint: sp), onCreate: didRegister(sp:), onRelease: didRelease(sp:))
     }
 }
 
