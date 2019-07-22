@@ -22,7 +22,6 @@ public class SSDataBase {
 extension SSDataBase: SSDataBaseProtocol {
     public func savePoint(withTitle: String) throws -> SSDataBaseSavePointProtocol {
         let sp = SSDataBaseSavePoint(executor: self, title: withTitle)
-        
         return try transactionController.registerSavePoint(sp)
     }
 }
@@ -51,7 +50,8 @@ extension SSDataBase: SSTransacted {
 
 extension SSDataBase: SSDataBaseStatementCreator {
     public func statement(forQuery: String) throws -> SSDataBaseStatementProtocol {
-        return try statementsCache.statement(query: forQuery)
+        let statement = try statementsCache.statement(query: forQuery)
+        return try transactionController.registerStatement(statement)
     }
 }
 
@@ -63,12 +63,12 @@ extension SSDataBase: SSDataBaseTransactionCreator {
     }
 }
 
-//MARK: - SSDataBaseTransactionCreator
+//MARK: - SSDataBaseQueryExecutor
 
 extension SSDataBase: SSDataBaseQueryExecutor {
     func exec(query: String) {
         do {
-            let stmt = try statement(forQuery: query)
+            let stmt = try statementsCache.statement(query: query)
             
             try stmt.commit()
             try stmt.release()

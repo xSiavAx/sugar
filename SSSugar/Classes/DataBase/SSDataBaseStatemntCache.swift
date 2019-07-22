@@ -30,10 +30,11 @@ extension SSDataBaseStatementCache: SSDataBaseStatementCacheProtocol {
     func statement(query: String) throws -> SSDataBaseStatementProtocol {
         let holder = try (cachedHolderByQuery(query) ?? createHolderForQuery(query))
         
-        return SSDataBaseStatementReleaseDecorator(statement: holder.statement, onCreate: { [unowned self] (stmt) in
+        return SSReleaseDecorator(decorated:SSDataBaseStatementProxy(statement: holder.statement), onCreate: { [unowned self] (stmt) in
             self.occupyHolder(holder)
         }, onRelease: { [unowned self] (stmt) in
             self.releaseHolder(holder)
+            return false
         })
         
     }
