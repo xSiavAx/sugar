@@ -20,7 +20,6 @@ public func +<T>(left: @escaping SSStyle<T>, right: @escaping SSStyle<T>) -> SSS
 }
 
 public protocol Styleable {
-    associatedtype ConcreateStyleable
 }
 
 extension Styleable  {
