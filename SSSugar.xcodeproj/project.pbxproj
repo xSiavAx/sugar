@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		990A18A722E641F4008DCCF0 /* SSViewStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990A18A622E641F4008DCCF0 /* SSViewStyles.swift */; };
 		993E8A0A22E0C00100688555 /* SSViewConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993E8A0922E0C00100688555 /* SSViewConfigurable.swift */; };
 		993E8A0C22E0C06700688555 /* SSViewConfigReplacable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993E8A0B22E0C06700688555 /* SSViewConfigReplacable.swift */; };
 		993E8A0E22E0C8BE00688555 /* SSDBStatementProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993E8A0D22E0C8BE00688555 /* SSDBStatementProcessor.swift */; };
@@ -138,6 +139,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		990A18A622E641F4008DCCF0 /* SSViewStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSViewStyles.swift; sourceTree = "<group>"; };
 		993E8A0922E0C00100688555 /* SSViewConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSViewConfigurable.swift; sourceTree = "<group>"; };
 		993E8A0B22E0C06700688555 /* SSViewConfigReplacable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSViewConfigReplacable.swift; sourceTree = "<group>"; };
 		993E8A0D22E0C8BE00688555 /* SSDBStatementProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDBStatementProcessor.swift; sourceTree = "<group>"; };
@@ -288,6 +290,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		990A18A522E641E5008DCCF0 /* View Styles */ = {
+			isa = PBXGroup;
+			children = (
+				990A18A622E641F4008DCCF0 /* SSViewStyles.swift */,
+			);
+			path = "View Styles";
+			sourceTree = "<group>";
+		};
 		9947C43822CA58B000AB3327 /* DataBase */ = {
 			isa = PBXGroup;
 			children = (
@@ -577,6 +587,7 @@
 		99EABD7722401B3A0037645B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				990A18A522E641E5008DCCF0 /* View Styles */,
 				99EABD7822401B470037645B /* Collections Custom Select */,
 			);
 			path = Utils;
@@ -949,6 +960,7 @@
 				99EABD80224025CC0037645B /* CGSize.swift in Sources */,
 				99D2966E223D3763003FD9F0 /* CGRect.swift in Sources */,
 				99EDE7A222AD2397002BD904 /* SSProgressView.swift in Sources */,
+				990A18A722E641F4008DCCF0 /* SSViewStyles.swift in Sources */,
 				9967832422D3993D00E33300 /* SSDataBaseStatemntCache.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
