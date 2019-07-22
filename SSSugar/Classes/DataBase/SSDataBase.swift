@@ -3,6 +3,9 @@ import Foundation
 #warning("DB: Error msg")
 //TODO: Add error messages to all DB exceptions (like cantCompile inside stmt)
 
+#error("Statement for Transaction")
+//TODO: Statement for transaction, require trsnaction started
+
 public class SSDataBase {
     let connection: SSDataBaseConnectionProtocol
     let transactionController : SSDataBaseTransactionController
@@ -51,7 +54,9 @@ extension SSDataBase: SSTransacted {
 
 extension SSDataBase: SSDataBaseStatementCreator {
     public func statement(forQuery: String) throws -> SSDataBaseStatementProtocol {
-        return try statementsCache.statement(query: forQuery)
+        let statement = try statementsCache.statement(query: forQuery)
+        try transactionController.registerStatement(statement)
+        return statement
     }
 }
 
