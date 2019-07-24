@@ -23,7 +23,6 @@ public protocol Styleable {
 }
 
 extension Styleable  {
-    public typealias ConcreateStyleable = Self
     public typealias ConcreateStyle = SSStyle<Self>
     
     /// Create style for View
