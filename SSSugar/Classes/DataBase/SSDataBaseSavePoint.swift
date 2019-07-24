@@ -33,11 +33,8 @@ extension SSDataBaseSavePoint: SSDataBaseSavePointProtocol {
 
 //MARK: SSReleasable
 extension SSDataBaseSavePoint: SSReleasable {
-    #warning("DB: Throw exception")
-    //TODO: Decide what to do with exception.
-    //We can add 'throws' to 'SSReleasable' but Statement implement it too and don't need any 'exceptions'
-    func release() {
-//        try ensureNotFinished()
+    func release() throws {
+        try ensureNotFinished()
         executor.exec(query: "release \(title);")
         finished = true
     }

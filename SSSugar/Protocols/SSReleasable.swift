@@ -1,3 +1,3 @@
 public protocol SSReleasable {
-    func release()
+    func release() throws
 }

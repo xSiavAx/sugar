@@ -3,10 +3,10 @@ import Foundation
 public class SSDataBaseStatementProcessor {
     var bindIndex = 0
     var getIndex = 0
-    private let stmt : SSDataBaseStatementProtocol
+    let statement : SSDataBaseStatementProtocol
     
     public init(_ mStmt: SSDataBaseStatementProtocol) {
-        stmt = mStmt
+        statement = mStmt
     }
     
     public func bind(int: Int) {
@@ -70,65 +70,22 @@ public class SSDataBaseStatementProcessor {
     }
 }
 
-extension SSDataBaseStatementProcessor : SSDataBaseStatementProtocol {
-    public func bind(int: Int, pos: Int) {
-        stmt.bind(int: int, pos: pos)
-    }
-    
-    public func bind(int64: Int64, pos: Int) {
-        stmt.bind(int64: int64, pos: pos)
-    }
-    
-    public func bind(double: Double, pos: Int) {
-        stmt.bind(double: double, pos: pos)
-    }
-    
-    public func bind(string: String, pos: Int) {
-        stmt.bind(string: string, pos: pos)
-    }
-    
-    public func bind(data: Data, pos: Int) {
-        stmt.bind(data: data, pos: pos)
-    }
-    
-    public func getInt(pos: Int) -> Int {
-        return stmt.getInt(pos:pos)
-    }
-    
-    public func getInt64(pos: Int) -> Int64 {
-        return stmt.getInt64(pos:pos)
-    }
-    
-    public func getDouble(pos: Int) -> Double {
-        return stmt.getDouble(pos:pos)
-    }
-    
-    public func getString(pos: Int) -> String? {
-        return stmt.getString(pos:pos)
-    }
-    
-    public func getData(pos: Int) -> Data {
-        return stmt.getData(pos:pos)
-    }
-    
+extension SSDataBaseStatementProcessor : SSDataBaseStatementProxing {
     public func select() -> Bool {
         getIndex = 0
         bindIndex = 0
-        return stmt.select()
+        return statement.select()
     }
     
     public func commit() throws {
         getIndex = 0
         bindIndex = 0
-        try stmt.commit()
+        try statement.commit()
     }
     
     public func clear() {
         bindIndex = 0
-        stmt.clear()
-    }
-    
-    public func release() {
-        stmt.release()
+        statement.clear()
     }
 }
+

@@ -1,9 +1,5 @@
 import Foundation
 
-#warning("DB: Move cache outside of DB")
-//It may be better to move cache outside of DB as 'DB cache decorator' or directly to it's controller
-//Think about it
-
 #warning("DB: Error msg")
 //TODO: Add error messages to all DB exceptions (like cantCompile inside stmt)
 
@@ -26,7 +22,6 @@ public class SSDataBase {
 extension SSDataBase: SSDataBaseProtocol {
     public func savePoint(withTitle: String) throws -> SSDataBaseSavePointProtocol {
         let sp = SSDataBaseSavePoint(executor: self, title: withTitle)
-        
         return try transactionController.registerSavePoint(sp)
     }
 }
@@ -55,7 +50,8 @@ extension SSDataBase: SSTransacted {
 
 extension SSDataBase: SSDataBaseStatementCreator {
     public func statement(forQuery: String) throws -> SSDataBaseStatementProtocol {
-        return try statementsCache.statement(query: forQuery)
+        let statement = try statementsCache.statement(query: forQuery)
+        return try transactionController.registerStatement(statement)
     }
 }
 
@@ -67,15 +63,15 @@ extension SSDataBase: SSDataBaseTransactionCreator {
     }
 }
 
-//MARK: - SSDataBaseTransactionCreator
+//MARK: - SSDataBaseQueryExecutor
 
 extension SSDataBase: SSDataBaseQueryExecutor {
     func exec(query: String) {
         do {
-            let stmt = try statement(forQuery: query)
+            let stmt = try statementsCache.statement(query: query)
             
             try stmt.commit()
-            stmt.release()
+            try stmt.release()
         } catch { fatalError("\(error)") }
     }
 }

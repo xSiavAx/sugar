@@ -30,10 +30,11 @@ extension SSDataBaseStatementCache: SSDataBaseStatementCacheProtocol {
     func statement(query: String) throws -> SSDataBaseStatementProtocol {
         let holder = try (cachedHolderByQuery(query) ?? createHolderForQuery(query))
         
-        return SSDataBaseStatementReleaseDecorator(statement: holder.statement, onCreate: { [unowned self] (stmt) in
+        return SSReleaseDecorator(decorated:SSDataBaseStatementProxy(statement: holder.statement), onCreate: { [unowned self] (stmt) in
             self.occupyHolder(holder)
         }, onRelease: { [unowned self] (stmt) in
             self.releaseHolder(holder)
+            return false
         })
         
     }
@@ -49,7 +50,7 @@ extension SSDataBaseStatementCache: SSDataBaseStatementCacheProtocol {
             for (idx, holder) in holders[query]!.enumerated() {
                 if (!holder.occupied && holder.olderThen(age: interval)) {
                     indexes.add(idx, for: query)
-                    holder.statement.release()
+                    do { try holder.statement.release() } catch { fatalError("\(error)") }
                 }
             }
         }
@@ -63,7 +64,7 @@ extension SSDataBaseStatementCache: SSDataBaseStatementCacheProtocol {
             guard !holder.occupied else {
                 throw mError.statementsAreInUse
             }
-            holder.statement.release()
+            do { try holder.statement.release() } catch { fatalError("\(error)") }
         }
         holders.removeAll()
     }
