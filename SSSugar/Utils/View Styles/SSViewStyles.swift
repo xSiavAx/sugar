@@ -46,7 +46,14 @@ extension Styleable  {
     ///
     /// - Parameter styles: Styles to apply
     public func apply(styles: [ConcreateStyle]) {
-        for style in styles { style(self) }
+        for style in styles { apply(style: style) }
+    }
+    
+    /// Apply passed style
+    ///
+    /// - Parameter styles: Style to apply
+    public func apply(style: ConcreateStyle) {
+        style(self)
     }
 }
 
