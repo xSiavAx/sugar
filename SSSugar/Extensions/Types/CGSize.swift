@@ -17,7 +17,7 @@ public extension CGSize {
         return CGSize(width: size.width, height: size.height)
     }
     
-    func extended(dx: CGFloat, dy: CGFloat) -> CGSize {
+    func extended(dx: CGFloat = 0, dy: CGFloat = 0) -> CGSize {
         return CGSize(width: width + dx, height: height + dy)
     }
     
