@@ -18,7 +18,7 @@ open class SSSelectionMarkView: UIView {
         super.init(frame: .zero)
         
         updateImageViewsVisibility()
-        addSubviews([markedImageView, emptyImageView])
+        addSubviews(markedImageView, emptyImageView)
     }
     
     //MARK: - lifecycle

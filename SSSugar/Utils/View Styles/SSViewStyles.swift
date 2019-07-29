@@ -8,6 +8,25 @@ public typealias SSStyle<T> = (T) -> Void
 /// New style will do left and righ, one by one on call.
 /// Pay attention, if styles alter common properties, right Style will override Left one.
 ///
+/// - Warning:
+/// 1. Sum styles only from one inheritance line. Result will be inheritor style not base styel
+/// `````
+/// let viewStyle = UIView.style{$0.backgroundColor = .white}
+/// let labelStyle = UILabel.style{$0.backgroundColor = .white}
+/// let buttonStyle = UIButton.style{$0.backgroundColor = .white}
+///
+/// let totalStyleRight = labelStyle + viewStyle // Will return SSStyle<UILabel>
+/// let totalStyleWrong = labelStyle + buttonStyle //Compile time error
+/// `````
+/// 2. Sum styles from base to more specific, otherwise will get compile error
+/// `````
+/// let labelStyle1 = UILabel.style{$0.backgroundColor = .white}
+/// let labelStyle2 = UILabel.style{$0.backgroundColor = .white}
+/// let viewStyle = UIView.style{$0.backgroundColor = .white}
+
+/// let totalStyleRight = viewStyle + labelStyle1 + labelStyle2 //Works
+/// let totalStyleWrong = labelStyle1 + labelStyle2 + viewStyle //Compile time error
+/// `````
 /// - Parameters:
 ///   - left: Style that will apply first on call
 ///   - right: Style that will apply second on call
@@ -45,9 +64,26 @@ extension Styleable  {
     /// Pay attention, if styles alter common properties, last Style will override previous ones.
     ///
     /// - Parameter styles: Styles to apply
-    public func apply(styles: [ConcreateStyle]) {
-        for style in styles { style(self) }
+    public func apply(styles: ConcreateStyle...) {
+        for style in styles { apply(style: style) }
+    }
+    
+    /// Apply passed style
+    ///
+    /// - Parameter styles: Style to apply
+    public func apply(style: ConcreateStyle) {
+        style(self)
     }
 }
 
 extension UIView: Styleable {}
+
+//MARK: - Deprecated
+
+extension Styleable {
+    ///**Deprecated**. Use `func apply(styles: ConcreateStyle...)` instead.
+    @available(*, deprecated, message: "Use inset(toWidth:toHeight:) instead")
+    public func apply(styles: [ConcreateStyle]) {
+        for style in styles { apply(style: style) }
+    }
+}

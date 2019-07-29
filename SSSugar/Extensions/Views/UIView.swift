@@ -3,7 +3,7 @@ public extension UIView {
         return bounds.inset(by: safeAreaInsets)
     }
     
-    func addSubviews(_ subviews : [UIView]) {
+    func addSubviews(_ subviews : UIView...) {
         subviews.forEach { (subview) in
             addSubview(subview)
         }
@@ -36,6 +36,17 @@ extension UIView: SSViewConfigReplacable {
         }
         for subview in subviews {
             subview.replaceConfig(config)
+        }
+    }
+}
+
+//MARK: - deprecated
+extension UIView {
+    ///**Deprecated**. Use `func addSubviews(_ subviews : UIView...)` instead.
+    @available(*, deprecated, message: "Use inset(toWidth:toHeight:) instead")
+    func addSubviews(_ subviews : [UIView]) {
+        subviews.forEach { (subview) in
+            addSubview(subview)
         }
     }
 }
