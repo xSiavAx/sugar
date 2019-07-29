@@ -42,8 +42,8 @@ extension UIView: SSViewConfigReplacable {
 
 //MARK: - deprecated
 extension UIView {
-    ///**Deprecated**. Use `func addSubviews(_ subviews : UIView...)` instead.
-    @available(*, deprecated, message: "Use inset(toWidth:toHeight:) instead")
+    ///**Deprecated**. Use `addSubviews(_ subviews : UIView...)` instead.
+    @available(*, deprecated, message: "Use addSubviews(_ subviews : UIView...) instead")
     func addSubviews(_ subviews : [UIView]) {
         subviews.forEach { (subview) in
             addSubview(subview)
