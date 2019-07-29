@@ -64,7 +64,7 @@ extension Styleable  {
     /// Pay attention, if styles alter common properties, last Style will override previous ones.
     ///
     /// - Parameter styles: Styles to apply
-    public func apply(styles: [ConcreateStyle]) {
+    public func apply(styles: ConcreateStyle...) {
         for style in styles { apply(style: style) }
     }
     
@@ -77,3 +77,13 @@ extension Styleable  {
 }
 
 extension UIView: Styleable {}
+
+//MARK: - Deprecated
+
+extension Styleable {
+    ///**Deprecated**. Use `func apply(styles: ConcreateStyle...)` instead.
+    @available(*, deprecated, message: "Use inset(toWidth:toHeight:) instead")
+    public func apply(styles: [ConcreateStyle]) {
+        for style in styles { apply(style: style) }
+    }
+}
