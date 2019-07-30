@@ -8,6 +8,7 @@ FOUNDATION_EXPORT const unsigned char SSSugarVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <SSSugar/PublicHeader.h>
 
+//TODO: Fix CGSize.extended(by size:)
 //TODO: Write AutoMap containers tests
 //TODO: Add DataBase tests
 //TODO: Add default values '0' to 'extended' method inside CGSize extension
