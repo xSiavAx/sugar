@@ -8,6 +8,10 @@ FOUNDATION_EXPORT const unsigned char SSSugarVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <SSSugar/PublicHeader.h>
 
+//Добавить интерфейс SSBlockacble в фреймворк, отнаследовать от него ViewBlockable, имплементировать в расширении. Изменить значение задержки по-умолчанию до 0.1.
+//Добавить Copying в фреймворк
+//Изменить имплементацию SSBlockable таким образом, что бы тачи через него не проходили
+
 //TODO: Fix CGSize.extended(by size:)
 //TODO: Write AutoMap containers tests
 //TODO: Add DataBase tests
