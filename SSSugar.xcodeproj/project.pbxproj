@@ -52,7 +52,7 @@
 		99B1A78822443EC700D96BEE /* SSCollectionViewMarkableControllerDeactivateTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A78722443EC700D96BEE /* SSCollectionViewMarkableControllerDeactivateTC.swift */; };
 		99B1A78A224658D700D96BEE /* SSCollectionViewMarkableControllerMarkNonActiveTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A789224658D700D96BEE /* SSCollectionViewMarkableControllerMarkNonActiveTC.swift */; };
 		99B1A78C22465DA100D96BEE /* SSCollectionViewMarkableControllerMarkTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A78B22465DA100D96BEE /* SSCollectionViewMarkableControllerMarkTC.swift */; };
-		99B1A7902246751300D96BEE /* SSComparable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A78F2246751300D96BEE /* SSComparable.swift */; };
+		99B1A7902246751300D96BEE /* Comparable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A78F2246751300D96BEE /* Comparable.swift */; };
 		99B1A798224678B400D96BEE /* SSSugarPlaygroundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A797224678B400D96BEE /* SSSugarPlaygroundTests.swift */; };
 		99B1A79A224678B400D96BEE /* SSSugar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99D2963E223D3057003FD9F0 /* SSSugar.framework */; };
 		99B1A7A122467D8900D96BEE /* SSCollectionViewMarkableControllerMarkAlreadyMarkedTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A7A022467D8900D96BEE /* SSCollectionViewMarkableControllerMarkAlreadyMarkedTC.swift */; };
@@ -189,7 +189,7 @@
 		99B1A78722443EC700D96BEE /* SSCollectionViewMarkableControllerDeactivateTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerDeactivateTC.swift; sourceTree = "<group>"; };
 		99B1A789224658D700D96BEE /* SSCollectionViewMarkableControllerMarkNonActiveTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerMarkNonActiveTC.swift; sourceTree = "<group>"; };
 		99B1A78B22465DA100D96BEE /* SSCollectionViewMarkableControllerMarkTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerMarkTC.swift; sourceTree = "<group>"; };
-		99B1A78F2246751300D96BEE /* SSComparable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSComparable.swift; sourceTree = "<group>"; };
+		99B1A78F2246751300D96BEE /* Comparable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comparable.swift; sourceTree = "<group>"; };
 		99B1A795224678B400D96BEE /* SSSugarPlaygroundTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SSSugarPlaygroundTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		99B1A797224678B400D96BEE /* SSSugarPlaygroundTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarPlaygroundTests.swift; sourceTree = "<group>"; };
 		99B1A799224678B400D96BEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -538,7 +538,6 @@
 		99D2965A223D3710003FD9F0 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				99B1A78F2246751300D96BEE /* SSComparable.swift */,
 				99D2965B223D3710003FD9F0 /* SSViewBlockable.swift */,
 				993E8A0922E0C00100688555 /* SSViewConfigurable.swift */,
 				993E8A0B22E0C06700688555 /* SSViewConfigReplacable.swift */,
@@ -573,6 +572,7 @@
 		99D29672223D37BD003FD9F0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				99E3BA4222FB266E0023D9AE /* Protocols */,
 				99B1A87C2248002100D96BEE /* Controllers */,
 				99B1A87A2247FFEA00D96BEE /* Types */,
 				99B1A8792247FF8300D96BEE /* Containers */,
@@ -580,6 +580,14 @@
 				99D29664223D3763003FD9F0 /* DispatchQueue.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		99E3BA4222FB266E0023D9AE /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				99B1A78F2246751300D96BEE /* Comparable.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		99EABD7722401B3A0037645B /* Utils */ = {
@@ -933,7 +941,7 @@
 				9944ED6122CFA660005B129A /* SSReleaseDecorator.swift in Sources */,
 				99D29669223D3763003FD9F0 /* UIViewController.swift in Sources */,
 				99EABD7A22401B8A0037645B /* SSCollectionViewCellMarkable.swift in Sources */,
-				99B1A7902246751300D96BEE /* SSComparable.swift in Sources */,
+				99B1A7902246751300D96BEE /* Comparable.swift in Sources */,
 				99D2966B223D3763003FD9F0 /* Common.swift in Sources */,
 				99E85E2D224103C6005E2B13 /* Array.swift in Sources */,
 				9944ED6322CFA6C6005B129A /* SSReleasable.swift in Sources */,
