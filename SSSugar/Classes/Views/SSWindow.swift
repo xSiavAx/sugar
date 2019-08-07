@@ -11,12 +11,21 @@ open class SSWindow: UIWindow {
     var blockingAnimationDuration : TimeInterval
     var blockUIDelay : TimeInterval
     
+    private var interactionBlocked : Bool = false {
+        didSet {
+            if (interactionBlocked) {
+                showProtectionView()
+            }
+            invalidateBlockTimer()
+        }
+    }
+    
     //MARK: - init
     
     public init(background: UIColor = .white,
-         tint: UIColor = .orange,
-         blockingAnimationDuration duration: TimeInterval = defaultBlockingAnimationDuration(),
-         blockUIDelay mBlockUIDelay: TimeInterval = kBlockUIDelay) {
+                tint: UIColor = .orange,
+                blockingAnimationDuration duration: TimeInterval = defaultBlockingAnimationDuration(),
+                blockUIDelay mBlockUIDelay: TimeInterval = kBlockUIDelay) {
         blockingAnimationDuration = duration
         blockUIDelay = mBlockUIDelay
         
@@ -24,8 +33,8 @@ open class SSWindow: UIWindow {
         
         backgroundColor = background
         tintColor = tint
-        protectionView.isHidden = true
-        protectionView.alpha    = 0.0
+        protectionView.isHidden = !interactionBlocked
+        protectionView.alpha    = interactionBlocked ? 1.0 : 0.0
         
         addSubview(protectionView)
     }
@@ -105,18 +114,22 @@ open class SSWindow: UIWindow {
 //MARK: - SSViewDelayedBlockable
 extension SSWindow : SSViewDelayedBlockable {
     public func blockInteraction(animated: Bool, withDelay: Bool) {
-        showProtectionView()
-        invalidateBlockTimer()
-        
-        if (withDelay) {
-            recreateBlockTimer(animated:animated)
-        } else {
-            makeProtectionViewVisible(animated: animated)
+        if (!interactionBlocked) {
+            interactionBlocked = true
+            
+            if (withDelay) {
+                recreateBlockTimer(animated:animated)
+            } else {
+                makeProtectionViewVisible(animated: animated)
+            }
         }
     }
     
     public func unblockInteraction(animated: Bool) {
-        invalidateBlockTimer()
-        makeProtectionViewInvisible(animated: animated, complition: hideProtectionView)
+        if (interactionBlocked) {
+            interactionBlocked = false
+            invalidateBlockTimer()
+            makeProtectionViewInvisible(animated: animated, complition: hideProtectionView)
+        }
     }
 }
