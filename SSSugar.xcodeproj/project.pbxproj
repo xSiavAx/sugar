@@ -76,6 +76,7 @@
 		99DB1A7B229ED9FC005C4823 /* SSSugarContainersAutoMapSubsriptTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DB1A7A229ED9FC005C4823 /* SSSugarContainersAutoMapSubsriptTests.swift */; };
 		99DB1A7D229EE2F7005C4823 /* SSSugarContainersAutoMapTestsWithSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DB1A7C229EE2F7005C4823 /* SSSugarContainersAutoMapTestsWithSetup.swift */; };
 		99DB1A7F229EE36D005C4823 /* SSSugarContainersAutoMapAddContainerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DB1A7E229EE36D005C4823 /* SSSugarContainersAutoMapAddContainerTests.swift */; };
+		99E3BA4122FB26290023D9AE /* SSCopying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E3BA4022FB26290023D9AE /* SSCopying.swift */; };
 		99E85E292240F3A0005E2B13 /* SSCollectionViewMarkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E85E282240F3A0005E2B13 /* SSCollectionViewMarkable.swift */; };
 		99E85E2B2240F5AC005E2B13 /* SSCollectionViewMarkableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E85E2A2240F5AC005E2B13 /* SSCollectionViewMarkableController.swift */; };
 		99E85E2D224103C6005E2B13 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E85E2C224103C6005E2B13 /* Array.swift */; };
@@ -215,6 +216,7 @@
 		99DB1A7A229ED9FC005C4823 /* SSSugarContainersAutoMapSubsriptTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarContainersAutoMapSubsriptTests.swift; sourceTree = "<group>"; };
 		99DB1A7C229EE2F7005C4823 /* SSSugarContainersAutoMapTestsWithSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarContainersAutoMapTestsWithSetup.swift; sourceTree = "<group>"; };
 		99DB1A7E229EE36D005C4823 /* SSSugarContainersAutoMapAddContainerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarContainersAutoMapAddContainerTests.swift; sourceTree = "<group>"; };
+		99E3BA4022FB26290023D9AE /* SSCopying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCopying.swift; sourceTree = "<group>"; };
 		99E85E282240F3A0005E2B13 /* SSCollectionViewMarkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkable.swift; sourceTree = "<group>"; };
 		99E85E2A2240F5AC005E2B13 /* SSCollectionViewMarkableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableController.swift; sourceTree = "<group>"; };
 		99E85E2C224103C6005E2B13 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
@@ -455,14 +457,6 @@
 			path = Types;
 			sourceTree = "<group>";
 		};
-		99B1A87B2247FFFD00D96BEE /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				99B1A78F2246751300D96BEE /* Comparable.swift */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
 		99B1A87C2248002100D96BEE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -550,6 +544,7 @@
 				9944ED6222CFA6C6005B129A /* SSReleasable.swift */,
 				9944ED6422CFA6E5005B129A /* SSTransacted.swift */,
 				9967832122D3955000E33300 /* SSCacheContainer.swift */,
+				99E3BA4022FB26290023D9AE /* SSCopying.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -577,14 +572,22 @@
 		99D29672223D37BD003FD9F0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				99E3BA4222FB266E0023D9AE /* Protocols */,
 				99B1A87C2248002100D96BEE /* Controllers */,
-				99B1A87B2247FFFD00D96BEE /* Protocols */,
 				99B1A87A2247FFEA00D96BEE /* Types */,
 				99B1A8792247FF8300D96BEE /* Containers */,
 				99B1A8782247FF5C00D96BEE /* Views */,
 				99D29664223D3763003FD9F0 /* DispatchQueue.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		99E3BA4222FB266E0023D9AE /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				99B1A78F2246751300D96BEE /* Comparable.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 		99EABD7722401B3A0037645B /* Utils */ = {
@@ -928,6 +931,7 @@
 				9944ED6522CFA6E5005B129A /* SSTransacted.swift in Sources */,
 				99D2966C223D3763003FD9F0 /* UIColor.swift in Sources */,
 				9947C43C22CA58D800AB3327 /* SSDataBaseProtocols.swift in Sources */,
+				99E3BA4122FB26290023D9AE /* SSCopying.swift in Sources */,
 				9947C43A22CA58C100AB3327 /* SSDataBase.swift in Sources */,
 				9967832622D39B4000E33300 /* SSDataBaseStatementCacheHolder.swift in Sources */,
 				99D29657223D3681003FD9F0 /* SSActivityProtectionView.swift in Sources */,
