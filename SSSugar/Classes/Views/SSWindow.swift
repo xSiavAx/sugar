@@ -33,7 +33,7 @@ open class SSWindow: UIWindow {
     //MARK: - lifecycle
     open override func layoutSubviews() {
         super.layoutSubviews()
-        protectionView.frame = safeFrame
+        protectionView.frame = bounds
     }
     
     open override func addSubview(_ view: UIView) {
@@ -105,7 +105,6 @@ open class SSWindow: UIWindow {
 //MARK: - SSViewDelayedBlockable
 extension SSWindow : SSViewDelayedBlockable {
     public func blockInteraction(animated: Bool, withDelay: Bool) {
-        print("Block")
         showProtectionView()
         invalidateBlockTimer()
         
@@ -117,7 +116,6 @@ extension SSWindow : SSViewDelayedBlockable {
     }
     
     public func unblockInteraction(animated: Bool) {
-        print("Unlock")
         invalidateBlockTimer()
         makeProtectionViewInvisible(animated: animated, complition: hideProtectionView)
     }
