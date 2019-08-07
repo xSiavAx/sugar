@@ -1,12 +1,23 @@
 import Foundation
 
-public protocol SSViewBlockable {
+public protocol SSInteractionBlockable {
+    func blockInteraction()
+    func unblockInteraction()
+}
+
+public protocol SSViewBlockable: SSInteractionBlockable {
     func blockInteraction(animated : Bool);
     func unblockInteraction(animated : Bool);
 }
 
-public protocol SSViewDelayedBlockable : SSViewBlockable {
-    func blockInteraction(animated : Bool, withDelay : Bool);
+extension SSViewBlockable {
+    public func blockInteraction() {
+        blockInteraction(animated: false)
+    }
+    
+    public func unblockInteraction() {
+        unblockInteraction(animated: false)
+    }
 }
 
 public extension SSViewBlockable {
@@ -15,8 +26,12 @@ public extension SSViewBlockable {
     }
 }
 
+public protocol SSViewDelayedBlockable : SSViewBlockable {
+    func blockInteraction(animated : Bool, withDelay : Bool);
+}
+
 public extension SSViewDelayedBlockable {
     func blockInteraction(animated : Bool) {
-        self.blockInteraction(animated: animated, withDelay: false)
+        blockInteraction(animated: animated, withDelay: false)
     }
 }

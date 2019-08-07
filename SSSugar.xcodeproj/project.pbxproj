@@ -455,14 +455,6 @@
 			path = Types;
 			sourceTree = "<group>";
 		};
-		99B1A87B2247FFFD00D96BEE /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				99B1A78F2246751300D96BEE /* Comparable.swift */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
 		99B1A87C2248002100D96BEE /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -544,6 +536,7 @@
 		99D2965A223D3710003FD9F0 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
+				99B1A78F2246751300D96BEE /* Comparable.swift */,
 				99D2965B223D3710003FD9F0 /* SSViewBlockable.swift */,
 				993E8A0922E0C00100688555 /* SSViewConfigurable.swift */,
 				993E8A0B22E0C06700688555 /* SSViewConfigReplacable.swift */,
@@ -578,7 +571,6 @@
 			isa = PBXGroup;
 			children = (
 				99B1A87C2248002100D96BEE /* Controllers */,
-				99B1A87B2247FFFD00D96BEE /* Protocols */,
 				99B1A87A2247FFEA00D96BEE /* Types */,
 				99B1A8792247FF8300D96BEE /* Containers */,
 				99B1A8782247FF5C00D96BEE /* Views */,
