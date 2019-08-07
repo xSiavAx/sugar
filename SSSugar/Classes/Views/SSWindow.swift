@@ -3,19 +3,22 @@ import UIKit
 open class SSWindow: UIWindow {
     //For alpha lower then this trashold protection view will pass interactions
     private static let kMinVisibleProtectionViewAlpha = CGFloat(0.02)
+    public static let kBlockUIDelay = 0.2
     
     private var protectionView = SSActivityProtectionView()
     private var blockUITimer : Timer?
     
     var blockingAnimationDuration : TimeInterval
-    let kBlockUIDelay = 0.2
+    var blockUIDelay : TimeInterval
     
     //MARK: - init
     
     public init(background: UIColor = .white,
          tint: UIColor = .orange,
-         blockingAnimationDuration duration: TimeInterval = defaultBlockingAnimationDuration()) {
+         blockingAnimationDuration duration: TimeInterval = defaultBlockingAnimationDuration(),
+         blockUIDelay mBlockUIDelay: TimeInterval = kBlockUIDelay) {
         blockingAnimationDuration = duration
+        blockUIDelay = mBlockUIDelay
         
         super.init(frame: UIScreen.main.bounds)
         
@@ -50,6 +53,14 @@ open class SSWindow: UIWindow {
         protectionView.isHidden = true
     }
     
+    private func makeProtectionViewVisible() {
+        protectionView.alpha = 1.0
+    }
+    
+    private func makeProtectionViewInvisible() {
+        protectionView.alpha = 0.0
+    }
+    
     private func makeProtectionViewVisible(animated: Bool) {
         if (animated) {
             UIView.animate(withDuration: blockingAnimationDuration, animations: makeProtectionViewVisible)
@@ -58,22 +69,15 @@ open class SSWindow: UIWindow {
         }
     }
     
-    private func makeProtectionViewInvisible(animated: Bool, completion: @escaping (Bool) -> Void) {
+    private func makeProtectionViewInvisible(animated: Bool, complition: @escaping ()->Void ) {
         if (animated) {
             UIView.animate(withDuration: blockingAnimationDuration,
-                           animations:makeProtectionViewInvisible,
-                           completion: completion)
+                           animations:makeProtectionViewInvisible) { if ($0) { complition() }
+            }
         } else {
             makeProtectionViewInvisible()
+            complition()
         }
-    }
-    
-    private func makeProtectionViewVisible() {
-        protectionView.alpha = 1.0
-    }
-    
-    private func makeProtectionViewInvisible() {
-        protectionView.alpha = 0.0
     }
     
     private func invalidateBlockTimer() {
@@ -85,7 +89,7 @@ open class SSWindow: UIWindow {
     }
     
     private func recreateBlockTimer(animated: Bool) {
-        blockUITimer = Timer(timeInterval: kBlockUIDelay, repeats: false, block: {[unowned self] (timer) in
+        blockUITimer = Timer.scheduledTimer(withTimeInterval: blockUIDelay, repeats: false, block: {[unowned self] (timer) in
             self.blockUITimer = nil
             self.makeProtectionViewVisible(animated: animated)
         })
@@ -101,6 +105,7 @@ open class SSWindow: UIWindow {
 //MARK: - SSViewDelayedBlockable
 extension SSWindow : SSViewDelayedBlockable {
     public func blockInteraction(animated: Bool, withDelay: Bool) {
+        print("Block")
         showProtectionView()
         invalidateBlockTimer()
         
@@ -112,12 +117,8 @@ extension SSWindow : SSViewDelayedBlockable {
     }
     
     public func unblockInteraction(animated: Bool) {
+        print("Unlock")
         invalidateBlockTimer()
-        makeProtectionViewInvisible(animated: animated, completion: makeProtectionViewVisible(animated:))
-    }
-    
-    //MARK: - private
-    private func makeInvisibleAnimationDidEnd(finished: Bool) {
-        hideProtectionView()
+        makeProtectionViewInvisible(animated: animated, complition: hideProtectionView)
     }
 }
