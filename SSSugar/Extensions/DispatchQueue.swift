@@ -1,7 +1,7 @@
 import Foundation
 
 public extension DispatchQueue {
-    static var bg = DispatchQueue(label: "background_serial")
+    static private(set) var bg = DispatchQueue(label: "background_serial")
     
     /// Submits a work item to a dispatch queue for asynchronous execution after spicified time interval.
     ///
