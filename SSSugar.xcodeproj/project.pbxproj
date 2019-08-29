@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		990A18A722E641F4008DCCF0 /* SSViewStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990A18A622E641F4008DCCF0 /* SSViewStyles.swift */; };
+		993BC5B92317CFB3008DCE98 /* SSAtomic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993BC5B82317CFB3008DCE98 /* SSAtomic.swift */; };
 		993E8A0A22E0C00100688555 /* SSViewConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993E8A0922E0C00100688555 /* SSViewConfigurable.swift */; };
 		993E8A0C22E0C06700688555 /* SSViewConfigReplacable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993E8A0B22E0C06700688555 /* SSViewConfigReplacable.swift */; };
 		993E8A0E22E0C8BE00688555 /* SSDBStatementProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993E8A0D22E0C8BE00688555 /* SSDBStatementProcessor.swift */; };
@@ -142,6 +143,7 @@
 
 /* Begin PBXFileReference section */
 		990A18A622E641F4008DCCF0 /* SSViewStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSViewStyles.swift; sourceTree = "<group>"; };
+		993BC5B82317CFB3008DCE98 /* SSAtomic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSAtomic.swift; sourceTree = "<group>"; };
 		993E8A0922E0C00100688555 /* SSViewConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSViewConfigurable.swift; sourceTree = "<group>"; };
 		993E8A0B22E0C06700688555 /* SSViewConfigReplacable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSViewConfigReplacable.swift; sourceTree = "<group>"; };
 		993E8A0D22E0C8BE00688555 /* SSDBStatementProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDBStatementProcessor.swift; sourceTree = "<group>"; };
@@ -565,6 +567,7 @@
 				99F6A185228981BF00183436 /* Containers */,
 				99D2964B223D3107003FD9F0 /* ViewControllers */,
 				99D29651223D3681003FD9F0 /* Views */,
+				993BC5B82317CFB3008DCE98 /* SSAtomic.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -942,6 +945,7 @@
 				99D29669223D3763003FD9F0 /* UIViewController.swift in Sources */,
 				99EABD7A22401B8A0037645B /* SSCollectionViewCellMarkable.swift in Sources */,
 				99B1A7902246751300D96BEE /* Comparable.swift in Sources */,
+				993BC5B92317CFB3008DCE98 /* SSAtomic.swift in Sources */,
 				99D2966B223D3763003FD9F0 /* Common.swift in Sources */,
 				99E85E2D224103C6005E2B13 /* Array.swift in Sources */,
 				9944ED6322CFA6C6005B129A /* SSReleasable.swift in Sources */,
