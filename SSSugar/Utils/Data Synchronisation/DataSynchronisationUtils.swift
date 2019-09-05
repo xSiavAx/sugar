@@ -1,15 +1,14 @@
 import Foundation
 
-/// Protocol with requirements for object that creates on obtain call. It helps user control obtain process.
+/// Protocol with requirements for object that creates on any processor's job call. It helps user control process.
 public protocol SSObtainJob {
-    var run: ()->Void {get}
-    var didObtain: ()->Bool {get}
+    var run: () ->Void {get}
+    var onFinish: ()->Bool {get}
 }
 
-/// Protocol with requirements for object that creates on processor's edit call. It helps user control edit process.
-public protocol SSEditJob {
-    var onBg: ()->Error? {get}
-    var onQueued: ()->Void {get}
+public protocol SSProcessorJob {
+    var run: () throws ->Void {get}
+    var onFinish: ()->Void {get}
 }
 
 /// Protocol with requirements for any object that can obtain model and create ObtainJob.
@@ -17,7 +16,7 @@ public protocol SSObtainJobCreator {
     func obtain() -> SSObtainJob
 }
 
-/// Class that help controlling obtain process. It can combine multiple Obtainers and repeat obtaining in case some of obtain result need be reobtain. Usually user use this controller inside presenter.
+/// Class that help controlling obtain process. It can combine multiple Obtainers and repeat obtaining in case some of obtain result need  reobtain. Usually user use this controller inside presenter.
 public class SSObtainJobController {
     /// Obtainers list
     public let creators : [SSObtainJobCreator]
@@ -43,7 +42,7 @@ public class SSObtainJobController {
         let jobs = creators.map() { $0.obtain() }
         
         func didObtain() {
-            let success = jobs.reduce(true) {$0 && $1.didObtain()}
+            let success = jobs.reduce(true) {$0 && $1.onFinish()}
             success ? onFinish?() : obtain()
         }
         
@@ -57,7 +56,7 @@ public class SSObtainJobController {
 /// Class that help executing processor's edit methods. It can combine multiple actions.
 public class SSEditJobExecutor {
     /// Edit that should be executed
-    public typealias Editing = ()->SSEditJob
+    public typealias Editing = ()->SSProcessorJob
     
     /// Queue to process background edit job part in
     var bgQueue: DispatchQueue
@@ -75,12 +74,18 @@ public class SSEditJobExecutor {
     /// - Parameters:
     ///   - jobs: job list that should be executed
     ///   - onFinish: finish handler
-    public func exec(jobs: [SSEditJob], onFinish: @escaping (Error?)->Void) {
-        func processBG() {
-            onFinish(process(bgs: jobs.map() {$0.onBg}))
+    public func exec(jobs: [SSProcessorJob], onFinish: @escaping (Error?)->Void) {
+        bgQueue.async() {
+            do {
+                for job in jobs { try job.run() }
+                DispatchQueue.main.async {
+                    for job in jobs { job.onFinish() }
+                    onFinish(nil)
+                }
+            } catch {
+                DispatchQueue.main.async { onFinish(error) }
+            }
         }
-        bgQueue.async(execute: processBG)
-        jobs.forEach() {$0.onQueued()}
     }
     
     /// Exec passed edit jobs
@@ -88,7 +93,7 @@ public class SSEditJobExecutor {
     /// - Parameters:
     ///   - job: job that should be executed
     ///   - onFinish: finish handler
-    public func exec(job: SSEditJob, onFinish: @escaping (Error?)->Void) {
+    public func exec(job: SSProcessorJob, onFinish: @escaping (Error?)->Void) {
         exec(jobs: [job], onFinish: onFinish)
     }
     
@@ -108,15 +113,5 @@ public class SSEditJobExecutor {
     ///   - onFinish: finish handler
     public func exec(editing: @escaping Editing, onFinish: @escaping (Error?)->Void) {
         exec(editings: [editing], onFinish: onFinish)
-    }
-    
-    //MARK: - private
-    private func process(bgs: [()->Error?]) -> Error? {
-        for bg in bgs {
-            if let error = bg() {
-                return error
-            }
-        }
-        return nil
     }
 }

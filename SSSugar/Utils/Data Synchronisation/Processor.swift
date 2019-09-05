@@ -3,9 +3,11 @@ import Foundation
 /// Struct incapsulate data obtain result.
 public struct SSObtainResult<Model> {
     /// Indicate should obtaining be repeated or not. For example, if obtainer decide that data may be not actual it return result with 'true' value in this property.
-    var needReobtain = false
+    public var needReobtain = false
     /// Obtaining model
-    var model : Model?
+    public var model : Model?
+    
+    public init() {}
 }
 
 /// Protocol with requirements for each model obtainer.
@@ -31,12 +33,12 @@ open class SSModelProcessor<Obtainer: SSModelObtainer> {
     /// Internal struct implementing ObtainJob protocol
     private struct ProcObtainJob: SSObtainJob {
         let run: ()->Void
-        let didObtain: ()->Bool
+        let onFinish: ()->Bool
     }
     /// Struct implementing EditJob protocol
-    public struct ProcEditJob: SSEditJob {
-        public let onBg: ()->Error?
-        public let onQueued: ()->Void
+    public struct ProcEditJob: SSProcessorJob {
+        public let run: () throws ->Void
+        public let onFinish: ()->Void
     }
     
     /// Processor's model obtainer
@@ -68,7 +70,7 @@ extension SSModelProcessor: SSObtainJobCreator {
     /// - Returns: created ObtainJob object.
     public func obtain() -> SSObtainJob {
         obtainer!.start()
-        return ProcObtainJob(run: obtainer!.obtain, didObtain: onDidObtain)
+        return ProcObtainJob(run: obtainer!.obtain, onFinish: onDidObtain)
     }
     
     //MARK: private
