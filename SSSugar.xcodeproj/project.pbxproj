@@ -78,6 +78,10 @@
 		99DB1A7B229ED9FC005C4823 /* SSSugarContainersAutoMapSubsriptTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DB1A7A229ED9FC005C4823 /* SSSugarContainersAutoMapSubsriptTests.swift */; };
 		99DB1A7D229EE2F7005C4823 /* SSSugarContainersAutoMapTestsWithSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DB1A7C229EE2F7005C4823 /* SSSugarContainersAutoMapTestsWithSetup.swift */; };
 		99DB1A7F229EE36D005C4823 /* SSSugarContainersAutoMapAddContainerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DB1A7E229EE36D005C4823 /* SSSugarContainersAutoMapAddContainerTests.swift */; };
+		99E36E08232137F9005E6C05 /* SSUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E36E07232137F9005E6C05 /* SSUpdate.swift */; };
+		99E36E0A23213A1B005E6C05 /* SSUpdateCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E36E0923213A1B005E6C05 /* SSUpdateCenter.swift */; };
+		99E36E0D23213C90005E6C05 /* Processor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E36E0C23213C90005E6C05 /* Processor.swift */; };
+		99E36E0F23213FE5005E6C05 /* DataSynchronisationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E36E0E23213FE5005E6C05 /* DataSynchronisationUtils.swift */; };
 		99E3BA4122FB26290023D9AE /* SSCopying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E3BA4022FB26290023D9AE /* SSCopying.swift */; };
 		99E85E292240F3A0005E2B13 /* SSCollectionViewMarkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E85E282240F3A0005E2B13 /* SSCollectionViewMarkable.swift */; };
 		99E85E2B2240F5AC005E2B13 /* SSCollectionViewMarkableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E85E2A2240F5AC005E2B13 /* SSCollectionViewMarkableController.swift */; };
@@ -220,6 +224,10 @@
 		99DB1A7A229ED9FC005C4823 /* SSSugarContainersAutoMapSubsriptTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarContainersAutoMapSubsriptTests.swift; sourceTree = "<group>"; };
 		99DB1A7C229EE2F7005C4823 /* SSSugarContainersAutoMapTestsWithSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarContainersAutoMapTestsWithSetup.swift; sourceTree = "<group>"; };
 		99DB1A7E229EE36D005C4823 /* SSSugarContainersAutoMapAddContainerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarContainersAutoMapAddContainerTests.swift; sourceTree = "<group>"; };
+		99E36E07232137F9005E6C05 /* SSUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUpdate.swift; sourceTree = "<group>"; };
+		99E36E0923213A1B005E6C05 /* SSUpdateCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUpdateCenter.swift; sourceTree = "<group>"; };
+		99E36E0C23213C90005E6C05 /* Processor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Processor.swift; sourceTree = "<group>"; };
+		99E36E0E23213FE5005E6C05 /* DataSynchronisationUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSynchronisationUtils.swift; sourceTree = "<group>"; };
 		99E3BA4022FB26290023D9AE /* SSCopying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCopying.swift; sourceTree = "<group>"; };
 		99E85E282240F3A0005E2B13 /* SSCollectionViewMarkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkable.swift; sourceTree = "<group>"; };
 		99E85E2A2240F5AC005E2B13 /* SSCollectionViewMarkableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableController.swift; sourceTree = "<group>"; };
@@ -588,6 +596,17 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		99E36E06232137DD005E6C05 /* Data Synchronisation */ = {
+			isa = PBXGroup;
+			children = (
+				99E36E07232137F9005E6C05 /* SSUpdate.swift */,
+				99E36E0923213A1B005E6C05 /* SSUpdateCenter.swift */,
+				99E36E0C23213C90005E6C05 /* Processor.swift */,
+				99E36E0E23213FE5005E6C05 /* DataSynchronisationUtils.swift */,
+			);
+			path = "Data Synchronisation";
+			sourceTree = "<group>";
+		};
 		99E3BA4222FB266E0023D9AE /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
@@ -599,6 +618,7 @@
 		99EABD7722401B3A0037645B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				99E36E06232137DD005E6C05 /* Data Synchronisation */,
 				990A18A522E641E5008DCCF0 /* View Styles */,
 				99EABD7822401B470037645B /* Collections Custom Select */,
 			);
@@ -940,6 +960,7 @@
 				99E3BA4122FB26290023D9AE /* SSCopying.swift in Sources */,
 				9947C43A22CA58C100AB3327 /* SSDataBase.swift in Sources */,
 				9967832622D39B4000E33300 /* SSDataBaseStatementCacheHolder.swift in Sources */,
+				99E36E08232137F9005E6C05 /* SSUpdate.swift in Sources */,
 				99D29657223D3681003FD9F0 /* SSActivityProtectionView.swift in Sources */,
 				99A2EE8D22CA5D30001B2B28 /* SSDataBaseConnection.swift in Sources */,
 				99D2965C223D3710003FD9F0 /* SSViewBlockable.swift in Sources */,
@@ -954,12 +975,15 @@
 				99E85E2D224103C6005E2B13 /* Array.swift in Sources */,
 				9944ED6322CFA6C6005B129A /* SSReleasable.swift in Sources */,
 				99991DC622E624F900F3D294 /* SSReleaseDecoratorDBExtensions.swift in Sources */,
+				99E36E0F23213FE5005E6C05 /* DataSynchronisationUtils.swift in Sources */,
 				993E8A0E22E0C8BE00688555 /* SSDBStatementProcessor.swift in Sources */,
 				99D29658223D3681003FD9F0 /* SSWindow.swift in Sources */,
 				99D29650223D3107003FD9F0 /* SSRootViewController.swift in Sources */,
 				99D2964F223D3107003FD9F0 /* SSRootView.swift in Sources */,
 				99713B9522EF555700EBD1FD /* UILabel.swift in Sources */,
 				99D29670223D3763003FD9F0 /* UIButton.swift in Sources */,
+				99E36E0A23213A1B005E6C05 /* SSUpdateCenter.swift in Sources */,
+				99E36E0D23213C90005E6C05 /* Processor.swift in Sources */,
 				993E8A0A22E0C00100688555 /* SSViewConfigurable.swift in Sources */,
 				99D2966D223D3763003FD9F0 /* DispatchQueue.swift in Sources */,
 				99D29656223D3681003FD9F0 /* SSTextField.swift in Sources */,
