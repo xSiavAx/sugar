@@ -9,7 +9,7 @@ public class SSCertificatePinner: NSObject {
     /// Allowed certificates list
     private(set) var certificates : [SecCertificate]
     /// Certificates missmatch handler.
-    private(set) var onReject: () -> Void
+    public var onReject: (() -> Void)?
     
     public override init() {
         fatalError("Use init(onReject:)")
@@ -19,10 +19,8 @@ public class SSCertificatePinner: NSObject {
     ///
     /// - Parameters:
     ///   - certificates: Allowed certificates list
-    ///   - onReject: Closure that will call on certificates missmatch
-    public init(certificates mCertificates: [SecCertificate], onReject mOnReject: @escaping ()->Void) {
+    public init(certificates mCertificates: [SecCertificate]) {
         certificates = mCertificates
-        onReject = mOnReject
         super.init()
     }
     
@@ -30,9 +28,8 @@ public class SSCertificatePinner: NSObject {
     ///
     /// - Parameters:
     ///   - obtainer: Obtainer that will provide list allowed certificates list
-    ///   - onReject: Closure that will call on certificates missmatch
-    convenience public init(obtainer: SSCertificatesObtainer, onReject: @escaping ()->Void) {
-        self.init(certificates: obtainer.certificates(), onReject: onReject)
+    convenience public init(obtainer: SSCertificatesObtainer) {
+        self.init(certificates: obtainer.certificates())
     }
 }
 
@@ -41,7 +38,7 @@ extension SSCertificatePinner: URLSessionDelegate {
         let isServerAuthentication = challenge.protectionSpace.authenticationMethod == NSURLAuthenticationMethodServerTrust
         
         if (isServerAuthentication && !certificatesValid(challenge: challenge)) {
-            onReject()
+            onReject?()
             completionHandler(.cancelAuthenticationChallenge, nil)
             return;
         }

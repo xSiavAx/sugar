@@ -82,7 +82,7 @@
 		99E36E0A23213A1B005E6C05 /* SSUpdateCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E36E0923213A1B005E6C05 /* SSUpdateCenter.swift */; };
 		99E36E0D23213C90005E6C05 /* Processor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E36E0C23213C90005E6C05 /* Processor.swift */; };
 		99E36E0F23213FE5005E6C05 /* DataSynchronisationUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E36E0E23213FE5005E6C05 /* DataSynchronisationUtils.swift */; };
-		99E36E4423225356005E6C05 /* SSCertPinSessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E36E4323225356005E6C05 /* SSCertPinSessionDelegate.swift */; };
+		99E36E4423225356005E6C05 /* SSCertificatePinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E36E4323225356005E6C05 /* SSCertificatePinner.swift */; };
 		99E36E462322539C005E6C05 /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E36E452322539C005E6C05 /* URLSession.swift */; };
 		99E36E4923225DB6005E6C05 /* SSCertificatesObtainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E36E4823225DB6005E6C05 /* SSCertificatesObtainer.swift */; };
 		99E3BA4122FB26290023D9AE /* SSCopying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E3BA4022FB26290023D9AE /* SSCopying.swift */; };
@@ -231,7 +231,7 @@
 		99E36E0923213A1B005E6C05 /* SSUpdateCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUpdateCenter.swift; sourceTree = "<group>"; };
 		99E36E0C23213C90005E6C05 /* Processor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Processor.swift; sourceTree = "<group>"; };
 		99E36E0E23213FE5005E6C05 /* DataSynchronisationUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataSynchronisationUtils.swift; sourceTree = "<group>"; };
-		99E36E4323225356005E6C05 /* SSCertPinSessionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCertPinSessionDelegate.swift; sourceTree = "<group>"; };
+		99E36E4323225356005E6C05 /* SSCertificatePinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCertificatePinner.swift; sourceTree = "<group>"; };
 		99E36E452322539C005E6C05 /* URLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSession.swift; sourceTree = "<group>"; };
 		99E36E4823225DB6005E6C05 /* SSCertificatesObtainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCertificatesObtainer.swift; sourceTree = "<group>"; };
 		99E3BA4022FB26290023D9AE /* SSCopying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCopying.swift; sourceTree = "<group>"; };
@@ -626,7 +626,7 @@
 			isa = PBXGroup;
 			children = (
 				99E36E4823225DB6005E6C05 /* SSCertificatesObtainer.swift */,
-				99E36E4323225356005E6C05 /* SSCertPinSessionDelegate.swift */,
+				99E36E4323225356005E6C05 /* SSCertificatePinner.swift */,
 				99E36E452322539C005E6C05 /* URLSession.swift */,
 			);
 			path = CertificatesPinning;
@@ -1019,7 +1019,7 @@
 				9967832022D3906900E33300 /* SSDataBaseSavePoint.swift in Sources */,
 				99991DC122E6219000F3D294 /* SSDataBaseSavePointProxy.swift in Sources */,
 				99E85E3122411583005E2B13 /* UITableVIew.swift in Sources */,
-				99E36E4423225356005E6C05 /* SSCertPinSessionDelegate.swift in Sources */,
+				99E36E4423225356005E6C05 /* SSCertificatePinner.swift in Sources */,
 				99A2EEA722CCFAFE001B2B28 /* SSDataBaseStatement.swift in Sources */,
 				99E85E2B2240F5AC005E2B13 /* SSCollectionViewMarkableController.swift in Sources */,
 				99F6A187228981CE00183436 /* AutoMap.swift in Sources */,
