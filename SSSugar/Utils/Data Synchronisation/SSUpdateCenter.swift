@@ -33,6 +33,8 @@ public class SSUpdater {
         }
     }
     private var observers = [Observer]()
+    
+    public init() {}
 }
 
 extension SSUpdater: SSUpdateCenter {
