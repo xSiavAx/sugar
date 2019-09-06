@@ -21,7 +21,7 @@ public struct SSUpdate {
         private(set) var name : String
         private(set) var data : ReactionData
         
-        public init(name mName: String, data mData: ReactionData) {
+        public init(name mName: String, data mData: ReactionData = ReactionData()) {
             name = mName
             data = mData
         }
