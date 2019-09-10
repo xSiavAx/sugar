@@ -50,9 +50,6 @@ public extension SSUpdatingModelObtainer {
 ///
 /// There is ModelObtainer as Generic.
 open class SSModelProcessor<Obtainer: SSModelObtainer> {
-    /// Model Processor work with
-    public typealias Model = Obtainer.Model
-    
     /// Internal struct implementing ObtainJob protocol
     private struct ProcObtainJob: SSObtainJob {
         let run: ()->Void
@@ -64,10 +61,12 @@ open class SSModelProcessor<Obtainer: SSModelObtainer> {
         public let onFinish: ()->Void
     }
     
+    /// Model Processor work with
+    public typealias Model = Obtainer.Model
     /// Processor's model obtainer
-    public var obtainer: Obtainer?
+    public private(set) var obtainer: Obtainer?
     /// Update center for notification subscriptions
-    var updater: SSUpdateCenter
+    public let updater: SSUpdateCenter
     
     /// Create new processor with passed Update Center and Obtainer
     ///
@@ -101,8 +100,8 @@ extension SSModelProcessor: SSObtainJobCreator {
         guard let data = obtainer?.finish() else { fatalError("Invalid state") }
         guard !data.needReobtain else { return false }
         
-        obtainer = nil
         if let model = data.model {
+            obtainer = nil
             pAssignModel(model)
             updater.addReceiver(self)
         } else {
