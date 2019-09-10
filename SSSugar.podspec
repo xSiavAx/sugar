@@ -9,5 +9,5 @@ Pod::Spec.new do |spec|
   spec.platform       = :ios, "11.4"
   spec.source         = { :git => "https://SiavA@bitbucket.org/SiavA/sssugar.git", :tag => "1.3.2.5" }
   spec.source_files   = "SSSugar/**/*.swift"
-  spec.swift_version  = "4.2" 
+  spec.swift_version  = "5.0" 
 end
