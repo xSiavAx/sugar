@@ -75,7 +75,7 @@ open class SSModelProcessor<Obtainer: SSModelObtainer> {
     /// - Parameters:
     ///   - updater: Update Center for notificatons subscriptions
     ///   - obtainer: Model obtainer
-    init(updater mUpdater: SSUpdateCenter, obtainer mObtainer: Obtainer) {
+    public init(updater mUpdater: SSUpdateCenter, obtainer mObtainer: Obtainer) {
         updater = mUpdater
         obtainer = mObtainer
     }
@@ -83,8 +83,8 @@ open class SSModelProcessor<Obtainer: SSModelObtainer> {
     deinit { updater.removeReceiver(self) }
     
     //MARK: protected
-    func pAssignModel(_ model: Model) {}
-    func pModelUnavailable() {}
+    public func pAssignModel(_ model: Model) {}
+    public func pModelUnavailable() {}
 }
 
 extension SSModelProcessor: SSObtainJobCreator {
