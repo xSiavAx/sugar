@@ -83,8 +83,8 @@ open class SSModelProcessor<Obtainer: SSModelObtainer> {
     deinit { updater.removeReceiver(self) }
     
     //MARK: protected
-    public func pAssignModel(_ model: Model) {}
-    public func pModelUnavailable() {}
+    open func pAssignModel(_ model: Model) {}
+    open func pModelUnavailable() {}
 }
 
 extension SSModelProcessor: SSObtainJobCreator {
