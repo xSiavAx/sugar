@@ -14,13 +14,33 @@ public struct SSObtainResult<Model> {
 public protocol SSModelObtainer {
     /// Obtaining model type
     associatedtype Model
+    typealias Result = SSObtainResult<Model>
     
     /// Prepare to obtain model (for example, notification subscriptions)
     func start()
     /// Obtain model
     func obtain()
     /// Generate obtaining result
-    func finish() -> SSObtainResult<Model>
+    func finish() -> Result
+}
+
+/// Protocol with requieremnts for model obtainer that can recieve model notifications and react on em.
+/// There are default implementations for `start` and zfinish` methods.
+public protocol SSUpdatingModelObtainer: SSModelObtainer, SSUpdateReceiver {
+    var updateCenter: SSUpdateCenter {get}
+    var result: Result {get set}
+}
+
+extension SSUpdatingModelObtainer {
+    func start() {
+        result = Result()
+        updateCenter.addReceiver(self)
+    }
+    
+    func finish() -> Result {
+        updateCenter.removeReceiver(self)
+        return result
+    }
 }
 
 /// Base class for Any Model Processor. Incapsulate obtain and updates subscribtions logic.
