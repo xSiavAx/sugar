@@ -28,18 +28,21 @@ public protocol SSModelObtainer {
 /// There are default implementations for `start` and zfinish` methods.
 public protocol SSUpdatingModelObtainer: SSModelObtainer, SSUpdateReceiver {
     var updateCenter: SSUpdateCenter {get}
-    var result: Result {get set}
+    var result: Result? {get set}
 }
 
-extension SSUpdatingModelObtainer {
+public extension SSUpdatingModelObtainer {
     func start() {
         result = Result()
         updateCenter.addReceiver(self)
     }
     
     func finish() -> Result {
+        defer {
+            result = nil
+        }
         updateCenter.removeReceiver(self)
-        return result
+        return result!
     }
 }
 
