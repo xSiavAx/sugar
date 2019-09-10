@@ -59,6 +59,11 @@ open class SSModelProcessor<Obtainer: SSModelObtainer> {
     public struct ProcEditJob: SSProcessorJob {
         public let run: () throws ->Void
         public let onFinish: ()->Void
+        
+        public init(run mRun: @escaping () throws ->Void, onFinish mOnFinish: @escaping ()->Void) {
+            run = mRun
+            onFinish = mOnFinish
+        }
     }
     
     /// Model Processor work with
