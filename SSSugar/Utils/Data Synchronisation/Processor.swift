@@ -29,7 +29,10 @@ public protocol SSModelObtainer {
 /// Protocol with requieremnts for model obtainer that can recieve model notifications and react on em.
 /// There are default implementations for `start` and zfinish` methods.
 public protocol SSUpdatingModelObtainer: SSModelObtainer, SSUpdateReceiver {
+    /// Center to subscribe on and send notifications
     var updateCenter: SSUpdateCenter {get}
+    
+    /// Obtaining result
     var result: Result? {get set}
 }
 
