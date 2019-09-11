@@ -56,19 +56,19 @@ extension SSUpdater: SSUpdateCenter {
         }
     }
     
+    public func notify(info: SSUpdate.Info) {
+        NotificationCenter.default.post(name: Notification.Name(info.name), object:nil, userInfo:info.data)
+    }
+    
     public func notify(info mInfo: SSUpdate.Info, ignore receivers: SSUpdateReceiver...) {
         if receivers.isEmpty {
-            pNotify(info: mInfo)
+            notify(info: mInfo)
         } else {
-            pNotify(info: info(mInfo, ignoring: receivers))
+            notify(info: info(mInfo, ignoring: receivers))
         }
     }
     
     //MARK: private
-    private func pNotify(info: SSUpdate.Info) {
-        NotificationCenter.default.post(name: Notification.Name(info.name), object:nil, userInfo:info.data)
-    }
-    
     private func info(_ info: SSUpdate.Info, ignoring receivers: [SSUpdateReceiver]) -> SSUpdate.Info {
         var mInfo = info
         
