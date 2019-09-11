@@ -17,6 +17,8 @@ public protocol SSModelObtainer {
     typealias Result = SSObtainResult<Model>
     
     /// Prepare to obtain model (for example, notification subscriptions)
+    ///
+    /// - Note: Obtainer will not remove. So you can repeat obtaining at some point in future.
     func start()
     /// Obtain model
     func obtain()
@@ -65,13 +67,16 @@ open class SSModelProcessor<Obtainer: SSModelObtainer> {
             onFinish = mOnFinish
         }
     }
-    
     /// Model Processor work with
     public typealias Model = Obtainer.Model
+    
     /// Processor's model obtainer
     public private(set) var obtainer: Obtainer?
     /// Update center for notification subscriptions
     public let updater: SSUpdateCenter
+    /// Processor's model.
+    /// - Warning: This is protected property, don't call it settet outside the class or it inheritor.
+    public var pModel: Model?
     
     /// Create new processor with passed Update Center and Obtainer
     ///
@@ -87,7 +92,14 @@ open class SSModelProcessor<Obtainer: SSModelObtainer> {
     deinit { updater.removeReceiver(self) }
     
     //MARK: protected
-    open func pAssignModel(_ model: Model) {}
+    /// Calls on model did obtain and assign, but before update receiver will adds
+    ///
+    /// - Note: Override this method if you need additional actions at this point
+    open func pModelDidAssign() {}
+    
+    /// Calls on no model did obtain
+    ///
+    /// - Note: Override this method if you need additional actions at this point
     open func pModelUnavailable() {}
 }
 
@@ -106,13 +118,21 @@ extension SSModelProcessor: SSObtainJobCreator {
         guard !data.needReobtain else { return false }
         
         if let model = data.model {
-            obtainer = nil
-            pAssignModel(model)
-            updater.addReceiver(self)
+            assign(model: model)
         } else {
             pModelUnavailable()
         }
         return true
+    }
+    
+    /// Clear obtainer, assign model, notify delegate and add Update Receiver
+    ///
+    /// - Parameter model: model to assign
+    private func assign(model: Model) {
+        obtainer = nil
+        pModel = model
+        pModelDidAssign()
+        updater.addReceiver(self)
     }
 }
 
