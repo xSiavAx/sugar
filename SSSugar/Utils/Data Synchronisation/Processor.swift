@@ -64,7 +64,8 @@ public extension SSUpdatingModelObtainer {
     }
 }
 
-/// Method for getting Model
+/// Method for getting Model.
+/// Usually used by ModelObtainer.
 public protocol SSModelGetter {
     associatedtype Model
     func get() -> Model?
@@ -88,7 +89,7 @@ extension SSUpdatingModelGetObtainer where Getter.Model == Model {
 /// Concreate model obtainer. It use Generic SModelGetter to define it's Model.
 /// Cuz it implements SSUpdatingModelGetObtainer (and SSUpdatingModelObtainer) it already has `start`, `obtain`, `finish` default realization
 /// Use it as Base class for Obtainers with default logic.
-/// - Warning: Inheritor has implement `reactions` (such as concreate UpdateReceiver)
+/// - Important: `reactions()` should be overriden by inheritor
 open class SSUpdatingObtainer<SModelGetter: SSModelGetter>: SSUpdatingModelGetObtainer {
     public typealias Model = SModelGetter.Model
     
@@ -114,7 +115,8 @@ open class SSUpdatingObtainer<SModelGetter: SSModelGetter>: SSUpdatingModelGetOb
 
 /// Base class for Any Model Processor. Incapsulate obtain and updates subscribtions logic.
 ///
-/// There is ModelObtainer as Generic.
+/// - Important: `pModelUnavailable()` should be overriden by inheritor
+/// - Note: `pModelDidAssign()` could be overriden for any additial actions at this point.
 open class SSModelProcessor<Obtainer: SSModelObtainer> {
     /// Internal struct implementing ObtainJob protocol
     private struct ProcObtainJob: SSObtainJob {
