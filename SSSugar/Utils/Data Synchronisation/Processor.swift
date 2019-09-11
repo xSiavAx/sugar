@@ -67,12 +67,24 @@ public protocol SSModelGetter {
     func get() -> Model?
 }
 
-open class SSUpdatingObtainer<SModelGetter: SSModelGetter>: SSUpdatingModelObtainer {
+public protocol SSUpdatingModelGetObtainer: SSUpdatingModelObtainer {
+    associatedtype Getter: SSModelGetter
+    
+    var getter: Getter {get}
+}
+
+extension SSUpdatingModelGetObtainer where Getter.Model == Model {
+    public func obtain() {
+        result?.model = getter.get()
+    }
+}
+
+open class SSUpdatingObtainer<SModelGetter: SSModelGetter>: SSUpdatingModelGetObtainer {
     public typealias Model = SModelGetter.Model
     
     public var updateCenter: SSUpdateCenter
-    public var getter: SModelGetter
     public var result: SSObtainResult<Model>?
+    public var getter: SModelGetter
     
     public init(updater: SSUpdateCenter, modelGetter: SModelGetter) {
         updateCenter = updater
@@ -81,10 +93,6 @@ open class SSUpdatingObtainer<SModelGetter: SSModelGetter>: SSUpdatingModelObtai
     
     deinit {
         updateCenter.removeReceiver(self)
-    }
-    
-    public func obtain() {
-        result?.model = getter.get()
     }
 
     /// Dummy reactions implementation. Each inheritor has override this method.
