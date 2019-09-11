@@ -85,6 +85,7 @@
 		99E36E4423225356005E6C05 /* SSCertificatePinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E36E4323225356005E6C05 /* SSCertificatePinner.swift */; };
 		99E36E462322539C005E6C05 /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E36E452322539C005E6C05 /* URLSession.swift */; };
 		99E36E4923225DB6005E6C05 /* SSCertificatesObtainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E36E4823225DB6005E6C05 /* SSCertificatesObtainer.swift */; };
+		99E36E7723293933005E6C05 /* SSSugar.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 99E36E7623293932005E6C05 /* SSSugar.podspec */; };
 		99E3BA4122FB26290023D9AE /* SSCopying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E3BA4022FB26290023D9AE /* SSCopying.swift */; };
 		99E85E292240F3A0005E2B13 /* SSCollectionViewMarkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E85E282240F3A0005E2B13 /* SSCollectionViewMarkable.swift */; };
 		99E85E2B2240F5AC005E2B13 /* SSCollectionViewMarkableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E85E2A2240F5AC005E2B13 /* SSCollectionViewMarkableController.swift */; };
@@ -234,6 +235,7 @@
 		99E36E4323225356005E6C05 /* SSCertificatePinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCertificatePinner.swift; sourceTree = "<group>"; };
 		99E36E452322539C005E6C05 /* URLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSession.swift; sourceTree = "<group>"; };
 		99E36E4823225DB6005E6C05 /* SSCertificatesObtainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCertificatesObtainer.swift; sourceTree = "<group>"; };
+		99E36E7623293932005E6C05 /* SSSugar.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SSSugar.podspec; sourceTree = "<group>"; };
 		99E3BA4022FB26290023D9AE /* SSCopying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCopying.swift; sourceTree = "<group>"; };
 		99E85E282240F3A0005E2B13 /* SSCollectionViewMarkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkable.swift; sourceTree = "<group>"; };
 		99E85E2A2240F5AC005E2B13 /* SSCollectionViewMarkableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableController.swift; sourceTree = "<group>"; };
@@ -487,6 +489,7 @@
 		99D29634223D3057003FD9F0 = {
 			isa = PBXGroup;
 			children = (
+				99E36E7623293932005E6C05 /* SSSugar.podspec */,
 				99D29640223D3057003FD9F0 /* SSSugar */,
 				996F380022417014007FF8B6 /* SSCustomSelectionTests */,
 				99B1A796224678B400D96BEE /* SSSugarPlaygroundTests */,
@@ -896,6 +899,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				99E36E7723293933005E6C05 /* SSSugar.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
