@@ -52,21 +52,27 @@ public extension SSUpdatingModelObtainer {
         return result!
     }
     
+    /// Set result't need reobtain `true` value
     func markNeedReobtain() {
         result?.needReobtain = true
     }
     
+    /// Clear result's model and set result't need reobtain `false` value
     func onModelRemove() {
         result?.model = nil
         result?.needReobtain = false
     }
 }
 
+/// Method for getting Model
 public protocol SSModelGetter {
     associatedtype Model
     func get() -> Model?
 }
 
+/// Requirements for obtainer working with getter
+///
+/// - Note: Extension whose Getter.Model are equal to Model has default `obtain` realisation
 public protocol SSUpdatingModelGetObtainer: SSUpdatingModelObtainer {
     associatedtype Getter: SSModelGetter
     
@@ -79,6 +85,10 @@ extension SSUpdatingModelGetObtainer where Getter.Model == Model {
     }
 }
 
+/// Concreate model obtainer. It use Generic SModelGetter to define it's Model.
+/// Cuz it implements SSUpdatingModelGetObtainer (and SSUpdatingModelObtainer) it already has `start`, `obtain`, `finish` default realization
+/// Use it as Base class for Obtainers with default logic.
+/// - Warning: Inheritor has implement `reactions` (such as concreate UpdateReceiver)
 open class SSUpdatingObtainer<SModelGetter: SSModelGetter>: SSUpdatingModelGetObtainer {
     public typealias Model = SModelGetter.Model
     
