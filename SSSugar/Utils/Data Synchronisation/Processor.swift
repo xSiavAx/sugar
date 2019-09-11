@@ -51,7 +51,48 @@ public extension SSUpdatingModelObtainer {
         updateCenter.removeReceiver(self)
         return result!
     }
+    
+    func markNeedReobtain() {
+        result?.needReobtain = true
+    }
+    
+    func onModelRemove() {
+        result?.model = nil
+        result?.needReobtain = false
+    }
 }
+
+public protocol SSModelGetter {
+    associatedtype Model
+    func get() -> Model?
+}
+
+open class SSUpdatingObtainer<SModelGetter: SSModelGetter>: SSUpdatingModelObtainer {
+    public typealias Model = SModelGetter.Model
+    
+    public var updateCenter: SSUpdateCenter
+    public var getter: SModelGetter
+    public var result: SSObtainResult<Model>?
+    
+    public init(updater: SSUpdateCenter, modelGetter: SModelGetter) {
+        updateCenter = updater
+        getter = modelGetter
+    }
+    
+    deinit {
+        updateCenter.removeReceiver(self)
+    }
+    
+    public func obtain() {
+        result?.model = getter.get()
+    }
+
+    /// Dummy reactions implementation. Each inheritor has override this method.
+    ///
+    /// - Returns: empty reactions dict.
+    public func reactions() -> SSUpdate.ReactionMap { return [:] }
+}
+
 
 /// Base class for Any Model Processor. Incapsulate obtain and updates subscribtions logic.
 ///
