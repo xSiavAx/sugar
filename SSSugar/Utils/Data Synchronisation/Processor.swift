@@ -33,6 +33,8 @@ public protocol SSUpdatingModelObtainer: SSModelObtainer, SSUpdateReceiver {
     var updateCenter: SSUpdateCenter {get}
     
     /// Obtaining result
+    ///
+    /// - Warning: Don't create/clear it's on your own. `SSUpdatingModelObtainer` extension will do it in `start` and `finish` methods
     var result: Result? {get set}
 }
 
