@@ -10,43 +10,29 @@ public protocol SSUpdateReceiver: AnyObject {
 
 /// Structs for simplyfy passing data inside Updates system
 public struct SSUpdate {
-    static let kIgnoreReceiversKey = "ignore_receivers"
-    
-    public typealias ReactionData = [AnyHashable : Any]
-    public typealias Reaction = (ReactionData)->Void
+    ///Update arguments type
+    public typealias Args = [AnyHashable : Any]
+    ///Update reaction type
+    public typealias Reaction = (Self)->Void
+    ///Update reactions dict type
     public typealias ReactionMap = [String : Reaction]
     
-    /// Struct that storing pair – notification name and arguments dict.
-    public struct Info {
-        private(set) var name : String
-        private(set) var data : ReactionData
-        
-        public init(name mName: String, data mData: ReactionData = ReactionData()) {
-            name = mName
-            data = mData
-        }
-        
-        public init(notification: Notification) {
-            self.init(name:notification.name.rawValue, data:notification.userInfo!)
-        }
-        
-        /// Add receiver to ignore list for notification
-        ///
-        /// - Parameter receivers: receivers that should be ignored
-        public mutating func addIgnore(_ receivers: [SSUpdateReceiver]) {
-            data[kIgnoreReceiversKey] = receivers
-        }
-        
-        
-        /// Determine should specified receiver be ignored or not
-        ///
-        /// - Parameter receiver: Receiver to check
-        /// - Returns: Check result
-        public func shouldIgnore(receiver: SSUpdateReceiver) -> Bool {
-            guard let ignores = data[kIgnoreReceiversKey] as? [SSUpdateReceiver] else {
-                return false
-            }
-            return ignores.contains() {$0 === receiver}
-        }
+    /// Update title
+    public let name : String
+    /// Update identifier
+    /// Usually it used to metch update on it's request
+    public let marker : String
+    /// Update arguments
+    public let args : Args
+    
+    /// Create new Update
+    /// - Parameters:
+    ///   - name: Update's title
+    ///   - marker: Update's marker
+    ///   - args: Update's arguments
+    public init(name mName: String, marker mMarker: String, args mArgs: Args? = nil) {
+        name = mName
+        marker = mMarker
+        args = mArgs ?? Args()
     }
 }

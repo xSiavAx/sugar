@@ -1,7 +1,7 @@
 import Foundation
 
-/// Updater protocol with requierement to Updater implementation.
-public protocol SSUpdateCenter {
+/// Updater protocol with requierement to managing receivers
+public protocol SSUpdateReceiversManaging {
     /// Start sending notofications for passed listeners
     ///
     /// - Parameter receiver: Receiver to add
@@ -11,36 +11,41 @@ public protocol SSUpdateCenter {
     ///
     /// - Parameter receiver: Receiver for remove
     func removeReceiver(_ receiver: SSUpdateReceiver)
-    
-    
+}
+
+/// Updater protocol with requierement to notifying
+public protocol SSUpdateNotifier {
     /// Send passed notification for all listeners that wait for it (except passed ignores)
     ///
     /// - Parameters:
     ///   - info: Information for notification
-    ///   - receivers: list of receivers that sholdn't receive passed notification
-    func notify(info: SSUpdate.Info, ignore receivers: SSUpdateReceiver...)
+    func notify(info: SSUpdate)
 }
 
+public protocol SSUpdateCenter: SSUpdateReceiversManaging, SSUpdateNotifier {}
+
 /// Concreate Update Center implementation that use SDK's Notification Center inside.
-public class SSUpdater {
+public class SSUpdater: SSUpdateCenter {
     /// Internal class for simplyfy Update Center code.
     class Observer {
         var tokens : [AnyObject]?
-        var receiver: SSUpdateReceiver
+        var receiver : SSUpdateReceiver
+        var converter : UpdatesConverter
         
-        init(receiver mReceiver: SSUpdateReceiver) {
+        init(receiver mReceiver: SSUpdateReceiver, converter mConverter: UpdatesConverter) {
             receiver = mReceiver
+            converter = mConverter
         }
     }
+    class UpdatesConverter {}
     private var observers = [Observer]()
-    
-    public init() {}
+    private var converter = UpdatesConverter()
 }
 
-extension SSUpdater: SSUpdateCenter {
-    //MARK: UpdateCenter
+extension SSUpdater: SSUpdateReceiversManaging {
+    //MARK: SSUpdateReceiversManaging
     public func addReceiver(_ receiver: SSUpdateReceiver) {
-        let observer = Observer(receiver: receiver)
+        let observer = Observer(receiver: receiver, converter: converter)
         
         observer.startObserving()
         observers.append(observer)
@@ -55,25 +60,33 @@ extension SSUpdater: SSUpdateCenter {
             return false
         }
     }
-    
-    public func notify(info: SSUpdate.Info) {
-        NotificationCenter.default.post(name: Notification.Name(info.name), object:nil, userInfo:info.data)
+}
+
+extension SSUpdater: SSUpdateNotifier {
+    //MARK: SSUpdateNotifier
+    public func notify(info: SSUpdate) {
+        NotificationCenter.default.post(converter.notification(from: info))
     }
+}
+
+extension SSUpdater.UpdatesConverter {
+    private static let markerKey = "notification_marker"
+    private static let argsKey = "notification_args"
     
-    public func notify(info mInfo: SSUpdate.Info, ignore receivers: SSUpdateReceiver...) {
-        if receivers.isEmpty {
-            notify(info: mInfo)
-        } else {
-            notify(info: info(mInfo, ignoring: receivers))
+    public func info(from notification: Notification) -> SSUpdate {
+        guard let userInfo = notification.userInfo else {
+            fatalError("Invalid notification")
         }
-    }
-    
-    //MARK: private
-    private func info(_ info: SSUpdate.Info, ignoring receivers: [SSUpdateReceiver]) -> SSUpdate.Info {
-        var mInfo = info
+        let marker = userInfo[Self.markerKey] as! String
+        let args = userInfo[Self.argsKey] as! [AnyHashable : Any]
         
-        mInfo.addIgnore(receivers)
-        return mInfo
+        return SSUpdate(name: notification.name.rawValue, marker: marker, args: args)
+    }
+
+    public func notification(from info: SSUpdate) -> Notification {
+        let notName = Notification.Name(rawValue: info.name)
+        let userInfo = [Self.markerKey : info.marker, Self.argsKey : info.args] as [AnyHashable : Any]
+        return Notification(name: notName, object: nil, userInfo: userInfo)
     }
 }
 
@@ -85,26 +98,20 @@ extension SSUpdater.Observer {
     
     /// Unregister receiver's reactions from Notification Center
     func stopObserving() {
-        guard let mTokens = tokens else { fatalError("Observer wan't started") }
+        guard let mTokens = tokens else { fatalError("Observer wasn't started") }
         for token in mTokens { NotificationCenter.default.removeObserver(token) }
         tokens = nil
     }
     
     //MARK: private
     private func register(name: String, reaction: @escaping SSUpdate.Reaction) -> AnyObject {
+        func process(notification: Notification) {
+            reaction(converter.info(from: notification))
+        }
         let token = NotificationCenter.default.addObserver(forName: Notification.Name(name),
                                                            object: nil,
-                                                           queue: nil) { [weak self] (notification) in
-                                                            self?.process(notification: notification, reaction: reaction)
-        }
+                                                           queue: nil,
+                                                           using: process(notification:))
         return token
-    }
-    
-    private func process(notification: Notification, reaction: SSUpdate.Reaction) {
-        let info = SSUpdate.Info(notification: notification)
-        
-        if (!info.shouldIgnore(receiver: receiver)) {
-            reaction(info.data)
-        }
     }
 }
