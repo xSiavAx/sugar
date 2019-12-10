@@ -1,5 +1,8 @@
 import Foundation
 
+#warning("Race condition")
+//TODO: It's reace condition on add/remove observer. Add usually calls from BG queue. Remove may be called within `deinit` from main queue.
+
 /// Updater protocol with requierement to managing receivers
 public protocol SSUpdateReceiversManaging {
     /// Start sending notofications for passed listeners

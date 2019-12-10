@@ -1,6 +1,6 @@
 import Foundation
 
-internal class TaskDBMutator<TaskSource: SSEntityMutatorSource>: SSEntityDBMutator<TaskSource>, SSUETaskUpdate where TaskSource.Entity == SSUETask {
+internal class TaskDBMutator<TaskSource: SSMutatingEntitySource>: SSEntityDBMutator<TaskSource>, SSUETaskUpdate where TaskSource.Entity == SSUETask {
     public let api: SSUETaskEditApi
 
     public init(api mApi: SSUETaskEditApi, source: TaskSource, executor: SSExecutor, notifier: SSUpdateNotifier) {

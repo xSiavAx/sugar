@@ -88,4 +88,3 @@ extension SSDataBaseStatementProcessor : SSDataBaseStatementProxing {
         statement.clear()
     }
 }
-

@@ -27,6 +27,10 @@
 		996F380222417014007FF8B6 /* SSMarkbaleCollectionCellHelperMarkTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996F380122417014007FF8B6 /* SSMarkbaleCollectionCellHelperMarkTC.swift */; };
 		996F380422417014007FF8B6 /* SSSugar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99D2963E223D3057003FD9F0 /* SSSugar.framework */; };
 		99713B9522EF555700EBD1FD /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99713B9422EF555700EBD1FD /* UILabel.swift */; };
+		99745CBC239FC0ED00DAAFFA /* SSEntityStorageMutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CBB239FC0ED00DAAFFA /* SSEntityStorageMutator.swift */; };
+		99745CBE239FC10900DAAFFA /* SSEntityRemoteMutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CBD239FC10900DAAFFA /* SSEntityRemoteMutator.swift */; };
+		99745CC0239FC69F00DAAFFA /* SSEntityUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CBF239FC69F00DAAFFA /* SSEntityUpdater.swift */; };
+		99745CC2239FC9B700DAAFFA /* SSUETaskUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CC1239FC9B700DAAFFA /* SSUETaskUpdater.swift */; };
 		997B344F225A134B00F2A3A0 /* SSSugarExtensionContainersArrayInitBuildBlockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997B344E225A134B00F2A3A0 /* SSSugarExtensionContainersArrayInitBuildBlockTests.swift */; };
 		997B3451225A134B00F2A3A0 /* SSSugar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99D2963E223D3057003FD9F0 /* SSSugar.framework */; };
 		997E314C22493587006A5B7C /* SSSugar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99D2963E223D3057003FD9F0 /* SSSugar.framework */; };
@@ -180,6 +184,10 @@
 		996F380122417014007FF8B6 /* SSMarkbaleCollectionCellHelperMarkTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSMarkbaleCollectionCellHelperMarkTC.swift; sourceTree = "<group>"; };
 		996F380322417014007FF8B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		99713B9422EF555700EBD1FD /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
+		99745CBB239FC0ED00DAAFFA /* SSEntityStorageMutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSEntityStorageMutator.swift; sourceTree = "<group>"; };
+		99745CBD239FC10900DAAFFA /* SSEntityRemoteMutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSEntityRemoteMutator.swift; sourceTree = "<group>"; };
+		99745CBF239FC69F00DAAFFA /* SSEntityUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSEntityUpdater.swift; sourceTree = "<group>"; };
+		99745CC1239FC9B700DAAFFA /* SSUETaskUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUETaskUpdater.swift; sourceTree = "<group>"; };
 		997B344C225A134B00F2A3A0 /* SSSugarExtensionContainersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SSSugarExtensionContainersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		997B344E225A134B00F2A3A0 /* SSSugarExtensionContainersArrayInitBuildBlockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarExtensionContainersArrayInitBuildBlockTests.swift; sourceTree = "<group>"; };
 		997B3450225A134B00F2A3A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -629,6 +637,7 @@
 				99D70DA4239A8B4E00EA96B4 /* SSUETask.swift */,
 				99D70DA6239A8C3300EA96B4 /* SSUETaskUpdate.swift */,
 				99D70DB3239AAF7700EA96B4 /* SSUETaskProcessor.swift */,
+				99745CC1239FC9B700DAAFFA /* SSUETaskUpdater.swift */,
 				99E27B57239EAAA400CC5984 /* SSUETaskMutator.swift */,
 				99E27B55239EAA0F00CC5984 /* SSUETaskDBMutator.swift */,
 				99E27B59239EB01800CC5984 /* SSUETaskRemoteMutator.swift */,
@@ -643,7 +652,10 @@
 				99E36E07232137F9005E6C05 /* SSUpdate.swift */,
 				99E36E0923213A1B005E6C05 /* SSUpdateCenter.swift */,
 				99E36E0C23213C90005E6C05 /* SSEntityProcessor.swift */,
+				99745CBF239FC69F00DAAFFA /* SSEntityUpdater.swift */,
 				99D70DB5239AB66900EA96B4 /* SSEntityMutator.swift */,
+				99745CBB239FC0ED00DAAFFA /* SSEntityStorageMutator.swift */,
+				99745CBD239FC10900DAAFFA /* SSEntityRemoteMutator.swift */,
 				99E27B5B239FA13A00CC5984 /* SSEntityOfflineMutator.swift */,
 			);
 			path = "Data Synchronisation";
@@ -1037,6 +1049,7 @@
 				993BC5BC2318028D008DCE98 /* Dictionary.swift in Sources */,
 				99D2966B223D3763003FD9F0 /* Common.swift in Sources */,
 				99E85E2D224103C6005E2B13 /* Array.swift in Sources */,
+				99745CBE239FC10900DAAFFA /* SSEntityRemoteMutator.swift in Sources */,
 				9944ED6322CFA6C6005B129A /* SSReleasable.swift in Sources */,
 				99991DC622E624F900F3D294 /* SSReleaseDecoratorDBExtensions.swift in Sources */,
 				993E8A0E22E0C8BE00688555 /* SSDBStatementProcessor.swift in Sources */,
@@ -1046,12 +1059,14 @@
 				99E27B5A239EB01800CC5984 /* SSUETaskRemoteMutator.swift in Sources */,
 				99713B9522EF555700EBD1FD /* UILabel.swift in Sources */,
 				99D29670223D3763003FD9F0 /* UIButton.swift in Sources */,
+				99745CC2239FC9B700DAAFFA /* SSUETaskUpdater.swift in Sources */,
 				99E36E0A23213A1B005E6C05 /* SSUpdateCenter.swift in Sources */,
 				99E36E0D23213C90005E6C05 /* SSEntityProcessor.swift in Sources */,
 				993E8A0A22E0C00100688555 /* SSViewConfigurable.swift in Sources */,
 				99D2966D223D3763003FD9F0 /* DispatchQueue.swift in Sources */,
 				99D29656223D3681003FD9F0 /* SSTextField.swift in Sources */,
 				99991DC322E6219C00F3D294 /* SSDataBaseStatementProxy.swift in Sources */,
+				99745CC0239FC69F00DAAFFA /* SSEntityUpdater.swift in Sources */,
 				99D70DA5239A8B4E00EA96B4 /* SSUETask.swift in Sources */,
 				99D29659223D3681003FD9F0 /* SSScrollContainerView.swift in Sources */,
 				9944ED5F22CF9DC9005B129A /* SSDataBaseTransaction.swift in Sources */,
@@ -1062,6 +1077,7 @@
 				99E36E4423225356005E6C05 /* SSCertificatePinner.swift in Sources */,
 				99D70DA7239A8C3300EA96B4 /* SSUETaskUpdate.swift in Sources */,
 				99D70DB6239AB66900EA96B4 /* SSEntityMutator.swift in Sources */,
+				99745CBC239FC0ED00DAAFFA /* SSEntityStorageMutator.swift in Sources */,
 				99A2EEA722CCFAFE001B2B28 /* SSDataBaseStatement.swift in Sources */,
 				99E27B58239EAAA400CC5984 /* SSUETaskMutator.swift in Sources */,
 				99E85E2B2240F5AC005E2B13 /* SSCollectionViewMarkableController.swift in Sources */,
