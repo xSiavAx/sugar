@@ -97,7 +97,8 @@ extension SSUETaskUpdate {
 }
 
 extension SSUETaskUpdateReceiver {
-    internal func reactions() -> SSUpdate.ReactionMap {
+    public func reactions() -> SSUpdate.ReactionMap {
+        print("Call")
         return taskReactions()
     }
     

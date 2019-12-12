@@ -1,11 +1,11 @@
 import Foundation
 
-internal class TaskDBMutator<TaskSource: SSMutatingEntitySource>: SSEntityDBMutator<TaskSource>, SSUETaskUpdate where TaskSource.Entity == SSUETask {
+internal class SSUETaskDBMutator<TaskSource: SSMutatingEntitySource>: SSEntityDBMutator<TaskSource>, SSUETaskUpdate where TaskSource.Entity == SSUETask {
     public let api: SSUETaskEditApi
 
-    public init(api mApi: SSUETaskEditApi, source: TaskSource, executor: SSExecutor, notifier: SSUpdateNotifier) {
+    public init(api mApi: SSUETaskEditApi, executor: SSExecutor, notifier: SSUpdateNotifier) {
         api = mApi
-        super.init(source: source, executor:executor, notifier:notifier)
+        super.init(executor:executor, notifier:notifier)
     }
     
     /// Warpper that helps mutate task. It uses super's `mutate(job:handler:)` method.
@@ -17,15 +17,16 @@ internal class TaskDBMutator<TaskSource: SSMutatingEntitySource>: SSEntityDBMuta
     ///   - marker: Modification marker
     ///   - handler: Finish handler.
     ///   - error: Finish error.
-    private func mutateTask(pre: ((_ task: SSUETask)->())? = nil, job: @escaping (_ taskID: Int, _ marker: String)throws->SSUpdate, handler: @escaping (_ error: Error?)->Void) {
-        if let task = source.entity(for: self) {
+    private func mutateTask(pre: ((_ task: SSUETask)->())? = nil, job: @escaping (_ taskID: Int, _ marker: String)throws->SSUpdate, handler:
+        @escaping (_ error: Error?)->Void) {
+        if let task = source?.entity(for: self) {
             pre?(task)
             mutate(job: {try job(task.taskID, $0)}, handler: handler)
         }
     }
 }
 
-extension TaskDBMutator: SSUETaskMutator {
+extension SSUETaskDBMutator: SSUETaskMutator {
     public func increment(_ handler: @escaping (Error?)->Void) {
         func check(task: SSUETask) {
             do {try task.ensureCanIncrement()} catch {fatalError(error.localizedDescription)}

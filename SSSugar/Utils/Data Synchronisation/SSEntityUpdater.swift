@@ -1,35 +1,46 @@
 import Foundation
 
-public protocol SSEntityUpdating {
-    associatedtype Entity
-}
-
 public protocol SSUpdaterEntitySource: AnyObject {
     associatedtype Entity
     
-    func entity<Updater: SSEntityUpdating>(for updater: Updater) -> Entity?
+    func entity<Updater: SSBaseEntityUpdating>(for updater: Updater) -> Entity?
 }
 
 public protocol SSEntityUpdaterDelegate: AnyObject {}
 
+/// Requirements for Entity Mutator with some addons (like marker generating or dispatching on main queue)
+public protocol SSBaseEntityUpdating: SSOnMainExecutor {
+    associatedtype Source: SSUpdaterEntitySource
+    associatedtype Delegate: SSEntityUpdaterDelegate
+    
+    typealias Entity = Source.Entity
+    
+    /// Object that give's (and potentially own) entity object to mutate.
+    var source: Source? {get}
+    var delegate: Delegate? {get set}
+    
+    func start(source: Source)
+    func stop()
+}
+
 open class SSEntityUpdater<Source: SSUpdaterEntitySource, Delegate: SSEntityUpdaterDelegate> {
-    public typealias Entity = Source.Entity
-    
-    weak var delegate: Delegate?
-    unowned let source: Source
+    public weak var delegate: Delegate?
+    public private(set) weak var source: Source?
     public var receiversManager: SSUpdateReceiversManaging
-    public var entity: Entity? { return source.entity(for: self) }
+    public var entity: Entity? { return source?.entity(for: self) }
     
-    public init(entitySource: Source, updateReceiversManager: SSUpdateReceiversManaging) {
-        source = entitySource
+    public init(updateReceiversManager: SSUpdateReceiversManaging) {
         receiversManager = updateReceiversManager
     }
     
     deinit {
-        receiversManager.removeReceiver(self)
+        stop()
     }
-    
-    public func start() {
+}
+
+extension SSEntityUpdater: SSBaseEntityUpdating {
+    public func start(source mSource: Source) {
+        source = mSource
         receiversManager.addReceiver(self)
     }
     
@@ -40,10 +51,9 @@ open class SSEntityUpdater<Source: SSUpdaterEntitySource, Delegate: SSEntityUpda
 
 extension SSEntityUpdater: SSOnMainExecutor {}
 
-extension SSEntityUpdater: SSEntityUpdating {}
-
 extension SSEntityUpdater: SSUpdateReceiver {
     public func reactions() -> SSUpdate.ReactionMap {
+        print("Call wrong")
         return [:]
     }
 }

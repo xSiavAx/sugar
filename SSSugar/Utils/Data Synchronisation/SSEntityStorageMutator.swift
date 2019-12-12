@@ -3,17 +3,16 @@ import Foundation
 /// Base class for any Entity Mutator that works with storage. Storage – any place with low latency and synchronious interface (SharedPreferences, DataBase etc). Mutator will switch queue on it's own.
 /// - Note:
 /// It's inheritors responsobility to provide storage modification logic and notification creating. See examples for more info.
-open class SSEntityDBMutator<Source: SSMutatingEntitySource>: SSBaseEntityMutating {
-    public unowned let source: Source
+open class SSEntityDBMutator<Source: SSMutatingEntitySource> {
+    public private(set) weak var source: Source?
     /// Executor for tasks that work with storage.
     public let executor: SSExecutor
     /// Notifier for modification notification sending
     public let notifier: SSUpdateNotifier
 
-    public init(source mSource: Source, executor mExecutor: SSExecutor, notifier mNotifier: SSUpdateNotifier) {
+    public init(executor mExecutor: SSExecutor, notifier mNotifier: SSUpdateNotifier) {
         executor = mExecutor
         notifier = mNotifier
-        source = mSource
     }
     
     /// Protected method for mutating entity.
@@ -43,5 +42,14 @@ open class SSEntityDBMutator<Source: SSMutatingEntitySource>: SSBaseEntityMutati
         }
         return nil
     }
+}
+
+extension SSEntityDBMutator: SSBaseEntityMutating {
+    #warning("TODO: Add started/stopped logic?")
+    public func start(source mSource: Source) {
+        source = mSource
+    }
+    
+    public func stop() {}
 }
 

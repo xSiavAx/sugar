@@ -31,3 +31,9 @@ public extension DispatchQueue {
         self.asyncAfter(deadline: .now() + .milliseconds(intervalMilliSec), execute: execute)
     }
 }
+
+extension DispatchQueue: SSExecutor {
+    public func execute(_ work: @escaping () -> Void) {
+        async(execute: work)
+    }
+}

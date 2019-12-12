@@ -1,9 +1,11 @@
 import Foundation
 
+#warning("Improove.")
+//TODO: How to replace 'Any' by type?
 internal protocol SSUETaskUpdaterDelegate: SSEntityUpdaterDelegate {
-    func updater(_ updater: AnyObject, didIncrementPages oldPages: Int)
-    func updater(_ updater: AnyObject, didRenameTask oldTitle: String)
-    func updaterDidRemoveTask(_ updater: AnyObject)
+    func updater(_ updater: Any, didIncrementPages oldPages: Int)
+    func updater(_ updater: Any, didRenameTask oldTitle: String)
+    func updaterDidRemoveTask(_ updater: Any)
 }
 
 internal class SSUETaskUpdater<TaskSource: SSUpdaterEntitySource, TaskDelegate: SSUETaskUpdaterDelegate>: SSEntityUpdater<TaskSource, TaskDelegate> where TaskSource.Entity == SSUETask {

@@ -8,19 +8,22 @@ public protocol SSMutatingEntitySource: AnyObject {
 }
 
 /// Addon for Entity Mutator. `newMarker()` has default implementation.
-public protocol SSEntityMutating {
+public protocol SSMarkerGenerating {
     static func newMarker() -> String
 }
 
-extension SSEntityMutating {
+extension SSMarkerGenerating {
     public static func newMarker() -> String { return UUID().uuidString }
 }
 
 /// Requirements for Entity Mutator with some addons (like marker generating or dispatching on main queue)
-public protocol SSBaseEntityMutating: SSEntityMutating, SSOnMainExecutor {
+public protocol SSBaseEntityMutating: SSMarkerGenerating, SSOnMainExecutor {
     associatedtype Source: SSMutatingEntitySource
     typealias Entity = Source.Entity
     
     /// Object that give's (and potentially own) entity object to mutate.
-    var source: Source {get}
+    var source: Source? {get}
+    
+    func start(source: Source)
+    func stop()
 }

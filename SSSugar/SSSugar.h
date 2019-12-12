@@ -8,6 +8,11 @@ FOUNDATION_EXPORT const unsigned char SSSugarVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <SSSugar/PublicHeader.h>
 
+//TODO: Add architecture components (like Display, Adapter, State, Presenter) based on protocols
+
+//TODO: Add concurrent async jobs synchroniser based on dispatch group.
+//TODO: Add non-concurent async jobs synchroniser. (execute jobs one by one)
+
 //TODO: Fix CGSize.extended(by size:)
 //TODO: Write AutoMap containers tests
 //TODO: Add dict 'pick' and 'picking' tests

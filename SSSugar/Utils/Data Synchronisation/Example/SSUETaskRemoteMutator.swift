@@ -1,12 +1,12 @@
 import Foundation
 
-public class TaskRemoteMutator<TaskSource: EntityMutatorSource>: EntityRemoteMutator<TaskSource> where TaskSource.Entity == Task {
+internal class SSUETaskRemoteMutator<TaskSource: SSMutatingEntitySource>: SSEntityRemoteMutator<TaskSource> where TaskSource.Entity == SSUETask {
     private typealias TaskAsyncJob = (Int, String, Handler)->Void
-    public let api: TaskEditAsyncApi
+    public let api: SSUETaskEditAsyncApi
     
-    public init(api mApi: TaskEditAsyncApi, updater: SSUpdateReceiversManaging) {
+    public init(api mApi: SSUETaskEditAsyncApi, manager: SSUpdateReceiversManaging) {
         api = mApi
-        super.init(updater: updater)
+        super.init(manager: manager)
     }
     
     private func mutate(taskJob: @escaping TaskAsyncJob, handler: @escaping Handler) {
@@ -19,7 +19,7 @@ public class TaskRemoteMutator<TaskSource: EntityMutatorSource>: EntityRemoteMut
     }
 }
 
-extension TaskRemoteMutator: TaskMutator {
+extension SSUETaskRemoteMutator: SSUETaskMutator {
     public func increment(_ handler: @escaping Handler) {
         mutate(taskJob: api.incrementPages(taskID:marker:handler:), handler: handler)
     }
@@ -36,7 +36,7 @@ extension TaskRemoteMutator: TaskMutator {
     }
 }
 
-extension TaskRemoteMutator: TaskUpdateReceiver {
+extension SSUETaskRemoteMutator: SSUETaskUpdateReceiver {
     public func taskDidIncrementPages(taskID: Int, marker: String?) {
         handleUpdate(with: marker!)
     }

@@ -1,71 +1,75 @@
 import Foundation
 
-#warning("TODO: Move model-updating functional out of processor (to EntityUpdater for ex)")
-
 public protocol SSEntityObtainer {
     associatedtype Entity
     
     func obtain() -> Entity?
 }
 
-/// Base class for Any Entity Processor. Incapsulate obtain and updates subscribtions logic.
-///
-/// - Note: Use `SSEntityMutators` for mutating outside of `SSEntityProcessor`
-open class SSEntityProcessor<Obtainer: SSEntityObtainer>: SSOnMainExecutor {
-    /// Entity type
-    public typealias Entity = Obtainer.Entity
+#warning("Add docs")
+public protocol SSEntityProcessing {
+    func start(_ handler: @escaping ()->Void)
+    func stop()
+    func fosRoDuh()
+}
+
+protocol SSSingleEntityProcessing: SSUpdaterEntitySource, SSMutatingEntitySource, SSOnMainExecutor
+where
+    Entity == Obtainer.Entity,
+    Entity == Mutator.Entity
+{
+    associatedtype Obtainer: SSEntityObtainer
+    associatedtype Updater: SSBaseEntityUpdating
+    associatedtype Mutator: SSBaseEntityMutating
     
-    /// Processor's entity
-    public private(set) var entity: Entity?
-    /// Processor's entity obtainer
-    public let obtainer: Obtainer
-    /// Update center for notification subscriptions
-    public let updater: SSUpdateReceiversManaging
-    /// Executor to dispatch background tasks
-    public let executor: SSExecutor
+    var entity: Entity? {get}
+    var executor: SSExecutor {get}
+    var obtainer: Obtainer {get}
+    var updater: Updater? {get}
+    var mutator: Mutator? {get}
+    var updateDelegate: Updater.Delegate? {get}
     
-    public init(obtainer mObtainer: Obtainer, updater mUpdater: SSUpdateReceiversManaging, executor mExecutor: SSExecutor) {
-        updater = mUpdater
-        obtainer = mObtainer
-        executor = mExecutor
-    }
-        
-    deinit { updater.removeReceiver(self) }
-    
-    /// Starts processor. Obtain data and subscrive for updates.
-    /// - Parameter handler: Closure will called on data obtain.
-    public func start(_ handler: @escaping ()->Void) {
-        onData { [weak self] in self?.obtain(handler) }
-    }
-    
-    /// Dispatch passed closure on BG queue via executor.
-    /// Method for internal purposes.
-    /// - Parameter handler: closure to dispatch
-    public func onData(_ handler: @escaping ()->Void) {
-        executor.execute(handler)
-    }
-    
-    //MARK: - private
-    private func obtain(_ handler: @escaping ()->Void) {
-        let mModel = obtainer.obtain()
-        
-        func didObtain() {
-            entity = mModel
-            handler()
-        }
-        onMain(didObtain)
-        
-        if (mModel != nil) {
-            updater.addReceiver(self)
-        }
+    func createUpdaterAndMutator()
+    func assign(entity: Entity)
+}
+
+extension SSSingleEntityProcessing {
+    func stop() {
+        updater?.stop()
+        mutator?.stop()
     }
 }
 
-extension SSEntityProcessor: SSUpdateReceiver {
-    /// Dummy reactions implementation. Each inheritor has override this method.
-    ///
-    /// - Returns: empty reactions dict.
-    public func reactions() -> SSUpdate.ReactionMap {
-        return [:]
+extension SSSingleEntityProcessing where Updater.Source == Self, Mutator.Source == Self
+{
+    func start(_ handler: @escaping () -> Void) {
+        createUpdaterAndMutator()
+        
+        func onBg() {
+            if let entity = obtainer.obtain() {
+                updater?.start(source: self)
+                mutator?.start(source: self)
+                onMain { [weak self] in
+                    self?.assign(entity: entity)
+                    handler()
+                }
+            } else {
+                onMain(handler)
+            }
+        }
+        executor.execute(onBg)
     }
 }
+
+extension SSSingleEntityProcessing where Entity == Updater.Entity {
+    func entity<Updater: SSBaseEntityUpdating>(for updater: Updater) -> Entity? {
+        return entity
+    }
+}
+
+extension SSSingleEntityProcessing where Entity == Mutator.Entity {
+    func entity<Mutating: SSBaseEntityMutating>(for mutator: Mutating) -> Entity?  {
+        return entity
+    }
+}
+
