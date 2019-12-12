@@ -68,35 +68,38 @@ public class ProcessorTester {
     }
     
     private func mutate() {
-        print("DB task: \(String(describing: DB.task))")
-        print("Start incrementing by view 1")
-        view1.processor.mutator?.increment() {[weak self] (error) in
-            print("Finish incrementing by view 1")
+        func increment(_ handler: @escaping ()->Void) {
             print("DB task: \(String(describing: DB.task))")
-            print("Start renaming by view 2")
-            self?.view2.processor.mutator?.rename(new: "Rename task") { (error) in
-                print("Finish incrementing by view 2")
+            print("Start incrementing by view 1")
+            view1.processor.mutator?.increment() {(error) in
+                print("Finish incrementing by view 1")
                 print("DB task: \(String(describing: DB.task))")
-                print("Start removing by view 2")
-                self?.view2.processor.mutator?.remove() { (error) in
-                    print("Finish removing by view 2")
-                    print("DB task: \(String(describing: DB.task))")
-                }
+                handler()
             }
         }
+        func rename(_ handler: @escaping ()->Void) {
+            print("Start renaming by view 2")
+            view2.processor.mutator?.rename(new: "Rename task") {(error) in
+                print("Finish incrementing by view 2")
+                print("DB task: \(String(describing: DB.task))")
+                handler()
+            }
+        }
+        func remove(_ handler: @escaping ()->Void) {
+            print("Start removing by view 2")
+            view2.processor.mutator?.remove() { (error) in
+                print("Finish removing by view 2")
+                print("DB task: \(String(describing: DB.task))")
+                handler()
+            }
+        }
+        SSChainExecutor().add(increment).add(rename).add(remove).finish()
     }
     
     private func start(handler: @escaping ()->Void) {
-        let group = DispatchGroup()
-        
-        group.enter()
-        view1.processor.start {
-            group.leave()
-        }
-        group.enter()
-        view2.processor.start {
-            group.leave()
-        }
-        group.notify(queue: DispatchQueue.main, execute: handler)
+        SSGroupExecutor()
+            .add(view1.processor.start)
+            .add(view2.processor.start)
+            .finish(handler)
     }
 }

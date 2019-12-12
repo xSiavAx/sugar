@@ -92,6 +92,15 @@ public extension Array {
     }
 }
 
+public extension Array {
+    mutating func pick(at index: Index) -> Element {
+        let element = self[index]
+        
+        remove(at: index)
+        return element
+    }
+}
+
 public extension Array where Element : Comparable {
     /// Shortcut for Array whose elements implements Comparable. See `binarySearch(_ needle: Element, comparator: (_ cNeedle:Element, _ cElement:Element)->ComparisonResult) -> Int?` for full description.
     func binarySearch(_ needle: Element) -> Int? {
