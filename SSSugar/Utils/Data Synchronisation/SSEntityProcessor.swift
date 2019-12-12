@@ -47,7 +47,7 @@ extension SSSingleEntityProcessing where Updater.Source == Self, Mutator.Source 
         
         func onBg() {
             if let entity = obtainer.obtain() {
-                updater?.start(source: self)
+                updater?.start(source: self, delegate: updateDelegate!)
                 mutator?.start(source: self)
                 onMain { [weak self] in
                     self?.assign(entity: entity)

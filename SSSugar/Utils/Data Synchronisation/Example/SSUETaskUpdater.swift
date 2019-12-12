@@ -8,7 +8,19 @@ internal protocol SSUETaskUpdaterDelegate: SSEntityUpdaterDelegate {
     func updaterDidRemoveTask(_ updater: Any)
 }
 
-internal class SSUETaskUpdater<TaskSource: SSUpdaterEntitySource, TaskDelegate: SSUETaskUpdaterDelegate>: SSEntityUpdater<TaskSource, TaskDelegate> where TaskSource.Entity == SSUETask {
+internal protocol SSUETaskSource: SSUpdaterEntitySource where Entity == SSUETask {}
+
+internal class SSUETaskUpdater<TaskSource: SSUETaskSource, TaskDelegate: SSUETaskUpdaterDelegate>: SSBaseEntityUpdating {
+    typealias Source = TaskSource
+    typealias Delegate = TaskDelegate
+
+    weak var delegate: TaskDelegate?
+    weak var source: TaskSource?
+    var receiversManager: SSUpdateReceiversManaging
+    
+    init(receiversManager mReceiversManager: SSUpdateReceiversManaging) {
+        receiversManager = mReceiversManager
+    }
 
     private func checkedTask(_ taskID: Int) -> Entity? {
         if let task = entity, task.taskID == taskID {
@@ -23,26 +35,26 @@ extension SSUETaskUpdater: SSUETaskUpdateReceiver {
         func increment() {
             if let mTask = checkedTask(taskID) {
                 let old = mTask.pages
-                
+
                 do {try mTask.incrementPages()} catch {fatalError(error.localizedDescription)}
                 delegate?.updater(self, didIncrementPages: old)
             }
         }
         onMain(increment)
     }
-    
+
     func taskDidRename(taskID: Int, title: String, marker: String?) {
         func rename() {
             if let mTask = checkedTask(taskID) {
                 let old = mTask.title
-                
+
                 mTask.title = title
                 delegate?.updater(self, didRenameTask: old)
             }
         }
         onMain(rename)
     }
-    
+
     func taskDidRemove(taskID: Int, marker: String?) {
         func remove() {
             if let _ = checkedTask(taskID) {

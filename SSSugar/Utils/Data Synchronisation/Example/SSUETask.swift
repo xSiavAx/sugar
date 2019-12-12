@@ -24,6 +24,10 @@ internal class SSUETask {
         pages = mPages
     }
     
+    required convenience init(copy other: SSUETask) {
+        self.init(taskID: other.taskID, title: other.title, pages:other.pages)
+    }
+    
     /// Increment number of Task's pages
     /// Can throw 'pagesLimitReached' on pages limit reached
     internal func incrementPages() throws {
@@ -43,3 +47,9 @@ internal class SSUETask {
         return pages < 100
     }
 }
+
+extension SSUETask: CustomStringConvertible {
+    var description: String { return "Task '\(title)' [\(pages)]" }
+}
+
+extension SSUETask: SSCopying {}

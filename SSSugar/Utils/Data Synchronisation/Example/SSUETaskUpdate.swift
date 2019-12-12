@@ -98,10 +98,8 @@ extension SSUETaskUpdate {
 
 extension SSUETaskUpdateReceiver {
     public func reactions() -> SSUpdate.ReactionMap {
-        print("Call")
         return taskReactions()
     }
-    
     internal func taskReactions() -> SSUpdate.ReactionMap {
         return [SSUETaskUpdateNotifications.incrementPages.name : taskDidIncrementPages(_:),
                 SSUETaskUpdateNotifications.rename.name : taskDidRename(_:),
