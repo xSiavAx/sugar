@@ -43,6 +43,8 @@ public class SSUpdater: SSUpdateCenter {
     class UpdatesConverter {}
     private var observers = [Observer]()
     private var converter = UpdatesConverter()
+    
+    public init() {}
 }
 
 extension SSUpdater: SSUpdateReceiversManaging {

@@ -4,6 +4,8 @@ public class SSChainExecutor {
     public typealias Handler = ()->Void
     public typealias Task = (@escaping Handler)->Void
     public var tasks = [Task]()
+    
+    public init() {}
 
     @discardableResult public func add(_ task: @escaping Task) -> SSChainExecutor {
         tasks.append(task)

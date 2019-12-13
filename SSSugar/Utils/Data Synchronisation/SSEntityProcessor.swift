@@ -13,7 +13,7 @@ public protocol SSEntityProcessing {
     func fosRoDuh()
 }
 
-protocol SSSingleEntityProcessing: SSUpdaterEntitySource, SSMutatingEntitySource, SSOnMainExecutor
+public protocol SSSingleEntityProcessing: SSUpdaterEntitySource, SSMutatingEntitySource, SSOnMainExecutor
 where
     Entity == Obtainer.Entity,
     Entity == Mutator.Entity
@@ -34,7 +34,7 @@ where
 }
 
 extension SSSingleEntityProcessing {
-    func stop() {
+    public func stop() {
         updater?.stop()
         mutator?.stop()
     }
@@ -42,7 +42,7 @@ extension SSSingleEntityProcessing {
 
 extension SSSingleEntityProcessing where Updater.Source == Self, Mutator.Source == Self
 {
-    func start(_ handler: @escaping () -> Void) {
+    public func start(_ handler: @escaping () -> Void) {
         createUpdaterAndMutator()
         
         func onBg() {
@@ -61,14 +61,14 @@ extension SSSingleEntityProcessing where Updater.Source == Self, Mutator.Source 
     }
 }
 
-extension SSSingleEntityProcessing where Entity == Updater.Entity {
-    func entity<Updater: SSBaseEntityUpdating>(for updater: Updater) -> Entity? {
+extension SSSingleEntityProcessing where Entity == Updater.Source.Entity {
+    public func entity<Updater: SSBaseEntityUpdating>(for updater: Updater) -> Entity? {
         return entity
     }
 }
 
 extension SSSingleEntityProcessing where Entity == Mutator.Entity {
-    func entity<Mutating: SSBaseEntityMutating>(for mutator: Mutating) -> Entity?  {
+    public func entity<Mutating: SSBaseEntityMutating>(for mutator: Mutating) -> Entity?  {
         return entity
     }
 }
