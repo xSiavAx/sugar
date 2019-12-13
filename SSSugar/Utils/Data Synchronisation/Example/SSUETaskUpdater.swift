@@ -22,7 +22,7 @@ internal class SSUETaskUpdater<TaskSource: SSUETaskSource, TaskDelegate: SSUETas
         receiversManager = mReceiversManager
     }
 
-    private func checkedTask(_ taskID: Int) -> Entity? {
+    private func checkedTask(_ taskID: Int) -> SSUETask? {
         if let task = entity, task.taskID == taskID {
             return task
         }

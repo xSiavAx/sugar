@@ -13,8 +13,6 @@ public protocol SSBaseEntityUpdating: AnyObject, SSOnMainExecutor {
     associatedtype Source: SSUpdaterEntitySource
     associatedtype Delegate: SSEntityUpdaterDelegate
     
-    typealias Entity = Source.Entity
-    
     /// Object that give's (and potentially own) entity object to mutate.
     var source: Source? {get set}
     var delegate: Delegate? {get set}
