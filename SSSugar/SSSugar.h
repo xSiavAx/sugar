@@ -10,6 +10,8 @@ FOUNDATION_EXPORT const unsigned char SSSugarVersionString[];
 
 //TODO: Add architecture components (like Display, Adapter, State, Presenter) based on protocols
 
+//TODO: Add AnyObject requirements to Updater and Mutator entity (cuz them will not work otherwise)
+
 //TODO: Fix CGSize.extended(by size:)
 //TODO: Add dict 'pick' and 'picking' tests and documentation for Array and Dict
 //TODO: Add SSGroupExecutor and SSChainExecutor tests and documentation

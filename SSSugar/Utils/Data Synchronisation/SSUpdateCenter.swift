@@ -21,8 +21,8 @@ public protocol SSUpdateNotifier {
     /// Send passed notification for all listeners that wait for it (except passed ignores)
     ///
     /// - Parameters:
-    ///   - info: Information for notification
-    func notify(info: SSUpdate)
+    ///   - update: Update for notification
+    func notify(update: SSUpdate)
 }
 
 public protocol SSUpdateCenter: SSUpdateReceiversManaging, SSUpdateNotifier {}
@@ -69,8 +69,8 @@ extension SSUpdater: SSUpdateReceiversManaging {
 
 extension SSUpdater: SSUpdateNotifier {
     //MARK: SSUpdateNotifier
-    public func notify(info: SSUpdate) {
-        NotificationCenter.default.post(converter.notification(from: info))
+    public func notify(update: SSUpdate) {
+        NotificationCenter.default.post(converter.notification(from: update))
     }
 }
 
@@ -88,9 +88,9 @@ extension SSUpdater.UpdatesConverter {
         return SSUpdate(name: notification.name.rawValue, marker: marker, args: args)
     }
 
-    public func notification(from info: SSUpdate) -> Notification {
-        let notName = Notification.Name(rawValue: info.name)
-        let userInfo = [Self.markerKey : info.marker, Self.argsKey : info.args] as [AnyHashable : Any]
+    public func notification(from update: SSUpdate) -> Notification {
+        let notName = Notification.Name(rawValue: update.name)
+        let userInfo = [Self.markerKey : update.marker, Self.argsKey : update.args] as [AnyHashable : Any]
         return Notification(name: notName, object: nil, userInfo: userInfo)
     }
 }
