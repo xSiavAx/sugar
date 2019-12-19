@@ -10,7 +10,6 @@ public protocol SSEntityObtainer {
 public protocol SSEntityProcessing {
     func start(_ handler: @escaping ()->Void)
     func stop()
-    func fosRoDuh()
 }
 
 public protocol SSSingleEntityProcessing: SSUpdaterEntitySource, SSMutatingEntitySource, SSOnMainExecutor

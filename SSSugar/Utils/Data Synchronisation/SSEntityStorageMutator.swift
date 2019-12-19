@@ -36,7 +36,7 @@ open class SSEntityDBMutator<Source: SSMutatingEntitySource> {
     private func execute(job: (_ marker: String) throws ->SSUpdate, marker: String) -> Error? {
         do {
             let update = try job(marker)
-            notifier.notify(info: update)
+            notifier.notify(update: update)
         } catch {
             return error
         }
