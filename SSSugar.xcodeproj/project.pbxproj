@@ -112,6 +112,8 @@
 		99EABD7E22401EF60037645B /* SSSelectionMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EABD7D22401EF60037645B /* SSSelectionMarkView.swift */; };
 		99EABD80224025CC0037645B /* CGSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EABD7F224025CC0037645B /* CGSize.swift */; };
 		99EDE7A222AD2397002BD904 /* SSProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99EDE7A122AD2397002BD904 /* SSProgressView.swift */; };
+		99F3F41C23ABBD97003C88D9 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F3F41B23ABBD97003C88D9 /* String.swift */; };
+		99F3F41E23ABBDE7003C88D9 /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F3F41D23ABBDE7003C88D9 /* UIDevice.swift */; };
 		99F6A187228981CE00183436 /* AutoMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F6A186228981CE00183436 /* AutoMap.swift */; };
 		99F6A1932295AF5C00183436 /* SSSugarContainersAutoMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F6A1922295AF5C00183436 /* SSSugarContainersAutoMapTests.swift */; };
 		99F6A1952295AF5C00183436 /* SSSugar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99D2963E223D3057003FD9F0 /* SSSugar.framework */; };
@@ -277,6 +279,8 @@
 		99EABD7D22401EF60037645B /* SSSelectionMarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSelectionMarkView.swift; sourceTree = "<group>"; };
 		99EABD7F224025CC0037645B /* CGSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSize.swift; sourceTree = "<group>"; };
 		99EDE7A122AD2397002BD904 /* SSProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSProgressView.swift; sourceTree = "<group>"; };
+		99F3F41B23ABBD97003C88D9 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		99F3F41D23ABBDE7003C88D9 /* UIDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
 		99F6A186228981CE00183436 /* AutoMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMap.swift; sourceTree = "<group>"; };
 		99F6A1902295AF5C00183436 /* SSSugarContainersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SSSugarContainersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		99F6A1922295AF5C00183436 /* SSSugarContainersAutoMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarContainersAutoMapTests.swift; sourceTree = "<group>"; };
@@ -504,6 +508,7 @@
 				99D29665223D3763003FD9F0 /* CGRect.swift */,
 				99EABD7F224025CC0037645B /* CGSize.swift */,
 				99E85E2E22410806005E2B13 /* Range.swift */,
+				99F3F41B23ABBD97003C88D9 /* String.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -635,6 +640,7 @@
 				99B1A8792247FF8300D96BEE /* Containers */,
 				99B1A8782247FF5C00D96BEE /* Views */,
 				99D29664223D3763003FD9F0 /* DispatchQueue.swift */,
+				99F3F41D23ABBDE7003C88D9 /* UIDevice.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1034,6 +1040,7 @@
 				99E27B5C239FA13A00CC5984 /* SSEntityOfflineMutator.swift in Sources */,
 				99EABD7C22401D550037645B /* SSMarkbaleCollectionCellHelper.swift in Sources */,
 				993E8A0C22E0C06700688555 /* SSViewConfigReplacable.swift in Sources */,
+				99F3F41C23ABBD97003C88D9 /* String.swift in Sources */,
 				99E85E2F22410806005E2B13 /* Range.swift in Sources */,
 				99EABD7E22401EF60037645B /* SSSelectionMarkView.swift in Sources */,
 				99E27B56239EAA0F00CC5984 /* SSUETaskDBMutator.swift in Sources */,
@@ -1096,6 +1103,7 @@
 				99F6A187228981CE00183436 /* AutoMap.swift in Sources */,
 				99E36E462322539C005E6C05 /* URLSession.swift in Sources */,
 				99EABD80224025CC0037645B /* CGSize.swift in Sources */,
+				99F3F41E23ABBDE7003C88D9 /* UIDevice.swift in Sources */,
 				99D2966E223D3763003FD9F0 /* CGRect.swift in Sources */,
 				99EDE7A222AD2397002BD904 /* SSProgressView.swift in Sources */,
 				990A18A722E641F4008DCCF0 /* SSViewStyles.swift in Sources */,
