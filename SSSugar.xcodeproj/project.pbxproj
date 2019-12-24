@@ -65,6 +65,7 @@
 		99B1A798224678B400D96BEE /* SSSugarPlaygroundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A797224678B400D96BEE /* SSSugarPlaygroundTests.swift */; };
 		99B1A79A224678B400D96BEE /* SSSugar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99D2963E223D3057003FD9F0 /* SSSugar.framework */; };
 		99B1A7A122467D8900D96BEE /* SSCollectionViewMarkableControllerMarkAlreadyMarkedTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A7A022467D8900D96BEE /* SSCollectionViewMarkableControllerMarkAlreadyMarkedTC.swift */; };
+		99CBE33423B232BF000CE10D /* CGPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CBE33323B232BF000CE10D /* CGPoint.swift */; };
 		99D29643223D3057003FD9F0 /* SSSugar.h in Headers */ = {isa = PBXBuildFile; fileRef = 99D29641223D3057003FD9F0 /* SSSugar.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		99D2964F223D3107003FD9F0 /* SSRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D2964D223D3107003FD9F0 /* SSRootView.swift */; };
 		99D29650223D3107003FD9F0 /* SSRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D2964E223D3107003FD9F0 /* SSRootViewController.swift */; };
@@ -230,6 +231,7 @@
 		99B1A797224678B400D96BEE /* SSSugarPlaygroundTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarPlaygroundTests.swift; sourceTree = "<group>"; };
 		99B1A799224678B400D96BEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		99B1A7A022467D8900D96BEE /* SSCollectionViewMarkableControllerMarkAlreadyMarkedTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerMarkAlreadyMarkedTC.swift; sourceTree = "<group>"; };
+		99CBE33323B232BF000CE10D /* CGPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPoint.swift; sourceTree = "<group>"; };
 		99D2963E223D3057003FD9F0 /* SSSugar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SSSugar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		99D29641223D3057003FD9F0 /* SSSugar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSSugar.h; sourceTree = "<group>"; };
 		99D29642223D3057003FD9F0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -509,6 +511,7 @@
 				99EABD7F224025CC0037645B /* CGSize.swift */,
 				99E85E2E22410806005E2B13 /* Range.swift */,
 				99F3F41B23ABBD97003C88D9 /* String.swift */,
+				99CBE33323B232BF000CE10D /* CGPoint.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -1109,6 +1112,7 @@
 				990A18A722E641F4008DCCF0 /* SSViewStyles.swift in Sources */,
 				99D70DB4239AAF7700EA96B4 /* SSUETaskProcessor.swift in Sources */,
 				99E36E4923225DB6005E6C05 /* SSCertificatesObtainer.swift in Sources */,
+				99CBE33423B232BF000CE10D /* CGPoint.swift in Sources */,
 				9967832422D3993D00E33300 /* SSDataBaseStatemntCache.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
