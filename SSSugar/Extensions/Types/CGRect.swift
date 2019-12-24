@@ -50,39 +50,21 @@ public extension CGRect {
     ///   - amount: Value to cut.
     ///   - side: Side to cut from.
     /// - Returns: Cutted rectangle.
-    func cuted(amount : CGFloat, side : CGRectEdge) -> CGRect {
+    func cuted(amount: CGFloat, side: CGRectEdge) -> CGRect {
         var rect = self
         
-        switch side {
-        case .maxXEdge:
-            rect.size.width -= amount
-        case .minXEdge:
-            rect.origin.x += amount
-            rect.size.width -= amount
-        case .maxYEdge:
-            rect.size.height -= amount
-        case .minYEdge:
-            rect.origin.y += amount
-            rect.size.height -= amount
-        }
-        
+        rect.cut(amount: amount, side: side)
+
         return rect
     }
     
-    //MARK: - deprecated
-    /// - Warning: **Deprecated**. Use `inset(toWidth:toHeight:)` instead.
-    @available(*, deprecated, message: "Use inset(toWidth:toHeight:) instead")
-    func inset(toX: CGFloat = -1, toY: CGFloat = -1) -> CGRect {
-        let dx = toX == -1 ? 0 : (width - toX) / 2;
-        let dy = toY == -1 ? 0 : (height - toY) / 2;
-        
-        return insetBy(dx: dx, dy: dy)
-    }
-    
-    //MARK: - deprecated
-    /// - Warning: **Deprecated**. Use `cuted(amount:side:)` instead.
-    @available(*, deprecated, message: "Use cuted(amount:side:) instead")
-    mutating func cut(amount : CGFloat, side : CGRectEdge) {
+    /// Cut side by specified amount.
+    ///
+    /// - Parameters:
+    ///   - amount: Value to cut.
+    ///   - side: Side to cut from.
+    /// - Returns: Cutted rectangle.
+    mutating func cut(amount: CGFloat, side: CGRectEdge) {
         switch side {
         case .maxXEdge:
             size.width -= amount
@@ -95,5 +77,15 @@ public extension CGRect {
             origin.y += amount
             size.height -= amount
         }
+    }
+    
+    //MARK: - deprecated
+    /// - Warning: **Deprecated**. Use `inset(toWidth:toHeight:)` instead.
+    @available(*, deprecated, message: "Use inset(toWidth:toHeight:) instead")
+    func inset(toX: CGFloat = -1, toY: CGFloat = -1) -> CGRect {
+        let dx = toX == -1 ? 0 : (width - toX) / 2;
+        let dy = toY == -1 ? 0 : (height - toY) / 2;
+        
+        return insetBy(dx: dx, dy: dy)
     }
 }

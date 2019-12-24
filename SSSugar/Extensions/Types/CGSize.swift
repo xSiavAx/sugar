@@ -49,6 +49,14 @@ public extension CGSize {
 
 //TODO: Add Tests and docs
 
-func +(lSize : CGSize, rSize : CGSize) -> CGSize {
+public prefix func -(size: CGSize) -> CGSize {
+    return CGSize(width: -size.width, height: -size.height)
+}
+
+public func +(lSize: CGSize, rSize: CGSize) -> CGSize {
     return CGSize(width: lSize.width + rSize.width, height: lSize.height + rSize.height)
+}
+
+public func -(lSize: CGSize, rSize: CGSize) -> CGSize {
+    return lSize + (-rSize)
 }
