@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		990A18A722E641F4008DCCF0 /* SSViewStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990A18A622E641F4008DCCF0 /* SSViewStyles.swift */; };
+		99365D4423B251BE00C8A7DF /* SSViewTransitionAnimating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99365D4323B251BE00C8A7DF /* SSViewTransitionAnimating.swift */; };
+		99365D4723B2530400C8A7DF /* SSScaleAndAlphaTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99365D4623B2530400C8A7DF /* SSScaleAndAlphaTransitionAnimator.swift */; };
 		993BC5B92317CFB3008DCE98 /* SSAtomic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993BC5B82317CFB3008DCE98 /* SSAtomic.swift */; };
 		993BC5BC2318028D008DCE98 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993BC5BB2318028D008DCE98 /* Dictionary.swift */; };
 		993E8A0A22E0C00100688555 /* SSViewConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993E8A0922E0C00100688555 /* SSViewConfigurable.swift */; };
@@ -170,6 +172,8 @@
 
 /* Begin PBXFileReference section */
 		990A18A622E641F4008DCCF0 /* SSViewStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSViewStyles.swift; sourceTree = "<group>"; };
+		99365D4323B251BE00C8A7DF /* SSViewTransitionAnimating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSViewTransitionAnimating.swift; sourceTree = "<group>"; };
+		99365D4623B2530400C8A7DF /* SSScaleAndAlphaTransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSScaleAndAlphaTransitionAnimator.swift; sourceTree = "<group>"; };
 		993BC5B82317CFB3008DCE98 /* SSAtomic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSAtomic.swift; sourceTree = "<group>"; };
 		993BC5BB2318028D008DCE98 /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
 		993E8A0922E0C00100688555 /* SSViewConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSViewConfigurable.swift; sourceTree = "<group>"; };
@@ -356,6 +360,15 @@
 				990A18A622E641F4008DCCF0 /* SSViewStyles.swift */,
 			);
 			path = "View Styles";
+			sourceTree = "<group>";
+		};
+		99365D4523B252DA00C8A7DF /* View Transition Animators */ = {
+			isa = PBXGroup;
+			children = (
+				99365D4323B251BE00C8A7DF /* SSViewTransitionAnimating.swift */,
+				99365D4623B2530400C8A7DF /* SSScaleAndAlphaTransitionAnimator.swift */,
+			);
+			path = "View Transition Animators";
 			sourceTree = "<group>";
 		};
 		9947C43822CA58B000AB3327 /* DataBase */ = {
@@ -621,6 +634,7 @@
 		99D29671223D37A2003FD9F0 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				99365D4523B252DA00C8A7DF /* View Transition Animators */,
 				99991DBB22E60D5500F3D294 /* Decorators */,
 				9947C43822CA58B000AB3327 /* DataBase */,
 				99F6A185228981BF00183436 /* Containers */,
@@ -1071,6 +1085,7 @@
 				99E85E2D224103C6005E2B13 /* Array.swift in Sources */,
 				99745CBE239FC10900DAAFFA /* SSEntityRemoteMutator.swift in Sources */,
 				9944ED6322CFA6C6005B129A /* SSReleasable.swift in Sources */,
+				99365D4423B251BE00C8A7DF /* SSViewTransitionAnimating.swift in Sources */,
 				99991DC622E624F900F3D294 /* SSReleaseDecoratorDBExtensions.swift in Sources */,
 				993E8A0E22E0C8BE00688555 /* SSDBStatementProcessor.swift in Sources */,
 				99D29658223D3681003FD9F0 /* SSWindow.swift in Sources */,
@@ -1083,6 +1098,7 @@
 				99745CC2239FC9B700DAAFFA /* SSUETaskUpdater.swift in Sources */,
 				99E36E0A23213A1B005E6C05 /* SSUpdateCenter.swift in Sources */,
 				99AA28D223A295F700DA9C2F /* SSTaskProcessorExample.swift in Sources */,
+				99365D4723B2530400C8A7DF /* SSScaleAndAlphaTransitionAnimator.swift in Sources */,
 				99E36E0D23213C90005E6C05 /* SSEntityProcessor.swift in Sources */,
 				993E8A0A22E0C00100688555 /* SSViewConfigurable.swift in Sources */,
 				99D2966D223D3763003FD9F0 /* DispatchQueue.swift in Sources */,
@@ -1456,7 +1472,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.7;
+				MARKETING_VERSION = 1.3.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.byteslight.SSSugar;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1488,7 +1504,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.3.7;
+				MARKETING_VERSION = 1.3.8;
 				PRODUCT_BUNDLE_IDENTIFIER = com.byteslight.SSSugar;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

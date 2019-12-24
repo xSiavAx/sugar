@@ -1,5 +1,7 @@
 import Foundation
 
+#warning("Remove me due new styles")
+
 /// Interface gives view ability to configure it's appearance using some central object calling 'config'.
 /// See SSViewConfigReplacable for more info
 public protocol SSViewConfigurable: SSViewConfigReplacable {
