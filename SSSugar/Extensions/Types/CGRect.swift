@@ -58,6 +58,25 @@ public extension CGRect {
         return rect
     }
     
+    /// Return rectangles by dividing rect on spicified parts.
+    ///
+    /// - Parameters:
+    ///   - count: number of parts
+    ///   - vertically: divide direction
+    func divided(count: Int, vertically: Bool) -> [CGRect] {
+        guard count > 0 else { fatalError("Invali param") }
+        let fCount = CGFloat(count)
+        
+        if (vertically) {
+            let partHeight = height / fCount
+            
+            return (0..<count).map { return CGRect(x: minX, y: minY + CGFloat($0)*partHeight, width: width, height: partHeight) }
+        }
+        let partWidth = width / fCount
+        
+        return (0..<count).map { return CGRect(x: minX + CGFloat($0)*partWidth, y: minY, width: partWidth, height: height) }
+    }
+    
     /// Cut side by specified amount.
     ///
     /// - Parameters:
