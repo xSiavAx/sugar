@@ -7,7 +7,7 @@ extension UILabel {
     /// If label has content, it works as usual sizeThatFits, otherwise it works like sizeThatFits for label with space symbol as it's content (' ').
     ///
     /// - Parameter size: Size to fit.
-    /// - Returns: Possible size to fit passed one.
+    /// - Returns: Possible size fits passed one.
     public func nonEmptySizeThatFits(_ size: CGSize) -> CGSize {
         if let mText = text {
             if (mText.count > 0) {
@@ -18,24 +18,24 @@ extension UILabel {
     }
     
     //TODO: Add tests
-    /// Ask view to calculate it's max possible (like it has max number of lines content) size best fits the specified size.
+    /// Ask view to calculate it's max possible (like it has max number of lines content) and regular size best fit the specified size.
     ///
     /// - Warning:
-    /// If label's `numberOfLines` is equal to 0, method works like regular `sizeThatFits`
+    /// If label's `numberOfLines` is equal to 0, method will return regular size as `max` component
     ///
     /// - Parameters:
     ///   - size: Size to fit.
-    /// - Returns: Possible size to fit passed one.
-    public func maxSizeThatFits(_ size: CGSize) -> CGSize {
+    /// - Returns: Tupple with actual size and max possible size to fit passed one.
+    public func maxSizeThatFits(_ size: CGSize) -> (real:CGSize, max:CGSize) {
         let size = sizeThatFits(size)
         
         if (numberOfLines != 0) {
             let text = Array(repeating: " ", count: numberOfLines).joined(separator: "\n")
             let maxSize = sizeThatFits(size, withText: text)
             
-            return maxSize.height > size.height ? maxSize : size;
+            return (size, maxSize.height > size.height ? maxSize : size)
         }
-        return size
+        return (size, size)
     }
     
     //TODO: Add tests
@@ -46,7 +46,7 @@ extension UILabel {
     /// - Parameters:
     ///   - size: Size to fit.
     ///   - withText: Text to mesure
-    /// - Returns: Estimmated size to fit passed one.
+    /// - Returns: Estimmated size fits passed one.
     public func sizeThatFits(_ size: CGSize, withText: String) -> CGSize {
         return withText.size(withAttributes: [.font: font!])
     }
