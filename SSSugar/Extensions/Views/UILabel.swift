@@ -1,6 +1,7 @@
 import Foundation
 
 extension UILabel {
+    //TODO: Add tests
     /// Ask view to calculate it's possible size best fits the specified size.
     ///
     ///  If label has content, it works as usual sizeThatFits, otherwise it works like sizeThatFits for label with space symbol as it's content (' ').
@@ -16,6 +17,7 @@ extension UILabel {
         return sizeThatFits(size, withText: " ")
     }
     
+    //TODO: Add tests
     /// Ask view to calculate it's estimmated (for passed text) size best fits the specified size.
     ///
     ///  It works like regular sizeThatFits for label with passed `text` as it's content (' ').
