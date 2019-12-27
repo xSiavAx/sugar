@@ -1,6 +1,9 @@
 public extension UIView {
     var safeFrame: CGRect {
-        return bounds.inset(by: safeAreaInsets)
+        if #available(iOS 11, *) {
+            return bounds.inset(by: safeAreaInsets)
+        }
+        return bounds
     }
     
     func addSubviews(_ subviews : UIView...) {
