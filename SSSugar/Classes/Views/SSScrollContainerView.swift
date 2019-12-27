@@ -1,5 +1,6 @@
 import UIKit
 
+@available(iOS 13, *)
 open class SSScrollContainerView: UIView, SSViewBlockable {
     let scrollView      = UIScrollView()
     var blockingAnimationDuration : TimeInterval
