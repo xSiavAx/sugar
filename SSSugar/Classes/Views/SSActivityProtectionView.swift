@@ -12,7 +12,7 @@ open class SSActivityProtectionView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    init() {
+    public init() {
         super.init(frame: .zero)
         backgroundColor = UIColor.purple.withAlphaComponent(0.5)
         addSubview(indicator)
