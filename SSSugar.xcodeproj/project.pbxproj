@@ -10,10 +10,12 @@
 		990A18A722E641F4008DCCF0 /* SSViewStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990A18A622E641F4008DCCF0 /* SSViewStyles.swift */; };
 		99365D4423B251BE00C8A7DF /* SSViewTransitionAnimating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99365D4323B251BE00C8A7DF /* SSViewTransitionAnimating.swift */; };
 		99365D4723B2530400C8A7DF /* SSScaleAndAlphaTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99365D4623B2530400C8A7DF /* SSScaleAndAlphaTransitionAnimator.swift */; };
+		9937E11023C602DE00F73905 /* SSViewProtecting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9937E10F23C602DE00F73905 /* SSViewProtecting.swift */; };
+		9937E11423C60A6400F73905 /* SSViewShowHideAnimating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9937E11323C60A6400F73905 /* SSViewShowHideAnimating.swift */; };
+		9937E11623C60B2900F73905 /* SSViewShowHideByAlphaAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9937E11523C60B2900F73905 /* SSViewShowHideByAlphaAnimator.swift */; };
+		9937E11923C61A1800F73905 /* SSProtectionViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9937E11823C61A1800F73905 /* SSProtectionViewHelper.swift */; };
 		993BC5B92317CFB3008DCE98 /* SSAtomic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993BC5B82317CFB3008DCE98 /* SSAtomic.swift */; };
 		993BC5BC2318028D008DCE98 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993BC5BB2318028D008DCE98 /* Dictionary.swift */; };
-		993E8A0A22E0C00100688555 /* SSViewConfigurable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993E8A0922E0C00100688555 /* SSViewConfigurable.swift */; };
-		993E8A0C22E0C06700688555 /* SSViewConfigReplacable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993E8A0B22E0C06700688555 /* SSViewConfigReplacable.swift */; };
 		993E8A0E22E0C8BE00688555 /* SSDBStatementProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 993E8A0D22E0C8BE00688555 /* SSDBStatementProcessor.swift */; };
 		9944ED5D22CF9D09005B129A /* SSDataBaseTransactionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9944ED5C22CF9D09005B129A /* SSDataBaseTransactionController.swift */; };
 		9944ED5F22CF9DC9005B129A /* SSDataBaseTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9944ED5E22CF9DC9005B129A /* SSDataBaseTransaction.swift */; };
@@ -174,10 +176,12 @@
 		990A18A622E641F4008DCCF0 /* SSViewStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSViewStyles.swift; sourceTree = "<group>"; };
 		99365D4323B251BE00C8A7DF /* SSViewTransitionAnimating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSViewTransitionAnimating.swift; sourceTree = "<group>"; };
 		99365D4623B2530400C8A7DF /* SSScaleAndAlphaTransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSScaleAndAlphaTransitionAnimator.swift; sourceTree = "<group>"; };
+		9937E10F23C602DE00F73905 /* SSViewProtecting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSViewProtecting.swift; sourceTree = "<group>"; };
+		9937E11323C60A6400F73905 /* SSViewShowHideAnimating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSViewShowHideAnimating.swift; sourceTree = "<group>"; };
+		9937E11523C60B2900F73905 /* SSViewShowHideByAlphaAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSViewShowHideByAlphaAnimator.swift; sourceTree = "<group>"; };
+		9937E11823C61A1800F73905 /* SSProtectionViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSProtectionViewHelper.swift; sourceTree = "<group>"; };
 		993BC5B82317CFB3008DCE98 /* SSAtomic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSAtomic.swift; sourceTree = "<group>"; };
 		993BC5BB2318028D008DCE98 /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
-		993E8A0922E0C00100688555 /* SSViewConfigurable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSViewConfigurable.swift; sourceTree = "<group>"; };
-		993E8A0B22E0C06700688555 /* SSViewConfigReplacable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSViewConfigReplacable.swift; sourceTree = "<group>"; };
 		993E8A0D22E0C8BE00688555 /* SSDBStatementProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDBStatementProcessor.swift; sourceTree = "<group>"; };
 		9944ED5C22CF9D09005B129A /* SSDataBaseTransactionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDataBaseTransactionController.swift; sourceTree = "<group>"; };
 		9944ED5E22CF9DC9005B129A /* SSDataBaseTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDataBaseTransaction.swift; sourceTree = "<group>"; };
@@ -369,6 +373,32 @@
 				99365D4623B2530400C8A7DF /* SSScaleAndAlphaTransitionAnimator.swift */,
 			);
 			path = "View Transition Animators";
+			sourceTree = "<group>";
+		};
+		9937E11123C60A2800F73905 /* Animators */ = {
+			isa = PBXGroup;
+			children = (
+				9937E11223C60A3300F73905 /* ShowAndHide Animators */,
+				99365D4523B252DA00C8A7DF /* View Transition Animators */,
+			);
+			path = Animators;
+			sourceTree = "<group>";
+		};
+		9937E11223C60A3300F73905 /* ShowAndHide Animators */ = {
+			isa = PBXGroup;
+			children = (
+				9937E11323C60A6400F73905 /* SSViewShowHideAnimating.swift */,
+				9937E11523C60B2900F73905 /* SSViewShowHideByAlphaAnimator.swift */,
+			);
+			path = "ShowAndHide Animators";
+			sourceTree = "<group>";
+		};
+		9937E11723C619F500F73905 /* Protection View */ = {
+			isa = PBXGroup;
+			children = (
+				9937E11823C61A1800F73905 /* SSProtectionViewHelper.swift */,
+			);
+			path = "Protection View";
 			sourceTree = "<group>";
 		};
 		9947C43822CA58B000AB3327 /* DataBase */ = {
@@ -612,8 +642,7 @@
 			isa = PBXGroup;
 			children = (
 				99D2965B223D3710003FD9F0 /* SSViewBlockable.swift */,
-				993E8A0922E0C00100688555 /* SSViewConfigurable.swift */,
-				993E8A0B22E0C06700688555 /* SSViewConfigReplacable.swift */,
+				9937E10F23C602DE00F73905 /* SSViewProtecting.swift */,
 				9944ED6222CFA6C6005B129A /* SSReleasable.swift */,
 				9944ED6422CFA6E5005B129A /* SSTransacted.swift */,
 				9967832122D3955000E33300 /* SSCacheContainer.swift */,
@@ -634,7 +663,7 @@
 		99D29671223D37A2003FD9F0 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				99365D4523B252DA00C8A7DF /* View Transition Animators */,
+				9937E11123C60A2800F73905 /* Animators */,
 				99991DBB22E60D5500F3D294 /* Decorators */,
 				9947C43822CA58B000AB3327 /* DataBase */,
 				99F6A185228981BF00183436 /* Containers */,
@@ -725,6 +754,7 @@
 				99E36E06232137DD005E6C05 /* Data Synchronisation */,
 				990A18A522E641E5008DCCF0 /* View Styles */,
 				99EABD7822401B470037645B /* Collections Custom Select */,
+				9937E11723C619F500F73905 /* Protection View */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1056,7 +1086,6 @@
 				9944ED5D22CF9D09005B129A /* SSDataBaseTransactionController.swift in Sources */,
 				99E27B5C239FA13A00CC5984 /* SSEntityOfflineMutator.swift in Sources */,
 				99EABD7C22401D550037645B /* SSMarkbaleCollectionCellHelper.swift in Sources */,
-				993E8A0C22E0C06700688555 /* SSViewConfigReplacable.swift in Sources */,
 				99F3F41C23ABBD97003C88D9 /* String.swift in Sources */,
 				99E85E2F22410806005E2B13 /* Range.swift in Sources */,
 				99EABD7E22401EF60037645B /* SSSelectionMarkView.swift in Sources */,
@@ -1066,6 +1095,7 @@
 				99AA28D423A2A05400DA9C2F /* SSGroupDispatcher.swift in Sources */,
 				99D2966C223D3763003FD9F0 /* UIColor.swift in Sources */,
 				9947C43C22CA58D800AB3327 /* SSDataBaseProtocols.swift in Sources */,
+				9937E11023C602DE00F73905 /* SSViewProtecting.swift in Sources */,
 				99E3BA4122FB26290023D9AE /* SSCopying.swift in Sources */,
 				9947C43A22CA58C100AB3327 /* SSDataBase.swift in Sources */,
 				9967832622D39B4000E33300 /* SSDataBaseStatementCacheHolder.swift in Sources */,
@@ -1100,10 +1130,10 @@
 				99AA28D223A295F700DA9C2F /* SSTaskProcessorExample.swift in Sources */,
 				99365D4723B2530400C8A7DF /* SSScaleAndAlphaTransitionAnimator.swift in Sources */,
 				99E36E0D23213C90005E6C05 /* SSEntityProcessor.swift in Sources */,
-				993E8A0A22E0C00100688555 /* SSViewConfigurable.swift in Sources */,
 				99D2966D223D3763003FD9F0 /* DispatchQueue.swift in Sources */,
 				99D29656223D3681003FD9F0 /* SSTextField.swift in Sources */,
 				99991DC322E6219C00F3D294 /* SSDataBaseStatementProxy.swift in Sources */,
+				9937E11923C61A1800F73905 /* SSProtectionViewHelper.swift in Sources */,
 				99745CC0239FC69F00DAAFFA /* SSEntityUpdater.swift in Sources */,
 				99D70DA5239A8B4E00EA96B4 /* SSUETask.swift in Sources */,
 				99D29659223D3681003FD9F0 /* SSScrollContainerView.swift in Sources */,
@@ -1112,6 +1142,7 @@
 				9967832022D3906900E33300 /* SSDataBaseSavePoint.swift in Sources */,
 				99991DC122E6219000F3D294 /* SSDataBaseSavePointProxy.swift in Sources */,
 				99E85E3122411583005E2B13 /* UITableVIew.swift in Sources */,
+				9937E11623C60B2900F73905 /* SSViewShowHideByAlphaAnimator.swift in Sources */,
 				99E36E4423225356005E6C05 /* SSCertificatePinner.swift in Sources */,
 				99D70DA7239A8C3300EA96B4 /* SSUETaskUpdate.swift in Sources */,
 				99D70DB6239AB66900EA96B4 /* SSEntityMutator.swift in Sources */,
@@ -1127,6 +1158,7 @@
 				99EDE7A222AD2397002BD904 /* SSProgressView.swift in Sources */,
 				990A18A722E641F4008DCCF0 /* SSViewStyles.swift in Sources */,
 				99D70DB4239AAF7700EA96B4 /* SSUETaskProcessor.swift in Sources */,
+				9937E11423C60A6400F73905 /* SSViewShowHideAnimating.swift in Sources */,
 				99E36E4923225DB6005E6C05 /* SSCertificatesObtainer.swift in Sources */,
 				99CBE33423B232BF000CE10D /* CGPoint.swift in Sources */,
 				9967832422D3993D00E33300 /* SSDataBaseStatemntCache.swift in Sources */,

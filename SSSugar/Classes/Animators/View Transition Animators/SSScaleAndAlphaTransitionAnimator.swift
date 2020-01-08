@@ -3,19 +3,19 @@ import UIKit
 /// Animator that change views scale and alpha.
 /// - Warning: New subview must be inserted under old one.
 public class SSScaleAndAlphaTransitionAnimator {
-    static public let defaultDuration = 0.25
-    static public let defaultMinScale = 0.1
+    public static let defaultDuration = 0.25
+    public static let defaultMinScale = CGFloat(0.1)
     
     /// Animation duration
-    public var duration: Double
+    public var duration: TimeInterval
     /// Scale hidding view scaling to.
-    public let minScale: Double
+    public let minScale: CGFloat
     /// SDK animator. It allows more control over animation.
     private var animator: UIViewPropertyAnimator?
     
     private var scaleTransfrom : CGAffineTransform { CGAffineTransform(scaleX: CGFloat(minScale), y: CGFloat(minScale)) }
     
-    public init(duration mDuration: Double = defaultDuration, minScale mMinScale: Double = defaultMinScale) {
+    public init(duration mDuration: TimeInterval = defaultDuration, minScale mMinScale: CGFloat = defaultMinScale) {
         duration = mDuration
         minScale = mMinScale
     }
