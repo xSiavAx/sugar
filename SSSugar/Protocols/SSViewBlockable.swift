@@ -35,3 +35,13 @@ public extension SSViewDelayedBlockable {
         blockInteraction(animated: animated, withDelay: false)
     }
 }
+
+extension SSViewDelayedBlockable where Self: SSViewProtectingHelped {
+    public func blockInteraction(animated : Bool = false, withDelay : Bool = false) {
+        protectionHelper.blockInteraction(animated: animated, withDelay: withDelay)
+    }
+    
+    public func unblockInteraction(animated: Bool) {
+        protectionHelper.unblockInteraction(animated: animated)
+    }
+}
