@@ -6,6 +6,9 @@ public extension UIView {
         return bounds
     }
     
+    static var defaultAnimationDuration: TimeInterval { 0.25 }
+    var defaultAnimationDuration: TimeInterval { Self.defaultAnimationDuration }
+    
     func addSubviews(_ subviews : UIView...) {
         subviews.forEach { (subview) in
             addSubview(subview)
