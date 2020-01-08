@@ -22,12 +22,12 @@ extension SSViewBlockable {
 
 public extension SSViewBlockable {
     static func defaultBlockingAnimationDuration() -> TimeInterval {
-        return 0.25;
+        return UIView.defaultAnimationDuration;
     }
 }
 
-public protocol SSViewDelayedBlockable : SSViewBlockable {
-    func blockInteraction(animated : Bool, withDelay : Bool);
+public protocol SSViewDelayedBlockable: SSViewBlockable {
+    func blockInteraction(animated : Bool, withDelay : Bool)
 }
 
 public extension SSViewDelayedBlockable {

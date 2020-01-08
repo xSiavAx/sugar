@@ -10,7 +10,6 @@
 		990A18A722E641F4008DCCF0 /* SSViewStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990A18A622E641F4008DCCF0 /* SSViewStyles.swift */; };
 		99365D4423B251BE00C8A7DF /* SSViewTransitionAnimating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99365D4323B251BE00C8A7DF /* SSViewTransitionAnimating.swift */; };
 		99365D4723B2530400C8A7DF /* SSScaleAndAlphaTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99365D4623B2530400C8A7DF /* SSScaleAndAlphaTransitionAnimator.swift */; };
-		9937E11023C602DE00F73905 /* SSViewProtecting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9937E10F23C602DE00F73905 /* SSViewProtecting.swift */; };
 		9937E11423C60A6400F73905 /* SSViewShowHideAnimating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9937E11323C60A6400F73905 /* SSViewShowHideAnimating.swift */; };
 		9937E11623C60B2900F73905 /* SSViewShowHideByAlphaAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9937E11523C60B2900F73905 /* SSViewShowHideByAlphaAnimator.swift */; };
 		9937E11923C61A1800F73905 /* SSProtectionViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9937E11823C61A1800F73905 /* SSProtectionViewHelper.swift */; };
@@ -176,7 +175,6 @@
 		990A18A622E641F4008DCCF0 /* SSViewStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSViewStyles.swift; sourceTree = "<group>"; };
 		99365D4323B251BE00C8A7DF /* SSViewTransitionAnimating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSViewTransitionAnimating.swift; sourceTree = "<group>"; };
 		99365D4623B2530400C8A7DF /* SSScaleAndAlphaTransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSScaleAndAlphaTransitionAnimator.swift; sourceTree = "<group>"; };
-		9937E10F23C602DE00F73905 /* SSViewProtecting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSViewProtecting.swift; sourceTree = "<group>"; };
 		9937E11323C60A6400F73905 /* SSViewShowHideAnimating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSViewShowHideAnimating.swift; sourceTree = "<group>"; };
 		9937E11523C60B2900F73905 /* SSViewShowHideByAlphaAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSViewShowHideByAlphaAnimator.swift; sourceTree = "<group>"; };
 		9937E11823C61A1800F73905 /* SSProtectionViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSProtectionViewHelper.swift; sourceTree = "<group>"; };
@@ -642,7 +640,6 @@
 			isa = PBXGroup;
 			children = (
 				99D2965B223D3710003FD9F0 /* SSViewBlockable.swift */,
-				9937E10F23C602DE00F73905 /* SSViewProtecting.swift */,
 				9944ED6222CFA6C6005B129A /* SSReleasable.swift */,
 				9944ED6422CFA6E5005B129A /* SSTransacted.swift */,
 				9967832122D3955000E33300 /* SSCacheContainer.swift */,
@@ -1095,7 +1092,6 @@
 				99AA28D423A2A05400DA9C2F /* SSGroupDispatcher.swift in Sources */,
 				99D2966C223D3763003FD9F0 /* UIColor.swift in Sources */,
 				9947C43C22CA58D800AB3327 /* SSDataBaseProtocols.swift in Sources */,
-				9937E11023C602DE00F73905 /* SSViewProtecting.swift in Sources */,
 				99E3BA4122FB26290023D9AE /* SSCopying.swift in Sources */,
 				9947C43A22CA58C100AB3327 /* SSDataBase.swift in Sources */,
 				9967832622D39B4000E33300 /* SSDataBaseStatementCacheHolder.swift in Sources */,
