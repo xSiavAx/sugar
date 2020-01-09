@@ -21,6 +21,7 @@ where
     associatedtype Updater: SSBaseEntityUpdating
     associatedtype Mutator: SSBaseEntityMutating
     
+    var startOnEmptyEntity: Bool {get}
     var entity: Entity? {get}
     var executor: SSExecutor {get}
     var obtainer: Obtainer {get}
@@ -33,6 +34,8 @@ where
 }
 
 extension SSSingleEntityProcessing {
+    public var startOnEmptyEntity: Bool { true }
+    
     public func stop() {
         updater?.stop()
         mutator?.stop()
@@ -46,17 +49,25 @@ extension SSSingleEntityProcessing where Updater.Source == Self, Mutator.Source 
         
         func onBg() {
             if let entity = obtainer.obtain() {
-                updater?.start(source: self, delegate: updateDelegate!)
-                mutator?.start(source: self)
-                onMain { [weak self] in
-                    self?.assign(entity: entity)
+                func assignAndFinish() {
+                    assign(entity: entity)
                     handler()
                 }
+                startHelpers()
+                onMain(assignAndFinish)
             } else {
+                if (startOnEmptyEntity) {
+                    startHelpers()
+                }
                 onMain(handler)
             }
         }
         executor.execute(onBg)
+    }
+    
+    private func startHelpers() {
+        updater?.start(source: self, delegate: updateDelegate!)
+        mutator?.start(source: self)
     }
 }
 
