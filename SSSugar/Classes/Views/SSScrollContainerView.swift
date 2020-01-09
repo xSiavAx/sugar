@@ -1,7 +1,7 @@
 import UIKit
 
 @available(iOS 13, *)
-open class SSScrollContainerView: UIView, SSViewBlockable {
+open class SSScrollContainerView: UIView, SSViewBlocking {
     let scrollView      = UIScrollView()
     var blockingAnimationDuration : TimeInterval
     let protectionView  = SSActivityProtectionView()
@@ -16,7 +16,7 @@ open class SSScrollContainerView: UIView, SSViewBlockable {
     }
     
     //MARK: - init
-    public init(blockingAnimationDuration duration: TimeInterval = defaultBlockingAnimationDuration()) {
+    public init(blockingAnimationDuration duration: TimeInterval = defaultBlockingAnimationDuration) {
         blockingAnimationDuration = duration
         
         super.init(frame: .zero)
