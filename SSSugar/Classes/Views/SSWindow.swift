@@ -1,6 +1,6 @@
 import UIKit
 
-open class SSWindow: UIWindow, SSViewDelayedBlockable, SSProtectionViewHelpingDelegate {
+open class SSWindow: UIWindow, SSViewDelayedBlocking, SSProtectionViewHelpingDelegate {
     public static let kBlockUIDelay = 0.2
     public let helper: SSProtectionViewHelper
     
@@ -9,7 +9,7 @@ open class SSWindow: UIWindow, SSViewDelayedBlockable, SSProtectionViewHelpingDe
     public init(background: UIColor = .clear,
                 tint: UIColor = .orange,
                 protectionColor: UIColor = UIColor(red: 0.6, green: 0.6, blue: 0.6, alpha: 0.7),
-                blockingAnimationDuration: TimeInterval = defaultBlockingAnimationDuration(),
+                blockingAnimationDuration: TimeInterval = defaultBlockingAnimationDuration,
                 blockUIDelay: TimeInterval = kBlockUIDelay) {
         helper = SSProtectionViewHelper(protectionColor: protectionColor, visualDelay: blockUIDelay, duration: blockingAnimationDuration)
         super.init(frame: UIScreen.main.bounds)

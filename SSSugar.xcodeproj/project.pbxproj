@@ -76,7 +76,7 @@
 		99D29657223D3681003FD9F0 /* SSActivityProtectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D29653223D3681003FD9F0 /* SSActivityProtectionView.swift */; };
 		99D29658223D3681003FD9F0 /* SSWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D29654223D3681003FD9F0 /* SSWindow.swift */; };
 		99D29659223D3681003FD9F0 /* SSScrollContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D29655223D3681003FD9F0 /* SSScrollContainerView.swift */; };
-		99D2965C223D3710003FD9F0 /* SSViewBlockable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D2965B223D3710003FD9F0 /* SSViewBlockable.swift */; };
+		99D2965C223D3710003FD9F0 /* SSViewBlocking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D2965B223D3710003FD9F0 /* SSViewBlocking.swift */; };
 		99D29669223D3763003FD9F0 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D29660223D3763003FD9F0 /* UIViewController.swift */; };
 		99D2966B223D3763003FD9F0 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D29662223D3763003FD9F0 /* Common.swift */; };
 		99D2966C223D3763003FD9F0 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D29663223D3763003FD9F0 /* UIColor.swift */; };
@@ -247,7 +247,7 @@
 		99D29653223D3681003FD9F0 /* SSActivityProtectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSActivityProtectionView.swift; sourceTree = "<group>"; };
 		99D29654223D3681003FD9F0 /* SSWindow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSWindow.swift; sourceTree = "<group>"; };
 		99D29655223D3681003FD9F0 /* SSScrollContainerView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSScrollContainerView.swift; sourceTree = "<group>"; };
-		99D2965B223D3710003FD9F0 /* SSViewBlockable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSViewBlockable.swift; sourceTree = "<group>"; };
+		99D2965B223D3710003FD9F0 /* SSViewBlocking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSViewBlocking.swift; sourceTree = "<group>"; };
 		99D29660223D3763003FD9F0 /* UIViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 		99D29662223D3763003FD9F0 /* Common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
 		99D29663223D3763003FD9F0 /* UIColor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
@@ -389,14 +389,6 @@
 				9937E11523C60B2900F73905 /* SSViewShowHideByAlphaAnimator.swift */,
 			);
 			path = "ShowAndHide Animators";
-			sourceTree = "<group>";
-		};
-		9937E11723C619F500F73905 /* Protection View */ = {
-			isa = PBXGroup;
-			children = (
-				9937E11823C61A1800F73905 /* SSProtectionViewHelper.swift */,
-			);
-			path = "Protection View";
 			sourceTree = "<group>";
 		};
 		9947C43822CA58B000AB3327 /* DataBase */ = {
@@ -639,7 +631,7 @@
 		99D2965A223D3710003FD9F0 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				99D2965B223D3710003FD9F0 /* SSViewBlockable.swift */,
+				99D2965B223D3710003FD9F0 /* SSViewBlocking.swift */,
 				9944ED6222CFA6C6005B129A /* SSReleasable.swift */,
 				9944ED6422CFA6E5005B129A /* SSTransacted.swift */,
 				9967832122D3955000E33300 /* SSCacheContainer.swift */,
@@ -751,7 +743,7 @@
 				99E36E06232137DD005E6C05 /* Data Synchronisation */,
 				990A18A522E641E5008DCCF0 /* View Styles */,
 				99EABD7822401B470037645B /* Collections Custom Select */,
-				9937E11723C619F500F73905 /* Protection View */,
+				9937E11823C61A1800F73905 /* SSProtectionViewHelper.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1098,7 +1090,7 @@
 				99E36E08232137F9005E6C05 /* SSUpdate.swift in Sources */,
 				99D29657223D3681003FD9F0 /* SSActivityProtectionView.swift in Sources */,
 				99A2EE8D22CA5D30001B2B28 /* SSDataBaseConnection.swift in Sources */,
-				99D2965C223D3710003FD9F0 /* SSViewBlockable.swift in Sources */,
+				99D2965C223D3710003FD9F0 /* SSViewBlocking.swift in Sources */,
 				99D70DA9239A8FC100EA96B4 /* SSExecutor.swift in Sources */,
 				99E85E292240F3A0005E2B13 /* SSCollectionViewMarkable.swift in Sources */,
 				9944ED6122CFA660005B129A /* SSReleaseDecorator.swift in Sources */,
