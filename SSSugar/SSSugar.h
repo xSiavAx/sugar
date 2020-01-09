@@ -12,6 +12,7 @@ FOUNDATION_EXPORT const unsigned char SSSugarVersionString[];
 
 //TODO: Add AnyObject requirements to Updater and Mutator entity (cuz them will not work otherwise)
 
+//TODO: To each sum operator (operator+) add minus operator and also += and -=
 //TODO: Fix CGSize.extended(by size:)
 //TODO: Add CGRect.divided(count:vetically) tests
 //TODO: Add dict 'pick' and 'picking' tests and documentation for Array and Dict
