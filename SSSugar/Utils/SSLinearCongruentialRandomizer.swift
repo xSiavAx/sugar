@@ -12,6 +12,12 @@ public struct SSLinearCongruentialRandomizer {
         public let multiplier: Double
         /// Algorith parameter
         public let additional: Double
+        
+        public init(divisor mDivisor: Double, multiplier mMultiplier: Double, additional mAdditional: Double) {
+            divisor = mDivisor
+            multiplier = mMultiplier
+            additional = mAdditional
+        }
     }
     /// Default seed value (equals to current TS)
     static public var defaultSeed: Double { Date().timeIntervalSince1970 }
