@@ -38,6 +38,8 @@
 		997B3451225A134B00F2A3A0 /* SSSugar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99D2963E223D3057003FD9F0 /* SSSugar.framework */; };
 		997E314C22493587006A5B7C /* SSSugar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99D2963E223D3057003FD9F0 /* SSSugar.framework */; };
 		997E315322493AC8006A5B7C /* SSSugarExtensionSizeUnitedIntersectedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997E315222493AC8006A5B7C /* SSSugarExtensionSizeUnitedIntersectedTests.swift */; };
+		998534B523CC8EE700FD9325 /* SSLinearCongruentialRandomizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998534B423CC8EE700FD9325 /* SSLinearCongruentialRandomizer.swift */; };
+		998534B723CCA6E300FD9325 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998534B623CCA6E300FD9325 /* Data.swift */; };
 		998F2DC52243F7FA001FFA3A /* SSMarkbaleCollectionCellHelperMarkMarkedTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998F2DC42243F7FA001FFA3A /* SSMarkbaleCollectionCellHelperMarkMarkedTC.swift */; };
 		998F2DC72243F86B001FFA3A /* SSMarkbaleCollectionCellHelperUnmarkTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998F2DC62243F86B001FFA3A /* SSMarkbaleCollectionCellHelperUnmarkTC.swift */; };
 		998F2DC92243F96E001FFA3A /* SSMarkbaleCollectionCellHelperUnmarkNonMarkedTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998F2DC82243F96E001FFA3A /* SSMarkbaleCollectionCellHelperUnmarkNonMarkedTC.swift */; };
@@ -206,6 +208,8 @@
 		997E314722493587006A5B7C /* SSSugarExtensionsTypesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SSSugarExtensionsTypesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		997E314B22493587006A5B7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		997E315222493AC8006A5B7C /* SSSugarExtensionSizeUnitedIntersectedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarExtensionSizeUnitedIntersectedTests.swift; sourceTree = "<group>"; };
+		998534B423CC8EE700FD9325 /* SSLinearCongruentialRandomizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLinearCongruentialRandomizer.swift; sourceTree = "<group>"; };
+		998534B623CCA6E300FD9325 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		998F2DC42243F7FA001FFA3A /* SSMarkbaleCollectionCellHelperMarkMarkedTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSMarkbaleCollectionCellHelperMarkMarkedTC.swift; sourceTree = "<group>"; };
 		998F2DC62243F86B001FFA3A /* SSMarkbaleCollectionCellHelperUnmarkTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSMarkbaleCollectionCellHelperUnmarkTC.swift; sourceTree = "<group>"; };
 		998F2DC82243F96E001FFA3A /* SSMarkbaleCollectionCellHelperUnmarkNonMarkedTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSMarkbaleCollectionCellHelperUnmarkNonMarkedTC.swift; sourceTree = "<group>"; };
@@ -545,6 +549,7 @@
 				99E85E2E22410806005E2B13 /* Range.swift */,
 				99F3F41B23ABBD97003C88D9 /* String.swift */,
 				99CBE33323B232BF000CE10D /* CGPoint.swift */,
+				998534B623CCA6E300FD9325 /* Data.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -744,6 +749,7 @@
 				990A18A522E641E5008DCCF0 /* View Styles */,
 				99EABD7822401B470037645B /* Collections Custom Select */,
 				9937E11823C61A1800F73905 /* SSProtectionViewHelper.swift */,
+				998534B423CC8EE700FD9325 /* SSLinearCongruentialRandomizer.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -1088,6 +1094,7 @@
 				9947C43A22CA58C100AB3327 /* SSDataBase.swift in Sources */,
 				9967832622D39B4000E33300 /* SSDataBaseStatementCacheHolder.swift in Sources */,
 				99E36E08232137F9005E6C05 /* SSUpdate.swift in Sources */,
+				998534B523CC8EE700FD9325 /* SSLinearCongruentialRandomizer.swift in Sources */,
 				99D29657223D3681003FD9F0 /* SSActivityProtectionView.swift in Sources */,
 				99A2EE8D22CA5D30001B2B28 /* SSDataBaseConnection.swift in Sources */,
 				99D2965C223D3710003FD9F0 /* SSViewBlocking.swift in Sources */,
@@ -1102,6 +1109,7 @@
 				99D2966B223D3763003FD9F0 /* Common.swift in Sources */,
 				99E85E2D224103C6005E2B13 /* Array.swift in Sources */,
 				99745CBE239FC10900DAAFFA /* SSEntityRemoteMutator.swift in Sources */,
+				998534B723CCA6E300FD9325 /* Data.swift in Sources */,
 				9944ED6322CFA6C6005B129A /* SSReleasable.swift in Sources */,
 				99365D4423B251BE00C8A7DF /* SSViewTransitionAnimating.swift in Sources */,
 				99991DC622E624F900F3D294 /* SSReleaseDecoratorDBExtensions.swift in Sources */,
@@ -1492,7 +1500,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4.1;
+				MARKETING_VERSION = 1.4.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.byteslight.SSSugar;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1524,7 +1532,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4.1;
+				MARKETING_VERSION = 1.4.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.byteslight.SSSugar;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
