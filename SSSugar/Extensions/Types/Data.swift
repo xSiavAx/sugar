@@ -1,5 +1,28 @@
 import Foundation
 
+//MARK: - Hex
+
+public extension Data {
+    /// Encoding options
+    ///
+    /// * `upperCase` – representation will has uppercased digit's symbols (default is lowercased)
+    struct HexEncodingOptions: OptionSet {
+        public let rawValue: Int
+        static let upperCase = HexEncodingOptions(rawValue: 1 << 0)
+        
+        public init(rawValue mRawValue: Int) {
+            rawValue = mRawValue
+        }
+    }
+    
+    /// Return hex digits data representation
+    /// - Parameter options: Encoding options. Default is none.
+    func hexEncodedString(options: HexEncodingOptions = []) -> String {
+        let format = options.contains(.upperCase) ? "%02hhX" : "%02hhx"
+        return map { String(format: format, $0) }.joined()
+    }
+}
+
 //MARK: - Base64url
 
 public extension Data {
