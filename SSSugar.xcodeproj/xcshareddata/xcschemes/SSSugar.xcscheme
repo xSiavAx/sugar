@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
    LastUpgradeVersion = "1130"
-   version = "1.3">
+   version = "1.7">
    <BuildAction
       parallelizeBuildables = "YES"
       buildImplicitDependencies = "YES">
@@ -41,51 +41,15 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "996F37FE22417014007FF8B6"
-               BuildableName = "SSCustomSelectionTests.xctest"
-               BlueprintName = "SSCustomSelectionTests"
+               BlueprintIdentifier = "2D8CF9B6241FC4BA00168C8A"
+               BuildableName = "SSSugarTests.xctest"
+               BlueprintName = "SSSugarTests"
                ReferencedContainer = "container:SSSugar.xcodeproj">
             </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "99B1A794224678B400D96BEE"
-               BuildableName = "SSSugarPlaygroundTests.xctest"
-               BlueprintName = "SSSugarPlaygroundTests"
-               ReferencedContainer = "container:SSSugar.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "997E314622493587006A5B7C"
-               BuildableName = "SSSugarExtensionsTypesTests.xctest"
-               BlueprintName = "SSSugarExtensionsTypesTests"
-               ReferencedContainer = "container:SSSugar.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "997B344B225A134B00F2A3A0"
-               BuildableName = "SSSugarExtensionContainersTests.xctest"
-               BlueprintName = "SSSugarExtensionContainersTests"
-               ReferencedContainer = "container:SSSugar.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "99F6A18F2295AF5C00183436"
-               BuildableName = "SSSugarContainersTests.xctest"
-               BlueprintName = "SSSugarContainersTests"
-               ReferencedContainer = "container:SSSugar.xcodeproj">
-            </BuildableReference>
+            <LocationScenarioReference
+               identifier = "com.apple.dt.IDEFoundation.CurrentLocationScenarioIdentifier"
+               referenceType = "1">
+            </LocationScenarioReference>
          </TestableReference>
       </Testables>
    </TestAction>
