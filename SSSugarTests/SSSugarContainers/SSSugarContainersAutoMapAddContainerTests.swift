@@ -4,34 +4,40 @@ import XCTest
 
 @testable import SSSugar
 
-class SSSugarContainersAutoMapAddContainerTests: SSSugarContainersAutoMapTestsWithSetup {
+class SSSugarContainersAutoMapAddContainerTests: XCTestCase {
+    let helper = SSSugarContainersAutoMapHelper()
+    
     func testAddToEmpty() {
-        let insertionSet = Set(arrayLiteral: 1, 2, 3)
-        let expectedResult = AutoMap(map: ["key" : insertionSet])
+        let insertion = helper.insertion
+        let expectedResult = AutoMap(map: [insertion.key : insertion.set])
         
-        automapSet = AutoMap<String, Set<Int>>()
+        var sut = AutoMap<String, Set<Int>>()
+        let result = sut.add(container: insertion.set, for: insertion.key)
         
-        let result = automapSet.add(container: insertionSet, for: "key")
-        
-        XCTAssertEqual(automapSet, expectedResult)
+        XCTAssertEqual(sut, expectedResult)
         XCTAssertTrue(result)
     }
     
     func testAdd() {
-        let insertionSet = Set(arrayLiteral: 1, 2, 3)
-        let expectedResult = AutoMap(map: ["evens" : evens, "odds" : odds, "key" : values, "key1" : insertionSet])
-        let result = automapSet.add(container: insertionSet, for: "key1")
+        let insertion = helper.insertion
+        var expectedMap = helper.setMap
+        expectedMap[insertion.key] = insertion.set
+        let expectedResult = AutoMap(map: expectedMap)
         
-        XCTAssertEqual(automapSet, expectedResult)
+        var sut = AutoMap(map: helper.setMap)
+        let result = sut.add(container: insertion.set, for: insertion.key)
+        
+        XCTAssertEqual(sut, expectedResult)
         XCTAssertTrue(result)
     }
     
     func testAddForExistingKey() {
-        let insertionSet = Set(arrayLiteral: 1, 2, 3)
-        let expectedResult = automapSet
-        let result = automapSet.add(container: insertionSet, for: "key")
+        let expectedResult = AutoMap(map: helper.setMap)
         
-        XCTAssertEqual(automapSet, expectedResult)
+        var sut = AutoMap(map: helper.setMap)
+        let result = sut.add(container: helper.insertion.set, for: helper.evens.key)
+        
+        XCTAssertEqual(sut, expectedResult)
         XCTAssertFalse(result)
     }
 }
