@@ -1,27 +1,30 @@
 import XCTest
 @testable import SSSugar
 
-class SSMarkbaleCollectionCellHelperDeactivateTC: SSMarkbaleCollectionCellHelperBaseTC {
+class SSMarkbaleCollectionCellHelperDeactivateTC: XCTestCase {
+    let testHelper = SSMarkbaleCollectionCellHelperTestHelper()
+    var sut: SSMarkbaleCollectionCellHelper!
+    
     override func setUp() {
-        super.setUp()
-        cellHelper.setMarking(true)
+        sut = testHelper.cellHelper
+        sut.setMarking(true)
     }
     
     func testActivate() {
-        cellHelper.setMarking(false)
+        sut.setMarking(false)
         
-        checkCell(marking: false, marked: false)
+        testHelper.checkCell(sut, marking: false, marked: false)
     }
     
     func testActivateExplicitNonAnimated() {
-        cellHelper.setMarking(false, animated: false)
+        sut.setMarking(false, animated: false)
         
-        checkCell(marking: false, marked: false)
+        testHelper.checkCell(sut, marking: false, marked: false)
     }
     
     func testActivateAnimated() {
-        cellHelper.setMarking(false, animated: true)
+        sut.setMarking(false, animated: true)
         
-        checkCell(marking: false, marked: false)
+        testHelper.checkCell(sut, marking: false, marked: false)
     }
 }
