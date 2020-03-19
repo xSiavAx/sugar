@@ -6,7 +6,7 @@ class SSMarkbaleCollectionCellHelperUnmarkTC: XCTestCase {
     var sut: SSMarkbaleCollectionCellHelper!
     
     override func setUp() {
-        sut = testHelper.cellHelper
+        sut = testHelper.makeCellHelper()
         sut.setMarking(true)
         sut.setMarked(true)
     }

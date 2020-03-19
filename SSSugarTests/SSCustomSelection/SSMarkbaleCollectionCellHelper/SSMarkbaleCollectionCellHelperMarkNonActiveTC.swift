@@ -6,7 +6,7 @@ class SSMarkbaleCollectionCellHelperMarkNonActiveTC: XCTestCase {
     var sut: SSMarkbaleCollectionCellHelper!
     
     override func setUp() {
-        sut = testHelper.cellHelper
+        sut = testHelper.makeCellHelper()
     }
     
     func testMarkNonActive() {

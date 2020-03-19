@@ -1,6 +1,6 @@
 import XCTest
+@testable import SSSugar
 
-#warning("update the file name")
 class SSCollectionViewMarkableControllerMarkTC: XCTestCase {
     enum TestDataCase {
         case active
@@ -10,7 +10,7 @@ class SSCollectionViewMarkableControllerMarkTC: XCTestCase {
     
     typealias TestDataContainer = (sut: SSCollectionViewMarkableControllerTestsSUT, testDataCase: TestDataCase)
     
-    let testsHelper = SSCollectionViewMarkableControllerTestsHelper()
+    let testHelper = SSCollectionViewMarkableControllerTestHelper()
     var testDataContainers = [TestDataContainer]()
     
     override func setUp() {
@@ -27,7 +27,7 @@ class SSCollectionViewMarkableControllerMarkTC: XCTestCase {
             let testDataCase = container.testDataCase
             
             sut.controller.setCellMarked(true, at: IndexPath(row: 0, section: 0))
-            testsHelper.checkSUT(sut, active: expectedActive(for: testDataCase), cells: expectedMarkOneBeforeVPCells(for: testDataCase))
+            testHelper.checkSUT(sut, active: expectedActive(for: testDataCase), cells: expectedMarkOneBeforeVPCells(for: testDataCase))
         }
     }
 
@@ -37,7 +37,7 @@ class SSCollectionViewMarkableControllerMarkTC: XCTestCase {
             let testDataCase = container.testDataCase
             
             sut.controller.setCellMarked(true, at: IndexPath(row: 2, section: 0))
-            testsHelper.checkSUT(sut, active: expectedActive(for: testDataCase), cells: expectedMarkOneCells(for: testDataCase))
+            testHelper.checkSUT(sut, active: expectedActive(for: testDataCase), cells: expectedMarkOneCells(for: testDataCase))
         }
     }
 
@@ -47,7 +47,7 @@ class SSCollectionViewMarkableControllerMarkTC: XCTestCase {
             let testDataCase = container.testDataCase
             
             sut.controller.setCellMarked(true, at: IndexPath(row: 4, section: 0))
-            testsHelper.checkSUT(sut, active: expectedActive(for: testDataCase), cells: expectedMarkOneAfterCells(for: testDataCase))
+            testHelper.checkSUT(sut, active: expectedActive(for: testDataCase), cells: expectedMarkOneAfterCells(for: testDataCase))
         }
     }
 
@@ -57,7 +57,7 @@ class SSCollectionViewMarkableControllerMarkTC: XCTestCase {
             let testDataCase = container.testDataCase
             
             sut.controller.setCellsMarked(true, at: [IndexPath(row: 0, section: 0), IndexPath(row: 1, section: 0)])
-            testsHelper.checkSUT(sut, active: expectedActive(for: testDataCase), cells: expectedMarkLowerVPBoundCells(for: testDataCase))
+            testHelper.checkSUT(sut, active: expectedActive(for: testDataCase), cells: expectedMarkLowerVPBoundCells(for: testDataCase))
         }
     }
 
@@ -67,7 +67,7 @@ class SSCollectionViewMarkableControllerMarkTC: XCTestCase {
             let testDataCase = container.testDataCase
             
             sut.controller.setCellsMarked(true, at: [IndexPath(row: 1, section: 0), IndexPath(row: 2, section: 0)])
-            testsHelper.checkSUT(sut, active: expectedActive(for: testDataCase), cells: expectedMarkCells(for: testDataCase))
+            testHelper.checkSUT(sut, active: expectedActive(for: testDataCase), cells: expectedMarkCells(for: testDataCase))
         }
     }
 
@@ -77,7 +77,7 @@ class SSCollectionViewMarkableControllerMarkTC: XCTestCase {
             let testDataCase = container.testDataCase
             
             sut.controller.setCellsMarked(true, at: [IndexPath(row: 3, section: 0), IndexPath(row: 4, section: 0)])
-            testsHelper.checkSUT(sut, active: expectedActive(for: testDataCase), cells: expectedMarkUpperVPBoundCells(for: testDataCase))
+            testHelper.checkSUT(sut, active: expectedActive(for: testDataCase), cells: expectedMarkUpperVPBoundCells(for: testDataCase))
         }
     }
 
@@ -87,7 +87,7 @@ class SSCollectionViewMarkableControllerMarkTC: XCTestCase {
             let testDataCase = container.testDataCase
             
             sut.controller.setAllCellsMarked(true)
-            testsHelper.checkSUT(sut, active: expectedActive(for: testDataCase), cells: expectedMarkAllCells(for: testDataCase))
+            testHelper.checkSUT(sut, active: expectedActive(for: testDataCase), cells: expectedMarkAllCells(for: testDataCase))
         }
     }
 
@@ -97,7 +97,7 @@ class SSCollectionViewMarkableControllerMarkTC: XCTestCase {
             let testDataCase = container.testDataCase
             
             sut.controller.setCellMarked(false, at: IndexPath(row: 0, section: 0))
-            testsHelper.checkSUT(sut, active: expectedActive(for: testDataCase), cells: expectedUnMarkOneBeforeVPCells(for: testDataCase))
+            testHelper.checkSUT(sut, active: expectedActive(for: testDataCase), cells: expectedUnMarkOneBeforeVPCells(for: testDataCase))
         }
     }
 
@@ -107,7 +107,7 @@ class SSCollectionViewMarkableControllerMarkTC: XCTestCase {
             let testDataCase = container.testDataCase
             
             sut.controller.setCellMarked(false, at: IndexPath(row: 2, section: 0))
-            testsHelper.checkSUT(sut, active: expectedActive(for: testDataCase), cells: expectedUnMarkOneCells(for: testDataCase))
+            testHelper.checkSUT(sut, active: expectedActive(for: testDataCase), cells: expectedUnMarkOneCells(for: testDataCase))
         }
     }
 
@@ -117,7 +117,7 @@ class SSCollectionViewMarkableControllerMarkTC: XCTestCase {
             let testDataCase = container.testDataCase
             
             sut.controller.setCellMarked(false, at: IndexPath(row: 4, section: 0))
-            testsHelper.checkSUT(sut, active: expectedActive(for: testDataCase), cells: expectedUnMarkOneAfterCells(for: testDataCase))
+            testHelper.checkSUT(sut, active: expectedActive(for: testDataCase), cells: expectedUnMarkOneAfterCells(for: testDataCase))
         }
     }
 
@@ -127,7 +127,7 @@ class SSCollectionViewMarkableControllerMarkTC: XCTestCase {
             let testDataCase = container.testDataCase
             
             sut.controller.setCellsMarked(false, at: [IndexPath(row: 0, section: 0), IndexPath(row: 1, section: 0)])
-            testsHelper.checkSUT(sut, active: expectedActive(for: testDataCase), cells: expectedUnMarkLowerVPBoundCells(for: testDataCase))
+            testHelper.checkSUT(sut, active: expectedActive(for: testDataCase), cells: expectedUnMarkLowerVPBoundCells(for: testDataCase))
         }
     }
 
@@ -137,7 +137,7 @@ class SSCollectionViewMarkableControllerMarkTC: XCTestCase {
             let testDataCase = container.testDataCase
             
             sut.controller.setCellsMarked(false, at: [IndexPath(row: 1, section: 0), IndexPath(row: 2, section: 0)])
-            testsHelper.checkSUT(sut, active: expectedActive(for: testDataCase), cells: expectedUnMarkCells(for: testDataCase))
+            testHelper.checkSUT(sut, active: expectedActive(for: testDataCase), cells: expectedUnMarkCells(for: testDataCase))
         }
     }
 
@@ -147,7 +147,7 @@ class SSCollectionViewMarkableControllerMarkTC: XCTestCase {
             let testDataCase = container.testDataCase
             
             sut.controller.setCellsMarked(false, at: [IndexPath(row: 3, section: 0), IndexPath(row: 4, section: 0)])
-            testsHelper.checkSUT(sut, active: expectedActive(for: testDataCase), cells: expectedUnMarkUpperVPBoundCells(for: testDataCase))
+            testHelper.checkSUT(sut, active: expectedActive(for: testDataCase), cells: expectedUnMarkUpperVPBoundCells(for: testDataCase))
         }
     }
 
@@ -157,7 +157,7 @@ class SSCollectionViewMarkableControllerMarkTC: XCTestCase {
             let testDataCase = container.testDataCase
             
             sut.controller.setAllCellsMarked(false)
-            testsHelper.checkSUT(sut, active: expectedActive(for: testDataCase), cells: expectedUnMarkAllCells(for: testDataCase))
+            testHelper.checkSUT(sut, active: expectedActive(for: testDataCase), cells: expectedUnMarkAllCells(for: testDataCase))
         }
     }
 
@@ -173,7 +173,7 @@ class SSCollectionViewMarkableControllerMarkTC: XCTestCase {
     // MARK: - Data Containers
     
     func makeDeactiveDataContainer() -> TestDataContainer {
-        let sut = testsHelper.makeSUT {
+        let sut = testHelper.makeSUT {
             $0.collection.viewPortOffset = 1
         }
         
@@ -181,7 +181,7 @@ class SSCollectionViewMarkableControllerMarkTC: XCTestCase {
     }
     
     func makeActiveDataContainer() -> TestDataContainer {
-        let sut = testsHelper.makeSUT {
+        let sut = testHelper.makeSUT {
             $0.collection.viewPortOffset = 1
             $0.controller.active = true
         }
@@ -190,7 +190,7 @@ class SSCollectionViewMarkableControllerMarkTC: XCTestCase {
     }
     
     func makeActiveMarkedDataContainer() -> TestDataContainer {
-        let sut = testsHelper.makeSUT {
+        let sut = testHelper.makeSUT {
             $0.collection.viewPortOffset = 1
             $0.controller.active = true
             $0.controller.setAllCellsMarked(true)

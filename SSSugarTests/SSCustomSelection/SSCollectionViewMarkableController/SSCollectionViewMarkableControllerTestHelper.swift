@@ -1,7 +1,7 @@
 import XCTest
 @testable import SSSugar
 
-struct SSCollectionViewMarkableControllerTestsHelper {
+struct SSCollectionViewMarkableControllerTestHelper {
     func makeSUT(setupClosure: (inout SSCollectionViewMarkableControllerTestsSUT) -> Void) -> SSCollectionViewMarkableControllerTestsSUT {
         var item = SSCollectionViewMarkableControllerTestsSUT()
         setupClosure(&item)

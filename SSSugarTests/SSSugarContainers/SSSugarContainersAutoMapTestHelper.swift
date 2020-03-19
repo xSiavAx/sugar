@@ -32,7 +32,7 @@ import XCTest
     
 //    Проверить доступность методов AutoMap как составляющую импортированного фреймворка (public)
 
-struct SSSugarContainersAutoMapHelper {
+struct SSSugarContainersAutoMapTestHelper {
     
     struct DefaultItem {
         var key: String
@@ -42,41 +42,23 @@ struct SSSugarContainersAutoMapHelper {
         }
     }
     
-    var evens: DefaultItem {
-        DefaultItem(key: "evens", array: [0, 2, 4])
-    }
-    var odds: DefaultItem {
-        DefaultItem(key: "odds", array: [1, 3, 5])
-    }
-    var key: DefaultItem {
-        DefaultItem(key: "key", array: [0, 1, 2, 3])
-    }
-    var insertion: DefaultItem {
-        DefaultItem(key: "insertion", array: [1, 2, 3])
-    }
-    var replace: DefaultItem {
-        DefaultItem(key: "replace", array: [100, 200, 300])
-    }
-    
-    var notIncludedKey: String {
-        "notIncludedKey"
-    }
+    let evens = DefaultItem(key: "evens", array: [0, 2, 4])
+    let odds = DefaultItem(key: "odds", array: [1, 3, 5])
+    var key = DefaultItem(key: "key", array: [0, 1, 2, 3])
+    var insertion = DefaultItem(key: "insertion", array: [1, 2, 3])
+    var replace = DefaultItem(key: "replace", array: [100, 200, 300])
     
     var mapItems: [DefaultItem] {
         [evens, odds, key]
     }
-    var setMap: [String : Set<Int>] {
+    func makeSetMap() -> [String : Set<Int>] {
         var map = [String: Set<Int>]()
-        mapItems.forEach {
-            map[$0.key] = $0.set
-        }
+        mapItems.forEach { map[$0.key] = $0.set }
         return map
     }
-    var arrayMap: [String : [Int]] {
+    func makeArrayMap() -> [String : [Int]] {
         var map = [String : [Int]]()
-        mapItems.forEach {
-            map[$0.key] = $0.array
-        }
+        mapItems.forEach { map[$0.key] = $0.array }
         return map
     }
     

@@ -6,27 +6,27 @@ import XCTest
 //subscript set. subscript set. Перезапись. Перезапись пустым контейнером. Перезапись nil. Добавление. Добавление пустого. Добавление nil.
 
 class SSSugarContainersAutoMapSubsriptTests: XCTestCase {
-    let helper = SSSugarContainersAutoMapHelper()
+    let testHelper = SSSugarContainersAutoMapTestHelper()
     
     func testGetRegular() {
-        let map = helper.setMap
-        let key = helper.evens.key
+        let map = testHelper.makeSetMap()
+        let key = testHelper.evens.key
         
         XCTAssert(AutoMap(map: map)[key] == map[key])
     }
     
     func testGetNotIncludedKey() {
-        XCTAssert(AutoMap(map: helper.setMap)[helper.notIncludedKey] == nil)
+        XCTAssert(AutoMap(map: testHelper.makeSetMap())["notIncludedKey"] == nil)
     }
     
     func testResetRegular() {
-        var map = helper.setMap
-        let key = helper.evens.key
-        map[key] = helper.replace.set
+        var map = testHelper.makeSetMap()
+        let key = testHelper.evens.key
+        map[key] = testHelper.replace.set
         let expectedResult = AutoMap(map: map)
         
-        var sut = AutoMap(map: helper.setMap)
-        sut[key] = helper.replace.set
+        var sut = AutoMap(map: testHelper.makeSetMap())
+        sut[key] = testHelper.replace.set
         
         XCTAssertEqual(sut, expectedResult)
     }
@@ -37,21 +37,24 @@ class SSSugarContainersAutoMapSubsriptTests: XCTestCase {
     }
     
     func testResetNil() {
-        let expectedResult = AutoMap(map: [helper.evens.key : helper.evens.set, helper.odds.key : helper.odds.set])
+        let expectedResult = AutoMap(map: [
+            testHelper.evens.key : testHelper.evens.set,
+            testHelper.odds.key : testHelper.odds.set
+        ])
         
-        var sut = AutoMap(map: helper.setMap)
-        sut[helper.key.key] = nil
+        var sut = AutoMap(map: testHelper.makeSetMap())
+        sut[testHelper.key.key] = nil
         
         XCTAssertEqual(sut, expectedResult)
     }
     
     func testSetRegular() {
-        var expectedMap = helper.setMap
-        expectedMap[helper.insertion.key] = helper.insertion.set
+        var expectedMap = testHelper.makeSetMap()
+        expectedMap[testHelper.insertion.key] = testHelper.insertion.set
         let expectedResult = AutoMap(map: expectedMap)
         
-        var sut = AutoMap(map: helper.setMap)
-        sut[helper.insertion.key] = helper.insertion.set
+        var sut = AutoMap(map: testHelper.makeSetMap())
+        sut[testHelper.insertion.key] = testHelper.insertion.set
         
         XCTAssertEqual(sut, expectedResult)
     }
@@ -62,10 +65,10 @@ class SSSugarContainersAutoMapSubsriptTests: XCTestCase {
     }
     
     func testSetNil() {
-        let expectedResult = AutoMap(map: helper.setMap)
+        let expectedResult = AutoMap(map: testHelper.makeSetMap())
         
-        var sut = AutoMap(map: helper.setMap)
-        sut[helper.notIncludedKey] = nil
+        var sut = AutoMap(map: testHelper.makeSetMap())
+        sut["notIncludedKey"] = nil
         
         XCTAssertEqual(sut, expectedResult)
     }

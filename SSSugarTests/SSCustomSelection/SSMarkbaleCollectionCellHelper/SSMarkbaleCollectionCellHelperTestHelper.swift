@@ -2,7 +2,7 @@ import XCTest
 @testable import SSSugar
 
 struct SSMarkbaleCollectionCellHelperTestHelper {
-    var cellHelper: SSMarkbaleCollectionCellHelper {
+    func makeCellHelper() -> SSMarkbaleCollectionCellHelper {
         let cell = UIView()
         let content = UIView()
         

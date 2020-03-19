@@ -4,24 +4,24 @@ import XCTest
 //С обычной кратой. С пустой картой. С картой с пустыми контейнерами.
 
 class SSSugarContainersAutoMapInitTests: XCTestCase {
-    let helper = SSSugarContainersAutoMapHelper()
+    let testHelper = SSSugarContainersAutoMapTestHelper()
     
     func testRegularMap() {
-        let sut = AutoMap(map: helper.arrayMap)
+        let sut = AutoMap(map: testHelper.makeArrayMap())
         
-        helper.checkWith(sut, helper.arrayMap)
+        testHelper.checkWith(sut, testHelper.makeArrayMap())
     }
     
     func testEmptyMap() {
         let initMap = [String : [Int]]()
         let sut = AutoMap(map: initMap)
         
-        helper.checkWith(sut, initMap)
+        testHelper.checkWith(sut, initMap)
     }
 
     func testMapWithEmptySetContainer() {
-        let initMap = [helper.evens.key : helper.evens.set, "empty" : Set()]
-        let expectedMap = AutoMap(map: [helper.evens.key : helper.evens.set])
+        let initMap = [testHelper.evens.key : testHelper.evens.set, "empty" : Set()]
+        let expectedMap = AutoMap(map: [testHelper.evens.key : testHelper.evens.set])
             
         let sut = AutoMap(map: initMap)
         
@@ -29,8 +29,8 @@ class SSSugarContainersAutoMapInitTests: XCTestCase {
     }
     
     func testMapWithEmptyArrayContainer() {
-        let initMap = [helper.evens.key : helper.evens.array, "empty" : []]
-        let expectedMap = AutoMap(map:[helper.evens.key : helper.evens.array])
+        let initMap = [testHelper.evens.key : testHelper.evens.array, "empty" : []]
+        let expectedMap = AutoMap(map:[testHelper.evens.key : testHelper.evens.array])
         
         let sut = AutoMap(map: initMap)
         

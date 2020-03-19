@@ -1,15 +1,14 @@
 import XCTest
 @testable import SSSugar
 
-#warning("update the file name")
 class SSCollectionViewMarkableControllerConfigCellTC: XCTestCase {
-    let testsHelper = SSCollectionViewMarkableControllerTestsHelper()
+    let testHelper = SSCollectionViewMarkableControllerTestHelper()
     var suts = [SSCollectionViewMarkableControllerTestsSUT]()
     
     override func setUp() {
         suts = [
-            testsHelper.makeSUT(withActiveController: true),
-            testsHelper.makeSUT(withActiveController: false)
+            testHelper.makeSUT(withActiveController: true),
+            testHelper.makeSUT(withActiveController: false)
         ]
     }
     
