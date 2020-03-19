@@ -1,32 +1,45 @@
-//
-//  SSCollectionViewMarkableControllerDeactivateAlreadyDeactiveTC.swift
-//  SSCustomSelectionTests
-//
-//  Created by Stanislav Dmitriyev on 21/3/19.
-//  Copyright © 2019 Stanislav Dmitriyev. All rights reserved.
-//
-
 import XCTest
+@testable import SSSugar
 
-class SSCollectionViewMarkableControllerDeactivateAlreadyDeactiveTC: SSCollectionViewMarkableControllerBaseTC {
+class SSCollectionViewMarkableControllerDeactivateTC: XCTestCase {
+    let testsHelper = SSCollectionViewMarkableControllerTestsHelper()
+    var suts = [SSCollectionViewMarkableControllerTestsSUT]()
+    
+    override func setUp() {
+        let sut = testsHelper.makeSUT {
+            $0.controller.setActive(true)
+        }
+        let alreadyDeactiveSUT = testsHelper.makeSUT()
+        
+        suts = [sut, alreadyDeactiveSUT]
+    }
+    
     func testActivateViaProp() {
-        controller.active = false
-        check(active: false, cells:expectedCells())
+        suts.forEach { sut in
+            sut.controller.active = false
+            testsHelper.checkSUT(sut, active: false, cells: expectedCells())
+        }
     }
     
     func testActivate() {
-        controller.setActive(false)
-        check(active: false, cells:expectedCells())
+        suts.forEach { sut in
+            sut.controller.setActive(false)
+            testsHelper.checkSUT(sut, active: false, cells: expectedCells())
+        }
     }
     
     func testActivateAnimated() {
-        controller.setActive(false, animated: true)
-        check(active: false, cells:expectedCells())
+        suts.forEach { sut in
+            sut.controller.setActive(false, animated: true)
+            testsHelper.checkSUT(sut, active: false, cells: expectedCells())
+        }
     }
     
     func testActivateExplicitNonAnimated() {
-        controller.setActive(false, animated: false)
-        check(active: false, cells:expectedCells())
+        suts.forEach { sut in
+            sut.controller.setActive(false, animated: false)
+            testsHelper.checkSUT(sut, active: false, cells:expectedCells())
+        }
     }
     
     func expectedCells() -> [SSCollectionViewMarkableCellStub] {

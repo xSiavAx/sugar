@@ -1,24 +1,38 @@
 import XCTest
+@testable import SSSugar
 
-class SSCollectionViewMarkableControllerActivateTC: SSCollectionViewMarkableControllerBaseTC {
-    func testActivateViaProp() {
-        controller.active = true
-        check(active: true, cells:expectedCells())
+class SSCollectionViewMarkableControllerActivateTC: XCTestCase {
+    let testsHelper = SSCollectionViewMarkableControllerTestsHelper()
+    var suts = [SSCollectionViewMarkableControllerTestsSUT]()
+    
+    override func setUp() {
+        let sut = testsHelper.makeSUT()
+        let alreadyActiveSUT = testsHelper.makeSUT {
+            $0.controller.setActive(true)
+        }
+        
+        suts = [sut, alreadyActiveSUT]
     }
     
     func testActivate() {
-        controller.setActive(true)
-        check(active: true, cells:expectedCells())
+        suts.forEach { sut in
+            sut.controller.setActive(true)
+            testsHelper.checkSUT(sut, active: true, cells: expectedCells())
+        }
     }
     
     func testActivateAnimated() {
-        controller.setActive(true, animated: true)
-        check(active: true, cells:expectedCells())
+        suts.forEach { sut in
+            sut.controller.setActive(true, animated: true)
+            testsHelper.checkSUT(sut, active: true, cells: expectedCells())
+        }
     }
     
     func testActivateExplicitNonAnimated() {
-        controller.setActive(true, animated: false)
-        check(active: true, cells:expectedCells())
+        suts.forEach { sut in
+            sut.controller.setActive(true, animated: false)
+            testsHelper.checkSUT(sut, active: true, cells: expectedCells())
+        }
     }
     
     func expectedCells() -> [SSCollectionViewMarkableCellStub] {

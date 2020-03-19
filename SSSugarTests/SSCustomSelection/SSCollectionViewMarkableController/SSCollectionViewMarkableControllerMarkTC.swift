@@ -3,7 +3,7 @@ import XCTest
 class SSCollectionViewMarkableControllerMarkTC: SSCollectionViewMarkableControllerMarkNonActiveTC {
     override func setUp() {
         super.setUp()
-        controller.active = true
+        sut.controller.active = true
     }
     
     override func expectedActive() -> Bool {

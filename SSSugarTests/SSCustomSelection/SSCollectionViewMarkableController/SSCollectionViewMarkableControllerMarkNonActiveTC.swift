@@ -1,79 +1,82 @@
 import XCTest
 
-class SSCollectionViewMarkableControllerMarkNonActiveTC: SSCollectionViewMarkableControllerBaseTC {
+class SSCollectionViewMarkableControllerMarkNonActiveTC: XCTestCase {
+    let testsHelper = SSCollectionViewMarkableControllerTestsHelper()
+    var sut: SSCollectionViewMarkableControllerTestsSUT!
+    
     override func setUp() {
-        super.setUp()
-        collection.viewPortOffset = 1
+        sut = testsHelper.makeSUT()
+        sut.collection.viewPortOffset = 1
     }
 
     func testMarkOneBeforeVP() {
-        controller.setCellMarked(true, at: IndexPath(row: 0, section: 0))
-        check(active: expectedActive(), cells: expectedMarkOneBeforeVPCells())
+        sut.controller.setCellMarked(true, at: IndexPath(row: 0, section: 0))
+        testsHelper.checkSUT(sut, active: expectedActive(), cells: expectedMarkOneBeforeVPCells())
     }
     
     func testMarkOne() {
-        controller.setCellMarked(true, at: IndexPath(row: 2, section: 0))
-        check(active: expectedActive(), cells: expectedMarkOneCells())
+        sut.controller.setCellMarked(true, at: IndexPath(row: 2, section: 0))
+        testsHelper.checkSUT(sut, active: expectedActive(), cells: expectedMarkOneCells())
     }
     
     func testMarkOneAfterVp() {
-        controller.setCellMarked(true, at: IndexPath(row: 4, section: 0))
-        check(active: expectedActive(), cells: expectedMarkOneAfterCells())
+        sut.controller.setCellMarked(true, at: IndexPath(row: 4, section: 0))
+        testsHelper.checkSUT(sut, active: expectedActive(), cells: expectedMarkOneAfterCells())
     }
     
     func testMarkLowerVPBound() {
-        controller.setCellsMarked(true, at: [IndexPath(row: 0, section: 0), IndexPath(row: 1, section: 0)])
-        check(active: expectedActive(), cells: expectedMarkLowerVPBoundCells())
+        sut.controller.setCellsMarked(true, at: [IndexPath(row: 0, section: 0), IndexPath(row: 1, section: 0)])
+        testsHelper.checkSUT(sut, active: expectedActive(), cells: expectedMarkLowerVPBoundCells())
     }
     
     func testMark() {
-        controller.setCellsMarked(true, at: [IndexPath(row: 1, section: 0), IndexPath(row: 2, section: 0)])
-        check(active: expectedActive(), cells: expectedMarkCells())
+        sut.controller.setCellsMarked(true, at: [IndexPath(row: 1, section: 0), IndexPath(row: 2, section: 0)])
+        testsHelper.checkSUT(sut, active: expectedActive(), cells: expectedMarkCells())
     }
     
     func testMarkUpperVPBound() {
-        controller.setCellsMarked(true, at: [IndexPath(row: 3, section: 0), IndexPath(row: 4, section: 0)])
-        check(active: expectedActive(), cells: expectedMarkUpperVPBoundCells())
+        sut.controller.setCellsMarked(true, at: [IndexPath(row: 3, section: 0), IndexPath(row: 4, section: 0)])
+        testsHelper.checkSUT(sut, active: expectedActive(), cells: expectedMarkUpperVPBoundCells())
     }
     
     func testMarkAll() {
-        controller.setAllCellsMarked(true)
-        check(active: expectedActive(), cells: expectedMarkAllCells())
+        sut.controller.setAllCellsMarked(true)
+        testsHelper.checkSUT(sut, active: expectedActive(), cells: expectedMarkAllCells())
     }
     
     func testUnMarkOneBeforeVP() {
-        controller.setCellMarked(false, at: IndexPath(row: 0, section: 0))
-        check(active: expectedActive(), cells: expectedUnMarkOneBeforeVPCells())
+        sut.controller.setCellMarked(false, at: IndexPath(row: 0, section: 0))
+        testsHelper.checkSUT(sut, active: expectedActive(), cells: expectedUnMarkOneBeforeVPCells())
     }
     
     func testUnMarkOne() {
-        controller.setCellMarked(false, at: IndexPath(row: 2, section: 0))
-        check(active: expectedActive(), cells: expectedUnMarkOneCells())
+        sut.controller.setCellMarked(false, at: IndexPath(row: 2, section: 0))
+        testsHelper.checkSUT(sut, active: expectedActive(), cells: expectedUnMarkOneCells())
     }
     
     func testUnMarkOneAfterVp() {
-        controller.setCellMarked(false, at: IndexPath(row: 4, section: 0))
-        check(active: expectedActive(), cells: expectedUnMarkOneAfterCells())
+        sut.controller.setCellMarked(false, at: IndexPath(row: 4, section: 0))
+        testsHelper.checkSUT(sut, active: expectedActive(), cells: expectedUnMarkOneAfterCells())
     }
     
     func testUnMarkLowerVPBound() {
-        controller.setCellsMarked(false, at: [IndexPath(row: 0, section: 0), IndexPath(row: 1, section: 0)])
-        check(active: expectedActive(), cells: expectedUnMarkLowerVPBoundCells())
+        sut.controller.setCellsMarked(false, at: [IndexPath(row: 0, section: 0), IndexPath(row: 1, section: 0)])
+        testsHelper.checkSUT(sut, active: expectedActive(), cells: expectedUnMarkLowerVPBoundCells())
     }
     
     func testUnMark() {
-        controller.setCellsMarked(false, at: [IndexPath(row: 1, section: 0), IndexPath(row: 2, section: 0)])
-        check(active: expectedActive(), cells: expectedUnMarkCells())
+        sut.controller.setCellsMarked(false, at: [IndexPath(row: 1, section: 0), IndexPath(row: 2, section: 0)])
+        testsHelper.checkSUT(sut, active: expectedActive(), cells: expectedUnMarkCells())
     }
     
     func testUnMarkUpperVPBound() {
-        controller.setCellsMarked(false, at: [IndexPath(row: 3, section: 0), IndexPath(row: 4, section: 0)])
-        check(active: expectedActive(), cells: expectedUnMarkUpperVPBoundCells())
+        sut.controller.setCellsMarked(false, at: [IndexPath(row: 3, section: 0), IndexPath(row: 4, section: 0)])
+        testsHelper.checkSUT(sut, active: expectedActive(), cells: expectedUnMarkUpperVPBoundCells())
     }
     
     func testUnMarkAll() {
-        controller.setAllCellsMarked(false)
-        check(active: expectedActive(), cells: expectedUnMarkAllCells())
+        sut.controller.setAllCellsMarked(false)
+        testsHelper.checkSUT(sut, active: expectedActive(), cells: expectedUnMarkAllCells())
     }
 
     func expectedActive() -> Bool {

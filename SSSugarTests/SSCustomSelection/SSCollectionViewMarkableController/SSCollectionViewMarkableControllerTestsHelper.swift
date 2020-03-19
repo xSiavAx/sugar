@@ -1,23 +1,31 @@
 import XCTest
 @testable import SSSugar
 
-class SSCollectionViewMarkableControllerBaseTC: XCTestCase {
-    var controller : SSCollectionViewMarkableController!
-    var collection : SSMarkableCollectionViewStub!
-    var delegate   : SSCollectionViewMarkableControllerDelegateStub!
-
-    override func setUp() {
-        collection  = SSMarkableCollectionViewStub()
-        controller  = SSCollectionViewMarkableController(collectionView: collection)
-        delegate    = SSCollectionViewMarkableControllerDelegateStub()
-        
-        controller.delegate = delegate
+struct SSCollectionViewMarkableControllerTestsHelper {
+    func makeSUT(setupClosure: (inout SSCollectionViewMarkableControllerTestsSUT) -> Void = { item in }) -> SSCollectionViewMarkableControllerTestsSUT {
+        var item = SSCollectionViewMarkableControllerTestsSUT()
+        setupClosure(&item)
+        return item
     }
     
-    func check(active : Bool, cells:[SSCollectionViewMarkableCellStub]) {
-        XCTAssertEqual(controller.active, active)
-        XCTAssertEqual(collection.cells, cells)
-        XCTAssertEqual(delegate.active, active)
+    func checkSUT(_ sut: SSCollectionViewMarkableControllerTestsSUT, active: Bool, cells: [SSCollectionViewMarkableCellStub]) {
+        XCTAssertEqual(sut.controller.active, active)
+        XCTAssertEqual(sut.collection.cells, cells)
+        XCTAssertEqual(sut.delegate.active, active)
+    }
+}
+
+class SSCollectionViewMarkableControllerTestsSUT {
+    var controller: SSCollectionViewMarkableController
+    var collection: SSMarkableCollectionViewStub
+    var delegate: SSCollectionViewMarkableControllerDelegateStub
+    
+    init() {
+        collection = SSMarkableCollectionViewStub()
+        controller = SSCollectionViewMarkableController(collectionView: collection)
+        delegate = SSCollectionViewMarkableControllerDelegateStub()
+        
+        controller.delegate = delegate
     }
 }
 

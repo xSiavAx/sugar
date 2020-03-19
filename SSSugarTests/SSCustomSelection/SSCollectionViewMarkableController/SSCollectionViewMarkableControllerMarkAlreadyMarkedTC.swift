@@ -3,8 +3,8 @@ import XCTest
 class SSCollectionViewMarkableControllerMarkAlreadyMarkedTC: SSCollectionViewMarkableControllerMarkNonActiveTC {
     override func setUp() {
         super.setUp()
-        controller.active = true
-        controller.setAllCellsMarked(true)
+        sut.controller.active = true
+        sut.controller.setAllCellsMarked(true)
     }
     
     override func expectedActive() -> Bool {
