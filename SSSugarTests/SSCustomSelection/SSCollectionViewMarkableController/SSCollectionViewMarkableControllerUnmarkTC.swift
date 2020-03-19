@@ -1,8 +1,8 @@
 import XCTest
 @testable import SSSugar
 
-class SSCollectionViewMarkableControllerMarkTC: XCTestCase {
-    typealias TestDataContainer = (sut: SSCollectionViewMarkableControllerTestsSUT, expected: SSCollectionViewMarkableControllerMarkExpectedResult)
+class SSCollectionViewMarkableControllerUnmarkTC: XCTestCase {
+    typealias TestDataContainer = (sut: SSCollectionViewMarkableControllerTestsSUT, expected: SSCollectionViewMarkableControllerUnmarkExpectedResult)
     
     let testHelper = SSCollectionViewMarkableControllerTestHelper()
     var testDataContainers = [TestDataContainer]()
@@ -15,72 +15,72 @@ class SSCollectionViewMarkableControllerMarkTC: XCTestCase {
         ]
     }
 
-    func testMarkOneBeforeVP() {
+    func testUnmarkOneBeforeVP() {
         testDataContainers.forEach { container in
             let sut = container.sut
             let expected = container.expected
             
-            sut.controller.setCellMarked(true, at: IndexPath(row: 0, section: 0))
+            sut.controller.setCellMarked(false, at: IndexPath(row: 0, section: 0))
             testHelper.checkSUT(sut, active: expected.active, cells: expected.oneBeforeVPCells)
         }
     }
 
-    func testMarkOne() {
+    func testUnmarkOne() {
         testDataContainers.forEach { container in
             let sut = container.sut
             let expected = container.expected
             
-            sut.controller.setCellMarked(true, at: IndexPath(row: 2, section: 0))
+            sut.controller.setCellMarked(false, at: IndexPath(row: 2, section: 0))
             testHelper.checkSUT(sut, active: expected.active, cells: expected.oneCells)
         }
     }
 
-    func testMarkOneAfterVP() {
+    func testUnmarkOneAfterVP() {
         testDataContainers.forEach { container in
             let sut = container.sut
             let expected = container.expected
             
-            sut.controller.setCellMarked(true, at: IndexPath(row: 4, section: 0))
+            sut.controller.setCellMarked(false, at: IndexPath(row: 4, section: 0))
             testHelper.checkSUT(sut, active: expected.active, cells: expected.oneAfterVPCells)
         }
     }
 
-    func testMarkLowerVPBound() {
+    func testUnmarkLowerVPBound() {
         testDataContainers.forEach { container in
             let sut = container.sut
             let expected = container.expected
             
-            sut.controller.setCellsMarked(true, at: [IndexPath(row: 0, section: 0), IndexPath(row: 1, section: 0)])
+            sut.controller.setCellsMarked(false, at: [IndexPath(row: 0, section: 0), IndexPath(row: 1, section: 0)])
             testHelper.checkSUT(sut, active: expected.active, cells: expected.lowerVPBoundCells)
         }
     }
 
-    func testMark() {
+    func testUnmark() {
         testDataContainers.forEach { container in
             let sut = container.sut
             let expected = container.expected
             
-            sut.controller.setCellsMarked(true, at: [IndexPath(row: 1, section: 0), IndexPath(row: 2, section: 0)])
+            sut.controller.setCellsMarked(false, at: [IndexPath(row: 1, section: 0), IndexPath(row: 2, section: 0)])
             testHelper.checkSUT(sut, active: expected.active, cells: expected.cells)
         }
     }
 
-    func testMarkUpperVPBound() {
+    func testUnmarkUpperVPBound() {
         testDataContainers.forEach { container in
             let sut = container.sut
             let expected = container.expected
             
-            sut.controller.setCellsMarked(true, at: [IndexPath(row: 3, section: 0), IndexPath(row: 4, section: 0)])
+            sut.controller.setCellsMarked(false, at: [IndexPath(row: 3, section: 0), IndexPath(row: 4, section: 0)])
             testHelper.checkSUT(sut, active: expected.active, cells: expected.upperVPBoundCells)
         }
     }
 
-    func testMarkAll() {
+    func testUnmarkAll() {
         testDataContainers.forEach { container in
             let sut = container.sut
             let expected = container.expected
             
-            sut.controller.setAllCellsMarked(true)
+            sut.controller.setAllCellsMarked(false)
             testHelper.checkSUT(sut, active: expected.active, cells: expected.allCells)
         }
     }
@@ -92,7 +92,7 @@ class SSCollectionViewMarkableControllerMarkTC: XCTestCase {
             $0.collection.viewPortOffset = 1
         }
         
-        return (sut, SSCollectionViewMarkableControllerMarkDeactiveExpectedResult())
+        return (sut, SSCollectionViewMarkableControllerUnmarkDeactiveExpectedResult())
     }
     
     func makeActiveDataContainer() -> TestDataContainer {
@@ -101,7 +101,7 @@ class SSCollectionViewMarkableControllerMarkTC: XCTestCase {
             $0.controller.active = true
         }
         
-        return (sut, SSCollectionViewMarkableControllerMarkActiveExpectedResult())
+        return (sut, SSCollectionViewMarkableControllerUnmarkActiveExpectedResult())
     }
     
     func makeActiveMarkedDataContainer() -> TestDataContainer {
@@ -111,30 +111,18 @@ class SSCollectionViewMarkableControllerMarkTC: XCTestCase {
             $0.controller.setAllCellsMarked(true)
         }
         
-        return (sut, SSCollectionViewMarkableControllerMarkActiveMarkedExpectedResult())
+        return (sut, SSCollectionViewMarkableControllerUnmarkActiveMarkedExpectedResult())
     }
 }
 
 
 // MARK: - Expected Result
 
-protocol SSCollectionViewMarkableControllerMarkExpectedResult {
-    typealias CellStub = SSCollectionViewMarkableCellStub
-    
-    var active: Bool { get }
-    
-    var oneBeforeVPCells: [CellStub] { get }
-    var oneCells: [CellStub] { get }
-    var oneAfterVPCells: [CellStub] { get }
-    var lowerVPBoundCells: [CellStub] { get }
-    var cells: [CellStub] { get }
-    var upperVPBoundCells: [CellStub] { get }
-    var allCells: [CellStub] { get }
-}
+typealias SSCollectionViewMarkableControllerUnmarkExpectedResult = SSCollectionViewMarkableControllerMarkExpectedResult
 
 // MARK: Deactive
 
-struct SSCollectionViewMarkableControllerMarkDeactiveExpectedResult: SSCollectionViewMarkableControllerMarkExpectedResult {
+struct SSCollectionViewMarkableControllerUnmarkDeactiveExpectedResult: SSCollectionViewMarkableControllerUnmarkExpectedResult {
     let active = false
     
     let oneBeforeVPCells = [CellStub(), CellStub(), CellStub(), CellStub(), CellStub()]
@@ -148,7 +136,7 @@ struct SSCollectionViewMarkableControllerMarkDeactiveExpectedResult: SSCollectio
 
 // MARK: Active
 
-struct SSCollectionViewMarkableControllerMarkActiveExpectedResult: SSCollectionViewMarkableControllerMarkExpectedResult {
+struct SSCollectionViewMarkableControllerUnmarkActiveExpectedResult: SSCollectionViewMarkableControllerUnmarkExpectedResult {
     let active = true
     
     let oneBeforeVPCells = [
@@ -161,11 +149,11 @@ struct SSCollectionViewMarkableControllerMarkActiveExpectedResult: SSCollectionV
     let oneCells = [
         CellStub(),
         CellStub(marking: true, marked: false),
-        CellStub(marking: true, marked: true),
+        CellStub(marking: true, marked: false),
         CellStub(marking: true, marked: false),
         CellStub()
     ]
-    let oneAfterVPCells = [
+    let oneAfterVPCells: [Self.CellStub] = [
         CellStub(),
         CellStub(marking: true, marked: false),
         CellStub(marking: true, marked: false),
@@ -174,15 +162,15 @@ struct SSCollectionViewMarkableControllerMarkActiveExpectedResult: SSCollectionV
     ]
     let lowerVPBoundCells = [
         CellStub(),
-        CellStub(marking: true, marked: true),
+        CellStub(marking: true, marked: false),
         CellStub(marking: true, marked: false),
         CellStub(marking: true, marked: false),
         CellStub()
     ]
     let cells = [
         CellStub(),
-        CellStub(marking: true, marked: true),
-        CellStub(marking: true, marked: true),
+        CellStub(marking: true, marked: false),
+        CellStub(marking: true, marked: false),
         CellStub(marking: true, marked: false),
         CellStub()
     ]
@@ -190,21 +178,21 @@ struct SSCollectionViewMarkableControllerMarkActiveExpectedResult: SSCollectionV
         CellStub(),
         CellStub(marking: true, marked: false),
         CellStub(marking: true, marked: false),
-        CellStub(marking: true, marked: true),
+        CellStub(marking: true, marked: false),
         CellStub()
     ]
     let allCells = [
         CellStub(),
-        CellStub(marking: true, marked: true),
-        CellStub(marking: true, marked: true),
-        CellStub(marking: true, marked: true),
+        CellStub(marking: true, marked: false),
+        CellStub(marking: true, marked: false),
+        CellStub(marking: true, marked: false),
         CellStub()
     ]
 }
 
 // MARK: Active Marked
 
-struct SSCollectionViewMarkableControllerMarkActiveMarkedExpectedResult: SSCollectionViewMarkableControllerMarkExpectedResult {
+struct SSCollectionViewMarkableControllerUnmarkActiveMarkedExpectedResult: SSCollectionViewMarkableControllerUnmarkExpectedResult {
     let active = true
     
     let oneBeforeVPCells = [
@@ -217,7 +205,7 @@ struct SSCollectionViewMarkableControllerMarkActiveMarkedExpectedResult: SSColle
     let oneCells = [
         CellStub(),
         CellStub(marking: true, marked: true),
-        CellStub(marking: true, marked: true),
+        CellStub(marking: true, marked: false),
         CellStub(marking: true, marked: true),
         CellStub()
     ]
@@ -230,15 +218,15 @@ struct SSCollectionViewMarkableControllerMarkActiveMarkedExpectedResult: SSColle
     ]
     let lowerVPBoundCells = [
         CellStub(),
-        CellStub(marking: true, marked: true),
+        CellStub(marking: true, marked: false),
         CellStub(marking: true, marked: true),
         CellStub(marking: true, marked: true),
         CellStub()
     ]
     let cells = [
         CellStub(),
-        CellStub(marking: true, marked: true),
-        CellStub(marking: true, marked: true),
+        CellStub(marking: true, marked: false),
+        CellStub(marking: true, marked: false),
         CellStub(marking: true, marked: true),
         CellStub()
     ]
@@ -246,14 +234,14 @@ struct SSCollectionViewMarkableControllerMarkActiveMarkedExpectedResult: SSColle
         CellStub(),
         CellStub(marking: true, marked: true),
         CellStub(marking: true, marked: true),
-        CellStub(marking: true, marked: true),
+        CellStub(marking: true, marked: false),
         CellStub()
     ]
     let allCells = [
         CellStub(),
-        CellStub(marking: true, marked: true),
-        CellStub(marking: true, marked: true),
-        CellStub(marking: true, marked: true),
+        CellStub(marking: true, marked: false),
+        CellStub(marking: true, marked: false),
+        CellStub(marking: true, marked: false),
         CellStub()
     ]
 }

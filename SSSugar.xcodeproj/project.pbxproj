@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2D4398A824222AAB00D01464 /* SSSugarContainersAutoMapInitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4398A724222AAB00D01464 /* SSSugarContainersAutoMapInitTests.swift */; };
+		2D61561A2423C4F80015A9E0 /* SSCollectionViewMarkableControllerUnmarkTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6156192423C4F80015A9E0 /* SSCollectionViewMarkableControllerUnmarkTC.swift */; };
 		2D7E5A3E241FD0E5009EE074 /* SSCollectionViewMarkableControllerConfigCellTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AB345522454466004959B1 /* SSCollectionViewMarkableControllerConfigCellTC.swift */; };
 		2D7E5A3F241FD0E5009EE074 /* SSCollectionViewMarkableControllerActivateTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A78122442BD600D96BEE /* SSCollectionViewMarkableControllerActivateTC.swift */; };
 		2D7E5A40241FD0E5009EE074 /* SSCollectionViewMarkableControllerTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A77E22441F9800D96BEE /* SSCollectionViewMarkableControllerTestHelper.swift */; };
@@ -137,6 +138,7 @@
 
 /* Begin PBXFileReference section */
 		2D4398A724222AAB00D01464 /* SSSugarContainersAutoMapInitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSSugarContainersAutoMapInitTests.swift; sourceTree = "<group>"; };
+		2D6156192423C4F80015A9E0 /* SSCollectionViewMarkableControllerUnmarkTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerUnmarkTC.swift; sourceTree = "<group>"; };
 		2D7FD9F32420F73200D4C28F /* SSSugarContainersAutoMapTestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarContainersAutoMapTestHelper.swift; sourceTree = "<group>"; };
 		2D8CF9B7241FC4BA00168C8A /* SSSugarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SSSugarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D8CF9BB241FC4BA00168C8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -426,6 +428,7 @@
 				99B1A785224431B200D96BEE /* SSCollectionViewMarkableControllerDeactivateTC.swift */,
 				99AB345522454466004959B1 /* SSCollectionViewMarkableControllerConfigCellTC.swift */,
 				99B1A789224658D700D96BEE /* SSCollectionViewMarkableControllerMarkTC.swift */,
+				2D6156192423C4F80015A9E0 /* SSCollectionViewMarkableControllerUnmarkTC.swift */,
 				99B1A77E22441F9800D96BEE /* SSCollectionViewMarkableControllerTestHelper.swift */,
 			);
 			path = SSCollectionViewMarkableController;
@@ -839,6 +842,7 @@
 				2D7E5A5C241FD0E5009EE074 /* SSSugarContainersAutoMapAddContainerTests.swift in Sources */,
 				2D7E5A5E241FD0E5009EE074 /* SSSugarContainersAutoMapSubsriptTests.swift in Sources */,
 				2D7FD9F42420F73200D4C28F /* SSSugarContainersAutoMapTestHelper.swift in Sources */,
+				2D61561A2423C4F80015A9E0 /* SSCollectionViewMarkableControllerUnmarkTC.swift in Sources */,
 				2D7E5A5F241FD0E5009EE074 /* SSSugarContainersAutoMapContainTests.swift in Sources */,
 				2D7E5A60241FD0E5009EE074 /* SSSugarContainersAutoMapAddTests.swift in Sources */,
 			);
