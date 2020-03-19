@@ -1,211 +1,527 @@
 import XCTest
 
-class SSCollectionViewMarkableControllerMarkNonActiveTC: XCTestCase {
+#warning("update the file name")
+class SSCollectionViewMarkableControllerMarkTC: XCTestCase {
+    enum TestDataCase {
+        case active
+        case deactive
+        case activeMarked
+    }
+    
+    typealias TestDataContainer = (sut: SSCollectionViewMarkableControllerTestsSUT, testDataCase: TestDataCase)
+    
     let testsHelper = SSCollectionViewMarkableControllerTestsHelper()
-    var sut: SSCollectionViewMarkableControllerTestsSUT!
+    var testDataContainers = [TestDataContainer]()
     
     override func setUp() {
-        sut = testsHelper.makeSUT()
-        sut.collection.viewPortOffset = 1
+        testDataContainers = [
+            makeDeactiveDataContainer(),
+            makeActiveDataContainer(),
+            makeActiveMarkedDataContainer(),
+        ]
     }
 
     func testMarkOneBeforeVP() {
-        sut.controller.setCellMarked(true, at: IndexPath(row: 0, section: 0))
-        testsHelper.checkSUT(sut, active: expectedActive(), cells: expectedMarkOneBeforeVPCells())
-    }
-    
-    func testMarkOne() {
-        sut.controller.setCellMarked(true, at: IndexPath(row: 2, section: 0))
-        testsHelper.checkSUT(sut, active: expectedActive(), cells: expectedMarkOneCells())
-    }
-    
-    func testMarkOneAfterVp() {
-        sut.controller.setCellMarked(true, at: IndexPath(row: 4, section: 0))
-        testsHelper.checkSUT(sut, active: expectedActive(), cells: expectedMarkOneAfterCells())
-    }
-    
-    func testMarkLowerVPBound() {
-        sut.controller.setCellsMarked(true, at: [IndexPath(row: 0, section: 0), IndexPath(row: 1, section: 0)])
-        testsHelper.checkSUT(sut, active: expectedActive(), cells: expectedMarkLowerVPBoundCells())
-    }
-    
-    func testMark() {
-        sut.controller.setCellsMarked(true, at: [IndexPath(row: 1, section: 0), IndexPath(row: 2, section: 0)])
-        testsHelper.checkSUT(sut, active: expectedActive(), cells: expectedMarkCells())
-    }
-    
-    func testMarkUpperVPBound() {
-        sut.controller.setCellsMarked(true, at: [IndexPath(row: 3, section: 0), IndexPath(row: 4, section: 0)])
-        testsHelper.checkSUT(sut, active: expectedActive(), cells: expectedMarkUpperVPBoundCells())
-    }
-    
-    func testMarkAll() {
-        sut.controller.setAllCellsMarked(true)
-        testsHelper.checkSUT(sut, active: expectedActive(), cells: expectedMarkAllCells())
-    }
-    
-    func testUnMarkOneBeforeVP() {
-        sut.controller.setCellMarked(false, at: IndexPath(row: 0, section: 0))
-        testsHelper.checkSUT(sut, active: expectedActive(), cells: expectedUnMarkOneBeforeVPCells())
-    }
-    
-    func testUnMarkOne() {
-        sut.controller.setCellMarked(false, at: IndexPath(row: 2, section: 0))
-        testsHelper.checkSUT(sut, active: expectedActive(), cells: expectedUnMarkOneCells())
-    }
-    
-    func testUnMarkOneAfterVp() {
-        sut.controller.setCellMarked(false, at: IndexPath(row: 4, section: 0))
-        testsHelper.checkSUT(sut, active: expectedActive(), cells: expectedUnMarkOneAfterCells())
-    }
-    
-    func testUnMarkLowerVPBound() {
-        sut.controller.setCellsMarked(false, at: [IndexPath(row: 0, section: 0), IndexPath(row: 1, section: 0)])
-        testsHelper.checkSUT(sut, active: expectedActive(), cells: expectedUnMarkLowerVPBoundCells())
-    }
-    
-    func testUnMark() {
-        sut.controller.setCellsMarked(false, at: [IndexPath(row: 1, section: 0), IndexPath(row: 2, section: 0)])
-        testsHelper.checkSUT(sut, active: expectedActive(), cells: expectedUnMarkCells())
-    }
-    
-    func testUnMarkUpperVPBound() {
-        sut.controller.setCellsMarked(false, at: [IndexPath(row: 3, section: 0), IndexPath(row: 4, section: 0)])
-        testsHelper.checkSUT(sut, active: expectedActive(), cells: expectedUnMarkUpperVPBoundCells())
-    }
-    
-    func testUnMarkAll() {
-        sut.controller.setAllCellsMarked(false)
-        testsHelper.checkSUT(sut, active: expectedActive(), cells: expectedUnMarkAllCells())
+        testDataContainers.forEach { container in
+            let sut = container.sut
+            let testDataCase = container.testDataCase
+            
+            sut.controller.setCellMarked(true, at: IndexPath(row: 0, section: 0))
+            testsHelper.checkSUT(sut, active: expectedActive(for: testDataCase), cells: expectedMarkOneBeforeVPCells(for: testDataCase))
+        }
     }
 
-    func expectedActive() -> Bool {
-        return false
+    func testMarkOne() {
+        testDataContainers.forEach { container in
+            let sut = container.sut
+            let testDataCase = container.testDataCase
+            
+            sut.controller.setCellMarked(true, at: IndexPath(row: 2, section: 0))
+            testsHelper.checkSUT(sut, active: expectedActive(for: testDataCase), cells: expectedMarkOneCells(for: testDataCase))
+        }
+    }
+
+    func testMarkOneAfterVp() {
+        testDataContainers.forEach { container in
+            let sut = container.sut
+            let testDataCase = container.testDataCase
+            
+            sut.controller.setCellMarked(true, at: IndexPath(row: 4, section: 0))
+            testsHelper.checkSUT(sut, active: expectedActive(for: testDataCase), cells: expectedMarkOneAfterCells(for: testDataCase))
+        }
+    }
+
+    func testMarkLowerVPBound() {
+        testDataContainers.forEach { container in
+            let sut = container.sut
+            let testDataCase = container.testDataCase
+            
+            sut.controller.setCellsMarked(true, at: [IndexPath(row: 0, section: 0), IndexPath(row: 1, section: 0)])
+            testsHelper.checkSUT(sut, active: expectedActive(for: testDataCase), cells: expectedMarkLowerVPBoundCells(for: testDataCase))
+        }
+    }
+
+    func testMark() {
+        testDataContainers.forEach { container in
+            let sut = container.sut
+            let testDataCase = container.testDataCase
+            
+            sut.controller.setCellsMarked(true, at: [IndexPath(row: 1, section: 0), IndexPath(row: 2, section: 0)])
+            testsHelper.checkSUT(sut, active: expectedActive(for: testDataCase), cells: expectedMarkCells(for: testDataCase))
+        }
+    }
+
+    func testMarkUpperVPBound() {
+        testDataContainers.forEach { container in
+            let sut = container.sut
+            let testDataCase = container.testDataCase
+            
+            sut.controller.setCellsMarked(true, at: [IndexPath(row: 3, section: 0), IndexPath(row: 4, section: 0)])
+            testsHelper.checkSUT(sut, active: expectedActive(for: testDataCase), cells: expectedMarkUpperVPBoundCells(for: testDataCase))
+        }
+    }
+
+    func testMarkAll() {
+        testDataContainers.forEach { container in
+            let sut = container.sut
+            let testDataCase = container.testDataCase
+            
+            sut.controller.setAllCellsMarked(true)
+            testsHelper.checkSUT(sut, active: expectedActive(for: testDataCase), cells: expectedMarkAllCells(for: testDataCase))
+        }
+    }
+
+    func testUnMarkOneBeforeVP() {
+        testDataContainers.forEach { container in
+            let sut = container.sut
+            let testDataCase = container.testDataCase
+            
+            sut.controller.setCellMarked(false, at: IndexPath(row: 0, section: 0))
+            testsHelper.checkSUT(sut, active: expectedActive(for: testDataCase), cells: expectedUnMarkOneBeforeVPCells(for: testDataCase))
+        }
+    }
+
+    func testUnMarkOne() {
+        testDataContainers.forEach { container in
+            let sut = container.sut
+            let testDataCase = container.testDataCase
+            
+            sut.controller.setCellMarked(false, at: IndexPath(row: 2, section: 0))
+            testsHelper.checkSUT(sut, active: expectedActive(for: testDataCase), cells: expectedUnMarkOneCells(for: testDataCase))
+        }
+    }
+
+    func testUnMarkOneAfterVp() {
+        testDataContainers.forEach { container in
+            let sut = container.sut
+            let testDataCase = container.testDataCase
+            
+            sut.controller.setCellMarked(false, at: IndexPath(row: 4, section: 0))
+            testsHelper.checkSUT(sut, active: expectedActive(for: testDataCase), cells: expectedUnMarkOneAfterCells(for: testDataCase))
+        }
+    }
+
+    func testUnMarkLowerVPBound() {
+        testDataContainers.forEach { container in
+            let sut = container.sut
+            let testDataCase = container.testDataCase
+            
+            sut.controller.setCellsMarked(false, at: [IndexPath(row: 0, section: 0), IndexPath(row: 1, section: 0)])
+            testsHelper.checkSUT(sut, active: expectedActive(for: testDataCase), cells: expectedUnMarkLowerVPBoundCells(for: testDataCase))
+        }
+    }
+
+    func testUnMark() {
+        testDataContainers.forEach { container in
+            let sut = container.sut
+            let testDataCase = container.testDataCase
+            
+            sut.controller.setCellsMarked(false, at: [IndexPath(row: 1, section: 0), IndexPath(row: 2, section: 0)])
+            testsHelper.checkSUT(sut, active: expectedActive(for: testDataCase), cells: expectedUnMarkCells(for: testDataCase))
+        }
+    }
+
+    func testUnMarkUpperVPBound() {
+        testDataContainers.forEach { container in
+            let sut = container.sut
+            let testDataCase = container.testDataCase
+            
+            sut.controller.setCellsMarked(false, at: [IndexPath(row: 3, section: 0), IndexPath(row: 4, section: 0)])
+            testsHelper.checkSUT(sut, active: expectedActive(for: testDataCase), cells: expectedUnMarkUpperVPBoundCells(for: testDataCase))
+        }
+    }
+
+    func testUnMarkAll() {
+        testDataContainers.forEach { container in
+            let sut = container.sut
+            let testDataCase = container.testDataCase
+            
+            sut.controller.setAllCellsMarked(false)
+            testsHelper.checkSUT(sut, active: expectedActive(for: testDataCase), cells: expectedUnMarkAllCells(for: testDataCase))
+        }
+    }
+
+    func expectedActive(for testDataCase: TestDataCase) -> Bool {
+        switch testDataCase {
+        case .active, .activeMarked:
+            return true
+        case .deactive:
+            return false
+        }
     }
     
-    func expectedMarkOneBeforeVPCells() -> [SSCollectionViewMarkableCellStub]  {
-        return [
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub()]
+    // MARK: - Data Containers
+    
+    func makeDeactiveDataContainer() -> TestDataContainer {
+        let sut = testsHelper.makeSUT {
+            $0.collection.viewPortOffset = 1
+        }
+        
+        return (sut, .deactive)
     }
     
-    func expectedMarkOneCells() -> [SSCollectionViewMarkableCellStub] {
-        return [
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub()]
+    func makeActiveDataContainer() -> TestDataContainer {
+        let sut = testsHelper.makeSUT {
+            $0.collection.viewPortOffset = 1
+            $0.controller.active = true
+        }
+        
+        return (sut, .active)
     }
     
-    func expectedMarkOneAfterCells() -> [SSCollectionViewMarkableCellStub] {
-        return [
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub()]
+    func makeActiveMarkedDataContainer() -> TestDataContainer {
+        let sut = testsHelper.makeSUT {
+            $0.collection.viewPortOffset = 1
+            $0.controller.active = true
+            $0.controller.setAllCellsMarked(true)
+        }
+        
+        return (sut, .activeMarked)
     }
     
-    func expectedMarkLowerVPBoundCells() -> [SSCollectionViewMarkableCellStub]  {
-        return [
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub()]
+    // MARK: - Expected Cell Stub
+    
+    typealias CellStub = SSCollectionViewMarkableCellStub
+    
+    func expectedMarkOneBeforeVPCells(for testDataCase: TestDataCase) -> [CellStub]  {
+        switch testDataCase {
+        case .active:
+            return [
+                CellStub(),
+                CellStub(marking: true, marked: false),
+                CellStub(marking: true, marked: false),
+                CellStub(marking: true, marked: false),
+                CellStub()
+            ]
+        case .deactive:
+            return [CellStub(), CellStub(), CellStub(), CellStub(), CellStub()]
+        case .activeMarked:
+            return [
+                CellStub(),
+                CellStub(marking: true, marked: true),
+                CellStub(marking: true, marked: true),
+                CellStub(marking: true, marked: true),
+                CellStub()
+            ]
+        }
     }
     
-    func expectedMarkCells() -> [SSCollectionViewMarkableCellStub] {
-        return [
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub()]
+    func expectedMarkOneCells(for testDataCase: TestDataCase) -> [CellStub] {
+        switch testDataCase {
+        case .active:
+            return [
+                CellStub(),
+                CellStub(marking: true, marked: false),
+                CellStub(marking: true, marked: true),
+                CellStub(marking: true, marked: false),
+                CellStub()
+            ]
+        case .deactive:
+            return [CellStub(), CellStub(), CellStub(), CellStub(), CellStub()]
+        case .activeMarked:
+            return [
+                CellStub(),
+                CellStub(marking: true, marked: true),
+                CellStub(marking: true, marked: true),
+                CellStub(marking: true, marked: true),
+                CellStub()
+            ]
+        }
     }
     
-    func expectedMarkUpperVPBoundCells() -> [SSCollectionViewMarkableCellStub] {
-        return [
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub()]
+    func expectedMarkOneAfterCells(for testDataCase: TestDataCase) -> [CellStub] {
+        switch testDataCase {
+        case .active:
+            return [
+                CellStub(),
+                CellStub(marking: true, marked: false),
+                CellStub(marking: true, marked: false),
+                CellStub(marking: true, marked: false),
+                CellStub()
+            ]
+        case .deactive:
+            return [CellStub(), CellStub(), CellStub(), CellStub(), CellStub()]
+        case .activeMarked:
+            return [
+                CellStub(),
+                CellStub(marking: true, marked: true),
+                CellStub(marking: true, marked: true),
+                CellStub(marking: true, marked: true),
+                CellStub()
+            ]
+        }
     }
     
-    func expectedMarkAllCells() -> [SSCollectionViewMarkableCellStub] {
-        return [
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub()]
+    func expectedMarkLowerVPBoundCells(for testDataCase: TestDataCase) -> [CellStub]  {
+        switch testDataCase {
+        case .active:
+            return [
+                CellStub(),
+                CellStub(marking: true, marked: true),
+                CellStub(marking: true, marked: false),
+                CellStub(marking: true, marked: false),
+                CellStub()
+            ]
+        case .deactive:
+            return [CellStub(), CellStub(), CellStub(), CellStub(), CellStub()]
+        case .activeMarked:
+            return [
+                CellStub(),
+                CellStub(marking: true, marked: true),
+                CellStub(marking: true, marked: true),
+                CellStub(marking: true, marked: true),
+                CellStub()
+            ]
+        }
     }
     
-    func expectedUnMarkOneBeforeVPCells() -> [SSCollectionViewMarkableCellStub]  {
-        return [
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub()]
+    func expectedMarkCells(for testDataCase: TestDataCase) -> [CellStub] {
+        switch testDataCase {
+        case .active:
+            return [
+                CellStub(),
+                CellStub(marking: true, marked: true),
+                CellStub(marking: true, marked: true),
+                CellStub(marking: true, marked: false),
+                CellStub()
+            ]
+        case .deactive:
+            return [CellStub(), CellStub(), CellStub(), CellStub(), CellStub()]
+        case .activeMarked:
+            return [
+                CellStub(),
+                CellStub(marking: true, marked: true),
+                CellStub(marking: true, marked: true),
+                CellStub(marking: true, marked: true),
+                CellStub()
+            ]
+        }
     }
     
-    func expectedUnMarkOneCells() -> [SSCollectionViewMarkableCellStub] {
-        return [
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub()]
+    func expectedMarkUpperVPBoundCells(for testDataCase: TestDataCase) -> [CellStub] {
+        switch testDataCase {
+        case .active:
+            return [
+                CellStub(),
+                CellStub(marking: true, marked: false),
+                CellStub(marking: true, marked: false),
+                CellStub(marking: true, marked: true),
+                CellStub()
+            ]
+        case .deactive:
+            return [CellStub(), CellStub(), CellStub(), CellStub(), CellStub()]
+        case .activeMarked:
+            return [
+                CellStub(),
+                CellStub(marking: true, marked: true),
+                CellStub(marking: true, marked: true),
+                CellStub(marking: true, marked: true),
+                CellStub()
+            ]
+        }
     }
     
-    func expectedUnMarkOneAfterCells() -> [SSCollectionViewMarkableCellStub] {
-        return [
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub()]
+    func expectedMarkAllCells(for testDataCase: TestDataCase) -> [CellStub] {
+        switch testDataCase {
+        case .active:
+            return [
+                CellStub(),
+                CellStub(marking: true, marked: true),
+                CellStub(marking: true, marked: true),
+                CellStub(marking: true, marked: true),
+                CellStub()
+            ]
+        case .deactive:
+            return [CellStub(), CellStub(), CellStub(), CellStub(), CellStub()]
+        case .activeMarked:
+            return [
+                CellStub(),
+                CellStub(marking: true, marked: true),
+                CellStub(marking: true, marked: true),
+                CellStub(marking: true, marked: true),
+                CellStub()
+            ]
+        }
     }
     
-    func expectedUnMarkLowerVPBoundCells() -> [SSCollectionViewMarkableCellStub]  {
-        return [
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub()]
+    func expectedUnMarkOneBeforeVPCells(for testDataCase: TestDataCase) -> [CellStub]  {
+        switch testDataCase {
+        case .active:
+            return [
+                CellStub(),
+                CellStub(marking: true, marked: false),
+                CellStub(marking: true, marked: false),
+                CellStub(marking: true, marked: false),
+                CellStub()
+            ]
+        case .deactive:
+            return [CellStub(), CellStub(), CellStub(), CellStub(), CellStub()]
+        case .activeMarked:
+            return [
+                CellStub(),
+                CellStub(marking: true, marked: true),
+                CellStub(marking: true, marked: true),
+                CellStub(marking: true, marked: true),
+                CellStub()
+            ]
+        }
     }
     
-    func expectedUnMarkCells() -> [SSCollectionViewMarkableCellStub] {
-        return [
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub()]
+    func expectedUnMarkOneCells(for testDataCase: TestDataCase) -> [CellStub] {
+        switch testDataCase {
+        case .active:
+            return [
+                CellStub(),
+                CellStub(marking: true, marked: false),
+                CellStub(marking: true, marked: false),
+                CellStub(marking: true, marked: false),
+                CellStub()
+            ]
+        case .deactive:
+            return [CellStub(), CellStub(), CellStub(), CellStub(), CellStub()]
+        case .activeMarked:
+            return [
+                CellStub(),
+                CellStub(marking: true, marked: true),
+                CellStub(marking: true, marked: false),
+                CellStub(marking: true, marked: true),
+                CellStub()
+            ]
+        }
     }
     
-    func expectedUnMarkUpperVPBoundCells() -> [SSCollectionViewMarkableCellStub] {
-        return [
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub()]
+    func expectedUnMarkOneAfterCells(for testDataCase: TestDataCase) -> [CellStub] {
+        switch testDataCase {
+        case .active:
+            return [
+                CellStub(),
+                CellStub(marking: true, marked: false),
+                CellStub(marking: true, marked: false),
+                CellStub(marking: true, marked: false),
+                CellStub()
+            ]
+        case .deactive:
+            return [CellStub(), CellStub(), CellStub(), CellStub(), CellStub()]
+        case .activeMarked:
+            return [
+                CellStub(),
+                CellStub(marking: true, marked: true),
+                CellStub(marking: true, marked: true),
+                CellStub(marking: true, marked: true),
+                CellStub()
+            ]
+        }
     }
     
-    func expectedUnMarkAllCells() -> [SSCollectionViewMarkableCellStub] {
-        return [
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub(),
-            SSCollectionViewMarkableCellStub()]
+    func expectedUnMarkLowerVPBoundCells(for testDataCase: TestDataCase) -> [CellStub]  {
+        switch testDataCase {
+        case .active:
+            return [
+                CellStub(),
+                CellStub(marking: true, marked: false),
+                CellStub(marking: true, marked: false),
+                CellStub(marking: true, marked: false),
+                CellStub()
+            ]
+        case .deactive:
+            return [CellStub(), CellStub(), CellStub(), CellStub(), CellStub()]
+        case .activeMarked:
+            return [
+                CellStub(),
+                CellStub(marking: true, marked: false),
+                CellStub(marking: true, marked: true),
+                CellStub(marking: true, marked: true),
+                CellStub()
+            ]
+        }
+    }
+    
+    func expectedUnMarkCells(for testDataCase: TestDataCase) -> [CellStub] {
+        switch testDataCase {
+        case .active:
+            return [
+                CellStub(),
+                CellStub(marking: true, marked: false),
+                CellStub(marking: true, marked: false),
+                CellStub(marking: true, marked: false),
+                CellStub()
+            ]
+        case .deactive:
+            return [CellStub(), CellStub(), CellStub(), CellStub(), CellStub()]
+        case .activeMarked:
+            return [
+                CellStub(),
+                CellStub(marking: true, marked: false),
+                CellStub(marking: true, marked: false),
+                CellStub(marking: true, marked: true),
+                CellStub()
+            ]
+        }
+    }
+    
+    func expectedUnMarkUpperVPBoundCells(for testDataCase: TestDataCase) -> [CellStub] {
+        switch testDataCase {
+        case .active:
+            return [
+                CellStub(),
+                CellStub(marking: true, marked: false),
+                CellStub(marking: true, marked: false),
+                CellStub(marking: true, marked: false),
+                CellStub()
+            ]
+        case .deactive:
+            return [CellStub(), CellStub(), CellStub(), CellStub(), CellStub()]
+        case .activeMarked:
+            return [
+                CellStub(),
+                CellStub(marking: true, marked: true),
+                CellStub(marking: true, marked: true),
+                CellStub(marking: true, marked: false),
+                CellStub()
+            ]
+        }
+    }
+    
+    func expectedUnMarkAllCells(for testDataCase: TestDataCase) -> [CellStub] {
+        switch testDataCase {
+        case .active:
+            return [
+                CellStub(),
+                CellStub(marking: true, marked: false),
+                CellStub(marking: true, marked: false),
+                CellStub(marking: true, marked: false),
+                CellStub()
+            ]
+        case .deactive:
+            return [CellStub(), CellStub(), CellStub(), CellStub(), CellStub()]
+        case .activeMarked:
+            return [
+                CellStub(),
+                CellStub(marking: true, marked: false),
+                CellStub(marking: true, marked: false),
+                CellStub(marking: true, marked: false),
+                CellStub()
+            ]
+        }
     }
 }

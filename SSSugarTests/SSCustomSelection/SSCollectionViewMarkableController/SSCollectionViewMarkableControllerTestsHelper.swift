@@ -2,10 +2,18 @@ import XCTest
 @testable import SSSugar
 
 struct SSCollectionViewMarkableControllerTestsHelper {
-    func makeSUT(setupClosure: (inout SSCollectionViewMarkableControllerTestsSUT) -> Void = { item in }) -> SSCollectionViewMarkableControllerTestsSUT {
+    func makeSUT(setupClosure: (inout SSCollectionViewMarkableControllerTestsSUT) -> Void) -> SSCollectionViewMarkableControllerTestsSUT {
         var item = SSCollectionViewMarkableControllerTestsSUT()
         setupClosure(&item)
+        
         return item
+    }
+    
+    func makeSUT(withActiveController isActive: Bool) -> SSCollectionViewMarkableControllerTestsSUT {
+        let sut = SSCollectionViewMarkableControllerTestsSUT()
+        sut.controller.active = isActive
+        
+        return sut
     }
     
     func checkSUT(_ sut: SSCollectionViewMarkableControllerTestsSUT, active: Bool, cells: [SSCollectionViewMarkableCellStub]) {

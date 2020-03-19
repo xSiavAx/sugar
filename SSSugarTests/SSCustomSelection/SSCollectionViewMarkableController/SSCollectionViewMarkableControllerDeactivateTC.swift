@@ -6,43 +6,41 @@ class SSCollectionViewMarkableControllerDeactivateTC: XCTestCase {
     var suts = [SSCollectionViewMarkableControllerTestsSUT]()
     
     override func setUp() {
-        let sut = testsHelper.makeSUT {
-            $0.controller.setActive(true)
-        }
-        let alreadyDeactiveSUT = testsHelper.makeSUT()
-        
-        suts = [sut, alreadyDeactiveSUT]
+        suts = [
+            testsHelper.makeSUT(withActiveController: true),
+            testsHelper.makeSUT(withActiveController: false)
+        ]
     }
     
-    func testActivateViaProp() {
-        suts.forEach { sut in
-            sut.controller.active = false
-            testsHelper.checkSUT(sut, active: false, cells: expectedCells())
-        }
-    }
-    
-    func testActivate() {
+    func testDeactivate() {
         suts.forEach { sut in
             sut.controller.setActive(false)
-            testsHelper.checkSUT(sut, active: false, cells: expectedCells())
+            testsHelper.checkSUT(sut, active: false, cells: expectedDeactivateCells())
         }
     }
     
-    func testActivateAnimated() {
+    func testDeactivateViaProp() {
+        suts.forEach { sut in
+            sut.controller.active = false
+            testsHelper.checkSUT(sut, active: false, cells: expectedDeactivateCells())
+        }
+    }
+    
+    func testDeactivateAnimated() {
         suts.forEach { sut in
             sut.controller.setActive(false, animated: true)
-            testsHelper.checkSUT(sut, active: false, cells: expectedCells())
+            testsHelper.checkSUT(sut, active: false, cells: expectedDeactivateCells())
         }
     }
     
-    func testActivateExplicitNonAnimated() {
+    func testDeactivateExplicitNonAnimated() {
         suts.forEach { sut in
             sut.controller.setActive(false, animated: false)
-            testsHelper.checkSUT(sut, active: false, cells:expectedCells())
+            testsHelper.checkSUT(sut, active: false, cells: expectedDeactivateCells())
         }
     }
     
-    func expectedCells() -> [SSCollectionViewMarkableCellStub] {
+    func expectedDeactivateCells() -> [SSCollectionViewMarkableCellStub] {
         return [SSCollectionViewMarkableCellStub(marking: false, marked: false),
                 SSCollectionViewMarkableCellStub(marking: false, marked: false),
                 SSCollectionViewMarkableCellStub(marking: false, marked: false),

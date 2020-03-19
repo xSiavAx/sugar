@@ -1,58 +1,78 @@
 import XCTest
 @testable import SSSugar
 
-class SSCollectionViewMarkableControllerConfigCellNonActvieTC: XCTestCase {
+#warning("update the file name")
+class SSCollectionViewMarkableControllerConfigCellTC: XCTestCase {
     let testsHelper = SSCollectionViewMarkableControllerTestsHelper()
-    var sut: SSCollectionViewMarkableControllerTestsSUT!
+    var suts = [SSCollectionViewMarkableControllerTestsSUT]()
     
     override func setUp() {
-        sut = testsHelper.makeSUT()
+        suts = [
+            testsHelper.makeSUT(withActiveController: true),
+            testsHelper.makeSUT(withActiveController: false)
+        ]
     }
     
     func testConfigCellMark() {
-        let cell = sut.collection.cells[0]
-        testCell(cell, with: sut.controller, marked: true, expected: expectedMarkedCell())
+        suts.forEach { sut in
+            let cell = sut.collection.cells[0]
+            testCell(cell, with: sut.controller, marked: true, expected: expectedMarkedCell(for: sut))
+        }
     }
     
     func testConfigCellUnmark() {
-        let cell = sut.collection.cells[0]
-        testCell(cell, with: sut.controller, marked: false, expected: expectedUnmarkedCell())
+        suts.forEach { sut in
+            let cell = sut.collection.cells[0]
+            testCell(cell, with: sut.controller, marked: false, expected: expectedUnmarkedCell(for: sut))
+        }
     }
     
     func testConfigOutOfViewPortCellMark() {
-        let cell = sut.collection.cells[sut.collection.viewPortRows]
-        testCell(cell, with: sut.controller, marked: true, expected: expectedMarkedCell())
+        suts.forEach { sut in
+            let cell = sut.collection.cells[sut.collection.viewPortRows]
+            testCell(cell, with: sut.controller, marked: true, expected: expectedMarkedCell(for: sut))
+        }
     }
     
     func testConfigOutOfViewPortCellUnmark() {
-        let cell = sut.collection.cells[sut.collection.viewPortRows]
-        testCell(cell, with: sut.controller, marked: false, expected: expectedUnmarkedCell())
+        suts.forEach { sut in
+            let cell = sut.collection.cells[sut.collection.viewPortRows]
+            testCell(cell, with: sut.controller, marked: false, expected: expectedUnmarkedCell(for: sut))
+        }
     }
     
     func testConfigOutOfViewPortCellActiveMark() {
-        let cell = sut.collection.cells[sut.collection.viewPortRows]
-        cell.marking = true
-        testCell(cell, with: sut.controller, marked: true, expected: expectedMarkedCell())
+        suts.forEach { sut in
+            let cell = sut.collection.cells[sut.collection.viewPortRows]
+            cell.marking = true
+            testCell(cell, with: sut.controller, marked: true, expected: expectedMarkedCell(for: sut))
+        }
     }
     
     func testConfigOutOfViewPortCellMarkedMark() {
-        let cell = sut.collection.cells[sut.collection.viewPortRows]
-        cell.marking = true
-        cell.marked = true
-        testCell(cell, with: sut.controller, marked: true, expected: expectedMarkedCell())
+        suts.forEach { sut in
+            let cell = sut.collection.cells[sut.collection.viewPortRows]
+            cell.marking = true
+            cell.marked = true
+            testCell(cell, with: sut.controller, marked: true, expected: expectedMarkedCell(for: sut))
+        }
     }
     
     func testConfigOutOfViewPortCellActiveUnmark() {
-        let cell = sut.collection.cells[sut.collection.viewPortRows]
-        cell.marking = true
-        testCell(cell, with: sut.controller, marked: false, expected: expectedUnmarkedCell())
+        suts.forEach { sut in
+            let cell = sut.collection.cells[sut.collection.viewPortRows]
+            cell.marking = true
+            testCell(cell, with: sut.controller, marked: false, expected: expectedUnmarkedCell(for: sut))
+        }
     }
     
     func testConfigOutOfViewPortCellMarkedUnmark() {
-        let cell = sut.collection.cells[sut.collection.viewPortRows]
-        cell.marking = true
-        cell.marked = true
-        testCell(cell, with: sut.controller, marked: false, expected: expectedUnmarkedCell())
+        suts.forEach { sut in
+            let cell = sut.collection.cells[sut.collection.viewPortRows]
+            cell.marking = true
+            cell.marked = true
+            testCell(cell, with: sut.controller, marked: false, expected: expectedUnmarkedCell(for: sut))
+        }
     }
     
     func testCell(_ cell: SSCollectionViewMarkableCellStub, with controller: SSCollectionViewMarkableController, marked: Bool, expected: SSCollectionViewMarkableCellStub) {
@@ -60,11 +80,19 @@ class SSCollectionViewMarkableControllerConfigCellNonActvieTC: XCTestCase {
         XCTAssertEqual(cell, expected)
     }
     
-    func expectedMarkedCell() -> SSCollectionViewMarkableCellStub {
+    func expectedMarkedCell(for sut: SSCollectionViewMarkableControllerTestsSUT) -> SSCollectionViewMarkableCellStub {
+        if sut.controller.active {
+            return SSCollectionViewMarkableCellStub(marking: true, marked: true)
+        }
+        
         return SSCollectionViewMarkableCellStub()
     }
     
-    func expectedUnmarkedCell() -> SSCollectionViewMarkableCellStub {
+    func expectedUnmarkedCell(for sut: SSCollectionViewMarkableControllerTestsSUT) -> SSCollectionViewMarkableCellStub {
+        if sut.controller.active {
+            return SSCollectionViewMarkableCellStub(marking: true, marked: false)
+        }
+        
         return SSCollectionViewMarkableCellStub()
     }
 }
