@@ -20,15 +20,11 @@ class SSSugarContainersAutoMapSubsriptTests: XCTestCase {
     }
     
     func testResetRegular() {
-        //TODO: [Review] Don't mix
-        var map = testHelper.makeSetMap()
-        let key = testHelper.evens.key
-        map[key] = testHelper.replace.set
-        let expectedResult = AutoMap(map: map)
-        
+        let expectedMap = testHelper.makeSetMap(with: testHelper.replacedMapItems)
+        let expectedResult = AutoMap(map: expectedMap)
         var sut = AutoMap(map: testHelper.makeSetMap())
-        sut[key] = testHelper.replace.set
         
+        sut[testHelper.key.key] = testHelper.replace.set
         XCTAssertEqual(sut, expectedResult)
     }
     
@@ -42,24 +38,18 @@ class SSSugarContainersAutoMapSubsriptTests: XCTestCase {
             testHelper.evens.key : testHelper.evens.set,
             testHelper.odds.key : testHelper.odds.set
         ])
-        //TODO: [Review] Redurant
-        
         var sut = AutoMap(map: testHelper.makeSetMap())
-        sut[testHelper.key.key] = nil
         
+        sut[testHelper.key.key] = nil
         XCTAssertEqual(sut, expectedResult)
     }
     
     func testSetRegular() {
-        //TODO: [Review] Don't mix
-        var expectedMap = testHelper.makeSetMap()
-        expectedMap[testHelper.insertion.key] = testHelper.insertion.set
+        let expectedMap = testHelper.makeSetMap(with: testHelper.mapItems + [testHelper.insertion])
         let expectedResult = AutoMap(map: expectedMap)
-        //TODO: [Review] Redurant
-        
         var sut = AutoMap(map: testHelper.makeSetMap())
-        sut[testHelper.insertion.key] = testHelper.insertion.set
         
+        sut[testHelper.insertion.key] = testHelper.insertion.set
         XCTAssertEqual(sut, expectedResult)
     }
     
@@ -70,11 +60,9 @@ class SSSugarContainersAutoMapSubsriptTests: XCTestCase {
     
     func testSetNil() {
         let expectedResult = AutoMap(map: testHelper.makeSetMap())
-        //TODO: [Review] Don't mix, redurant
-        
         var sut = AutoMap(map: testHelper.makeSetMap())
-        sut["notIncludedKey"] = nil
         
+        sut["notIncludedKey"] = nil
         XCTAssertEqual(sut, expectedResult)
     }
 }

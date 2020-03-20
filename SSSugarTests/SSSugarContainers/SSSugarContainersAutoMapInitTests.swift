@@ -22,7 +22,6 @@ class SSSugarContainersAutoMapInitTests: XCTestCase {
     func testMapWithEmptySetContainer() {
         let initMap = [testHelper.evens.key : testHelper.evens.set, "empty" : Set()]
         let expectedMap = AutoMap(map: [testHelper.evens.key : testHelper.evens.set])
-            
         let sut = AutoMap(map: initMap)
         
         XCTAssertEqual(sut, expectedMap)
@@ -31,7 +30,6 @@ class SSSugarContainersAutoMapInitTests: XCTestCase {
     func testMapWithEmptyArrayContainer() {
         let initMap = [testHelper.evens.key : testHelper.evens.array, "empty" : []]
         let expectedMap = AutoMap(map:[testHelper.evens.key : testHelper.evens.array])
-        
         let sut = AutoMap(map: initMap)
         
         XCTAssertEqual(sut, expectedMap)

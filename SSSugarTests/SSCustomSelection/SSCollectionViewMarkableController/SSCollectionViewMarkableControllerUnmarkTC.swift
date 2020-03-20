@@ -91,7 +91,6 @@ class SSCollectionViewMarkableControllerUnmarkTC: XCTestCase {
         let sut = testHelper.makeSUT {
             $0.collection.viewPortOffset = 1
         }
-        
         return (sut, SSCollectionViewMarkableControllerUnmarkDeactiveExpectedResult())
     }
     
@@ -100,7 +99,6 @@ class SSCollectionViewMarkableControllerUnmarkTC: XCTestCase {
             $0.collection.viewPortOffset = 1
             $0.controller.active = true
         }
-        
         return (sut, SSCollectionViewMarkableControllerUnmarkActiveExpectedResult())
     }
     
@@ -110,7 +108,6 @@ class SSCollectionViewMarkableControllerUnmarkTC: XCTestCase {
             $0.controller.active = true
             $0.controller.setAllCellsMarked(true)
         }
-        
         return (sut, SSCollectionViewMarkableControllerUnmarkActiveMarkedExpectedResult())
     }
 }
@@ -124,7 +121,6 @@ typealias SSCollectionViewMarkableControllerUnmarkExpectedResult = SSCollectionV
 
 struct SSCollectionViewMarkableControllerUnmarkDeactiveExpectedResult: SSCollectionViewMarkableControllerUnmarkExpectedResult {
     let active = false
-    
     let oneBeforeVPCells = [CellStub(), CellStub(), CellStub(), CellStub(), CellStub()]
     let oneCells = [CellStub(), CellStub(), CellStub(), CellStub(), CellStub()]
     let oneAfterVPCells = [CellStub(), CellStub(), CellStub(), CellStub(), CellStub()]
@@ -138,7 +134,6 @@ struct SSCollectionViewMarkableControllerUnmarkDeactiveExpectedResult: SSCollect
 
 struct SSCollectionViewMarkableControllerUnmarkActiveExpectedResult: SSCollectionViewMarkableControllerUnmarkExpectedResult {
     let active = true
-    
     let oneBeforeVPCells = [
         CellStub(),
         CellStub(marking: true, marked: false),
@@ -194,7 +189,6 @@ struct SSCollectionViewMarkableControllerUnmarkActiveExpectedResult: SSCollectio
 
 struct SSCollectionViewMarkableControllerUnmarkActiveMarkedExpectedResult: SSCollectionViewMarkableControllerUnmarkExpectedResult {
     let active = true
-    
     let oneBeforeVPCells = [
         CellStub(),
         CellStub(marking: true, marked: true),

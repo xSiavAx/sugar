@@ -44,22 +44,33 @@ struct SSSugarContainersAutoMapTestHelper {
     
     let evens = DefaultItem(key: "evens", array: [0, 2, 4])
     let odds = DefaultItem(key: "odds", array: [1, 3, 5])
-    var key = DefaultItem(key: "key", array: [0, 1, 2, 3])
-    var insertion = DefaultItem(key: "insertion", array: [1, 2, 3])
-    var replace = DefaultItem(key: "replace", array: [100, 200, 300])
-    //TODO: [Review] Separate methods with empty string
+    let key = DefaultItem(key: "key", array: [0, 1, 2, 3])
+    let insertion = DefaultItem(key: "insertion", array: [1, 2, 3])
+    let replace = DefaultItem(key: "replace", array: [100, 200, 300])
     var mapItems: [DefaultItem] {
         [evens, odds, key]
     }
-    func makeSetMap() -> [String : Set<Int>] {
-        //TODO: [Review] Separate logic blocks with empty row
+    var replacedMapItems: [DefaultItem] {
+        [evens, odds, DefaultItem(key: key.key, array: replace.array)]
+    }
+    
+    func makeSetMap(with items: [DefaultItem]) -> [String : Set<Int>] {
         var map = [String: Set<Int>]()
-        mapItems.forEach { map[$0.key] = $0.set }
+        
+        items.forEach { map[$0.key] = $0.set }
+        
         return map
     }
+    
+    func makeSetMap() -> [String : Set<Int>] {
+        makeSetMap(with: mapItems)
+    }
+    
     func makeArrayMap() -> [String : [Int]] {
         var map = [String : [Int]]()
+        
         mapItems.forEach { map[$0.key] = $0.array }
+        
         return map
     }
     

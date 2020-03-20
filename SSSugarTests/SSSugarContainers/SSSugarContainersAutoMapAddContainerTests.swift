@@ -10,37 +10,27 @@ class SSSugarContainersAutoMapAddContainerTests: XCTestCase {
     func testAddToEmpty() {
         let insertion = testHelper.insertion
         let expectedResult = AutoMap(map: [insertion.key : insertion.set])
-        //TODO: [Review] Redurant empty row
-        
         var sut = AutoMap<String, Set<Int>>()
-        let result = sut.add(container: insertion.set, for: insertion.key)
         
+        XCTAssertTrue(sut.add(container: insertion.set, for: insertion.key))
         XCTAssertEqual(sut, expectedResult)
-        XCTAssertTrue(result)
     }
     
     func testAdd() {
-        //TODO: [Review] Don't mix declarative and calculation logic blocks
         let insertion = testHelper.insertion
-        var expectedMap = testHelper.makeSetMap()
-        expectedMap[insertion.key] = insertion.set
+        let expectedMap = testHelper.makeSetMap(with: testHelper.mapItems + [insertion])
         let expectedResult = AutoMap(map: expectedMap)
-        
         var sut = AutoMap(map: testHelper.makeSetMap())
-        let result = sut.add(container: insertion.set, for: insertion.key)
         
+        XCTAssertTrue(sut.add(container: insertion.set, for: insertion.key))
         XCTAssertEqual(sut, expectedResult)
-        XCTAssertTrue(result)
     }
     
     func testAddForExistingKey() {
         let expectedResult = AutoMap(map: testHelper.makeSetMap())
-        //TODO: [Review] Redurant empty row
-        
         var sut = AutoMap(map: testHelper.makeSetMap())
-        let result = sut.add(container: testHelper.insertion.set, for: testHelper.evens.key)
         
+        XCTAssertFalse(sut.add(container: testHelper.insertion.set, for: testHelper.evens.key))
         XCTAssertEqual(sut, expectedResult)
-        XCTAssertFalse(result)
     }
 }

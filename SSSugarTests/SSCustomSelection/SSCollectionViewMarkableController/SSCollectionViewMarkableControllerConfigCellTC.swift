@@ -15,7 +15,7 @@ class SSCollectionViewMarkableControllerConfigCellTC: XCTestCase {
     func testConfigCellMark() {
         suts.forEach { sut in
             let cell = sut.collection.cells[0]
-            //TODO: [Review] Empty row
+            
             testCell(cell, with: sut.controller, marked: true, expected: expectedMarkedCell(for: sut))
         }
     }
@@ -23,7 +23,7 @@ class SSCollectionViewMarkableControllerConfigCellTC: XCTestCase {
     func testConfigCellUnmark() {
         suts.forEach { sut in
             let cell = sut.collection.cells[0]
-            //TODO: [Review] Empty row
+            
             testCell(cell, with: sut.controller, marked: false, expected: expectedUnmarkedCell(for: sut))
         }
     }
@@ -31,7 +31,7 @@ class SSCollectionViewMarkableControllerConfigCellTC: XCTestCase {
     func testConfigOutOfViewPortCellMark() {
         suts.forEach { sut in
             let cell = sut.collection.cells[sut.collection.viewPortRows]
-            //TODO: [Review] Empty row
+            
             testCell(cell, with: sut.controller, marked: true, expected: expectedMarkedCell(for: sut))
         }
     }
@@ -39,7 +39,7 @@ class SSCollectionViewMarkableControllerConfigCellTC: XCTestCase {
     func testConfigOutOfViewPortCellUnmark() {
         suts.forEach { sut in
             let cell = sut.collection.cells[sut.collection.viewPortRows]
-            //TODO: [Review] Empty row
+            
             testCell(cell, with: sut.controller, marked: false, expected: expectedUnmarkedCell(for: sut))
         }
     }
@@ -47,7 +47,7 @@ class SSCollectionViewMarkableControllerConfigCellTC: XCTestCase {
     func testConfigOutOfViewPortCellActiveMark() {
         suts.forEach { sut in
             let cell = sut.collection.cells[sut.collection.viewPortRows]
-            //TODO: [Review] Empty row
+            
             cell.marking = true
             testCell(cell, with: sut.controller, marked: true, expected: expectedMarkedCell(for: sut))
         }
@@ -56,7 +56,7 @@ class SSCollectionViewMarkableControllerConfigCellTC: XCTestCase {
     func testConfigOutOfViewPortCellMarkedMark() {
         suts.forEach { sut in
             let cell = sut.collection.cells[sut.collection.viewPortRows]
-            //TODO: [Review] Empty row
+            
             cell.marking = true
             cell.marked = true
             testCell(cell, with: sut.controller, marked: true, expected: expectedMarkedCell(for: sut))
@@ -66,7 +66,7 @@ class SSCollectionViewMarkableControllerConfigCellTC: XCTestCase {
     func testConfigOutOfViewPortCellActiveUnmark() {
         suts.forEach { sut in
             let cell = sut.collection.cells[sut.collection.viewPortRows]
-            //TODO: [Review] Empty row
+            
             cell.marking = true
             testCell(cell, with: sut.controller, marked: false, expected: expectedUnmarkedCell(for: sut))
         }
@@ -75,7 +75,7 @@ class SSCollectionViewMarkableControllerConfigCellTC: XCTestCase {
     func testConfigOutOfViewPortCellMarkedUnmark() {
         suts.forEach { sut in
             let cell = sut.collection.cells[sut.collection.viewPortRows]
-            //TODO: [Review] Empty row
+            
             cell.marking = true
             cell.marked = true
             testCell(cell, with: sut.controller, marked: false, expected: expectedUnmarkedCell(for: sut))
@@ -91,8 +91,6 @@ class SSCollectionViewMarkableControllerConfigCellTC: XCTestCase {
         if sut.controller.active {
             return SSCollectionViewMarkableCellStub(marking: true, marked: true)
         }
-        //TODO: [Review] Redurant empty row
-        
         return SSCollectionViewMarkableCellStub()
     }
     
@@ -100,8 +98,6 @@ class SSCollectionViewMarkableControllerConfigCellTC: XCTestCase {
         if sut.controller.active {
             return SSCollectionViewMarkableCellStub(marking: true, marked: false)
         }
-        //TODO: [Review] Redurant empty row
-        
         return SSCollectionViewMarkableCellStub()
     }
 }
