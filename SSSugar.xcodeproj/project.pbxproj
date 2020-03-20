@@ -7,6 +7,41 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D4398A824222AAB00D01464 /* SSSugarContainersAutoMapInitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4398A724222AAB00D01464 /* SSSugarContainersAutoMapInitTests.swift */; };
+		2D61561A2423C4F80015A9E0 /* SSCollectionViewMarkableControllerUnmarkTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6156192423C4F80015A9E0 /* SSCollectionViewMarkableControllerUnmarkTC.swift */; };
+		2D7E5A3E241FD0E5009EE074 /* SSCollectionViewMarkableControllerConfigCellTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AB345522454466004959B1 /* SSCollectionViewMarkableControllerConfigCellTC.swift */; };
+		2D7E5A3F241FD0E5009EE074 /* SSCollectionViewMarkableControllerActivateTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A78122442BD600D96BEE /* SSCollectionViewMarkableControllerActivateTC.swift */; };
+		2D7E5A40241FD0E5009EE074 /* SSCollectionViewMarkableControllerTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A77E22441F9800D96BEE /* SSCollectionViewMarkableControllerTestHelper.swift */; };
+		2D7E5A42241FD0E5009EE074 /* SSCollectionViewMarkableControllerDeactivateTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A785224431B200D96BEE /* SSCollectionViewMarkableControllerDeactivateTC.swift */; };
+		2D7E5A45241FD0E5009EE074 /* SSCollectionViewMarkableControllerMarkTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A789224658D700D96BEE /* SSCollectionViewMarkableControllerMarkTC.swift */; };
+		2D7E5A46241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperDeactivateDeactivatedTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998F2DCE2244021C001FFA3A /* SSMarkbaleCollectionCellHelperDeactivateDeactivatedTC.swift */; };
+		2D7E5A47241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperDeactivateTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998F2DCC224401EC001FFA3A /* SSMarkbaleCollectionCellHelperDeactivateTC.swift */; };
+		2D7E5A48241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperActivateActivatedTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998F2DCA22440162001FFA3A /* SSMarkbaleCollectionCellHelperActivateActivatedTC.swift */; };
+		2D7E5A49241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperUnmarkNonMarkedTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998F2DC82243F96E001FFA3A /* SSMarkbaleCollectionCellHelperUnmarkNonMarkedTC.swift */; };
+		2D7E5A4A241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperUnmarkTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998F2DC62243F86B001FFA3A /* SSMarkbaleCollectionCellHelperUnmarkTC.swift */; };
+		2D7E5A4B241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperMarkMarkedTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998F2DC42243F7FA001FFA3A /* SSMarkbaleCollectionCellHelperMarkMarkedTC.swift */; };
+		2D7E5A4C241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A7762241766C00D96BEE /* SSMarkbaleCollectionCellHelperTestHelper.swift */; };
+		2D7E5A4D241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperActivateTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A77C22417E1E00D96BEE /* SSMarkbaleCollectionCellHelperActivateTC.swift */; };
+		2D7E5A4E241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperMarkNonActiveTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A778224176D300D96BEE /* SSMarkbaleCollectionCellHelperMarkNonActiveTC.swift */; };
+		2D7E5A4F241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperMarkTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996F380122417014007FF8B6 /* SSMarkbaleCollectionCellHelperMarkTC.swift */; };
+		2D7E5A50241FD0E5009EE074 /* SSSugarPlaygroundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A797224678B400D96BEE /* SSSugarPlaygroundTests.swift */; };
+		2D7E5A51241FD0E5009EE074 /* SSSugarExtensionCGRectCuttedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1FF52250FD2900C534E3 /* SSSugarExtensionCGRectCuttedTests.swift */; };
+		2D7E5A52241FD0E5009EE074 /* SSSugarExtensionCGRectInitCenterSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1FF22250FA0D00C534E3 /* SSSugarExtensionCGRectInitCenterSize.swift */; };
+		2D7E5A53241FD0E5009EE074 /* SSSugarExtensionCGRectInsetToWHTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1FF02250F46500C534E3 /* SSSugarExtensionCGRectInsetToWHTests.swift */; };
+		2D7E5A54241FD0E5009EE074 /* SSSugarExtensionCGRectInsetToSizeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1FEE2250F0AA00C534E3 /* SSSugarExtensionCGRectInsetToSizeTests.swift */; };
+		2D7E5A55241FD0E5009EE074 /* SSSugarExtensionCGRectCenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1FEC22495A9400C534E3 /* SSSugarExtensionCGRectCenterTests.swift */; };
+		2D7E5A56241FD0E5009EE074 /* SSSugarExtensionSizeUnitedIntersectedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997E315222493AC8006A5B7C /* SSSugarExtensionSizeUnitedIntersectedTests.swift */; };
+		2D7E5A57241FD0E5009EE074 /* SSSugarExtensionColorInitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1FE72249549D00C534E3 /* SSSugarExtensionColorInitTests.swift */; };
+		2D7E5A58241FD0E5009EE074 /* SSSugarExtensionRangeMiddleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1FE52249544B00C534E3 /* SSSugarExtensionRangeMiddleTests.swift */; };
+		2D7E5A59241FD0E5009EE074 /* SSSugarExtensionContainersArrayForEachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1D60226392A900AD2FB5 /* SSSugarExtensionContainersArrayForEachTests.swift */; };
+		2D7E5A5A241FD0E5009EE074 /* SSSugarExtensionContainersArrayBinarySearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1D5C225A22FF00AD2FB5 /* SSSugarExtensionContainersArrayBinarySearchTests.swift */; };
+		2D7E5A5B241FD0E5009EE074 /* SSSugarExtensionContainersArrayInitBuildBlockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997B344E225A134B00F2A3A0 /* SSSugarExtensionContainersArrayInitBuildBlockTests.swift */; };
+		2D7E5A5C241FD0E5009EE074 /* SSSugarContainersAutoMapAddContainerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DB1A7E229EE36D005C4823 /* SSSugarContainersAutoMapAddContainerTests.swift */; };
+		2D7E5A5E241FD0E5009EE074 /* SSSugarContainersAutoMapSubsriptTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DB1A7A229ED9FC005C4823 /* SSSugarContainersAutoMapSubsriptTests.swift */; };
+		2D7E5A5F241FD0E5009EE074 /* SSSugarContainersAutoMapContainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DB1A78229ED6BB005C4823 /* SSSugarContainersAutoMapContainTests.swift */; };
+		2D7E5A60241FD0E5009EE074 /* SSSugarContainersAutoMapAddTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F6A19B2295B11800183436 /* SSSugarContainersAutoMapAddTests.swift */; };
+		2D7FD9F42420F73200D4C28F /* SSSugarContainersAutoMapTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7FD9F32420F73200D4C28F /* SSSugarContainersAutoMapTestHelper.swift */; };
+		2D8CF9BC241FC4BA00168C8A /* SSSugar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99D2963E223D3057003FD9F0 /* SSSugar.framework */; };
 		990A18A722E641F4008DCCF0 /* SSViewStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990A18A622E641F4008DCCF0 /* SSViewStyles.swift */; };
 		99365D4423B251BE00C8A7DF /* SSViewTransitionAnimating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99365D4323B251BE00C8A7DF /* SSViewTransitionAnimating.swift */; };
 		99365D4723B2530400C8A7DF /* SSScaleAndAlphaTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99365D4623B2530400C8A7DF /* SSScaleAndAlphaTransitionAnimator.swift */; };
@@ -27,25 +62,13 @@
 		9967832222D3955000E33300 /* SSCacheContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9967832122D3955000E33300 /* SSCacheContainer.swift */; };
 		9967832422D3993D00E33300 /* SSDataBaseStatemntCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9967832322D3993D00E33300 /* SSDataBaseStatemntCache.swift */; };
 		9967832622D39B4000E33300 /* SSDataBaseStatementCacheHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9967832522D39B4000E33300 /* SSDataBaseStatementCacheHolder.swift */; };
-		996F380222417014007FF8B6 /* SSMarkbaleCollectionCellHelperMarkTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996F380122417014007FF8B6 /* SSMarkbaleCollectionCellHelperMarkTC.swift */; };
-		996F380422417014007FF8B6 /* SSSugar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99D2963E223D3057003FD9F0 /* SSSugar.framework */; };
 		99713B9522EF555700EBD1FD /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99713B9422EF555700EBD1FD /* UILabel.swift */; };
 		99745CBC239FC0ED00DAAFFA /* SSEntityStorageMutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CBB239FC0ED00DAAFFA /* SSEntityStorageMutator.swift */; };
 		99745CBE239FC10900DAAFFA /* SSEntityRemoteMutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CBD239FC10900DAAFFA /* SSEntityRemoteMutator.swift */; };
 		99745CC0239FC69F00DAAFFA /* SSEntityUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CBF239FC69F00DAAFFA /* SSEntityUpdater.swift */; };
 		99745CC2239FC9B700DAAFFA /* SSUETaskUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CC1239FC9B700DAAFFA /* SSUETaskUpdater.swift */; };
-		997B344F225A134B00F2A3A0 /* SSSugarExtensionContainersArrayInitBuildBlockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997B344E225A134B00F2A3A0 /* SSSugarExtensionContainersArrayInitBuildBlockTests.swift */; };
-		997B3451225A134B00F2A3A0 /* SSSugar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99D2963E223D3057003FD9F0 /* SSSugar.framework */; };
-		997E314C22493587006A5B7C /* SSSugar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99D2963E223D3057003FD9F0 /* SSSugar.framework */; };
-		997E315322493AC8006A5B7C /* SSSugarExtensionSizeUnitedIntersectedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997E315222493AC8006A5B7C /* SSSugarExtensionSizeUnitedIntersectedTests.swift */; };
 		998534B523CC8EE700FD9325 /* SSLinearCongruentialRandomizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998534B423CC8EE700FD9325 /* SSLinearCongruentialRandomizer.swift */; };
 		998534B723CCA6E300FD9325 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998534B623CCA6E300FD9325 /* Data.swift */; };
-		998F2DC52243F7FA001FFA3A /* SSMarkbaleCollectionCellHelperMarkMarkedTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998F2DC42243F7FA001FFA3A /* SSMarkbaleCollectionCellHelperMarkMarkedTC.swift */; };
-		998F2DC72243F86B001FFA3A /* SSMarkbaleCollectionCellHelperUnmarkTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998F2DC62243F86B001FFA3A /* SSMarkbaleCollectionCellHelperUnmarkTC.swift */; };
-		998F2DC92243F96E001FFA3A /* SSMarkbaleCollectionCellHelperUnmarkNonMarkedTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998F2DC82243F96E001FFA3A /* SSMarkbaleCollectionCellHelperUnmarkNonMarkedTC.swift */; };
-		998F2DCB22440162001FFA3A /* SSMarkbaleCollectionCellHelperActivateActivatedTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998F2DCA22440162001FFA3A /* SSMarkbaleCollectionCellHelperActivateActivatedTC.swift */; };
-		998F2DCD224401EC001FFA3A /* SSMarkbaleCollectionCellHelperDeactivateTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998F2DCC224401EC001FFA3A /* SSMarkbaleCollectionCellHelperDeactivateTC.swift */; };
-		998F2DCF2244021C001FFA3A /* SSMarkbaleCollectionCellHelperDeactivateDeactivatedTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998F2DCE2244021C001FFA3A /* SSMarkbaleCollectionCellHelperDeactivateDeactivatedTC.swift */; };
 		99991DC122E6219000F3D294 /* SSDataBaseSavePointProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99991DC022E6219000F3D294 /* SSDataBaseSavePointProxy.swift */; };
 		99991DC322E6219C00F3D294 /* SSDataBaseStatementProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99991DC222E6219C00F3D294 /* SSDataBaseStatementProxy.swift */; };
 		99991DC622E624F900F3D294 /* SSReleaseDecoratorDBExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99991DC522E624F900F3D294 /* SSReleaseDecoratorDBExtensions.swift */; };
@@ -54,22 +77,7 @@
 		99AA28D223A295F700DA9C2F /* SSTaskProcessorExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AA28D123A295F700DA9C2F /* SSTaskProcessorExample.swift */; };
 		99AA28D423A2A05400DA9C2F /* SSGroupDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AA28D323A2A05400DA9C2F /* SSGroupDispatcher.swift */; };
 		99AA28D623A2A88F00DA9C2F /* SSChainExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AA28D523A2A88F00DA9C2F /* SSChainExecutor.swift */; };
-		99AB345622454466004959B1 /* SSCollectionViewMarkableControllerConfigCellNonActvieTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AB345522454466004959B1 /* SSCollectionViewMarkableControllerConfigCellNonActvieTC.swift */; };
-		99AB345A224547BF004959B1 /* SSCollectionViewMarkableControllerConfigCellTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AB3459224547BF004959B1 /* SSCollectionViewMarkableControllerConfigCellTC.swift */; };
-		99B1A779224176D300D96BEE /* SSMarkbaleCollectionCellHelperMarkNonActiveTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A778224176D300D96BEE /* SSMarkbaleCollectionCellHelperMarkNonActiveTC.swift */; };
-		99B1A77B2241783B00D96BEE /* SSMarkbaleCollectionCellHelperBaseTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A7762241766C00D96BEE /* SSMarkbaleCollectionCellHelperBaseTC.swift */; };
-		99B1A77D22417E1E00D96BEE /* SSMarkbaleCollectionCellHelperActivateTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A77C22417E1E00D96BEE /* SSMarkbaleCollectionCellHelperActivateTC.swift */; };
-		99B1A77F22441F9800D96BEE /* SSCollectionViewMarkableControllerBaseTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A77E22441F9800D96BEE /* SSCollectionViewMarkableControllerBaseTC.swift */; };
-		99B1A78222442BD600D96BEE /* SSCollectionViewMarkableControllerActivateTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A78122442BD600D96BEE /* SSCollectionViewMarkableControllerActivateTC.swift */; };
-		99B1A784224430CC00D96BEE /* SSCollectionViewMarkableControllerActivateAlreadyActiveTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A783224430CC00D96BEE /* SSCollectionViewMarkableControllerActivateAlreadyActiveTC.swift */; };
-		99B1A786224431B200D96BEE /* SSCollectionViewMarkableControllerDeactivateAlreadyDeactiveTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A785224431B200D96BEE /* SSCollectionViewMarkableControllerDeactivateAlreadyDeactiveTC.swift */; };
-		99B1A78822443EC700D96BEE /* SSCollectionViewMarkableControllerDeactivateTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A78722443EC700D96BEE /* SSCollectionViewMarkableControllerDeactivateTC.swift */; };
-		99B1A78A224658D700D96BEE /* SSCollectionViewMarkableControllerMarkNonActiveTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A789224658D700D96BEE /* SSCollectionViewMarkableControllerMarkNonActiveTC.swift */; };
-		99B1A78C22465DA100D96BEE /* SSCollectionViewMarkableControllerMarkTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A78B22465DA100D96BEE /* SSCollectionViewMarkableControllerMarkTC.swift */; };
 		99B1A7902246751300D96BEE /* Comparable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A78F2246751300D96BEE /* Comparable.swift */; };
-		99B1A798224678B400D96BEE /* SSSugarPlaygroundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A797224678B400D96BEE /* SSSugarPlaygroundTests.swift */; };
-		99B1A79A224678B400D96BEE /* SSSugar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99D2963E223D3057003FD9F0 /* SSSugar.framework */; };
-		99B1A7A122467D8900D96BEE /* SSCollectionViewMarkableControllerMarkAlreadyMarkedTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A7A022467D8900D96BEE /* SSCollectionViewMarkableControllerMarkAlreadyMarkedTC.swift */; };
 		99CBE33423B232BF000CE10D /* CGPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CBE33323B232BF000CE10D /* CGPoint.swift */; };
 		99D29643223D3057003FD9F0 /* SSSugar.h in Headers */ = {isa = PBXBuildFile; fileRef = 99D29641223D3057003FD9F0 /* SSSugar.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		99D2964F223D3107003FD9F0 /* SSRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D2964D223D3107003FD9F0 /* SSRootView.swift */; };
@@ -91,11 +99,6 @@
 		99D70DA9239A8FC100EA96B4 /* SSExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D70DA8239A8FC100EA96B4 /* SSExecutor.swift */; };
 		99D70DB4239AAF7700EA96B4 /* SSUETaskProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D70DB3239AAF7700EA96B4 /* SSUETaskProcessor.swift */; };
 		99D70DB6239AB66900EA96B4 /* SSEntityMutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D70DB5239AB66900EA96B4 /* SSEntityMutator.swift */; };
-		99DB1A77229D83C7005C4823 /* SSSugarContainersAutoMapInitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DB1A74229D8384005C4823 /* SSSugarContainersAutoMapInitTests.swift */; };
-		99DB1A79229ED6BB005C4823 /* SSSugarContainersAutoMapContainTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DB1A78229ED6BB005C4823 /* SSSugarContainersAutoMapContainTests.swift */; };
-		99DB1A7B229ED9FC005C4823 /* SSSugarContainersAutoMapSubsriptTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DB1A7A229ED9FC005C4823 /* SSSugarContainersAutoMapSubsriptTests.swift */; };
-		99DB1A7D229EE2F7005C4823 /* SSSugarContainersAutoMapTestsWithSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DB1A7C229EE2F7005C4823 /* SSSugarContainersAutoMapTestsWithSetup.swift */; };
-		99DB1A7F229EE36D005C4823 /* SSSugarContainersAutoMapAddContainerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DB1A7E229EE36D005C4823 /* SSSugarContainersAutoMapAddContainerTests.swift */; };
 		99E27B56239EAA0F00CC5984 /* SSUETaskDBMutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E27B55239EAA0F00CC5984 /* SSUETaskDBMutator.swift */; };
 		99E27B58239EAAA400CC5984 /* SSUETaskMutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E27B57239EAAA400CC5984 /* SSUETaskMutator.swift */; };
 		99E27B5A239EB01800CC5984 /* SSUETaskRemoteMutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E27B59239EB01800CC5984 /* SSUETaskRemoteMutator.swift */; };
@@ -121,50 +124,10 @@
 		99F3F41C23ABBD97003C88D9 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F3F41B23ABBD97003C88D9 /* String.swift */; };
 		99F3F41E23ABBDE7003C88D9 /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F3F41D23ABBDE7003C88D9 /* UIDevice.swift */; };
 		99F6A187228981CE00183436 /* AutoMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F6A186228981CE00183436 /* AutoMap.swift */; };
-		99F6A1932295AF5C00183436 /* SSSugarContainersAutoMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F6A1922295AF5C00183436 /* SSSugarContainersAutoMapTests.swift */; };
-		99F6A1952295AF5C00183436 /* SSSugar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99D2963E223D3057003FD9F0 /* SSSugar.framework */; };
-		99F6A19C2295B11800183436 /* SSSugarContainersAutoMapAddTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F6A19B2295B11800183436 /* SSSugarContainersAutoMapAddTests.swift */; };
-		99FA1D5D225A22FF00AD2FB5 /* SSSugarExtensionContainersArrayBinarySearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1D5C225A22FF00AD2FB5 /* SSSugarExtensionContainersArrayBinarySearchTests.swift */; };
-		99FA1D61226392A900AD2FB5 /* SSSugarExtensionContainersArrayForEachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1D60226392A900AD2FB5 /* SSSugarExtensionContainersArrayForEachTests.swift */; };
-		99FA1FE82249549D00C534E3 /* SSSugarExtensionColorInitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1FE72249549D00C534E3 /* SSSugarExtensionColorInitTests.swift */; };
-		99FA1FE9224954E600C534E3 /* SSSugarExtensionRangeMiddleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1FE52249544B00C534E3 /* SSSugarExtensionRangeMiddleTests.swift */; };
-		99FA1FED22495A9400C534E3 /* SSSugarExtensionCGRectCenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1FEC22495A9400C534E3 /* SSSugarExtensionCGRectCenterTests.swift */; };
-		99FA1FEF2250F0AA00C534E3 /* SSSugarExtensionCGRectInsetToSizeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1FEE2250F0AA00C534E3 /* SSSugarExtensionCGRectInsetToSizeTests.swift */; };
-		99FA1FF12250F46500C534E3 /* SSSugarExtensionCGRectInsetToWHTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1FF02250F46500C534E3 /* SSSugarExtensionCGRectInsetToWHTests.swift */; };
-		99FA1FF42250FA5700C534E3 /* SSSugarExtensionCGRectInitCenterSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1FF22250FA0D00C534E3 /* SSSugarExtensionCGRectInitCenterSize.swift */; };
-		99FA1FF72250FD3700C534E3 /* SSSugarExtensionCGRectCuttedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1FF52250FD2900C534E3 /* SSSugarExtensionCGRectCuttedTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		996F380522417014007FF8B6 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 99D29635223D3057003FD9F0 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 99D2963D223D3057003FD9F0;
-			remoteInfo = SSSugar;
-		};
-		997B3452225A134B00F2A3A0 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 99D29635223D3057003FD9F0 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 99D2963D223D3057003FD9F0;
-			remoteInfo = SSSugar;
-		};
-		997E314D22493587006A5B7C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 99D29635223D3057003FD9F0 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 99D2963D223D3057003FD9F0;
-			remoteInfo = SSSugar;
-		};
-		99B1A79B224678B400D96BEE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 99D29635223D3057003FD9F0 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 99D2963D223D3057003FD9F0;
-			remoteInfo = SSSugar;
-		};
-		99F6A1962295AF5C00183436 /* PBXContainerItemProxy */ = {
+		2D8CF9BD241FC4BA00168C8A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 99D29635223D3057003FD9F0 /* Project object */;
 			proxyType = 1;
@@ -174,6 +137,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2D4398A724222AAB00D01464 /* SSSugarContainersAutoMapInitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSSugarContainersAutoMapInitTests.swift; sourceTree = "<group>"; };
+		2D6156192423C4F80015A9E0 /* SSCollectionViewMarkableControllerUnmarkTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerUnmarkTC.swift; sourceTree = "<group>"; };
+		2D7FD9F32420F73200D4C28F /* SSSugarContainersAutoMapTestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarContainersAutoMapTestHelper.swift; sourceTree = "<group>"; };
+		2D8CF9B7241FC4BA00168C8A /* SSSugarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SSSugarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2D8CF9BB241FC4BA00168C8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		990A18A622E641F4008DCCF0 /* SSViewStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSViewStyles.swift; sourceTree = "<group>"; };
 		99365D4323B251BE00C8A7DF /* SSViewTransitionAnimating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSViewTransitionAnimating.swift; sourceTree = "<group>"; };
 		99365D4623B2530400C8A7DF /* SSScaleAndAlphaTransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSScaleAndAlphaTransitionAnimator.swift; sourceTree = "<group>"; };
@@ -194,19 +162,13 @@
 		9967832122D3955000E33300 /* SSCacheContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCacheContainer.swift; sourceTree = "<group>"; };
 		9967832322D3993D00E33300 /* SSDataBaseStatemntCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDataBaseStatemntCache.swift; sourceTree = "<group>"; };
 		9967832522D39B4000E33300 /* SSDataBaseStatementCacheHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDataBaseStatementCacheHolder.swift; sourceTree = "<group>"; };
-		996F37FF22417014007FF8B6 /* SSCustomSelectionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SSCustomSelectionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		996F380122417014007FF8B6 /* SSMarkbaleCollectionCellHelperMarkTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSMarkbaleCollectionCellHelperMarkTC.swift; sourceTree = "<group>"; };
-		996F380322417014007FF8B6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		99713B9422EF555700EBD1FD /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
 		99745CBB239FC0ED00DAAFFA /* SSEntityStorageMutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSEntityStorageMutator.swift; sourceTree = "<group>"; };
 		99745CBD239FC10900DAAFFA /* SSEntityRemoteMutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSEntityRemoteMutator.swift; sourceTree = "<group>"; };
 		99745CBF239FC69F00DAAFFA /* SSEntityUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSEntityUpdater.swift; sourceTree = "<group>"; };
 		99745CC1239FC9B700DAAFFA /* SSUETaskUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUETaskUpdater.swift; sourceTree = "<group>"; };
-		997B344C225A134B00F2A3A0 /* SSSugarExtensionContainersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SSSugarExtensionContainersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		997B344E225A134B00F2A3A0 /* SSSugarExtensionContainersArrayInitBuildBlockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarExtensionContainersArrayInitBuildBlockTests.swift; sourceTree = "<group>"; };
-		997B3450225A134B00F2A3A0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		997E314722493587006A5B7C /* SSSugarExtensionsTypesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SSSugarExtensionsTypesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		997E314B22493587006A5B7C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		997E315222493AC8006A5B7C /* SSSugarExtensionSizeUnitedIntersectedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarExtensionSizeUnitedIntersectedTests.swift; sourceTree = "<group>"; };
 		998534B423CC8EE700FD9325 /* SSLinearCongruentialRandomizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLinearCongruentialRandomizer.swift; sourceTree = "<group>"; };
 		998534B623CCA6E300FD9325 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
@@ -224,23 +186,16 @@
 		99AA28D123A295F700DA9C2F /* SSTaskProcessorExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSTaskProcessorExample.swift; sourceTree = "<group>"; };
 		99AA28D323A2A05400DA9C2F /* SSGroupDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSGroupDispatcher.swift; sourceTree = "<group>"; };
 		99AA28D523A2A88F00DA9C2F /* SSChainExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSChainExecutor.swift; sourceTree = "<group>"; };
-		99AB345522454466004959B1 /* SSCollectionViewMarkableControllerConfigCellNonActvieTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerConfigCellNonActvieTC.swift; sourceTree = "<group>"; };
-		99AB3459224547BF004959B1 /* SSCollectionViewMarkableControllerConfigCellTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerConfigCellTC.swift; sourceTree = "<group>"; };
-		99B1A7762241766C00D96BEE /* SSMarkbaleCollectionCellHelperBaseTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSMarkbaleCollectionCellHelperBaseTC.swift; sourceTree = "<group>"; };
+		99AB345522454466004959B1 /* SSCollectionViewMarkableControllerConfigCellTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerConfigCellTC.swift; sourceTree = "<group>"; };
+		99B1A7762241766C00D96BEE /* SSMarkbaleCollectionCellHelperTestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSMarkbaleCollectionCellHelperTestHelper.swift; sourceTree = "<group>"; };
 		99B1A778224176D300D96BEE /* SSMarkbaleCollectionCellHelperMarkNonActiveTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSMarkbaleCollectionCellHelperMarkNonActiveTC.swift; sourceTree = "<group>"; };
 		99B1A77C22417E1E00D96BEE /* SSMarkbaleCollectionCellHelperActivateTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSMarkbaleCollectionCellHelperActivateTC.swift; sourceTree = "<group>"; };
-		99B1A77E22441F9800D96BEE /* SSCollectionViewMarkableControllerBaseTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerBaseTC.swift; sourceTree = "<group>"; };
+		99B1A77E22441F9800D96BEE /* SSCollectionViewMarkableControllerTestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerTestHelper.swift; sourceTree = "<group>"; };
 		99B1A78122442BD600D96BEE /* SSCollectionViewMarkableControllerActivateTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerActivateTC.swift; sourceTree = "<group>"; };
-		99B1A783224430CC00D96BEE /* SSCollectionViewMarkableControllerActivateAlreadyActiveTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerActivateAlreadyActiveTC.swift; sourceTree = "<group>"; };
-		99B1A785224431B200D96BEE /* SSCollectionViewMarkableControllerDeactivateAlreadyDeactiveTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerDeactivateAlreadyDeactiveTC.swift; sourceTree = "<group>"; };
-		99B1A78722443EC700D96BEE /* SSCollectionViewMarkableControllerDeactivateTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerDeactivateTC.swift; sourceTree = "<group>"; };
-		99B1A789224658D700D96BEE /* SSCollectionViewMarkableControllerMarkNonActiveTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerMarkNonActiveTC.swift; sourceTree = "<group>"; };
-		99B1A78B22465DA100D96BEE /* SSCollectionViewMarkableControllerMarkTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerMarkTC.swift; sourceTree = "<group>"; };
+		99B1A785224431B200D96BEE /* SSCollectionViewMarkableControllerDeactivateTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerDeactivateTC.swift; sourceTree = "<group>"; };
+		99B1A789224658D700D96BEE /* SSCollectionViewMarkableControllerMarkTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerMarkTC.swift; sourceTree = "<group>"; };
 		99B1A78F2246751300D96BEE /* Comparable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comparable.swift; sourceTree = "<group>"; };
-		99B1A795224678B400D96BEE /* SSSugarPlaygroundTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SSSugarPlaygroundTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		99B1A797224678B400D96BEE /* SSSugarPlaygroundTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarPlaygroundTests.swift; sourceTree = "<group>"; };
-		99B1A799224678B400D96BEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		99B1A7A022467D8900D96BEE /* SSCollectionViewMarkableControllerMarkAlreadyMarkedTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerMarkAlreadyMarkedTC.swift; sourceTree = "<group>"; };
 		99CBE33323B232BF000CE10D /* CGPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPoint.swift; sourceTree = "<group>"; };
 		99D2963E223D3057003FD9F0 /* SSSugar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SSSugar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		99D29641223D3057003FD9F0 /* SSSugar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSSugar.h; sourceTree = "<group>"; };
@@ -264,10 +219,8 @@
 		99D70DA8239A8FC100EA96B4 /* SSExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSExecutor.swift; sourceTree = "<group>"; };
 		99D70DB3239AAF7700EA96B4 /* SSUETaskProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUETaskProcessor.swift; sourceTree = "<group>"; };
 		99D70DB5239AB66900EA96B4 /* SSEntityMutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSEntityMutator.swift; sourceTree = "<group>"; };
-		99DB1A74229D8384005C4823 /* SSSugarContainersAutoMapInitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarContainersAutoMapInitTests.swift; sourceTree = "<group>"; };
 		99DB1A78229ED6BB005C4823 /* SSSugarContainersAutoMapContainTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarContainersAutoMapContainTests.swift; sourceTree = "<group>"; };
 		99DB1A7A229ED9FC005C4823 /* SSSugarContainersAutoMapSubsriptTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarContainersAutoMapSubsriptTests.swift; sourceTree = "<group>"; };
-		99DB1A7C229EE2F7005C4823 /* SSSugarContainersAutoMapTestsWithSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarContainersAutoMapTestsWithSetup.swift; sourceTree = "<group>"; };
 		99DB1A7E229EE36D005C4823 /* SSSugarContainersAutoMapAddContainerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarContainersAutoMapAddContainerTests.swift; sourceTree = "<group>"; };
 		99E27B55239EAA0F00CC5984 /* SSUETaskDBMutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUETaskDBMutator.swift; sourceTree = "<group>"; };
 		99E27B57239EAAA400CC5984 /* SSUETaskMutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUETaskMutator.swift; sourceTree = "<group>"; };
@@ -294,51 +247,24 @@
 		99F3F41B23ABBD97003C88D9 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
 		99F3F41D23ABBDE7003C88D9 /* UIDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
 		99F6A186228981CE00183436 /* AutoMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMap.swift; sourceTree = "<group>"; };
-		99F6A1902295AF5C00183436 /* SSSugarContainersTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SSSugarContainersTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		99F6A1922295AF5C00183436 /* SSSugarContainersAutoMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarContainersAutoMapTests.swift; sourceTree = "<group>"; };
-		99F6A1942295AF5C00183436 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		99F6A19B2295B11800183436 /* SSSugarContainersAutoMapAddTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarContainersAutoMapAddTests.swift; sourceTree = "<group>"; };
-		99FA1D5C225A22FF00AD2FB5 /* SSSugarExtensionContainersArrayBinarySearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SSSugarExtensionContainersArrayBinarySearchTests.swift; path = SSSugarExtensionContainersTests/SSSugarExtensionContainersArrayBinarySearchTests.swift; sourceTree = SOURCE_ROOT; };
+		99FA1D5C225A22FF00AD2FB5 /* SSSugarExtensionContainersArrayBinarySearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SSSugarExtensionContainersArrayBinarySearchTests.swift; path = SSSugarTests/SSSugarExtensionContainers/SSSugarExtensionContainersArrayBinarySearchTests.swift; sourceTree = SOURCE_ROOT; };
 		99FA1D60226392A900AD2FB5 /* SSSugarExtensionContainersArrayForEachTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarExtensionContainersArrayForEachTests.swift; sourceTree = "<group>"; };
 		99FA1FE52249544B00C534E3 /* SSSugarExtensionRangeMiddleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarExtensionRangeMiddleTests.swift; sourceTree = "<group>"; };
 		99FA1FE72249549D00C534E3 /* SSSugarExtensionColorInitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarExtensionColorInitTests.swift; sourceTree = "<group>"; };
-		99FA1FEC22495A9400C534E3 /* SSSugarExtensionCGRectCenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SSSugarExtensionCGRectCenterTests.swift; path = SSSugarExtensionsTypesTests/SSSugarExtensionCGRectCenterTests.swift; sourceTree = SOURCE_ROOT; };
-		99FA1FEE2250F0AA00C534E3 /* SSSugarExtensionCGRectInsetToSizeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SSSugarExtensionCGRectInsetToSizeTests.swift; path = SSSugarExtensionsTypesTests/SSSugarExtensionCGRectInsetToSizeTests.swift; sourceTree = SOURCE_ROOT; };
-		99FA1FF02250F46500C534E3 /* SSSugarExtensionCGRectInsetToWHTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SSSugarExtensionCGRectInsetToWHTests.swift; path = SSSugarExtensionsTypesTests/SSSugarExtensionCGRectInsetToWHTests.swift; sourceTree = SOURCE_ROOT; };
+		99FA1FEC22495A9400C534E3 /* SSSugarExtensionCGRectCenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SSSugarExtensionCGRectCenterTests.swift; path = SSSugarTests/SSSugarExtensionsTypes/SSSugarExtensionCGRectCenterTests.swift; sourceTree = SOURCE_ROOT; };
+		99FA1FEE2250F0AA00C534E3 /* SSSugarExtensionCGRectInsetToSizeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SSSugarExtensionCGRectInsetToSizeTests.swift; path = SSSugarTests/SSSugarExtensionsTypes/SSSugarExtensionCGRectInsetToSizeTests.swift; sourceTree = SOURCE_ROOT; };
+		99FA1FF02250F46500C534E3 /* SSSugarExtensionCGRectInsetToWHTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SSSugarExtensionCGRectInsetToWHTests.swift; path = SSSugarTests/SSSugarExtensionsTypes/SSSugarExtensionCGRectInsetToWHTests.swift; sourceTree = SOURCE_ROOT; };
 		99FA1FF22250FA0D00C534E3 /* SSSugarExtensionCGRectInitCenterSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarExtensionCGRectInitCenterSize.swift; sourceTree = "<group>"; };
 		99FA1FF52250FD2900C534E3 /* SSSugarExtensionCGRectCuttedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarExtensionCGRectCuttedTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		996F37FC22417014007FF8B6 /* Frameworks */ = {
+		2D8CF9B4241FC4BA00168C8A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				996F380422417014007FF8B6 /* SSSugar.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		997B3449225A134B00F2A3A0 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				997B3451225A134B00F2A3A0 /* SSSugar.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		997E314422493587006A5B7C /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				997E314C22493587006A5B7C /* SSSugar.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		99B1A792224678B400D96BEE /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				99B1A79A224678B400D96BEE /* SSSugar.framework in Frameworks */,
+				2D8CF9BC241FC4BA00168C8A /* SSSugar.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,17 +275,31 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		99F6A18D2295AF5C00183436 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				99F6A1952295AF5C00183436 /* SSSugar.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D7E59EC241FC996009EE074 /* SSCustomSelection */ = {
+			isa = PBXGroup;
+			children = (
+				99B1A78022441FAE00D96BEE /* SSCollectionViewMarkableController */,
+				99B1A77A224177AC00D96BEE /* SSMarkbaleCollectionCellHelper */,
+			);
+			path = SSCustomSelection;
+			sourceTree = "<group>";
+		};
+		2D8CF9B8241FC4BA00168C8A /* SSSugarTests */ = {
+			isa = PBXGroup;
+			children = (
+				2D7E59EC241FC996009EE074 /* SSCustomSelection */,
+				99B1A796224678B400D96BEE /* SSSugarPlayground */,
+				997E314822493587006A5B7C /* SSSugarExtensionsTypes */,
+				997B344D225A134B00F2A3A0 /* SSSugarExtensionContainers */,
+				99F6A1912295AF5C00183436 /* SSSugarContainers */,
+				2D8CF9BB241FC4BA00168C8A /* Info.plist */,
+			);
+			path = SSSugarTests;
+			sourceTree = "<group>";
+		};
 		990A18A522E641E5008DCCF0 /* View Styles */ = {
 			isa = PBXGroup;
 			children = (
@@ -414,28 +354,17 @@
 			path = DataBase;
 			sourceTree = "<group>";
 		};
-		996F380022417014007FF8B6 /* SSCustomSelectionTests */ = {
-			isa = PBXGroup;
-			children = (
-				99B1A78022441FAE00D96BEE /* SSCollectionViewMarkableController */,
-				99B1A77A224177AC00D96BEE /* SSMarkbaleCollectionCellHelper */,
-				996F380322417014007FF8B6 /* Info.plist */,
-			);
-			path = SSCustomSelectionTests;
-			sourceTree = "<group>";
-		};
-		997B344D225A134B00F2A3A0 /* SSSugarExtensionContainersTests */ = {
+		997B344D225A134B00F2A3A0 /* SSSugarExtensionContainers */ = {
 			isa = PBXGroup;
 			children = (
 				99FA1D60226392A900AD2FB5 /* SSSugarExtensionContainersArrayForEachTests.swift */,
 				99FA1D5C225A22FF00AD2FB5 /* SSSugarExtensionContainersArrayBinarySearchTests.swift */,
 				997B344E225A134B00F2A3A0 /* SSSugarExtensionContainersArrayInitBuildBlockTests.swift */,
-				997B3450225A134B00F2A3A0 /* Info.plist */,
 			);
-			path = SSSugarExtensionContainersTests;
+			path = SSSugarExtensionContainers;
 			sourceTree = "<group>";
 		};
-		997E314822493587006A5B7C /* SSSugarExtensionsTypesTests */ = {
+		997E314822493587006A5B7C /* SSSugarExtensionsTypes */ = {
 			isa = PBXGroup;
 			children = (
 				99FA1FF52250FD2900C534E3 /* SSSugarExtensionCGRectCuttedTests.swift */,
@@ -446,9 +375,8 @@
 				997E315222493AC8006A5B7C /* SSSugarExtensionSizeUnitedIntersectedTests.swift */,
 				99FA1FE72249549D00C534E3 /* SSSugarExtensionColorInitTests.swift */,
 				99FA1FE52249544B00C534E3 /* SSSugarExtensionRangeMiddleTests.swift */,
-				997E314B22493587006A5B7C /* Info.plist */,
 			);
-			path = SSSugarExtensionsTypesTests;
+			path = SSSugarExtensionsTypes;
 			sourceTree = "<group>";
 		};
 		99991DBB22E60D5500F3D294 /* Decorators */ = {
@@ -479,16 +407,16 @@
 		99B1A77A224177AC00D96BEE /* SSMarkbaleCollectionCellHelper */ = {
 			isa = PBXGroup;
 			children = (
-				998F2DCE2244021C001FFA3A /* SSMarkbaleCollectionCellHelperDeactivateDeactivatedTC.swift */,
-				998F2DCC224401EC001FFA3A /* SSMarkbaleCollectionCellHelperDeactivateTC.swift */,
-				998F2DCA22440162001FFA3A /* SSMarkbaleCollectionCellHelperActivateActivatedTC.swift */,
-				998F2DC82243F96E001FFA3A /* SSMarkbaleCollectionCellHelperUnmarkNonMarkedTC.swift */,
-				998F2DC62243F86B001FFA3A /* SSMarkbaleCollectionCellHelperUnmarkTC.swift */,
-				998F2DC42243F7FA001FFA3A /* SSMarkbaleCollectionCellHelperMarkMarkedTC.swift */,
-				99B1A7762241766C00D96BEE /* SSMarkbaleCollectionCellHelperBaseTC.swift */,
 				99B1A77C22417E1E00D96BEE /* SSMarkbaleCollectionCellHelperActivateTC.swift */,
-				99B1A778224176D300D96BEE /* SSMarkbaleCollectionCellHelperMarkNonActiveTC.swift */,
+				998F2DCA22440162001FFA3A /* SSMarkbaleCollectionCellHelperActivateActivatedTC.swift */,
+				998F2DCC224401EC001FFA3A /* SSMarkbaleCollectionCellHelperDeactivateTC.swift */,
+				998F2DCE2244021C001FFA3A /* SSMarkbaleCollectionCellHelperDeactivateDeactivatedTC.swift */,
 				996F380122417014007FF8B6 /* SSMarkbaleCollectionCellHelperMarkTC.swift */,
+				998F2DC42243F7FA001FFA3A /* SSMarkbaleCollectionCellHelperMarkMarkedTC.swift */,
+				99B1A778224176D300D96BEE /* SSMarkbaleCollectionCellHelperMarkNonActiveTC.swift */,
+				998F2DC62243F86B001FFA3A /* SSMarkbaleCollectionCellHelperUnmarkTC.swift */,
+				998F2DC82243F96E001FFA3A /* SSMarkbaleCollectionCellHelperUnmarkNonMarkedTC.swift */,
+				99B1A7762241766C00D96BEE /* SSMarkbaleCollectionCellHelperTestHelper.swift */,
 			);
 			path = SSMarkbaleCollectionCellHelper;
 			sourceTree = "<group>";
@@ -496,28 +424,22 @@
 		99B1A78022441FAE00D96BEE /* SSCollectionViewMarkableController */ = {
 			isa = PBXGroup;
 			children = (
-				99DB1A74229D8384005C4823 /* SSSugarContainersAutoMapInitTests.swift */,
-				99B1A7A022467D8900D96BEE /* SSCollectionViewMarkableControllerMarkAlreadyMarkedTC.swift */,
-				99AB3459224547BF004959B1 /* SSCollectionViewMarkableControllerConfigCellTC.swift */,
-				99AB345522454466004959B1 /* SSCollectionViewMarkableControllerConfigCellNonActvieTC.swift */,
 				99B1A78122442BD600D96BEE /* SSCollectionViewMarkableControllerActivateTC.swift */,
-				99B1A77E22441F9800D96BEE /* SSCollectionViewMarkableControllerBaseTC.swift */,
-				99B1A78722443EC700D96BEE /* SSCollectionViewMarkableControllerDeactivateTC.swift */,
-				99B1A785224431B200D96BEE /* SSCollectionViewMarkableControllerDeactivateAlreadyDeactiveTC.swift */,
-				99B1A783224430CC00D96BEE /* SSCollectionViewMarkableControllerActivateAlreadyActiveTC.swift */,
-				99B1A78B22465DA100D96BEE /* SSCollectionViewMarkableControllerMarkTC.swift */,
-				99B1A789224658D700D96BEE /* SSCollectionViewMarkableControllerMarkNonActiveTC.swift */,
+				99B1A785224431B200D96BEE /* SSCollectionViewMarkableControllerDeactivateTC.swift */,
+				99AB345522454466004959B1 /* SSCollectionViewMarkableControllerConfigCellTC.swift */,
+				99B1A789224658D700D96BEE /* SSCollectionViewMarkableControllerMarkTC.swift */,
+				2D6156192423C4F80015A9E0 /* SSCollectionViewMarkableControllerUnmarkTC.swift */,
+				99B1A77E22441F9800D96BEE /* SSCollectionViewMarkableControllerTestHelper.swift */,
 			);
 			path = SSCollectionViewMarkableController;
 			sourceTree = "<group>";
 		};
-		99B1A796224678B400D96BEE /* SSSugarPlaygroundTests */ = {
+		99B1A796224678B400D96BEE /* SSSugarPlayground */ = {
 			isa = PBXGroup;
 			children = (
 				99B1A797224678B400D96BEE /* SSSugarPlaygroundTests.swift */,
-				99B1A799224678B400D96BEE /* Info.plist */,
 			);
-			path = SSSugarPlaygroundTests;
+			path = SSSugarPlayground;
 			sourceTree = "<group>";
 		};
 		99B1A8782247FF5C00D96BEE /* Views */ = {
@@ -567,11 +489,7 @@
 			children = (
 				99E36E7623293932005E6C05 /* SSSugar.podspec */,
 				99D29640223D3057003FD9F0 /* SSSugar */,
-				996F380022417014007FF8B6 /* SSCustomSelectionTests */,
-				99B1A796224678B400D96BEE /* SSSugarPlaygroundTests */,
-				997E314822493587006A5B7C /* SSSugarExtensionsTypesTests */,
-				997B344D225A134B00F2A3A0 /* SSSugarExtensionContainersTests */,
-				99F6A1912295AF5C00183436 /* SSSugarContainersTests */,
+				2D8CF9B8241FC4BA00168C8A /* SSSugarTests */,
 				99D2963F223D3057003FD9F0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -580,11 +498,7 @@
 			isa = PBXGroup;
 			children = (
 				99D2963E223D3057003FD9F0 /* SSSugar.framework */,
-				996F37FF22417014007FF8B6 /* SSCustomSelectionTests.xctest */,
-				99B1A795224678B400D96BEE /* SSSugarPlaygroundTests.xctest */,
-				997E314722493587006A5B7C /* SSSugarExtensionsTypesTests.xctest */,
-				997B344C225A134B00F2A3A0 /* SSSugarExtensionContainersTests.xctest */,
-				99F6A1902295AF5C00183436 /* SSSugarContainersTests.xctest */,
+				2D8CF9B7241FC4BA00168C8A /* SSSugarTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -773,18 +687,17 @@
 			path = Containers;
 			sourceTree = "<group>";
 		};
-		99F6A1912295AF5C00183436 /* SSSugarContainersTests */ = {
+		99F6A1912295AF5C00183436 /* SSSugarContainers */ = {
 			isa = PBXGroup;
 			children = (
+				2D4398A724222AAB00D01464 /* SSSugarContainersAutoMapInitTests.swift */,
+				99F6A19B2295B11800183436 /* SSSugarContainersAutoMapAddTests.swift */,
 				99DB1A7E229EE36D005C4823 /* SSSugarContainersAutoMapAddContainerTests.swift */,
-				99DB1A7C229EE2F7005C4823 /* SSSugarContainersAutoMapTestsWithSetup.swift */,
 				99DB1A7A229ED9FC005C4823 /* SSSugarContainersAutoMapSubsriptTests.swift */,
 				99DB1A78229ED6BB005C4823 /* SSSugarContainersAutoMapContainTests.swift */,
-				99F6A19B2295B11800183436 /* SSSugarContainersAutoMapAddTests.swift */,
-				99F6A1922295AF5C00183436 /* SSSugarContainersAutoMapTests.swift */,
-				99F6A1942295AF5C00183436 /* Info.plist */,
+				2D7FD9F32420F73200D4C28F /* SSSugarContainersAutoMapTestHelper.swift */,
 			);
-			path = SSSugarContainersTests;
+			path = SSSugarContainers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -801,76 +714,22 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		996F37FE22417014007FF8B6 /* SSCustomSelectionTests */ = {
+		2D8CF9B6241FC4BA00168C8A /* SSSugarTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 996F380922417014007FF8B6 /* Build configuration list for PBXNativeTarget "SSCustomSelectionTests" */;
+			buildConfigurationList = 2D8CF9BF241FC4BA00168C8A /* Build configuration list for PBXNativeTarget "SSSugarTests" */;
 			buildPhases = (
-				996F37FB22417014007FF8B6 /* Sources */,
-				996F37FC22417014007FF8B6 /* Frameworks */,
-				996F37FD22417014007FF8B6 /* Resources */,
+				2D8CF9B3241FC4BA00168C8A /* Sources */,
+				2D8CF9B4241FC4BA00168C8A /* Frameworks */,
+				2D8CF9B5241FC4BA00168C8A /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				996F380622417014007FF8B6 /* PBXTargetDependency */,
+				2D8CF9BE241FC4BA00168C8A /* PBXTargetDependency */,
 			);
-			name = SSCustomSelectionTests;
+			name = SSSugarTests;
 			productName = SSSugarTests;
-			productReference = 996F37FF22417014007FF8B6 /* SSCustomSelectionTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		997B344B225A134B00F2A3A0 /* SSSugarExtensionContainersTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 997B3456225A134B00F2A3A0 /* Build configuration list for PBXNativeTarget "SSSugarExtensionContainersTests" */;
-			buildPhases = (
-				997B3448225A134B00F2A3A0 /* Sources */,
-				997B3449225A134B00F2A3A0 /* Frameworks */,
-				997B344A225A134B00F2A3A0 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				997B3453225A134B00F2A3A0 /* PBXTargetDependency */,
-			);
-			name = SSSugarExtensionContainersTests;
-			productName = SSSugarExtensionContainersTests;
-			productReference = 997B344C225A134B00F2A3A0 /* SSSugarExtensionContainersTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		997E314622493587006A5B7C /* SSSugarExtensionsTypesTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 997E315122493587006A5B7C /* Build configuration list for PBXNativeTarget "SSSugarExtensionsTypesTests" */;
-			buildPhases = (
-				997E314322493587006A5B7C /* Sources */,
-				997E314422493587006A5B7C /* Frameworks */,
-				997E314522493587006A5B7C /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				997E314E22493587006A5B7C /* PBXTargetDependency */,
-			);
-			name = SSSugarExtensionsTypesTests;
-			productName = SSSugarExtensionsTypesTests;
-			productReference = 997E314722493587006A5B7C /* SSSugarExtensionsTypesTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		99B1A794224678B400D96BEE /* SSSugarPlaygroundTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 99B1A79D224678B400D96BEE /* Build configuration list for PBXNativeTarget "SSSugarPlaygroundTests" */;
-			buildPhases = (
-				99B1A791224678B400D96BEE /* Sources */,
-				99B1A792224678B400D96BEE /* Frameworks */,
-				99B1A793224678B400D96BEE /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				99B1A79C224678B400D96BEE /* PBXTargetDependency */,
-			);
-			name = SSSugarPlaygroundTests;
-			productName = SSSugarPlaygroundTests;
-			productReference = 99B1A795224678B400D96BEE /* SSSugarPlaygroundTests.xctest */;
+			productReference = 2D8CF9B7241FC4BA00168C8A /* SSSugarTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		99D2963D223D3057003FD9F0 /* SSSugar */ = {
@@ -891,56 +750,22 @@
 			productReference = 99D2963E223D3057003FD9F0 /* SSSugar.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		99F6A18F2295AF5C00183436 /* SSSugarContainersTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 99F6A19A2295AF5C00183436 /* Build configuration list for PBXNativeTarget "SSSugarContainersTests" */;
-			buildPhases = (
-				99F6A18C2295AF5C00183436 /* Sources */,
-				99F6A18D2295AF5C00183436 /* Frameworks */,
-				99F6A18E2295AF5C00183436 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				99F6A1972295AF5C00183436 /* PBXTargetDependency */,
-			);
-			name = SSSugarContainersTests;
-			productName = SSSugarContainersTests;
-			productReference = 99F6A1902295AF5C00183436 /* SSSugarContainersTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		99D29635223D3057003FD9F0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 1020;
+				LastSwiftUpdateCheck = 1130;
 				LastUpgradeCheck = 1130;
 				ORGANIZATIONNAME = "Stanislav Dmitriyev";
 				TargetAttributes = {
-					996F37FE22417014007FF8B6 = {
-						CreatedOnToolsVersion = 10.1;
-						LastSwiftMigration = 1020;
-					};
-					997B344B225A134B00F2A3A0 = {
-						CreatedOnToolsVersion = 10.1;
-						LastSwiftMigration = 1020;
-					};
-					997E314622493587006A5B7C = {
-						CreatedOnToolsVersion = 10.1;
-						LastSwiftMigration = 1020;
-					};
-					99B1A794224678B400D96BEE = {
-						CreatedOnToolsVersion = 10.1;
-						LastSwiftMigration = 1020;
+					2D8CF9B6241FC4BA00168C8A = {
+						CreatedOnToolsVersion = 11.3.1;
 					};
 					99D2963D223D3057003FD9F0 = {
 						CreatedOnToolsVersion = 10.1;
 						LastSwiftMigration = 1020;
-					};
-					99F6A18F2295AF5C00183436 = {
-						CreatedOnToolsVersion = 10.2.1;
 					};
 				};
 			};
@@ -958,38 +783,13 @@
 			projectRoot = "";
 			targets = (
 				99D2963D223D3057003FD9F0 /* SSSugar */,
-				996F37FE22417014007FF8B6 /* SSCustomSelectionTests */,
-				99B1A794224678B400D96BEE /* SSSugarPlaygroundTests */,
-				997E314622493587006A5B7C /* SSSugarExtensionsTypesTests */,
-				997B344B225A134B00F2A3A0 /* SSSugarExtensionContainersTests */,
-				99F6A18F2295AF5C00183436 /* SSSugarContainersTests */,
+				2D8CF9B6241FC4BA00168C8A /* SSSugarTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		996F37FD22417014007FF8B6 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		997B344A225A134B00F2A3A0 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		997E314522493587006A5B7C /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		99B1A793224678B400D96BEE /* Resources */ = {
+		2D8CF9B5241FC4BA00168C8A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1004,73 +804,47 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		99F6A18E2295AF5C00183436 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		996F37FB22417014007FF8B6 /* Sources */ = {
+		2D8CF9B3241FC4BA00168C8A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				99B1A786224431B200D96BEE /* SSCollectionViewMarkableControllerDeactivateAlreadyDeactiveTC.swift in Sources */,
-				998F2DCB22440162001FFA3A /* SSMarkbaleCollectionCellHelperActivateActivatedTC.swift in Sources */,
-				99B1A78822443EC700D96BEE /* SSCollectionViewMarkableControllerDeactivateTC.swift in Sources */,
-				99AB345622454466004959B1 /* SSCollectionViewMarkableControllerConfigCellNonActvieTC.swift in Sources */,
-				998F2DC92243F96E001FFA3A /* SSMarkbaleCollectionCellHelperUnmarkNonMarkedTC.swift in Sources */,
-				99B1A77B2241783B00D96BEE /* SSMarkbaleCollectionCellHelperBaseTC.swift in Sources */,
-				998F2DCD224401EC001FFA3A /* SSMarkbaleCollectionCellHelperDeactivateTC.swift in Sources */,
-				998F2DC52243F7FA001FFA3A /* SSMarkbaleCollectionCellHelperMarkMarkedTC.swift in Sources */,
-				99B1A78222442BD600D96BEE /* SSCollectionViewMarkableControllerActivateTC.swift in Sources */,
-				996F380222417014007FF8B6 /* SSMarkbaleCollectionCellHelperMarkTC.swift in Sources */,
-				99B1A7A122467D8900D96BEE /* SSCollectionViewMarkableControllerMarkAlreadyMarkedTC.swift in Sources */,
-				998F2DCF2244021C001FFA3A /* SSMarkbaleCollectionCellHelperDeactivateDeactivatedTC.swift in Sources */,
-				99B1A77F22441F9800D96BEE /* SSCollectionViewMarkableControllerBaseTC.swift in Sources */,
-				99AB345A224547BF004959B1 /* SSCollectionViewMarkableControllerConfigCellTC.swift in Sources */,
-				998F2DC72243F86B001FFA3A /* SSMarkbaleCollectionCellHelperUnmarkTC.swift in Sources */,
-				99B1A78C22465DA100D96BEE /* SSCollectionViewMarkableControllerMarkTC.swift in Sources */,
-				99B1A784224430CC00D96BEE /* SSCollectionViewMarkableControllerActivateAlreadyActiveTC.swift in Sources */,
-				99B1A77D22417E1E00D96BEE /* SSMarkbaleCollectionCellHelperActivateTC.swift in Sources */,
-				99B1A779224176D300D96BEE /* SSMarkbaleCollectionCellHelperMarkNonActiveTC.swift in Sources */,
-				99B1A78A224658D700D96BEE /* SSCollectionViewMarkableControllerMarkNonActiveTC.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		997B3448225A134B00F2A3A0 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				99FA1D61226392A900AD2FB5 /* SSSugarExtensionContainersArrayForEachTests.swift in Sources */,
-				997B344F225A134B00F2A3A0 /* SSSugarExtensionContainersArrayInitBuildBlockTests.swift in Sources */,
-				99FA1D5D225A22FF00AD2FB5 /* SSSugarExtensionContainersArrayBinarySearchTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		997E314322493587006A5B7C /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				99FA1FEF2250F0AA00C534E3 /* SSSugarExtensionCGRectInsetToSizeTests.swift in Sources */,
-				99FA1FE82249549D00C534E3 /* SSSugarExtensionColorInitTests.swift in Sources */,
-				997E315322493AC8006A5B7C /* SSSugarExtensionSizeUnitedIntersectedTests.swift in Sources */,
-				99FA1FF72250FD3700C534E3 /* SSSugarExtensionCGRectCuttedTests.swift in Sources */,
-				99FA1FE9224954E600C534E3 /* SSSugarExtensionRangeMiddleTests.swift in Sources */,
-				99FA1FF42250FA5700C534E3 /* SSSugarExtensionCGRectInitCenterSize.swift in Sources */,
-				99FA1FF12250F46500C534E3 /* SSSugarExtensionCGRectInsetToWHTests.swift in Sources */,
-				99FA1FED22495A9400C534E3 /* SSSugarExtensionCGRectCenterTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		99B1A791224678B400D96BEE /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				99B1A798224678B400D96BEE /* SSSugarPlaygroundTests.swift in Sources */,
+				2D7E5A3E241FD0E5009EE074 /* SSCollectionViewMarkableControllerConfigCellTC.swift in Sources */,
+				2D7E5A3F241FD0E5009EE074 /* SSCollectionViewMarkableControllerActivateTC.swift in Sources */,
+				2D7E5A40241FD0E5009EE074 /* SSCollectionViewMarkableControllerTestHelper.swift in Sources */,
+				2D7E5A42241FD0E5009EE074 /* SSCollectionViewMarkableControllerDeactivateTC.swift in Sources */,
+				2D4398A824222AAB00D01464 /* SSSugarContainersAutoMapInitTests.swift in Sources */,
+				2D7E5A45241FD0E5009EE074 /* SSCollectionViewMarkableControllerMarkTC.swift in Sources */,
+				2D7E5A46241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperDeactivateDeactivatedTC.swift in Sources */,
+				2D7E5A47241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperDeactivateTC.swift in Sources */,
+				2D7E5A48241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperActivateActivatedTC.swift in Sources */,
+				2D7E5A49241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperUnmarkNonMarkedTC.swift in Sources */,
+				2D7E5A4A241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperUnmarkTC.swift in Sources */,
+				2D7E5A4B241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperMarkMarkedTC.swift in Sources */,
+				2D7E5A4C241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperTestHelper.swift in Sources */,
+				2D7E5A4D241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperActivateTC.swift in Sources */,
+				2D7E5A4E241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperMarkNonActiveTC.swift in Sources */,
+				2D7E5A4F241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperMarkTC.swift in Sources */,
+				2D7E5A50241FD0E5009EE074 /* SSSugarPlaygroundTests.swift in Sources */,
+				2D7E5A51241FD0E5009EE074 /* SSSugarExtensionCGRectCuttedTests.swift in Sources */,
+				2D7E5A52241FD0E5009EE074 /* SSSugarExtensionCGRectInitCenterSize.swift in Sources */,
+				2D7E5A53241FD0E5009EE074 /* SSSugarExtensionCGRectInsetToWHTests.swift in Sources */,
+				2D7E5A54241FD0E5009EE074 /* SSSugarExtensionCGRectInsetToSizeTests.swift in Sources */,
+				2D7E5A55241FD0E5009EE074 /* SSSugarExtensionCGRectCenterTests.swift in Sources */,
+				2D7E5A56241FD0E5009EE074 /* SSSugarExtensionSizeUnitedIntersectedTests.swift in Sources */,
+				2D7E5A57241FD0E5009EE074 /* SSSugarExtensionColorInitTests.swift in Sources */,
+				2D7E5A58241FD0E5009EE074 /* SSSugarExtensionRangeMiddleTests.swift in Sources */,
+				2D7E5A59241FD0E5009EE074 /* SSSugarExtensionContainersArrayForEachTests.swift in Sources */,
+				2D7E5A5A241FD0E5009EE074 /* SSSugarExtensionContainersArrayBinarySearchTests.swift in Sources */,
+				2D7E5A5B241FD0E5009EE074 /* SSSugarExtensionContainersArrayInitBuildBlockTests.swift in Sources */,
+				2D7E5A5C241FD0E5009EE074 /* SSSugarContainersAutoMapAddContainerTests.swift in Sources */,
+				2D7E5A5E241FD0E5009EE074 /* SSSugarContainersAutoMapSubsriptTests.swift in Sources */,
+				2D7FD9F42420F73200D4C28F /* SSSugarContainersAutoMapTestHelper.swift in Sources */,
+				2D61561A2423C4F80015A9E0 /* SSCollectionViewMarkableControllerUnmarkTC.swift in Sources */,
+				2D7E5A5F241FD0E5009EE074 /* SSSugarContainersAutoMapContainTests.swift in Sources */,
+				2D7E5A60241FD0E5009EE074 /* SSSugarContainersAutoMapAddTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1161,57 +935,23 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		99F6A18C2295AF5C00183436 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				99F6A19C2295B11800183436 /* SSSugarContainersAutoMapAddTests.swift in Sources */,
-				99DB1A7B229ED9FC005C4823 /* SSSugarContainersAutoMapSubsriptTests.swift in Sources */,
-				99DB1A79229ED6BB005C4823 /* SSSugarContainersAutoMapContainTests.swift in Sources */,
-				99DB1A7F229EE36D005C4823 /* SSSugarContainersAutoMapAddContainerTests.swift in Sources */,
-				99F6A1932295AF5C00183436 /* SSSugarContainersAutoMapTests.swift in Sources */,
-				99DB1A7D229EE2F7005C4823 /* SSSugarContainersAutoMapTestsWithSetup.swift in Sources */,
-				99DB1A77229D83C7005C4823 /* SSSugarContainersAutoMapInitTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		996F380622417014007FF8B6 /* PBXTargetDependency */ = {
+		2D8CF9BE241FC4BA00168C8A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 99D2963D223D3057003FD9F0 /* SSSugar */;
-			targetProxy = 996F380522417014007FF8B6 /* PBXContainerItemProxy */;
-		};
-		997B3453225A134B00F2A3A0 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 99D2963D223D3057003FD9F0 /* SSSugar */;
-			targetProxy = 997B3452225A134B00F2A3A0 /* PBXContainerItemProxy */;
-		};
-		997E314E22493587006A5B7C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 99D2963D223D3057003FD9F0 /* SSSugar */;
-			targetProxy = 997E314D22493587006A5B7C /* PBXContainerItemProxy */;
-		};
-		99B1A79C224678B400D96BEE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 99D2963D223D3057003FD9F0 /* SSSugar */;
-			targetProxy = 99B1A79B224678B400D96BEE /* PBXContainerItemProxy */;
-		};
-		99F6A1972295AF5C00183436 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 99D2963D223D3057003FD9F0 /* SSSugar */;
-			targetProxy = 99F6A1962295AF5C00183436 /* PBXContainerItemProxy */;
+			targetProxy = 2D8CF9BD241FC4BA00168C8A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		996F380722417014007FF8B6 /* Debug */ = {
+		2D8CF9C0241FC4BA00168C8A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3W67N7QUBL;
-				INFOPLIST_FILE = SSCustomSelectionTests/Info.plist;
+				DEVELOPMENT_TEAM = 2R9RKTL2SS;
+				INFOPLIST_FILE = SSSugarTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1225,12 +965,12 @@
 			};
 			name = Debug;
 		};
-		996F380822417014007FF8B6 /* Release */ = {
+		2D8CF9C1241FC4BA00168C8A /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3W67N7QUBL;
-				INFOPLIST_FILE = SSCustomSelectionTests/Info.plist;
+				DEVELOPMENT_TEAM = 2R9RKTL2SS;
+				INFOPLIST_FILE = SSSugarTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -1238,120 +978,6 @@
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.byteslight.SSSugarTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		997B3454225A134B00F2A3A0 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3W67N7QUBL;
-				INFOPLIST_FILE = SSSugarExtensionContainersTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.byteslight.SSSugarExtensionContainersTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		997B3455225A134B00F2A3A0 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3W67N7QUBL;
-				INFOPLIST_FILE = SSSugarExtensionContainersTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.byteslight.SSSugarExtensionContainersTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		997E314F22493587006A5B7C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3W67N7QUBL;
-				INFOPLIST_FILE = SSSugarExtensionsTypesTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = BytesLight.SSSugarExtensionsTypesTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		997E315022493587006A5B7C /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3W67N7QUBL;
-				INFOPLIST_FILE = SSSugarExtensionsTypesTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = BytesLight.SSSugarExtensionsTypesTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
-		99B1A79E224678B400D96BEE /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3W67N7QUBL;
-				INFOPLIST_FILE = SSSugarPlaygroundTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.byteslight.SSSugarPlaygroundTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		99B1A79F224678B400D96BEE /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3W67N7QUBL;
-				INFOPLIST_FILE = SSSugarPlaygroundTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.byteslight.SSSugarPlaygroundTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -1488,7 +1114,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 3W67N7QUBL;
+				DEVELOPMENT_TEAM = 2R9RKTL2SS;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1520,7 +1146,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 3W67N7QUBL;
+				DEVELOPMENT_TEAM = 2R9RKTL2SS;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1543,79 +1169,14 @@
 			};
 			name = Release;
 		};
-		99F6A1982295AF5C00183436 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3W67N7QUBL;
-				INFOPLIST_FILE = SSSugarContainersTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.byteslight.SSSugarContainersTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Debug;
-		};
-		99F6A1992295AF5C00183436 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3W67N7QUBL;
-				INFOPLIST_FILE = SSSugarContainersTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.byteslight.SSSugarContainersTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		996F380922417014007FF8B6 /* Build configuration list for PBXNativeTarget "SSCustomSelectionTests" */ = {
+		2D8CF9BF241FC4BA00168C8A /* Build configuration list for PBXNativeTarget "SSSugarTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				996F380722417014007FF8B6 /* Debug */,
-				996F380822417014007FF8B6 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		997B3456225A134B00F2A3A0 /* Build configuration list for PBXNativeTarget "SSSugarExtensionContainersTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				997B3454225A134B00F2A3A0 /* Debug */,
-				997B3455225A134B00F2A3A0 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		997E315122493587006A5B7C /* Build configuration list for PBXNativeTarget "SSSugarExtensionsTypesTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				997E314F22493587006A5B7C /* Debug */,
-				997E315022493587006A5B7C /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		99B1A79D224678B400D96BEE /* Build configuration list for PBXNativeTarget "SSSugarPlaygroundTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				99B1A79E224678B400D96BEE /* Debug */,
-				99B1A79F224678B400D96BEE /* Release */,
+				2D8CF9C0241FC4BA00168C8A /* Debug */,
+				2D8CF9C1241FC4BA00168C8A /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1634,15 +1195,6 @@
 			buildConfigurations = (
 				99D29647223D3057003FD9F0 /* Debug */,
 				99D29648223D3057003FD9F0 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		99F6A19A2295AF5C00183436 /* Build configuration list for PBXNativeTarget "SSSugarContainersTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				99F6A1982295AF5C00183436 /* Debug */,
-				99F6A1992295AF5C00183436 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
