@@ -47,11 +47,12 @@ struct SSSugarContainersAutoMapTestHelper {
     var key = DefaultItem(key: "key", array: [0, 1, 2, 3])
     var insertion = DefaultItem(key: "insertion", array: [1, 2, 3])
     var replace = DefaultItem(key: "replace", array: [100, 200, 300])
-    
+    //TODO: [Review] Separate methods with empty string
     var mapItems: [DefaultItem] {
         [evens, odds, key]
     }
     func makeSetMap() -> [String : Set<Int>] {
+        //TODO: [Review] Separate logic blocks with empty row
         var map = [String: Set<Int>]()
         mapItems.forEach { map[$0.key] = $0.set }
         return map

@@ -91,7 +91,7 @@ class SSCollectionViewMarkableControllerMarkTC: XCTestCase {
         let sut = testHelper.makeSUT {
             $0.collection.viewPortOffset = 1
         }
-        
+
         return (sut, SSCollectionViewMarkableControllerMarkDeactiveExpectedResult())
     }
     
@@ -100,7 +100,7 @@ class SSCollectionViewMarkableControllerMarkTC: XCTestCase {
             $0.collection.viewPortOffset = 1
             $0.controller.active = true
         }
-        
+
         return (sut, SSCollectionViewMarkableControllerMarkActiveExpectedResult())
     }
     
@@ -110,6 +110,7 @@ class SSCollectionViewMarkableControllerMarkTC: XCTestCase {
             $0.controller.active = true
             $0.controller.setAllCellsMarked(true)
         }
+        //TODO: [Review] Redurant empty row
         
         return (sut, SSCollectionViewMarkableControllerMarkActiveMarkedExpectedResult())
     }
@@ -122,6 +123,7 @@ protocol SSCollectionViewMarkableControllerMarkExpectedResult {
     typealias CellStub = SSCollectionViewMarkableCellStub
     
     var active: Bool { get }
+    //TODO: [Review] Redurant empty row
     
     var oneBeforeVPCells: [CellStub] { get }
     var oneCells: [CellStub] { get }
@@ -136,6 +138,7 @@ protocol SSCollectionViewMarkableControllerMarkExpectedResult {
 
 struct SSCollectionViewMarkableControllerMarkDeactiveExpectedResult: SSCollectionViewMarkableControllerMarkExpectedResult {
     let active = false
+    //TODO: [Review] Redurant empty row
     
     let oneBeforeVPCells = [CellStub(), CellStub(), CellStub(), CellStub(), CellStub()]
     let oneCells = [CellStub(), CellStub(), CellStub(), CellStub(), CellStub()]

@@ -5,6 +5,7 @@ import XCTest
 //Содержание. В пустом контейнере, с нужным ключем без элемента, без нужного ключа с элементом, с нужным ключем с нужным элементом.
 
 class SSSugarContainersAutoMapContainTests: XCTestCase {
+    //TODO: [Review] Почему тут не используются пресеты из хелпера?
     func testEmpty() {
         let sut = AutoMap(map: [String : Set<Int>]())
         

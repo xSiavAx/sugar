@@ -12,18 +12,21 @@ class SSMarkbaleCollectionCellHelperUnmarkNonMarkedTC: XCTestCase {
     
     func testMark() {
         sut.setMarked(false, animated: false)
+        //TODO: [Review] Redurant
         
         testHelper.checkCell(sut, marking: true, marked: false)
     }
     
     func testMarkAnimated() {
         sut.setMarked(false, animated: true)
+        //TODO: [Review] Redurant
         
         testHelper.checkCell(sut, marking: true, marked: false)
     }
     
     func testMarkExplicitNonAnimated() {
         sut.setMarked(false, animated: true)
+        //TODO: [Review] Redurant
         
         testHelper.checkCell(sut, marking: true, marked: false)
     }

@@ -20,6 +20,7 @@ class SSSugarContainersAutoMapSubsriptTests: XCTestCase {
     }
     
     func testResetRegular() {
+        //TODO: [Review] Don't mix
         var map = testHelper.makeSetMap()
         let key = testHelper.evens.key
         map[key] = testHelper.replace.set
@@ -41,6 +42,7 @@ class SSSugarContainersAutoMapSubsriptTests: XCTestCase {
             testHelper.evens.key : testHelper.evens.set,
             testHelper.odds.key : testHelper.odds.set
         ])
+        //TODO: [Review] Redurant
         
         var sut = AutoMap(map: testHelper.makeSetMap())
         sut[testHelper.key.key] = nil
@@ -49,9 +51,11 @@ class SSSugarContainersAutoMapSubsriptTests: XCTestCase {
     }
     
     func testSetRegular() {
+        //TODO: [Review] Don't mix
         var expectedMap = testHelper.makeSetMap()
         expectedMap[testHelper.insertion.key] = testHelper.insertion.set
         let expectedResult = AutoMap(map: expectedMap)
+        //TODO: [Review] Redurant
         
         var sut = AutoMap(map: testHelper.makeSetMap())
         sut[testHelper.insertion.key] = testHelper.insertion.set
@@ -66,6 +70,7 @@ class SSSugarContainersAutoMapSubsriptTests: XCTestCase {
     
     func testSetNil() {
         let expectedResult = AutoMap(map: testHelper.makeSetMap())
+        //TODO: [Review] Don't mix, redurant
         
         var sut = AutoMap(map: testHelper.makeSetMap())
         sut["notIncludedKey"] = nil
