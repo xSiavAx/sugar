@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2D4398A824222AAB00D01464 /* SSSugarContainersAutoMapInitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4398A724222AAB00D01464 /* SSSugarContainersAutoMapInitTests.swift */; };
+		2D4A6BB42429104A001E0487 /* SSSugarExtensionDictionaryPickTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4A6BB32429104A001E0487 /* SSSugarExtensionDictionaryPickTests.swift */; };
 		2D5E66D62424CD0F00D82DEE /* SSSugarExtensionCGRectDividedCountVerticalyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5E66D52424CD0F00D82DEE /* SSSugarExtensionCGRectDividedCountVerticalyTests.swift */; };
 		2D61561A2423C4F80015A9E0 /* SSCollectionViewMarkableControllerUnmarkTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6156192423C4F80015A9E0 /* SSCollectionViewMarkableControllerUnmarkTC.swift */; };
 		2D7E5A3E241FD0E5009EE074 /* SSCollectionViewMarkableControllerConfigCellTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AB345522454466004959B1 /* SSCollectionViewMarkableControllerConfigCellTC.swift */; };
@@ -139,6 +140,7 @@
 
 /* Begin PBXFileReference section */
 		2D4398A724222AAB00D01464 /* SSSugarContainersAutoMapInitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSSugarContainersAutoMapInitTests.swift; sourceTree = "<group>"; };
+		2D4A6BB32429104A001E0487 /* SSSugarExtensionDictionaryPickTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarExtensionDictionaryPickTests.swift; sourceTree = "<group>"; };
 		2D5E66D52424CD0F00D82DEE /* SSSugarExtensionCGRectDividedCountVerticalyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSSugarExtensionCGRectDividedCountVerticalyTests.swift; sourceTree = "<group>"; };
 		2D6156192423C4F80015A9E0 /* SSCollectionViewMarkableControllerUnmarkTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerUnmarkTC.swift; sourceTree = "<group>"; };
 		2D7FD9F32420F73200D4C28F /* SSSugarContainersAutoMapTestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarContainersAutoMapTestHelper.swift; sourceTree = "<group>"; };
@@ -375,6 +377,7 @@
 				99FA1FEE2250F0AA00C534E3 /* SSSugarExtensionCGRectInsetToSizeTests.swift */,
 				99FA1FEC22495A9400C534E3 /* SSSugarExtensionCGRectCenterTests.swift */,
 				2D5E66D52424CD0F00D82DEE /* SSSugarExtensionCGRectDividedCountVerticalyTests.swift */,
+				2D4A6BB32429104A001E0487 /* SSSugarExtensionDictionaryPickTests.swift */,
 				997E315222493AC8006A5B7C /* SSSugarExtensionSizeUnitedIntersectedTests.swift */,
 				99FA1FE72249549D00C534E3 /* SSSugarExtensionColorInitTests.swift */,
 				99FA1FE52249544B00C534E3 /* SSSugarExtensionRangeMiddleTests.swift */,
@@ -815,6 +818,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D7E5A3E241FD0E5009EE074 /* SSCollectionViewMarkableControllerConfigCellTC.swift in Sources */,
+				2D4A6BB42429104A001E0487 /* SSSugarExtensionDictionaryPickTests.swift in Sources */,
 				2D7E5A3F241FD0E5009EE074 /* SSCollectionViewMarkableControllerActivateTC.swift in Sources */,
 				2D7E5A40241FD0E5009EE074 /* SSCollectionViewMarkableControllerTestHelper.swift in Sources */,
 				2D7E5A42241FD0E5009EE074 /* SSCollectionViewMarkableControllerDeactivateTC.swift in Sources */,
