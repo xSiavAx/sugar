@@ -29,5 +29,4 @@ FOUNDATION_EXPORT const unsigned char SSSugarVersionString[];
 //TODO: Write docs and test for all extensions and classes
 //TODO: Implements "Sugar" from UkrNet
 
-#warning TODO: Add tests for picking(for:) Dictionary extension
 #warning TODO: Add tests for pick(at:) Array extension
