@@ -47,6 +47,7 @@
 		2D7FD9F42420F73200D4C28F /* SSSugarContainersAutoMapTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7FD9F32420F73200D4C28F /* SSSugarContainersAutoMapTestHelper.swift */; };
 		2D8BABC024292ADA00B8A84D /* SSSugarExtensionContainersDictionaryPickingForTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8BABBF24292ADA00B8A84D /* SSSugarExtensionContainersDictionaryPickingForTests.swift */; };
 		2D8CF9BC241FC4BA00168C8A /* SSSugar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99D2963E223D3057003FD9F0 /* SSSugar.framework */; };
+		2D94676D242A378E00AC5637 /* SSChainExecutorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D94676C242A378E00AC5637 /* SSChainExecutorTests.swift */; };
 		990A18A722E641F4008DCCF0 /* SSViewStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990A18A622E641F4008DCCF0 /* SSViewStyles.swift */; };
 		99365D4423B251BE00C8A7DF /* SSViewTransitionAnimating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99365D4323B251BE00C8A7DF /* SSViewTransitionAnimating.swift */; };
 		99365D4723B2530400C8A7DF /* SSScaleAndAlphaTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99365D4623B2530400C8A7DF /* SSScaleAndAlphaTransitionAnimator.swift */; };
@@ -152,6 +153,7 @@
 		2D8BABBF24292ADA00B8A84D /* SSSugarExtensionContainersDictionaryPickingForTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarExtensionContainersDictionaryPickingForTests.swift; sourceTree = "<group>"; };
 		2D8CF9B7241FC4BA00168C8A /* SSSugarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SSSugarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D8CF9BB241FC4BA00168C8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2D94676C242A378E00AC5637 /* SSChainExecutorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSChainExecutorTests.swift; sourceTree = "<group>"; };
 		990A18A622E641F4008DCCF0 /* SSViewStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSViewStyles.swift; sourceTree = "<group>"; };
 		99365D4323B251BE00C8A7DF /* SSViewTransitionAnimating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSViewTransitionAnimating.swift; sourceTree = "<group>"; };
 		99365D4623B2530400C8A7DF /* SSScaleAndAlphaTransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSScaleAndAlphaTransitionAnimator.swift; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 			isa = PBXGroup;
 			children = (
 				2D535E11242A0F7E0024D4C0 /* SSGroupExecutorTests.swift */,
+				2D94676C242A378E00AC5637 /* SSChainExecutorTests.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -866,6 +869,7 @@
 				2D7E5A58241FD0E5009EE074 /* SSSugarExtensionRangeMiddleTests.swift in Sources */,
 				2D7E5A59241FD0E5009EE074 /* SSSugarExtensionContainersArrayForEachTests.swift in Sources */,
 				2D7E5A5A241FD0E5009EE074 /* SSSugarExtensionContainersArrayBinarySearchTests.swift in Sources */,
+				2D94676D242A378E00AC5637 /* SSChainExecutorTests.swift in Sources */,
 				2D7E5A5B241FD0E5009EE074 /* SSSugarExtensionContainersArrayInitBuildBlockTests.swift in Sources */,
 				2D7E5A5C241FD0E5009EE074 /* SSSugarContainersAutoMapAddContainerTests.swift in Sources */,
 				2D7E5A5E241FD0E5009EE074 /* SSSugarContainersAutoMapSubsriptTests.swift in Sources */,

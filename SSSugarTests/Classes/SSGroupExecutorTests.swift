@@ -35,14 +35,18 @@ class SSGroupExecutorTests: XCTestCase {
     }
     
     func testFinishSeveral() {
-        var trafficLight = TrafficLight.red
+        var firstTrafficLight = TrafficLight.red
+        var secondTrafficLight = TrafficLight.red
         
         sut.add(makeTask())
-        sut.add(makeTask { trafficLight = .yellow })
+        sut.add(makeTask { firstTrafficLight = .yellow })
         sut.add(makeTask())
-        sut.add(makeTask { trafficLight = .green })
+        sut.add(makeTask { secondTrafficLight = .green })
         sut.add(makeTask())
-        sut.finish { XCTAssertEqual(trafficLight, .green) }
+        sut.finish {
+            XCTAssertEqual(firstTrafficLight, .yellow)
+            XCTAssertEqual(secondTrafficLight, .green)
+        }
     }
     
     func makeTask(work: @escaping () -> Void = {}) -> SSGroupExecutor.Task {
@@ -54,10 +58,10 @@ class SSGroupExecutorTests: XCTestCase {
 }
 
 
-// MARK: - Trafic Light
+// MARK: - Traffic Light
 
 extension SSGroupExecutorTests {
-    private enum TrafficLight {
+    enum TrafficLight {
         case red
         case green
         case yellow
