@@ -1,19 +1,18 @@
 /*
 
- Test Cases Dictionary extension pick(for:)
+ Tests for pick(for:) Dictionary extension
  
  [Done] regular
  [Done] empty
  [Done] incorrect key
  [Done] first element
  [Done] last element
- [Done] middle element
 
 */
 
 import XCTest
 
-class SSSugarExtensionDictionaryPickTests: XCTestCase {
+class SSSugarExtensionDictionaryPickForTests: XCTestCase {
     var sut: [Key: Int] = [:]
     
     override func setUp() {
@@ -50,27 +49,22 @@ class SSSugarExtensionDictionaryPickTests: XCTestCase {
         XCTAssertEqual(sut.pick(for: .three), Key.three.value)
         XCTAssertEqual(sut, [.one : Key.one.value, .two : Key.two.value])
     }
-    
-    func testMiddleElement() {
-        XCTAssertEqual(sut.pick(for: .two), Key.two.value)
-        XCTAssertEqual(sut, [.one : Key.one.value, .three : Key.three.value])
-    }
 }
 
 
 // MARK: - Key
 
-extension SSSugarExtensionDictionaryPickTests {
+extension SSSugarExtensionDictionaryPickForTests {
     enum Key: Int {
         case incorrect = -1
         case one = 1
         case two = 2
         case three = 3
         
-        static let defaultDictionary = [
-            Key.one : Key.one.value,
-            Key.two : Key.two.value,
-            Key.three : Key.three.value
+        static let defaultDictionary: [Key : Int] = [
+            .one : Key.one.value,
+            .two : Key.two.value,
+            .three : Key.three.value
         ]
         
         var value: Int {

@@ -1,8 +1,7 @@
 /*
  
- Test Cases CGRect extension divided(count:verticaly:)
+ Tests for divided(count:verticaly:) CGRect extension
  
- Testing axis:
  [Done] count value
     [fatalError] < 1
     [Done] = 1
@@ -36,11 +35,7 @@
 import XCTest
 
 final class SSSugarExtensionCGRectDividedCountVerticalyTests: XCTestCase {
-    var testDataArray = [TestData]()
-    
-    override func setUp() {
-        testDataArray = Self.allTestData
-    }
+    var testDataArray = SSSugarExtensionCGRectDividedCountVerticalyTests.allTestData
     
     override func tearDown() {
         testDataArray = []

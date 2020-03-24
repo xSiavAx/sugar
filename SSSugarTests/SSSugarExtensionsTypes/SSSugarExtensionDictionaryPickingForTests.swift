@@ -1,6 +1,6 @@
 /*
 
- Test Cases Dictionary extension picking(for:)
+ Tests for picking(for:) Dictionary extension
  
  [Done] regular
  [Done] empty
@@ -13,6 +13,8 @@
 import XCTest
 
 class SSSugarExtensionDictionaryPickingForTests: XCTestCase {
+    typealias Results = (dictionary: [Key: Int], value: Int)?
+    
     var sut: [Key: Int] = [:]
     
     override func setUp() {
@@ -68,8 +70,6 @@ class SSSugarExtensionDictionaryPickingForTests: XCTestCase {
 // MARK: - Key
 
 extension SSSugarExtensionDictionaryPickingForTests {
-    typealias Results = (dictionary: [Key: Int], value: Int)?
-    
     enum Key: Int {
         case incorrect = -1
         case one = 1

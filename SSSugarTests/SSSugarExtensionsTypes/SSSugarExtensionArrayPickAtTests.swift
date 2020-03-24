@@ -1,11 +1,10 @@
 /*
 
- Test Cases Array extension pick(at:)
+ Tests for pick(at:) Array extension
  
  [Done] regular
  [Done] first element
  [Done] last element
- 
  [fatalError] incorrect index
 
 */
