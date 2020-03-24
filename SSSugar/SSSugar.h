@@ -15,7 +15,7 @@ FOUNDATION_EXPORT const unsigned char SSSugarVersionString[];
 //TODO: To each sum operator (operator+) add minus operator and also += and -=
 //TODO: Fix CGSize.extended(by size:)
 //TODO: Add dict 'pick' and 'picking' documentation for Array and Dict
-//TODO: Add SSGroupExecutor and SSChainExecutor tests and documentation
+//TODO: Add SSGroupExecutor and SSChainExecutor documentation
 //TODO: Write AutoMap containers tests
 //TODO: Add DataBase tests
 //TODO: Add default values '0' to 'extended' method inside CGSize extension
@@ -29,4 +29,5 @@ FOUNDATION_EXPORT const unsigned char SSSugarVersionString[];
 //TODO: Write docs and test for all extensions and classes
 //TODO: Implements "Sugar" from UkrNet
 
-#warning TODO: Add tests for pick(at:) Array extension
+#warning TODO: Add tests for SSGroupExecutor
+#warning TODO: Add tests for SSChainExecutor

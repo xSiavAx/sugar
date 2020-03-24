@@ -12,7 +12,7 @@
 
 import XCTest
 
-class SSSugarExtensionDictionaryPickForTests: XCTestCase {
+class SSSugarExtensionContainersDictionaryPickForTests: XCTestCase {
     var sut: [Key: Int] = [:]
     
     override func setUp() {
@@ -54,7 +54,7 @@ class SSSugarExtensionDictionaryPickForTests: XCTestCase {
 
 // MARK: - Key
 
-extension SSSugarExtensionDictionaryPickForTests {
+extension SSSugarExtensionContainersDictionaryPickForTests {
     enum Key: Int {
         case incorrect = -1
         case one = 1

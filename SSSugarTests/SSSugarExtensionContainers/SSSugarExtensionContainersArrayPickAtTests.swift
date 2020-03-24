@@ -11,7 +11,7 @@
 
 import XCTest
 
-class SSSugarExtensionArrayPickAtTests: XCTestCase {
+class SSSugarExtensionContainersArrayPickAtTests: XCTestCase {
     var sut = [0, 1, 2, 3, 4]
 
     override func tearDown() {

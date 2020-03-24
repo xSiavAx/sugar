@@ -12,7 +12,7 @@
 
 import XCTest
 
-class SSSugarExtensionDictionaryPickingForTests: XCTestCase {
+class SSSugarExtensionContainersDictionaryPickingForTests: XCTestCase {
     typealias Results = (dictionary: [Key: Int], value: Int)?
     
     var sut: [Key: Int] = [:]
@@ -69,7 +69,7 @@ class SSSugarExtensionDictionaryPickingForTests: XCTestCase {
 
 // MARK: - Key
 
-extension SSSugarExtensionDictionaryPickingForTests {
+extension SSSugarExtensionContainersDictionaryPickingForTests {
     enum Key: Int {
         case incorrect = -1
         case one = 1
