@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2D4398A824222AAB00D01464 /* SSSugarContainersAutoMapInitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4398A724222AAB00D01464 /* SSSugarContainersAutoMapInitTests.swift */; };
 		2D4A6BB42429104A001E0487 /* SSSugarExtensionContainersDictionaryPickForTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4A6BB32429104A001E0487 /* SSSugarExtensionContainersDictionaryPickForTests.swift */; };
+		2D535E12242A0F7E0024D4C0 /* SSGroupExecutorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D535E11242A0F7E0024D4C0 /* SSGroupExecutorTests.swift */; };
 		2D5CCF122429F9700065278E /* SSSugarExtensionContainersArrayPickAtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5CCF112429F9700065278E /* SSSugarExtensionContainersArrayPickAtTests.swift */; };
 		2D5E66D62424CD0F00D82DEE /* SSSugarExtensionCGRectDividedCountVerticalyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5E66D52424CD0F00D82DEE /* SSSugarExtensionCGRectDividedCountVerticalyTests.swift */; };
 		2D61561A2423C4F80015A9E0 /* SSCollectionViewMarkableControllerUnmarkTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6156192423C4F80015A9E0 /* SSCollectionViewMarkableControllerUnmarkTC.swift */; };
@@ -143,6 +144,7 @@
 /* Begin PBXFileReference section */
 		2D4398A724222AAB00D01464 /* SSSugarContainersAutoMapInitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSSugarContainersAutoMapInitTests.swift; sourceTree = "<group>"; };
 		2D4A6BB32429104A001E0487 /* SSSugarExtensionContainersDictionaryPickForTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarExtensionContainersDictionaryPickForTests.swift; sourceTree = "<group>"; };
+		2D535E11242A0F7E0024D4C0 /* SSGroupExecutorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSGroupExecutorTests.swift; sourceTree = "<group>"; };
 		2D5CCF112429F9700065278E /* SSSugarExtensionContainersArrayPickAtTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarExtensionContainersArrayPickAtTests.swift; sourceTree = "<group>"; };
 		2D5E66D52424CD0F00D82DEE /* SSSugarExtensionCGRectDividedCountVerticalyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSSugarExtensionCGRectDividedCountVerticalyTests.swift; sourceTree = "<group>"; };
 		2D6156192423C4F80015A9E0 /* SSCollectionViewMarkableControllerUnmarkTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerUnmarkTC.swift; sourceTree = "<group>"; };
@@ -286,6 +288,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D535E13242A0F8C0024D4C0 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				2D535E11242A0F7E0024D4C0 /* SSGroupExecutorTests.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
 		2D7E59EC241FC996009EE074 /* SSCustomSelection */ = {
 			isa = PBXGroup;
 			children = (
@@ -303,6 +313,7 @@
 				997E314822493587006A5B7C /* SSSugarExtensionsTypes */,
 				997B344D225A134B00F2A3A0 /* SSSugarExtensionContainers */,
 				99F6A1912295AF5C00183436 /* SSSugarContainers */,
+				2D535E13242A0F8C0024D4C0 /* Classes */,
 				2D8CF9BB241FC4BA00168C8A /* Info.plist */,
 			);
 			path = SSSugarTests;
@@ -840,6 +851,7 @@
 				2D7E5A4C241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperTestHelper.swift in Sources */,
 				2D7E5A4D241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperActivateTC.swift in Sources */,
 				2D7E5A4E241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperMarkNonActiveTC.swift in Sources */,
+				2D535E12242A0F7E0024D4C0 /* SSGroupExecutorTests.swift in Sources */,
 				2D7E5A4F241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperMarkTC.swift in Sources */,
 				2D7E5A50241FD0E5009EE074 /* SSSugarPlaygroundTests.swift in Sources */,
 				2D7E5A51241FD0E5009EE074 /* SSSugarExtensionCGRectCuttedTests.swift in Sources */,
