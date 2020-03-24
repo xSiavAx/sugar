@@ -32,7 +32,7 @@ import XCTest
     
 //    Проверить доступность методов AutoMap как составляющую импортированного фреймворка (public)
 
-struct SSSugarContainersAutoMapTestHelper {
+struct AutoMapTestHelper {
     
     struct DefaultItem {
         var key: String

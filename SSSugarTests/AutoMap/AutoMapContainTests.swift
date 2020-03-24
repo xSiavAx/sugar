@@ -4,8 +4,8 @@ import XCTest
 
 //Содержание. В пустом контейнере, с нужным ключем без элемента, без нужного ключа с элементом, с нужным ключем с нужным элементом.
 
-class SSSugarContainersAutoMapContainTests: XCTestCase {
-    let testHelper = SSSugarContainersAutoMapTestHelper()
+class AutoMapContainTests: XCTestCase {
+    let testHelper = AutoMapTestHelper()
     
     func testEmpty() {
         let sut = AutoMap(map: [String : Set<Int>]())

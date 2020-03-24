@@ -5,8 +5,8 @@ import XCTest
 //subscript get. Получение контейнера по ключу. Получение контейнера по ключу которого нет.
 //subscript set. subscript set. Перезапись. Перезапись пустым контейнером. Перезапись nil. Добавление. Добавление пустого. Добавление nil.
 
-class SSSugarContainersAutoMapSubsriptTests: XCTestCase {
-    let testHelper = SSSugarContainersAutoMapTestHelper()
+class AutoMapSubsriptTests: XCTestCase {
+    let testHelper = AutoMapTestHelper()
     
     func testGetRegular() {
         let map = testHelper.makeSetMap()

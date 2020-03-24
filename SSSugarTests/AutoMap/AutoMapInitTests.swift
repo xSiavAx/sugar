@@ -3,8 +3,8 @@ import XCTest
 @testable import SSSugar
 //С обычной кратой. С пустой картой. С картой с пустыми контейнерами.
 
-class SSSugarContainersAutoMapInitTests: XCTestCase {
-    let testHelper = SSSugarContainersAutoMapTestHelper()
+class AutoMapInitTests: XCTestCase {
+    let testHelper = AutoMapTestHelper()
     
     func testRegularMap() {
         let sut = AutoMap(map: testHelper.makeArrayMap())

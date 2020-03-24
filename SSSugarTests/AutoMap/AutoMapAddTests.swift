@@ -10,7 +10,7 @@ import XCTest
 
 @testable import SSSugar
 
-class SSSugarContainersAutoMapAddTests: XCTestCase {
+class AutoMapAddTests: XCTestCase {
     func testExample() {
 //        automap.add(1, for:"test1")
 //        automap.add(11, for:"test1")

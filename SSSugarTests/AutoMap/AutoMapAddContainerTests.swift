@@ -4,8 +4,8 @@ import XCTest
 
 @testable import SSSugar
 
-class SSSugarContainersAutoMapAddContainerTests: XCTestCase {
-    let testHelper = SSSugarContainersAutoMapTestHelper()
+class AutoMapAddContainerTests: XCTestCase {
+    let testHelper = AutoMapTestHelper()
     
     func testAddToEmpty() {
         let insertion = testHelper.insertion
