@@ -12,8 +12,6 @@
  
  */
 
-#warning("rename file")
-
 import XCTest
 @testable import SSSugar
 
