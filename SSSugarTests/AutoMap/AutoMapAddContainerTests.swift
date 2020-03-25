@@ -1,36 +1,65 @@
+/*
+ 
+ Tests for AutoMap add(container:for:)
+ 
+ [Done] key
+    [Done] existing
+    [Done] new
+ [Done] empty AutoMap
+ [Done] empty container
+
+ */
+
 import XCTest
-
-//    Добавление контейнера. В пустую карту. В непустую карту. В карту содержащую ключ.
-
 @testable import SSSugar
 
 class AutoMapAddContainerTests: XCTestCase {
+    typealias Item = AutoMapTestDefaultItem
+    
     let testHelper = AutoMapTestHelper()
     
-    func testAddToEmpty() {
-        let insertion = testHelper.insertion
-        let expectedResult = AutoMap(map: [insertion.key : insertion.set])
-        var sut = AutoMap<String, Set<Int>>()
+    func testExistingKey() {
+        let map = testHelper.arrayMap(from: .evens)
+        var sut = AutoMap(map: map)
         
-        XCTAssertTrue(sut.add(container: insertion.set, for: insertion.key))
-        XCTAssertEqual(sut, expectedResult)
+        XCTAssertFalse(sut.add(container: Item.odds.array, for: .evens))
+        testHelper.assertEqual(sut, map)
     }
     
-    func testAdd() {
-        let insertion = testHelper.insertion
-        let expectedMap = testHelper.makeSetMap(with: testHelper.mapItems + [insertion])
-        let expectedResult = AutoMap(map: expectedMap)
-        var sut = AutoMap(map: testHelper.makeSetMap())
+    func testNewKey() {
+        var sut = AutoMap(map: testHelper.arrayMap(from: .evens))
         
-        XCTAssertTrue(sut.add(container: insertion.set, for: insertion.key))
-        XCTAssertEqual(sut, expectedResult)
+        XCTAssertTrue(sut.add(container: Item.odds.array, for: .odds))
+        testHelper.assertEqual(sut, testHelper.arrayMap(from: .evens, .odds))
     }
     
-    func testAddForExistingKey() {
-        let expectedResult = AutoMap(map: testHelper.makeSetMap())
-        var sut = AutoMap(map: testHelper.makeSetMap())
+    func testEmptyAutoMap() {
+        var sut = AutoMap<Item, [Int]>()
         
-        XCTAssertFalse(sut.add(container: testHelper.insertion.set, for: testHelper.evens.key))
-        XCTAssertEqual(sut, expectedResult)
+        XCTAssertTrue(sut.add(container: Item.odds.array, for: .odds))
+        testHelper.assertEqual(sut, testHelper.arrayMap(from: .odds))
+    }
+    
+    func testEmptyContainerExistingKey() {
+        let map = testHelper.arrayMap(from: .evens)
+        var sut = AutoMap(map: map)
+        
+        XCTAssertFalse(sut.add(container: [], for: .evens))
+        testHelper.assertEqual(sut, map)
+    }
+    
+    func testEmptyContainerNewKey() {
+        let map = testHelper.arrayMap(from: .evens)
+        var sut = AutoMap(map: map)
+        
+        XCTAssertFalse(sut.add(container: [], for: .odds))
+        testHelper.assertEqual(sut, map)
+    }
+    
+    func testEmptyContainerEmptyAutoMap() {
+        var sut = AutoMap<Item, [Int]>()
+        
+        XCTAssertFalse(sut.add(container: [], for: .odds))
+        testHelper.assertEqual(sut, [Item : [Int]]())
     }
 }

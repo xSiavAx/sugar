@@ -1,37 +1,50 @@
-import XCTest
+/*
+ 
+ Tests for AutoMap init(), init(map:)
+ 
+ [Done] init()
+ [Done] init(map:)
+    [Done] regular
+    [Done] empty
+    [Done] empty container
+    [Done] with empty container
+ 
+ */
 
+import XCTest
 @testable import SSSugar
-//С обычной кратой. С пустой картой. С картой с пустыми контейнерами.
 
 class AutoMapInitTests: XCTestCase {
+    typealias Item = AutoMapTestDefaultItem
+    
     let testHelper = AutoMapTestHelper()
     
-    func testRegularMap() {
-        let sut = AutoMap(map: testHelper.makeArrayMap())
-        
-        testHelper.checkWith(sut, testHelper.makeArrayMap())
+    func testInit() {
+        XCTAssertNotNil(AutoMap<Item, [Int]>())
     }
     
-    func testEmptyMap() {
-        let initMap = [String : [Int]]()
-        let sut = AutoMap(map: initMap)
+    func testInitMapRegular() {
+        let map = testHelper.arrayMap(from: .evens)
         
-        testHelper.checkWith(sut, initMap)
-    }
-
-    func testMapWithEmptySetContainer() {
-        let initMap = [testHelper.evens.key : testHelper.evens.set, "empty" : Set()]
-        let expectedMap = AutoMap(map: [testHelper.evens.key : testHelper.evens.set])
-        let sut = AutoMap(map: initMap)
-        
-        XCTAssertEqual(sut, expectedMap)
+        testHelper.assertEqual(AutoMap(map: map), map)
     }
     
-    func testMapWithEmptyArrayContainer() {
-        let initMap = [testHelper.evens.key : testHelper.evens.array, "empty" : []]
-        let expectedMap = AutoMap(map:[testHelper.evens.key : testHelper.evens.array])
-        let sut = AutoMap(map: initMap)
+    func testInitMapEmpty() {
+        let emptyMap = [Item : [Int]]()
         
-        XCTAssertEqual(sut, expectedMap)
+        testHelper.assertEqual(AutoMap(map: emptyMap), emptyMap)
+    }
+    
+    func testInitMapEmptyContainer() {
+        let sut = AutoMap(map: testHelper.arrayMap(from: .empty))
+        
+        testHelper.assertEqual(sut, [:])
+    }
+    
+    func testInitMapWithEmptyContainer() {
+        let map = testHelper.setMap(from: .evens, .empty)
+        let expectedMap = testHelper.setMap(from: .evens)
+        
+        testHelper.assertEqual(AutoMap(map: map), expectedMap)
     }
 }

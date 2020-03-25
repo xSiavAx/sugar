@@ -1,38 +1,45 @@
-import XCTest
+/*
+ 
+ Tests for AutoMap contains(_:for:)
+ 
+ [Done] value
+    [Done] contained
+    [Done] not contained
+ [Done] key
+    [Done] existing
+    [Done] nonexistent
+ [Done] empty map
+ 
+ */
 
+#warning("rename file")
+
+import XCTest
 @testable import SSSugar
 
-//Содержание. В пустом контейнере, с нужным ключем без элемента, без нужного ключа с элементом, с нужным ключем с нужным элементом.
-
-class AutoMapContainTests: XCTestCase {
+class AutoMapContainsTests: XCTestCase {
+    typealias Item = AutoMapTestDefaultItem
+    
     let testHelper = AutoMapTestHelper()
     
-    func testEmpty() {
-        let sut = AutoMap(map: [String : Set<Int>]())
+    func testExistingKey() {
+        let sut = AutoMap(map: testHelper.arrayMap(from: .evens))
         
-        XCTAssertFalse(sut.contains(0, for: "not_key"))
-        XCTAssertFalse(sut.contains(1000, for: "120"))
+        XCTAssertTrue(sut.contains(Item.evensFirstContainedValue, for: .evens))
+        XCTAssertFalse(sut.contains(Item.evensNotContainedValue, for: .evens))
     }
     
-    func testKeyNotValue() {
-        let key = testHelper.evens.key
-        let sut = AutoMap(map: [key : testHelper.evens.set])
+    func testNonexistentKey() {
+        let sut = AutoMap(map: testHelper.arrayMap(from: .evens))
         
-        XCTAssertFalse(sut.contains(1, for: key))
+        XCTAssertFalse(sut.contains(Item.evensFirstContainedValue, for: .new))
+        XCTAssertFalse(sut.contains(Item.evensNotContainedValue, for: .new))
     }
     
-    func testNotKeyButValue() {
-        let sut = AutoMap(map: [testHelper.evens.key : testHelper.evens.set])
+    func testEmptyMap() {
+        let sut = AutoMap<Item, [Int]>()
         
-        XCTAssertFalse(sut.contains(0, for: "not_key"))
-    }
-    
-    func testRegular() {
-        let key = testHelper.evens.key
-        let sut = AutoMap(map: [key : testHelper.evens.set])
-        
-        XCTAssertTrue(sut.contains(0, for: key))
-        XCTAssertTrue(sut.contains(2, for: key))
-        XCTAssertTrue(sut.contains(4, for: key))
+        XCTAssertFalse(sut.contains(Item.evensFirstContainedValue, for: .evens))
+        XCTAssertFalse(sut.contains(Item.evensNotContainedValue, for: .evens))
     }
 }

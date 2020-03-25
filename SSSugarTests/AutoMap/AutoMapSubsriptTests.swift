@@ -1,68 +1,89 @@
-import XCTest
+/*
+ 
+ Tests for AutoMap subscript(key:)
+ 
+ [Done] getter
+    [Done] key
+        [Done] existing
+        [Done] nonexistent
+    [Done] empty AutoMap
+ 
+ [Done] setter
+    [Done] key
+        [Done] existing
+        [Done] nonexistent
+    [Done] nil value
+    [Done] empty AutoMap
+ 
+ */
 
+#warning("rename file")
+
+import XCTest
 @testable import SSSugar
 
-//subscript get. Получение контейнера по ключу. Получение контейнера по ключу которого нет.
-//subscript set. subscript set. Перезапись. Перезапись пустым контейнером. Перезапись nil. Добавление. Добавление пустого. Добавление nil.
-
-class AutoMapSubsriptTests: XCTestCase {
+class AutoMapSubscriptKeyTests: XCTestCase {
+    typealias Item = AutoMapTestDefaultItem
+    
+    let testHelperOld = AutoMapTestHelper()
     let testHelper = AutoMapTestHelper()
     
-    func testGetRegular() {
-        let map = testHelper.makeSetMap()
-        let key = testHelper.evens.key
+    func testGetter() {
+        let map = testHelper.arrayMap(from: .evens, .odds)
+        let sut = AutoMap(map: map)
         
-        XCTAssert(AutoMap(map: map)[key] == map[key])
+        XCTAssertEqual(sut[.evens], Item.evens.array)
+        XCTAssertNil(sut[.new])
+        testHelper.assertEqual(sut, map)
     }
     
-    func testGetNotIncludedKey() {
-        XCTAssert(AutoMap(map: testHelper.makeSetMap())["notIncludedKey"] == nil)
-    }
-    
-    func testResetRegular() {
-        let expectedMap = testHelper.makeSetMap(with: testHelper.replacedMapItems)
-        let expectedResult = AutoMap(map: expectedMap)
-        var sut = AutoMap(map: testHelper.makeSetMap())
+    func testGetterEmptyMap() {
+        let sut = AutoMap<Item, [Int]>()
         
-        sut[testHelper.key.key] = testHelper.replace.set
-        XCTAssertEqual(sut, expectedResult)
+        XCTAssertNil(sut[.evens])
+        testHelper.assertEqual(sut, [:])
     }
     
-    func testResetEmpty() {
-//        automapSet["key"] = Set<Int>()
-        //fatalError
-    }
-    
-    func testResetNil() {
-        let expectedResult = AutoMap(map: [
-            testHelper.evens.key : testHelper.evens.set,
-            testHelper.odds.key : testHelper.odds.set
-        ])
-        var sut = AutoMap(map: testHelper.makeSetMap())
+    func testSetterExistingKey() {
+        var sut = AutoMap(map: testHelper.arrayMap(from: .evens))
         
-        sut[testHelper.key.key] = nil
-        XCTAssertEqual(sut, expectedResult)
+        sut[.evens] = Item.evensNew.array
+        testHelper.assertEqual(sut, testHelper.arrayMap(from: .evensNew))
     }
     
-    func testSetRegular() {
-        let expectedMap = testHelper.makeSetMap(with: testHelper.mapItems + [testHelper.insertion])
-        let expectedResult = AutoMap(map: expectedMap)
-        var sut = AutoMap(map: testHelper.makeSetMap())
+    func testSetterNonexistentKey() {
+        var sut = AutoMap(map: testHelper.arrayMap(from: .evens))
         
-        sut[testHelper.insertion.key] = testHelper.insertion.set
-        XCTAssertEqual(sut, expectedResult)
+        sut[.odds] = Item.odds.array
+        testHelper.assertEqual(sut, testHelper.arrayMap(from: .evens, .odds))
     }
     
-    func testSetEmpty() {
-//        automapSet["key1"] = Set<Int>()
-        //fatalError
-    }
-    
-    func testSetNil() {
-        let expectedResult = AutoMap(map: testHelper.makeSetMap())
-        var sut = AutoMap(map: testHelper.makeSetMap())
+    func testSetterExistingKeyNilValue() {
+        var sut = AutoMap(map: testHelper.arrayMap(from: .evens, .odds))
         
-        sut["notIncludedKey"] = nil
-        XCTAssertEqual(sut, expectedResult)
+        sut[.evens] = nil
+        testHelper.assertEqual(sut, testHelper.arrayMap(from: .odds))
+    }
+    
+    func testSetterNonexistentKeyNilValue() {
+        let map = testHelper.arrayMap(from: .evens, .odds)
+        var sut = AutoMap(map: map)
+        
+        sut[.new] = nil
+        testHelper.assertEqual(sut, map)
+    }
+    
+    func testSetterEmptyMap() {
+        var sut = AutoMap<Item, [Int]>()
+        
+        sut[.evens] = Item.evens.array
+        testHelper.assertEqual(sut, testHelper.arrayMap(from: .evens))
+    }
+    
+    func testSetterEmptyMapNilValue() {
+        var sut = AutoMap<Item, [Int]>()
+        
+        sut[.evens] = nil
+        testHelper.assertEqual(sut, [:])
     }
 }
