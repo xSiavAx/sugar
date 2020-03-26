@@ -34,7 +34,7 @@ class AutoMapContainsTests: XCTestCase {
         XCTAssertFalse(sut.contains(Item.evensNotContainedValue, for: .new))
     }
     
-    func testEmptyMap() {
+    func testEmptyAutoMap() {
         let sut = AutoMap<Item, [Int]>()
         
         XCTAssertFalse(sut.contains(Item.evensFirstContainedValue, for: .evens))

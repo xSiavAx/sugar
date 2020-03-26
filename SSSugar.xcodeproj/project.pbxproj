@@ -13,6 +13,8 @@
 		2D5CCF122429F9700065278E /* SSSugarExtensionContainersArrayPickAtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5CCF112429F9700065278E /* SSSugarExtensionContainersArrayPickAtTests.swift */; };
 		2D5E66D62424CD0F00D82DEE /* SSSugarExtensionCGRectDividedCountVerticalyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5E66D52424CD0F00D82DEE /* SSSugarExtensionCGRectDividedCountVerticalyTests.swift */; };
 		2D61561A2423C4F80015A9E0 /* SSCollectionViewMarkableControllerUnmarkTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6156192423C4F80015A9E0 /* SSCollectionViewMarkableControllerUnmarkTC.swift */; };
+		2D78DB19242D49A500D77DD1 /* AutoMapUpdateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D78DB18242D49A500D77DD1 /* AutoMapUpdateTests.swift */; };
+		2D78DB1B242D519800D77DD1 /* AutoMapEqualityOperatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D78DB1A242D519800D77DD1 /* AutoMapEqualityOperatorTests.swift */; };
 		2D7E5A3E241FD0E5009EE074 /* SSCollectionViewMarkableControllerConfigCellTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AB345522454466004959B1 /* SSCollectionViewMarkableControllerConfigCellTC.swift */; };
 		2D7E5A3F241FD0E5009EE074 /* SSCollectionViewMarkableControllerActivateTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A78122442BD600D96BEE /* SSCollectionViewMarkableControllerActivateTC.swift */; };
 		2D7E5A40241FD0E5009EE074 /* SSCollectionViewMarkableControllerTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A77E22441F9800D96BEE /* SSCollectionViewMarkableControllerTestHelper.swift */; };
@@ -54,6 +56,10 @@
 		2DBCCFB6242BBAB800100093 /* AutoMapIsEmptyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBCCFB5242BBAB800100093 /* AutoMapIsEmptyTests.swift */; };
 		2DBCCFB8242BBDFE00100093 /* AutoMapCountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBCCFB7242BBDFE00100093 /* AutoMapCountTests.swift */; };
 		2DBCCFBA242BC73000100093 /* AutoMapSubscriptKeyIndexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBCCFB9242BC73000100093 /* AutoMapSubscriptKeyIndexTests.swift */; };
+		2DC1D1A9242CD2060049020B /* AutoMapRemoveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC1D1A8242CD2060049020B /* AutoMapRemoveTests.swift */; };
+		2DC1D1AB242CF63E0049020B /* AutoMapRemoveForAtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC1D1AA242CF63E0049020B /* AutoMapRemoveForAtTests.swift */; };
+		2DC1D1AD242D0BB70049020B /* AutoMapRemoveForKeyAndIndexes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC1D1AC242D0BB70049020B /* AutoMapRemoveForKeyAndIndexes.swift */; };
+		2DC1D1AF242D41740049020B /* AutoMapInsertTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC1D1AE242D41740049020B /* AutoMapInsertTests.swift */; };
 		990A18A722E641F4008DCCF0 /* SSViewStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990A18A622E641F4008DCCF0 /* SSViewStyles.swift */; };
 		99365D4423B251BE00C8A7DF /* SSViewTransitionAnimating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99365D4323B251BE00C8A7DF /* SSViewTransitionAnimating.swift */; };
 		99365D4723B2530400C8A7DF /* SSScaleAndAlphaTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99365D4623B2530400C8A7DF /* SSScaleAndAlphaTransitionAnimator.swift */; };
@@ -155,6 +161,8 @@
 		2D5CCF112429F9700065278E /* SSSugarExtensionContainersArrayPickAtTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarExtensionContainersArrayPickAtTests.swift; sourceTree = "<group>"; };
 		2D5E66D52424CD0F00D82DEE /* SSSugarExtensionCGRectDividedCountVerticalyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSSugarExtensionCGRectDividedCountVerticalyTests.swift; sourceTree = "<group>"; };
 		2D6156192423C4F80015A9E0 /* SSCollectionViewMarkableControllerUnmarkTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerUnmarkTC.swift; sourceTree = "<group>"; };
+		2D78DB18242D49A500D77DD1 /* AutoMapUpdateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapUpdateTests.swift; sourceTree = "<group>"; };
+		2D78DB1A242D519800D77DD1 /* AutoMapEqualityOperatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapEqualityOperatorTests.swift; sourceTree = "<group>"; };
 		2D7FD9F32420F73200D4C28F /* AutoMapTestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapTestHelper.swift; sourceTree = "<group>"; };
 		2D8BABBF24292ADA00B8A84D /* SSSugarExtensionContainersDictionaryPickingForTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarExtensionContainersDictionaryPickingForTests.swift; sourceTree = "<group>"; };
 		2D8CF9B7241FC4BA00168C8A /* SSSugarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SSSugarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -166,6 +174,10 @@
 		2DBCCFB5242BBAB800100093 /* AutoMapIsEmptyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapIsEmptyTests.swift; sourceTree = "<group>"; };
 		2DBCCFB7242BBDFE00100093 /* AutoMapCountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapCountTests.swift; sourceTree = "<group>"; };
 		2DBCCFB9242BC73000100093 /* AutoMapSubscriptKeyIndexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapSubscriptKeyIndexTests.swift; sourceTree = "<group>"; };
+		2DC1D1A8242CD2060049020B /* AutoMapRemoveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapRemoveTests.swift; sourceTree = "<group>"; };
+		2DC1D1AA242CF63E0049020B /* AutoMapRemoveForAtTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapRemoveForAtTests.swift; sourceTree = "<group>"; };
+		2DC1D1AC242D0BB70049020B /* AutoMapRemoveForKeyAndIndexes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapRemoveForKeyAndIndexes.swift; sourceTree = "<group>"; };
+		2DC1D1AE242D41740049020B /* AutoMapInsertTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapInsertTests.swift; sourceTree = "<group>"; };
 		990A18A622E641F4008DCCF0 /* SSViewStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSViewStyles.swift; sourceTree = "<group>"; };
 		99365D4323B251BE00C8A7DF /* SSViewTransitionAnimating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSViewTransitionAnimating.swift; sourceTree = "<group>"; };
 		99365D4623B2530400C8A7DF /* SSScaleAndAlphaTransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSScaleAndAlphaTransitionAnimator.swift; sourceTree = "<group>"; };
@@ -733,10 +745,16 @@
 				99DB1A7E229EE36D005C4823 /* AutoMapAddContainerTests.swift */,
 				99DB1A78229ED6BB005C4823 /* AutoMapContainsTests.swift */,
 				2DBCCFAF242BAB7500100093 /* AutoMapReplaceTests.swift */,
-				2DBCCFB1242BB45E00100093 /* AutoMapRemoveForTests.swift */,
 				2DBCCFB3242BB89600100093 /* AutoMapRemoveAllTests.swift */,
+				2DBCCFB1242BB45E00100093 /* AutoMapRemoveForTests.swift */,
+				2DC1D1A8242CD2060049020B /* AutoMapRemoveTests.swift */,
+				2DC1D1AA242CF63E0049020B /* AutoMapRemoveForAtTests.swift */,
+				2DC1D1AC242D0BB70049020B /* AutoMapRemoveForKeyAndIndexes.swift */,
+				2DC1D1AE242D41740049020B /* AutoMapInsertTests.swift */,
+				2D78DB18242D49A500D77DD1 /* AutoMapUpdateTests.swift */,
 				99DB1A7A229ED9FC005C4823 /* AutoMapSubscriptKeyTests.swift */,
 				2DBCCFB9242BC73000100093 /* AutoMapSubscriptKeyIndexTests.swift */,
+				2D78DB1A242D519800D77DD1 /* AutoMapEqualityOperatorTests.swift */,
 				2DBCCFB5242BBAB800100093 /* AutoMapIsEmptyTests.swift */,
 				2DBCCFB7242BBDFE00100093 /* AutoMapCountTests.swift */,
 				2D7FD9F32420F73200D4C28F /* AutoMapTestHelper.swift */,
@@ -868,14 +886,17 @@
 				2D5CCF122429F9700065278E /* SSSugarExtensionContainersArrayPickAtTests.swift in Sources */,
 				2D7E5A47241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperDeactivateTC.swift in Sources */,
 				2D7E5A48241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperActivateActivatedTC.swift in Sources */,
+				2DC1D1A9242CD2060049020B /* AutoMapRemoveTests.swift in Sources */,
 				2D7E5A49241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperUnmarkNonMarkedTC.swift in Sources */,
 				2D7E5A4A241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperUnmarkTC.swift in Sources */,
+				2DC1D1AF242D41740049020B /* AutoMapInsertTests.swift in Sources */,
 				2D7E5A4B241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperMarkMarkedTC.swift in Sources */,
 				2D7E5A4C241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperTestHelper.swift in Sources */,
 				2D7E5A4D241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperActivateTC.swift in Sources */,
 				2DBCCFB4242BB89600100093 /* AutoMapRemoveAllTests.swift in Sources */,
 				2D7E5A4E241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperMarkNonActiveTC.swift in Sources */,
 				2D535E12242A0F7E0024D4C0 /* SSGroupExecutorTests.swift in Sources */,
+				2D78DB19242D49A500D77DD1 /* AutoMapUpdateTests.swift in Sources */,
 				2D7E5A4F241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperMarkTC.swift in Sources */,
 				2DBCCFB2242BB45E00100093 /* AutoMapRemoveForTests.swift in Sources */,
 				2D7E5A50241FD0E5009EE074 /* SSSugarPlaygroundTests.swift in Sources */,
@@ -884,10 +905,12 @@
 				2D7E5A53241FD0E5009EE074 /* SSSugarExtensionCGRectInsetToWHTests.swift in Sources */,
 				2D7E5A54241FD0E5009EE074 /* SSSugarExtensionCGRectInsetToSizeTests.swift in Sources */,
 				2D7E5A55241FD0E5009EE074 /* SSSugarExtensionCGRectCenterTests.swift in Sources */,
+				2DC1D1AD242D0BB70049020B /* AutoMapRemoveForKeyAndIndexes.swift in Sources */,
 				2D8BABC024292ADA00B8A84D /* SSSugarExtensionContainersDictionaryPickingForTests.swift in Sources */,
 				2D7E5A56241FD0E5009EE074 /* SSSugarExtensionSizeUnitedIntersectedTests.swift in Sources */,
 				2D5E66D62424CD0F00D82DEE /* SSSugarExtensionCGRectDividedCountVerticalyTests.swift in Sources */,
 				2D7E5A57241FD0E5009EE074 /* SSSugarExtensionColorInitTests.swift in Sources */,
+				2D78DB1B242D519800D77DD1 /* AutoMapEqualityOperatorTests.swift in Sources */,
 				2D7E5A58241FD0E5009EE074 /* SSSugarExtensionRangeMiddleTests.swift in Sources */,
 				2D7E5A59241FD0E5009EE074 /* SSSugarExtensionContainersArrayForEachTests.swift in Sources */,
 				2D7E5A5A241FD0E5009EE074 /* SSSugarExtensionContainersArrayBinarySearchTests.swift in Sources */,
@@ -898,6 +921,7 @@
 				2DBCCFB0242BAB7500100093 /* AutoMapReplaceTests.swift in Sources */,
 				2D7FD9F42420F73200D4C28F /* AutoMapTestHelper.swift in Sources */,
 				2D61561A2423C4F80015A9E0 /* SSCollectionViewMarkableControllerUnmarkTC.swift in Sources */,
+				2DC1D1AB242CF63E0049020B /* AutoMapRemoveForAtTests.swift in Sources */,
 				2D7E5A5F241FD0E5009EE074 /* AutoMapContainsTests.swift in Sources */,
 				2D7E5A60241FD0E5009EE074 /* AutoMapAddTests.swift in Sources */,
 				2DBCCFB8242BBDFE00100093 /* AutoMapCountTests.swift in Sources */,

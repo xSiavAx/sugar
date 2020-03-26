@@ -10,14 +10,14 @@
  [Done] replace(_:for:)
  [Done] removeAll()
  [Done] remove(for:)
- [] remove(_:for:)
- [] remove(for:at:)
- [] remove(forKeyAndIndexes:)
- [] insert(_:for:at:)
- [] update(_:for:at:)
+ [Done] remove(for:at:)
+ [Done] remove(_:for:)
+ [Done] remove(forKeyAndIndexes:)
+ [Done] insert(_:for:at:)
+ [Done] update(_:for:at:)
  
  // Static Methods
- [] ==
+ [Done] ==
  
  // Subscripts
  [Done] subscript(key:)
@@ -39,7 +39,6 @@ struct AutoMapTestHelper {
         var map = [AutoMapTestDefaultItem : [Int]]()
         
         items.forEach { map[$0.key] = $0.array }
-        
         return map
     }
     
@@ -47,7 +46,6 @@ struct AutoMapTestHelper {
         var map = [AutoMapTestDefaultItem : Set<Int>]()
         
         items.forEach { map[$0.key] = $0.set }
-        
         return map
     }
     
@@ -62,14 +60,18 @@ struct AutoMapTestHelper {
 
 enum AutoMapTestDefaultItem {
     case evens
-    case odds
-    case fibonacci
-    case empty
-    case new
+    case evensIndices
     case evensAdd
     case evensNew
     case evensChanged
     case evensWithoutElement
+    case evensWithoutTwoIndices
+    case odds
+    case oddsIndices
+    case oddsInserted
+    case fibonacci
+    case empty
+    case new
     
     static let addValue = 999111
     static let evensFirstContainedValue = 2
@@ -80,11 +82,21 @@ enum AutoMapTestDefaultItem {
     static let evensChangedValue = 10
     static let evensChangedIndex = 2
     static let evensWithoutElementIndex = 2
+    static let evensWithoutElementValue = Self.evens.array[evensWithoutElementIndex]
+    static let evensContaindeIndex = 2
+    static let evensNotContainedIndex = 999
+    static let oddsInsertedIndex = 3
+    static let oddsInsertedValue = 99
+    
+    var firstOfTwoIndex: Int { 0 }
+    var secondOfTwoIndex: Int { array.count - 1 }
     
     var key: AutoMapTestDefaultItem {
         switch self {
-        case .evensAdd, .evensNew, .evensChanged, .evensWithoutElement:
+        case .evensIndices, .evensAdd, .evensNew, .evensChanged, .evensWithoutElement, .evensWithoutTwoIndices:
             return .evens
+        case .oddsIndices, .oddsInserted:
+            return .odds
         default:
             return self
         }
@@ -106,26 +118,68 @@ enum AutoMapTestDefaultItem {
                 Self.evensThirdContainedValue,
                 Self.evensLastContainedValue
             ]
+        case .evensIndices:
+            return Array(Self.evens.array.indices)
+        case .evensAdd:
+            return Self.evens.array + [Self.addValue]
+        case .evensNew:
+            return [12, 14, 16, 18]
+        case .evensChanged:
+            return getEvensArrayChnaged()
+        case .evensWithoutElement:
+            return getEvensArrayWithoutElement()
+        case .evensWithoutTwoIndices:
+            return getEvensArrayWithoutTwoIndices()
         case .odds:
             return [1, 3, 5, 7]
+        case .oddsIndices:
+            return Array(Self.odds.array.indices)
+        case .oddsInserted:
+            return getOddsArrayWithInsertedValue()
         case .fibonacci:
             return [3, 5, 8, 13]
         case .empty:
             return []
         case .new:
             return [Self.addValue]
-        case .evensAdd:
-            return Self.evens.array + [Self.addValue]
-        case .evensNew:
-            return [12, 14, 16, 18]
-        case .evensChanged:
-            var array = Self.evens.array
-            array[Self.evensChangedIndex] = Self.evensChangedValue
-            return array
-        case .evensWithoutElement:
-            var array = Self.evens.array
-            array.remove(at: Self.evensWithoutElementIndex)
-            return array
         }
+    }
+    var keyAndTwoIndices: [Self : [Int]] {
+        [self : [firstOfTwoIndex, secondOfTwoIndex]]
+    }
+    var reversedKeyAndTwoIndices: [Self : [Int]] {
+        [self : [secondOfTwoIndex, firstOfTwoIndex]]
+    }
+    var keyAndTwoValues: [Self : [Int]] {
+        [self : [array[firstOfTwoIndex], array[secondOfTwoIndex]]]
+    }
+    
+    private func getEvensArrayChnaged() -> [Int] {
+        var array = Self.evens.array
+        
+        array[Self.evensChangedIndex] = Self.evensChangedValue
+        return array
+    }
+    
+    private func getEvensArrayWithoutElement() -> [Int] {
+        var array = Self.evens.array
+        
+        array.remove(at: Self.evensWithoutElementIndex)
+        return array
+    }
+    
+    private func getEvensArrayWithoutTwoIndices() -> [Int] {
+        var array = Self.evens.array
+        
+        array.remove(at: Self.evens.secondOfTwoIndex)
+        array.remove(at: Self.evens.firstOfTwoIndex)
+        return array
+    }
+    
+    private func getOddsArrayWithInsertedValue() -> [Int] {
+        var array = Self.odds.array
+        
+        array.insert(Self.oddsInsertedValue, at: Self.oddsInsertedIndex)
+        return array
     }
 }

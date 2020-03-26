@@ -35,7 +35,7 @@ class AutoMapSubscriptKeyTests: XCTestCase {
         testHelper.assertEqual(sut, map)
     }
     
-    func testGetterEmptyMap() {
+    func testGetterEmptyAutoMap() {
         let sut = AutoMap<Item, [Int]>()
         
         XCTAssertNil(sut[.evens])
@@ -71,14 +71,14 @@ class AutoMapSubscriptKeyTests: XCTestCase {
         testHelper.assertEqual(sut, map)
     }
     
-    func testSetterEmptyMap() {
+    func testSetterEmptyAutoMap() {
         var sut = AutoMap<Item, [Int]>()
         
         sut[.evens] = Item.evens.array
         testHelper.assertEqual(sut, testHelper.arrayMap(from: .evens))
     }
     
-    func testSetterEmptyMapNilValue() {
+    func testSetterEmptyAutoMapNilValue() {
         var sut = AutoMap<Item, [Int]>()
         
         sut[.evens] = nil
