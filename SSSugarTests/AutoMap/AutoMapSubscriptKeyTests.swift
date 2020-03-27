@@ -4,14 +4,15 @@
  
  [Done] getter
     [Done] key
-        [Done] existing
-        [Done] nonexistent
+        [Done] contained
+        [Done] not contained
     [Done] empty AutoMap
  
  [Done] setter
     [Done] key
-        [Done] existing
-        [Done] nonexistent
+        [Done] contained
+        [Done] not contained
+    [Done] same container
     [Done] nil value
     [Done] empty AutoMap
  
@@ -42,28 +43,42 @@ class AutoMapSubscriptKeyTests: XCTestCase {
         testHelper.assertEqual(sut, [:])
     }
     
-    func testSetterExistingKey() {
+    func testSetterContainedKey() {
         var sut = AutoMap(map: testHelper.arrayMap(from: .evens))
         
         sut[.evens] = Item.evensNew.array
         testHelper.assertEqual(sut, testHelper.arrayMap(from: .evensNew))
     }
     
-    func testSetterNonexistentKey() {
+    func testSetterNotContainedKey() {
         var sut = AutoMap(map: testHelper.arrayMap(from: .evens))
         
         sut[.odds] = Item.odds.array
         testHelper.assertEqual(sut, testHelper.arrayMap(from: .evens, .odds))
     }
     
-    func testSetterExistingKeyNilValue() {
+    func testSetterContainedKeySameContainer() {
+        var sut = AutoMap(map: testHelper.arrayMap(from: .evens, .odds))
+        
+        sut[.evens] = Item.evens.array
+        testHelper.assertEqual(sut, testHelper.arrayMap(from: .evens, .odds))
+    }
+    
+    func testSetterNotContainedKeySameContainer() {
+        var sut = AutoMap(map: testHelper.arrayMap(from: .evens, .fibonacci))
+        
+        sut[.odds] = Item.evens.array
+        testHelper.assertEqual(sut, testHelper.arrayMap(from: .evens, .fibonacci, .oddsEvens))
+    }
+    
+    func testSetterContainedKeyNilValue() {
         var sut = AutoMap(map: testHelper.arrayMap(from: .evens, .odds))
         
         sut[.evens] = nil
         testHelper.assertEqual(sut, testHelper.arrayMap(from: .odds))
     }
     
-    func testSetterNonexistentKeyNilValue() {
+    func testSetterNotContainedKeyNilValue() {
         let map = testHelper.arrayMap(from: .evens, .odds)
         var sut = AutoMap(map: map)
         

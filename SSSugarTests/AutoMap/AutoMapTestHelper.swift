@@ -15,6 +15,7 @@
  [Done] remove(forKeyAndIndexes:)
  [Done] insert(_:for:at:)
  [Done] update(_:for:at:)
+ [] makeIterator()
  
  // Static Methods
  [Done] ==
@@ -26,6 +27,11 @@
  // Properties
  [Done] isEmpty
  [Done] count
+ 
+ // Inner Types
+ [] Iterator
+    [] init(map:)
+    [] next()
  
  Проверить доступность методов AutoMap как составляющую импортированного фреймворка (public)
  
@@ -64,38 +70,38 @@ enum AutoMapTestDefaultItem {
     case evensAdd
     case evensNew
     case evensChanged
-    case evensWithoutElement
+    case evensWithoutValue
     case evensWithoutTwoIndices
+    case evensDoubleSecond
     case odds
     case oddsIndices
     case oddsInserted
+    case oddsEvens
     case fibonacci
     case empty
     case new
     
     static let addValue = 999111
-    static let evensFirstContainedValue = 2
-    static let evensSecondContainedValue = 4
-    static let evensThirdContainedValue = 6
-    static let evensLastContainedValue = 8
-    static let evensNotContainedValue = -1
+    static let evensFirstValue = 2
+    static let evensSecondValue = 4
+    static let evensContainedIndex = 2
+    static let evensContainedValue = Self.evens.array[evensContainedIndex]
     static let evensChangedValue = 10
     static let evensChangedIndex = 2
-    static let evensWithoutElementIndex = 2
-    static let evensWithoutElementValue = Self.evens.array[evensWithoutElementIndex]
-    static let evensContaindeIndex = 2
-    static let evensNotContainedIndex = 999
+    static let evensWithoutValueIndex = 2
+    static let evensWithoutValueValue = Self.evens.array[evensWithoutValueIndex]
+    static let oddsFirstValue = 1
     static let oddsInsertedIndex = 3
     static let oddsInsertedValue = 99
     
-    var firstOfTwoIndex: Int { 0 }
-    var secondOfTwoIndex: Int { array.count - 1 }
+    private var firstOfTwoIndex: Int { 0 }
+    private var secondOfTwoIndex: Int { array.count - 1 }
     
     var key: AutoMapTestDefaultItem {
         switch self {
-        case .evensIndices, .evensAdd, .evensNew, .evensChanged, .evensWithoutElement, .evensWithoutTwoIndices:
+        case .evensIndices, .evensAdd, .evensNew, .evensChanged, .evensWithoutValue, .evensWithoutTwoIndices, .evensDoubleSecond:
             return .evens
-        case .oddsIndices, .oddsInserted:
+        case .oddsIndices, .oddsInserted, .oddsEvens:
             return .odds
         default:
             return self
@@ -111,13 +117,8 @@ enum AutoMapTestDefaultItem {
     }
     var array: [Int] {
         switch self {
-        case .evens:
-            return [
-                Self.evensFirstContainedValue,
-                Self.evensSecondContainedValue,
-                Self.evensThirdContainedValue,
-                Self.evensLastContainedValue
-            ]
+        case .evens, .oddsEvens:
+            return [Self.evensFirstValue, Self.evensSecondValue, 6, 8]
         case .evensIndices:
             return Array(Self.evens.array.indices)
         case .evensAdd:
@@ -126,12 +127,14 @@ enum AutoMapTestDefaultItem {
             return [12, 14, 16, 18]
         case .evensChanged:
             return getEvensArrayChnaged()
-        case .evensWithoutElement:
-            return getEvensArrayWithoutElement()
+        case .evensWithoutValue:
+            return getEvensArrayWithoutValue()
         case .evensWithoutTwoIndices:
             return getEvensArrayWithoutTwoIndices()
+        case .evensDoubleSecond:
+            return Self.evens.array + [Self.evensSecondValue]
         case .odds:
-            return [1, 3, 5, 7]
+            return [Self.oddsFirstValue, 3, 5, 7]
         case .oddsIndices:
             return Array(Self.odds.array.indices)
         case .oddsInserted:
@@ -161,10 +164,10 @@ enum AutoMapTestDefaultItem {
         return array
     }
     
-    private func getEvensArrayWithoutElement() -> [Int] {
+    private func getEvensArrayWithoutValue() -> [Int] {
         var array = Self.evens.array
         
-        array.remove(at: Self.evensWithoutElementIndex)
+        array.remove(at: Self.evensWithoutValueIndex)
         return array
     }
     

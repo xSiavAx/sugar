@@ -3,10 +3,10 @@
  Tests for AutoMap add(container:for:)
  
  [Done] key
-    [Done] existing
-    [Done] new
- [Done] empty AutoMap
+    [Done] contained
+    [Done] not contained
  [Done] empty container
+ [Done] empty AutoMap
 
  */
 
@@ -18,7 +18,7 @@ class AutoMapAddContainerTests: XCTestCase {
     
     let testHelper = AutoMapTestHelper()
     
-    func testExistingKey() {
+    func testContainedKey() {
         let map = testHelper.arrayMap(from: .evens)
         var sut = AutoMap(map: map)
         
@@ -26,7 +26,7 @@ class AutoMapAddContainerTests: XCTestCase {
         testHelper.assertEqual(sut, map)
     }
     
-    func testNewKey() {
+    func testNotContainedKey() {
         var sut = AutoMap(map: testHelper.arrayMap(from: .evens))
         
         XCTAssertTrue(sut.add(container: Item.odds.array, for: .odds))
@@ -40,7 +40,7 @@ class AutoMapAddContainerTests: XCTestCase {
         testHelper.assertEqual(sut, testHelper.arrayMap(from: .odds))
     }
     
-    func testEmptyContainerExistingKey() {
+    func testEmptyContainerContainedKey() {
         let map = testHelper.arrayMap(from: .evens)
         var sut = AutoMap(map: map)
         
@@ -48,7 +48,7 @@ class AutoMapAddContainerTests: XCTestCase {
         testHelper.assertEqual(sut, map)
     }
     
-    func testEmptyContainerNewKey() {
+    func testEmptyContainerNotContainedKey() {
         let map = testHelper.arrayMap(from: .evens)
         var sut = AutoMap(map: map)
         

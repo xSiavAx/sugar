@@ -8,7 +8,7 @@
     [Done] value
     [Done] container
     [Done] empty container
-    [Done] empty container nonexistent key
+    [Done] empty container not contained key
  [Done] remove
     [Done] value
     [Done] container
@@ -54,7 +54,7 @@ class AutoMapCountTests: XCTestCase {
         XCTAssertEqual(sut.count, Item.evens.array.count)
     }
     
-    func testAddEmptyContainerNonExistentContainer() {
+    func testAddEmptyContainerNotContainedKey() {
         var sut = AutoMap(map: testHelper.arrayMap(from: .evens))
         
         sut.add(container: [], for: .odds)
@@ -64,7 +64,7 @@ class AutoMapCountTests: XCTestCase {
     func testRemoveValue() {
         var sut = AutoMap(map: testHelper.arrayMap(from: .evens, .odds))
         
-        sut.remove(Item.evensFirstContainedValue, for: .evens)
+        sut.remove(Item.evensFirstValue, for: .evens)
         XCTAssertEqual(sut.count, Item.evens.array.count + Item.odds.array.count - 1)
     }
     

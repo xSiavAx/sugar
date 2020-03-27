@@ -1,11 +1,13 @@
 /*
 
- Tests for AutoMap add(_:for:)
+ Tests for AutoMap 
  
- [Done] existing key
- [Done] new key
+ [Done] key
+    [Done] contained
+    [Done] not contained
+ [Done] contained value
  [Done] empty AutoMap
- [Done] InsertableCollection with contained value
+ [Done] ReplaceableCollection container
  
  */
 
@@ -18,31 +20,59 @@ class AutoMapAddTests: XCTestCase {
     
     let testHelper = AutoMapTestHelper()
     
-    func testExistingKey() {
+    func testContainedKey() {
+        var sut = AutoMap(map: testHelper.setMap(from: .evens))
+        
+        XCTAssertTrue(sut.add(Item.addValue, for: .evens))
+        testHelper.assertEqual(sut, testHelper.setMap(from: .evensAdd))
+    }
+    
+    func testNotContainedKey() {
+        var sut = AutoMap(map: testHelper.setMap(from: .evens))
+        
+        XCTAssertTrue(sut.add(Item.addValue, for: .new))
+        testHelper.assertEqual(sut, testHelper.setMap(from: .evens, .new))
+    }
+    
+    func testWithContainedValue() {
+        var sut = AutoMap(map: testHelper.setMap(from: .evens))
+        
+        XCTAssertFalse(sut.add(Item.evensFirstValue, for: .evens))
+        testHelper.assertEqual(sut, testHelper.setMap(from: .evens))
+    }
+    
+    func testEmptyAutoMap() {
+        var sut = AutoMap<Item, Set<Int>>()
+        
+        XCTAssertTrue(sut.add(Item.addValue, for: .new))
+        testHelper.assertEqual(sut, testHelper.setMap(from: .new))
+    }
+    
+    func testContainedKeyReplaceableCollectionContainer() {
         var sut = AutoMap(map: testHelper.arrayMap(from: .evens))
         
         XCTAssertTrue(sut.add(Item.addValue, for: .evens))
         testHelper.assertEqual(sut, testHelper.arrayMap(from: .evensAdd))
     }
     
-    func testNewKey() {
+    func testNotContainedKeyReplaceableCollectionContainer() {
         var sut = AutoMap(map: testHelper.arrayMap(from: .evens))
         
         XCTAssertTrue(sut.add(Item.addValue, for: .new))
         testHelper.assertEqual(sut, testHelper.arrayMap(from: .evens, .new))
     }
     
-    func testEmptyAutoMap() {
-        var sut = AutoMap<Item, [Int]>()
+    func testContainedValueReplaceableCollectionContainer() {
+        var sut = AutoMap(map: testHelper.arrayMap(from: .evens))
         
-        XCTAssertTrue(sut.add(Item.addValue, for: .evens))
-        testHelper.assertEqual(sut, [Item.evens : [Item.addValue]])
+        XCTAssertTrue(sut.add(Item.evensSecondValue, for: .evens))
+        testHelper.assertEqual(sut, testHelper.arrayMap(from: .evensDoubleSecond))
     }
     
-    func testInsertableCollectionWithContainedValue() {
-        var sut = AutoMap(map: testHelper.setMap(from: .evens))
+    func testEmptyAutoMapReplaceableCollectionContainer() {
+        var sut = AutoMap<Item, [Int]>()
         
-        XCTAssertFalse(sut.add(Item.evensFirstContainedValue, for: .evens))
-        testHelper.assertEqual(sut, testHelper.setMap(from: .evens))
+        XCTAssertTrue(sut.add(Item.addValue, for: .new))
+        testHelper.assertEqual(sut, testHelper.arrayMap(from: .new))
     }
 }

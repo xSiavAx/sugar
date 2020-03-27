@@ -3,15 +3,15 @@
  Tests for AutoMap remove(forKeyAndIndexes:)
  
  [Done] keys
-    [Done] existing
-    [Done] nonexsitent
+    [Done] contained
+    [Done] not contained
     [Done] multiple
     [Done] mixed
  [Done] indices
-    [Done] existing
-    [Done] all existing
-    [fatalError] reversed existing
-    [fatalError] nonexsitent
+    [Done] contained
+    [Done] all
+    [fatalError] reversed contained
+    [fatalError] not contained
  [Done] empty AutoMap
  
  */
@@ -24,7 +24,7 @@ class AutoMapRemoveForKeyAndIndexes: XCTestCase {
     
     let testHelper = AutoMapTestHelper()
 
-    func testExistingKeysExistingIndices() {
+    func testContainedKeysContainedIndices() {
         var sut = AutoMap(map: testHelper.arrayMap(from: .evens, .odds))
         let keysAndIndices = AutoMap(map: Item.evens.keyAndTwoIndices)
         let result = sut.remove(forKeyAndIndexes: keysAndIndices)
@@ -33,7 +33,7 @@ class AutoMapRemoveForKeyAndIndexes: XCTestCase {
         testHelper.assertEqual(sut, testHelper.arrayMap(from: .evensWithoutTwoIndices, .odds))
     }
     
-    func testExistingKeysAllExistingIndices() {
+    func testContainedKeysAllIndices() {
         var sut = AutoMap(map: testHelper.arrayMap(from: .evens, .odds))
         let keyAndIndices = AutoMap(map: testHelper.arrayMap(from: .evensIndices))
         let result = sut.remove(forKeyAndIndexes: keyAndIndices)
@@ -43,7 +43,7 @@ class AutoMapRemoveForKeyAndIndexes: XCTestCase {
     }
     
     #warning("fatal error on reversed indices array")
-//    func testExistingKeysReversedExistingIndices() {
+//    func testContainedKeysReversedContainedIndices() {
 //        var sut = AutoMap(map: testHelper.arrayMap(from: .evens, .odds))
 //        let keysAndIndices = AutoMap(map: Item.evens.reversedKeyAndTwoIndices)
 //        let result = sut.remove(forKeyAndIndexes: keysAndIndices)
@@ -53,7 +53,7 @@ class AutoMapRemoveForKeyAndIndexes: XCTestCase {
 //    }
     
     
-    func testNonexistentKeys() {
+    func testNotContainedKeys() {
         let map = testHelper.arrayMap(from: .evens, .odds)
         var sut = AutoMap(map: map)
         let keysAndIndices = AutoMap(map: testHelper.arrayMap(from: .fibonacci))

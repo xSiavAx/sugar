@@ -3,11 +3,11 @@
  Tests for AutoMap update(_:for:at:)
  
  [Done] key
-    [Done] existing
-    [fatalError] nonexistent
+    [Done] contained
+    [fatalError] not contained
  [Done] index
-    [Done] existing
-    [fatalError] nonexitent
+    [Done] contained
+    [fatalError] not contained
  [Done] same value
  [fatalError] empty AutoMap
  
@@ -21,7 +21,7 @@ class AutoMapUpdateTests: XCTestCase {
     
     let testHelper = AutoMapTestHelper()
     
-    func testExistingKey() {
+    func testContainedKey() {
         var sut = AutoMap(map: testHelper.arrayMap(from: .evens))
         let result = sut.update(Item.evensChangedValue, for: .evens, at: Item.evensChangedIndex)
         
@@ -29,8 +29,8 @@ class AutoMapUpdateTests: XCTestCase {
         testHelper.assertEqual(sut, testHelper.arrayMap(from: .evensChanged))
     }
     
-    #warning("fatal error for nonexistent key")
-//    func testNonexistentKey() {
+    #warning("fatal error for not contained key")
+//    func testNotContainedKey() {
 //        var sut = AutoMap(map: testHelper.arrayMap(from: .evens))
 //
 //        XCTAssertNil(sut.update(Item.addValue, for: .new, at: 0))
@@ -39,14 +39,14 @@ class AutoMapUpdateTests: XCTestCase {
     
     func testSameValue() {
         var sut = AutoMap(map: testHelper.arrayMap(from: .evens, .odds))
-        let value = Item.evens.array[Item.evensContaindeIndex]
-        let result = sut.update(value, for: .evens, at: Item.evensContaindeIndex)
+        let value = Item.evens.array[Item.evensContainedIndex]
+        let result = sut.update(value, for: .evens, at: Item.evensContainedIndex)
         
         XCTAssertEqual(result, value)
         testHelper.assertEqual(sut, testHelper.arrayMap(from: .evens, .odds))
     }
     
-    #warning("fatal error for nonexistent key")
+    #warning("fatal error for not contained key")
 //    func testEmptyAutoMap() {
 //        var sut = AutoMap<Item, [Int]>()
 //

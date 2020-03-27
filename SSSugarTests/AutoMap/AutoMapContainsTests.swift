@@ -2,12 +2,12 @@
  
  Tests for AutoMap contains(_:for:)
  
+ [Done] key
+    [Done] contained
+    [Done] not contained
  [Done] value
     [Done] contained
     [Done] not contained
- [Done] key
-    [Done] existing
-    [Done] nonexistent
  [Done] empty map
  
  */
@@ -20,24 +20,24 @@ class AutoMapContainsTests: XCTestCase {
     
     let testHelper = AutoMapTestHelper()
     
-    func testExistingKey() {
+    func testContainedKey() {
         let sut = AutoMap(map: testHelper.arrayMap(from: .evens))
         
-        XCTAssertTrue(sut.contains(Item.evensFirstContainedValue, for: .evens))
-        XCTAssertFalse(sut.contains(Item.evensNotContainedValue, for: .evens))
+        XCTAssertTrue(sut.contains(Item.evensFirstValue, for: .evens))
+        XCTAssertFalse(sut.contains(Item.oddsFirstValue, for: .evens))
     }
     
-    func testNonexistentKey() {
+    func testNotContainedKey() {
         let sut = AutoMap(map: testHelper.arrayMap(from: .evens))
         
-        XCTAssertFalse(sut.contains(Item.evensFirstContainedValue, for: .new))
-        XCTAssertFalse(sut.contains(Item.evensNotContainedValue, for: .new))
+        XCTAssertFalse(sut.contains(Item.evensFirstValue, for: .new))
+        XCTAssertFalse(sut.contains(Item.oddsFirstValue, for: .new))
     }
     
     func testEmptyAutoMap() {
         let sut = AutoMap<Item, [Int]>()
         
-        XCTAssertFalse(sut.contains(Item.evensFirstContainedValue, for: .evens))
-        XCTAssertFalse(sut.contains(Item.evensNotContainedValue, for: .evens))
+        XCTAssertFalse(sut.contains(Item.evensFirstValue, for: .evens))
+        XCTAssertFalse(sut.contains(Item.oddsFirstValue, for: .evens))
     }
 }

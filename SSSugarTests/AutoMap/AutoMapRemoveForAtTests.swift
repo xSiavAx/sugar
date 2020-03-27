@@ -3,8 +3,8 @@
  Tests for AutoMap remove(for:at:)
  
  [Done] key
-    [Done] existing
-    [Done] nonexistent
+    [Done] contained
+    [Done] not contained
  [Done] empty AutoMap
  [fatalError] not conteined index
  
@@ -18,14 +18,14 @@ class AutoMapRemoveForAtTests: XCTestCase {
     
     let testHelper = AutoMapTestHelper()
     
-    func testExistingKey() {
+    func testContainedKey() {
         var sut = AutoMap(map: testHelper.arrayMap(from: .evens, .odds))
         
-        XCTAssertEqual(sut.remove(for: .evens, at: Item.evensWithoutElementIndex), Item.evensWithoutElementValue)
-        testHelper.assertEqual(sut, testHelper.arrayMap(from: .evensWithoutElement, .odds))
+        XCTAssertEqual(sut.remove(for: .evens, at: Item.evensWithoutValueIndex), Item.evensWithoutValueValue)
+        testHelper.assertEqual(sut, testHelper.arrayMap(from: .evensWithoutValue, .odds))
     }
     
-    func testNonexistentKey() {
+    func testNotContainedKey() {
         let map = testHelper.arrayMap(from: .evens, .odds)
         var sut = AutoMap(map: map)
         
@@ -36,7 +36,7 @@ class AutoMapRemoveForAtTests: XCTestCase {
     func testEmptyAutoMap() {
         var sut = AutoMap<Item, [Int]>()
         
-        XCTAssertNil(sut.remove(for: .evens, at: Item.evensWithoutElementIndex))
+        XCTAssertNil(sut.remove(for: .evens, at: Item.evensWithoutValueIndex))
         testHelper.assertEqual(sut, [:])
     }
 }

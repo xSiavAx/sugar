@@ -7,7 +7,7 @@
     [Done] regular
     [Done] empty
     [Done] empty container
-    [Done] with empty container
+    [Done] mixed container
  
  */
 
@@ -20,7 +20,7 @@ class AutoMapInitTests: XCTestCase {
     let testHelper = AutoMapTestHelper()
     
     func testInit() {
-        XCTAssertNotNil(AutoMap<Item, [Int]>())
+        testHelper.assertEqual(AutoMap<Item, [Int]>(), [:])
     }
     
     func testInitMapRegular() {
@@ -41,10 +41,9 @@ class AutoMapInitTests: XCTestCase {
         testHelper.assertEqual(sut, [:])
     }
     
-    func testInitMapWithEmptyContainer() {
-        let map = testHelper.setMap(from: .evens, .empty)
-        let expectedMap = testHelper.setMap(from: .evens)
+    func testInitMapMixedContainer() {
+        let sut = AutoMap(map: testHelper.setMap(from: .evens, .empty))
         
-        testHelper.assertEqual(AutoMap(map: map), expectedMap)
+        testHelper.assertEqual(sut, testHelper.setMap(from: .evens))
     }
 }

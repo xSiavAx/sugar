@@ -3,11 +3,11 @@
  Tests for AutoMap insert(_:for:at)
  
  [Done] key
-    [Done] existing
-    [Done] nonexistent
+    [Done] contained
+    [Done] not contained
  [Done] index
-    [Done] existing
-    [fatalError] nonexistent
+    [Done] contained
+    [fatalError] not contained
  [Done] empty AutoMap
  
  */
@@ -20,14 +20,14 @@ class AutoMapInsertTests: XCTestCase {
     
     let testHelper = AutoMapTestHelper()
 
-    func testExistingKey() {
+    func testContainedKey() {
         var sut = AutoMap(map: testHelper.arrayMap(from: .evens, .odds))
         
         sut.insert(Item.oddsInsertedValue, for: .odds, at: Item.oddsInsertedIndex)
         testHelper.assertEqual(sut, testHelper.arrayMap(from: .evens, .oddsInserted))
     }
     
-    func testNonexistentKey() {
+    func testNotContainedKey() {
         var sut = AutoMap(map: testHelper.arrayMap(from: .evens, .odds))
         
         sut.insert(Item.addValue, for: .new, at: 0)

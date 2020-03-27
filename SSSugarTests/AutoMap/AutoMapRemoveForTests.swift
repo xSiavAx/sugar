@@ -3,8 +3,8 @@
  Tests for AutoMap remove(for:)
  
  [Done] key
-    [Done] existing
-    [Done] nonexistent
+    [Done] contained
+    [Done] not contained
  [Done] empty AutoMap
 
 */
@@ -17,14 +17,14 @@ class AutoMapRemoveForTests: XCTestCase {
     
     let testHelper = AutoMapTestHelper()
    
-    func testExistingKey() {
+    func testContainedKey() {
         var sut = AutoMap(map: testHelper.arrayMap(from: .evens, .odds, .fibonacci))
         
         XCTAssertEqual(sut.remove(for: .evens), Item.evens.array)
         testHelper.assertEqual(sut, testHelper.arrayMap(from: .odds, .fibonacci))
     }
     
-    func testNonexistentKey() {
+    func testNotContainedKey() {
         var sut = AutoMap(map: testHelper.arrayMap(from: .evens, .odds))
         
         XCTAssertNil(sut.remove(for: .fibonacci))

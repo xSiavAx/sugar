@@ -3,11 +3,11 @@
  Tests for AutoMap remove(_:for:)
  
  [Done] key
-    [Done] existing
-    [Done] nonexistent
- [Done] value
     [Done] contained
     [Done] not contained
+ [Done] value
+    [Done] contained
+    [fatalError] not contained
  [Done] empty AutoMap
  
  */
@@ -20,35 +20,35 @@ class AutoMapRemoveTests: XCTestCase {
     
     let testHelper = AutoMapTestHelper()
 
-    func testExistingKeyContainedValue() {
+    func testContainedKeyContainedValue() {
         var sut = AutoMap(map: testHelper.arrayMap(from: .evens, .odds))
         
-        XCTAssertTrue(sut.remove(Item.evensWithoutElementValue, for: .evens))
-        testHelper.assertEqual(sut, testHelper.arrayMap(from: .evensWithoutElement, .odds))
+        XCTAssertTrue(sut.remove(Item.evensWithoutValueValue, for: .evens))
+        testHelper.assertEqual(sut, testHelper.arrayMap(from: .evensWithoutValue, .odds))
     }
 
     #warning("force unwrap in Array extesion remove(e:) method")
-//    func testExistingKeyNotContainedValue() {
+//    func testContainedKeyNotContainedValue() {
 //        let map = testHelper.arrayMap(from: .evens, .odds)
 //        var sut = AutoMap(map: map)
 //        
-//        XCTAssertFalse(sut.remove(Item.evensNotContainedValue, for: .evens))
+//        XCTAssertFalse(sut.remove(Item.oddFirstValue, for: .evens))
 //        testHelper.assertEqual(sut, map)
 //    }
     
-    func testNonexistentKeyContainedValue() {
+    func testNotContainedKeyContainedValue() {
         let map = testHelper.arrayMap(from: .evens, .odds)
         var sut = AutoMap(map: map)
         
-        XCTAssertFalse(sut.remove(Item.evensSecondContainedValue, for: .fibonacci))
+        XCTAssertFalse(sut.remove(Item.evensSecondValue, for: .fibonacci))
         testHelper.assertEqual(sut, map)
     }
     
-    func testNonexistentKeyNotContainedValue() {
+    func testNotContainedKeyNotContainedValue() {
         let map = testHelper.arrayMap(from: .evens, .odds)
         var sut = AutoMap(map: map)
         
-        XCTAssertFalse(sut.remove(Item.evensNotContainedValue, for: .fibonacci))
+        XCTAssertFalse(sut.remove(Item.oddsFirstValue, for: .fibonacci))
         testHelper.assertEqual(sut, map)
     }
     
@@ -57,7 +57,7 @@ class AutoMapRemoveTests: XCTestCase {
         
         sut.add(container: [], for: .evens)
         
-        XCTAssertFalse(sut.remove(Item.evensSecondContainedValue, for: .evens))
+        XCTAssertFalse(sut.remove(Item.evensSecondValue, for: .evens))
         testHelper.assertEqual(sut, [:])
     }
 }
