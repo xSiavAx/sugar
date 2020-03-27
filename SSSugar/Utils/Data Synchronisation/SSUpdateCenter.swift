@@ -40,11 +40,23 @@ public class SSUpdater: SSUpdateCenter {
             converter = mConverter
         }
     }
-    class UpdatesConverter {}
+    class UpdatesConverter {
+        public let prefix: String?
+        
+        public init(prefix mPrefix: String?) {
+            prefix = mPrefix
+        }
+    }
+    private var converter: UpdatesConverter
     private var observers = [Observer]()
-    private var converter = UpdatesConverter()
     
-    public init() {}
+    /// Creates new Updater instance.
+    /// - Parameter withIdentifier: Updater identifier. Updaters with different identifiers works with their own's notifications pool. In case updaters has  equal identifiers – notification posted via one will be recieved by UpdateReceiver's of another updater.
+    ///
+    /// Due to implementation using NotificationCenter, all updaters work in common notifications poll. This identifier may be used to separate notifications for different update centers (cuz it adds as prefix to notifications name). Its especially usefull for tests.
+    public init(withIdentifier: String? = nil) {
+        converter = UpdatesConverter(prefix: withIdentifier)
+    }
 }
 
 extension SSUpdater: SSUpdateReceiversManaging {
@@ -82,16 +94,31 @@ extension SSUpdater.UpdatesConverter {
         guard let userInfo = notification.userInfo else {
             fatalError("Invalid notification")
         }
+        let name = updateName(fromNotificationName: notification.name)
         let marker = userInfo[Self.markerKey] as! String
         let args = userInfo[Self.argsKey] as! [AnyHashable : Any]
         
-        return SSUpdate(name: notification.name.rawValue, marker: marker, args: args)
+        return SSUpdate(name: name, marker: marker, args: args)
     }
 
     public func notification(from update: SSUpdate) -> Notification {
-        let notName = Notification.Name(rawValue: update.name)
+        let notName = notificationName(withUpdateName: update.name)
         let userInfo = [Self.markerKey : update.marker, Self.argsKey : update.args] as [AnyHashable : Any]
         return Notification(name: notName, object: nil, userInfo: userInfo)
+    }
+    
+    public func notificationName(withUpdateName name: String) -> Notification.Name {
+        if let mPrefix = prefix {
+            return Notification.Name("\(mPrefix)_\(name)")
+        }
+        return Notification.Name(name)
+    }
+    
+    public func updateName(fromNotificationName name: Notification.Name) -> String {
+        if let mPrefix = prefix {
+            return String(name.rawValue.dropFirst(mPrefix.count + 1))
+        }
+        return name.rawValue
     }
 }
 
@@ -113,7 +140,7 @@ extension SSUpdater.Observer {
         func process(notification: Notification) {
             reaction(converter.info(from: notification))
         }
-        let token = NotificationCenter.default.addObserver(forName: Notification.Name(name),
+        let token = NotificationCenter.default.addObserver(forName: converter.notificationName(withUpdateName: name),
                                                            object: nil,
                                                            queue: nil,
                                                            using: process(notification:))
