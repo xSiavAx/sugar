@@ -60,6 +60,9 @@
 		2DC1D1AB242CF63E0049020B /* AutoMapRemoveForAtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC1D1AA242CF63E0049020B /* AutoMapRemoveForAtTests.swift */; };
 		2DC1D1AD242D0BB70049020B /* AutoMapRemoveForKeyAndIndexes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC1D1AC242D0BB70049020B /* AutoMapRemoveForKeyAndIndexes.swift */; };
 		2DC1D1AF242D41740049020B /* AutoMapInsertTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC1D1AE242D41740049020B /* AutoMapInsertTests.swift */; };
+		2DFE398C242E4080001B9AAE /* AutoMapIteratorNextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE398B242E4080001B9AAE /* AutoMapIteratorNextTests.swift */; };
+		2DFE398E242E412D001B9AAE /* AutoMapIteratorInitMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE398D242E412D001B9AAE /* AutoMapIteratorInitMapTests.swift */; };
+		2DFE3991242E48BA001B9AAE /* AutoMapMakeIteratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE3990242E48BA001B9AAE /* AutoMapMakeIteratorTests.swift */; };
 		990A18A722E641F4008DCCF0 /* SSViewStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 990A18A622E641F4008DCCF0 /* SSViewStyles.swift */; };
 		99365D4423B251BE00C8A7DF /* SSViewTransitionAnimating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99365D4323B251BE00C8A7DF /* SSViewTransitionAnimating.swift */; };
 		99365D4723B2530400C8A7DF /* SSScaleAndAlphaTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99365D4623B2530400C8A7DF /* SSScaleAndAlphaTransitionAnimator.swift */; };
@@ -178,6 +181,9 @@
 		2DC1D1AA242CF63E0049020B /* AutoMapRemoveForAtTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapRemoveForAtTests.swift; sourceTree = "<group>"; };
 		2DC1D1AC242D0BB70049020B /* AutoMapRemoveForKeyAndIndexes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapRemoveForKeyAndIndexes.swift; sourceTree = "<group>"; };
 		2DC1D1AE242D41740049020B /* AutoMapInsertTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapInsertTests.swift; sourceTree = "<group>"; };
+		2DFE398B242E4080001B9AAE /* AutoMapIteratorNextTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoMapIteratorNextTests.swift; sourceTree = "<group>"; };
+		2DFE398D242E412D001B9AAE /* AutoMapIteratorInitMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapIteratorInitMapTests.swift; sourceTree = "<group>"; };
+		2DFE3990242E48BA001B9AAE /* AutoMapMakeIteratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapMakeIteratorTests.swift; sourceTree = "<group>"; };
 		990A18A622E641F4008DCCF0 /* SSViewStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSViewStyles.swift; sourceTree = "<group>"; };
 		99365D4323B251BE00C8A7DF /* SSViewTransitionAnimating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSViewTransitionAnimating.swift; sourceTree = "<group>"; };
 		99365D4623B2530400C8A7DF /* SSScaleAndAlphaTransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSScaleAndAlphaTransitionAnimator.swift; sourceTree = "<group>"; };
@@ -344,6 +350,15 @@
 				2D8CF9BB241FC4BA00168C8A /* Info.plist */,
 			);
 			path = SSSugarTests;
+			sourceTree = "<group>";
+		};
+		2DFE398F242E41CD001B9AAE /* Iterator */ = {
+			isa = PBXGroup;
+			children = (
+				2DFE398B242E4080001B9AAE /* AutoMapIteratorNextTests.swift */,
+				2DFE398D242E412D001B9AAE /* AutoMapIteratorInitMapTests.swift */,
+			);
+			path = Iterator;
 			sourceTree = "<group>";
 		};
 		990A18A522E641E5008DCCF0 /* View Styles */ = {
@@ -740,6 +755,7 @@
 		99F6A1912295AF5C00183436 /* AutoMap */ = {
 			isa = PBXGroup;
 			children = (
+				2DFE398F242E41CD001B9AAE /* Iterator */,
 				2D4398A724222AAB00D01464 /* AutoMapInitTests.swift */,
 				99F6A19B2295B11800183436 /* AutoMapAddTests.swift */,
 				99DB1A7E229EE36D005C4823 /* AutoMapAddContainerTests.swift */,
@@ -757,6 +773,7 @@
 				2D78DB1A242D519800D77DD1 /* AutoMapEqualityOperatorTests.swift */,
 				2DBCCFB5242BBAB800100093 /* AutoMapIsEmptyTests.swift */,
 				2DBCCFB7242BBDFE00100093 /* AutoMapCountTests.swift */,
+				2DFE3990242E48BA001B9AAE /* AutoMapMakeIteratorTests.swift */,
 				2D7FD9F32420F73200D4C28F /* AutoMapTestHelper.swift */,
 			);
 			path = AutoMap;
@@ -889,6 +906,7 @@
 				2DC1D1A9242CD2060049020B /* AutoMapRemoveTests.swift in Sources */,
 				2D7E5A49241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperUnmarkNonMarkedTC.swift in Sources */,
 				2D7E5A4A241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperUnmarkTC.swift in Sources */,
+				2DFE398C242E4080001B9AAE /* AutoMapIteratorNextTests.swift in Sources */,
 				2DC1D1AF242D41740049020B /* AutoMapInsertTests.swift in Sources */,
 				2D7E5A4B241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperMarkMarkedTC.swift in Sources */,
 				2D7E5A4C241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperTestHelper.swift in Sources */,
@@ -906,12 +924,14 @@
 				2D7E5A54241FD0E5009EE074 /* SSSugarExtensionCGRectInsetToSizeTests.swift in Sources */,
 				2D7E5A55241FD0E5009EE074 /* SSSugarExtensionCGRectCenterTests.swift in Sources */,
 				2DC1D1AD242D0BB70049020B /* AutoMapRemoveForKeyAndIndexes.swift in Sources */,
+				2DFE3991242E48BA001B9AAE /* AutoMapMakeIteratorTests.swift in Sources */,
 				2D8BABC024292ADA00B8A84D /* SSSugarExtensionContainersDictionaryPickingForTests.swift in Sources */,
 				2D7E5A56241FD0E5009EE074 /* SSSugarExtensionSizeUnitedIntersectedTests.swift in Sources */,
 				2D5E66D62424CD0F00D82DEE /* SSSugarExtensionCGRectDividedCountVerticalyTests.swift in Sources */,
 				2D7E5A57241FD0E5009EE074 /* SSSugarExtensionColorInitTests.swift in Sources */,
 				2D78DB1B242D519800D77DD1 /* AutoMapEqualityOperatorTests.swift in Sources */,
 				2D7E5A58241FD0E5009EE074 /* SSSugarExtensionRangeMiddleTests.swift in Sources */,
+				2DFE398E242E412D001B9AAE /* AutoMapIteratorInitMapTests.swift in Sources */,
 				2D7E5A59241FD0E5009EE074 /* SSSugarExtensionContainersArrayForEachTests.swift in Sources */,
 				2D7E5A5A241FD0E5009EE074 /* SSSugarExtensionContainersArrayBinarySearchTests.swift in Sources */,
 				2D94676D242A378E00AC5637 /* SSChainExecutorTests.swift in Sources */,

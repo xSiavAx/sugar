@@ -15,7 +15,7 @@
  [Done] remove(forKeyAndIndexes:)
  [Done] insert(_:for:at:)
  [Done] update(_:for:at:)
- [] makeIterator()
+ [Done] makeIterator()
  
  // Static Methods
  [Done] ==
@@ -29,9 +29,9 @@
  [Done] count
  
  // Inner Types
- [] Iterator
-    [] init(map:)
-    [] next()
+ [Done] Iterator
+    [Done] init(map:)
+    [Done] next()
  
  Проверить доступность методов AutoMap как составляющую импортированного фреймворка (public)
  
@@ -40,7 +40,11 @@
 import XCTest
 @testable import SSSugar
 
-struct AutoMapTestHelper {    
+struct AutoMapTestHelper {
+    typealias DefaultAutoMap = AutoMap<AutoMapTestDefaultItem, [Int]>
+    typealias Iterator = DefaultAutoMap.Iterator
+    typealias Element = Iterator.Element
+    
     func arrayMap(from items: AutoMapTestDefaultItem...) -> [AutoMapTestDefaultItem : [Int]] {
         var map = [AutoMapTestDefaultItem : [Int]]()
         
@@ -55,12 +59,44 @@ struct AutoMapTestHelper {
         return map
     }
     
+    func iteratorArrayElements(from items: AutoMapTestDefaultItem...) -> [AutoMapTestDefaultItem: [Element]] {
+        var keydElements = [AutoMapTestDefaultItem: [Element]]()
+        
+        items.forEach { item in
+            var elements = [Element]()
+            
+            item.array.forEach { elements.append((item.key, item.array, $0)) }
+            keydElements[item.key] = elements
+        }
+        return keydElements
+    }
+    
     func assertEqual<Container: InsertableCollection & Equatable>(_ automap: AutoMap<AutoMapTestDefaultItem, Container>, _ dict: [AutoMapTestDefaultItem : Container]) {
         XCTAssertEqual(automap.keys, dict.keys)
         
         for key in automap.keys {
             XCTAssertEqual(automap[key], dict[key])
         }
+    }
+    
+    func assertIterateOverElements(_ iterator: Iterator, with elements: [AutoMapTestDefaultItem: [Element]]) {
+        var notIteratedElements = elements
+        
+        while let element = iterator.next() {
+            assertEqual(element, notIteratedElements[element.0]?.first)
+            if notIteratedElements[element.0]?.count == 1 {
+                notIteratedElements[element.0] = nil
+            } else {
+                notIteratedElements[element.0]?.removeFirst()
+            }
+        }
+        XCTAssertEqual(notIteratedElements.count, 0)
+    }
+    
+    func assertEqual(_ lhs: Element?, _ rhs: Element?) {
+        XCTAssertEqual(lhs?.0, rhs?.0)
+        XCTAssertEqual(lhs?.1, rhs?.1)
+        XCTAssertEqual(lhs?.2, rhs?.2)
     }
 }
 
