@@ -116,7 +116,7 @@ extension SSUpdater.UpdatesConverter {
     
     public func updateName(fromNotificationName name: Notification.Name) -> String {
         if let mPrefix = prefix {
-            return String(name.rawValue.suffix(mPrefix.count))
+            return String(name.rawValue.dropFirst(mPrefix.count + 1))
         }
         return name.rawValue
     }
