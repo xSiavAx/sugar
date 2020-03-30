@@ -6,7 +6,7 @@ Pod::Spec.new do |spec|
   spec.homepage       = "https://siva.pp.ua"
   spec.license        = "MIT"
   spec.author         = { "Stanislav Dmitriyev" => "mail@siava.pp.ua" }
-  spec.platform       = :ios, "10.3"
+  spec.platforms      = { :ios => "10.3", :osx => "10.7" }
   spec.source         = { :git => "https://SiavA@bitbucket.org/SiavA/sssugar.git", :tag => "1.4.6" }
   spec.source_files   = "SSSugar/**/*.swift"
   spec.swift_version  = "5.0" 
