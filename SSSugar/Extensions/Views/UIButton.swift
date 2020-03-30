@@ -1,3 +1,4 @@
+#if !os(macOS)
 import UIKit
 
 public extension UIButton {
@@ -9,3 +10,4 @@ public extension UIButton {
         self.addTarget(target, action: action, for: .touchUpInside)
     }
 }
+#endif

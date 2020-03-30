@@ -1,3 +1,6 @@
+#if !os(macOS)
+import UIKit
+
 public extension UIView {
     var safeFrame: CGRect {
         if #available(iOS 11, *) {
@@ -44,3 +47,4 @@ extension UIView {
         }
     }
 }
+#endif

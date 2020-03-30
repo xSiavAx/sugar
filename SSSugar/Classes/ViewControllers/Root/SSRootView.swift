@@ -1,3 +1,4 @@
+#if !os(macOS)
 import UIKit
 
 open class SSRootView: UIView {
@@ -44,3 +45,5 @@ extension SSRootView: SSViewTransitionContaining {
         return bounds
     }
 }
+#endif
+

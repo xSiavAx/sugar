@@ -102,6 +102,7 @@
 		99AA28D423A2A05400DA9C2F /* SSGroupDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AA28D323A2A05400DA9C2F /* SSGroupDispatcher.swift */; };
 		99AA28D623A2A88F00DA9C2F /* SSChainExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AA28D523A2A88F00DA9C2F /* SSChainExecutor.swift */; };
 		99B1A7902246751300D96BEE /* Comparable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A78F2246751300D96BEE /* Comparable.swift */; };
+		99C1270424323A5F00A0D716 /* RandomNumberGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C1270324323A5F00A0D716 /* RandomNumberGenerator.swift */; };
 		99CBE33423B232BF000CE10D /* CGPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99CBE33323B232BF000CE10D /* CGPoint.swift */; };
 		99D29643223D3057003FD9F0 /* SSSugar.h in Headers */ = {isa = PBXBuildFile; fileRef = 99D29641223D3057003FD9F0 /* SSSugar.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		99D2964F223D3107003FD9F0 /* SSRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D2964D223D3107003FD9F0 /* SSRootView.swift */; };
@@ -244,6 +245,7 @@
 		99B1A789224658D700D96BEE /* SSCollectionViewMarkableControllerMarkTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerMarkTC.swift; sourceTree = "<group>"; };
 		99B1A78F2246751300D96BEE /* Comparable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comparable.swift; sourceTree = "<group>"; };
 		99B1A797224678B400D96BEE /* SSSugarPlaygroundTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarPlaygroundTests.swift; sourceTree = "<group>"; };
+		99C1270324323A5F00A0D716 /* RandomNumberGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomNumberGenerator.swift; sourceTree = "<group>"; };
 		99CBE33323B232BF000CE10D /* CGPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPoint.swift; sourceTree = "<group>"; };
 		99D2963E223D3057003FD9F0 /* SSSugar.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = SSSugar.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		99D29641223D3057003FD9F0 /* SSSugar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SSSugar.h; sourceTree = "<group>"; };
@@ -750,6 +752,7 @@
 			isa = PBXGroup;
 			children = (
 				99B1A78F2246751300D96BEE /* Comparable.swift */,
+				99C1270324323A5F00A0D716 /* RandomNumberGenerator.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -1068,6 +1071,7 @@
 				99E36E4923225DB6005E6C05 /* SSCertificatesObtainer.swift in Sources */,
 				99CBE33423B232BF000CE10D /* CGPoint.swift in Sources */,
 				9967832422D3993D00E33300 /* SSDataBaseStatemntCache.swift in Sources */,
+				99C1270424323A5F00A0D716 /* RandomNumberGenerator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1250,7 +1254,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 2R9RKTL2SS;
+				DEVELOPMENT_TEAM = 3W67N7QUBL;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1262,7 +1266,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4.5;
+				MARKETING_VERSION = 1.4.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.byteslight.SSSugar;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1282,7 +1286,7 @@
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
-				DEVELOPMENT_TEAM = 2R9RKTL2SS;
+				DEVELOPMENT_TEAM = 3W67N7QUBL;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
@@ -1294,7 +1298,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4.5;
+				MARKETING_VERSION = 1.4.13;
 				PRODUCT_BUNDLE_IDENTIFIER = com.byteslight.SSSugar;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

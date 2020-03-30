@@ -20,7 +20,7 @@ public struct SSLinearCongruentialRandomizer {
         }
     }
     /// Default seed value (equals to current TS)
-    static public var defaultSeed: Double { Date().timeIntervalSince1970 }
+    static public var defaultSeed: Double { Double.random(in: 0..<Double(MAXFLOAT)) }
     /// Algorithm parameter default value
     static public let defaultParams = Params(divisor: 139968.0, multiplier: 3877.0, additional: 29573.0)
     
@@ -56,8 +56,8 @@ public struct SSLinearCongruentialRandomizer {
 }
 
 extension SSLinearCongruentialRandomizer: RandomNumberGenerator {
-    public mutating func next() -> UInt64 {
-        return UInt64(nextNormilized() * Double(UInt64.max))
+    public mutating func next<T>() -> T where T : FixedWidthInteger, T : UnsignedInteger {
+        return T(nextNormilized() * Double(T.max))
     }
 }
 

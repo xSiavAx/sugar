@@ -1,3 +1,4 @@
+#if !os(macOS)
 import UIKit
 
 @available(iOS 13, *)
@@ -97,4 +98,4 @@ open class SSScrollContainerView: UIView, SSViewBlocking {
         }
     }
 }
-
+#endif

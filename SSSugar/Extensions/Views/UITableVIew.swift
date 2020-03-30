@@ -1,3 +1,4 @@
+#if !os(macOS)
 import UIKit
 
 extension UITableView {
@@ -6,3 +7,4 @@ extension UITableView {
         return paths.count == visibleCells.count ? paths : visibleCells.compactMap(indexPath(for:));
     }
 }
+#endif

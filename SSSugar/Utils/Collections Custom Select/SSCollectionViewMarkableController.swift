@@ -1,3 +1,4 @@
+#if !os(macOS)
 import UIKit
 
 /// Controller for custom selection realisation on any Collection thats implements `SSCollectionViewMarkable` and whose cells implements `SSCollectionViewCellMarkable`
@@ -171,3 +172,4 @@ public protocol SSCollectionViewMarkableControllerDelegate: AnyObject {
     func markControllerDidActivate(_ controller: SSCollectionViewMarkableController)
     func markControllerDidDeactivate(_ controller: SSCollectionViewMarkableController)
 }
+#endif

@@ -1,4 +1,4 @@
-import UIKit
+import Foundation
 
 public extension CGSize {
     /// Returns size that are union of subject size and passed one.

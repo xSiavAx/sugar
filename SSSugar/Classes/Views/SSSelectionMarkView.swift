@@ -1,3 +1,4 @@
+#if !os(macOS)
 import UIKit
 
 open class SSSelectionMarkView: UIView {
@@ -49,3 +50,4 @@ open class SSSelectionMarkView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 }
+#endif

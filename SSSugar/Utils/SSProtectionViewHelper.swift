@@ -1,4 +1,5 @@
-import Foundation
+#if !os(macOS)
+import UIKit
 
 /// Requirements for objects that using Protection Helper
 public protocol SSViewProtectingHelped {
@@ -175,3 +176,4 @@ extension SSProtectionViewHelpingDelegate where Self: UIView {
     public var protectingView: UIView { self }
     public var frameForProtView: CGRect { bounds }
 }
+#endif
