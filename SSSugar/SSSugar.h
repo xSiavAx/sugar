@@ -21,7 +21,6 @@ FOUNDATION_EXPORT const unsigned char SSSugarVersionString[];
 //TODO: Write docs and test for 'added' and 'extended' methods inside CGSize extension
 //TODO: Write docs and test for 'init' inside UIColor extension
 
-//TODO: Write UIViewController extensions tests
 //TODO: Write Comparable extension's docs
 
 //TODO: Write docs and test for all extensions and classes
