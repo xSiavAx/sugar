@@ -42,15 +42,14 @@ class AutoMapRemoveForKeyAndIndexes: XCTestCase {
         testHelper.assertEqual(sut, testHelper.arrayMap(from: .odds))
     }
     
-    #warning("fatal error on reversed indices array")
-//    func testContainedKeysReversedContainedIndices() {
-//        var sut = AutoMap(map: testHelper.arrayMap(from: .evens, .odds))
-//        let keysAndIndices = AutoMap(map: Item.evens.reversedKeyAndTwoIndices)
-//        let result = sut.remove(forKeyAndIndexes: keysAndIndices)
-//
-//        testHelper.assertEqual(result, Item.evens.keyAndTwoValues)
-//        testHelper.assertEqual(sut, testHelper.arrayMap(from: .evensWithoutTwoIndices, .odds))
-//    }
+    func testContainedKeysReversedContainedIndices() {
+        var sut = AutoMap(map: testHelper.arrayMap(from: .evens, .odds))
+        let keysAndIndices = AutoMap(map: Item.evens.reversedKeyAndTwoIndices)
+        let result = sut.remove(forKeyAndIndexes: keysAndIndices)
+
+        testHelper.assertEqual(result, Item.evens.keyAndTwoValues)
+        testHelper.assertEqual(sut, testHelper.arrayMap(from: .evensWithoutTwoIndices, .odds))
+    }
     
     
     func testNotContainedKeys() {

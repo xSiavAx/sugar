@@ -57,13 +57,12 @@ class AutoMapSubscriptKeyIndexTests: XCTestCase {
         testHelper.assertEqual(sut, testHelper.arrayMap(from: .evensChanged))
     }
     
-    #warning("fatal error")
-//    func testSetterNotContainedKey() {
-//        var sut = AutoMap(map: testHelper.arrayMap(from: .evens))
-//
-//        sut[.new, 0] = Item.addValue
-//        testHelper.assertEqual(sut, testHelper.arrayMap(from: .evens, .new))
-//    }
+    func testSetterNotContainedKey() {
+        var sut = AutoMap(map: testHelper.arrayMap(from: .evens))
+
+        sut[.new, 0] = Item.addValue
+        testHelper.assertEqual(sut, testHelper.arrayMap(from: .evens, .new))
+    }
     
     func testSetterNilValue() {
         var sut = AutoMap(map: testHelper.arrayMap(from: .evens))

@@ -26,15 +26,14 @@ class AutoMapRemoveTests: XCTestCase {
         XCTAssertTrue(sut.remove(Item.evensWithoutValueValue, for: .evens))
         testHelper.assertEqual(sut, testHelper.arrayMap(from: .evensWithoutValue, .odds))
     }
-
-    #warning("force unwrap in Array extesion remove(e:) method")
-//    func testContainedKeyNotContainedValue() {
-//        let map = testHelper.arrayMap(from: .evens, .odds)
-//        var sut = AutoMap(map: map)
-//        
-//        XCTAssertFalse(sut.remove(Item.oddFirstValue, for: .evens))
-//        testHelper.assertEqual(sut, map)
-//    }
+    
+    func testContainedKeyNotContainedValue() {
+        let map = testHelper.arrayMap(from: .evens, .odds)
+        var sut = AutoMap(map: map)
+        
+        XCTAssertFalse(sut.remove(Item.oddsFirstValue, for: .evens))
+        testHelper.assertEqual(sut, map)
+    }
     
     func testNotContainedKeyContainedValue() {
         let map = testHelper.arrayMap(from: .evens, .odds)

@@ -29,13 +29,12 @@ class AutoMapUpdateTests: XCTestCase {
         testHelper.assertEqual(sut, testHelper.arrayMap(from: .evensChanged))
     }
     
-    #warning("fatal error for not contained key")
-//    func testNotContainedKey() {
-//        var sut = AutoMap(map: testHelper.arrayMap(from: .evens))
-//
-//        XCTAssertNil(sut.update(Item.addValue, for: .new, at: 0))
-//        testHelper.assertEqual(sut, testHelper.arrayMap(from: .evens, .new))
-//    }
+    func testNotContainedKey() {
+        var sut = AutoMap(map: testHelper.arrayMap(from: .evens))
+
+        XCTAssertNil(sut.update(Item.addValue, for: .new, at: 0))
+        testHelper.assertEqual(sut, testHelper.arrayMap(from: .evens, .new))
+    }
     
     func testSameValue() {
         var sut = AutoMap(map: testHelper.arrayMap(from: .evens, .odds))
@@ -46,11 +45,10 @@ class AutoMapUpdateTests: XCTestCase {
         testHelper.assertEqual(sut, testHelper.arrayMap(from: .evens, .odds))
     }
     
-    #warning("fatal error for not contained key")
-//    func testEmptyAutoMap() {
-//        var sut = AutoMap<Item, [Int]>()
-//
-//        XCTAssertNil(sut.update(Item.addValue, for: .new, at: 0))
-//        testHelper.assertEqual(sut, testHelper.arrayMap(from: .evens, .new))
-//    }
+    func testEmptyAutoMap() {
+        var sut = AutoMap<Item, [Int]>()
+
+        XCTAssertNil(sut.update(Item.addValue, for: .new, at: 0))
+        testHelper.assertEqual(sut, testHelper.arrayMap(from: .new))
+    }
 }
