@@ -9,8 +9,9 @@
  */
 
 import XCTest
+@testable import SSSugar
 
-class ExtensionComparableCompare: XCTestCase {
+class ComparableCompare: XCTestCase {
     
     let sut = 3
     

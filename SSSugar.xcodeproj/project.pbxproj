@@ -50,7 +50,7 @@
 		2D8BABC024292ADA00B8A84D /* SSSugarExtensionContainersDictionaryPickingForTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8BABBF24292ADA00B8A84D /* SSSugarExtensionContainersDictionaryPickingForTests.swift */; };
 		2D8CF9BC241FC4BA00168C8A /* SSSugar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99D2963E223D3057003FD9F0 /* SSSugar.framework */; };
 		2D94676D242A378E00AC5637 /* SSChainExecutorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D94676C242A378E00AC5637 /* SSChainExecutorTests.swift */; };
-		2DAEA168243206AF00DF53D0 /* ExtensionComparableCompare.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAEA167243206AF00DF53D0 /* ExtensionComparableCompare.swift */; };
+		2DAEA168243206AF00DF53D0 /* ComparableCompareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAEA167243206AF00DF53D0 /* ComparableCompareTests.swift */; };
 		2DBCCFB0242BAB7500100093 /* AutoMapReplaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBCCFAF242BAB7500100093 /* AutoMapReplaceTests.swift */; };
 		2DBCCFB2242BB45E00100093 /* AutoMapRemoveForTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBCCFB1242BB45E00100093 /* AutoMapRemoveForTests.swift */; };
 		2DBCCFB4242BB89600100093 /* AutoMapRemoveAllTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBCCFB3242BB89600100093 /* AutoMapRemoveAllTests.swift */; };
@@ -172,7 +172,7 @@
 		2D8CF9B7241FC4BA00168C8A /* SSSugarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SSSugarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D8CF9BB241FC4BA00168C8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D94676C242A378E00AC5637 /* SSChainExecutorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSChainExecutorTests.swift; sourceTree = "<group>"; };
-		2DAEA167243206AF00DF53D0 /* ExtensionComparableCompare.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionComparableCompare.swift; sourceTree = "<group>"; };
+		2DAEA167243206AF00DF53D0 /* ComparableCompareTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparableCompareTests.swift; sourceTree = "<group>"; };
 		2DBCCFAF242BAB7500100093 /* AutoMapReplaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapReplaceTests.swift; sourceTree = "<group>"; };
 		2DBCCFB1242BB45E00100093 /* AutoMapRemoveForTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapRemoveForTests.swift; sourceTree = "<group>"; };
 		2DBCCFB3242BB89600100093 /* AutoMapRemoveAllTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapRemoveAllTests.swift; sourceTree = "<group>"; };
@@ -366,7 +366,7 @@
 		2DAEA169243206B300DF53D0 /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				2DAEA167243206AF00DF53D0 /* ExtensionComparableCompare.swift */,
+				2DAEA167243206AF00DF53D0 /* ComparableCompareTests.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -959,7 +959,7 @@
 				2D7E5A5E241FD0E5009EE074 /* AutoMapSubscriptKeyTests.swift in Sources */,
 				2DBCCFB0242BAB7500100093 /* AutoMapReplaceTests.swift in Sources */,
 				2D7FD9F42420F73200D4C28F /* AutoMapTestHelper.swift in Sources */,
-				2DAEA168243206AF00DF53D0 /* ExtensionComparableCompare.swift in Sources */,
+				2DAEA168243206AF00DF53D0 /* ComparableCompareTests.swift in Sources */,
 				2D61561A2423C4F80015A9E0 /* SSCollectionViewMarkableControllerUnmarkTC.swift in Sources */,
 				2DC1D1AB242CF63E0049020B /* AutoMapRemoveForAtTests.swift in Sources */,
 				2D7E5A5F241FD0E5009EE074 /* AutoMapContainsTests.swift in Sources */,
