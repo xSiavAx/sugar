@@ -23,7 +23,6 @@ FOUNDATION_EXPORT const unsigned char SSSugarVersionString[];
 
 //TODO: Write UIViewController extensions tests
 //TODO: Write Comparable extension's docs
-//TODO: Write Comparable extension's tests
 
 //TODO: Write docs and test for all extensions and classes
 //TODO: Implements "Sugar" from UkrNet
