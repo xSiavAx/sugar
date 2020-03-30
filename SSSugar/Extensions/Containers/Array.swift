@@ -123,7 +123,7 @@ public extension Array {
     /// - Parameter generator: The random number generator to use when shuffling the sequence.
     private mutating func shuffleDurstenfeld<T>(using generator: inout T) where T : RandomNumberGenerator {
         (0..<count).reversed().forEach {
-            let rand = generator.next(upperBound: UInt($0 + 1))
+            let rand = generator.next(upperBound: UInt($0+1), type: .remainder)
             swapAt($0, Int(rand))
         }
     }
