@@ -1,3 +1,4 @@
+#if !os(macOS)
 import UIKit
 
 public extension UIColor {
@@ -26,3 +27,4 @@ public extension UIColor {
         self.init(red:red, green:green, blue:blue, alpha:1.0)
     }
 }
+#endif

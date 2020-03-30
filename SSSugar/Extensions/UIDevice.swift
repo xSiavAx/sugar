@@ -1,3 +1,6 @@
+#if !os(macOS)
+import UIKit
+
 import Foundation
 
 public extension UIDevice {
@@ -15,3 +18,5 @@ public extension UIDevice {
         return identifier
     }
 }
+#endif
+

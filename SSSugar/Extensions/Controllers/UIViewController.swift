@@ -1,3 +1,4 @@
+#if !os(macOS)
 import UIKit
 
 //MARK: - Alerts
@@ -147,3 +148,4 @@ extension UIViewController {
         self.dismissPresented(animated: animated, onFinish: onFinish)
     }
 }
+#endif

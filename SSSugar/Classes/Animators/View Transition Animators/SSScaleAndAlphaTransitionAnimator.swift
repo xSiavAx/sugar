@@ -1,3 +1,4 @@
+#if !os(macOS)
 import UIKit
 
 /// Animator that change views scale and alpha.
@@ -49,3 +50,4 @@ extension SSScaleAndAlphaTransitionAnimator: SSViewTransitionAnimating {
         animator?.startAnimation()
     }
 }
+#endif

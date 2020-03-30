@@ -1,4 +1,5 @@
-import Foundation
+#if !os(macOS)
+import UIKit
 
 /// Methods that helps provide show/hide animation
 public protocol SSViewShowHideContaining {
@@ -33,3 +34,4 @@ public protocol SSViewShowHideAnimating {
     ///   - complition: Complition handler
     func hide(_ view: UIView, with containing: SSViewShowHideContaining, animated: Bool, complition:((Bool)->Void)?)
 }
+#endif

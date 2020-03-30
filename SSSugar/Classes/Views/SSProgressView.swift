@@ -1,3 +1,4 @@
+#if !os(macOS)
 import UIKit
 
 open class SSProgressView : UIView {
@@ -90,3 +91,4 @@ open class SSProgressView : UIView {
         fatalError("init(coder:) has not been implemented")
     }
 }
+#endif

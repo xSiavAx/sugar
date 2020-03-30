@@ -1,3 +1,4 @@
+#if !os(macOS)
 import UIKit
 
 /// Iteraction blocking requiremetns
@@ -61,3 +62,4 @@ extension SSViewDelayedBlocking where Self: SSViewProtectingHelped {
         protectionHelper.unblockInteraction(animated: animated)
     }
 }
+#endif
