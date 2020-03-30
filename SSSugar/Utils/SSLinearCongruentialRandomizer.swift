@@ -56,8 +56,12 @@ public struct SSLinearCongruentialRandomizer {
 }
 
 extension SSLinearCongruentialRandomizer: RandomNumberGenerator {
-    public mutating func next() -> UInt64 {
-        return UInt64(nextNormilized() * Double(UInt64.max))
+    public mutating func next<T>() -> T where T : FixedWidthInteger, T : UnsignedInteger {
+        return T(nextNormilized() * Double(T.max))
+    }
+    
+    public mutating func next<T>(upperBound: T) -> T where T : FixedWidthInteger, T : UnsignedInteger {
+        return next() % upperBound
     }
 }
 

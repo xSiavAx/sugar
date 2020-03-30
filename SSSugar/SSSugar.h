@@ -29,3 +29,5 @@ FOUNDATION_EXPORT const unsigned char SSSugarVersionString[];
 
 //TODO: Write docs and test for all extensions and classes
 //TODO: Implements "Sugar" from UkrNet
+
+//TODO: Move custom shuffle and shuffled from Array extension to more common protocol (it should be declared for range too, for example).
