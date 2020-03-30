@@ -1,3 +1,4 @@
+#if !os(macOS)
 import UIKit
 
 /// Alias for style closure
@@ -87,3 +88,4 @@ extension Styleable {
         for style in styles { apply(style: style) }
     }
 }
+#endif

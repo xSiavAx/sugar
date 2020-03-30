@@ -13,7 +13,12 @@ public func NSLocalizedString(_ key: String) -> String {
     return NSLocalizedString(key, comment: "")
 }
 
+#if !os(macOS)
+import UIKit
+
 public func pixelSize() -> CGFloat {
     return 1.0 / UIScreen.main.scale
 }
+
+#endif
 

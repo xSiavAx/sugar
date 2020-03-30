@@ -1,3 +1,4 @@
+#if !os(macOS)
 import UIKit
 
 open class SSTextField : UITextField {
@@ -39,3 +40,4 @@ extension SSTextField {
         return finalSize
     }
 }
+#endif

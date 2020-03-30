@@ -1,3 +1,4 @@
+#if !os(macOS)
 import UIKit
 
 open class SSRootViewController: UIViewController {
@@ -39,3 +40,5 @@ open class SSRootViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 }
+#endif
+

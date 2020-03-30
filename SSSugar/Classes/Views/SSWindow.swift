@@ -1,3 +1,4 @@
+#if !os(macOS)
 import UIKit
 
 open class SSWindow: UIWindow, SSViewDelayedBlocking, SSProtectionViewHelpingDelegate {
@@ -40,3 +41,4 @@ open class SSWindow: UIWindow, SSViewDelayedBlocking, SSProtectionViewHelpingDel
 extension SSWindow: SSViewProtectingHelped {
     public var protectionHelper: SSProtectionViewHelping { helper }
 }
+#endif

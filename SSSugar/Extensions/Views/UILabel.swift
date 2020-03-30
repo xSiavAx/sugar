@@ -1,4 +1,5 @@
-import Foundation
+#if !os(macOS)
+import UIKit
 
 extension UILabel {
     //TODO: Add tests
@@ -58,3 +59,5 @@ extension UILabel {
         return nonEmptySizeThatFits(size)
     }
 }
+#endif
+

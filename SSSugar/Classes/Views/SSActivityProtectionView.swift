@@ -1,3 +1,4 @@
+#if !os(macOS)
 import UIKit
 
 open class SSActivityProtectionView: UIView {
@@ -30,3 +31,4 @@ open class SSActivityProtectionView: UIView {
         indicator.frame = CGRect(center:bounds.center, size:indicatorSize)
     }
 }
+#endif
