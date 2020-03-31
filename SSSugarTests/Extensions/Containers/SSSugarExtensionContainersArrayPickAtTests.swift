@@ -5,15 +5,16 @@
  [Done] regular
  [Done] first element
  [Done] last element
+ [Done] single element array
  [fatalError] incorrect index
 
 */
 
-//TODO: [Review] Pick from single element array
-
 import XCTest
+@testable import SSSugar
 
 class SSSugarExtensionContainersArrayPickAtTests: XCTestCase {
+    
     var sut = [0, 1, 2, 3, 4]
 
     override func tearDown() {
@@ -21,18 +22,23 @@ class SSSugarExtensionContainersArrayPickAtTests: XCTestCase {
     }
 
     func testRegular() {
-        //TODO: [Review] Dlon't use firstIndex(of:). Do less logic for tests condition.
-        XCTAssertEqual(sut.pick(at: sut.firstIndex(of: 2)!), 2)
+        XCTAssertEqual(sut.pick(at: 2), 2)
         XCTAssertEqual(sut, [0, 1, 3, 4])
     }
     
     func testFirstElement() {
-        XCTAssertEqual(sut.pick(at: sut.startIndex), 0)
+        XCTAssertEqual(sut.pick(at: 0), 0)
         XCTAssertEqual(sut, [1, 2, 3, 4])
     }
     
     func testLastElement() {
-        XCTAssertEqual(sut.pick(at: sut.firstIndex(of: 4)!), 4)
+        XCTAssertEqual(sut.pick(at: 4), 4)
         XCTAssertEqual(sut, [0, 1, 2, 3])
+    }
+    
+    func testSingleElementArray() {
+        sut = [3]
+        XCTAssertEqual(sut.pick(at: 0), 3)
+        XCTAssertEqual(sut, [])
     }
 }

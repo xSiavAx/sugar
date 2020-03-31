@@ -80,7 +80,6 @@ struct AutoMapTestHelper {
     }
     
     func assertIterateOverElements(_ iterator: Iterator, with elements: [AutoMapTestDefaultItem: [Element]]) {
-        //TODO: [Review] Odred is important for iterator, thats why u should use array as expected result
         var notIteratedElements = elements
         
         while let element = iterator.next() {

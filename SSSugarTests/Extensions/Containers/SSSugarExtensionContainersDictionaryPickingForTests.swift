@@ -5,15 +5,15 @@
  [Done] regular
  [Done] empty
  [Done] incorrect key
- [Done] first element
- [Done] last element
+ [Done] single element Dictionary
 
 */
 
 import XCTest
+@testable import SSSugar
 
-//TODO: [Review] See comment for `pick`
 class SSSugarExtensionContainersDictionaryPickingForTests: XCTestCase {
+    
     typealias Results = (dictionary: [Key: Int], value: Int)?
     
     var sut: [Key: Int] = [:]
@@ -39,8 +39,8 @@ class SSSugarExtensionContainersDictionaryPickingForTests: XCTestCase {
         
         let results = sut.picking(for: .one)
         
-        XCTAssertNil(results)
         XCTAssertEqual(sut, [:])
+        XCTAssertNil(results)
     }
     
     func testIncorrectKey() {
@@ -50,20 +50,14 @@ class SSSugarExtensionContainersDictionaryPickingForTests: XCTestCase {
         XCTAssertNil(results)
     }
     
-    func testFirstElement() {
+    func testSingleElementDictionary() {
+        sut = [.one : Key.one.value]
+        
         let results: Results = sut.picking(for: .one)
         
-        XCTAssertEqual(sut, Key.defaultDictionary)
+        XCTAssertEqual(sut, [Key.one : Key.one.value])
         XCTAssertEqual(results?.value, Key.one.value)
-        XCTAssertEqual(results?.dictionary, [.two : Key.two.value, .three : Key.three.value])
-    }
-    
-    func testLastElement() {
-        let resutls: Results = sut.picking(for: .three)
-        
-        XCTAssertEqual(sut, Key.defaultDictionary)
-        XCTAssertEqual(resutls?.value, Key.three.value)
-        XCTAssertEqual(resutls?.dictionary, [.one : Key.one.value, .two : Key.two.value])
+        XCTAssertEqual(results?.dictionary, [:])
     }
 }
 
@@ -71,6 +65,7 @@ class SSSugarExtensionContainersDictionaryPickingForTests: XCTestCase {
 // MARK: - Key
 
 extension SSSugarExtensionContainersDictionaryPickingForTests {
+    
     enum Key: Int {
         case incorrect = -1
         case one = 1

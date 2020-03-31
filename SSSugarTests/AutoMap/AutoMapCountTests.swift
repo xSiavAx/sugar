@@ -6,6 +6,7 @@
  [Done] empty AutoMap
  [Done] add
     [Done] value
+    [Done] value not contained key
     [Done] container
     [Done] empty container
     [Done] empty container not contained key
@@ -13,9 +14,9 @@
     [Done] value
     [Done] container
  
+ TODO: All this tests may be added to coresponding methods tests by adding 'count' checks.
+ 
  */
-//TODO: [Review] All this tests may be added to coresponding methods tests by adding `count` checks.
-//TODO: [Review] Add vaslue for non-exist key
 
 import XCTest
 @testable import SSSugar
@@ -39,6 +40,13 @@ class AutoMapCountTests: XCTestCase {
         var sut = AutoMap(map: testHelper.arrayMap(from: .evens))
         
         sut.add(Item.addValue, for: .evens)
+        XCTAssertEqual(sut.count, Item.evens.array.count + 1)
+    }
+    
+    func testAddValueNotContainedKey() {
+        var sut = AutoMap(map: testHelper.arrayMap(from: .evens))
+        
+        sut.add(Item.addValue, for: .new)
         XCTAssertEqual(sut.count, Item.evens.array.count + 1)
     }
     

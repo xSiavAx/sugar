@@ -2,19 +2,23 @@
  
  Tests for SSGroupExecutor class
  
- [done] init
- [done] add
- [done] finish
- [done] finish several
+ [Done] init
+ [Done] add
+ [Done] task
+    [Done] zero
+    [Done] one
+    [Done] several
+ [Done] background queue
+ [Done] mixed queues
+ [Done] background finish
  
  */
-
-//TODO: [Review] Group executor is about async and concurrent work. Tests should be remaked. Tip: use XCTestExpectation.
 
 import XCTest
 @testable import SSSugar
 
 class SSGroupExecutorTests: XCTestCase {
+    
     let sut = SSGroupExecutor()
 
     func testInit() {
@@ -29,43 +33,154 @@ class SSGroupExecutorTests: XCTestCase {
         }
     }
     
-    func testFinish() {
-        var trafficLight = TrafficLight.red
+    func testZeroTasks() {
+        let expectation = XCTestExpectation()
         
-        sut.add(makeTask { trafficLight = .green })
-        sut.finish { XCTAssertEqual(trafficLight, .green) }
+        sut.finish { expectation.fulfill() }
+        wait(for: [expectation], timeout: 1)
     }
     
-    func testFinishSeveral() {
-        var firstTrafficLight = TrafficLight.red
-        var secondTrafficLight = TrafficLight.red
+    func testOneTask() {
+        let expectationTask = XCTestExpectation()
+        let expectationFinish = XCTestExpectation()
         
-        sut.add(makeTask())
-        sut.add(makeTask { firstTrafficLight = .yellow })
-        sut.add(makeTask())
-        sut.add(makeTask { secondTrafficLight = .green })
-        sut.add(makeTask())
-        sut.finish {
-            XCTAssertEqual(firstTrafficLight, .yellow)
-            XCTAssertEqual(secondTrafficLight, .green)
-        }
+        sut.add(makeTaskFullfill(expectationTask))
+        sut.finish { expectationFinish.fulfill() }
+        wait(for: [expectationTask, expectationFinish], timeout: 1, enforceOrder: true)
     }
     
-    func makeTask(work: @escaping () -> Void = {}) -> SSGroupExecutor.Task {
+    func testSeveralTasks() {
+        let expectationTasks = makeExpectation()
+        let expectationFinish = XCTestExpectation()
+        
+        sut.add(makeTaskFullfill(expectationTasks))
+        sut.add(makeTaskFullfill(expectationTasks))
+        sut.add(makeTaskFullfill(expectationTasks))
+        sut.finish { expectationFinish.fulfill() }
+        wait(for: [expectationTasks, expectationFinish], timeout: 1, enforceOrder: true)
+    }
+    
+    func testZeroTasksBackgroundQueue() {
+        let expectation = XCTestExpectation()
+        
+        sut.finish { expectation.fulfill() }
+        wait(for: [expectation], timeout: 1)
+    }
+    
+    func testOneTaskBackgroundQueue() {
+        let expectationTask = XCTestExpectation()
+        let expectationFinish = XCTestExpectation()
+        
+        sut.add(makeTaskFullfill(expectationTask, in: .global()))
+        sut.finish { expectationFinish.fulfill() }
+        wait(for: [expectationTask, expectationFinish], timeout: 1, enforceOrder: true)
+    }
+    
+    func testSeveralTasksBackgroundQueue() {
+        let queue = DispatchQueue.global()
+        let expectationTasks = makeExpectation()
+        let expectationFinish = XCTestExpectation()
+        
+        sut.add(makeTaskFullfill(expectationTasks, in: queue))
+        sut.add(makeTaskFullfill(expectationTasks, in: queue))
+        sut.add(makeTaskFullfill(expectationTasks, in: queue))
+        sut.finish { expectationFinish.fulfill() }
+        wait(for: [expectationTasks, expectationFinish], timeout: 1, enforceOrder: true)
+    }
+     
+    func testFinishSeveralMixedQueues() {
+        let expectationTasks = makeExpectation()
+        let expectationFinish = XCTestExpectation()
+        
+        sut.add(makeTaskFullfill(expectationTasks, in: .global()))
+        sut.add(makeTaskFullfill(expectationTasks, in: .main))
+        sut.add(makeTaskFullfill(expectationTasks, in: .global()))
+        sut.finish { expectationFinish.fulfill() }
+        wait(for: [expectationTasks, expectationFinish], timeout: 1, enforceOrder: true)
+    }
+    
+    func testZeroTasksBackgroundFinish() {
+        let expectation = XCTestExpectation()
+        
+        sut.finish(queue: .global()) { expectation.fulfill() }
+        wait(for: [expectation], timeout: 1)
+    }
+    
+    func testOneTaskBackgroundFinish() {
+        let expectationTask = XCTestExpectation()
+        let expectationFinish = XCTestExpectation()
+        
+        sut.add(makeTaskFullfill(expectationTask))
+        sut.finish(queue: .global()) { expectationFinish.fulfill() }
+        wait(for: [expectationTask, expectationFinish], timeout: 1, enforceOrder: true)
+    }
+    
+    func testSeveralTasksBackgroundFinish() {
+        let expectationTasks = makeExpectation()
+        let expectationFinish = XCTestExpectation()
+        
+        sut.add(makeTaskFullfill(expectationTasks))
+        sut.add(makeTaskFullfill(expectationTasks))
+        sut.add(makeTaskFullfill(expectationTasks))
+        sut.finish(queue: .global()) { expectationFinish.fulfill() }
+        wait(for: [expectationTasks, expectationFinish], timeout: 1, enforceOrder: true)
+    }
+    
+    func testZeroTasksBackgroundQueueBackgroundFinish() {
+        let expectation = XCTestExpectation()
+        
+        sut.finish(queue: .global()) { expectation.fulfill() }
+        wait(for: [expectation], timeout: 1)
+    }
+    
+    func testOneTaskBackgroundQueueBackgroundFinish() {
+        let expectationTask = XCTestExpectation()
+        let expectationFinish = XCTestExpectation()
+        
+        sut.add(makeTaskFullfill(expectationTask, in: .global()))
+        sut.finish(queue: .global()) { expectationFinish.fulfill() }
+        wait(for: [expectationTask, expectationFinish], timeout: 1, enforceOrder: true)
+    }
+    
+    func testSeveralTasksBackgroundQueueBackgroundFinish() {
+        let queue = DispatchQueue.global()
+        let expectationTasks = makeExpectation()
+        let expectationFinish = XCTestExpectation()
+        
+        sut.add(makeTaskFullfill(expectationTasks, in: queue))
+        sut.add(makeTaskFullfill(expectationTasks, in: queue))
+        sut.add(makeTaskFullfill(expectationTasks, in: queue))
+        sut.finish(queue: .global()) { expectationFinish.fulfill() }
+        wait(for: [expectationTasks, expectationFinish], timeout: 1, enforceOrder: true)
+    }
+     
+    func testFinishSeveralMixedQueuesBackgroundFinish() {
+        let expectationTasks = makeExpectation()
+        let expectationFinish = XCTestExpectation()
+        
+        sut.add(makeTaskFullfill(expectationTasks, in: .global()))
+        sut.add(makeTaskFullfill(expectationTasks, in: .main))
+        sut.add(makeTaskFullfill(expectationTasks, in: .global()))
+        sut.finish(queue: .global()) { expectationFinish.fulfill() }
+        wait(for: [expectationTasks, expectationFinish], timeout: 1, enforceOrder: true)
+    }
+    
+    func makeExpectation(withFulfillmentCount count: Int = 3) -> XCTestExpectation {
+        let expectation = XCTestExpectation()
+        expectation.expectedFulfillmentCount = count
+        return expectation
+    }
+    
+    func makeTask(_ queue: DispatchQueue = .main, work: @escaping () -> Void = {}) -> SSGroupExecutor.Task {
         return { handler in
-            work()
-            handler()
+            queue.async {
+                work()
+                handler()
+            }
         }
     }
-}
-
-
-// MARK: - Traffic Light
-
-extension SSGroupExecutorTests {
-    enum TrafficLight {
-        case red
-        case green
-        case yellow
+    
+    func makeTaskFullfill(_ expectation: XCTestExpectation, in queue: DispatchQueue = .main) -> SSGroupExecutor.Task {
+        makeTask(queue) { expectation.fulfill() }
     }
 }

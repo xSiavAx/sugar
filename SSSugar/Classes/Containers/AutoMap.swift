@@ -182,16 +182,12 @@ extension AutoMap where Container : RangeReplaceableCollection & MutableCollecti
         count += 1;
     }
     
-    @discardableResult mutating func update(_ element: Value, for key: Key, at index: Container.Index) -> Value? {
+    @discardableResult mutating func update(_ element: Value, for key: Key, at index: Container.Index) -> Value {
         if let old = containers[key]?[index] {
             containers[key]![index] = element
             return old
         }
-        //TODO: [Review] Fatal error
-        createContainerIfNeeded(for: key)
-        count += 1
-        containers[key]?.append(element)
-        return nil
+        fatalError("attempt to update a not contained \(containers[key] == nil ? "key" : "index")")
     }
     
     @discardableResult mutating func remove(for key: Key, at index: Container.Index) -> Value? {

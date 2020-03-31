@@ -19,10 +19,9 @@
         [Done] contained
         [fatalError] not contained
     [Done] nil value
+    [fatalError] empty AutoMap
  
  */
-
-//TODO: [Review] Test plan for seeter don't corresponds to tests cases
 
 import XCTest
 @testable import SSSugar
@@ -32,14 +31,14 @@ class AutoMapSubscriptKeyIndexTests: XCTestCase {
     
     let testHelper = AutoMapTestHelper()
     
-    func testGetterContainedKey() {
+    func testGetterContainedKeyContainedIndex() {
         let map = testHelper.arrayMap(from: .evens, .odds)
         let sut = AutoMap(map: map)
         
         XCTAssertEqual(sut[.evens, Item.evensContainedIndex], Item.evensContainedValue)
     }
     
-    func testGetterNotContainedKey() {
+    func testGetterNotContainedKeyContainedIndex() {
         let map = testHelper.arrayMap(from: .evens, .odds)
         let sut = AutoMap(map: map)
         
@@ -52,18 +51,11 @@ class AutoMapSubscriptKeyIndexTests: XCTestCase {
         XCTAssertNil(sut[.evens, 0])
     }
     
-    func testSetterContainedKey() {
+    func testSetterContainedKeyContainedIndex() {
         var sut = AutoMap(map: testHelper.arrayMap(from: .evens))
         
         sut[.evens, Item.evensChangedIndex] = Item.evensChangedValue
         testHelper.assertEqual(sut, testHelper.arrayMap(from: .evensChanged))
-    }
-    
-    func testSetterNotContainedKey() {
-        var sut = AutoMap(map: testHelper.arrayMap(from: .evens))
-
-        sut[.new, 0] = Item.addValue
-        testHelper.assertEqual(sut, testHelper.arrayMap(from: .evens, .new))
     }
     
     func testSetterNilValue() {

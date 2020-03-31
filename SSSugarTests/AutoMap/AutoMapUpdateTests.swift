@@ -29,13 +29,6 @@ class AutoMapUpdateTests: XCTestCase {
         testHelper.assertEqual(sut, testHelper.arrayMap(from: .evensChanged))
     }
     
-    func testNotContainedKey() {
-        var sut = AutoMap(map: testHelper.arrayMap(from: .evens))
-
-        XCTAssertNil(sut.update(Item.addValue, for: .new, at: 0))
-        testHelper.assertEqual(sut, testHelper.arrayMap(from: .evens, .new))
-    }
-    
     func testSameValue() {
         var sut = AutoMap(map: testHelper.arrayMap(from: .evens, .odds))
         let value = Item.evens.array[Item.evensContainedIndex]
@@ -43,12 +36,5 @@ class AutoMapUpdateTests: XCTestCase {
         
         XCTAssertEqual(result, value)
         testHelper.assertEqual(sut, testHelper.arrayMap(from: .evens, .odds))
-    }
-    
-    func testEmptyAutoMap() {
-        var sut = AutoMap<Item, [Int]>()
-
-        XCTAssertNil(sut.update(Item.addValue, for: .new, at: 0))
-        testHelper.assertEqual(sut, testHelper.arrayMap(from: .new))
     }
 }

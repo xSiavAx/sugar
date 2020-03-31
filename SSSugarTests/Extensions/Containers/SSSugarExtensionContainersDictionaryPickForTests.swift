@@ -5,16 +5,15 @@
  [Done] regular
  [Done] empty
  [Done] incorrect key
- [Done] first element
- [Done] last element
+ [Done] single element Dictionary
 
 */
 
-//TODO: [Review] Add remove last element from single element dict
-
 import XCTest
+@testable import SSSugar
 
 class SSSugarExtensionContainersDictionaryPickForTests: XCTestCase {
+    
     var sut: [Key: Int] = [:]
     
     override func setUp() {
@@ -42,16 +41,10 @@ class SSSugarExtensionContainersDictionaryPickForTests: XCTestCase {
         XCTAssertEqual(sut, Key.defaultDictionary)
     }
     
-    //TODO: [Review] Dict isn't ordered
-    func testFirstElement() {
+    func testSingleElementDictionary() {
+        sut = [.one : Key.one.value]
         XCTAssertEqual(sut.pick(for: .one), Key.one.value)
-        XCTAssertEqual(sut, [.two : Key.two.value, .three : Key.three.value])
-    }
-    
-    //TODO: [Review] Dict isn't ordered
-    func testLastElement() {
-        XCTAssertEqual(sut.pick(for: .three), Key.three.value)
-        XCTAssertEqual(sut, [.one : Key.one.value, .two : Key.two.value])
+        XCTAssertEqual(sut, [:])
     }
 }
 
@@ -59,6 +52,7 @@ class SSSugarExtensionContainersDictionaryPickForTests: XCTestCase {
 // MARK: - Key
 
 extension SSSugarExtensionContainersDictionaryPickForTests {
+    
     enum Key: Int {
         case incorrect = -1
         case one = 1
