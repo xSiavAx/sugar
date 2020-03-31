@@ -9,6 +9,8 @@
 
 */
 
+//TODO: [Review] Pick from single element array
+
 import XCTest
 
 class SSSugarExtensionContainersArrayPickAtTests: XCTestCase {
@@ -19,6 +21,7 @@ class SSSugarExtensionContainersArrayPickAtTests: XCTestCase {
     }
 
     func testRegular() {
+        //TODO: [Review] Dlon't use firstIndex(of:). Do less logic for tests condition.
         XCTAssertEqual(sut.pick(at: sut.firstIndex(of: 2)!), 2)
         XCTAssertEqual(sut, [0, 1, 3, 4])
     }

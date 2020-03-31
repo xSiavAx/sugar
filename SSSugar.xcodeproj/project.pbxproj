@@ -101,7 +101,7 @@
 		99A2EE8D22CA5D30001B2B28 /* SSDataBaseConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A2EE8C22CA5D30001B2B28 /* SSDataBaseConnection.swift */; };
 		99A2EEA722CCFAFE001B2B28 /* SSDataBaseStatement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A2EEA622CCFAFE001B2B28 /* SSDataBaseStatement.swift */; };
 		99AA28D223A295F700DA9C2F /* SSTaskProcessorExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AA28D123A295F700DA9C2F /* SSTaskProcessorExample.swift */; };
-		99AA28D423A2A05400DA9C2F /* SSGroupDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AA28D323A2A05400DA9C2F /* SSGroupDispatcher.swift */; };
+		99AA28D423A2A05400DA9C2F /* SSGroupExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AA28D323A2A05400DA9C2F /* SSGroupExecutor.swift */; };
 		99AA28D623A2A88F00DA9C2F /* SSChainExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AA28D523A2A88F00DA9C2F /* SSChainExecutor.swift */; };
 		99B1A7902246751300D96BEE /* Comparable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A78F2246751300D96BEE /* Comparable.swift */; };
 		99C1270424323A5F00A0D716 /* RandomNumberGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99C1270324323A5F00A0D716 /* RandomNumberGenerator.swift */; };
@@ -237,7 +237,7 @@
 		99A2EE8C22CA5D30001B2B28 /* SSDataBaseConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDataBaseConnection.swift; sourceTree = "<group>"; };
 		99A2EEA622CCFAFE001B2B28 /* SSDataBaseStatement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDataBaseStatement.swift; sourceTree = "<group>"; };
 		99AA28D123A295F700DA9C2F /* SSTaskProcessorExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSTaskProcessorExample.swift; sourceTree = "<group>"; };
-		99AA28D323A2A05400DA9C2F /* SSGroupDispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSGroupDispatcher.swift; sourceTree = "<group>"; };
+		99AA28D323A2A05400DA9C2F /* SSGroupExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSGroupExecutor.swift; sourceTree = "<group>"; };
 		99AA28D523A2A88F00DA9C2F /* SSChainExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSChainExecutor.swift; sourceTree = "<group>"; };
 		99AB345522454466004959B1 /* SSCollectionViewMarkableControllerConfigCellTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerConfigCellTC.swift; sourceTree = "<group>"; };
 		99B1A7762241766C00D96BEE /* SSMarkbaleCollectionCellHelperTestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSMarkbaleCollectionCellHelperTestHelper.swift; sourceTree = "<group>"; };
@@ -684,7 +684,7 @@
 				99D2964B223D3107003FD9F0 /* ViewControllers */,
 				99D29651223D3681003FD9F0 /* Views */,
 				993BC5B82317CFB3008DCE98 /* SSAtomic.swift */,
-				99AA28D323A2A05400DA9C2F /* SSGroupDispatcher.swift */,
+				99AA28D323A2A05400DA9C2F /* SSGroupExecutor.swift */,
 				99AA28D523A2A88F00DA9C2F /* SSChainExecutor.swift */,
 			);
 			path = Classes;
@@ -1008,7 +1008,7 @@
 				99E27B56239EAA0F00CC5984 /* SSUETaskDBMutator.swift in Sources */,
 				9967832222D3955000E33300 /* SSCacheContainer.swift in Sources */,
 				9944ED6522CFA6E5005B129A /* SSTransacted.swift in Sources */,
-				99AA28D423A2A05400DA9C2F /* SSGroupDispatcher.swift in Sources */,
+				99AA28D423A2A05400DA9C2F /* SSGroupExecutor.swift in Sources */,
 				99D2966C223D3763003FD9F0 /* UIColor.swift in Sources */,
 				9947C43C22CA58D800AB3327 /* SSDataBaseProtocols.swift in Sources */,
 				99E3BA4122FB26290023D9AE /* SSCopying.swift in Sources */,

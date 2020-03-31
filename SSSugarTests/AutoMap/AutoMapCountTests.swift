@@ -14,6 +14,8 @@
     [Done] container
  
  */
+//TODO: [Review] All this tests may be added to coresponding methods tests by adding `count` checks.
+//TODO: [Review] Add vaslue for non-exist key
 
 import XCTest
 @testable import SSSugar

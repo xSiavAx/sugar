@@ -22,6 +22,8 @@
  
  */
 
+//TODO: [Review] Test plan for seeter don't corresponds to tests cases
+
 import XCTest
 @testable import SSSugar
 

@@ -13,6 +13,8 @@
 import XCTest
 @testable import SSSugar
 
+//TODO: [Review] Cases look very similar to MakeIterator ones
+
 class AutoMapIteratorNextTests: XCTestCase {
     typealias DefaultAutoMap = AutoMap<Item, [Int]>
     typealias Item = AutoMapTestDefaultItem

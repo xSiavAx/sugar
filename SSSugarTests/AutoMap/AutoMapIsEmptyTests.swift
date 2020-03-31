@@ -9,6 +9,8 @@
  
  */
 
+//TODO: [Review] All this tests may be added to coresponding methods tests by adding `count` checks.
+
 import XCTest
 @testable import SSSugar
 

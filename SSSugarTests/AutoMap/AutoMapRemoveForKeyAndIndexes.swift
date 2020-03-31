@@ -7,7 +7,7 @@
     [Done] not contained
     [Done] multiple
     [Done] mixed
- [Done] indices
+ [Done] indexes
     [Done] contained
     [Done] all
     [fatalError] reversed contained

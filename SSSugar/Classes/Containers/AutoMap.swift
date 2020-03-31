@@ -187,6 +187,7 @@ extension AutoMap where Container : RangeReplaceableCollection & MutableCollecti
             containers[key]![index] = element
             return old
         }
+        //TODO: [Review] Fatal error
         createContainerIfNeeded(for: key)
         count += 1
         containers[key]?.append(element)

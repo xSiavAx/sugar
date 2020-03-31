@@ -9,6 +9,8 @@ Tests for SSChainExecutor class
 
 */
 
+//TODO: [Review] Chain executor is about async and non-concurrent work. Tasks order is important unlike GroupExecutor. Tests should be remaked. Tip: use XCTestExpectation.
+
 import XCTest
 @testable import SSSugar
 

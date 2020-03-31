@@ -10,6 +10,8 @@
 
 */
 
+//TODO: [Review] Add remove last element from single element dict
+
 import XCTest
 
 class SSSugarExtensionContainersDictionaryPickForTests: XCTestCase {
@@ -40,11 +42,13 @@ class SSSugarExtensionContainersDictionaryPickForTests: XCTestCase {
         XCTAssertEqual(sut, Key.defaultDictionary)
     }
     
+    //TODO: [Review] Dict isn't ordered
     func testFirstElement() {
         XCTAssertEqual(sut.pick(for: .one), Key.one.value)
         XCTAssertEqual(sut, [.two : Key.two.value, .three : Key.three.value])
     }
     
+    //TODO: [Review] Dict isn't ordered
     func testLastElement() {
         XCTAssertEqual(sut.pick(for: .three), Key.three.value)
         XCTAssertEqual(sut, [.one : Key.one.value, .two : Key.two.value])

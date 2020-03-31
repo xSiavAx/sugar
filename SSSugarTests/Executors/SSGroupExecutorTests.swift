@@ -9,6 +9,8 @@
  
  */
 
+//TODO: [Review] Group executor is about async and concurrent work. Tests should be remaked. Tip: use XCTestExpectation.
+
 import XCTest
 @testable import SSSugar
 
