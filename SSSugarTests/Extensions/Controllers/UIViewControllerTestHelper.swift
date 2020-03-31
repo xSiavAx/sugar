@@ -4,8 +4,8 @@
  
  Alerts
  [Done] showAlert(title:message:btnTitle:onSbmt:)
- [] showErrorAlert(message:btnTitle:onSbmt:)
- [] showWarningAlert(message:btnTitle:onSbmt:)
+ [Done] showErrorAlert(message:btnTitle:onSbmt:)
+ [Done] showWarningAlert(message:btnTitle:onSbmt:)
     
  Keyboard
  [] registerForKBNotifications()
@@ -20,7 +20,7 @@
  
  */
 
-import UIKit
+import XCTest
 
 struct UIViewControllerTestHelper {
     
@@ -30,10 +30,22 @@ struct UIViewControllerTestHelper {
         rootWindow.rootViewController = viewController
         rootWindow.isHidden = false
     }
+    
+    func assertAlertHasItems(alert: UIViewController?, _ items: UIViewControllerAlertItems) {
+        guard let alertVC = alert as? UIAlertController,
+            let action = alertVC.actions.first else {
+                XCTFail()
+                return
+        }
+        
+        XCTAssertEqual(alertVC.title, items.title)
+        XCTAssertEqual(alertVC.message, items.message)
+        XCTAssertEqual(action.title, items.button)
+    }
 }
 
 struct UIViewControllerAlertItems {
-    var title: String? = "Alert title"
-    var message: String? = "Alert message"
-    var action: String = "Alert action"
+    var title: String?
+    var message: String?
+    var button: String
 }

@@ -18,10 +18,10 @@
 import XCTest
 @testable import SSSugar
 
-class UIViewControllerShowAlertTitleMessageBtnTittleOnSbmt: XCTestCase {
+class UIViewControllerShowAlertTests: XCTestCase {
     
     let testHelper = UIViewControllerTestHelper()
-    var items = UIViewControllerAlertItems()
+    var items = UIViewControllerAlertItems(title: "Alert title", message: "Alert message", button: "Alert button")
     let sut = UIViewController()
 
     override func setUp() {
@@ -29,111 +29,99 @@ class UIViewControllerShowAlertTitleMessageBtnTittleOnSbmt: XCTestCase {
     }
     
     func testRegularTitleRegularMessage() {
-        showAndAssert()
+        showAlertAndAssert()
     }
     
     func testRegularTitleEmptyMessage() {
         items.message = ""
-        showAndAssert()
+        showAlertAndAssert()
     }
     
     func testRegularTitleNilMessage() {
         items.message = nil
-        showAndAssert()
+        showAlertAndAssert()
     }
     
     func testEmptyTitleRegularMessage() {
         items.title = ""
-        showAndAssert()
+        showAlertAndAssert()
     }
     
     func testEmptyTitleEmptyMessage() {
         items.title = ""
         items.message = ""
-        showAndAssert()
+        showAlertAndAssert()
     }
     
     func testEmptyTitleNilMessage() {
         items.title = ""
         items.message = nil
-        showAndAssert()
+        showAlertAndAssert()
     }
     
     func testNilTitleRegularMessage() {
         items.title = nil
-        showAndAssert()
+        showAlertAndAssert()
     }
     
     func testNilTitleEmptyMessage() {
         items.title = nil
         items.message = ""
-        showAndAssert()
+        showAlertAndAssert()
     }
     
     func testRegularTitleRegularMessageEmptyButtonTitle() {
-        items.action = ""
-        showAndAssert()
+        items.button = ""
+        showAlertAndAssert()
     }
     
     func testRegularTitleEmptyMessageEmptyButtonTitle() {
-        items.action = ""
+        items.button = ""
         items.message = ""
-        showAndAssert()
+        showAlertAndAssert()
     }
     
     func testRegularTitleNilMessageEmptyButtonTitle() {
-        items.action = ""
+        items.button = ""
         items.message = nil
-        showAndAssert()
+        showAlertAndAssert()
     }
     
     func testEmptyTitleRegularMessageEmptyButtonTitle() {
-        items.action = ""
+        items.button = ""
         items.title = ""
-        showAndAssert()
+        showAlertAndAssert()
     }
     
     func testEmptyTitleEmptyMessageEmptyButtonTitle() {
-        items.action = ""
+        items.button = ""
         items.title = ""
         items.message = ""
-        showAndAssert()
+        showAlertAndAssert()
     }
     
     func testEmptyTitleNilMessageEmptyButtonTitle() {
-        items.action = ""
+        items.button = ""
         items.title = ""
         items.message = nil
-        showAndAssert()
+        showAlertAndAssert()
     }
     
     func testNilTitleRegularMessageEmptyButtonTitle() {
-        items.action = ""
+        items.button = ""
         items.title = nil
-        showAndAssert()
+        showAlertAndAssert()
     }
     
     func testNilTitleEmptyMessageEmptyButtonTitle() {
-        items.action = ""
+        items.button = ""
         items.title = nil
         items.message = ""
-        showAndAssert()
+        showAlertAndAssert()
     }
     
-    func showAndAssert() {
-        sut.showAlert(title: items.title, message: items.message, btnTitle: items.action)
-        assertPresentedAlertHasItems()
-    }
-    
-    func assertPresentedAlertHasItems() {
-        guard let alertVC = sut.presentedViewController as? UIAlertController,
-            let action = alertVC.actions.first else {
-                XCTFail()
-                return
-        }
-        
-        XCTAssertEqual(alertVC.title, items.title)
-        XCTAssertEqual(alertVC.message, items.message)
-        XCTAssertEqual(action.title, items.action)
+    func showAlertAndAssert() {
+        sut.showAlert(title: items.title, message: items.message, btnTitle: items.button)
+        testHelper.assertAlertHasItems(alert: sut.presentedViewController, items)
     }
 }
