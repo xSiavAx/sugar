@@ -14,6 +14,8 @@
  [Done] empty button title
  [] on submit
  
+ TODO: check submit closure
+ 
  */
 
 import XCTest
@@ -125,4 +127,5 @@ class UIViewControllerShowAlertTests: XCTestCase {
         sut.showAlert(title: items.title, message: items.message, btnTitle: items.button)
         testHelper.assertAlertHasItems(alert: sut.presentedViewController, items)
     }
+    
 }

@@ -5,9 +5,10 @@
  [Done] message
     [Done] regular
     [Done] empty
-    [Done] nil
  [Done] empty button title
  [] on submit
+ 
+ TODO: check submit closure
  
  */
 
@@ -33,11 +34,6 @@ class UIViewControllerShowErrorAlertTests: XCTestCase {
         showAlertAndAssert()
     }
     
-    func testNilMessage() {
-        items.message = nil
-        showAlertAndAssert()
-    }
-    
     func testRegularMessageEmptyButtonTitle() {
         items.button = ""
         showAlertAndAssert()
@@ -49,14 +45,9 @@ class UIViewControllerShowErrorAlertTests: XCTestCase {
         showAlertAndAssert()
     }
     
-    func testNilMessageEmptyButtonTitle() {
-        items.message = nil
-        items.button = ""
-        showAlertAndAssert()
-    }
-    
     func showAlertAndAssert() {
-        sut.showAlert(title: items.title, message: items.message, btnTitle: items.button)
+        sut.showErrorAlert(message: items.message!, btnTitle: items.button)
         testHelper.assertAlertHasItems(alert: sut.presentedViewController, items)
     }
+    
 }

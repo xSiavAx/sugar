@@ -134,6 +134,7 @@ class NotifiableViewController: UIViewController {
     override func kbDidChangeHeightTo(_ height: CGFloat) {
         isNotified = true
         keyboardHeight = height
+        super.kbDidChangeHeightTo(height)
     }
     
     @objc func setNotifiedTrue(_ userInfo: [AnyHashable : Any]) {
