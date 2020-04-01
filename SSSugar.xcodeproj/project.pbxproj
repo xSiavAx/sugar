@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2D2A44DF2434A86100B30AE3 /* UIViewControllerUnregisterFromKBNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2A44DE2434A86100B30AE3 /* UIViewControllerUnregisterFromKBNotifications.swift */; };
+		2D2A44E12434BF9000B30AE3 /* UIViewControllerKBDidChangeHeightTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2A44E02434BF9000B30AE3 /* UIViewControllerKBDidChangeHeightTo.swift */; };
 		2D4398A824222AAB00D01464 /* AutoMapInitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4398A724222AAB00D01464 /* AutoMapInitTests.swift */; };
 		2D4A6BB42429104A001E0487 /* SSSugarExtensionContainersDictionaryPickForTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4A6BB32429104A001E0487 /* SSSugarExtensionContainersDictionaryPickForTests.swift */; };
 		2D535E12242A0F7E0024D4C0 /* SSGroupExecutorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D535E11242A0F7E0024D4C0 /* SSGroupExecutorTests.swift */; };
@@ -167,6 +168,7 @@
 
 /* Begin PBXFileReference section */
 		2D2A44DE2434A86100B30AE3 /* UIViewControllerUnregisterFromKBNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerUnregisterFromKBNotifications.swift; sourceTree = "<group>"; };
+		2D2A44E02434BF9000B30AE3 /* UIViewControllerKBDidChangeHeightTo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerKBDidChangeHeightTo.swift; sourceTree = "<group>"; };
 		2D4398A724222AAB00D01464 /* AutoMapInitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoMapInitTests.swift; sourceTree = "<group>"; };
 		2D4A6BB32429104A001E0487 /* SSSugarExtensionContainersDictionaryPickForTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarExtensionContainersDictionaryPickForTests.swift; sourceTree = "<group>"; };
 		2D535E11242A0F7E0024D4C0 /* SSGroupExecutorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSGroupExecutorTests.swift; sourceTree = "<group>"; };
@@ -394,6 +396,7 @@
 				2DC7A04F243338F100A1BDC2 /* UIViewControllerShowWarningAlertTests.swift */,
 				2DC7A05124333D2C00A1BDC2 /* UIViewControllerRegisterForKBNotifications.swift */,
 				2D2A44DE2434A86100B30AE3 /* UIViewControllerUnregisterFromKBNotifications.swift */,
+				2D2A44E02434BF9000B30AE3 /* UIViewControllerKBDidChangeHeightTo.swift */,
 				2D94E4C9243263EB00EE81FF /* UIViewControllerTestHelper.swift */,
 			);
 			path = Controllers;
@@ -940,6 +943,7 @@
 			files = (
 				2D7E5A3E241FD0E5009EE074 /* SSCollectionViewMarkableControllerConfigCellTC.swift in Sources */,
 				2D4A6BB42429104A001E0487 /* SSSugarExtensionContainersDictionaryPickForTests.swift in Sources */,
+				2D2A44E12434BF9000B30AE3 /* UIViewControllerKBDidChangeHeightTo.swift in Sources */,
 				2D7E5A3F241FD0E5009EE074 /* SSCollectionViewMarkableControllerActivateTC.swift in Sources */,
 				2D7E5A40241FD0E5009EE074 /* SSCollectionViewMarkableControllerTestHelper.swift in Sources */,
 				2D7E5A42241FD0E5009EE074 /* SSCollectionViewMarkableControllerDeactivateTC.swift in Sources */,

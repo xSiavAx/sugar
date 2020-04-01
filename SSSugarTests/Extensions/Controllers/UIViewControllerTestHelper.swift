@@ -9,8 +9,8 @@
     
  Keyboard
  [Done] registerForKBNotifications()
- [] unregisterFromKBNotifications()
- [] kbDidChangeHeightTo(_:)
+ [Done] unregisterFromKBNotifications()
+ [Done] kbDidChangeHeightTo(_:)
  
  Controllers Relations
  [] dismissPresented(animated:onFinish:)
@@ -42,25 +42,48 @@ struct UIViewControllerTestHelper {
         XCTAssertEqual(action.title, items.button)
     }
     
-    func makeUserInfos() -> [[AnyHashable : Any]] {
-        var userInfos = [[AnyHashable : Any]]()
-        
-        for originPair in UIViewControllerNotificationItems.allItems {
-            for sizePair in UIViewControllerNotificationItems.allItems {
-                userInfos.append(makeUserInfo(origin: originPair, size: sizePair))
-            }
-        }
-        return userInfos
-    }
-    
-    func makeUserInfo(origin: UIViewControllerNotificationItems, size: UIViewControllerNotificationItems) -> [AnyHashable : Any] {
+    private func makeUserInfo(origin: UIViewControllerNotificationItems, size: UIViewControllerNotificationItems) -> [AnyHashable : Any] {
         let rect = CGRect(origin: origin.makePoint(), size: size.makeSize())
         
         return [UIResponder.keyboardFrameEndUserInfoKey : NSValue(cgRect: rect)]
     }
     
+    func makeUserInfo() -> [AnyHashable : Any] {
+        let origin = UIViewControllerNotificationItems(first: 100, second: 800)
+        let size = UIViewControllerNotificationItems(first: 400, second: 600)
+        
+        return makeUserInfo(origin: origin, size: size)
+    }
+    
+    func makeUserInfos() -> [[AnyHashable : Any]] {
+        var userInfos = [[AnyHashable : Any]]()
+        
+        for originItems in UIViewControllerNotificationItems.allItems {
+            for sizeItems in UIViewControllerNotificationItems.allItems {
+                userInfos.append(makeUserInfo(origin: originItems, size: sizeItems))
+            }
+        }
+        return userInfos
+    }
+    
+    func getHeightFromUserInfo(_ userInfo: [AnyHashable : Any]) -> CGFloat {
+        if let value = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
+            return value.cgRectValue.height
+        } else {
+            fatalError("unavailable user info")
+        }
+    }
+    
     func post(name: Notification.Name, userInfo: [AnyHashable : Any]? = nil) {
         NotificationCenter.default.post(name: name, object: nil, userInfo: userInfo)
+    }
+    
+    func postKeyboardDidShowNotification(userInfo: [AnyHashable : Any]? = nil) {
+        post(name: UIResponder.keyboardDidShowNotification, userInfo: userInfo)
+    }
+    
+    func postKeyboardDidHideNotification(userInfo: [AnyHashable : Any]? = nil) {
+        post(name: UIResponder.keyboardDidHideNotification, userInfo: userInfo)
     }
 }
 
@@ -73,36 +96,59 @@ struct UIViewControllerAlertItems {
 
 
 class NotifiableViewController: UIViewController {
+    
+    static let defaultKeyboardHight: CGFloat = -10
+    
     var isNotified = false
+    var keyboardHeight = NotifiableViewController.defaultKeyboardHight
     
     override func kbDidChangeHeightTo(_ height: CGFloat) {
         isNotified = true
+        keyboardHeight = height
     }
     
     @objc func setNotifiedTrue(_ userInfo: [AnyHashable : Any]) {
         isNotified = true
     }
+    
+    func addDidShowNotificationObserver() {
+        let name = UIResponder.keyboardDidShowNotification
+        let selector = #selector(setNotifiedTrue(_:))
+        
+        NotificationCenter.default.addObserver(self, selector: selector, name: name, object: nil)
+    }
+    
+    func addDidHideNotificationObserver() {
+        let name = UIResponder.keyboardDidHideNotification
+        let selector = #selector(setNotifiedTrue(_:))
+        
+        NotificationCenter.default.addObserver(self, selector: selector, name: name, object: nil)
+    }
+    
+    func removeObserver() {
+        NotificationCenter.default.removeObserver(self)
+    }
+    
+    func reset() {
+        isNotified = false
+        keyboardHeight = NotifiableViewController.defaultKeyboardHight
+    }
+    
 }
+
 
 struct UIViewControllerNotificationItems {
     
-    enum Value {
-        static let greaterThanZero: CGFloat = 4
-        static let lessThanZero: CGFloat = -5
-        static let zero: CGFloat = 0
-    }
-    
-    static let allValues = [Value.greaterThanZero, Value.lessThanZero, Value.zero]
-    static let allItems = makeAvailable()
+    static let allItems = getItems(with: 434, -57, 0)
     
     let first: CGFloat
     let second: CGFloat
     
-    private static func makeAvailable() -> [UIViewControllerNotificationItems] {
+    private static func getItems(with values: CGFloat...) -> [UIViewControllerNotificationItems] {
         var availableValuePairs = [UIViewControllerNotificationItems]()
         
-        for first in Self.allValues {
-            for second in Self.allValues {
+        for first in values {
+            for second in values {
                 availableValuePairs.append(UIViewControllerNotificationItems(first: first, second: second))
             }
         }
@@ -116,4 +162,5 @@ struct UIViewControllerNotificationItems {
     func makePoint() -> CGPoint {
         CGPoint(x: first, y: second)
     }
+    
 }

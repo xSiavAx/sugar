@@ -40,8 +40,8 @@ class UIViewControllerUnregisterFromKBNotifications: XCTestCase {
     let sut = NotifiableViewController()
     
     override func setUp() {
-        addDidShowNotificationObserver()
-        addDidHideNotificationObserver()
+        sut.addDidShowNotificationObserver()
+        sut.addDidHideNotificationObserver()
         sut.unregisterFromKBNotifications()
     }
     
@@ -51,73 +51,58 @@ class UIViewControllerUnregisterFromKBNotifications: XCTestCase {
     
     func testDidShowNotification() {
         for userInfo in testHelper.makeUserInfos() {
-            testHelper.post(name: UIResponder.keyboardDidShowNotification, userInfo: userInfo)
+            testHelper.postKeyboardDidShowNotification(userInfo: userInfo)
             XCTAssertFalse(sut.isNotified)
         }
     }
     
     func testDidHideNotification() {
         for userInfo in testHelper.makeUserInfos() {
-            testHelper.post(name: UIResponder.keyboardDidHideNotification, userInfo: userInfo)
+            testHelper.postKeyboardDidHideNotification(userInfo: userInfo)
             XCTAssertFalse(sut.isNotified)
         }
     }
     
     func testDidShowNotificationNilUserInfo() {
-        testHelper.post(name: UIResponder.keyboardDidShowNotification)
+        testHelper.postKeyboardDidShowNotification()
         XCTAssertFalse(sut.isNotified)
     }
     
     func testDidHideNotificationNilUserInfo() {
-        testHelper.post(name: UIResponder.keyboardDidHideNotification)
+        testHelper.postKeyboardDidHideNotification()
         XCTAssertFalse(sut.isNotified)
     }
     
     func testDidShowNotificationAfterAddObserver() {
-        addDidShowNotificationObserver()
+        sut.addDidShowNotificationObserver()
         sut.unregisterFromKBNotifications()
         for userInfo in testHelper.makeUserInfos() {
-            testHelper.post(name: UIResponder.keyboardDidShowNotification, userInfo: userInfo)
+            testHelper.postKeyboardDidShowNotification(userInfo: userInfo)
             XCTAssertFalse(sut.isNotified)
         }
     }
     
     func testDidHideNotificationAfterAddObserver() {
-        addDidHideNotificationObserver()
+        sut.addDidHideNotificationObserver()
         sut.unregisterFromKBNotifications()
         for userInfo in testHelper.makeUserInfos() {
-            testHelper.post(name: UIResponder.keyboardDidHideNotification, userInfo: userInfo)
+            testHelper.postKeyboardDidHideNotification(userInfo: userInfo)
             XCTAssertFalse(sut.isNotified)
         }
     }
     
     func testDidShowNotificationNilUserInfoAfterAddObserver() {
-        addDidShowNotificationObserver()
+        sut.addDidShowNotificationObserver()
         sut.unregisterFromKBNotifications()
-        testHelper.post(name: UIResponder.keyboardDidShowNotification)
+        testHelper.postKeyboardDidShowNotification()
         XCTAssertFalse(sut.isNotified)
     }
     
     func testDidHideNotificationNilUserInfoAfterAddObserver() {
-        addDidHideNotificationObserver()
+        sut.addDidHideNotificationObserver()
         sut.unregisterFromKBNotifications()
-        testHelper.post(name: UIResponder.keyboardDidHideNotification)
+        testHelper.postKeyboardDidHideNotification()
         XCTAssertFalse(sut.isNotified)
-    }
-    
-    
-    func addDidShowNotificationObserver() {
-        let name = UIResponder.keyboardDidShowNotification
-        let selector = #selector(sut.setNotifiedTrue(_:))
-        
-        NotificationCenter.default.addObserver(sut, selector: selector, name: name, object: nil)
-    }
-    
-    func addDidHideNotificationObserver() {
-        let name = UIResponder.keyboardDidHideNotification
-        let selector = #selector(sut.setNotifiedTrue(_:))
-        
-        NotificationCenter.default.addObserver(sut, selector: selector, name: name, object: nil)
     }
     
 }
