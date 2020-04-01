@@ -11,6 +11,7 @@
 		2D2A44E12434BF9000B30AE3 /* UIViewControllerKBDidChangeHeightTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2A44E02434BF9000B30AE3 /* UIViewControllerKBDidChangeHeightTo.swift */; };
 		2D4398A824222AAB00D01464 /* AutoMapInitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4398A724222AAB00D01464 /* AutoMapInitTests.swift */; };
 		2D4A6BB42429104A001E0487 /* SSSugarExtensionContainersDictionaryPickForTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4A6BB32429104A001E0487 /* SSSugarExtensionContainersDictionaryPickForTests.swift */; };
+		2D4F5E282434E197003EF8D4 /* UIViewControllerDismissPresentedAnimatedOnFinish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4F5E272434E197003EF8D4 /* UIViewControllerDismissPresentedAnimatedOnFinish.swift */; };
 		2D535E12242A0F7E0024D4C0 /* SSGroupExecutorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D535E11242A0F7E0024D4C0 /* SSGroupExecutorTests.swift */; };
 		2D5CCF122429F9700065278E /* SSSugarExtensionContainersArrayPickAtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5CCF112429F9700065278E /* SSSugarExtensionContainersArrayPickAtTests.swift */; };
 		2D5E66D62424CD0F00D82DEE /* SSSugarExtensionCGRectDividedCountVerticalyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5E66D52424CD0F00D82DEE /* SSSugarExtensionCGRectDividedCountVerticalyTests.swift */; };
@@ -171,6 +172,7 @@
 		2D2A44E02434BF9000B30AE3 /* UIViewControllerKBDidChangeHeightTo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerKBDidChangeHeightTo.swift; sourceTree = "<group>"; };
 		2D4398A724222AAB00D01464 /* AutoMapInitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoMapInitTests.swift; sourceTree = "<group>"; };
 		2D4A6BB32429104A001E0487 /* SSSugarExtensionContainersDictionaryPickForTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarExtensionContainersDictionaryPickForTests.swift; sourceTree = "<group>"; };
+		2D4F5E272434E197003EF8D4 /* UIViewControllerDismissPresentedAnimatedOnFinish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerDismissPresentedAnimatedOnFinish.swift; sourceTree = "<group>"; };
 		2D535E11242A0F7E0024D4C0 /* SSGroupExecutorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSGroupExecutorTests.swift; sourceTree = "<group>"; };
 		2D5CCF112429F9700065278E /* SSSugarExtensionContainersArrayPickAtTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarExtensionContainersArrayPickAtTests.swift; sourceTree = "<group>"; };
 		2D5E66D52424CD0F00D82DEE /* SSSugarExtensionCGRectDividedCountVerticalyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSSugarExtensionCGRectDividedCountVerticalyTests.swift; sourceTree = "<group>"; };
@@ -397,6 +399,7 @@
 				2DC7A05124333D2C00A1BDC2 /* UIViewControllerRegisterForKBNotifications.swift */,
 				2D2A44DE2434A86100B30AE3 /* UIViewControllerUnregisterFromKBNotifications.swift */,
 				2D2A44E02434BF9000B30AE3 /* UIViewControllerKBDidChangeHeightTo.swift */,
+				2D4F5E272434E197003EF8D4 /* UIViewControllerDismissPresentedAnimatedOnFinish.swift */,
 				2D94E4C9243263EB00EE81FF /* UIViewControllerTestHelper.swift */,
 			);
 			path = Controllers;
@@ -994,6 +997,7 @@
 				2D7E5A5B241FD0E5009EE074 /* SSSugarExtensionContainersArrayInitBuildBlockTests.swift in Sources */,
 				2D7E5A5C241FD0E5009EE074 /* AutoMapAddContainerTests.swift in Sources */,
 				2D7E5A5E241FD0E5009EE074 /* AutoMapSubscriptKeyTests.swift in Sources */,
+				2D4F5E282434E197003EF8D4 /* UIViewControllerDismissPresentedAnimatedOnFinish.swift in Sources */,
 				2DBCCFB0242BAB7500100093 /* AutoMapReplaceTests.swift in Sources */,
 				2D7FD9F42420F73200D4C28F /* AutoMapTestHelper.swift in Sources */,
 				2DAEA168243206AF00DF53D0 /* ComparableCompareTests.swift in Sources */,

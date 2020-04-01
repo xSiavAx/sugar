@@ -3,9 +3,9 @@
  Tests for UIViewController extension
  
  Alerts
- [] showAlert(title:message:btnTitle:onSbmt:)
- [] showErrorAlert(message:btnTitle:onSbmt:)
- [] showWarningAlert(message:btnTitle:onSbmt:)
+ [Partially] showAlert(title:message:btnTitle:onSbmt:)
+ [Partially] showErrorAlert(message:btnTitle:onSbmt:)
+ [Partially] showWarningAlert(message:btnTitle:onSbmt:)
     
  Keyboard
  [Done] registerForKBNotifications()
@@ -13,7 +13,7 @@
  [Done] kbDidChangeHeightTo(_:)
  
  Controllers Relations
- [] dismissPresented(animated:onFinish:)
+ [Done] dismissPresented(animated:onFinish:)
  [] rootController()
  
  */
@@ -95,6 +95,35 @@ struct UIViewControllerAlertItems {
 }
 
 
+struct UIViewControllerNotificationItems {
+    
+    static let allItems = getItems(with: 434, -57, 0)
+    
+    let first: CGFloat
+    let second: CGFloat
+    
+    private static func getItems(with values: CGFloat...) -> [UIViewControllerNotificationItems] {
+        var availableValuePairs = [UIViewControllerNotificationItems]()
+        
+        for first in values {
+            for second in values {
+                availableValuePairs.append(UIViewControllerNotificationItems(first: first, second: second))
+            }
+        }
+        return availableValuePairs
+    }
+    
+    func makeSize() -> CGSize {
+        CGSize(width: first, height: second)
+    }
+    
+    func makePoint() -> CGPoint {
+        CGPoint(x: first, y: second)
+    }
+    
+}
+
+
 class NotifiableViewController: UIViewController {
     
     static let defaultKeyboardHight: CGFloat = -10
@@ -137,30 +166,19 @@ class NotifiableViewController: UIViewController {
 }
 
 
-struct UIViewControllerNotificationItems {
+class DismissableViewController: UIViewController {
     
-    static let allItems = getItems(with: 434, -57, 0)
+    var isDismissed = false
+    var isDismissAnimated: Bool? = nil
     
-    let first: CGFloat
-    let second: CGFloat
-    
-    private static func getItems(with values: CGFloat...) -> [UIViewControllerNotificationItems] {
-        var availableValuePairs = [UIViewControllerNotificationItems]()
-        
-        for first in values {
-            for second in values {
-                availableValuePairs.append(UIViewControllerNotificationItems(first: first, second: second))
-            }
-        }
-        return availableValuePairs
+    override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
+        isDismissed = true
+        isDismissAnimated = flag
+        completion?()
     }
     
-    func makeSize() -> CGSize {
-        CGSize(width: first, height: second)
-    }
-    
-    func makePoint() -> CGPoint {
-        CGPoint(x: first, y: second)
+    func presentViewControler() {
+        present(UIViewController(), animated: false)
     }
     
 }
