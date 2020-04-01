@@ -58,6 +58,10 @@ struct UIViewControllerTestHelper {
         
         return [UIResponder.keyboardFrameEndUserInfoKey : NSValue(cgRect: rect)]
     }
+    
+    func post(name: Notification.Name, userInfo: [AnyHashable : Any]? = nil) {
+        NotificationCenter.default.post(name: name, object: nil, userInfo: userInfo)
+    }
 }
 
 
@@ -72,6 +76,10 @@ class NotifiableViewController: UIViewController {
     var isNotified = false
     
     override func kbDidChangeHeightTo(_ height: CGFloat) {
+        isNotified = true
+    }
+    
+    @objc func setNotifiedTrue(_ userInfo: [AnyHashable : Any]) {
         isNotified = true
     }
 }
