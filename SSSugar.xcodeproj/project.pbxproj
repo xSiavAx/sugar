@@ -64,6 +64,7 @@
 		2DC1D1AD242D0BB70049020B /* AutoMapRemoveForKeyAndIndexes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC1D1AC242D0BB70049020B /* AutoMapRemoveForKeyAndIndexes.swift */; };
 		2DC1D1AF242D41740049020B /* AutoMapInsertTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC1D1AE242D41740049020B /* AutoMapInsertTests.swift */; };
 		2DC7A050243338F100A1BDC2 /* UIViewControllerShowWarningAlertTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC7A04F243338F100A1BDC2 /* UIViewControllerShowWarningAlertTests.swift */; };
+		2DC7A05224333D2C00A1BDC2 /* UIViewControllerRegisterForKBNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC7A05124333D2C00A1BDC2 /* UIViewControllerRegisterForKBNotifications.swift */; };
 		2DF4E966243326F8005CF7A2 /* UIViewControllerShowErrorAlertTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF4E965243326F8005CF7A2 /* UIViewControllerShowErrorAlertTests.swift */; };
 		2DFE398C242E4080001B9AAE /* AutoMapIteratorNextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE398B242E4080001B9AAE /* AutoMapIteratorNextTests.swift */; };
 		2DFE398E242E412D001B9AAE /* AutoMapIteratorInitMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE398D242E412D001B9AAE /* AutoMapIteratorInitMapTests.swift */; };
@@ -191,6 +192,7 @@
 		2DC1D1AC242D0BB70049020B /* AutoMapRemoveForKeyAndIndexes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapRemoveForKeyAndIndexes.swift; sourceTree = "<group>"; };
 		2DC1D1AE242D41740049020B /* AutoMapInsertTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapInsertTests.swift; sourceTree = "<group>"; };
 		2DC7A04F243338F100A1BDC2 /* UIViewControllerShowWarningAlertTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerShowWarningAlertTests.swift; sourceTree = "<group>"; };
+		2DC7A05124333D2C00A1BDC2 /* UIViewControllerRegisterForKBNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerRegisterForKBNotifications.swift; sourceTree = "<group>"; };
 		2DF4E965243326F8005CF7A2 /* UIViewControllerShowErrorAlertTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerShowErrorAlertTests.swift; sourceTree = "<group>"; };
 		2DFE398B242E4080001B9AAE /* AutoMapIteratorNextTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoMapIteratorNextTests.swift; sourceTree = "<group>"; };
 		2DFE398D242E412D001B9AAE /* AutoMapIteratorInitMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapIteratorInitMapTests.swift; sourceTree = "<group>"; };
@@ -388,6 +390,7 @@
 				2DAEA16C24321D0700DF53D0 /* UIViewControllerShowAlertTests.swift */,
 				2DF4E965243326F8005CF7A2 /* UIViewControllerShowErrorAlertTests.swift */,
 				2DC7A04F243338F100A1BDC2 /* UIViewControllerShowWarningAlertTests.swift */,
+				2DC7A05124333D2C00A1BDC2 /* UIViewControllerRegisterForKBNotifications.swift */,
 				2D94E4C9243263EB00EE81FF /* UIViewControllerTestHelper.swift */,
 			);
 			path = Controllers;
@@ -954,6 +957,7 @@
 				2D7E5A4B241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperMarkMarkedTC.swift in Sources */,
 				2D7E5A4C241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperTestHelper.swift in Sources */,
 				2D7E5A4D241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperActivateTC.swift in Sources */,
+				2DC7A05224333D2C00A1BDC2 /* UIViewControllerRegisterForKBNotifications.swift in Sources */,
 				2DBCCFB4242BB89600100093 /* AutoMapRemoveAllTests.swift in Sources */,
 				2D7E5A4E241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperMarkNonActiveTC.swift in Sources */,
 				2D535E12242A0F7E0024D4C0 /* SSGroupExecutorTests.swift in Sources */,
