@@ -34,8 +34,9 @@
 
 import XCTest
 
-final class SSSugarExtensionCGRectDividedCountVerticalyTests: XCTestCase {
-    var testDataArray = SSSugarExtensionCGRectDividedCountVerticalyTests.allTestData
+class CGRectDividedCountVerticalyTests: XCTestCase {
+    
+    var testDataArray = CGRectDividedCountVerticalyTests.allTestData
     
     override func tearDown() {
         testDataArray = []
@@ -83,7 +84,7 @@ final class SSSugarExtensionCGRectDividedCountVerticalyTests: XCTestCase {
 
 // MARK: - Test Data
 
-extension SSSugarExtensionCGRectDividedCountVerticalyTests {
+extension CGRectDividedCountVerticalyTests {
     struct TestData {
         let sut: CGRect
         let parameters: Parameters

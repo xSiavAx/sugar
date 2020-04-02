@@ -1,6 +1,6 @@
 import XCTest
 
-class SSSugarExtensionCGRectInitCenterSize: XCTestCase {
+class CGRectInitCenterSize: XCTestCase {
     func testSquare() {
         doTest(50, 50, 100, 100, 0, 0)
     }

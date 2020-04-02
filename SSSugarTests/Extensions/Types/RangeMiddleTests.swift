@@ -2,7 +2,7 @@ import XCTest
 
 @testable import SSSugar
 
-class SSSugarExtensionRangeMiddleTests: XCTestCase {
+class RangeMiddleTests: XCTestCase {
     func testMiddleDocExample1() {
         checkMiddle(0, 4, 2)
     }

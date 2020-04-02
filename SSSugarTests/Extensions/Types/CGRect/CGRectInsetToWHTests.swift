@@ -1,6 +1,6 @@
 import XCTest
 
-class SSSugarExtensionCGRectInsetToWHTests: XCTestCase {
+class CGRectInsetToWHTests: XCTestCase {
     func testSame() {
         checkInset(0, 0, 100, 50, 100, 50)
     }

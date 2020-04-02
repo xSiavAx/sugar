@@ -1,6 +1,6 @@
 import XCTest
 
-class SSSugarExtensionCGRectCuttedTests: XCTestCase {
+class CGRectCuttedTests: XCTestCase {
     func testLeft() {
         doTest(0, 0, 100, 100, 50, .minXEdge, 50, 0, 50, 100)
     }

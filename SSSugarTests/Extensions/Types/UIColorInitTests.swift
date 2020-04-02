@@ -2,7 +2,7 @@ import XCTest
 
 @testable import SSSugar
 
-class SSSugarExtensionColorInitTests: XCTestCase {
+class UIColorInitTests: XCTestCase {
     func testDefaultAll() {
         XCTAssertEqual(UIColor(alpha:1), UIColor(red: 0, green: 0, blue: 0, alpha: 1))
     }

@@ -14,7 +14,7 @@
 		2D4F5E282434E197003EF8D4 /* UIViewControllerDismissPresentedAnimatedOnFinish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4F5E272434E197003EF8D4 /* UIViewControllerDismissPresentedAnimatedOnFinish.swift */; };
 		2D535E12242A0F7E0024D4C0 /* SSGroupExecutorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D535E11242A0F7E0024D4C0 /* SSGroupExecutorTests.swift */; };
 		2D5CCF122429F9700065278E /* SSSugarExtensionContainersArrayPickAtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5CCF112429F9700065278E /* SSSugarExtensionContainersArrayPickAtTests.swift */; };
-		2D5E66D62424CD0F00D82DEE /* SSSugarExtensionCGRectDividedCountVerticalyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5E66D52424CD0F00D82DEE /* SSSugarExtensionCGRectDividedCountVerticalyTests.swift */; };
+		2D5E66D62424CD0F00D82DEE /* CGRectDividedCountVerticalyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5E66D52424CD0F00D82DEE /* CGRectDividedCountVerticalyTests.swift */; };
 		2D61561A2423C4F80015A9E0 /* SSCollectionViewMarkableControllerUnmarkTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6156192423C4F80015A9E0 /* SSCollectionViewMarkableControllerUnmarkTC.swift */; };
 		2D78DB19242D49A500D77DD1 /* AutoMapUpdateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D78DB18242D49A500D77DD1 /* AutoMapUpdateTests.swift */; };
 		2D78DB1B242D519800D77DD1 /* AutoMapEqualityOperatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D78DB1A242D519800D77DD1 /* AutoMapEqualityOperatorTests.swift */; };
@@ -34,14 +34,14 @@
 		2D7E5A4E241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperMarkNonActiveTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A778224176D300D96BEE /* SSMarkbaleCollectionCellHelperMarkNonActiveTC.swift */; };
 		2D7E5A4F241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperMarkTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 996F380122417014007FF8B6 /* SSMarkbaleCollectionCellHelperMarkTC.swift */; };
 		2D7E5A50241FD0E5009EE074 /* SSSugarPlaygroundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B1A797224678B400D96BEE /* SSSugarPlaygroundTests.swift */; };
-		2D7E5A51241FD0E5009EE074 /* SSSugarExtensionCGRectCuttedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1FF52250FD2900C534E3 /* SSSugarExtensionCGRectCuttedTests.swift */; };
-		2D7E5A52241FD0E5009EE074 /* SSSugarExtensionCGRectInitCenterSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1FF22250FA0D00C534E3 /* SSSugarExtensionCGRectInitCenterSize.swift */; };
-		2D7E5A53241FD0E5009EE074 /* SSSugarExtensionCGRectInsetToWHTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1FF02250F46500C534E3 /* SSSugarExtensionCGRectInsetToWHTests.swift */; };
-		2D7E5A54241FD0E5009EE074 /* SSSugarExtensionCGRectInsetToSizeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1FEE2250F0AA00C534E3 /* SSSugarExtensionCGRectInsetToSizeTests.swift */; };
-		2D7E5A55241FD0E5009EE074 /* SSSugarExtensionCGRectCenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1FEC22495A9400C534E3 /* SSSugarExtensionCGRectCenterTests.swift */; };
-		2D7E5A56241FD0E5009EE074 /* SSSugarExtensionSizeUnitedIntersectedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997E315222493AC8006A5B7C /* SSSugarExtensionSizeUnitedIntersectedTests.swift */; };
-		2D7E5A57241FD0E5009EE074 /* SSSugarExtensionColorInitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1FE72249549D00C534E3 /* SSSugarExtensionColorInitTests.swift */; };
-		2D7E5A58241FD0E5009EE074 /* SSSugarExtensionRangeMiddleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1FE52249544B00C534E3 /* SSSugarExtensionRangeMiddleTests.swift */; };
+		2D7E5A51241FD0E5009EE074 /* CGRectCuttedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1FF52250FD2900C534E3 /* CGRectCuttedTests.swift */; };
+		2D7E5A52241FD0E5009EE074 /* CGRectInitCenterSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1FF22250FA0D00C534E3 /* CGRectInitCenterSize.swift */; };
+		2D7E5A53241FD0E5009EE074 /* CGRectInsetToWHTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1FF02250F46500C534E3 /* CGRectInsetToWHTests.swift */; };
+		2D7E5A54241FD0E5009EE074 /* CGRectInsetToSizeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1FEE2250F0AA00C534E3 /* CGRectInsetToSizeTests.swift */; };
+		2D7E5A55241FD0E5009EE074 /* CGRectCenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1FEC22495A9400C534E3 /* CGRectCenterTests.swift */; };
+		2D7E5A56241FD0E5009EE074 /* CGSizeUnitedIntersectedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997E315222493AC8006A5B7C /* CGSizeUnitedIntersectedTests.swift */; };
+		2D7E5A57241FD0E5009EE074 /* UIColorInitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1FE72249549D00C534E3 /* UIColorInitTests.swift */; };
+		2D7E5A58241FD0E5009EE074 /* RangeMiddleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1FE52249544B00C534E3 /* RangeMiddleTests.swift */; };
 		2D7E5A59241FD0E5009EE074 /* SSSugarExtensionContainersArrayForEachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1D60226392A900AD2FB5 /* SSSugarExtensionContainersArrayForEachTests.swift */; };
 		2D7E5A5A241FD0E5009EE074 /* SSSugarExtensionContainersArrayBinarySearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1D5C225A22FF00AD2FB5 /* SSSugarExtensionContainersArrayBinarySearchTests.swift */; };
 		2D7E5A5B241FD0E5009EE074 /* SSSugarExtensionContainersArrayInitBuildBlockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997B344E225A134B00F2A3A0 /* SSSugarExtensionContainersArrayInitBuildBlockTests.swift */; };
@@ -175,7 +175,7 @@
 		2D4F5E272434E197003EF8D4 /* UIViewControllerDismissPresentedAnimatedOnFinish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerDismissPresentedAnimatedOnFinish.swift; sourceTree = "<group>"; };
 		2D535E11242A0F7E0024D4C0 /* SSGroupExecutorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSGroupExecutorTests.swift; sourceTree = "<group>"; };
 		2D5CCF112429F9700065278E /* SSSugarExtensionContainersArrayPickAtTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarExtensionContainersArrayPickAtTests.swift; sourceTree = "<group>"; };
-		2D5E66D52424CD0F00D82DEE /* SSSugarExtensionCGRectDividedCountVerticalyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSSugarExtensionCGRectDividedCountVerticalyTests.swift; sourceTree = "<group>"; };
+		2D5E66D52424CD0F00D82DEE /* CGRectDividedCountVerticalyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRectDividedCountVerticalyTests.swift; sourceTree = "<group>"; };
 		2D6156192423C4F80015A9E0 /* SSCollectionViewMarkableControllerUnmarkTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerUnmarkTC.swift; sourceTree = "<group>"; };
 		2D78DB18242D49A500D77DD1 /* AutoMapUpdateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapUpdateTests.swift; sourceTree = "<group>"; };
 		2D78DB1A242D519800D77DD1 /* AutoMapEqualityOperatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapEqualityOperatorTests.swift; sourceTree = "<group>"; };
@@ -230,7 +230,7 @@
 		99745CBF239FC69F00DAAFFA /* SSEntityUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSEntityUpdater.swift; sourceTree = "<group>"; };
 		99745CC1239FC9B700DAAFFA /* SSUETaskUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUETaskUpdater.swift; sourceTree = "<group>"; };
 		997B344E225A134B00F2A3A0 /* SSSugarExtensionContainersArrayInitBuildBlockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarExtensionContainersArrayInitBuildBlockTests.swift; sourceTree = "<group>"; };
-		997E315222493AC8006A5B7C /* SSSugarExtensionSizeUnitedIntersectedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarExtensionSizeUnitedIntersectedTests.swift; sourceTree = "<group>"; };
+		997E315222493AC8006A5B7C /* CGSizeUnitedIntersectedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeUnitedIntersectedTests.swift; sourceTree = "<group>"; };
 		998534B423CC8EE700FD9325 /* SSLinearCongruentialRandomizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLinearCongruentialRandomizer.swift; sourceTree = "<group>"; };
 		998534B623CCA6E300FD9325 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
 		998F2DC42243F7FA001FFA3A /* SSMarkbaleCollectionCellHelperMarkMarkedTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSMarkbaleCollectionCellHelperMarkMarkedTC.swift; sourceTree = "<group>"; };
@@ -312,13 +312,13 @@
 		99F6A19B2295B11800183436 /* AutoMapAddTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapAddTests.swift; sourceTree = "<group>"; };
 		99FA1D5C225A22FF00AD2FB5 /* SSSugarExtensionContainersArrayBinarySearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SSSugarExtensionContainersArrayBinarySearchTests.swift; path = SSSugarTests/Extensions/Containers/SSSugarExtensionContainersArrayBinarySearchTests.swift; sourceTree = SOURCE_ROOT; };
 		99FA1D60226392A900AD2FB5 /* SSSugarExtensionContainersArrayForEachTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarExtensionContainersArrayForEachTests.swift; sourceTree = "<group>"; };
-		99FA1FE52249544B00C534E3 /* SSSugarExtensionRangeMiddleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarExtensionRangeMiddleTests.swift; sourceTree = "<group>"; };
-		99FA1FE72249549D00C534E3 /* SSSugarExtensionColorInitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarExtensionColorInitTests.swift; sourceTree = "<group>"; };
-		99FA1FEC22495A9400C534E3 /* SSSugarExtensionCGRectCenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SSSugarExtensionCGRectCenterTests.swift; path = SSSugarTests/Extensions/Types/SSSugarExtensionCGRectCenterTests.swift; sourceTree = SOURCE_ROOT; };
-		99FA1FEE2250F0AA00C534E3 /* SSSugarExtensionCGRectInsetToSizeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SSSugarExtensionCGRectInsetToSizeTests.swift; path = SSSugarTests/Extensions/Types/SSSugarExtensionCGRectInsetToSizeTests.swift; sourceTree = SOURCE_ROOT; };
-		99FA1FF02250F46500C534E3 /* SSSugarExtensionCGRectInsetToWHTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SSSugarExtensionCGRectInsetToWHTests.swift; path = SSSugarTests/Extensions/Types/SSSugarExtensionCGRectInsetToWHTests.swift; sourceTree = SOURCE_ROOT; };
-		99FA1FF22250FA0D00C534E3 /* SSSugarExtensionCGRectInitCenterSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarExtensionCGRectInitCenterSize.swift; sourceTree = "<group>"; };
-		99FA1FF52250FD2900C534E3 /* SSSugarExtensionCGRectCuttedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarExtensionCGRectCuttedTests.swift; sourceTree = "<group>"; };
+		99FA1FE52249544B00C534E3 /* RangeMiddleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeMiddleTests.swift; sourceTree = "<group>"; };
+		99FA1FE72249549D00C534E3 /* UIColorInitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorInitTests.swift; sourceTree = "<group>"; };
+		99FA1FEC22495A9400C534E3 /* CGRectCenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CGRectCenterTests.swift; path = SSSugarTests/Extensions/Types/CGRect/CGRectCenterTests.swift; sourceTree = SOURCE_ROOT; };
+		99FA1FEE2250F0AA00C534E3 /* CGRectInsetToSizeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CGRectInsetToSizeTests.swift; path = SSSugarTests/Extensions/Types/CGRect/CGRectInsetToSizeTests.swift; sourceTree = SOURCE_ROOT; };
+		99FA1FF02250F46500C534E3 /* CGRectInsetToWHTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CGRectInsetToWHTests.swift; path = SSSugarTests/Extensions/Types/CGRect/CGRectInsetToWHTests.swift; sourceTree = SOURCE_ROOT; };
+		99FA1FF22250FA0D00C534E3 /* CGRectInitCenterSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGRectInitCenterSize.swift; sourceTree = "<group>"; };
+		99FA1FF52250FD2900C534E3 /* CGRectCuttedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGRectCuttedTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -347,6 +347,27 @@
 				2D94676C242A378E00AC5637 /* SSChainExecutorTests.swift */,
 			);
 			path = Executors;
+			sourceTree = "<group>";
+		};
+		2D6E0E9D2435D6C20035679F /* CGRect */ = {
+			isa = PBXGroup;
+			children = (
+				99FA1FF52250FD2900C534E3 /* CGRectCuttedTests.swift */,
+				99FA1FF22250FA0D00C534E3 /* CGRectInitCenterSize.swift */,
+				99FA1FF02250F46500C534E3 /* CGRectInsetToWHTests.swift */,
+				99FA1FEE2250F0AA00C534E3 /* CGRectInsetToSizeTests.swift */,
+				99FA1FEC22495A9400C534E3 /* CGRectCenterTests.swift */,
+				2D5E66D52424CD0F00D82DEE /* CGRectDividedCountVerticalyTests.swift */,
+			);
+			path = CGRect;
+			sourceTree = "<group>";
+		};
+		2D6E0E9E2435D7620035679F /* CGSize */ = {
+			isa = PBXGroup;
+			children = (
+				997E315222493AC8006A5B7C /* CGSizeUnitedIntersectedTests.swift */,
+			);
+			path = CGSize;
 			sourceTree = "<group>";
 		};
 		2D7E59EC241FC996009EE074 /* SSCustomSelection */ = {
@@ -484,15 +505,10 @@
 		997E314822493587006A5B7C /* Types */ = {
 			isa = PBXGroup;
 			children = (
-				99FA1FF52250FD2900C534E3 /* SSSugarExtensionCGRectCuttedTests.swift */,
-				99FA1FF22250FA0D00C534E3 /* SSSugarExtensionCGRectInitCenterSize.swift */,
-				99FA1FF02250F46500C534E3 /* SSSugarExtensionCGRectInsetToWHTests.swift */,
-				99FA1FEE2250F0AA00C534E3 /* SSSugarExtensionCGRectInsetToSizeTests.swift */,
-				99FA1FEC22495A9400C534E3 /* SSSugarExtensionCGRectCenterTests.swift */,
-				2D5E66D52424CD0F00D82DEE /* SSSugarExtensionCGRectDividedCountVerticalyTests.swift */,
-				997E315222493AC8006A5B7C /* SSSugarExtensionSizeUnitedIntersectedTests.swift */,
-				99FA1FE72249549D00C534E3 /* SSSugarExtensionColorInitTests.swift */,
-				99FA1FE52249544B00C534E3 /* SSSugarExtensionRangeMiddleTests.swift */,
+				2D6E0E9D2435D6C20035679F /* CGRect */,
+				2D6E0E9E2435D7620035679F /* CGSize */,
+				99FA1FE72249549D00C534E3 /* UIColorInitTests.swift */,
+				99FA1FE52249544B00C534E3 /* RangeMiddleTests.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -975,21 +991,21 @@
 				2D7E5A4F241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperMarkTC.swift in Sources */,
 				2DBCCFB2242BB45E00100093 /* AutoMapRemoveForTests.swift in Sources */,
 				2D7E5A50241FD0E5009EE074 /* SSSugarPlaygroundTests.swift in Sources */,
-				2D7E5A51241FD0E5009EE074 /* SSSugarExtensionCGRectCuttedTests.swift in Sources */,
-				2D7E5A52241FD0E5009EE074 /* SSSugarExtensionCGRectInitCenterSize.swift in Sources */,
+				2D7E5A51241FD0E5009EE074 /* CGRectCuttedTests.swift in Sources */,
+				2D7E5A52241FD0E5009EE074 /* CGRectInitCenterSize.swift in Sources */,
 				2D94E4CA243263EB00EE81FF /* UIViewControllerTestHelper.swift in Sources */,
-				2D7E5A53241FD0E5009EE074 /* SSSugarExtensionCGRectInsetToWHTests.swift in Sources */,
-				2D7E5A54241FD0E5009EE074 /* SSSugarExtensionCGRectInsetToSizeTests.swift in Sources */,
-				2D7E5A55241FD0E5009EE074 /* SSSugarExtensionCGRectCenterTests.swift in Sources */,
+				2D7E5A53241FD0E5009EE074 /* CGRectInsetToWHTests.swift in Sources */,
+				2D7E5A54241FD0E5009EE074 /* CGRectInsetToSizeTests.swift in Sources */,
+				2D7E5A55241FD0E5009EE074 /* CGRectCenterTests.swift in Sources */,
 				2DC1D1AD242D0BB70049020B /* AutoMapRemoveForKeyAndIndexes.swift in Sources */,
 				2DFE3991242E48BA001B9AAE /* AutoMapMakeIteratorTests.swift in Sources */,
 				2D8BABC024292ADA00B8A84D /* SSSugarExtensionContainersDictionaryPickingForTests.swift in Sources */,
-				2D7E5A56241FD0E5009EE074 /* SSSugarExtensionSizeUnitedIntersectedTests.swift in Sources */,
-				2D5E66D62424CD0F00D82DEE /* SSSugarExtensionCGRectDividedCountVerticalyTests.swift in Sources */,
-				2D7E5A57241FD0E5009EE074 /* SSSugarExtensionColorInitTests.swift in Sources */,
+				2D7E5A56241FD0E5009EE074 /* CGSizeUnitedIntersectedTests.swift in Sources */,
+				2D5E66D62424CD0F00D82DEE /* CGRectDividedCountVerticalyTests.swift in Sources */,
+				2D7E5A57241FD0E5009EE074 /* UIColorInitTests.swift in Sources */,
 				2DF4E966243326F8005CF7A2 /* UIViewControllerShowErrorAlertTests.swift in Sources */,
 				2D78DB1B242D519800D77DD1 /* AutoMapEqualityOperatorTests.swift in Sources */,
-				2D7E5A58241FD0E5009EE074 /* SSSugarExtensionRangeMiddleTests.swift in Sources */,
+				2D7E5A58241FD0E5009EE074 /* RangeMiddleTests.swift in Sources */,
 				2DFE398E242E412D001B9AAE /* AutoMapIteratorInitMapTests.swift in Sources */,
 				2D7E5A59241FD0E5009EE074 /* SSSugarExtensionContainersArrayForEachTests.swift in Sources */,
 				2D7E5A5A241FD0E5009EE074 /* SSSugarExtensionContainersArrayBinarySearchTests.swift in Sources */,

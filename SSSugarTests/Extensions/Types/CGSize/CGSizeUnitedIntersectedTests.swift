@@ -1,6 +1,6 @@
 import XCTest
 
-class SSSugarExtensionSizeUnitedIntersectedTests: XCTestCase {
+class CGSizeUnitedIntersectedTests: XCTestCase {
     func testUnitedDocExample() {
         checkUnited(lW: 100, lH: 50, rW: 25, rH: 75, eW: 100, eH: 75)
     }
