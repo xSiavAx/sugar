@@ -39,9 +39,7 @@ Tests for CGSize extension added(to:verticaly:)
 import XCTest
 @testable import SSSugar
 
-class CGSizeAdded: XCTestCase {
-    
-    typealias Items = CGSizeAddedItems
+class CGSizeAddedTests: XCTestCase {
     
     var itemsArray = [Items]()
     
@@ -216,16 +214,20 @@ class CGSizeAdded: XCTestCase {
 }
 
 
-struct CGSizeAddedItems {
-    
-    let left: CGSize
-    let right: CGSize
-    let expected: CGSize
-    
-    init(lW: CGFloat, lH: CGFloat, rW: CGFloat, rH: CGFloat, eW: CGFloat, eH: CGFloat) {
-        left = CGSize(width: lW, height: lH)
-        right = CGSize(width: rW, height: rH)
-        expected = CGSize(width: eW, height: eH)
+extension CGSizeAddedTests {
+
+    struct Items {
+        
+        let left: CGSize
+        let right: CGSize
+        let expected: CGSize
+        
+        init(lW: CGFloat, lH: CGFloat, rW: CGFloat, rH: CGFloat, eW: CGFloat, eH: CGFloat) {
+            left = CGSize(width: lW, height: lH)
+            right = CGSize(width: rW, height: rH)
+            expected = CGSize(width: eW, height: eH)
+        }
+        
     }
-    
+
 }
