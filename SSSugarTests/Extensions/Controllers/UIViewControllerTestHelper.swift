@@ -165,21 +165,3 @@ class NotifiableViewController: UIViewController {
     }
     
 }
-
-
-class DismissableViewController: UIViewController {
-    
-    var isDismissed = false
-    var isDismissAnimated: Bool? = nil
-    
-    override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
-        isDismissed = true
-        isDismissAnimated = flag
-        completion?()
-    }
-    
-    func presentViewControler() {
-        present(UIViewController(), animated: false)
-    }
-    
-}

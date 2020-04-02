@@ -1,6 +1,6 @@
 /*
  
- Tests for UIViewController extension dismissPresented(animated:onFinish)
+ Tests for UIViewController extension dismissPresented(animated:onFinish:)
  
  [Done] presented
  [Done] not presented
@@ -11,6 +11,7 @@
  */
 
 import XCTest
+@testable import SSSugar
 
 class UIViewControllerDismissPresentedAnimatedOnFinish: XCTestCase {
 
@@ -57,6 +58,24 @@ class UIViewControllerDismissPresentedAnimatedOnFinish: XCTestCase {
         XCTAssertFalse(sut.isDismissed)
         XCTAssertNil(sut.isDismissAnimated)
         wait(for: [expectaiton], timeout: 1)
+    }
+    
+}
+
+
+class DismissableViewController: UIViewController {
+    
+    var isDismissed = false
+    var isDismissAnimated: Bool? = nil
+    
+    override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
+        isDismissed = true
+        isDismissAnimated = flag
+        completion?()
+    }
+    
+    func presentViewControler() {
+        present(UIViewController(), animated: false)
     }
     
 }

@@ -11,7 +11,7 @@
 import XCTest
 @testable import SSSugar
 
-class ComparableCompare: XCTestCase {
+class ComparableCompareTests: XCTestCase {
     
     let sut = 3
     
