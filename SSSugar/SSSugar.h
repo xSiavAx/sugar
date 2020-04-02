@@ -18,8 +18,8 @@ FOUNDATION_EXPORT const unsigned char SSSugarVersionString[];
 //TODO: Add SSGroupExecutor and SSChainExecutor documentation
 //TODO: Add DataBase tests
 //TODO: Add default values '0' to 'extended' method inside CGSize extension
-//TODO: Write docs and test for 'added' and 'extended' methods inside CGSize extension
-//TODO: Write docs and test for 'init' inside UIColor extension
+//TODO: Write docs for 'added' and 'extended' methods inside CGSize extension
+//TODO: Write docs for 'init' inside UIColor extension
 
 //TODO: Write Comparable extension's docs
 
