@@ -13,7 +13,7 @@
 import XCTest
 @testable import SSSugar
 
-class SSSugarExtensionContainersArrayPickAtTests: XCTestCase {
+class ArrayPickAtTests: XCTestCase {
     
     var sut = [0, 1, 2, 3, 4]
 

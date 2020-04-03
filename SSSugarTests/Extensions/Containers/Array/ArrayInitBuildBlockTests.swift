@@ -2,7 +2,7 @@ import XCTest
 
 @testable import SSSugar
 
-class SSSugarExtensionContainersArrayInitBuildBlockTests: XCTestCase {
+class ArrayInitBuildBlockTests: XCTestCase {
     func testZeros() {
         let testable = [Int](size:5) { (idx) in return 0 }
         

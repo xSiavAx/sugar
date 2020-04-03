@@ -12,8 +12,9 @@
 import XCTest
 @testable import SSSugar
 
-class SSSugarExtensionContainersDictionaryPickingForTests: XCTestCase {
+class DictionaryPickingForTests: XCTestCase {
     
+    typealias Key = DictionaryTestKey
     typealias Results = (dictionary: [Key: Int], value: Int)?
     
     var sut: [Key: Int] = [:]
@@ -59,27 +60,5 @@ class SSSugarExtensionContainersDictionaryPickingForTests: XCTestCase {
         XCTAssertEqual(results?.value, Key.one.value)
         XCTAssertEqual(results?.dictionary, [:])
     }
-}
-
-
-// MARK: - Key
-
-extension SSSugarExtensionContainersDictionaryPickingForTests {
     
-    enum Key: Int {
-        case incorrect = -1
-        case one = 1
-        case two = 2
-        case three = 3
-        
-        static let defaultDictionary = [
-            Key.one : Key.one.value,
-            Key.two : Key.two.value,
-            Key.three : Key.three.value
-        ]
-        
-        var value: Int {
-            self.rawValue
-        }
-    }
 }

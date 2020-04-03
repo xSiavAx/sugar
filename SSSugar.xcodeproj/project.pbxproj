@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2D00D99424379D3B0059EB09 /* CGPointTestItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D00D99324379D3B0059EB09 /* CGPointTestItems.swift */; };
 		2D00D99624379EA20059EB09 /* CGPointBinaryPlusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D00D99524379EA20059EB09 /* CGPointBinaryPlusTests.swift */; };
+		2D00D99A2437A46A0059EB09 /* DictionaryTestKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D00D9992437A46A0059EB09 /* DictionaryTestKey.swift */; };
 		2D207BB324379349001D808E /* CGPointUnaryMinusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D207BB224379349001D808E /* CGPointUnaryMinusTests.swift */; };
 		2D207BB62437992E001D808E /* CGPointBinaryMinusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D207BB52437992E001D808E /* CGPointBinaryMinusTests.swift */; };
 		2D2A44DF2434A86100B30AE3 /* UIViewControllerUnregisterFromKBNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2A44DE2434A86100B30AE3 /* UIViewControllerUnregisterFromKBNotifications.swift */; };
@@ -18,10 +19,10 @@
 		2D3043C224377B1500EBD898 /* CGSizeBinaryPlusOperatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3043C124377B1500EBD898 /* CGSizeBinaryPlusOperatorTests.swift */; };
 		2D3043C42437829000EBD898 /* CGSizeTestItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3043C32437829000EBD898 /* CGSizeTestItems.swift */; };
 		2D4398A824222AAB00D01464 /* AutoMapInitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4398A724222AAB00D01464 /* AutoMapInitTests.swift */; };
-		2D4A6BB42429104A001E0487 /* SSSugarExtensionContainersDictionaryPickForTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4A6BB32429104A001E0487 /* SSSugarExtensionContainersDictionaryPickForTests.swift */; };
+		2D4A6BB42429104A001E0487 /* DictionaryPickForTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4A6BB32429104A001E0487 /* DictionaryPickForTests.swift */; };
 		2D4F5E282434E197003EF8D4 /* UIViewControllerDismissPresentedAnimatedOnFinish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4F5E272434E197003EF8D4 /* UIViewControllerDismissPresentedAnimatedOnFinish.swift */; };
 		2D535E12242A0F7E0024D4C0 /* SSGroupExecutorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D535E11242A0F7E0024D4C0 /* SSGroupExecutorTests.swift */; };
-		2D5CCF122429F9700065278E /* SSSugarExtensionContainersArrayPickAtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5CCF112429F9700065278E /* SSSugarExtensionContainersArrayPickAtTests.swift */; };
+		2D5CCF122429F9700065278E /* ArrayPickAtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5CCF112429F9700065278E /* ArrayPickAtTests.swift */; };
 		2D5E66D62424CD0F00D82DEE /* CGRectDividedCountVerticalyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5E66D52424CD0F00D82DEE /* CGRectDividedCountVerticalyTests.swift */; };
 		2D61561A2423C4F80015A9E0 /* SSCollectionViewMarkableControllerUnmarkTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6156192423C4F80015A9E0 /* SSCollectionViewMarkableControllerUnmarkTC.swift */; };
 		2D6E0EA22435DA9F0035679F /* CGSizeAddedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6E0EA12435DA9F0035679F /* CGSizeAddedTests.swift */; };
@@ -52,15 +53,15 @@
 		2D7E5A56241FD0E5009EE074 /* CGSizeUnitedIntersectedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997E315222493AC8006A5B7C /* CGSizeUnitedIntersectedTests.swift */; };
 		2D7E5A57241FD0E5009EE074 /* UIColorInitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1FE72249549D00C534E3 /* UIColorInitTests.swift */; };
 		2D7E5A58241FD0E5009EE074 /* RangeMiddleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1FE52249544B00C534E3 /* RangeMiddleTests.swift */; };
-		2D7E5A59241FD0E5009EE074 /* SSSugarExtensionContainersArrayForEachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1D60226392A900AD2FB5 /* SSSugarExtensionContainersArrayForEachTests.swift */; };
-		2D7E5A5A241FD0E5009EE074 /* SSSugarExtensionContainersArrayBinarySearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1D5C225A22FF00AD2FB5 /* SSSugarExtensionContainersArrayBinarySearchTests.swift */; };
-		2D7E5A5B241FD0E5009EE074 /* SSSugarExtensionContainersArrayInitBuildBlockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997B344E225A134B00F2A3A0 /* SSSugarExtensionContainersArrayInitBuildBlockTests.swift */; };
+		2D7E5A59241FD0E5009EE074 /* ArrayForEachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1D60226392A900AD2FB5 /* ArrayForEachTests.swift */; };
+		2D7E5A5A241FD0E5009EE074 /* ArrayBinarySearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FA1D5C225A22FF00AD2FB5 /* ArrayBinarySearchTests.swift */; };
+		2D7E5A5B241FD0E5009EE074 /* ArrayInitBuildBlockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997B344E225A134B00F2A3A0 /* ArrayInitBuildBlockTests.swift */; };
 		2D7E5A5C241FD0E5009EE074 /* AutoMapAddContainerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DB1A7E229EE36D005C4823 /* AutoMapAddContainerTests.swift */; };
 		2D7E5A5E241FD0E5009EE074 /* AutoMapSubscriptKeyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DB1A7A229ED9FC005C4823 /* AutoMapSubscriptKeyTests.swift */; };
 		2D7E5A5F241FD0E5009EE074 /* AutoMapContainsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99DB1A78229ED6BB005C4823 /* AutoMapContainsTests.swift */; };
 		2D7E5A60241FD0E5009EE074 /* AutoMapAddTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F6A19B2295B11800183436 /* AutoMapAddTests.swift */; };
 		2D7FD9F42420F73200D4C28F /* AutoMapTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7FD9F32420F73200D4C28F /* AutoMapTestHelper.swift */; };
-		2D8BABC024292ADA00B8A84D /* SSSugarExtensionContainersDictionaryPickingForTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8BABBF24292ADA00B8A84D /* SSSugarExtensionContainersDictionaryPickingForTests.swift */; };
+		2D8BABC024292ADA00B8A84D /* DictionaryPickingForTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8BABBF24292ADA00B8A84D /* DictionaryPickingForTests.swift */; };
 		2D8CF9BC241FC4BA00168C8A /* SSSugar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99D2963E223D3057003FD9F0 /* SSSugar.framework */; };
 		2D94676D242A378E00AC5637 /* SSChainExecutorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D94676C242A378E00AC5637 /* SSChainExecutorTests.swift */; };
 		2D94E4CA243263EB00EE81FF /* UIViewControllerTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D94E4C9243263EB00EE81FF /* UIViewControllerTestHelper.swift */; };
@@ -180,6 +181,7 @@
 /* Begin PBXFileReference section */
 		2D00D99324379D3B0059EB09 /* CGPointTestItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPointTestItems.swift; sourceTree = "<group>"; };
 		2D00D99524379EA20059EB09 /* CGPointBinaryPlusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPointBinaryPlusTests.swift; sourceTree = "<group>"; };
+		2D00D9992437A46A0059EB09 /* DictionaryTestKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryTestKey.swift; sourceTree = "<group>"; };
 		2D207BB224379349001D808E /* CGPointUnaryMinusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPointUnaryMinusTests.swift; sourceTree = "<group>"; };
 		2D207BB52437992E001D808E /* CGPointBinaryMinusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPointBinaryMinusTests.swift; sourceTree = "<group>"; };
 		2D2A44DE2434A86100B30AE3 /* UIViewControllerUnregisterFromKBNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerUnregisterFromKBNotifications.swift; sourceTree = "<group>"; };
@@ -189,10 +191,10 @@
 		2D3043C124377B1500EBD898 /* CGSizeBinaryPlusOperatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeBinaryPlusOperatorTests.swift; sourceTree = "<group>"; };
 		2D3043C32437829000EBD898 /* CGSizeTestItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeTestItems.swift; sourceTree = "<group>"; };
 		2D4398A724222AAB00D01464 /* AutoMapInitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoMapInitTests.swift; sourceTree = "<group>"; };
-		2D4A6BB32429104A001E0487 /* SSSugarExtensionContainersDictionaryPickForTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarExtensionContainersDictionaryPickForTests.swift; sourceTree = "<group>"; };
+		2D4A6BB32429104A001E0487 /* DictionaryPickForTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryPickForTests.swift; sourceTree = "<group>"; };
 		2D4F5E272434E197003EF8D4 /* UIViewControllerDismissPresentedAnimatedOnFinish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerDismissPresentedAnimatedOnFinish.swift; sourceTree = "<group>"; };
 		2D535E11242A0F7E0024D4C0 /* SSGroupExecutorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSGroupExecutorTests.swift; sourceTree = "<group>"; };
-		2D5CCF112429F9700065278E /* SSSugarExtensionContainersArrayPickAtTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarExtensionContainersArrayPickAtTests.swift; sourceTree = "<group>"; };
+		2D5CCF112429F9700065278E /* ArrayPickAtTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayPickAtTests.swift; sourceTree = "<group>"; };
 		2D5E66D52424CD0F00D82DEE /* CGRectDividedCountVerticalyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRectDividedCountVerticalyTests.swift; sourceTree = "<group>"; };
 		2D6156192423C4F80015A9E0 /* SSCollectionViewMarkableControllerUnmarkTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerUnmarkTC.swift; sourceTree = "<group>"; };
 		2D6E0EA12435DA9F0035679F /* CGSizeAddedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeAddedTests.swift; sourceTree = "<group>"; };
@@ -200,7 +202,7 @@
 		2D78DB18242D49A500D77DD1 /* AutoMapUpdateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapUpdateTests.swift; sourceTree = "<group>"; };
 		2D78DB1A242D519800D77DD1 /* AutoMapEqualityOperatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapEqualityOperatorTests.swift; sourceTree = "<group>"; };
 		2D7FD9F32420F73200D4C28F /* AutoMapTestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapTestHelper.swift; sourceTree = "<group>"; };
-		2D8BABBF24292ADA00B8A84D /* SSSugarExtensionContainersDictionaryPickingForTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarExtensionContainersDictionaryPickingForTests.swift; sourceTree = "<group>"; };
+		2D8BABBF24292ADA00B8A84D /* DictionaryPickingForTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryPickingForTests.swift; sourceTree = "<group>"; };
 		2D8CF9B7241FC4BA00168C8A /* SSSugarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SSSugarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D8CF9BB241FC4BA00168C8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D94676C242A378E00AC5637 /* SSChainExecutorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSChainExecutorTests.swift; sourceTree = "<group>"; };
@@ -249,7 +251,7 @@
 		99745CBD239FC10900DAAFFA /* SSEntityRemoteMutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSEntityRemoteMutator.swift; sourceTree = "<group>"; };
 		99745CBF239FC69F00DAAFFA /* SSEntityUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSEntityUpdater.swift; sourceTree = "<group>"; };
 		99745CC1239FC9B700DAAFFA /* SSUETaskUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUETaskUpdater.swift; sourceTree = "<group>"; };
-		997B344E225A134B00F2A3A0 /* SSSugarExtensionContainersArrayInitBuildBlockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarExtensionContainersArrayInitBuildBlockTests.swift; sourceTree = "<group>"; };
+		997B344E225A134B00F2A3A0 /* ArrayInitBuildBlockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayInitBuildBlockTests.swift; sourceTree = "<group>"; };
 		997E315222493AC8006A5B7C /* CGSizeUnitedIntersectedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeUnitedIntersectedTests.swift; sourceTree = "<group>"; };
 		998534B423CC8EE700FD9325 /* SSLinearCongruentialRandomizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLinearCongruentialRandomizer.swift; sourceTree = "<group>"; };
 		998534B623CCA6E300FD9325 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
@@ -330,8 +332,8 @@
 		99F3F41D23ABBDE7003C88D9 /* UIDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
 		99F6A186228981CE00183436 /* AutoMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMap.swift; sourceTree = "<group>"; };
 		99F6A19B2295B11800183436 /* AutoMapAddTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapAddTests.swift; sourceTree = "<group>"; };
-		99FA1D5C225A22FF00AD2FB5 /* SSSugarExtensionContainersArrayBinarySearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SSSugarExtensionContainersArrayBinarySearchTests.swift; path = SSSugarTests/Extensions/Containers/SSSugarExtensionContainersArrayBinarySearchTests.swift; sourceTree = SOURCE_ROOT; };
-		99FA1D60226392A900AD2FB5 /* SSSugarExtensionContainersArrayForEachTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarExtensionContainersArrayForEachTests.swift; sourceTree = "<group>"; };
+		99FA1D5C225A22FF00AD2FB5 /* ArrayBinarySearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ArrayBinarySearchTests.swift; path = SSSugarTests/Extensions/Containers/Array/ArrayBinarySearchTests.swift; sourceTree = SOURCE_ROOT; };
+		99FA1D60226392A900AD2FB5 /* ArrayForEachTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayForEachTests.swift; sourceTree = "<group>"; };
 		99FA1FE52249544B00C534E3 /* RangeMiddleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeMiddleTests.swift; sourceTree = "<group>"; };
 		99FA1FE72249549D00C534E3 /* UIColorInitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorInitTests.swift; sourceTree = "<group>"; };
 		99FA1FEC22495A9400C534E3 /* CGRectCenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CGRectCenterTests.swift; path = SSSugarTests/Extensions/Types/CGRect/CGRectCenterTests.swift; sourceTree = SOURCE_ROOT; };
@@ -360,6 +362,27 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2D00D9972437A3AF0059EB09 /* Array */ = {
+			isa = PBXGroup;
+			children = (
+				99FA1D60226392A900AD2FB5 /* ArrayForEachTests.swift */,
+				99FA1D5C225A22FF00AD2FB5 /* ArrayBinarySearchTests.swift */,
+				997B344E225A134B00F2A3A0 /* ArrayInitBuildBlockTests.swift */,
+				2D5CCF112429F9700065278E /* ArrayPickAtTests.swift */,
+			);
+			path = Array;
+			sourceTree = "<group>";
+		};
+		2D00D9982437A3D50059EB09 /* Dictionary */ = {
+			isa = PBXGroup;
+			children = (
+				2D4A6BB32429104A001E0487 /* DictionaryPickForTests.swift */,
+				2D8BABBF24292ADA00B8A84D /* DictionaryPickingForTests.swift */,
+				2D00D9992437A46A0059EB09 /* DictionaryTestKey.swift */,
+			);
+			path = Dictionary;
+			sourceTree = "<group>";
+		};
 		2D207BB42437934E001D808E /* CGPoint */ = {
 			isa = PBXGroup;
 			children = (
@@ -529,12 +552,8 @@
 		997B344D225A134B00F2A3A0 /* Containers */ = {
 			isa = PBXGroup;
 			children = (
-				99FA1D60226392A900AD2FB5 /* SSSugarExtensionContainersArrayForEachTests.swift */,
-				99FA1D5C225A22FF00AD2FB5 /* SSSugarExtensionContainersArrayBinarySearchTests.swift */,
-				997B344E225A134B00F2A3A0 /* SSSugarExtensionContainersArrayInitBuildBlockTests.swift */,
-				2D5CCF112429F9700065278E /* SSSugarExtensionContainersArrayPickAtTests.swift */,
-				2D4A6BB32429104A001E0487 /* SSSugarExtensionContainersDictionaryPickForTests.swift */,
-				2D8BABBF24292ADA00B8A84D /* SSSugarExtensionContainersDictionaryPickingForTests.swift */,
+				2D00D9972437A3AF0059EB09 /* Array */,
+				2D00D9982437A3D50059EB09 /* Dictionary */,
 			);
 			path = Containers;
 			sourceTree = "<group>";
@@ -999,7 +1018,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2D7E5A3E241FD0E5009EE074 /* SSCollectionViewMarkableControllerConfigCellTC.swift in Sources */,
-				2D4A6BB42429104A001E0487 /* SSSugarExtensionContainersDictionaryPickForTests.swift in Sources */,
+				2D4A6BB42429104A001E0487 /* DictionaryPickForTests.swift in Sources */,
 				2D2A44E12434BF9000B30AE3 /* UIViewControllerKBDidChangeHeightTo.swift in Sources */,
 				2D7E5A3F241FD0E5009EE074 /* SSCollectionViewMarkableControllerActivateTC.swift in Sources */,
 				2D7E5A40241FD0E5009EE074 /* SSCollectionViewMarkableControllerTestHelper.swift in Sources */,
@@ -1009,8 +1028,9 @@
 				2DBCCFB6242BBAB800100093 /* AutoMapIsEmptyTests.swift in Sources */,
 				2DBCCFBA242BC73000100093 /* AutoMapSubscriptKeyIndexTests.swift in Sources */,
 				2D00D99424379D3B0059EB09 /* CGPointTestItems.swift in Sources */,
+				2D00D99A2437A46A0059EB09 /* DictionaryTestKey.swift in Sources */,
 				2D7E5A46241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperDeactivateDeactivatedTC.swift in Sources */,
-				2D5CCF122429F9700065278E /* SSSugarExtensionContainersArrayPickAtTests.swift in Sources */,
+				2D5CCF122429F9700065278E /* ArrayPickAtTests.swift in Sources */,
 				2D7E5A47241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperDeactivateTC.swift in Sources */,
 				2D7E5A48241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperActivateActivatedTC.swift in Sources */,
 				2DC7A050243338F100A1BDC2 /* UIViewControllerShowWarningAlertTests.swift in Sources */,
@@ -1044,7 +1064,7 @@
 				2D7E5A55241FD0E5009EE074 /* CGRectCenterTests.swift in Sources */,
 				2DC1D1AD242D0BB70049020B /* AutoMapRemoveForKeyAndIndexes.swift in Sources */,
 				2DFE3991242E48BA001B9AAE /* AutoMapMakeIteratorTests.swift in Sources */,
-				2D8BABC024292ADA00B8A84D /* SSSugarExtensionContainersDictionaryPickingForTests.swift in Sources */,
+				2D8BABC024292ADA00B8A84D /* DictionaryPickingForTests.swift in Sources */,
 				2D7E5A56241FD0E5009EE074 /* CGSizeUnitedIntersectedTests.swift in Sources */,
 				2D5E66D62424CD0F00D82DEE /* CGRectDividedCountVerticalyTests.swift in Sources */,
 				2D207BB324379349001D808E /* CGPointUnaryMinusTests.swift in Sources */,
@@ -1054,10 +1074,10 @@
 				2D78DB1B242D519800D77DD1 /* AutoMapEqualityOperatorTests.swift in Sources */,
 				2D7E5A58241FD0E5009EE074 /* RangeMiddleTests.swift in Sources */,
 				2DFE398E242E412D001B9AAE /* AutoMapIteratorInitMapTests.swift in Sources */,
-				2D7E5A59241FD0E5009EE074 /* SSSugarExtensionContainersArrayForEachTests.swift in Sources */,
-				2D7E5A5A241FD0E5009EE074 /* SSSugarExtensionContainersArrayBinarySearchTests.swift in Sources */,
+				2D7E5A59241FD0E5009EE074 /* ArrayForEachTests.swift in Sources */,
+				2D7E5A5A241FD0E5009EE074 /* ArrayBinarySearchTests.swift in Sources */,
 				2D94676D242A378E00AC5637 /* SSChainExecutorTests.swift in Sources */,
-				2D7E5A5B241FD0E5009EE074 /* SSSugarExtensionContainersArrayInitBuildBlockTests.swift in Sources */,
+				2D7E5A5B241FD0E5009EE074 /* ArrayInitBuildBlockTests.swift in Sources */,
 				2D7E5A5C241FD0E5009EE074 /* AutoMapAddContainerTests.swift in Sources */,
 				2D7E5A5E241FD0E5009EE074 /* AutoMapSubscriptKeyTests.swift in Sources */,
 				2D4F5E282434E197003EF8D4 /* UIViewControllerDismissPresentedAnimatedOnFinish.swift in Sources */,

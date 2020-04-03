@@ -2,7 +2,7 @@ import XCTest
 
 @testable import SSSugar
 
-class SSSugarExtensionContainersArrayBinarySearchTests: XCTestCase {
+class ArrayBinarySearchTests: XCTestCase {
     func testFirstPos() {
         let arr = evens(size: 10)
         
