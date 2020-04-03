@@ -21,11 +21,11 @@ public extension CGSize {
         return CGSize(width: width + dx, height: height + dy)
     }
     
-    func added(to size: CGSize, vetically : Bool = true) -> CGSize {
-        if (vetically) {
-            return CGSize(width:max(width, size.width), height:height + size.height)
+    func added(to size: CGSize, vertically: Bool = true) -> CGSize {
+        if (vertically) {
+            return CGSize(width: max(width, size.width), height: height + size.height)
         }
-        return CGSize(width:width + size.width, height:max(height, size.height))
+        return CGSize(width: width + size.width, height: max(height, size.height))
     }
     
     /// Returns size that are intersection of subject size and passed one.
@@ -44,6 +44,15 @@ public extension CGSize {
     @available(*, deprecated, message: "Use united(with:) instead")
     func union(with size: CGSize) -> CGSize {
         return united(with: size)
+    }
+    
+    /// - Warning: **Deprecated**. Use `added(to:vertically:)` insted.
+    @available(*, deprecated, renamed: "added(to:vertically:)")
+    func added(to size: CGSize, vetically: Bool = true) -> CGSize {
+        if (vetically) {
+            return CGSize(width:max(width, size.width), height:height + size.height)
+        }
+        return CGSize(width:width + size.width, height:max(height, size.height))
     }
 }
 

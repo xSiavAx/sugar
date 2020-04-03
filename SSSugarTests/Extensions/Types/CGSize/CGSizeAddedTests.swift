@@ -207,7 +207,7 @@ class CGSizeAddedTests: XCTestCase {
     
     func assertEqualItemsArray(vertically: Bool) {
         for items in itemsArray {
-            XCTAssertEqual(items.left.added(to: items.right, vetically: vertically), items.expected)
+            XCTAssertEqual(items.left.added(to: items.right, vertically: vertically), items.expected)
         }
     }
     
