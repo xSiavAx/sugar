@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2D00D99424379D3B0059EB09 /* CGPointTestItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D00D99324379D3B0059EB09 /* CGPointTestItems.swift */; };
 		2D207BB324379349001D808E /* CGPointUnaryMinusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D207BB224379349001D808E /* CGPointUnaryMinusTests.swift */; };
+		2D207BB62437992E001D808E /* CGPointBinaryMinusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D207BB52437992E001D808E /* CGPointBinaryMinusTests.swift */; };
 		2D2A44DF2434A86100B30AE3 /* UIViewControllerUnregisterFromKBNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2A44DE2434A86100B30AE3 /* UIViewControllerUnregisterFromKBNotifications.swift */; };
 		2D2A44E12434BF9000B30AE3 /* UIViewControllerKBDidChangeHeightTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2A44E02434BF9000B30AE3 /* UIViewControllerKBDidChangeHeightTo.swift */; };
 		2D3043BE243727E800EBD898 /* CGSizeUnaryMinusOperatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3043BD243727E800EBD898 /* CGSizeUnaryMinusOperatorTests.swift */; };
@@ -175,7 +177,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2D00D99324379D3B0059EB09 /* CGPointTestItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPointTestItems.swift; sourceTree = "<group>"; };
 		2D207BB224379349001D808E /* CGPointUnaryMinusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPointUnaryMinusTests.swift; sourceTree = "<group>"; };
+		2D207BB52437992E001D808E /* CGPointBinaryMinusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPointBinaryMinusTests.swift; sourceTree = "<group>"; };
 		2D2A44DE2434A86100B30AE3 /* UIViewControllerUnregisterFromKBNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerUnregisterFromKBNotifications.swift; sourceTree = "<group>"; };
 		2D2A44E02434BF9000B30AE3 /* UIViewControllerKBDidChangeHeightTo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerKBDidChangeHeightTo.swift; sourceTree = "<group>"; };
 		2D3043BD243727E800EBD898 /* CGSizeUnaryMinusOperatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeUnaryMinusOperatorTests.swift; sourceTree = "<group>"; };
@@ -358,6 +362,8 @@
 			isa = PBXGroup;
 			children = (
 				2D207BB224379349001D808E /* CGPointUnaryMinusTests.swift */,
+				2D207BB52437992E001D808E /* CGPointBinaryMinusTests.swift */,
+				2D00D99324379D3B0059EB09 /* CGPointTestItems.swift */,
 			);
 			path = CGPoint;
 			sourceTree = "<group>";
@@ -999,6 +1005,7 @@
 				2D7E5A45241FD0E5009EE074 /* SSCollectionViewMarkableControllerMarkTC.swift in Sources */,
 				2DBCCFB6242BBAB800100093 /* AutoMapIsEmptyTests.swift in Sources */,
 				2DBCCFBA242BC73000100093 /* AutoMapSubscriptKeyIndexTests.swift in Sources */,
+				2D00D99424379D3B0059EB09 /* CGPointTestItems.swift in Sources */,
 				2D7E5A46241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperDeactivateDeactivatedTC.swift in Sources */,
 				2D5CCF122429F9700065278E /* SSSugarExtensionContainersArrayPickAtTests.swift in Sources */,
 				2D7E5A47241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperDeactivateTC.swift in Sources */,
@@ -1021,6 +1028,7 @@
 				2D7E5A4E241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperMarkNonActiveTC.swift in Sources */,
 				2D535E12242A0F7E0024D4C0 /* SSGroupExecutorTests.swift in Sources */,
 				2D78DB19242D49A500D77DD1 /* AutoMapUpdateTests.swift in Sources */,
+				2D207BB62437992E001D808E /* CGPointBinaryMinusTests.swift in Sources */,
 				2D7E5A4F241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperMarkTC.swift in Sources */,
 				2DBCCFB2242BB45E00100093 /* AutoMapRemoveForTests.swift in Sources */,
 				2D7E5A50241FD0E5009EE074 /* SSSugarPlaygroundTests.swift in Sources */,
