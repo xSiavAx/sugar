@@ -11,6 +11,8 @@
 		2D2A44E12434BF9000B30AE3 /* UIViewControllerKBDidChangeHeightTo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2A44E02434BF9000B30AE3 /* UIViewControllerKBDidChangeHeightTo.swift */; };
 		2D3043BE243727E800EBD898 /* CGSizeUnaryMinusOperatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3043BD243727E800EBD898 /* CGSizeUnaryMinusOperatorTests.swift */; };
 		2D3043C02437369500EBD898 /* CGSizeBinaryMinusOperatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3043BF2437369500EBD898 /* CGSizeBinaryMinusOperatorTests.swift */; };
+		2D3043C224377B1500EBD898 /* CGSizeBinaryPlusOperatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3043C124377B1500EBD898 /* CGSizeBinaryPlusOperatorTests.swift */; };
+		2D3043C42437829000EBD898 /* CGSizeTestItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3043C32437829000EBD898 /* CGSizeTestItems.swift */; };
 		2D4398A824222AAB00D01464 /* AutoMapInitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4398A724222AAB00D01464 /* AutoMapInitTests.swift */; };
 		2D4A6BB42429104A001E0487 /* SSSugarExtensionContainersDictionaryPickForTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4A6BB32429104A001E0487 /* SSSugarExtensionContainersDictionaryPickForTests.swift */; };
 		2D4F5E282434E197003EF8D4 /* UIViewControllerDismissPresentedAnimatedOnFinish.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4F5E272434E197003EF8D4 /* UIViewControllerDismissPresentedAnimatedOnFinish.swift */; };
@@ -176,6 +178,8 @@
 		2D2A44E02434BF9000B30AE3 /* UIViewControllerKBDidChangeHeightTo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerKBDidChangeHeightTo.swift; sourceTree = "<group>"; };
 		2D3043BD243727E800EBD898 /* CGSizeUnaryMinusOperatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeUnaryMinusOperatorTests.swift; sourceTree = "<group>"; };
 		2D3043BF2437369500EBD898 /* CGSizeBinaryMinusOperatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeBinaryMinusOperatorTests.swift; sourceTree = "<group>"; };
+		2D3043C124377B1500EBD898 /* CGSizeBinaryPlusOperatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeBinaryPlusOperatorTests.swift; sourceTree = "<group>"; };
+		2D3043C32437829000EBD898 /* CGSizeTestItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeTestItems.swift; sourceTree = "<group>"; };
 		2D4398A724222AAB00D01464 /* AutoMapInitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoMapInitTests.swift; sourceTree = "<group>"; };
 		2D4A6BB32429104A001E0487 /* SSSugarExtensionContainersDictionaryPickForTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarExtensionContainersDictionaryPickForTests.swift; sourceTree = "<group>"; };
 		2D4F5E272434E197003EF8D4 /* UIViewControllerDismissPresentedAnimatedOnFinish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerDismissPresentedAnimatedOnFinish.swift; sourceTree = "<group>"; };
@@ -378,6 +382,8 @@
 				2D6E0EA324362A5F0035679F /* CGSizeExtendedTests.swift */,
 				2D3043BD243727E800EBD898 /* CGSizeUnaryMinusOperatorTests.swift */,
 				2D3043BF2437369500EBD898 /* CGSizeBinaryMinusOperatorTests.swift */,
+				2D3043C124377B1500EBD898 /* CGSizeBinaryPlusOperatorTests.swift */,
+				2D3043C32437829000EBD898 /* CGSizeTestItems.swift */,
 			);
 			path = CGSize;
 			sourceTree = "<group>";
@@ -992,6 +998,8 @@
 				2D7E5A49241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperUnmarkNonMarkedTC.swift in Sources */,
 				2D7E5A4A241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperUnmarkTC.swift in Sources */,
 				2DFE398C242E4080001B9AAE /* AutoMapIteratorNextTests.swift in Sources */,
+				2D3043C224377B1500EBD898 /* CGSizeBinaryPlusOperatorTests.swift in Sources */,
+				2D3043C42437829000EBD898 /* CGSizeTestItems.swift in Sources */,
 				2DC1D1AF242D41740049020B /* AutoMapInsertTests.swift in Sources */,
 				2D7E5A4B241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperMarkMarkedTC.swift in Sources */,
 				2D7E5A4C241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperTestHelper.swift in Sources */,

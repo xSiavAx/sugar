@@ -56,7 +56,7 @@ public extension CGSize {
     }
 }
 
-//TODO: Add Tests and docs
+//TODO: Add docs
 
 public prefix func -(size: CGSize) -> CGSize {
     return CGSize(width: -size.width, height: -size.height)

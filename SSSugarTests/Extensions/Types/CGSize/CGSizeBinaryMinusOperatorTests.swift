@@ -40,6 +40,8 @@ import XCTest
 
 class CGSizeBinaryMinusOperatorTests: XCTestCase {
     
+    typealias Items = CGSizeTestItems
+    
     var itemsArray = [Items]()
 
     func testGreaterWidthGreaterHeight() {
@@ -277,23 +279,4 @@ class CGSizeBinaryMinusOperatorTests: XCTestCase {
             XCTAssertEqual(items.left - items.right, items.expected)
         }
     }
-}
-
-
-extension CGSizeBinaryMinusOperatorTests {
-    
-    struct Items {
-        
-        let left: CGSize
-        let right: CGSize
-        let expected: CGSize
-        
-        init(lW: CGFloat, lH: CGFloat, rW: CGFloat, rH: CGFloat, eW: CGFloat, eH: CGFloat) {
-            left = CGSize(width: lW, height: lH)
-            right = CGSize(width: rW, height: rH)
-            expected = CGSize(width: eW, height: eH)
-        }
-        
-    }
-    
 }
