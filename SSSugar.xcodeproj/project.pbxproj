@@ -65,6 +65,7 @@
 		2D8CF9BC241FC4BA00168C8A /* SSSugar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99D2963E223D3057003FD9F0 /* SSSugar.framework */; };
 		2D94676D242A378E00AC5637 /* SSChainExecutorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D94676C242A378E00AC5637 /* SSChainExecutorTests.swift */; };
 		2D94E4CA243263EB00EE81FF /* UIViewControllerTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D94E4C9243263EB00EE81FF /* UIViewControllerTestHelper.swift */; };
+		2D95D5F8243B247D0060E1F8 /* UILabelNonEmptySizeThatFits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D95D5F7243B247D0060E1F8 /* UILabelNonEmptySizeThatFits.swift */; };
 		2DAEA168243206AF00DF53D0 /* ComparableCompareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAEA167243206AF00DF53D0 /* ComparableCompareTests.swift */; };
 		2DAEA16D24321D0700DF53D0 /* UIViewControllerShowAlertTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DAEA16C24321D0700DF53D0 /* UIViewControllerShowAlertTests.swift */; };
 		2DBCCFB0242BAB7500100093 /* AutoMapReplaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DBCCFAF242BAB7500100093 /* AutoMapReplaceTests.swift */; };
@@ -207,6 +208,7 @@
 		2D8CF9BB241FC4BA00168C8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2D94676C242A378E00AC5637 /* SSChainExecutorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSChainExecutorTests.swift; sourceTree = "<group>"; };
 		2D94E4C9243263EB00EE81FF /* UIViewControllerTestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerTestHelper.swift; sourceTree = "<group>"; };
+		2D95D5F7243B247D0060E1F8 /* UILabelNonEmptySizeThatFits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelNonEmptySizeThatFits.swift; sourceTree = "<group>"; };
 		2DAEA167243206AF00DF53D0 /* ComparableCompareTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparableCompareTests.swift; sourceTree = "<group>"; };
 		2DAEA16C24321D0700DF53D0 /* UIViewControllerShowAlertTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerShowAlertTests.swift; sourceTree = "<group>"; };
 		2DBCCFAF242BAB7500100093 /* AutoMapReplaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapReplaceTests.swift; sourceTree = "<group>"; };
@@ -452,6 +454,14 @@
 			path = SSSugarTests;
 			sourceTree = "<group>";
 		};
+		2D95D5F9243B24810060E1F8 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2D95D5F7243B247D0060E1F8 /* UILabelNonEmptySizeThatFits.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		2DAEA1642431F92000DF53D0 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -459,6 +469,7 @@
 				2DAEA16E24321D0B00DF53D0 /* Controllers */,
 				997E314822493587006A5B7C /* Types */,
 				997B344D225A134B00F2A3A0 /* Containers */,
+				2D95D5F9243B24810060E1F8 /* Views */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1067,6 +1078,7 @@
 				2D8BABC024292ADA00B8A84D /* DictionaryPickingForTests.swift in Sources */,
 				2D7E5A56241FD0E5009EE074 /* CGSizeUnitedIntersectedTests.swift in Sources */,
 				2D5E66D62424CD0F00D82DEE /* CGRectDividedCountVerticalyTests.swift in Sources */,
+				2D95D5F8243B247D0060E1F8 /* UILabelNonEmptySizeThatFits.swift in Sources */,
 				2D207BB324379349001D808E /* CGPointUnaryMinusTests.swift in Sources */,
 				2D3043C02437369500EBD898 /* CGSizeBinaryMinusOperatorTests.swift in Sources */,
 				2D7E5A57241FD0E5009EE074 /* UIColorInitTests.swift in Sources */,
