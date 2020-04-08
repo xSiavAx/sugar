@@ -31,6 +31,8 @@
  
  */
 
+//TODO: [Review] See comments to Register Test
+
 import XCTest
 @testable import SSSugar
 

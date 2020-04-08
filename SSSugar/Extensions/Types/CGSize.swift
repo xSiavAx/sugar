@@ -1,4 +1,5 @@
 import Foundation
+import CoreGraphics
 
 public extension CGSize {
     /// Returns size that are union of subject size and passed one.

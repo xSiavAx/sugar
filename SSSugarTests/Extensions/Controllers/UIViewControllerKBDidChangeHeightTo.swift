@@ -37,7 +37,7 @@ import XCTest
 @testable import SSSugar
 
 class UIViewControllerKBDidChangeHeightTo: XCTestCase {
-    
+    //TODO: [Review] Redurant row
     let testHelper = UIViewControllerTestHelper()
     let sut = NotifiableViewController()
     
@@ -148,5 +148,5 @@ class UIViewControllerKBDidChangeHeightTo: XCTestCase {
         XCTAssertEqual(sut.keyboardHeight, 0)
         XCTAssertTrue(sut.isNotified)
     }
-    
+    //TODO: [Review] Redurant row
 }

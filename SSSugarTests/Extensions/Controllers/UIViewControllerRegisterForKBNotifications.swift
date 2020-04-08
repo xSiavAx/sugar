@@ -31,10 +31,24 @@
         
  */
 
+// TODO: [Review] To many cases
+// Plan should looks like this:
+// Test register
+//      send notification, check no reaction, subscribe, send notificatio, check reacted
+// Test unregister
+//      subscribe, send notificatio, check reacted, unsubscribe, send notification, check not reacted
+//
+// Test change height * [all ur caseses] (splited on cases)
+//
+// Test defferent notification sequences
+//
+// Then u could merge all KB related test files to single one.
+
 import XCTest
 @testable import SSSugar
 
 class UIViewControllerRegisterForKBNotifications: XCTestCase {
+    //TODO: [Review] Redurant row
     
     let testHelper = UIViewControllerTestHelper()
     let sut = NotifiableViewController()
@@ -52,6 +66,7 @@ class UIViewControllerRegisterForKBNotifications: XCTestCase {
             sut.isNotified = false
             testHelper.postKeyboardDidShowNotification(userInfo: userInfo)
             XCTAssertTrue(sut.isNotified)
+            //TODO: [Review] Check notification kind also
         }
     }
     
@@ -69,6 +84,7 @@ class UIViewControllerRegisterForKBNotifications: XCTestCase {
     }
     
     func testDidHideNotificationNilUserInfo() {
+        //TODO: [Review] Redurant case
         testHelper.postKeyboardDidHideNotification()
         XCTAssertTrue(sut.isNotified)
     }
@@ -84,6 +100,7 @@ class UIViewControllerRegisterForKBNotifications: XCTestCase {
     }
     
     func testDidHideNotificationAfterRemoveObserver() {
+        //TODO: [Review] Redurant case, previous one is enought
         sut.removeObserver()
         sut.registerForKBNotifications()
         for userInfo in testHelper.makeUserInfos() {
@@ -94,6 +111,7 @@ class UIViewControllerRegisterForKBNotifications: XCTestCase {
     }
     
     func testDidShowNotificationNilUserInfoAfterRemoveObserver() {
+        //TODO: [Review] Redurant case
         sut.removeObserver()
         sut.registerForKBNotifications()
         testHelper.postKeyboardDidShowNotification()
@@ -101,6 +119,7 @@ class UIViewControllerRegisterForKBNotifications: XCTestCase {
     }
     
     func testDidHideNotificationNilUserInfoAfterRemoveObserver() {
+        //TODO: [Review] Redurant case
         sut.removeObserver()
         sut.registerForKBNotifications()
         testHelper.postKeyboardDidHideNotification()

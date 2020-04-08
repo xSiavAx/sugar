@@ -36,11 +36,14 @@ Tests for CGSize extension added(to:verticaly:)
 
 */
 
+//TODO: [Review] Comment for cases isn't so obvious
+//TODO: [Review] Cases are oveloaded, but it's ok for now
+
 import XCTest
 @testable import SSSugar
 
 class CGSizeAddedTests: XCTestCase {
-    
+    //TODO: [Review] Redurant empty row. It's last comment of that kind.
     typealias Items = CGSizeTestItems
     
     var itemsArray = [Items]()

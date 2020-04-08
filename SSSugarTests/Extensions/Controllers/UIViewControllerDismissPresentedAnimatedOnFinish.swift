@@ -10,11 +10,14 @@
  
  */
 
+//TODO: [Review] I can't find `complition` cases
+
 import XCTest
 @testable import SSSugar
 
 class UIViewControllerDismissPresentedAnimatedOnFinish: XCTestCase {
-
+    //TODO: [Review] Redurant row
+    
     let testHelper = UIViewControllerTestHelper()
     let sut = DismissableViewController()
     
@@ -23,13 +26,18 @@ class UIViewControllerDismissPresentedAnimatedOnFinish: XCTestCase {
     }
     
     func testPresentedAnimated() {
+        //TODO: [Review] Move expectation create and wait for it to new method of XCTestCase extention. U can make it part of framework.
         let expectation = XCTestExpectation()
         
         sut.presentViewControler()
         sut.dismissPresented(animated: true) { expectation.fulfill() }
+        //TODO: [Review] Separate testing logic from checks with empty row
+        //TODO: [Review] XCTAssert(sut.isDismissed)
         XCTAssertTrue(sut.isDismissed)
+        //TODO: [Review] XCTAssert(sut.isDismissAnimated)
         XCTAssertEqual(sut.isDismissAnimated, true)
         wait(for: [expectation], timeout: 1)
+        //TODO: [Review] Waiting for what?
     }
     
     func testPresentedNotAnimated() {
@@ -52,6 +60,7 @@ class UIViewControllerDismissPresentedAnimatedOnFinish: XCTestCase {
     }
     
     func testNotPresentedNotAnimated() {
+        //TODO: [Review] Redurant case
         let expectaiton = XCTestExpectation()
         
         sut.dismissPresented { expectaiton.fulfill() }
@@ -64,11 +73,14 @@ class UIViewControllerDismissPresentedAnimatedOnFinish: XCTestCase {
 
 
 class DismissableViewController: UIViewController {
+    //TODO: [Review] Try to gues
     
     var isDismissed = false
     var isDismissAnimated: Bool? = nil
     
+    //TODO: [Review] Why `flag`? Why not just `animated`?
     override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
+        //TODO: [Review] call super?
         isDismissed = true
         isDismissAnimated = flag
         completion?()
