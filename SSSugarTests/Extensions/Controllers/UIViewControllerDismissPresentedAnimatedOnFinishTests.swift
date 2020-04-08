@@ -8,8 +8,6 @@
  [Done] completion
  */
 
-//TODO: [Review] I can't find `complition` cases
-
 import XCTest
 @testable import SSSugar
 
@@ -22,46 +20,34 @@ class UIViewControllerDismissPresentedAnimatedOnFinishTests: XCTestCase {
     }
     
     func testPresentedAnimated() {
-        let expectation = XCTestExpectation()
-        
         sut.presentViewControler()
-        sut.dismissPresented(animated: true) { expectation.fulfill() }
-        //TODO: [Review] Separate testing logic from checks with empty row
-        //TODO: [Review] XCTAssert(sut.isDismissed)
-        XCTAssertTrue(sut.isDismissed)
-        //TODO: [Review] XCTAssert(sut.isDismissAnimated)
+        sut.dismissPresented(animated: true, onFinish: nil)
+        
+        XCTAssert(sut.isDismissed)
         XCTAssertEqual(sut.isDismissAnimated, true)
-        wait(for: [expectation], timeout: 1)
-        //TODO: [Review] Waiting for what?
     }
     
     func testPresentedNotAnimated() {
-        let expectation = XCTestExpectation()
+        sut.presentViewControler()
+        sut.dismissPresented(onFinish: nil)
+        
+        XCTAssert(sut.isDismissed)
+        XCTAssertEqual(sut.isDismissAnimated, false)
+    }
+    
+    func testNotPresented() {
+        sut.dismissPresented(onFinish: nil)
+        
+        XCTAssertFalse(sut.isDismissed)
+    }
+    
+    func testCompletion() {
+        let completionExpectation = XCTestExpectation()
         
         sut.presentViewControler()
-        sut.dismissPresented { expectation.fulfill() }
-        XCTAssertTrue(sut.isDismissed)
-        XCTAssertEqual(sut.isDismissAnimated, false)
-        wait(for: [expectation], timeout: 1)
-    }
-    
-    func testNotPresentedAnimated() {
-        let expectation = XCTestExpectation()
+        sut.dismissPresented { completionExpectation.fulfill() }
         
-        sut.dismissPresented(animated: true) { expectation.fulfill() }
-        XCTAssertFalse(sut.isDismissed)
-        XCTAssertNil(sut.isDismissAnimated)
-        wait(for: [expectation], timeout: 1)
-    }
-    
-    func testNotPresentedNotAnimated() {
-        //TODO: [Review] Redurant case
-        let expectaiton = XCTestExpectation()
-        
-        sut.dismissPresented { expectaiton.fulfill() }
-        XCTAssertFalse(sut.isDismissed)
-        XCTAssertNil(sut.isDismissAnimated)
-        wait(for: [expectaiton], timeout: 1)
+        wait(for: [completionExpectation], timeout: 1)
     }
 }
 
@@ -69,11 +55,10 @@ class DismissableViewController: UIViewController {
     var isDismissed = false
     var isDismissAnimated: Bool? = nil
     
-    //TODO: [Review] Why `flag`? Why not just `animated`?
-    override func dismiss(animated flag: Bool, completion: (() -> Void)? = nil) {
-        //TODO: [Review] call super?
+    override func dismiss(animated: Bool, completion: (() -> Void)? = nil) {
+        super.dismiss(animated: animated, completion: nil)
         isDismissed = true
-        isDismissAnimated = flag
+        isDismissAnimated = animated
         completion?()
     }
     

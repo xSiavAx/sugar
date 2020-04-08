@@ -15,7 +15,7 @@ import XCTest
 
 class UIViewControllerShowWarningAlertTests: XCTestCase {
     let testHelper = UIViewControllerTestHelper()
-    var items = UIViewControllerAlertItems(title: NSLocalizedString("Warning"), message: "Error message", button: "Error button")
+    var items = AlertTestItems(title: NSLocalizedString("Warning"), message: "Error message", button: "Error button")
     let sut = UIViewController()
     
     override func setUp() {

@@ -12,8 +12,6 @@
 		2D00D99A2437A46A0059EB09 /* DictionaryTestKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D00D9992437A46A0059EB09 /* DictionaryTestKey.swift */; };
 		2D207BB324379349001D808E /* CGPointUnaryMinusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D207BB224379349001D808E /* CGPointUnaryMinusTests.swift */; };
 		2D207BB62437992E001D808E /* CGPointBinaryMinusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D207BB52437992E001D808E /* CGPointBinaryMinusTests.swift */; };
-		2D2A44DF2434A86100B30AE3 /* UIViewControllerUnregisterFromKBNotificationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2A44DE2434A86100B30AE3 /* UIViewControllerUnregisterFromKBNotificationsTests.swift */; };
-		2D2A44E12434BF9000B30AE3 /* UIViewControllerKBDidChangeHeightToTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D2A44E02434BF9000B30AE3 /* UIViewControllerKBDidChangeHeightToTests.swift */; };
 		2D3043BE243727E800EBD898 /* CGSizeUnaryMinusOperatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3043BD243727E800EBD898 /* CGSizeUnaryMinusOperatorTests.swift */; };
 		2D3043C02437369500EBD898 /* CGSizeBinaryMinusOperatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3043BF2437369500EBD898 /* CGSizeBinaryMinusOperatorTests.swift */; };
 		2D3043C224377B1500EBD898 /* CGSizeBinaryPlusOperatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3043C124377B1500EBD898 /* CGSizeBinaryPlusOperatorTests.swift */; };
@@ -79,7 +77,7 @@
 		2DC1D1AD242D0BB70049020B /* AutoMapRemoveForKeyAndIndexes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC1D1AC242D0BB70049020B /* AutoMapRemoveForKeyAndIndexes.swift */; };
 		2DC1D1AF242D41740049020B /* AutoMapInsertTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC1D1AE242D41740049020B /* AutoMapInsertTests.swift */; };
 		2DC7A050243338F100A1BDC2 /* UIViewControllerShowWarningAlertTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC7A04F243338F100A1BDC2 /* UIViewControllerShowWarningAlertTests.swift */; };
-		2DC7A05224333D2C00A1BDC2 /* UIViewControllerRegisterForKBNotificationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC7A05124333D2C00A1BDC2 /* UIViewControllerRegisterForKBNotificationsTests.swift */; };
+		2DC7A05224333D2C00A1BDC2 /* UIViewControllerNotificationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DC7A05124333D2C00A1BDC2 /* UIViewControllerNotificationsTests.swift */; };
 		2DF4E966243326F8005CF7A2 /* UIViewControllerShowErrorAlertTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DF4E965243326F8005CF7A2 /* UIViewControllerShowErrorAlertTests.swift */; };
 		2DFE398C242E4080001B9AAE /* AutoMapIteratorNextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE398B242E4080001B9AAE /* AutoMapIteratorNextTests.swift */; };
 		2DFE398E242E412D001B9AAE /* AutoMapIteratorInitMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DFE398D242E412D001B9AAE /* AutoMapIteratorInitMapTests.swift */; };
@@ -185,8 +183,6 @@
 		2D00D9992437A46A0059EB09 /* DictionaryTestKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryTestKey.swift; sourceTree = "<group>"; };
 		2D207BB224379349001D808E /* CGPointUnaryMinusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPointUnaryMinusTests.swift; sourceTree = "<group>"; };
 		2D207BB52437992E001D808E /* CGPointBinaryMinusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPointBinaryMinusTests.swift; sourceTree = "<group>"; };
-		2D2A44DE2434A86100B30AE3 /* UIViewControllerUnregisterFromKBNotificationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerUnregisterFromKBNotificationsTests.swift; sourceTree = "<group>"; };
-		2D2A44E02434BF9000B30AE3 /* UIViewControllerKBDidChangeHeightToTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerKBDidChangeHeightToTests.swift; sourceTree = "<group>"; };
 		2D3043BD243727E800EBD898 /* CGSizeUnaryMinusOperatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeUnaryMinusOperatorTests.swift; sourceTree = "<group>"; };
 		2D3043BF2437369500EBD898 /* CGSizeBinaryMinusOperatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeBinaryMinusOperatorTests.swift; sourceTree = "<group>"; };
 		2D3043C124377B1500EBD898 /* CGSizeBinaryPlusOperatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeBinaryPlusOperatorTests.swift; sourceTree = "<group>"; };
@@ -222,7 +218,7 @@
 		2DC1D1AC242D0BB70049020B /* AutoMapRemoveForKeyAndIndexes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapRemoveForKeyAndIndexes.swift; sourceTree = "<group>"; };
 		2DC1D1AE242D41740049020B /* AutoMapInsertTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapInsertTests.swift; sourceTree = "<group>"; };
 		2DC7A04F243338F100A1BDC2 /* UIViewControllerShowWarningAlertTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerShowWarningAlertTests.swift; sourceTree = "<group>"; };
-		2DC7A05124333D2C00A1BDC2 /* UIViewControllerRegisterForKBNotificationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerRegisterForKBNotificationsTests.swift; sourceTree = "<group>"; };
+		2DC7A05124333D2C00A1BDC2 /* UIViewControllerNotificationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerNotificationsTests.swift; sourceTree = "<group>"; };
 		2DF4E965243326F8005CF7A2 /* UIViewControllerShowErrorAlertTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerShowErrorAlertTests.swift; sourceTree = "<group>"; };
 		2DFE398B242E4080001B9AAE /* AutoMapIteratorNextTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoMapIteratorNextTests.swift; sourceTree = "<group>"; };
 		2DFE398D242E412D001B9AAE /* AutoMapIteratorInitMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapIteratorInitMapTests.swift; sourceTree = "<group>"; };
@@ -488,9 +484,7 @@
 				2DAEA16C24321D0700DF53D0 /* UIViewControllerShowAlertTests.swift */,
 				2DF4E965243326F8005CF7A2 /* UIViewControllerShowErrorAlertTests.swift */,
 				2DC7A04F243338F100A1BDC2 /* UIViewControllerShowWarningAlertTests.swift */,
-				2DC7A05124333D2C00A1BDC2 /* UIViewControllerRegisterForKBNotificationsTests.swift */,
-				2D2A44DE2434A86100B30AE3 /* UIViewControllerUnregisterFromKBNotificationsTests.swift */,
-				2D2A44E02434BF9000B30AE3 /* UIViewControllerKBDidChangeHeightToTests.swift */,
+				2DC7A05124333D2C00A1BDC2 /* UIViewControllerNotificationsTests.swift */,
 				2D4F5E272434E197003EF8D4 /* UIViewControllerDismissPresentedAnimatedOnFinishTests.swift */,
 				2D94E4C9243263EB00EE81FF /* UIViewControllerTestHelper.swift */,
 			);
@@ -1030,7 +1024,6 @@
 			files = (
 				2D7E5A3E241FD0E5009EE074 /* SSCollectionViewMarkableControllerConfigCellTC.swift in Sources */,
 				2D4A6BB42429104A001E0487 /* DictionaryPickForTests.swift in Sources */,
-				2D2A44E12434BF9000B30AE3 /* UIViewControllerKBDidChangeHeightToTests.swift in Sources */,
 				2D7E5A3F241FD0E5009EE074 /* SSCollectionViewMarkableControllerActivateTC.swift in Sources */,
 				2D7E5A40241FD0E5009EE074 /* SSCollectionViewMarkableControllerTestHelper.swift in Sources */,
 				2D7E5A42241FD0E5009EE074 /* SSCollectionViewMarkableControllerDeactivateTC.swift in Sources */,
@@ -1057,7 +1050,7 @@
 				2D7E5A4B241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperMarkMarkedTC.swift in Sources */,
 				2D7E5A4C241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperTestHelper.swift in Sources */,
 				2D7E5A4D241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperActivateTC.swift in Sources */,
-				2DC7A05224333D2C00A1BDC2 /* UIViewControllerRegisterForKBNotificationsTests.swift in Sources */,
+				2DC7A05224333D2C00A1BDC2 /* UIViewControllerNotificationsTests.swift in Sources */,
 				2D3043BE243727E800EBD898 /* CGSizeUnaryMinusOperatorTests.swift in Sources */,
 				2DBCCFB4242BB89600100093 /* AutoMapRemoveAllTests.swift in Sources */,
 				2D7E5A4E241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperMarkNonActiveTC.swift in Sources */,
@@ -1100,7 +1093,6 @@
 				2D61561A2423C4F80015A9E0 /* SSCollectionViewMarkableControllerUnmarkTC.swift in Sources */,
 				2DC1D1AB242CF63E0049020B /* AutoMapRemoveForAtTests.swift in Sources */,
 				2DAEA16D24321D0700DF53D0 /* UIViewControllerShowAlertTests.swift in Sources */,
-				2D2A44DF2434A86100B30AE3 /* UIViewControllerUnregisterFromKBNotificationsTests.swift in Sources */,
 				2D7E5A5F241FD0E5009EE074 /* AutoMapContainsTests.swift in Sources */,
 				2D7E5A60241FD0E5009EE074 /* AutoMapAddTests.swift in Sources */,
 				2DBCCFB8242BBDFE00100093 /* AutoMapCountTests.swift in Sources */,

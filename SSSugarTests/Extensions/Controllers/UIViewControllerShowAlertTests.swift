@@ -21,7 +21,7 @@ import XCTest
 
 class UIViewControllerShowAlertTests: XCTestCase {
     let testHelper = UIViewControllerTestHelper()
-    var items = UIViewControllerAlertItems(title: "Alert title", message: "Alert message", button: "Alert button")
+    var items = AlertTestItems(title: "Alert title", message: "Alert message", button: "Alert button")
     let sut = UIViewController()
 
     override func setUp() {

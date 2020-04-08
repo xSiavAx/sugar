@@ -20,16 +20,14 @@ import XCTest
 @testable import SSSugar
 
 struct UIViewControllerTestHelper {
-    let rootWindow = UIWindow()
+    let window = UIWindow()
     
     func setup(withViewController viewController: UIViewController) {
-        rootWindow.rootViewController = viewController
-        rootWindow.isHidden = false
-        //TODO: [Review] Why not makeKeyAndVisible?
-        //RODO: If it conflicts with main window, try to inject it here
+        window.rootViewController = viewController
+        window.makeKeyAndVisible()
     }
     
-    func assertAlertHasItems(alert: UIViewController?, _ items: UIViewControllerAlertItems) {
+    func assertAlertHasItems(alert: UIViewController?, _ items: AlertTestItems) {
         guard let alertVC = alert as? UIAlertController,
             let action = alertVC.actions.first else {
                 XCTFail()
@@ -41,36 +39,36 @@ struct UIViewControllerTestHelper {
         XCTAssertEqual(action.title, items.button)
     }
     
-    //TODO: [Review] Usually, verb 'make' is redurant, and getters like methods should start with noun. U may use 'make' to underline hight complexity of method or it's buiding behaviour.
-    //TODO: [Review] Method name doesn't represent its logic
-    private func makeUserInfo(origin: UIViewControllerNotificationItems, size: UIViewControllerNotificationItems) -> [AnyHashable : Any] {
-        let rect = CGRect(origin: origin.makePoint(), size: size.makeSize())
+    private func post(name: Notification.Name, userInfo: [AnyHashable : Any]? = nil) {
+        NotificationCenter.default.post(name: name, object: nil, userInfo: userInfo)
+    }
+    
+    private func notificationKBUserInfo(origin: ValuesPair, size: ValuesPair) -> [AnyHashable : Any] {
+        let rect = CGRect(origin: origin.point(), size: size.size())
         
         return [UIResponder.keyboardFrameEndUserInfoKey : NSValue(cgRect: rect)]
     }
     
-    //TODO: [Review] Method name doesn't represent its logic
-    func makeUserInfo() -> [AnyHashable : Any] {
-        let origin = UIViewControllerNotificationItems(first: 100, second: 800)
-        let size = UIViewControllerNotificationItems(first: 400, second: 600)
+    func defaultNotificationKBUserInfo() -> [AnyHashable : Any] {
+        let origin = ValuesPair(first: 100, second: 800)
+        let size = ValuesPair(first: 400, second: 600)
         
-        return makeUserInfo(origin: origin, size: size)
+        return notificationKBUserInfo(origin: origin, size: size)
     }
     
-    //TODO: [Review] Method name doesn't represent its logic
-    func makeUserInfos() -> [[AnyHashable : Any]] {
+    func defaultNotificationKBUserInfos() -> [[AnyHashable : Any]] {
+        let valuesPairs = ValuesPair.valuesPairsCombinations(434, -57, 0)
         var userInfos = [[AnyHashable : Any]]()
         
-        for originItems in UIViewControllerNotificationItems.allItems {
-            for sizeItems in UIViewControllerNotificationItems.allItems {
-                userInfos.append(makeUserInfo(origin: originItems, size: sizeItems))
+        for originItems in valuesPairs {
+            for sizeItems in valuesPairs {
+                userInfos.append(notificationKBUserInfo(origin: originItems, size: sizeItems))
             }
         }
         return userInfos
     }
     
-    //TODO: [Review] Same story as with 'make'. But unlike 'make', 'get' may by used if noun already represents another getter.
-    func getHeightFromUserInfo(_ userInfo: [AnyHashable : Any]) -> CGFloat {
+    func heightFromUserInfo(_ userInfo: [AnyHashable : Any]) -> CGFloat {
         if let value = userInfo[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue {
             return value.cgRectValue.height
         } else {
@@ -78,55 +76,49 @@ struct UIViewControllerTestHelper {
         }
     }
     
-    //TODO: [Review] Looks like private method
-    func post(name: Notification.Name, userInfo: [AnyHashable : Any]? = nil) {
-        NotificationCenter.default.post(name: name, object: nil, userInfo: userInfo)
-    }
-    
-    //TODO: [Review] May be shortcuted to 'postKBHideNotification' (unnecessary)
-    func postKeyboardDidShowNotification(userInfo: [AnyHashable : Any]? = nil) {
+    func postKBDidShowNotification(userInfo: [AnyHashable : Any]?) {
         post(name: UIResponder.keyboardDidShowNotification, userInfo: userInfo)
     }
     
-    //TODO: [Review] May be shortcuted to 'postKBShowNotification' (unnecessary)
-    func postKeyboardDidHideNotification(userInfo: [AnyHashable : Any]? = nil) {
+    func postKBDidHideNotification(userInfo: [AnyHashable : Any]?) {
         post(name: UIResponder.keyboardDidHideNotification, userInfo: userInfo)
+    }
+    
+    func postCustomNotification(userInfo: [AnyHashable : Any]) {
+        post(name: Notification.Name("CustomNotificationName"), userInfo: userInfo)
     }
 }
 
-struct UIViewControllerAlertItems {
+extension UIViewControllerTestHelper {
+    private struct ValuesPair {
+        let first: CGFloat
+        let second: CGFloat
+        
+        static func valuesPairsCombinations(_ values: CGFloat...) -> [ValuesPair] {
+            var valuesPairs = [ValuesPair]()
+            
+            for first in values {
+                for second in values {
+                    valuesPairs.append(ValuesPair(first: first, second: second))
+                }
+            }
+            return valuesPairs
+        }
+        
+        func size() -> CGSize {
+            CGSize(width: first, height: second)
+        }
+        
+        func point() -> CGPoint {
+            CGPoint(x: first, y: second)
+        }
+    }
+}
+
+struct AlertTestItems {
     var title: String?
     var message: String?
     var button: String
-}
-
-//TODO: [Review] Names of custom types shouldn't has prefix `UI`. Exceptions - names for test cases
-//TODO: [Review] Rename it to values pair ot smtg like dat
-struct UIViewControllerNotificationItems {
-    static let allItems = getItems(with: 434, -57, 0)
-    
-    let first: CGFloat
-    let second: CGFloat
-    
-    //TODO: [Review] Rename to all pairs combinations or ...
-    private static func getItems(with values: CGFloat...) -> [UIViewControllerNotificationItems] {
-        var availableValuePairs = [UIViewControllerNotificationItems]()
-        
-        for first in values {
-            for second in values {
-                availableValuePairs.append(UIViewControllerNotificationItems(first: first, second: second))
-            }
-        }
-        return availableValuePairs
-    }
-    
-    func makeSize() -> CGSize {
-        CGSize(width: first, height: second)
-    }
-    
-    func makePoint() -> CGPoint {
-        CGPoint(x: first, y: second)
-    }
 }
 
 class NotifiableViewController: UIViewController {
@@ -141,26 +133,26 @@ class NotifiableViewController: UIViewController {
         super.kbDidChangeHeightTo(height)
     }
     
-    @objc func setNotifiedTrue(_ userInfo: [AnyHashable : Any]) {
+    @objc func setNotifiedTrue() {
         isNotified = true
     }
     
     func addDidShowNotificationObserver() {
         let name = UIResponder.keyboardDidShowNotification
-        let selector = #selector(setNotifiedTrue(_:))
+        let selector = #selector(setNotifiedTrue)
         
         NotificationCenter.default.addObserver(self, selector: selector, name: name, object: nil)
     }
     
     func addDidHideNotificationObserver() {
         let name = UIResponder.keyboardDidHideNotification
-        let selector = #selector(setNotifiedTrue(_:))
+        let selector = #selector(setNotifiedTrue)
         
         NotificationCenter.default.addObserver(self, selector: selector, name: name, object: nil)
     }
     
+    
     func removeObserver() {
-        //TODO: [Review] Why not `unregisterFromKBNotifications`?
         NotificationCenter.default.removeObserver(self)
     }
     
