@@ -112,7 +112,6 @@ class SSCollectionViewMarkableControllerMarkTC: XCTestCase {
     }
 }
 
-
 // MARK: - Expected Result
 
 protocol SSCollectionViewMarkableControllerMarkExpectedResult {
@@ -129,7 +128,6 @@ protocol SSCollectionViewMarkableControllerMarkExpectedResult {
 }
 
 // MARK: Deactive
-
 struct SSCollectionViewMarkableControllerMarkDeactiveExpectedResult: SSCollectionViewMarkableControllerMarkExpectedResult {
     let active = false
     let oneBeforeVPCells = [CellStub(), CellStub(), CellStub(), CellStub(), CellStub()]
@@ -142,7 +140,6 @@ struct SSCollectionViewMarkableControllerMarkDeactiveExpectedResult: SSCollectio
 }
 
 // MARK: Active
-
 struct SSCollectionViewMarkableControllerMarkActiveExpectedResult: SSCollectionViewMarkableControllerMarkExpectedResult {
     let active = true
     let oneBeforeVPCells = [
@@ -197,7 +194,6 @@ struct SSCollectionViewMarkableControllerMarkActiveExpectedResult: SSCollectionV
 }
 
 // MARK: Active Marked
-
 struct SSCollectionViewMarkableControllerMarkActiveMarkedExpectedResult: SSCollectionViewMarkableControllerMarkExpectedResult {
     let active = true
     let oneBeforeVPCells = [

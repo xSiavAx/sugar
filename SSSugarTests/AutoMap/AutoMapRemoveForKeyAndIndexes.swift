@@ -1,6 +1,5 @@
 /*
- 
- Tests for AutoMap remove(forKeyAndIndexes:)
+ Tests for remove(forKeyAndIndexes:) method in AutoMap
  
  [Done] keys
     [Done] contained
@@ -13,7 +12,6 @@
     [fatalError] reversed contained
     [fatalError] not contained
  [Done] empty AutoMap
- 
  */
 
 import XCTest

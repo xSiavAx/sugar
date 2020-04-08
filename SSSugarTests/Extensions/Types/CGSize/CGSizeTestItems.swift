@@ -2,7 +2,6 @@ import Foundation
 import CoreGraphics
 
 struct CGSizeTestItems {
-    
     let left: CGSize
     let right: CGSize
     let expected: CGSize
@@ -15,5 +14,4 @@ struct CGSizeTestItems {
         right = CGSize(width: rW, height: rH)
         expected = CGSize(width: eW, height: eH)
     }
-    
 }

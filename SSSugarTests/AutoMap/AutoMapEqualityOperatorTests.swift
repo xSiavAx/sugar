@@ -1,6 +1,5 @@
 /*
- 
- Tests for AutoMap == operator
+ Tests for == operator in AutoMap
  
  [Done] keys
     [Done] same
@@ -12,7 +11,6 @@
     [Done] changed
  [Done] empty AutoMap
  [Done] after changes
- 
  */
 
 import XCTest
@@ -73,5 +71,4 @@ class AutoMapEqualityOperatorTests: XCTestCase {
         rightSUT.add(container: Item.odds.array, for: .odds)
         XCTAssertTrue(leftSUT == rightSUT)
     }
-
 }

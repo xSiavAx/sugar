@@ -1,5 +1,4 @@
 /*
- 
  Tests for unary minus operator in CGSize extension
  
  [Done] width
@@ -10,14 +9,12 @@
     [Done] plus
     [Done] zero
     [Done] minus
- 
  */
 
 import XCTest
 @testable import SSSugar
 
 class CGSizeUnaryMinusOperatorTests: XCTestCase {
-    
     var sut: CGSize!
     
     func testPlusWidthPlusHeight() {
@@ -55,5 +52,4 @@ class CGSizeUnaryMinusOperatorTests: XCTestCase {
     func testMinusWidthMinusHeight() {
         XCTAssertEqual(-CGSize(width: -8, height: -637), CGSize(width: 8, height: 637))
     }
-    
 }

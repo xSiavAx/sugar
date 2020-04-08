@@ -1,6 +1,5 @@
 /*
-
- Tests for AutoMap replace(_:for:)
+ Tests for replace(_:for:) method in AutoMap
  
  [Done] key
     [Done] contained
@@ -8,8 +7,7 @@
  [Done] same value
  [Done] empty AutoMap
  [fatalError] empty container
-
-*/
+ */
 
 import XCTest
 @testable import SSSugar

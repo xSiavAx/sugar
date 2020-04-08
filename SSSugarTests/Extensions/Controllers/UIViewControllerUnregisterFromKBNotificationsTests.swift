@@ -1,5 +1,4 @@
 /*
- 
  Tests for UIViewController extension unregisterForKBNotifications()
  
  [Done] keyboard notification
@@ -28,7 +27,6 @@
         [Done] width == 0, height == 0
  [Done] nil user info
  [Done] after add observer
- 
  */
 
 //TODO: [Review] See comments to Register Test
@@ -36,8 +34,7 @@
 import XCTest
 @testable import SSSugar
 
-class UIViewControllerUnregisterFromKBNotifications: XCTestCase {
-    
+class UIViewControllerUnregisterFromKBNotificationsTests: XCTestCase {
     let testHelper = UIViewControllerTestHelper()
     let sut = NotifiableViewController()
     
@@ -106,5 +103,4 @@ class UIViewControllerUnregisterFromKBNotifications: XCTestCase {
         testHelper.postKeyboardDidHideNotification()
         XCTAssertFalse(sut.isNotified)
     }
-    
 }

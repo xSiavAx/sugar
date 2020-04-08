@@ -1,7 +1,6 @@
 import Foundation
 
 enum DictionaryTestKey: Int {
-    
     case incorrect = -1
     case one = 1
     case two = 2
@@ -16,5 +15,4 @@ enum DictionaryTestKey: Int {
     var value: Int {
         self.rawValue
     }
-    
 }

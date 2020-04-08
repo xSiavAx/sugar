@@ -1,5 +1,4 @@
 /*
- 
  Tests for binary minus operator in CGPoint extension
  
  [Done] difference
@@ -32,14 +31,12 @@
     [Done] x < 0 & y > 0
     [Done] x < 0 & y = 0
     [Done] x < 0 & y < 0
-    
  */
 
 import XCTest
 @testable import SSSugar
 
 class CGPointBinaryMinusTests: XCTestCase {
-    
     typealias Items = CGPointTestItems
     
     var itemsArray = [Items]()
@@ -279,5 +276,4 @@ class CGPointBinaryMinusTests: XCTestCase {
             XCTAssertEqual(items.left - items.right, items.expected)
         }
     }
-    
 }

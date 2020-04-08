@@ -1,19 +1,16 @@
 /*
-
  Tests for pick(for:) Dictionary extension
  
  [Done] regular
  [Done] empty
  [Done] incorrect key
  [Done] single element Dictionary
-
-*/
+ */
 
 import XCTest
 @testable import SSSugar
 
 class DictionaryPickForTests: XCTestCase {
-    
     typealias Key = DictionaryTestKey
     
     var sut: [Key: Int] = [:]
@@ -48,5 +45,4 @@ class DictionaryPickForTests: XCTestCase {
         XCTAssertEqual(sut.pick(for: .one), Key.one.value)
         XCTAssertEqual(sut, [:])
     }
-    
 }

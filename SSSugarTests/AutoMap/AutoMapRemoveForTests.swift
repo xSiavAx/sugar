@@ -1,13 +1,11 @@
 /*
-
- Tests for AutoMap remove(for:)
+ Tests for remove(for:) method in AutoMap
  
  [Done] key
     [Done] contained
     [Done] not contained
  [Done] empty AutoMap
-
-*/
+ */
 
 import XCTest
 @testable import SSSugar

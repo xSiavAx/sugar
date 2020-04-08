@@ -1,6 +1,5 @@
 /*
- 
- Tests for AutoMap update(_:for:at:)
+ Tests for update(_:for:at:) method in AutoMap
  
  [Done] key
     [Done] contained
@@ -10,7 +9,6 @@
     [fatalError] not contained
  [Done] same value
  [fatalError] empty AutoMap
- 
  */
 
 import XCTest

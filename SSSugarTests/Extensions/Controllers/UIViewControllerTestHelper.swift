@@ -1,5 +1,4 @@
 /*
- 
  Tests for UIViewController extension
  
  Alerts
@@ -15,7 +14,6 @@
  Controllers Relations
  [Done] dismissPresented(animated:onFinish:)
  [] rootController()
- 
  */
 
 import XCTest
@@ -95,8 +93,6 @@ struct UIViewControllerTestHelper {
         post(name: UIResponder.keyboardDidHideNotification, userInfo: userInfo)
     }
 }
-//TODO: [Review] Redurant row
-
 
 struct UIViewControllerAlertItems {
     var title: String?
@@ -107,8 +103,6 @@ struct UIViewControllerAlertItems {
 //TODO: [Review] Names of custom types shouldn't has prefix `UI`. Exceptions - names for test cases
 //TODO: [Review] Rename it to values pair ot smtg like dat
 struct UIViewControllerNotificationItems {
-    //TODO: [Review] Redurant empty row
-    
     static let allItems = getItems(with: 434, -57, 0)
     
     let first: CGFloat
@@ -135,10 +129,7 @@ struct UIViewControllerNotificationItems {
     }
 }
 
-
 class NotifiableViewController: UIViewController {
-    //TODO: [Review] Redurant empty row
-    
     static let defaultKeyboardHight: CGFloat = -10
     
     var isNotified = false
@@ -177,5 +168,4 @@ class NotifiableViewController: UIViewController {
         isNotified = false
         keyboardHeight = NotifiableViewController.defaultKeyboardHight
     }
-    
 }

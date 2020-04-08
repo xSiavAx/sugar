@@ -1,6 +1,5 @@
 /*
- 
- Tests for AutoMap insert(_:for:at)
+ Tests for insert(_:for:at) method in AutoMap
  
  [Done] key
     [Done] contained
@@ -9,7 +8,6 @@
     [Done] contained
     [fatalError] not contained
  [Done] empty AutoMap
- 
  */
 
 import XCTest

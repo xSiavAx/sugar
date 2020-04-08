@@ -1,5 +1,4 @@
 /*
- 
  Tests for AutoMap
  
  // Methods
@@ -34,7 +33,6 @@
     [Done] next()
  
  Проверить доступность методов AutoMap как составляющую импортированного фреймворка (public)
- 
  */
 
 import XCTest

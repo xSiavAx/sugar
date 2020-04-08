@@ -1,11 +1,9 @@
 /*
-
- Tests for AutoMap removeAll()
+ Tests for removeAll() method in AutoMap
  
  [Done] regular
  [Done] empty AutoMap
-
-*/
+ */
 
 import XCTest
 @testable import SSSugar
@@ -28,5 +26,4 @@ class AutoMapRemoveAllTests: XCTestCase {
         XCTAssertFalse(sut.removeAll())
         testHelper.assertEqual(sut, [:])
     }
-
 }

@@ -1,5 +1,4 @@
 /*
- 
  Tests for UIColor extension init(redV:greenV:blueV:alpha:), init(red:green:blue:)
  
  [Done] default
@@ -13,14 +12,12 @@
  [Done] blue
  [Done] gray
  [Done] alpha
- 
  */
 
 import XCTest
 @testable import SSSugar
 
 class UIColorInitTests: XCTestCase {
-    
     func testDefaultRedGreenBlue() {
         XCTAssertEqual(UIColor(alpha: 1), UIColor(red: 0, green: 0, blue: 0, alpha: 1))
     }
@@ -68,5 +65,4 @@ class UIColorInitTests: XCTestCase {
     func testAlpha() {
         XCTAssertEqual(UIColor(alpha: 0.5), UIColor(red: 0, green: 0, blue: 0, alpha: 0.5))
     }
-    
 }

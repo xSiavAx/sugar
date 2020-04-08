@@ -1,6 +1,5 @@
 /*
- 
- Tests for AutoMap subscript(key:index:)
+ Tests for subscript(key:index:) in AutoMap
  
  [Done] getter
     [Done] key
@@ -20,7 +19,6 @@
         [fatalError] not contained
     [Done] nil value
     [fatalError] empty AutoMap
- 
  */
 
 import XCTest

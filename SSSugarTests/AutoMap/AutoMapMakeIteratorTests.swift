@@ -1,13 +1,11 @@
 /*
- 
- Tests for AutoMap makeIterator()
+ Tests for makeIterator() method in AutoMap
  
  [Done] container
     [Done] regular
     [Done] empty
     [Done] mixed
  [Done] empty map
- 
  */
 
 import XCTest

@@ -1,5 +1,4 @@
 /*
- 
  Tests for UIViewController extension showErrorAlert(message:btnTitle:onSbmt:)
  
  [Done] message
@@ -9,14 +8,12 @@
  [] on submit
  
  TODO: check submit closure
- 
  */
 
 import XCTest
 @testable import SSSugar
 
 class UIViewControllerShowErrorAlertTests: XCTestCase {
-    
     let testHelper = UIViewControllerTestHelper()
     var items = UIViewControllerAlertItems(title: NSLocalizedString("Error"), message: "Error message", button: "Error button")
     let sut = UIViewController()
@@ -49,5 +46,4 @@ class UIViewControllerShowErrorAlertTests: XCTestCase {
         sut.showErrorAlert(message: items.message!, btnTitle: items.button)
         testHelper.assertAlertHasItems(alert: sut.presentedViewController, items)
     }
-    
 }

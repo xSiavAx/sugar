@@ -1,5 +1,4 @@
 /*
- 
  Tests for UIViewController extension showAlert(title:message:btnTitle:onSbmt:)
  
  [Done] regular title regular message
@@ -15,14 +14,12 @@
  [] on submit
  
  TODO: check submit closure
- 
  */
 
 import XCTest
 @testable import SSSugar
 
 class UIViewControllerShowAlertTests: XCTestCase {
-    
     let testHelper = UIViewControllerTestHelper()
     var items = UIViewControllerAlertItems(title: "Alert title", message: "Alert message", button: "Alert button")
     let sut = UIViewController()
@@ -127,5 +124,4 @@ class UIViewControllerShowAlertTests: XCTestCase {
         sut.showAlert(title: items.title, message: items.message, btnTitle: items.button)
         testHelper.assertAlertHasItems(alert: sut.presentedViewController, items)
     }
-    
 }

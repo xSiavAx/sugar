@@ -1,6 +1,5 @@
 /*
- 
- Tests for AutoMap subscript(key:)
+ Tests for subscript(key:) in AutoMap
  
  [Done] getter
     [Done] key
@@ -15,7 +14,6 @@
     [Done] same container
     [Done] nil value
     [Done] empty AutoMap
- 
  */
 
 import XCTest

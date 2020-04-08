@@ -1,7 +1,6 @@
 import Foundation
 
 struct CGPointTestItems {
-    
     let left: CGPoint
     let right: CGPoint
     let expected: CGPoint
@@ -11,5 +10,4 @@ struct CGPointTestItems {
         right = CGPoint(x: rX, y: rY)
         expected = CGPoint(x: eX, y: eY)
     }
-    
 }

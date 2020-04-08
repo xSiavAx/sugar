@@ -1,6 +1,5 @@
 /*
- 
- Tests for AutoMap contains(_:for:)
+ Tests for contains(_:for:) method in AutoMap
  
  [Done] key
     [Done] contained
@@ -9,7 +8,6 @@
     [Done] contained
     [Done] not contained
  [Done] empty map
- 
  */
 
 import XCTest

@@ -1,5 +1,4 @@
 /*
- 
  Tests for AutoMap.Iterator init(map:)
  
  [Done] container
@@ -7,7 +6,6 @@
     [Done] empty
     [Done] mixed
  [Done] empty map
- 
  */
 
 import XCTest

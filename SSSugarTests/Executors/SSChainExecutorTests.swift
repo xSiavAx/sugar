@@ -1,6 +1,5 @@
 /*
-
-Tests for SSChainExecutor class
+ Tests for SSChainExecutor class
 
  [Done] init
  [Done] add
@@ -11,14 +10,12 @@ Tests for SSChainExecutor class
  [Done] background queue
  [Done] mixed queues
  [Done] background finish
-
-*/
+ */
 
 import XCTest
 @testable import SSSugar
 
 class SSChainExecutorTests: XCTestCase {
-    
     let sut = SSChainExecutor()
     
     func testInit() {

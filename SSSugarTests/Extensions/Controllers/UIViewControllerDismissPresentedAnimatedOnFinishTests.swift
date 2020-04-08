@@ -1,5 +1,4 @@
 /*
- 
  Tests for UIViewController extension dismissPresented(animated:onFinish:)
  
  [Done] presented
@@ -7,7 +6,6 @@
  [Done] animated
  [Done] not animated
  [Done] completion
- 
  */
 
 //TODO: [Review] I can't find `complition` cases
@@ -15,9 +13,7 @@
 import XCTest
 @testable import SSSugar
 
-class UIViewControllerDismissPresentedAnimatedOnFinish: XCTestCase {
-    //TODO: [Review] Redurant row
-    
+class UIViewControllerDismissPresentedAnimatedOnFinishTests: XCTestCase {
     let testHelper = UIViewControllerTestHelper()
     let sut = DismissableViewController()
     
@@ -26,7 +22,6 @@ class UIViewControllerDismissPresentedAnimatedOnFinish: XCTestCase {
     }
     
     func testPresentedAnimated() {
-        //TODO: [Review] Move expectation create and wait for it to new method of XCTestCase extention. U can make it part of framework.
         let expectation = XCTestExpectation()
         
         sut.presentViewControler()
@@ -68,13 +63,9 @@ class UIViewControllerDismissPresentedAnimatedOnFinish: XCTestCase {
         XCTAssertNil(sut.isDismissAnimated)
         wait(for: [expectaiton], timeout: 1)
     }
-    
 }
 
-
 class DismissableViewController: UIViewController {
-    //TODO: [Review] Try to gues
-    
     var isDismissed = false
     var isDismissAnimated: Bool? = nil
     
@@ -89,5 +80,4 @@ class DismissableViewController: UIViewController {
     func presentViewControler() {
         present(UIViewController(), animated: false)
     }
-    
 }

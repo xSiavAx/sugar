@@ -1,5 +1,4 @@
 /*
-
  Tests for pick(at:) Array extension
  
  [Done] regular
@@ -7,14 +6,12 @@
  [Done] last element
  [Done] single element array
  [fatalError] incorrect index
-
-*/
+ */
 
 import XCTest
 @testable import SSSugar
 
 class ArrayPickAtTests: XCTestCase {
-    
     var sut = [0, 1, 2, 3, 4]
 
     override func tearDown() {

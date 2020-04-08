@@ -1,5 +1,4 @@
 /*
- 
  Tests for UIViewController extension registerForKBNotifications()
  
  [Done] keyboard notification
@@ -28,7 +27,6 @@
         [Done] width == 0, height == 0
  [Done] nil user info
  [Done] after remove observer
-        
  */
 
 // TODO: [Review] To many cases
@@ -47,9 +45,7 @@
 import XCTest
 @testable import SSSugar
 
-class UIViewControllerRegisterForKBNotifications: XCTestCase {
-    //TODO: [Review] Redurant row
-    
+class UIViewControllerRegisterForKBNotificationsTests: XCTestCase {
     let testHelper = UIViewControllerTestHelper()
     let sut = NotifiableViewController()
     

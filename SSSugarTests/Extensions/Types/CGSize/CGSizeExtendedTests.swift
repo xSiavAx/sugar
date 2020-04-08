@@ -1,5 +1,4 @@
 /*
- 
  Tests for CGSize extension extended(by:), extended(dx:dy:), 
  
  [Done] left
@@ -22,15 +21,14 @@
     [Done] width < 0 && height > 0
     [Done] width < 0 && height = 0
     [Done] width < 0 && height < 0
-    
  */
 
 import XCTest
+@testable import SSSugar
 
 //TODO: [Review] Try to pick that numbers so it's easy to calculate em by human. Cuz it's no deffernce for PCs, but may be a problem for ppl.
 
 class CGSizeExtendedTests: XCTestCase {
-    
     typealias Items = CGSizeTestItems
     
     var itemsArray = [Items]()
@@ -176,5 +174,4 @@ class CGSizeExtendedTests: XCTestCase {
             XCTAssertEqual(items.left.extended(dx: items.dx, dy: items.dy), items.expected)
         }
     }
-
 }

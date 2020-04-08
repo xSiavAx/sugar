@@ -1,6 +1,5 @@
 /*
- 
- Tests for AutoMap add(container:for:)
+ Tests for add(container:for:) method in AutoMap
  
  [Done] key
     [Done] contained

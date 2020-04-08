@@ -1,5 +1,4 @@
 /*
- 
  Tests for unary minus operator in CGPoint extesnion
  
  [Done] x
@@ -10,14 +9,12 @@
     [Done] plus
     [Done] zero
     [Done] minus
- 
  */
 
 import XCTest
 @testable import SSSugar
 
 class CGPointUnaryMinusTests: XCTestCase {
-    
     func testPlusXPlusY() {
         XCTAssertEqual(-CGPoint(x: 324, y: 23), CGPoint(x: -324, y: -23))
     }
@@ -53,5 +50,4 @@ class CGPointUnaryMinusTests: XCTestCase {
     func testMinusXMinusY() {
         XCTAssertEqual(-CGPoint(x: -94, y: -72), CGPoint(x: 94, y: 72))
     }
-    
 }

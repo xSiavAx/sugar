@@ -1,13 +1,11 @@
 /*
- 
- Tests for AutoMap remove(for:at:)
+ Tests for remove(for:at:) method in AutoMap
  
  [Done] key
     [Done] contained
     [Done] not contained
  [Done] empty AutoMap
  [fatalError] not conteined index
- 
  */
 
 import XCTest

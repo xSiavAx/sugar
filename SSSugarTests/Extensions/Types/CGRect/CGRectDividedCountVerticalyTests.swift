@@ -1,5 +1,4 @@
 /*
- 
  Tests for divided(count:verticaly:) CGRect extension
  
  [Done] count value
@@ -29,13 +28,12 @@
     [Done] width > 0 && height < 0
     [Done] width = 0 && height < 0
     [Done] width < 0 && height < 0
- 
  */
 
 import XCTest
+@testable import SSSugar
 
 class CGRectDividedCountVerticalyTests: XCTestCase {
-    
     var testDataArray = CGRectDividedCountVerticalyTests.allTestData
     
     override func tearDown() {
@@ -80,7 +78,6 @@ class CGRectDividedCountVerticalyTests: XCTestCase {
         }
     }
 }
-
 
 // MARK: - Test Data
 

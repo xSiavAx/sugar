@@ -1,18 +1,15 @@
 /*
- 
  Tests for Comparable extesion compare(_:)
  
  [Done] greater
  [Done] less
  [Done] equal
- 
  */
 
 import XCTest
 @testable import SSSugar
 
 class ComparableCompareTests: XCTestCase {
-    
     let sut = 3
     
     func testGreater() {

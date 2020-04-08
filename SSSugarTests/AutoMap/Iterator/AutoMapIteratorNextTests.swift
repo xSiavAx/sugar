@@ -1,12 +1,10 @@
 /*
- 
  Tests for AutoMap.Iterator next()
  [Done] container
-    [infiniteLoop] regular
-    [infiniteLoop] empty
-    [infiniteLoop] mixed
+    [Done] regular
+    [Done] empty
+    [Done] mixed
  [Done] empty map
- 
  */
 
 import XCTest

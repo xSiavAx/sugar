@@ -1,5 +1,4 @@
 /*
- 
  Tests for binary minus operator in CGSize extension
  
  [Done] difference
@@ -32,14 +31,12 @@
     [Done] width < 0 & height > 0
     [Done] width < 0 & height = 0
     [Done] width < 0 & height < 0
- 
  */
 
 import XCTest
 @testable import SSSugar
 
 class CGSizeBinaryMinusOperatorTests: XCTestCase {
-    
     typealias Items = CGSizeTestItems
     
     var itemsArray = [Items]()

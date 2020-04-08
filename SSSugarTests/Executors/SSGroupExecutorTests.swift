@@ -1,5 +1,4 @@
 /*
- 
  Tests for SSGroupExecutor class
  
  [Done] init
@@ -11,14 +10,12 @@
  [Done] background queue
  [Done] mixed queues
  [Done] background finish
- 
  */
 
 import XCTest
 @testable import SSSugar
 
 class SSGroupExecutorTests: XCTestCase {
-    
     let sut = SSGroupExecutor()
 
     func testInit() {

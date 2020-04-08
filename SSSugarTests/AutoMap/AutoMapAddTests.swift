@@ -1,5 +1,4 @@
 /*
-
  Tests for AutoMap 
  
  [Done] key
@@ -8,7 +7,6 @@
  [Done] contained value
  [Done] empty AutoMap
  [Done] ReplaceableCollection container
- 
  */
 
 import XCTest

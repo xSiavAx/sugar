@@ -1,6 +1,5 @@
 /*
- 
- Tests for AutoMap isEmpty
+ Tests for isEmpty property in AutoMap
  
  [Done] empty
  [Done] not empty
@@ -8,7 +7,6 @@
  [Done] add container
  
  TODO: All this tests may be added to coresponding methods tests by adding 'isEmpty' checks.
- 
  */
 
 import XCTest

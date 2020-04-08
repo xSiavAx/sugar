@@ -1,19 +1,16 @@
 /*
-
  Tests for picking(for:) Dictionary extension
  
  [Done] regular
  [Done] empty
  [Done] incorrect key
  [Done] single element Dictionary
-
-*/
+ */
 
 import XCTest
 @testable import SSSugar
 
 class DictionaryPickingForTests: XCTestCase {
-    
     typealias Key = DictionaryTestKey
     typealias Results = (dictionary: [Key: Int], value: Int)?
     
@@ -60,5 +57,4 @@ class DictionaryPickingForTests: XCTestCase {
         XCTAssertEqual(results?.value, Key.one.value)
         XCTAssertEqual(results?.dictionary, [:])
     }
-    
 }

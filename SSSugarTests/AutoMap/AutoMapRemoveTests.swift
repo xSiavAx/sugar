@@ -1,6 +1,5 @@
 /*
- 
- Tests for AutoMap remove(_:for:)
+ Tests for remove(_:for:) method in AutoMap
  
  [Done] key
     [Done] contained
@@ -9,7 +8,6 @@
     [Done] contained
     [fatalError] not contained
  [Done] empty AutoMap
- 
  */
 
 import XCTest

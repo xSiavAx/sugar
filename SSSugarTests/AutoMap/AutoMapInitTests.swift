@@ -1,6 +1,5 @@
 /*
- 
- Tests for AutoMap init(), init(map:)
+ Tests for init(), init(map:) in AutoMap
  
  [Done] init()
  [Done] init(map:)
@@ -8,7 +7,6 @@
     [Done] empty
     [Done] empty container
     [Done] mixed container
- 
  */
 
 import XCTest

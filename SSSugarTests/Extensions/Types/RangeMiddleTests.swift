@@ -1,5 +1,4 @@
 import XCTest
-
 @testable import SSSugar
 
 class RangeMiddleTests: XCTestCase {

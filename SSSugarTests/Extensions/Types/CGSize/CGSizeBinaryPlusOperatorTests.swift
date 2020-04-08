@@ -1,5 +1,4 @@
 /*
- 
  Tests for binary plus operator in CGSize extension
  
  [Done] left
@@ -22,14 +21,12 @@
     [Done] width < 0 & height > 0
     [Done] width < 0 & height = 0
     [Done] width < 0 & height < 0
- 
  */
 
 import XCTest
 @testable import SSSugar
 
 class CGSizeBinaryPlusOperatorTests: XCTestCase {
-    
     typealias Items = CGSizeTestItems
     
     var itemsArray = [Items]()
@@ -174,5 +171,4 @@ class CGSizeBinaryPlusOperatorTests: XCTestCase {
             XCTAssertEqual(item.left + item.right, item.expected)
         }
     }
-
 }

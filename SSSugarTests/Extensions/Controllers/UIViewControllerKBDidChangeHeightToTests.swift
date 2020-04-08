@@ -1,5 +1,4 @@
 /*
- 
  Tests for UIViewController extension kbDidChangeHeightTo()
  
  [Done] keyboard notification
@@ -30,14 +29,12 @@
     [Done] did show
     [Done] did hide
  [Done] nil user info
- 
  */
 
 import XCTest
 @testable import SSSugar
 
-class UIViewControllerKBDidChangeHeightTo: XCTestCase {
-    //TODO: [Review] Redurant row
+class UIViewControllerKBDidChangeHeightToTests: XCTestCase {
     let testHelper = UIViewControllerTestHelper()
     let sut = NotifiableViewController()
     
@@ -148,5 +145,4 @@ class UIViewControllerKBDidChangeHeightTo: XCTestCase {
         XCTAssertEqual(sut.keyboardHeight, 0)
         XCTAssertTrue(sut.isNotified)
     }
-    //TODO: [Review] Redurant row
 }

@@ -1,6 +1,5 @@
 /*
- 
- Tests for AutoMap count
+ Tests for count property in AutoMap
  
  [Done] regular
  [Done] empty AutoMap
@@ -15,7 +14,6 @@
     [Done] container
  
  TODO: All this tests may be added to coresponding methods tests by adding 'count' checks.
- 
  */
 
 import XCTest
@@ -84,5 +82,4 @@ class AutoMapCountTests: XCTestCase {
         sut.remove(for: .evens)
         XCTAssertEqual(sut.count, Item.odds.array.count)
     }
-
 }

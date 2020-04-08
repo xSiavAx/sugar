@@ -1,40 +1,38 @@
 /*
+ Tests for CGSize extension added(to:verticaly:)
 
-Tests for CGSize extension added(to:verticaly:)
-
-[Done] difference
-   [Done] left.width > right.width && left.height > right.height
-   [Done] left.width > right.width && left.height = right.height
-   [Done] left.width > right.width && left.height < right.height
-   [Done] left.width = right.width && left.height > right.height
-   [Done] left.width = right.width && left.height = right.height
-   [Done] left.width = right.width && left.height < right.height
-   [Done] left.width < right.width && left.height > right.height
-   [Done] left.width < right.width && left.height = right.height
-   [Done] left.width < right.width && left.height < right.height
-[Done] left
-   [Done] width > 0 && height > 0
-   [Done] width > 0 && height = 0
-   [Done] width > 0 && height < 0
-   [Done] width = 0 && height > 0
-   [Done] width = 0 && height = 0
-   [Done] width = 0 && height < 0
-   [Done] width < 0 && height > 0
-   [Done] width < 0 && height = 0
-   [Done] width < 0 && height < 0
-[Done] right
-   [Done] width > 0 && height > 0
-   [Done] width > 0 && height = 0
-   [Done] width > 0 && height < 0
-   [Done] width = 0 && height > 0
-   [Done] width = 0 && height = 0
-   [Done] width = 0 && height < 0
-   [Done] width < 0 && height > 0
-   [Done] width < 0 && height = 0
-   [Done] width < 0 && height < 0
-[Done] not vertically
-
-*/
+ [Done] difference
+    [Done] left.width > right.width && left.height > right.height
+    [Done] left.width > right.width && left.height = right.height
+    [Done] left.width > right.width && left.height < right.height
+    [Done] left.width = right.width && left.height > right.height
+    [Done] left.width = right.width && left.height = right.height
+    [Done] left.width = right.width && left.height < right.height
+    [Done] left.width < right.width && left.height > right.height
+    [Done] left.width < right.width && left.height = right.height
+    [Done] left.width < right.width && left.height < right.height
+ [Done] left
+    [Done] width > 0 && height > 0
+    [Done] width > 0 && height = 0
+    [Done] width > 0 && height < 0
+    [Done] width = 0 && height > 0
+    [Done] width = 0 && height = 0
+    [Done] width = 0 && height < 0
+    [Done] width < 0 && height > 0
+    [Done] width < 0 && height = 0
+    [Done] width < 0 && height < 0
+ [Done] right
+    [Done] width > 0 && height > 0
+    [Done] width > 0 && height = 0
+    [Done] width > 0 && height < 0
+    [Done] width = 0 && height > 0
+    [Done] width = 0 && height = 0
+    [Done] width = 0 && height < 0
+    [Done] width < 0 && height > 0
+    [Done] width < 0 && height = 0
+    [Done] width < 0 && height < 0
+ [Done] not vertically
+ */
 
 //TODO: [Review] Comment for cases isn't so obvious
 //TODO: [Review] Cases are oveloaded, but it's ok for now
@@ -43,7 +41,6 @@ import XCTest
 @testable import SSSugar
 
 class CGSizeAddedTests: XCTestCase {
-    //TODO: [Review] Redurant empty row. It's last comment of that kind.
     typealias Items = CGSizeTestItems
     
     var itemsArray = [Items]()
@@ -215,5 +212,4 @@ class CGSizeAddedTests: XCTestCase {
             XCTAssertEqual(items.left.added(to: items.right, vertically: vertically), items.expected)
         }
     }
-    
 }
