@@ -1,41 +1,38 @@
 /*
  Tests for CGSize extension added(to:verticaly:)
 
- [Done] difference
-    [Done] left.width > right.width && left.height > right.height
-    [Done] left.width > right.width && left.height = right.height
-    [Done] left.width > right.width && left.height < right.height
-    [Done] left.width = right.width && left.height > right.height
-    [Done] left.width = right.width && left.height = right.height
-    [Done] left.width = right.width && left.height < right.height
-    [Done] left.width < right.width && left.height > right.height
-    [Done] left.width < right.width && left.height = right.height
-    [Done] left.width < right.width && left.height < right.height
- [Done] left
-    [Done] width > 0 && height > 0
-    [Done] width > 0 && height = 0
-    [Done] width > 0 && height < 0
-    [Done] width = 0 && height > 0
-    [Done] width = 0 && height = 0
-    [Done] width = 0 && height < 0
-    [Done] width < 0 && height > 0
-    [Done] width < 0 && height = 0
-    [Done] width < 0 && height < 0
- [Done] right
-    [Done] width > 0 && height > 0
-    [Done] width > 0 && height = 0
-    [Done] width > 0 && height < 0
-    [Done] width = 0 && height > 0
-    [Done] width = 0 && height = 0
-    [Done] width = 0 && height < 0
-    [Done] width < 0 && height > 0
-    [Done] width < 0 && height = 0
-    [Done] width < 0 && height < 0
+ [Done] options of difference between the left (to which the function is applied) and right (passed as an argument to the function) sizes
+    [Done] left.width > right.width & left.height > right.height
+    [Done] left.width > right.width & left.height = right.height
+    [Done] left.width > right.width & left.height < right.height
+    [Done] left.width = right.width & left.height > right.height
+    [Done] left.width = right.width & left.height = right.height
+    [Done] left.width = right.width & left.height < right.height
+    [Done] left.width < right.width & left.height > right.height
+    [Done] left.width < right.width & left.height = right.height
+    [Done] left.width < right.width & left.height < right.height
+ [Done] options of the left size
+    [Done] width > 0 & height > 0
+    [Done] width > 0 & height = 0
+    [Done] width > 0 & height < 0
+    [Done] width = 0 & height > 0
+    [Done] width = 0 & height = 0
+    [Done] width = 0 & height < 0
+    [Done] width < 0 & height > 0
+    [Done] width < 0 & height = 0
+    [Done] width < 0 & height < 0
+ [Done] options of the right size
+    [Done] width > 0 & height > 0
+    [Done] width > 0 & height = 0
+    [Done] width > 0 & height < 0
+    [Done] width = 0 & height > 0
+    [Done] width = 0 & height = 0
+    [Done] width = 0 & height < 0
+    [Done] width < 0 & height > 0
+    [Done] width < 0 & height = 0
+    [Done] width < 0 & height < 0
  [Done] not vertically
  */
-
-//TODO: [Review] Comment for cases isn't so obvious
-//TODO: [Review] Cases are oveloaded, but it's ok for now
 
 import XCTest
 @testable import SSSugar

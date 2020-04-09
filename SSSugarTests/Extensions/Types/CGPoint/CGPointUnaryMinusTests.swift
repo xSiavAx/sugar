@@ -1,14 +1,14 @@
 /*
  Tests for unary minus operator in CGPoint extesnion
  
- [Done] x
-    [Done] plus
-    [Done] zero
-    [Done] minus
- [Done] y
-    [Done] plus
-    [Done] zero
-    [Done] minus
+ [Done] options of the x coordinate for the point to which the operator is applied
+    [Done] above zero (plus)
+    [Done] equals zero (zero)
+    [Done] less than zero (minus)
+ [Done] options of the y coordinate for the point to which the operator is applied
+    [Done] above zero (plus)
+    [Done] equals zero (zero)
+    [Done] less than zero (minus)
  */
 
 import XCTest

@@ -1,14 +1,14 @@
 /*
  Tests for unary minus operator in CGSize extension
  
- [Done] width
-    [Done] plus
-    [Done] zero
-    [Done] minus
- [Done] height
-    [Done] plus
-    [Done] zero
-    [Done] minus
+ [Done] options of the width for the size to which the operator is applied
+    [Done] above zero (plus)
+    [Done] equals zero (zero)
+    [Done] less than zero (minus)
+ [Done] options of the height for the size to which the operator is applied
+    [Done] above zero (plus)
+    [Done] equals zero (zero)
+    [Done] less than zero (minus)
  */
 
 import XCTest

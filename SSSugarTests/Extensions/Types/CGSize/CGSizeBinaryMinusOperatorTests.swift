@@ -1,7 +1,7 @@
 /*
  Tests for binary minus operator in CGSize extension
  
- [Done] difference
+ [Done] options of difference between the left and right sizes
     [Done] left.width > right.width & left.height > right.height
     [Done] left.width > right.width & left.height = right.height
     [Done] left.width > right.width & left.height < right.height
@@ -11,7 +11,7 @@
     [Done] left.width < right.width & left.height > right.height
     [Done] left.width < right.width & left.height = right.height
     [Done] left.width < right.width & left.height < right.height
- [Done] left
+ [Done] options of the left size
     [Done] width > 0 & height > 0
     [Done] width > 0 & height = 0
     [Done] width > 0 & height < 0
@@ -21,7 +21,7 @@
     [Done] width < 0 & height > 0
     [Done] width < 0 & height = 0
     [Done] width < 0 & height < 0
- [Done] right
+ [Done] options of the right size
     [Done] width > 0 & height > 0
     [Done] width > 0 & height = 0
     [Done] width > 0 & height < 0

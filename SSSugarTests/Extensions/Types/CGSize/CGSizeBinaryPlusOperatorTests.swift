@@ -1,7 +1,7 @@
 /*
  Tests for binary plus operator in CGSize extension
  
- [Done] left
+ [Done] options of the left size
     [Done] width > 0 & height > 0
     [Done] width > 0 & height = 0
     [Done] width > 0 & height < 0
@@ -11,7 +11,7 @@
     [Done] width < 0 & height > 0
     [Done] width < 0 & height = 0
     [Done] width < 0 & height < 0
- [Done] right
+ [Done] options of the right size
     [Done] width > 0 & height > 0
     [Done] width > 0 & height = 0
     [Done] width > 0 & height < 0

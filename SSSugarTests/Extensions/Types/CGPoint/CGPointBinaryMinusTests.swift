@@ -1,7 +1,7 @@
 /*
  Tests for binary minus operator in CGPoint extension
  
- [Done] difference
+ [Done] options of difference between the left and right points
     [Done] left.x > right.x & left.y > right.y
     [Done] left.x > right.x & left.y = right.y
     [Done] left.x > right.x & left.y < right.y
@@ -11,7 +11,7 @@
     [Done] left.x < right.x & left.y > right.y
     [Done] left.x < right.x & left.y = right.y
     [Done] left.x < right.x & left.y < right.y
- [Done] left
+ [Done] options of the left point
     [Done] x > 0 & y > 0
     [Done] x > 0 & y = 0
     [Done] x > 0 & y < 0
@@ -21,7 +21,7 @@
     [Done] x < 0 & y > 0
     [Done] x < 0 & y = 0
     [Done] x < 0 & y < 0
- [Done] right
+ [Done] options of the right point
     [Done] x > 0 & y > 0
     [Done] x > 0 & y = 0
     [Done] x > 0 & y < 0

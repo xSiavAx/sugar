@@ -1,7 +1,7 @@
 /*
  Tests for binary plus operator in CGPoint extension
  
- [Done] left
+ [Done] options of the left point
     [Done] x > 0 & y > 0
     [Done] x > 0 & y = 0
     [Done] x > 0 & y < 0
@@ -11,7 +11,7 @@
     [Done] x < 0 & y > 0
     [Done] x < 0 & y = 0
     [Done] x < 0 & y < 0
- [Done] right
+ [Done] options of the right point
     [Done] x > 0 & y > 0
     [Done] x > 0 & y = 0
     [Done] x > 0 & y < 0
