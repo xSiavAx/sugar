@@ -1,5 +1,5 @@
 /*
- Tests for UIViewController extension dismissPresented(animated:onFinish:)
+ Tests for dismissPresented(animated:onFinish:) method in UIViewController extension
  
  [Done] presented
  [Done] not presented
@@ -48,6 +48,14 @@ class UIViewControllerDismissPresentedAnimatedOnFinishTests: XCTestCase {
         sut.dismissPresented { completionExpectation.fulfill() }
         
         wait(for: [completionExpectation], timeout: 1)
+    }
+    
+    func testCompletionNotPresented() {
+        let completionExpectataion = XCTestExpectation()
+        
+        sut.dismissPresented { completionExpectataion.fulfill() }
+        
+        wait(for: [completionExpectataion], timeout: 1)
     }
 }
 
