@@ -1,12 +1,12 @@
 /*
  Tests for add(container:for:) method in AutoMap
- 
- [Done] key
-    [Done] contained
-    [Done] not contained
- [Done] empty container
- [Done] empty AutoMap
 
+ [Done] contained key
+ [Done] not contained key
+ [Done] empty AutoMap
+ [Done] empty container contained key
+ [Done] empty container not contained key
+ [Done] empty container empty AutoMap
  */
 
 import XCTest

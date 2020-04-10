@@ -1,11 +1,11 @@
 /*
  Tests for dismissPresented(animated:onFinish:) method in UIViewController extension
  
- [Done] presented
+ [Done] presented animated
+ [Done] presented not animated
  [Done] not presented
- [Done] animated
- [Done] not animated
  [Done] completion
+ [Done] completion not presented
  */
 
 import XCTest
@@ -64,7 +64,7 @@ class DismissableViewController: UIViewController {
     var isDismissAnimated: Bool? = nil
     
     override func dismiss(animated: Bool, completion: (() -> Void)? = nil) {
-        super.dismiss(animated: animated, completion: nil)
+        super.dismiss(animated: false)
         isDismissed = true
         isDismissAnimated = animated
         completion?()

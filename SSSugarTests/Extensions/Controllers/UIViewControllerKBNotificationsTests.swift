@@ -1,51 +1,51 @@
 /*
  Tests for registerForKBNotifications(), unregisterForKBNotifications(), kbDidChangeHeightTo() methods in UIViewController extension
 
- registerForKBNotifications()
- [Done] keyboard notification
-    [Done] did show
-    [Done] did hide
- [Done] not keyboard notification
- [Done] notifications sequence
- [Done] nil keyboard user info
- [Done] after remove observer
- 
- unregisterForKBNotifications()
- [Done] keyboard notification
-    [Done] did show
-    [Done] did hide
- 
- kbDidChangeHeightTo()
- [Done] keyboard rect
-    [Done] origin
-        [Done] x > 0, y > 0
-        [Done] x > 0, y < 0
-        [Done] x > 0, y == 0
-        [Done] x < 0, y > 0
-        [Done] x < 0, y < 0
-        [Done] x < 0, y == 0
-        [Done] x == 0, y > 0
-        [Done] x == 0, y < 0
-        [Done] x == 0, y == 0
-    [Done] size
-        [Done] width > 0, height > 0
-        [Done] width > 0, height < 0
-        [Done] width > 0, height == 0
-        [Done] width < 0, height > 0
-        [Done] width < 0, height < 0
-        [Done] width < 0, height == 0
-        [Done] width == 0, height > 0
-        [Done] width == 0, height < 0
-        [Done] width == 0, height == 0
- [Done] nil keyboard user info
+ [register] registerForKBNotifications()
+ [unregister] unregisterForKBNotifications()
+ [change height] kbDidChangeHeightTo()
+ [did show notification] did show keyboard notification
+ [did hide notification] did hide keyboard notification
+ [not kb notification] not keyboard notification
+ [nil user info] nil keyboard user info
+ [origin] variations for a origin point of the keyboard rect
+    x > 0, y > 0
+    x > 0, y < 0
+    x > 0, y == 0
+    x < 0, y > 0
+    x < 0, y < 0
+    x < 0, y == 0
+    x == 0, y > 0
+    x == 0, y < 0
+    x == 0, y == 0
+ [size] variations for a size of the keyboard rect
+    width > 0, height > 0
+    width > 0, height < 0
+    width > 0, height == 0
+    width < 0, height > 0
+    width < 0, height < 0
+    width < 0, height == 0
+    width == 0, height > 0
+    width == 0, height < 0
+    width == 0, height == 0
     
+ [Done] register + did show notification
+ [Done] register + did hide notification
+ [Done] register + not kb notification
+ [Done] register + notifications sequence
+ [Done] register + nil user info
+ [Done] register + after remove observer
+ [Done] unregister + did show notification
+ [Done] unregister + did hide notification
+ [Done] (change height + did show notification) * origin * size
+ [Done] (change height + did hide notification) * oright * size
+ [Done] change height + nil user info
  */
 
 import XCTest
 @testable import SSSugar
 
-//TODO: [Review] Are these tests for all Controller's notifications?
-class UIViewControllerNotificationsTests: XCTestCase {
+class UIViewControllerKBNotificationsTests: XCTestCase {
     let testHelper = UIViewControllerTestHelper()
     let sut = NotifiableViewController()
     var kbUserInfo: [AnyHashable : Any] { testHelper.defaultNotificationKBUserInfo() }
@@ -57,19 +57,18 @@ class UIViewControllerNotificationsTests: XCTestCase {
     func testRegisterDidShowNotification() {
         testHelper.postKBDidShowNotification(userInfo: kbUserInfo)
         XCTAssertFalse(sut.isNotified)
-        //TODO: [Review] Separate logic blocks
+        
         sut.registerForKBNotifications()
         testHelper.postKBDidShowNotification(userInfo: kbUserInfo)
-        //TODO: [Review] Redurant row
         XCTAssert(sut.isNotified)
     }
     
     func testRegisterDidHideNotification() {
         testHelper.postKBDidHideNotification(userInfo: kbUserInfo)
         XCTAssertFalse(sut.isNotified)
+        
         sut.registerForKBNotifications()
         testHelper.postKBDidHideNotification(userInfo: kbUserInfo)
-        
         XCTAssert(sut.isNotified)
     }
     
@@ -82,14 +81,19 @@ class UIViewControllerNotificationsTests: XCTestCase {
     
     func testRegisterNotificationsSequence() {
         sut.registerForKBNotifications()
+        
         testHelper.postKBDidHideNotification(userInfo: kbUserInfo)
         assertSUTIsNotifiedAndReset()
+        
         testHelper.postKBDidShowNotification(userInfo: kbUserInfo)
         assertSUTIsNotifiedAndReset()
+        
         testHelper.postKBDidShowNotification(userInfo: kbUserInfo)
         assertSUTIsNotifiedAndReset()
+        
         testHelper.postKBDidHideNotification(userInfo: kbUserInfo)
         assertSUTIsNotifiedAndReset()
+        
         testHelper.postKBDidHideNotification(userInfo: kbUserInfo)
         assertSUTIsNotifiedAndReset()
     }
@@ -98,8 +102,8 @@ class UIViewControllerNotificationsTests: XCTestCase {
         sut.registerForKBNotifications()
         testHelper.postKBDidShowNotification(userInfo: nil)
         XCTAssertFalse(sut.isNotified)
-        testHelper.postKBDidHideNotification(userInfo: nil)
         
+        testHelper.postKBDidHideNotification(userInfo: nil)
         XCTAssert(sut.isNotified)
     }
     
@@ -115,9 +119,9 @@ class UIViewControllerNotificationsTests: XCTestCase {
         sut.addDidShowNotificationObserver()
         testHelper.postKBDidShowNotification(userInfo: kbUserInfo)
         assertSUTIsNotifiedAndReset()
+        
         sut.unregisterFromKBNotifications()
         testHelper.postKBDidShowNotification(userInfo: kbUserInfo)
-        
         XCTAssertFalse(sut.isNotified)
     }
     
@@ -125,9 +129,9 @@ class UIViewControllerNotificationsTests: XCTestCase {
         sut.addDidHideNotificationObserver()
         testHelper.postKBDidHideNotification(userInfo: kbUserInfo)
         assertSUTIsNotifiedAndReset()
+        
         sut.unregisterFromKBNotifications()
         testHelper.postKBDidHideNotification(userInfo: kbUserInfo)
-        
         XCTAssertFalse(sut.isNotified)
     }
     

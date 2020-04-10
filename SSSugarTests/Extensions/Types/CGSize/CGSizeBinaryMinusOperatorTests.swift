@@ -1,36 +1,46 @@
 /*
  Tests for binary minus operator in CGSize extension
  
- [Done] options of difference between the left and right sizes
-    [Done] left.width > right.width & left.height > right.height
-    [Done] left.width > right.width & left.height = right.height
-    [Done] left.width > right.width & left.height < right.height
-    [Done] left.width = right.width & left.height > right.height
-    [Done] left.width = right.width & left.height = right.height
-    [Done] left.width = right.width & left.height < right.height
-    [Done] left.width < right.width & left.height > right.height
-    [Done] left.width < right.width & left.height = right.height
-    [Done] left.width < right.width & left.height < right.height
- [Done] options of the left size
-    [Done] width > 0 & height > 0
-    [Done] width > 0 & height = 0
-    [Done] width > 0 & height < 0
-    [Done] width = 0 & height > 0
-    [Done] width = 0 & height = 0
-    [Done] width = 0 & height < 0
-    [Done] width < 0 & height > 0
-    [Done] width < 0 & height = 0
-    [Done] width < 0 & height < 0
- [Done] options of the right size
-    [Done] width > 0 & height > 0
-    [Done] width > 0 & height = 0
-    [Done] width > 0 & height < 0
-    [Done] width = 0 & height > 0
-    [Done] width = 0 & height = 0
-    [Done] width = 0 & height < 0
-    [Done] width < 0 & height > 0
-    [Done] width < 0 & height = 0
-    [Done] width < 0 & height < 0
+ options of difference between the left and right sizes
+    [greater width greater height] left.width > right.width & left.height > right.height
+    [greater width same    height] left.width > right.width & left.height = right.height
+    [greater width smaller height] left.width > right.width & left.height < right.height
+    [same    width greater height] left.width = right.width & left.height > right.height
+    [same    width same    height] left.width = right.width & left.height = right.height
+    [same    width smaller height] left.width = right.width & left.height < right.height
+    [smaller width greater height] left.width < right.width & left.height > right.height
+    [smaller width same    height] left.width < right.width & left.height = right.height
+    [smaller width smaller height] left.width < right.width & left.height < right.height
+ [left] options of the left size
+    width > 0 & height > 0
+    width > 0 & height = 0
+    width > 0 & height < 0
+    width = 0 & height > 0
+    width = 0 & height = 0
+    width = 0 & height < 0
+    width < 0 & height > 0
+    width < 0 & height = 0
+    width < 0 & height < 0
+ [right] options of the right size
+    width > 0 & height > 0
+    width > 0 & height = 0
+    width > 0 & height < 0
+    width = 0 & height > 0
+    width = 0 & height = 0
+    width = 0 & height < 0
+    width < 0 & height > 0
+    width < 0 & height = 0
+    width < 0 & height < 0
+ 
+ [Done] greater width greater height * left * right
+ [Done] greater width same    height * left * rihgt
+ [Done] greater width smaller height * left * rihgt
+ [Done] same    width greater height * left * rihgt
+ [Done] same    width same    height * left * rihgt
+ [Done] same    width smaller height * left * rihgt
+ [Done] smaller width greater height * left * rihgt
+ [Done] smaller width same    height * left * rihgt
+ [Done] smaller width smaller height * left * rihgt
  */
 
 import XCTest

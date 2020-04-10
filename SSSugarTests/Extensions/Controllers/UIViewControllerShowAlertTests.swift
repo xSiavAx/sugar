@@ -1,16 +1,35 @@
 /*
  Tests for UIViewController extension showAlert(title:message:btnTitle:onSbmt:)
  
- [Done] regular title regular message
- [Done] regular title empty message
- [Done] regular title nil message
- [Done] empty title regular message
- [Done] empty title empty message
- [Done] empty title nil message
- [Done] nil title regular message
- [Done] nil title empty message
- [fatalError] nil title nil message
- [Done] empty button title
+ [title] variations for the alert title (passed as an argument to the method)
+    [regular] "Alert title"
+    [empty] ""
+    [nil] nil
+ [message] variations for the alert message (passed as an argument to the method)
+    [regular] "Alert message"
+    [empty] ""
+    [nil] nil
+ [button title] variations for the alert batton title (passed as an argument btnTitle to the method)
+    [regular] "Alert button"
+    [empty] ""
+ 
+ [Done] regular title + regular message
+ [Done] regular title + empty message
+ [Done] regular title + nil message
+ [Done] empty title + regular message
+ [Done] empty title + empty message
+ [Done] empty title + nil message
+ [Done] nil title + regular message
+ [Done] nil title + empty message
+ [Done] regular title + regular message + empty button title
+ [Done] regular title + empty message + empty button title
+ [Done] regular title + nil message + empty button title
+ [Done] empty title + regular message + empty button title
+ [Done] empty title + empty message + empty button title
+ [Done] empty title + nil message + empty button title
+ [Done] nil title + regular message + empty button title
+ [Done] nil title + empty message + empty button title
+ [fatalError] nil title + nil message
  [] on submit
  
  TODO: check submit closure

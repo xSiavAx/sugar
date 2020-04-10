@@ -1,26 +1,36 @@
 /*
  Tests for binary plus operator in CGPoint extension
  
- [Done] options of the left point
-    [Done] x > 0 & y > 0
-    [Done] x > 0 & y = 0
-    [Done] x > 0 & y < 0
-    [Done] x = 0 & y > 0
-    [Done] x = 0 & y = 0
-    [Done] x = 0 & y < 0
-    [Done] x < 0 & y > 0
-    [Done] x < 0 & y = 0
-    [Done] x < 0 & y < 0
- [Done] options of the right point
-    [Done] x > 0 & y > 0
-    [Done] x > 0 & y = 0
-    [Done] x > 0 & y < 0
-    [Done] x = 0 & y > 0
-    [Done] x = 0 & y = 0
-    [Done] x = 0 & y < 0
-    [Done] x < 0 & y > 0
-    [Done] x < 0 & y = 0
-    [Done] x < 0 & y < 0
+ options of the left point
+    [plus  x plus  y] x > 0 & y > 0
+    [plus  x zero  y] x > 0 & y = 0
+    [plus  x minus y] x > 0 & y < 0
+    [zero  x plus  y] x = 0 & y > 0
+    [zero  x zero  y] x = 0 & y = 0
+    [zero  x minus y] x = 0 & y < 0
+    [minus x plus  y] x < 0 & y > 0
+    [minus x zero  y] x < 0 & y = 0
+    [minus x minus y] x < 0 & y < 0
+ [right] options of the right point
+    x > 0 & y > 0
+    x > 0 & y = 0
+    x > 0 & y < 0
+    x = 0 & y > 0
+    x = 0 & y = 0
+    x = 0 & y < 0
+    x < 0 & y > 0
+    x < 0 & y = 0
+    x < 0 & y < 0
+ 
+ [Done] (plus  x plus  y) * right
+ [Done] (plus  x zero  y) * right
+ [Done] (plus  x minus y) * right
+ [Done] (zero  x plus  y) * right
+ [Done] (zero  x zero  y) * right
+ [Done] (zero  x minus y) * right
+ [Done] (minus x plus  y) * right
+ [Done] (minus x zero  y) * right
+ [Done] (minus x minus y) * right
  */
 
 import XCTest
@@ -31,7 +41,7 @@ class CGPointBinaryPlusTests: XCTestCase {
     
     var itemsArray = [Items]()
     
-    func testPlusWidthPlusHeight() {
+    func testPlusXPlusY() {
         itemsArray = [
             Items(lX: 10, lY: 62, rX: 38, rY: 81, eX: 48, eY: 143),
             Items(lX: 97, lY: 79, rX: 13, rY: 0, eX: 110, eY: 79),
@@ -46,7 +56,7 @@ class CGPointBinaryPlusTests: XCTestCase {
         assertEqualItemsArray()
     }
     
-    func testPlusWidthZeroHeight() {
+    func testPlusXZeroY() {
         itemsArray = [
             Items(lX: 44, lY: 0, rX: 38, rY: 95, eX: 82, eY: 95),
             Items(lX: 1, lY: 0, rX: 1, rY: 0, eX: 2, eY: 0),
@@ -61,7 +71,7 @@ class CGPointBinaryPlusTests: XCTestCase {
         assertEqualItemsArray()
     }
     
-    func testPlusWidthMinusHeight() {
+    func testPlusXMinusY() {
         itemsArray = [
             Items(lX: 89, lY: -66, rX: 80, rY: 24, eX: 169, eY: -42),
             Items(lX: 43, lY: -10, rX: 72, rY: 0, eX: 115, eY: -10),
@@ -76,7 +86,7 @@ class CGPointBinaryPlusTests: XCTestCase {
         assertEqualItemsArray()
     }
 
-    func testZeroWidthPlusHeight() {
+    func testZeroXPlusY() {
         itemsArray = [
             Items(lX: 0, lY: 99, rX: 87, rY: 64, eX: 87, eY: 163),
             Items(lX: 0, lY: 86, rX: 40, rY: 0, eX: 40, eY: 86),
@@ -91,7 +101,7 @@ class CGPointBinaryPlusTests: XCTestCase {
         assertEqualItemsArray()
     }
 
-    func testZeroWidthZeroHeight() {
+    func testZeroXZeroY() {
         itemsArray = [
             Items(lX: 0, lY: 0, rX: 30, rY: 86, eX: 30, eY: 86),
             Items(lX: 0, lY: 0, rX: 94, rY: 0, eX: 94, eY: 0),
@@ -106,7 +116,7 @@ class CGPointBinaryPlusTests: XCTestCase {
         assertEqualItemsArray()
     }
 
-    func testZeroWidthMinusHeight() {
+    func testZeroXMinusY() {
         itemsArray = [
             Items(lX: 0, lY: -95, rX: 47, rY: 54, eX: 47, eY: -41),
             Items(lX: 0, lY: -94, rX: 42, rY: 0, eX: 42, eY: -94),
@@ -121,7 +131,7 @@ class CGPointBinaryPlusTests: XCTestCase {
         assertEqualItemsArray()
     }
 
-    func testMinusWidthPlusHeight() {
+    func testMinusXPlusY() {
         itemsArray = [
             Items(lX: -16, lY: 40, rX: 58, rY: 60, eX: 42, eY: 100),
             Items(lX: -70, lY: 6, rX: 35, rY: 0, eX: -35, eY: 6),
@@ -136,7 +146,7 @@ class CGPointBinaryPlusTests: XCTestCase {
         assertEqualItemsArray()
     }
 
-    func testMinusWidthZeroHeight() {
+    func testMinusXZeroY() {
         itemsArray = [
             Items(lX: -15, lY: 0, rX: 22, rY: 52, eX: 7, eY: 52),
             Items(lX: -42, lY: 0, rX: 35, rY: 0, eX: -7, eY: 0),
@@ -151,7 +161,7 @@ class CGPointBinaryPlusTests: XCTestCase {
         assertEqualItemsArray()
     }
 
-    func testMinusWidthMinusHeight() {
+    func testMinusXMinusY() {
         itemsArray = [
             Items(lX: -72, lY: -8, rX: 63, rY: 7, eX: -9, eY: -1),
             Items(lX: -76, lY: -34, rX: 87, rY: 0, eX: 11, eY: -34),

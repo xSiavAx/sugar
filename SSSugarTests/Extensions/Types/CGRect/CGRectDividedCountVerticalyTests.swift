@@ -1,33 +1,36 @@
 /*
- Tests for divided(count:verticaly:) CGRect extension
+ Tests for divided(count:verticaly:) in CGRect extension
  
- [Done] count value
-    [fatalError] < 1
-    [Done] = 1
-    [Done] > 1
- [Done] vertically
-    [Done] true
-    [Done] false
- [Done] CGRect().origin
-    [Done] x > 0 && y > 0
-    [Done] x = 0 && y > 0
-    [Done] x < 0 && y > 0
-    [Done] x > 0 && y = 0
-    [Done] x = 0 && y = 0
-    [Done] x < 0 && y = 0
-    [Done] x > 0 && y < 0
-    [Done] x = 0 && y < 0
-    [Done] x < 0 && y < 0
- [Done] CGRect().size
-    [Done] width > 0 && height > 0
-    [Done] width = 0 && height > 0
-    [Done] width < 0 && height > 0
-    [Done] width > 0 && height = 0
-    [Done] width = 0 && height = 0
-    [Done] width < 0 && height = 0
-    [Done] width > 0 && height < 0
-    [Done] width = 0 && height < 0
-    [Done] width < 0 && height < 0
+ [count] varioation for the count value (passed as an argument to method)
+    = 1
+    > 1
+ [vertically] variations for the vertically property (passed as an argument to method)
+    true
+    false
+ [origin] variations for the origin point of the rect to which is method applies
+    x > 0 && y > 0
+    x = 0 && y > 0
+    x < 0 && y > 0
+    x > 0 && y = 0
+    x = 0 && y = 0
+    x < 0 && y = 0
+    x > 0 && y < 0
+    x = 0 && y < 0
+    x < 0 && y < 0
+ [size] variations for the size of the rect to which is method applies
+    width > 0 && height > 0
+    width = 0 && height > 0
+    width < 0 && height > 0
+    width > 0 && height = 0
+    width = 0 && height = 0
+    width < 0 && height = 0
+    width > 0 && height < 0
+    width = 0 && height < 0
+    width < 0 && height < 0
+ 
+ [Done] test for count with variations count * vertically * origin * size
+ [Done] test for size with variations count * vertically * origin * size
+ [Done] test for point with variations count * vertically * origin * size
  */
 
 import XCTest

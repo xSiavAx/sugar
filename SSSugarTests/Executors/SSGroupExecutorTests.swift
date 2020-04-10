@@ -3,13 +3,20 @@
  
  [Done] init
  [Done] add
- [Done] task
-    [Done] zero
-    [Done] one
-    [Done] several
- [Done] background queue
- [Done] mixed queues
- [Done] background finish
+ [Done] zero tasks
+ [Done] one task
+ [Done] several tasks
+ [Done] zero tasks background queue
+ [Done] one task background queue
+ [Done] several tasks background queue
+ [Done] several tasks mixed queues
+ [Done] zero tasks
+ [Done] one task background finish
+ [Done] several tasks background finish
+ [Done] zero tasks background queue background finish
+ [Done] one task background queue background finish
+ [Done] several tasks background queue background finish
+ [Done] several tasks mixed queues background finish
  */
 
 import XCTest
@@ -85,7 +92,7 @@ class SSGroupExecutorTests: XCTestCase {
         wait(for: [expectationTasks, expectationFinish], timeout: 1, enforceOrder: true)
     }
      
-    func testFinishSeveralMixedQueues() {
+    func testSeveralTasksMixedQueues() {
         let expectationTasks = makeExpectation()
         let expectationFinish = XCTestExpectation()
         
@@ -151,7 +158,7 @@ class SSGroupExecutorTests: XCTestCase {
         wait(for: [expectationTasks, expectationFinish], timeout: 1, enforceOrder: true)
     }
      
-    func testFinishSeveralMixedQueuesBackgroundFinish() {
+    func testSeveralTasksMixedQueuesBackgroundFinish() {
         let expectationTasks = makeExpectation()
         let expectationFinish = XCTestExpectation()
         

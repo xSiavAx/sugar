@@ -3,15 +3,13 @@
  
  [Done] regular
  [Done] empty AutoMap
- [Done] add
-    [Done] value
-    [Done] value not contained key
-    [Done] container
-    [Done] empty container
-    [Done] empty container not contained key
- [Done] remove
-    [Done] value
-    [Done] container
+ [Done] add value
+ [Done] add value not contained key
+ [Done] add container
+ [Done] add empty container
+ [Done] add empty container not contained key
+ [Done] remove value
+ [Done] remove container
  
  TODO: All this tests may be added to coresponding methods tests by adding 'count' checks.
  */

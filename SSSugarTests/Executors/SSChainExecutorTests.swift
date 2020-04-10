@@ -3,13 +3,20 @@
 
  [Done] init
  [Done] add
- [Done] task
-    [Done] zero
-    [Done] one
-    [Done] several
- [Done] background queue
- [Done] mixed queues
- [Done] background finish
+ [Done] zero tasks
+ [Done] one task
+ [Done] several tasks
+ [Done] zero tasks background queue
+ [Done] one task background queue
+ [Done] several tasks background queue
+ [Done] several tasks mixed queue
+ [Done] zero tasks background finish
+ [Done] one task background finish
+ [Done] several tasks background finish
+ [Done] zero tasks background queue background finish
+ [Done] one task background queue background finish
+ [Done] several tasks background queue background finish
+ [Done] several tasks mixed queue background finish
  */
 
 import XCTest

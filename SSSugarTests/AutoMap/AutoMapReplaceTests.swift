@@ -1,9 +1,8 @@
 /*
  Tests for replace(_:for:) method in AutoMap
- 
- [Done] key
-    [Done] contained
-    [Done] not contained
+
+ [Done] contained key
+ [Done] not contained key
  [Done] same value
  [Done] empty AutoMap
  [fatalError] empty container

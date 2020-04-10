@@ -1,10 +1,17 @@
 /*
  Tests for UIViewController extension showWarningAlert(message:btnTitle:onSbmt:)
  
- [Done] message
-    [Done] regular
-    [Done] empty
- [Done] empty button title
+ [message] variations for the alert message (passed as an argument to the method)
+    [regular] "Alert message"
+    [empty] ""
+ [button title] variations for the alert batton title (passed as an argument btnTitle to the method)
+    [regular] "Alert button"
+    [empty] ""
+ 
+ [Done] regular message
+ [Done] empty message
+ [Done] regular message + empty button title
+ [Done] empty message + empty button title
  [] on submit
  
  TODO: check submit closure

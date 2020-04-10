@@ -1,40 +1,61 @@
 /*
  Tests for CGSize extension added(to:verticaly:)
 
- [Done] options of difference between the left (to which the function is applied) and right (passed as an argument to the function) sizes
-    [Done] left.width > right.width & left.height > right.height
-    [Done] left.width > right.width & left.height = right.height
-    [Done] left.width > right.width & left.height < right.height
-    [Done] left.width = right.width & left.height > right.height
-    [Done] left.width = right.width & left.height = right.height
-    [Done] left.width = right.width & left.height < right.height
-    [Done] left.width < right.width & left.height > right.height
-    [Done] left.width < right.width & left.height = right.height
-    [Done] left.width < right.width & left.height < right.height
- [Done] options of the left size
-    [Done] width > 0 & height > 0
-    [Done] width > 0 & height = 0
-    [Done] width > 0 & height < 0
-    [Done] width = 0 & height > 0
-    [Done] width = 0 & height = 0
-    [Done] width = 0 & height < 0
-    [Done] width < 0 & height > 0
-    [Done] width < 0 & height = 0
-    [Done] width < 0 & height < 0
- [Done] options of the right size
-    [Done] width > 0 & height > 0
-    [Done] width > 0 & height = 0
-    [Done] width > 0 & height < 0
-    [Done] width = 0 & height > 0
-    [Done] width = 0 & height = 0
-    [Done] width = 0 & height < 0
-    [Done] width < 0 & height > 0
-    [Done] width < 0 & height = 0
-    [Done] width < 0 & height < 0
- [Done] not vertically
+ options of difference between the left (to which the method is applied) and right (passed as an argument to the method) sizes
+    [greater width greater height] left.width > right.width & left.height > right.height
+    [greater width same    height] left.width > right.width & left.height = right.height
+    [greater width smaller height] left.width > right.width & left.height < right.height
+    [same    width greater height] left.width = right.width & left.height > right.height
+    [same    width same    height] left.width = right.width & left.height = right.height
+    [same    width smaller height] left.width = right.width & left.height < right.height
+    [smaller width greater height] left.width < right.width & left.height > right.height
+    [smaller width same    height] left.width < right.width & left.height = right.height
+    [smaller width smaller height] left.width < right.width & left.height < right.height
+ [left] options of the left size
+    width > 0 & height > 0
+    width > 0 & height = 0
+    width > 0 & height < 0
+    width = 0 & height > 0
+    width = 0 & height = 0
+    width = 0 & height < 0
+    width < 0 & height > 0
+    width < 0 & height = 0
+    width < 0 & height < 0
+ [right] options of the right size
+    width > 0 & height > 0
+    width > 0 & height = 0
+    width > 0 & height < 0
+    width = 0 & height > 0
+    width = 0 & height = 0
+    width = 0 & height < 0
+    width < 0 & height > 0
+    width < 0 & height = 0
+    width < 0 & height < 0
+ options for vertically passed argument to the method
+    [vertically] true
+    [not vertically] false
+ 
+ [Done] (greater width greater height + vertically) * left * right
+ [Done] (greater width same    height + vertically) * left * rihgt
+ [Done] (greater width smaller height + vertically) * left * rihgt
+ [Done] (same    width greater height + vertically) * left * rihgt
+ [Done] (same    width same    height + vertically) * left * rihgt
+ [Done] (same    width smaller height + vertically) * left * rihgt
+ [Done] (smaller width greater height + vertically) * left * rihgt
+ [Done] (smaller width same    height + vertically) * left * rihgt
+ [Done] (smaller width smaller height + vertically) * left * rihgt
+ [Done] (greater width greater height + vertically) * left * rihgt
+ [Done] (greater width greater height + not vertically) * left * right
+ [Done] (greater width same    height + not vertically) * left * rihgt
+ [Done] (greater width smaller height + not vertically) * left * rihgt
+ [Done] (same    width greater height + not vertically) * left * rihgt
+ [Done] (same    width same    height + not vertically) * left * rihgt
+ [Done] (same    width smaller height + not vertically) * left * rihgt
+ [Done] (smaller width greater height + not vertically) * left * rihgt
+ [Done] (smaller width same    height + not vertically) * left * rihgt
+ [Done] (smaller width smaller height + not vertically) * left * rihgt
+ [Done] (greater width greater height + not vertically) * left * rihgt
  */
-
-//TODO: [Review] Still not obvious
 
 import XCTest
 @testable import SSSugar
@@ -44,7 +65,7 @@ class CGSizeAddedTests: XCTestCase {
     
     var itemsArray = [Items]()
     
-    func testGreaterWidthGreaterHeight() {
+    func testGreaterWidthGreaterHeightVertically() {
         itemsArray = [
             Items(lW: 345, lH: 783, rW: 0, rH: -17, eW: 345, eH: 766),
             Items(lW: -70, lH: -22, rW: -85, rH: 0, eW: -70, eH: -22),
@@ -53,7 +74,7 @@ class CGSizeAddedTests: XCTestCase {
         assertEqualItemsArray(vertically: true)
     }
     
-    func testGreaterWidthSameHeight() {
+    func testGreaterWidthSameHeightVertically() {
         itemsArray = [
             Items(lW: 87, lH: 0, rW: 0, rH: 0, eW: 87, eH: 0),
             Items(lW: 23, lH: -34, rW: 13, rH: -34, eW: 23, eH: -68),
@@ -62,7 +83,7 @@ class CGSizeAddedTests: XCTestCase {
         assertEqualItemsArray(vertically: true)
     }
     
-    func testGreaterWidthSmallerHeight() {
+    func testGreaterWidthSmallerHeightVertically() {
         itemsArray = [
             Items(lW: 0, lH: 0, rW: -50, rH: 45, eW: 0, eH: 45),
             Items(lW: 0, lH: -45, rW: -30, rH: 0, eW: 0, eH: -45),
@@ -71,7 +92,7 @@ class CGSizeAddedTests: XCTestCase {
         assertEqualItemsArray(vertically: true)
     }
     
-    func testSameWidthGreaterHeight() {
+    func testSameWidthGreaterHeightVertically() {
         itemsArray = [
             Items(lW: -56, lH: 0, rW: -56, rH: -56, eW: -56, eH: -56),
             Items(lW: 876, lH: 567, rW: 875, rH: 0, eW: 876, eH: 567),
@@ -80,7 +101,7 @@ class CGSizeAddedTests: XCTestCase {
         assertEqualItemsArray(vertically: true)
     }
     
-    func testSameWidthSameHeight() {
+    func testSameWidthSameHeightVertically() {
         itemsArray = [
             Items(lW: 0, lH: -56, rW: 0, rH: -56, eW: 0, eH: -112),
             Items(lW: 99, lH: 0, rW: 99, rH: 0, eW: 99, eH: 0),
@@ -89,7 +110,7 @@ class CGSizeAddedTests: XCTestCase {
         assertEqualItemsArray(vertically: true)
     }
     
-    func testSameWidthSmallerHeight() {
+    func testSameWidthSmallerHeightVertically() {
         itemsArray = [
             Items(lW: 0, lH: -70, rW: 0, rH: 0, eW: 0, eH: -70),
             Items(lW: 567, lH: 465, rW: 567, rH: 735, eW: 567, eH: 1200),
@@ -98,7 +119,7 @@ class CGSizeAddedTests: XCTestCase {
         assertEqualItemsArray(vertically: true)
     }
     
-    func testSmallerWidthBiggerHeight() {
+    func testSmallerWidthBiggerHeightVertically() {
         itemsArray = [
             Items(lW: 890, lH: 0, rW: 900, rH: -90, eW: 900, eH: -90),
             Items(lW: -58, lH: 540, rW: 0, rH: -40, eW: 0, eH: 500),
@@ -107,7 +128,7 @@ class CGSizeAddedTests: XCTestCase {
         assertEqualItemsArray(vertically: true)
     }
     
-    func testSmallerWidthSameHeight() {
+    func testSmallerWidthSameHeightVertically() {
         itemsArray = [
             Items(lW: 0, lH: 0, rW: 45, rH: 0, eW: 45, eH: 0),
             Items(lW: -4, lH: 90, rW: 45, rH: 90, eW: 45, eH: 180),
@@ -116,7 +137,7 @@ class CGSizeAddedTests: XCTestCase {
         assertEqualItemsArray(vertically: true)
     }
     
-    func testSmallerWidthSmallerHeight() {
+    func testSmallerWidthSmallerHeightVertically() {
         itemsArray = [
             Items(lW: -89, lH: 0, rW: 0, rH: 89, eW: 0, eH: 89),
             Items(lW: -90, lH: -670, rW: -56, rH: 0, eW: -56, eH: -670),

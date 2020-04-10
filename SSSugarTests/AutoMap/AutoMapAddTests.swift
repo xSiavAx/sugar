@@ -1,12 +1,14 @@
 /*
  Tests for AutoMap 
  
- [Done] key
-    [Done] contained
-    [Done] not contained
- [Done] contained value
+ [Done] contained key
+ [Done] not contained key
+ [Done] with contained value
  [Done] empty AutoMap
- [Done] ReplaceableCollection container
+ [Done] contained key ReplaceableCollection container
+ [Done] not contained key ReplaceableCollection container
+ [Done] with contained value ReplaceableCollection container
+ [Done] empty AutoMap ReplaceableCollection container
  */
 
 import XCTest

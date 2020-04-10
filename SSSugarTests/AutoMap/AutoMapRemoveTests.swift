@@ -1,12 +1,10 @@
 /*
  Tests for remove(_:for:) method in AutoMap
  
- [Done] key
-    [Done] contained
-    [Done] not contained
- [Done] value
-    [Done] contained
-    [fatalError] not contained
+ [Done] contained key contained value
+ [Done] contained key not contained value
+ [Done] not contained key contained value
+ [Done] not contained key not contained value
  [Done] empty AutoMap
  */
 

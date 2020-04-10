@@ -1,17 +1,14 @@
 /*
  Tests for remove(forKeyAndIndexes:) method in AutoMap
- 
- [Done] keys
-    [Done] contained
-    [Done] not contained
-    [Done] multiple
-    [Done] mixed
- [Done] indexes
-    [Done] contained
-    [Done] all
-    [fatalError] reversed contained
-    [fatalError] not contained
+
+ [Done] contained keys contained
+ [Done] contained keys all
+ [Done] contained keys reversed contained
+ [Done] not contained keys
+ [Done] multiple keys
+ [Done] mixed keys
  [Done] empty AutoMap
+ [fatalError] not contained index
  */
 
 import XCTest

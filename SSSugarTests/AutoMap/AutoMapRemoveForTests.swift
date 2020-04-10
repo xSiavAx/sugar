@@ -1,9 +1,8 @@
 /*
  Tests for remove(for:) method in AutoMap
  
- [Done] key
-    [Done] contained
-    [Done] not contained
+ [Done] contained key
+ [Done] not contained key
  [Done] empty AutoMap
  */
 

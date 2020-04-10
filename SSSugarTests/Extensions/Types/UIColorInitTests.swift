@@ -1,12 +1,11 @@
 /*
  Tests for UIColor extension init(redV:greenV:blueV:alpha:), init(red:green:blue:)
  
- [Done] default
-    [Done] red green blue
-    [Done] red
-    [Done] green
-    [Done] blue
-    [Done] alpha
+ [Done] default red green blue
+ [Done] default red
+ [Done] default green
+ [Done] default blue
+ [Done] default alpha
  [Done] red
  [Done] green
  [Done] blue

@@ -1,10 +1,9 @@
 /*
  Tests for AutoMap.Iterator init(map:)
- 
- [Done] container
-    [Done] regular
-    [Done] empty
-    [Done] mixed
+
+ [Done] regular container
+ [Done] empty container
+ [Done] mixed container
  [Done] empty map
  */
 

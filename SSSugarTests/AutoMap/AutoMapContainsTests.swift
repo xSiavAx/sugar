@@ -1,13 +1,9 @@
 /*
  Tests for contains(_:for:) method in AutoMap
  
- [Done] key
-    [Done] contained
-    [Done] not contained
- [Done] value
-    [Done] contained
-    [Done] not contained
- [Done] empty map
+ [Done] contained key
+ [Done] not contained key
+ [Done] empty AutoMap
  */
 
 import XCTest

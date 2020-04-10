@@ -1,13 +1,10 @@
 /*
  Tests for update(_:for:at:) method in AutoMap
  
- [Done] key
-    [Done] contained
-    [fatalError] not contained
- [Done] index
-    [Done] contained
-    [fatalError] not contained
+ [Done] contained key
  [Done] same value
+ [fatalError] not contained key
+ [fatalError] not contained index
  [fatalError] empty AutoMap
  */
 

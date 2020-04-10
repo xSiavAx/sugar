@@ -1,26 +1,36 @@
 /*
  Tests for binary plus operator in CGSize extension
  
- [Done] options of the left size
-    [Done] width > 0 & height > 0
-    [Done] width > 0 & height = 0
-    [Done] width > 0 & height < 0
-    [Done] width = 0 & height > 0
-    [Done] width = 0 & height = 0
-    [Done] width = 0 & height < 0
-    [Done] width < 0 & height > 0
-    [Done] width < 0 & height = 0
-    [Done] width < 0 & height < 0
- [Done] options of the right size
-    [Done] width > 0 & height > 0
-    [Done] width > 0 & height = 0
-    [Done] width > 0 & height < 0
-    [Done] width = 0 & height > 0
-    [Done] width = 0 & height = 0
-    [Done] width = 0 & height < 0
-    [Done] width < 0 & height > 0
-    [Done] width < 0 & height = 0
-    [Done] width < 0 & height < 0
+ options of the left size
+    [plus  width plus  height] width > 0 & height > 0
+    [plus  width zero  height] width > 0 & height = 0
+    [plus  width minus height] width > 0 & height < 0
+    [zero  width plus  height] width = 0 & height > 0
+    [zero  width zero  height] width = 0 & height = 0
+    [zero  width minus height] width = 0 & height < 0
+    [minus width plus  height] width < 0 & height > 0
+    [minus width zero  height] width < 0 & height = 0
+    [minus width minus height] width < 0 & height < 0
+ [right] options of the right size
+    width > 0 & height > 0
+    width > 0 & height = 0
+    width > 0 & height < 0
+    width = 0 & height > 0
+    width = 0 & height = 0
+    width = 0 & height < 0
+    width < 0 & height > 0
+    width < 0 & height = 0
+    width < 0 & height < 0
+ 
+ [Done] plus  width plus  height * right
+ [Done] plus  width zero  height * right
+ [Done] plus  width minus height * right
+ [Done] zero  width plus  height * right
+ [Done] zero  width zero  height * right
+ [Done] zero  width minus height * right
+ [Done] minus width plus  height * right
+ [Done] minus width zero  height * right
+ [Done] minus width minus height * right
  */
 
 import XCTest

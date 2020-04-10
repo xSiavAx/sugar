@@ -1,9 +1,8 @@
 /*
  Tests for remove(for:at:) method in AutoMap
  
- [Done] key
-    [Done] contained
-    [Done] not contained
+ [Done] contained key
+ [Done] not contained key
  [Done] empty AutoMap
  [fatalError] not conteined index
  */

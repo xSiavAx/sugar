@@ -1,12 +1,8 @@
 /*
  Tests for insert(_:for:at) method in AutoMap
  
- [Done] key
-    [Done] contained
-    [Done] not contained
- [Done] index
-    [Done] contained
-    [fatalError] not contained
+ [Done] contained key
+ [Done] not contained key
  [Done] empty AutoMap
  */
 

@@ -2,11 +2,10 @@
  Tests for init(), init(map:) in AutoMap
  
  [Done] init()
- [Done] init(map:)
-    [Done] regular
-    [Done] empty
-    [Done] empty container
-    [Done] mixed container
+ [Done] init(map:) with regular map
+ [Done] init(map:) with empty map
+ [Done] init(map:) with empty container
+ [Done] init(map:) with mixed container
  */
 
 import XCTest
@@ -21,13 +20,13 @@ class AutoMapInitTests: XCTestCase {
         testHelper.assertEqual(AutoMap<Item, [Int]>(), [:])
     }
     
-    func testInitMapRegular() {
+    func testInitMapRegularMap() {
         let map = testHelper.arrayMap(from: .evens)
         
         testHelper.assertEqual(AutoMap(map: map), map)
     }
     
-    func testInitMapEmpty() {
+    func testInitMapEmptyMap() {
         let emptyMap = [Item : [Int]]()
         
         testHelper.assertEqual(AutoMap(map: emptyMap), emptyMap)

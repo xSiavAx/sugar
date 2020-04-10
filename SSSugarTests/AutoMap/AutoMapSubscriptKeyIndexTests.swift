@@ -1,24 +1,15 @@
 /*
  Tests for subscript(key:index:) in AutoMap
  
- [Done] getter
-    [Done] key
-        [Done] contained
-        [Done] not contained
-    [Done] index
-        [Done] contained
-        [fatalError] not contained
-    [Done] empty AutoMap
- 
- [Done] setter
-    [Done] key
-        [Done] contained
-        [fatalError] not contained
-    [Done] index
-        [Done] contained
-        [fatalError] not contained
-    [Done] nil value
-    [fatalError] empty AutoMap
+ [Done] getter contained key contained index
+ [Done] getter not contained key contained index
+ [fatalError] getter not contained index
+ [Done] getter empty AutoMap
+ [Done] setter contained key setter contained index
+ [fatalError] setter contained key setter not contained index
+ [fatalError] setter not contained key
+ [Done] nil value
+ [fatalError] empty AutoMap
  */
 
 import XCTest

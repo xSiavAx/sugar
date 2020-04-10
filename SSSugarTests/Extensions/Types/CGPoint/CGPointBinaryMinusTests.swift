@@ -1,36 +1,46 @@
 /*
  Tests for binary minus operator in CGPoint extension
  
- [Done] options of difference between the left and right points
-    [Done] left.x > right.x & left.y > right.y
-    [Done] left.x > right.x & left.y = right.y
-    [Done] left.x > right.x & left.y < right.y
-    [Done] left.x = right.x & left.y > right.y
-    [Done] left.x = right.x & left.y = right.y
-    [Done] left.x = right.x & left.y < right.y
-    [Done] left.x < right.x & left.y > right.y
-    [Done] left.x < right.x & left.y = right.y
-    [Done] left.x < right.x & left.y < right.y
- [Done] options of the left point
-    [Done] x > 0 & y > 0
-    [Done] x > 0 & y = 0
-    [Done] x > 0 & y < 0
-    [Done] x = 0 & y > 0
-    [Done] x = 0 & y = 0
-    [Done] x = 0 & y < 0
-    [Done] x < 0 & y > 0
-    [Done] x < 0 & y = 0
-    [Done] x < 0 & y < 0
- [Done] options of the right point
-    [Done] x > 0 & y > 0
-    [Done] x > 0 & y = 0
-    [Done] x > 0 & y < 0
-    [Done] x = 0 & y > 0
-    [Done] x = 0 & y = 0
-    [Done] x = 0 & y < 0
-    [Done] x < 0 & y > 0
-    [Done] x < 0 & y = 0
-    [Done] x < 0 & y < 0
+ options of difference between the left and right points
+    [greater x greater y] left.x > right.x & left.y > right.y
+    [greater x same    y] left.x > right.x & left.y = right.y
+    [greater x smaller y] left.x > right.x & left.y < right.y
+    [same    x greater y] left.x = right.x & left.y > right.y
+    [same    x same    y] left.x = right.x & left.y = right.y
+    [same    x smaller y] left.x = right.x & left.y < right.y
+    [smaller x greater y] left.x < right.x & left.y > right.y
+    [smaller x same    y] left.x < right.x & left.y = right.y
+    [smaller x smaller y] left.x < right.x & left.y < right.y
+ [left] options of the left points
+    x > 0 & y > 0
+    x > 0 & y = 0
+    x > 0 & y < 0
+    x = 0 & y > 0
+    x = 0 & y = 0
+    x = 0 & y < 0
+    x < 0 & y > 0
+    x < 0 & y = 0
+    x < 0 & y < 0
+ [right] options of the right points
+    x > 0 & y > 0
+    x > 0 & y = 0
+    x > 0 & y < 0
+    x = 0 & y > 0
+    x = 0 & y = 0
+    x = 0 & y < 0
+    x < 0 & y > 0
+    x < 0 & y = 0
+    x < 0 & y < 0
+ 
+ [Done] (greater x greater y) * left * right
+ [Done] (greater x same    y) * left * rihgt
+ [Done] (greater x smaller y) * left * rihgt
+ [Done] (same    x greater y) * left * rihgt
+ [Done] (same    x same    y) * left * rihgt
+ [Done] (same    x smaller y) * left * rihgt
+ [Done] (smaller x greater y) * left * rihgt
+ [Done] (smaller x same    y) * left * rihgt
+ [Done] (smaller x smaller y) * left * rihgt
  */
 
 import XCTest

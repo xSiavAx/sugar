@@ -2,18 +2,15 @@
  Tests for subscript(key:) in AutoMap
  
  [Done] getter
-    [Done] key
-        [Done] contained
-        [Done] not contained
-    [Done] empty AutoMap
- 
- [Done] setter
-    [Done] key
-        [Done] contained
-        [Done] not contained
-    [Done] same container
-    [Done] nil value
-    [Done] empty AutoMap
+ [Done] getter empty AutoMap
+ [Done] setter contained key
+ [Done] setter not contained key
+ [Done] setter contained key same container
+ [Done] setter not contained key same container
+ [Done] setter contained key nil value
+ [Done] setter not contained key nil value
+ [Done] setter empty AutoMap
+ [Done] setter empty AutoMap nil value
  */
 
 import XCTest

@@ -1,14 +1,11 @@
 /*
  Tests for == operator in AutoMap
  
- [Done] keys
-    [Done] same
-    [Done] added
-    [Done] changed
- [Done] values
-    [Done] same
-    [Done] added
-    [Done] changed
+ [Done] same keys same values
+ [Done] same keys added values
+ [Done] same keys changed values
+ [Done] added keys
+ [Done] changed keys
  [Done] empty AutoMap
  [Done] after changes
  */
