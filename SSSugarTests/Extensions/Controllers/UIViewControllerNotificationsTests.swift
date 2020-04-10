@@ -44,6 +44,7 @@
 import XCTest
 @testable import SSSugar
 
+//TODO: [Review] Are these tests for all Controller's notifications?
 class UIViewControllerNotificationsTests: XCTestCase {
     let testHelper = UIViewControllerTestHelper()
     let sut = NotifiableViewController()
@@ -56,9 +57,10 @@ class UIViewControllerNotificationsTests: XCTestCase {
     func testRegisterDidShowNotification() {
         testHelper.postKBDidShowNotification(userInfo: kbUserInfo)
         XCTAssertFalse(sut.isNotified)
+        //TODO: [Review] Separate logic blocks
         sut.registerForKBNotifications()
         testHelper.postKBDidShowNotification(userInfo: kbUserInfo)
-        
+        //TODO: [Review] Redurant row
         XCTAssert(sut.isNotified)
     }
     
