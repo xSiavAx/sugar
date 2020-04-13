@@ -89,12 +89,6 @@ FOUNDATION_EXPORT const unsigned char SSSugarVersionString[];
      - merging(\_\:)
  TODO: Data
 
- ### Conatiners
-
- TODO: Array
-     - shuffle(using\:type\:)
-     - shuffled(using\:type\:)
-
  ### Views
 
  TODO: UITableView
@@ -162,7 +156,6 @@ FOUNDATION_EXPORT const unsigned char SSSugarVersionString[];
 
  ### Containers
 
- TODO: Array extension
  TODO: Set extension
  TODO: IndexSet extension
 

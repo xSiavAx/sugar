@@ -23,6 +23,9 @@
 		2D5CCF122429F9700065278E /* ArrayPickAtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5CCF112429F9700065278E /* ArrayPickAtTests.swift */; };
 		2D5E66D62424CD0F00D82DEE /* CGRectDividedCountVerticalyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D5E66D52424CD0F00D82DEE /* CGRectDividedCountVerticalyTests.swift */; };
 		2D61561A2423C4F80015A9E0 /* SSCollectionViewMarkableControllerUnmarkTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6156192423C4F80015A9E0 /* SSCollectionViewMarkableControllerUnmarkTC.swift */; };
+		2D69A0C524447AB90000C5DC /* ArrayInsertETests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D69A0C424447AB90000C5DC /* ArrayInsertETests.swift */; };
+		2D69A0C724447DC80000C5DC /* ArrayRemoveETests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D69A0C624447DC80000C5DC /* ArrayRemoveETests.swift */; };
+		2D69A0C924449BAB0000C5DC /* ArrayShuffleUsingTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D69A0C824449BAB0000C5DC /* ArrayShuffleUsingTypeTests.swift */; };
 		2D6E0EA22435DA9F0035679F /* CGSizeAddedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6E0EA12435DA9F0035679F /* CGSizeAddedTests.swift */; };
 		2D6E0EA424362A5F0035679F /* CGSizeExtendedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D6E0EA324362A5F0035679F /* CGSizeExtendedTests.swift */; };
 		2D78DB19242D49A500D77DD1 /* AutoMapUpdateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D78DB18242D49A500D77DD1 /* AutoMapUpdateTests.swift */; };
@@ -197,6 +200,9 @@
 		2D5CCF112429F9700065278E /* ArrayPickAtTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayPickAtTests.swift; sourceTree = "<group>"; };
 		2D5E66D52424CD0F00D82DEE /* CGRectDividedCountVerticalyTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CGRectDividedCountVerticalyTests.swift; sourceTree = "<group>"; };
 		2D6156192423C4F80015A9E0 /* SSCollectionViewMarkableControllerUnmarkTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerUnmarkTC.swift; sourceTree = "<group>"; };
+		2D69A0C424447AB90000C5DC /* ArrayInsertETests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayInsertETests.swift; sourceTree = "<group>"; };
+		2D69A0C624447DC80000C5DC /* ArrayRemoveETests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayRemoveETests.swift; sourceTree = "<group>"; };
+		2D69A0C824449BAB0000C5DC /* ArrayShuffleUsingTypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayShuffleUsingTypeTests.swift; sourceTree = "<group>"; };
 		2D6E0EA12435DA9F0035679F /* CGSizeAddedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeAddedTests.swift; sourceTree = "<group>"; };
 		2D6E0EA324362A5F0035679F /* CGSizeExtendedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeExtendedTests.swift; sourceTree = "<group>"; };
 		2D78DB18242D49A500D77DD1 /* AutoMapUpdateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapUpdateTests.swift; sourceTree = "<group>"; };
@@ -373,6 +379,9 @@
 				99FA1D5C225A22FF00AD2FB5 /* ArrayBinarySearchTests.swift */,
 				997B344E225A134B00F2A3A0 /* ArrayInitBuildBlockTests.swift */,
 				2D5CCF112429F9700065278E /* ArrayPickAtTests.swift */,
+				2D69A0C424447AB90000C5DC /* ArrayInsertETests.swift */,
+				2D69A0C624447DC80000C5DC /* ArrayRemoveETests.swift */,
+				2D69A0C824449BAB0000C5DC /* ArrayShuffleUsingTypeTests.swift */,
 			);
 			path = Array;
 			sourceTree = "<group>";
@@ -1064,6 +1073,7 @@
 				2DC7A05224333D2C00A1BDC2 /* UIViewControllerKBNotificationsTests.swift in Sources */,
 				2D3043BE243727E800EBD898 /* CGSizeUnaryMinusOperatorTests.swift in Sources */,
 				2DBCCFB4242BB89600100093 /* AutoMapRemoveAllTests.swift in Sources */,
+				2D69A0C724447DC80000C5DC /* ArrayRemoveETests.swift in Sources */,
 				2D7E5A4E241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperMarkNonActiveTC.swift in Sources */,
 				2D535E12242A0F7E0024D4C0 /* SSGroupExecutorTests.swift in Sources */,
 				2D78DB19242D49A500D77DD1 /* AutoMapUpdateTests.swift in Sources */,
@@ -1079,6 +1089,7 @@
 				2D7E5A54241FD0E5009EE074 /* CGRectInsetToSizeTests.swift in Sources */,
 				2D7E5A55241FD0E5009EE074 /* CGRectCenterTests.swift in Sources */,
 				2DC1D1AD242D0BB70049020B /* AutoMapRemoveForKeyAndIndexes.swift in Sources */,
+				2D69A0C524447AB90000C5DC /* ArrayInsertETests.swift in Sources */,
 				2DFE3991242E48BA001B9AAE /* AutoMapMakeIteratorTests.swift in Sources */,
 				2D8BABC024292ADA00B8A84D /* DictionaryPickingForTests.swift in Sources */,
 				2D7E5A56241FD0E5009EE074 /* CGSizeUnitedIntersectedTests.swift in Sources */,
@@ -1089,6 +1100,7 @@
 				2D7E5A57241FD0E5009EE074 /* UIColorInitTests.swift in Sources */,
 				2DF4E966243326F8005CF7A2 /* UIViewControllerShowErrorAlertTests.swift in Sources */,
 				2D78DB1B242D519800D77DD1 /* AutoMapEqualityOperatorTests.swift in Sources */,
+				2D69A0C924449BAB0000C5DC /* ArrayShuffleUsingTypeTests.swift in Sources */,
 				2D7E5A58241FD0E5009EE074 /* RangeMiddleTests.swift in Sources */,
 				2DFE398E242E412D001B9AAE /* AutoMapIteratorInitMapTests.swift in Sources */,
 				2D7E5A59241FD0E5009EE074 /* ArrayForEachTests.swift in Sources */,
