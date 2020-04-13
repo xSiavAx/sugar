@@ -153,6 +153,8 @@ extension AutoMap : Sequence {
                 key = mKey
                 container = mContainer
                 containerIterator = mContainer.makeIterator()
+            } else {
+                key = nil
             }
         }
     }
@@ -180,15 +182,12 @@ extension AutoMap where Container : RangeReplaceableCollection & MutableCollecti
         count += 1;
     }
     
-    @discardableResult mutating func update(_ element: Value, for key: Key, at index: Container.Index) -> Value? {
+    @discardableResult mutating func update(_ element: Value, for key: Key, at index: Container.Index) -> Value {
         if let old = containers[key]?[index] {
             containers[key]![index] = element
             return old
         }
-        createContainerIfNeeded(for: key)
-        count += 1
-        containers[key]![index] = element
-        return nil
+        fatalError("attempt to update a not contained \(containers[key] == nil ? "key" : "index")")
     }
     
     @discardableResult mutating func remove(for key: Key, at index: Container.Index) -> Value? {
@@ -209,7 +208,7 @@ extension AutoMap where Container : RangeReplaceableCollection & MutableCollecti
             if containers[key] != nil {
                 var values = [Value]()
                 
-                for index in indexes.reversed() {
+                for index in indexes.sorted().reversed() {
                     values.append(containers[key]!.remove(at: index))
                 }
                 result.add(container: values.reversed(), for: key)
@@ -252,8 +251,11 @@ extension Array : InsertableCollection {
 
 extension Array : ReplaceableCollection where Element : Equatable {
     public mutating func remove(e: Element) -> Bool {
-        remove(at: firstIndex(of: e)!)
-        return true
+        if let index = firstIndex(of: e) {
+            remove(at: index)
+            return true
+        }
+        return false
     }
 }
 

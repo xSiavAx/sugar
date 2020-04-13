@@ -23,5 +23,4 @@ class SSMarkbaleCollectionCellHelperMarkNonActiveTC: XCTestCase {
         sut.setMarked(true, animated: false)
         testHelper.checkCell(sut, marking: false, marked: false)
     }
-
 }
