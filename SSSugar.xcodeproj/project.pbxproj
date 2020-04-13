@@ -64,6 +64,8 @@
 		2D7FD9F42420F73200D4C28F /* AutoMapTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7FD9F32420F73200D4C28F /* AutoMapTestHelper.swift */; };
 		2D82C240243C6EA4005B2DE1 /* UILabelMaxSizeThatFitsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82C23F243C6EA4005B2DE1 /* UILabelMaxSizeThatFitsTests.swift */; };
 		2D82C242243C723A005B2DE1 /* UILabelTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D82C241243C723A005B2DE1 /* UILabelTestHelper.swift */; };
+		2D84FBC92444C5C5006C7333 /* SetInsertableCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D84FBC82444C5C5006C7333 /* SetInsertableCollection.swift */; };
+		2D84FBCB2444CDEF006C7333 /* IndexSetInsertableCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D84FBCA2444CDEF006C7333 /* IndexSetInsertableCollection.swift */; };
 		2D8BABC024292ADA00B8A84D /* DictionaryPickingForTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D8BABBF24292ADA00B8A84D /* DictionaryPickingForTests.swift */; };
 		2D8CF9BC241FC4BA00168C8A /* SSSugar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 99D2963E223D3057003FD9F0 /* SSSugar.framework */; };
 		2D94676D242A378E00AC5637 /* SSChainExecutorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D94676C242A378E00AC5637 /* SSChainExecutorTests.swift */; };
@@ -210,6 +212,8 @@
 		2D7FD9F32420F73200D4C28F /* AutoMapTestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapTestHelper.swift; sourceTree = "<group>"; };
 		2D82C23F243C6EA4005B2DE1 /* UILabelMaxSizeThatFitsTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UILabelMaxSizeThatFitsTests.swift; sourceTree = "<group>"; };
 		2D82C241243C723A005B2DE1 /* UILabelTestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelTestHelper.swift; sourceTree = "<group>"; };
+		2D84FBC82444C5C5006C7333 /* SetInsertableCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetInsertableCollection.swift; sourceTree = "<group>"; };
+		2D84FBCA2444CDEF006C7333 /* IndexSetInsertableCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexSetInsertableCollection.swift; sourceTree = "<group>"; };
 		2D8BABBF24292ADA00B8A84D /* DictionaryPickingForTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryPickingForTests.swift; sourceTree = "<group>"; };
 		2D8CF9B7241FC4BA00168C8A /* SSSugarTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SSSugarTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D8CF9BB241FC4BA00168C8A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -577,6 +581,8 @@
 			children = (
 				2D00D9972437A3AF0059EB09 /* Array */,
 				2D00D9982437A3D50059EB09 /* Dictionary */,
+				2D84FBC82444C5C5006C7333 /* SetInsertableCollection.swift */,
+				2D84FBCA2444CDEF006C7333 /* IndexSetInsertableCollection.swift */,
 			);
 			path = Containers;
 			sourceTree = "<group>";
@@ -1042,6 +1048,7 @@
 			files = (
 				2D7E5A3E241FD0E5009EE074 /* SSCollectionViewMarkableControllerConfigCellTC.swift in Sources */,
 				2D4A6BB42429104A001E0487 /* DictionaryPickForTests.swift in Sources */,
+				2D84FBCB2444CDEF006C7333 /* IndexSetInsertableCollection.swift in Sources */,
 				2D7E5A3F241FD0E5009EE074 /* SSCollectionViewMarkableControllerActivateTC.swift in Sources */,
 				2D7E5A40241FD0E5009EE074 /* SSCollectionViewMarkableControllerTestHelper.swift in Sources */,
 				2D7E5A42241FD0E5009EE074 /* SSCollectionViewMarkableControllerDeactivateTC.swift in Sources */,
@@ -1070,6 +1077,7 @@
 				2D7E5A4C241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperTestHelper.swift in Sources */,
 				2D82C240243C6EA4005B2DE1 /* UILabelMaxSizeThatFitsTests.swift in Sources */,
 				2D7E5A4D241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperActivateTC.swift in Sources */,
+				2D84FBC92444C5C5006C7333 /* SetInsertableCollection.swift in Sources */,
 				2DC7A05224333D2C00A1BDC2 /* UIViewControllerKBNotificationsTests.swift in Sources */,
 				2D3043BE243727E800EBD898 /* CGSizeUnaryMinusOperatorTests.swift in Sources */,
 				2DBCCFB4242BB89600100093 /* AutoMapRemoveAllTests.swift in Sources */,

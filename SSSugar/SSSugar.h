@@ -154,11 +154,6 @@ FOUNDATION_EXPORT const unsigned char SSSugarVersionString[];
  TODO: SSDataBaseStatementProxing
  TODO: SSDataBaseSavePointProxing
 
- ### Containers
-
- TODO: Set extension
- TODO: IndexSet extension
-
  ## Protocols
 
  TODO: SSViewBlocking
