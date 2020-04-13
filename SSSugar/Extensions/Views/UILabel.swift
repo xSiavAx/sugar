@@ -2,7 +2,6 @@
 import UIKit
 
 extension UILabel {
-    //TODO: Add tests
     /// Ask view to calculate it's possible size best fits the specified size.
     ///
     /// If label has content, it works as usual sizeThatFits, otherwise it works like sizeThatFits for label with space symbol as it's content (' ').
@@ -18,7 +17,6 @@ extension UILabel {
         return sizeThatFits(size, withText: " ")
     }
     
-    //TODO: Add tests
     /// Ask view to calculate it's max possible (like it has max number of lines content) and regular size best fit the specified size.
     ///
     /// - Warning:
@@ -26,15 +24,16 @@ extension UILabel {
     ///
     /// - Parameters:
     ///   - size: Size to fit.
-    /// - Returns: Tupple with actual size and max possible size to fit passed one.
+    /// - Returns: Tuple with actual size and max possible size to fit passed one.
     public func maxSizeThatFits(_ size: CGSize) -> (real:CGSize, max:CGSize) {
         let size = sizeThatFits(size)
         
         if (numberOfLines != 0) {
             let text = Array(repeating: " ", count: numberOfLines).joined(separator: "\n")
-            let maxSize = sizeThatFits(size, withText: text)
+            let receivedHeight = sizeThatFits(size, withText: text).height
+            let maxHeight = receivedHeight > size.height ? receivedHeight : size.height
             
-            return (size, maxSize.height > size.height ? maxSize : size)
+            return (size, CGSize(width: size.width, height: maxHeight))
         }
         return (size, size)
     }
@@ -55,6 +54,7 @@ extension UILabel {
     //MARK: - Deprecated
     
     ///**Deprecated**. Renamed to `nonEmptySizeThatFits`.
+    @available(*, deprecated, renamed: "nonEmptySizeThatFits(_:)")
     public func possibleSizeThatFits(_ size: CGSize) -> CGSize {
         return nonEmptySizeThatFits(size)
     }
