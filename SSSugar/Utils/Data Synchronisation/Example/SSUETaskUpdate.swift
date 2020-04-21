@@ -78,7 +78,6 @@ internal protocol SSUETaskEditAsyncApi {
     func incrementPages(taskID: Int, marker: String, handler: (Error?)->Void)
 }
 
-
 extension SSUETaskUpdate {
     internal func incrementPages(taskID: Int, marker: String) -> SSUpdate {
         let keys = SSUETaskUpdateNotifications.incrementPages

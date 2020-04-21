@@ -42,8 +42,7 @@ extension SSSingleEntityProcessing {
     }
 }
 
-extension SSSingleEntityProcessing where Updater.Source == Self, Mutator.Source == Self
-{
+extension SSSingleEntityProcessing where Updater.Source == Self, Mutator.Source == Self {
     public func start(_ handler: @escaping () -> Void) {
         createUpdaterAndMutator()
         

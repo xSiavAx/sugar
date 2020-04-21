@@ -20,7 +20,7 @@ public struct SSUpdate {
     /// Update title
     public let name : String
     /// Update identifier
-    /// Usually it used to metch update on it's request
+    /// Usually it used to match update on it's request
     public let marker : String
     /// Update arguments
     public let args : Args

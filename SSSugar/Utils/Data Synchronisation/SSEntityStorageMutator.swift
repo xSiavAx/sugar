@@ -22,25 +22,15 @@ open class SSEntityDBMutator<Source: SSMutatingEntitySource> {
     ///   - marker: Marker for notification.
     ///   - handler: Finish handler runned on main thread.
     ///   - error: Error that amy occurs during mutating.
-    public func mutate(job: @escaping (_ marker: String) throws ->SSUpdate, handler: @escaping (_ error: Error?)->Void) {
+    public func mutate(job: @escaping (_ marker: String) throws -> SSUpdate, handler: @escaping (_ error: Error?)->Void) {
         let marker = Self.newMarker()
 
         func work() {
-            let error = execute(job: job, marker: marker)
+            let error = SSTry.run { notifier.notify(update: try job(marker)) }
             
             onMain { handler(error) }
         }
         executor.execute(work)
-    }
-    
-    private func execute(job: (_ marker: String) throws ->SSUpdate, marker: String) -> Error? {
-        do {
-            let update = try job(marker)
-            notifier.notify(update: update)
-        } catch {
-            return error
-        }
-        return nil
     }
 }
 
@@ -52,4 +42,3 @@ extension SSEntityDBMutator: SSBaseEntityMutating {
     
     public func stop() {}
 }
-
