@@ -1,32 +1,35 @@
 import Foundation
 
-internal class SSUEChange: SSDmChange {
-    internal var title: String { fatalError("Not omplemented") }
+internal class SSUEModify: SSDataModifying {
+    internal var core: SSDataModifyCore { fatalError("Not implemented") }
+    internal var title: String { fatalError("Not implemented") }
     
     internal init() {}
     
-    internal required init(copy other: SSUEChange) {
-        fatalError("Not omplemented")
-    }
-    
-    internal func toUpdate() -> SSUpdate {
-        fatalError("Not omplemented")
+    internal required init(copy other: SSUEModify) {
+        fatalError("Not inmplemented")
     }
 }
 
-internal class SSUERequest: SSDmRequest {
-    internal var title: String { fatalError("Not omplemented") }
+internal class SSUECoredModify<Core: SSDataModifyCore&SSCopying>: SSUEModify {
+    internal let iCore: Core
+    internal override var core: SSDataModifyCore { get{iCore} }
     
-    internal init() {}
-    
-    internal required init(copy other: SSUERequest) {
-        fatalError("Not omplemented")
+    internal init(core: Core) {
+        iCore = core
+        super.init()
     }
     
-    internal func toUpdate() -> SSUpdate {
-        fatalError("Not omplemented")
+    internal required init(copy other: SSUEModify) {
+        let mOther = other as! Self
+        iCore = mOther.iCore.copy()
+        super.init()
     }
 }
 
-typealias SSUEBatch = SSDmBatch<SSUERequest>
-typealias SSUERevision = SSDmRevision<SSUEChange>
+internal class SSUEChange<Core: SSDataModifyCore&SSCopying>: SSUECoredModify<Core> {}
+
+internal class SSUERequest<Core: SSDataModifyCore&SSCopying>: SSUECoredModify<Core> {}
+
+typealias SSUERevision = SSDmRevision<SSUEModify>
+typealias SSUEBatch = SSDmRevision<SSUEModify>

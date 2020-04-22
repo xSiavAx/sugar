@@ -105,6 +105,8 @@
 		9944ED6522CFA6E5005B129A /* SSTransacted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9944ED6422CFA6E5005B129A /* SSTransacted.swift */; };
 		9947C43A22CA58C100AB3327 /* SSDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9947C43922CA58C100AB3327 /* SSDataBase.swift */; };
 		9947C43C22CA58D800AB3327 /* SSDataBaseProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9947C43B22CA58D800AB3327 /* SSDataBaseProtocols.swift */; };
+		995327BF24506FEE0007F30B /* SSUEChanges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995327BE24506FEE0007F30B /* SSUEChanges.swift */; };
+		995327C124506FFC0007F30B /* SSUERequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995327C024506FFC0007F30B /* SSUERequests.swift */; };
 		9967832022D3906900E33300 /* SSDataBaseSavePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9967831F22D3906900E33300 /* SSDataBaseSavePoint.swift */; };
 		9967832222D3955000E33300 /* SSCacheContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9967832122D3955000E33300 /* SSCacheContainer.swift */; };
 		9967832422D3993D00E33300 /* SSDataBaseStatemntCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9967832322D3993D00E33300 /* SSDataBaseStatemntCache.swift */; };
@@ -255,6 +257,8 @@
 		9944ED6422CFA6E5005B129A /* SSTransacted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSTransacted.swift; sourceTree = "<group>"; };
 		9947C43922CA58C100AB3327 /* SSDataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDataBase.swift; sourceTree = "<group>"; };
 		9947C43B22CA58D800AB3327 /* SSDataBaseProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDataBaseProtocols.swift; sourceTree = "<group>"; };
+		995327BE24506FEE0007F30B /* SSUEChanges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUEChanges.swift; sourceTree = "<group>"; };
+		995327C024506FFC0007F30B /* SSUERequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUERequests.swift; sourceTree = "<group>"; };
 		9967831F22D3906900E33300 /* SSDataBaseSavePoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDataBaseSavePoint.swift; sourceTree = "<group>"; };
 		9967832122D3955000E33300 /* SSCacheContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCacheContainer.swift; sourceTree = "<group>"; };
 		9967832322D3993D00E33300 /* SSDataBaseStatemntCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDataBaseStatemntCache.swift; sourceTree = "<group>"; };
@@ -608,9 +612,11 @@
 		9982117F2449DB6000A7A8B6 /* Revisions */ = {
 			isa = PBXGroup;
 			children = (
-				998211842449DC6800A7A8B6 /* SSUETaskModify.swift */,
 				998211882449F1A500A7A8B6 /* SSUEBatchAdpater.swift */,
 				9982118A244F2DEA00A7A8B6 /* Base.swift */,
+				998211842449DC6800A7A8B6 /* SSUETaskModify.swift */,
+				995327BE24506FEE0007F30B /* SSUEChanges.swift */,
+				995327C024506FFC0007F30B /* SSUERequests.swift */,
 			);
 			path = Revisions;
 			sourceTree = "<group>";
@@ -1165,6 +1171,7 @@
 				998534B523CC8EE700FD9325 /* SSLinearCongruentialRandomizer.swift in Sources */,
 				99D29657223D3681003FD9F0 /* SSActivityProtectionView.swift in Sources */,
 				99A2EE8D22CA5D30001B2B28 /* SSDataBaseConnection.swift in Sources */,
+				995327BF24506FEE0007F30B /* SSUEChanges.swift in Sources */,
 				99D2965C223D3710003FD9F0 /* SSViewBlocking.swift in Sources */,
 				99D70DA9239A8FC100EA96B4 /* SSExecutor.swift in Sources */,
 				99E85E292240F3A0005E2B13 /* SSCollectionViewMarkable.swift in Sources */,
@@ -1174,6 +1181,7 @@
 				99B1A7902246751300D96BEE /* Comparable.swift in Sources */,
 				993BC5B92317CFB3008DCE98 /* SSAtomic.swift in Sources */,
 				993BC5BC2318028D008DCE98 /* Dictionary.swift in Sources */,
+				995327C124506FFC0007F30B /* SSUERequests.swift in Sources */,
 				99D2966B223D3763003FD9F0 /* Common.swift in Sources */,
 				99E85E2D224103C6005E2B13 /* Array.swift in Sources */,
 				9918B5C02447434500E49E81 /* SSTry.swift in Sources */,

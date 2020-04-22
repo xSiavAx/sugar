@@ -1,6 +1,6 @@
 import Foundation
 
-public class SSDmRevision<Change: SSDmChange>: SSCopying {
+public class SSDmRevision<Change: SSDataModifying>: SSCopying {
     public let number: Int
     public let changes: [Change]
     public let marker: String?

@@ -1,6 +1,6 @@
 import Foundation
 
-public class SSDmBatch<Request : SSDmRequest>: SSCopying {
+public class SSDmBatch<Request : SSDataModifying>: SSCopying {
     public private(set) var requests: [Request]
     
     public init(requests mRequests: [Request]) {

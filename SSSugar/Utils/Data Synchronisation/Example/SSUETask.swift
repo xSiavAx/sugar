@@ -2,6 +2,8 @@ import Foundation
 
 /// Simple entity class for Data Synchronisation class usages demonstration
 internal class SSUETask {
+    static let maxPages = 100
+    
     enum mError: Error {
         case pagesLimitReached
     }
@@ -44,7 +46,7 @@ internal class SSUETask {
     }
     
     private func canIncrement() -> Bool {
-        return pages < 100
+        return pages < Self.maxPages
     }
 }
 

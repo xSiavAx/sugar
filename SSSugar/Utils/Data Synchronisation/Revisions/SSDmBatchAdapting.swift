@@ -12,8 +12,8 @@ public enum SSDmToChangeAdaptResult {
 }
 
 public protocol SSDmBatchAdapting {
-    associatedtype Change : SSDmChange
-    associatedtype Request : SSDmRequest
+    associatedtype Change : SSDataModifying
+    associatedtype Request : SSDataModifying
     
     typealias Batch = SSDmBatch<Request>
     typealias Revision = SSDmRevision<Change>
@@ -51,18 +51,18 @@ extension SSDmBatchAdapting {
     }
 }
 
-public class SSDMAdaptStrategyBuilder<Change: SSDmChange, Request: SSDmRequest> {
+public class SSDMAdaptStrategyBuilder<Change: SSDataModifying, Request: SSDataModifying> {
     typealias Strategy = (Change, Request) -> SSDmToChangeAdaptResult
     typealias Result = (title: String, adapt: Strategy)
     
     class Adapt<Adapting> {
-        class To<ToChange: SSDmFinalChange> {
+        class To<ToChange: SSDmChange> {
             class func strategy(with block: @escaping (Adapting, ToChange) -> SSDmToChangeAdaptResult) -> Result {
                 return Try<Adapting, ToChange>.strategy(with: block)
             }
         }
     }
-    class Try<Adapting, ToChange: SSDmFinalChange> {
+    class Try<Adapting, ToChange: SSDmChange> {
         class func strategy(with block: @escaping (Adapting, ToChange) -> SSDmToChangeAdaptResult) -> Result {
             func adapt(_ change: Change, _ request: Request) -> SSDmToChangeAdaptResult {
                 if let adapting = request as? Adapting {

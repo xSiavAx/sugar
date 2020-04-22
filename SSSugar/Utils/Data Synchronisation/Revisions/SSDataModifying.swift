@@ -1,29 +1,32 @@
 import Foundation
 
-public protocol SSDataModifying: SSCopying {
+public protocol SSDataModifyCore {
     func toUpdate() -> SSUpdate
 }
 
-public protocol SSDmChange: SSDataModifying {
+public protocol SSDataModifying: SSCopying {
+    var core: SSDataModifyCore {get}
     var title: String {get}
+}
+
+extension SSDataModifying {
+    func toUpdate() -> SSUpdate {
+        core.toUpdate()
+    }
+}
+
+public protocol SSDmChange: SSDataModifying {
+    static var title: String {get}
 }
 
 public protocol SSDmRequest: SSDataModifying {
-    var title: String {get}
-}
-
-public protocol SSDmFinalChange: SSDataModifying {
     static var title: String {get}
 }
 
-public protocol SSDmFinalRequest: SSDataModifying {
-    static var title: String {get}
-}
-
-extension SSDmFinalChange {
+extension SSDmChange {
     var title: String { Self.title }
 }
 
-extension SSDmFinalRequest {
+extension SSDmRequest {
     var title: String { Self.title }
 }

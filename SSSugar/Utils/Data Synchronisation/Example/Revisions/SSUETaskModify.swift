@@ -1,153 +1,73 @@
 import Foundation
 
-internal protocol SSUETaskChangeAdapting {
-    func adaptByIncrementPages(change: SSUETaskIncrementPagesChange) -> SSDmToChangeAdaptResult
-    func adaptByRename(change: SSUETaskRenameChange) -> SSDmToChangeAdaptResult
-    func adaptByRemove(change: SSUETaskRemoveChange) -> SSDmToChangeAdaptResult
+//MARK: - Task base
+
+internal class SSUETaskDMCore: SSCopying, SSUETaskUpdate, SSMarkerGenerating {
+    internal let taskID: Int
+
+    internal init(taskID mTaskID: Int) {
+        taskID = mTaskID
+    }
+
+    internal required init(copy other: SSUETaskDMCore) {
+        let mChange = other as! Self
+
+        taskID = mChange.taskID
+    }
+    
+    func shouldAdapt(to core: SSUETaskDMCore) -> Bool {
+        return taskID == core.taskID
+    }
 }
 
-internal protocol SSUETaskModify: SSDataModifying, SSUETaskUpdate, SSMarkerGenerating {
-    var taskID: Int { get }
+//MARK: - Increment pages
+
+internal class SSUETaskIncrementPagesDmCore: SSUETaskDMCore {
+    internal let prevPages: Int?
+
+    internal init(taskID: Int, prevPages mPrevPages: Int?) {
+        prevPages = mPrevPages
+        super.init(taskID: taskID)
+    }
+
+    internal required init(copy other: SSUETaskDMCore) {
+        let mChange = other as! Self
+
+        prevPages = mChange.prevPages
+        super.init(copy: other)
+    }
 }
 
-internal protocol SSUETaskIncrementPagesModify: SSUETaskModify {
-    var prevPages: Int? { get }
-}
-
-internal protocol SSUETaskRenameModify: SSUETaskModify {
-    var taskTitle: String { get }
-}
-
-internal protocol SSUETaskRemoveModify: SSUETaskModify {}
-
-extension SSUETaskIncrementPagesModify {
+extension SSUETaskIncrementPagesDmCore: SSDataModifyCore {
     func toUpdate() -> SSUpdate { incrementPages(taskID: taskID, marker: Self.newMarker()) }
 }
 
-extension SSUETaskRenameModify {
+//MARK: - Rename
+
+internal class SSUETaskRenameDmCore: SSUETaskDMCore {
+    internal let taskTitle: String
+
+    internal init(taskID: Int, taskTitle mTaskTitle: String) {
+        taskTitle = mTaskTitle
+        super.init(taskID: taskID)
+    }
+
+    internal required init(copy other: SSUETaskDMCore) {
+        let mChange = other as! Self
+
+        taskTitle = mChange.taskTitle
+        super.init(copy: other)
+    }
+}
+
+extension SSUETaskRenameDmCore: SSDataModifyCore {
     func toUpdate() -> SSUpdate { rename(taskID: taskID, title: taskTitle, marker: Self.newMarker()) }
 }
 
-extension SSUETaskRemoveModify {
+//MARK: - Remove
+
+internal class SSUETaskRemoveDmCore: SSUETaskDMCore {}
+
+extension SSUETaskRemoveDmCore: SSDataModifyCore {
     func toUpdate() -> SSUpdate { remove(taskID: taskID, marker: Self.newMarker()) }
-}
-
-internal class SSUETaskChange: SSUEChange {
-    internal let taskID: Int
-
-    internal init(taskID mTaskID: Int) {
-        taskID = mTaskID
-        super.init()
-    }
-
-    internal required init(copy other: SSUEChange) {
-        let mChange = other as! Self
-
-        taskID = mChange.taskID
-        super.init(copy: other)
-    }
-}
-
-internal class SSUETaskIncrementPagesChange: SSUETaskChange, SSUETaskIncrementPagesModify {
-    internal let prevPages: Int?
-
-    internal init(taskID: Int, prevPages mPrevPages: Int? = nil) {
-        prevPages = mPrevPages
-        super.init(taskID: taskID)
-    }
-
-    internal required init(copy other: SSUEChange) {
-        let mChange = other as! Self
-
-        prevPages = mChange.prevPages
-        super.init(copy: other)
-    }
-}
-
-extension SSUETaskIncrementPagesChange: SSDmFinalChange {
-    static var title: String = "task_pages_incremented"
-}
-
-internal class SSUETaskRenameChange: SSUETaskChange, SSUETaskRenameModify {
-    internal let taskTitle: String
-
-    internal init(taskID: Int, taskTitle mTaskTitle: String) {
-        taskTitle = mTaskTitle
-        super.init(taskID: taskID)
-    }
-
-    internal required init(copy other: SSUEChange) {
-        let mChange = other as! SSUETaskRenameChange
-
-        taskTitle = mChange.taskTitle
-        super.init(copy: other)
-    }
-}
-
-extension SSUETaskRenameChange: SSDmFinalChange {
-    internal static var title = "task_renamed"
-}
-
-internal class SSUETaskRemoveChange: SSUETaskChange, SSUETaskRemoveModify, SSDmFinalChange {
-    internal static var title = "task_removed"
-}
-
-internal class SSUETaskRequest: SSUERequest {
-    internal let taskID: Int
-
-    internal init(taskID mTaskID: Int) {
-        taskID = mTaskID
-        super.init()
-    }
-
-    internal required init(copy other: SSUERequest) {
-        let mChange = other as! Self
-
-        taskID = mChange.taskID
-        super.init(copy: other)
-    }
-}
-
-internal class SSUETaskIncrementPagesRequest: SSUETaskRequest, SSUETaskIncrementPagesModify {
-    internal let prevPages: Int?
-
-    internal init(taskID: Int, prevPages mPrevPages: Int? = nil) {
-        prevPages = mPrevPages
-        super.init(taskID: taskID)
-    }
-
-    internal required init(copy other: SSUERequest) {
-        let mChange = other as! Self
-
-        prevPages = mChange.prevPages
-        super.init(copy: other)
-    }
-}
-
-extension SSUETaskIncrementPagesRequest: SSDmFinalRequest {
-    static var title: String = "task/pages_increment"
-}
-
-internal class SSUETaskRenameRequest: SSUETaskRequest, SSUETaskRenameModify {
-    internal let taskTitle: String
-
-    internal init(taskID: Int, taskTitle mTaskTitle: String) {
-        taskTitle = mTaskTitle
-        super.init(taskID: taskID)
-    }
-
-    internal required init(copy other: SSUERequest) {
-        let mChange = other as! Self
-
-        taskTitle = mChange.taskTitle
-        super.init(copy: other)
-    }
-}
-
-extension SSUETaskRenameRequest: SSDmFinalRequest {
-    internal static var title = "task/rename"
-}
-
-internal class SSUETaskRemoveRequest: SSUETaskRequest, SSUETaskRemoveModify, SSDmFinalRequest {
-    internal static var title = "task_removed"
 }
