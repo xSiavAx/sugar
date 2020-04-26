@@ -23,10 +23,15 @@ public protocol SSDmBatchAdapting {
     
     var strategies: Strategies { get }
     
+    func adaptBatch(_ batch: Batch, by revision: Revision) -> SSDmBatchAdaptError?
     func adaptBatch(_ batch: Batch, by revisions: [Revision]) -> SSDmBatchAdaptError?
 }
 
 extension SSDmBatchAdapting {
+    func adaptBatch(_ batch: Batch, by revision: Revision) -> SSDmBatchAdaptError? {
+        adaptBatch(batch, by: [revision])
+    }
+    
     func adaptBatch(_ batch: Batch, by revisions: [Revision]) -> SSDmBatchAdaptError? {
         func adaptBatch(_ batch: Batch, by change: Change, using strategy: Strategy) throws {
             try batch.filterRequests {

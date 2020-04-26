@@ -54,7 +54,7 @@ public class SSDataModifyCenter<Change: SSDataModifying, Request: SSDataModifyin
         }
     }
     
-    public private(set) var revision: Int
+    public private(set) var revNumber: Int
     public let updateNotifier: SSUpdateNotifier
     public let applier: Applier
     public let adapter: Adapter
@@ -62,7 +62,7 @@ public class SSDataModifyCenter<Change: SSDataModifying, Request: SSDataModifyin
     private var schedules = [ScheduledBatch]()
     
     public init(revisionNumber: Int, updateNotifier mUpdateNotifier: SSUpdateNotifier, batchApplier mBatchApplier: Applier, adapter mAdaper: Adapter) {
-        revision = revisionNumber
+        revNumber = revisionNumber
         updateNotifier = mUpdateNotifier
         applier = mBatchApplier
         adapter = mAdaper
@@ -84,29 +84,30 @@ extension SSDataModifyCenter: SSDmRevisionDispatcher where
     
     private func dispatchRevisions(_ revisions: [SSDmRevision<Change>]) throws {
         guard !revisions.isEmpty else { throw SSDmRevisionDispatcherError.emptyRevisions }
-        guard revisions.first!.number == revision + 1 else { throw SSDmRevisionDispatcherError.revisionMissmatch }
+        guard revisions.first!.number == revNumber + 1 else { throw SSDmRevisionDispatcherError.revisionMissmatch }
         
         notify(revisions: revisions)
-        revision = revisions.last!.number
         
-        func adapt() {
-            rescheduleBatches(with: revisions)
-        }
-        DispatchQueue.main.async(execute: adapt)
+        DispatchQueue.main.async(execute: rescheduleBatches)
     }
     
     private func notify(revisions: [SSDmRevision<Change>]) {
-        revisions.forEach {
-            $0.changes.forEach {
-                updateNotifier.notify(update: $0.toUpdate())
+        revisions.forEach {(revision) in
+            let updates = revision.changes.map { $0.toUpdate() }
+            
+            func onApply() {
+                adaptBatches(to: revision)
+                revNumber = revision.number
             }
+            
+            updateNotifier.notify(updates: updates, onApply: onApply)
         }
     }
     
-    private func rescheduleBatches(with revisions: [Revision]) {
+    private func adaptBatches(to revision: SSDmRevision<Change>) {
         if (!schedules.isEmpty) {
-            func isIncluded(_ scheduled: ScheduledBatch) ->Bool {
-                let error = adapter.adaptBatch(scheduled.batch, by: revisions)
+            func isIncluded(_ scheduled: ScheduledBatch) -> Bool {
+                let error = adapter.adaptBatch(scheduled.batch, by: revision)
                 
                 if (error != nil || scheduled.batch.requests.isEmpty) {
                     scheduled.error = Self.adaptToApplyError(error)
@@ -116,9 +117,12 @@ extension SSDataModifyCenter: SSDmRevisionDispatcher where
                 return true
             }
             schedules = schedules.filter(isIncluded(_:))
-            if (!schedules.isEmpty) {
-                schedule(schedules)
-            }
+        }
+    }
+    
+    private func rescheduleBatches() {
+        if (!schedules.isEmpty) {
+            schedule(schedules)
         }
     }
     
@@ -160,22 +164,23 @@ extension SSDataModifyCenter: SSDmRequestDispatcher where Request == Applier.Req
                 }
             }
         }
-        applier.applyBatches(schedules.map{ $0.batch }, revNumber: revision) { (error) in
-            DispatchQueue.main.async {
-                onApply(error: error)
-            }
-        }
+        applier.applyBatches(schedules.map{ $0.batch }, revNumber: revNumber, handler: onApply(error:))
     }
     
     private func finish(scheduled: ScheduledBatch) {
-        if (scheduled.error == nil) {
-            scheduled.batch.requests.forEach { updateNotifier.notify(update: $0.toUpdate()) }
+        func finish() {
+            scheduled.finish()
+            if let index = schedules.firstIndex(where:{ $0 === scheduled }) {
+                schedules.remove(at: index)
+            } else {
+                assert(false, "Batch not found")
+            }
         }
-        scheduled.finish()
-        if let index = schedules.firstIndex(where:{ $0 === scheduled }) {
-            schedules.remove(at: index)
+        if (scheduled.error == nil) {
+            let updates = scheduled.batch.requests.map { $0.toUpdate() }
+            updateNotifier.notify(updates: updates, onApply: finish)
         } else {
-            assert(false, "Batch not found")
+            DispatchQueue.main.async { finish() }
         }
     }
 }
