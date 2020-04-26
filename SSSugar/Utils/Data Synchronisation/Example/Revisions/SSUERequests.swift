@@ -11,6 +11,8 @@ extension SSUERequest where Core: SSUETaskDMCore {
 }
 
 internal class SSUETaskIncrementPagesRequest: SSUERequest<SSUETaskIncrementPagesDmCore> {
+    override var title: String {Self.title}
+    
     internal init(taskID: Int, prevPages: Int? = nil) {
         super.init(core: SSUETaskIncrementPagesDmCore(taskID: taskID, prevPages: prevPages))
     }
@@ -40,6 +42,8 @@ extension SSUETaskIncrementPagesRequest: SSUETaskChangeAdapting {
 }
 
 internal class SSUETaskRenameRequest: SSUERequest<SSUETaskRenameDmCore> {
+    override var title: String {Self.title}
+    
     internal init(taskID: Int, taskTitle: String) {
         super.init(core: SSUETaskRenameDmCore(taskID: taskID, taskTitle: taskTitle))
     }
@@ -64,7 +68,9 @@ extension SSUETaskRenameRequest: SSUETaskChangeAdapting {
 }
 
 internal class SSUETaskRemoveRequest: SSUERequest<SSUETaskRemoveDmCore> {
-    internal init(taskID: Int, taskTitle mTaskTitle: String) {
+    override var title: String {Self.title}
+    
+    internal init(taskID: Int) {
         super.init(core: SSUETaskRemoveDmCore(taskID: taskID))
     }
 

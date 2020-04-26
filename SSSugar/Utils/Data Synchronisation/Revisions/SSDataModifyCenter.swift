@@ -6,7 +6,7 @@ public enum SSDmRevisionDispatcherError: Error {
 }
 
 public protocol SSDmRevisionDispatcher {
-    associatedtype Change : SSDmChange
+    associatedtype Change : SSDataModifying
     typealias Revision = SSDmRevision<Change>
     
     func dispatchRevisions(_ revisions: [Revision], handler: @escaping (SSDmRevisionDispatcherError?)->Void)
@@ -17,7 +17,7 @@ public enum SSDmRequestDispatchError: Error {
 }
 
 public protocol SSDmRequestDispatcher {
-    associatedtype Request : SSDmRequest
+    associatedtype Request : SSDataModifying
     typealias Handler = (SSDmRequestDispatchError?)->Void
     
     func dispatchReuqests(_ requests: [Request], handler: @escaping Handler)
@@ -29,14 +29,14 @@ public enum SSDmBatchApplyError: Error {
 }
 
 public protocol SSDmBatchApplier {
-    associatedtype Request : SSDmRequest
+    associatedtype Request : SSDataModifying
     typealias Batch = SSDmBatch<Request>
     typealias Handler = (SSDmBatchApplyError?)->Void
     
     func applyBatches(_ batches: [Batch], revNumber: Int, handler: @escaping Handler)
 }
 
-public class SSDataModifyCenter<Change: SSDmChange, Request: SSDmRequest, Applier: SSDmBatchApplier, Adapter: SSDmBatchAdapting> {
+public class SSDataModifyCenter<Change: SSDataModifying, Request: SSDataModifying, Applier: SSDmBatchApplier, Adapter: SSDmBatchAdapting> {
     typealias Batch = SSDmBatch<Request>
     
     class ScheduledBatch {
@@ -55,17 +55,17 @@ public class SSDataModifyCenter<Change: SSDmChange, Request: SSDmRequest, Applie
     }
     
     public private(set) var revision: Int
-    public let updateCenter: SSUpdateCenter
-    public let batchApplier: Applier
-    public let batchAdapter: Adapter
+    public let updateNotifier: SSUpdateNotifier
+    public let applier: Applier
+    public let adapter: Adapter
     
     private var schedules = [ScheduledBatch]()
     
-    public init(revisionNumber: Int, updateCenter mUpdateCenter: SSUpdateCenter, batchApplier mBatchApplier: Applier, adapter mAdaper: Adapter) {
+    public init(revisionNumber: Int, updateNotifier mUpdateNotifier: SSUpdateNotifier, batchApplier mBatchApplier: Applier, adapter mAdaper: Adapter) {
         revision = revisionNumber
-        updateCenter = mUpdateCenter
-        batchApplier = mBatchApplier
-        batchAdapter = mAdaper
+        updateNotifier = mUpdateNotifier
+        applier = mBatchApplier
+        adapter = mAdaper
     }
     
     private func ensureIsMain() {
@@ -78,30 +78,35 @@ extension SSDataModifyCenter: SSDmRevisionDispatcher where
     Change == Adapter.Change,
     Request == Applier.Request
 {
-    public func dispatchRevisions(_ revisions: [Revision], handler: @escaping (SSDmRevisionDispatcherError?) -> Void) {
-        func dispatch() {
-            handler(SSTry.cast { try dispatchRevisions(revisions) })
-        }
-        DispatchQueue.main.async(execute: dispatch)
+    public func dispatchRevisions(_ revisions: [SSDmRevision<Change>], handler: @escaping (SSDmRevisionDispatcherError?) -> Void) {
+        handler(SSTry.cast { try dispatchRevisions(revisions) })
     }
     
     private func dispatchRevisions(_ revisions: [SSDmRevision<Change>]) throws {
         guard !revisions.isEmpty else { throw SSDmRevisionDispatcherError.emptyRevisions }
         guard revisions.first!.number == revision + 1 else { throw SSDmRevisionDispatcherError.revisionMissmatch }
         
-        revisions.forEach {
-            $0.changes.forEach {
-                updateCenter.notify(update: $0.toUpdate())
-            }
-        }
+        notify(revisions: revisions)
         revision = revisions.last!.number
-        adaptBatches(with: revisions)
+        
+        func adapt() {
+            rescheduleBatches(with: revisions)
+        }
+        DispatchQueue.main.async(execute: adapt)
     }
     
-    private func adaptBatches(with revisions: [Revision]) {
+    private func notify(revisions: [SSDmRevision<Change>]) {
+        revisions.forEach {
+            $0.changes.forEach {
+                updateNotifier.notify(update: $0.toUpdate())
+            }
+        }
+    }
+    
+    private func rescheduleBatches(with revisions: [Revision]) {
         if (!schedules.isEmpty) {
             func isIncluded(_ scheduled: ScheduledBatch) ->Bool {
-                let error = batchAdapter.adaptBatch(scheduled.batch, by: revisions)
+                let error = adapter.adaptBatch(scheduled.batch, by: revisions)
                 
                 if (error != nil || scheduled.batch.requests.isEmpty) {
                     scheduled.error = Self.adaptToApplyError(error)
@@ -141,7 +146,7 @@ extension SSDataModifyCenter: SSDmRequestDispatcher where Request == Applier.Req
         func onApply(error: SSDmBatchApplyError?) {
             switch error {
             case .revisionMissmatch:
-                break //New dispatch already scheduled on Request adpting
+                break //New dispatch already scheduled on Request adapting
             case .invalidData(let indexes):
                 schedules.forEach {
                     if (indexes.contains($1)) {
@@ -155,7 +160,7 @@ extension SSDataModifyCenter: SSDmRequestDispatcher where Request == Applier.Req
                 }
             }
         }
-        batchApplier.applyBatches(schedules.map{ $0.batch }, revNumber: revision) { (error) in
+        applier.applyBatches(schedules.map{ $0.batch }, revNumber: revision) { (error) in
             DispatchQueue.main.async {
                 onApply(error: error)
             }
@@ -164,7 +169,7 @@ extension SSDataModifyCenter: SSDmRequestDispatcher where Request == Applier.Req
     
     private func finish(scheduled: ScheduledBatch) {
         if (scheduled.error == nil) {
-            scheduled.batch.requests.forEach { updateCenter.notify(update: $0.toUpdate()) }
+            scheduled.batch.requests.forEach { updateNotifier.notify(update: $0.toUpdate()) }
         }
         scheduled.finish()
         if let index = schedules.firstIndex(where:{ $0 === scheduled }) {

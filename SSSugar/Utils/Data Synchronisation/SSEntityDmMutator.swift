@@ -6,11 +6,11 @@ open class SSEntityDmMutator<Source: SSMutatingEntitySource, Dispatcher: SSDmReq
     /// Notifier for modification notification sending
     public let dispatcher: Dispatcher
 
-    public init(executor mExecutor: SSExecutor, requestDispatcher: Dispatcher) {
+    public init(requestDispatcher: Dispatcher) {
         dispatcher = requestDispatcher
     }
     
-    public func mutate(requests: [Dispatcher.Request], resolveConflicts: Bool, handler: @escaping (_ error: SSDmRequestDispatchError?)->Void) {
+    public func mutate(requests: [Dispatcher.Request], handler: @escaping (_ error: SSDmRequestDispatchError?)->Void) {
         dispatcher.dispatchReuqests(requests, handler: handler)
     }
 }
