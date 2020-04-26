@@ -867,8 +867,8 @@
 		99E36E06232137DD005E6C05 /* Data Synchronisation */ = {
 			isa = PBXGroup;
 			children = (
-				9918B5B4244719E500E49E81 /* Revisions */,
 				99D70DA3239A8B0900EA96B4 /* Example */,
+				9918B5B4244719E500E49E81 /* Revisions */,
 				99E36E07232137F9005E6C05 /* SSUpdate.swift */,
 				99E36E0923213A1B005E6C05 /* SSUpdateCenter.swift */,
 				99E36E0C23213C90005E6C05 /* SSEntityProcessor.swift */,

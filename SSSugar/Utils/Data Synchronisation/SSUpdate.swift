@@ -6,6 +6,9 @@ public protocol SSUpdateReceiver: AnyObject {
     ///
     /// - Returns: Strategies dict
     func reactions() -> SSUpdate.ReactionMap
+    
+    #warning("Documentation!")
+    func apply()
 }
 
 /// Structs for simplyfy passing data inside Updates system

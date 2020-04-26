@@ -86,5 +86,6 @@ extension SSEntityRemoteMutator: SSBaseEntityMutating {
 
 extension SSEntityRemoteMutator: SSUpdateReceiver {
     public func reactions() -> SSUpdate.ReactionMap { return [:] }
+    public func apply() {}
 }
 

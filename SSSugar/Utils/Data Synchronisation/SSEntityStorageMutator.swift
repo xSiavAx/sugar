@@ -26,9 +26,14 @@ open class SSEntityDBMutator<Source: SSMutatingEntitySource> {
         let marker = Self.newMarker()
 
         func work() {
-            let error = SSTry.run { notifier.notify(update: try job(marker)) }
+            do {
+                let update = try job(marker)
+                
+                notifier.notify(update: update) { handler(nil) }
+            } catch {
+                onMain { handler(error) }
+            }
             
-            onMain { handler(error) }
         }
         executor.execute(work)
     }

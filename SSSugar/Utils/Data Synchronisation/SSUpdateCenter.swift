@@ -1,5 +1,8 @@
 import Foundation
 
+#warning("Notification center")
+//TODO: Add and change documtantaion
+
 #warning("Race condition")
 //TODO: It's reace condition on add/remove observer. Add usually calls from BG queue. Remove may be called within `deinit` from main queue.
 
@@ -22,7 +25,16 @@ public protocol SSUpdateNotifier {
     ///
     /// - Parameters:
     ///   - update: Update for notification
-    func notify(update: SSUpdate)
+    func notify(update: SSUpdate, onApply:(()->Void)?)
+        
+    //TODO: Add docs
+    func notify(updates: [SSUpdate], onApply:(()->Void)?)
+}
+
+extension SSUpdateNotifier {
+    public func notify(update: SSUpdate, onApply:(()->Void)? = nil) {
+        notify(updates: [update], onApply: onApply)
+    }
 }
 
 public protocol SSUpdateCenter: SSUpdateReceiversManaging, SSUpdateNotifier {}
@@ -81,8 +93,21 @@ extension SSUpdater: SSUpdateReceiversManaging {
 
 extension SSUpdater: SSUpdateNotifier {
     //MARK: SSUpdateNotifier
-    public func notify(update: SSUpdate) {
-        NotificationCenter.default.post(converter.notification(from: update))
+    public func notify(updates: [SSUpdate], onApply: (() -> Void)?) {
+        func apply() {
+            observers.forEach { $0.receiver.apply() }
+            onApply?()
+        }
+        notifications(from:updates).forEach(post(_:))
+        DispatchQueue.main.async(execute: apply)
+    }
+    
+    private func notifications(from updates: [SSUpdate]) -> [Notification] {
+        return updates.map { converter.notification(from: $0) }
+    }
+    
+    private func post(_ notification: Notification) {
+        NotificationCenter.default.post(notification)
     }
 }
 

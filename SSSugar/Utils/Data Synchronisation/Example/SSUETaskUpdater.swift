@@ -13,10 +13,12 @@ internal protocol SSUETaskSource: SSUpdaterEntitySource where Entity == SSUETask
 internal class SSUETaskUpdater<TaskSource: SSUETaskSource, TaskDelegate: SSUETaskUpdaterDelegate>: SSBaseEntityUpdating {
     typealias Source = TaskSource
     typealias Delegate = TaskDelegate
-
+    
+    var updates = [()->Void]()
+    var receiversManager: SSUpdateReceiversManaging
+    
     weak var delegate: TaskDelegate?
     weak var source: TaskSource?
-    var receiversManager: SSUpdateReceiversManaging
     
     init(receiversManager mReceiversManager: SSUpdateReceiversManaging) {
         receiversManager = mReceiversManager
@@ -40,7 +42,7 @@ extension SSUETaskUpdater: SSUETaskUpdateReceiver {
                 delegate?.updater(self, didIncrementPages: old)
             }
         }
-        onMain(increment)
+        updates.append(increment)
     }
 
     func taskDidRename(taskID: Int, title: String, marker: String?) {
@@ -52,7 +54,7 @@ extension SSUETaskUpdater: SSUETaskUpdateReceiver {
                 delegate?.updater(self, didRenameTask: old)
             }
         }
-        onMain(rename)
+        updates.append(rename)
     }
 
     func taskDidRemove(taskID: Int, marker: String?) {
@@ -61,6 +63,10 @@ extension SSUETaskUpdater: SSUETaskUpdateReceiver {
                 delegate?.updaterDidRemoveTask(self)
             }
         }
-        onMain(remove)
+        updates.append(remove)
+    }
+    
+    func apply() {
+        updates.forEach { $0() }
     }
 }
