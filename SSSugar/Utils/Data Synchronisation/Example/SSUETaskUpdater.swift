@@ -68,5 +68,6 @@ extension SSUETaskUpdater: SSUETaskUpdateReceiver {
     
     func apply() {
         updates.forEach { $0() }
+        updates.removeAll()
     }
 }
