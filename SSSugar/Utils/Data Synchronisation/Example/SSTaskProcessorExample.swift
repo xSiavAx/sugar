@@ -147,7 +147,7 @@ public class ProcessorTester {
             view1.processor.mutator?.increment() {(error) in
                 print("Finish incrementing by view 1")
                 print("DB task: \(String(describing: DB.task))")
-                handler()
+                DispatchQueue.main.async(execute: handler)
             }
         }
         func renameViaChange(_ handler: @escaping ()->Void) {
@@ -195,7 +195,7 @@ public class ProcessorTester {
             view2.processor.mutator?.rename(new: "Req task") {(error) in
                 print("Finish renaming by view 2")
                 print("DB task: \(String(describing: DB.task))")
-                handler()
+                DispatchQueue.main.async(execute: handler)
             }
         }
         func remove(_ handler: @escaping ()->Void) {
@@ -203,7 +203,7 @@ public class ProcessorTester {
             view2.processor.mutator?.remove() { (error) in
                 print("Finish removing by view 2")
                 print("DB task: \(String(describing: DB.task))")
-                handler()
+                DispatchQueue.main.async(execute: handler)
             }
         }
         SSChainExecutor().add(renameViaChange).add(increment).add(removeViaChange).add(rename).add(remove).finish()

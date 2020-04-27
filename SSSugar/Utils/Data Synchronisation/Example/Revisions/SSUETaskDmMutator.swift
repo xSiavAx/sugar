@@ -10,10 +10,10 @@ where Source.Entity == SSUETask, Dispatcher.Request == SSUEModify {
             do {
                 mutate(requests: try job(task), handler: handler)
             } catch {
-                DispatchQueue.main.async {
-                    handler(error)
-                }
+                DispatchQueue.main.async { handler(error) }
             }
+        } else {
+            DispatchQueue.main.async { handler(nil) }
         }
     }
 }

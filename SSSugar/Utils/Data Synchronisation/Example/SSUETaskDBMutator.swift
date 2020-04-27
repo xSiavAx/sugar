@@ -22,6 +22,8 @@ internal class SSUETaskDBMutator<TaskSource: SSMutatingEntitySource>: SSEntityDB
         if let task = source?.entity(for: self) {
             pre?(task)
             mutate(job: {try job(task.taskID, $0)}, handler: handler)
+        } else {
+            DispatchQueue.main.async { handler(nil) }
         }
     }
 }

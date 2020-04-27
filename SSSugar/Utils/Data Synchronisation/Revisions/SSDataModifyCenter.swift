@@ -106,17 +106,17 @@ extension SSDataModifyCenter: SSDmRevisionDispatcher where
     
     private func adaptBatches(to revision: SSDmRevision<Change>) {
         if (!schedules.isEmpty) {
-            func isIncluded(_ scheduled: ScheduledBatch) -> Bool {
+            func isRemoved(_ scheduled: ScheduledBatch) -> Bool {
                 let error = adapter.adaptBatch(scheduled.batch, by: revision)
                 
                 if (error != nil || scheduled.batch.requests.isEmpty) {
                     scheduled.error = Self.adaptToApplyError(error)
                     scheduled.finish()
-                    return false
+                    return true
                 }
-                return true
+                return false
             }
-            schedules = schedules.filter(isIncluded(_:))
+            schedules.removeAll(where: isRemoved(_:))
         }
     }
     
