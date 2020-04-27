@@ -32,4 +32,4 @@ internal class SSUEChange<Core: SSDataModifyCore&SSCopying>: SSUECoredModify<Cor
 internal class SSUERequest<Core: SSDataModifyCore&SSCopying>: SSUECoredModify<Core> {}
 
 typealias SSUERevision = SSDmRevision<SSUEModify>
-typealias SSUEBatch = SSDmRevision<SSUEModify>
+typealias SSUEBatch = SSDmBatch<SSUEModify>
