@@ -1,8 +1,8 @@
 import Foundation
 
 internal class SSUEBatchAdpater: SSDmBatchAdapting {
-    typealias Change = SSUEModify
-    typealias Request = SSUEModify
+    typealias Change = SSModify
+    typealias Request = SSModify
     
     let strategies = createStrategies()
     

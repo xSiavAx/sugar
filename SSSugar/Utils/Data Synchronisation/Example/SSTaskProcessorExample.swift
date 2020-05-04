@@ -67,7 +67,7 @@ class TaskDBView: TaskViewing {
 }
 
 class SSUETaskBatchApplier: SSDmBatchApplier {
-    typealias Request = SSUEModify
+    typealias Request = SSModify
     
     var failIndex = [Int]()
     var api = SSUETaskDBApi()
@@ -109,7 +109,7 @@ class SSUETaskBatchApplier: SSDmBatchApplier {
     }
 }
 
-class TaskDmView<Dispatcher: SSDmRequestDispatcher>: TaskViewing where Dispatcher.Request == SSUEModify {
+class TaskDmView<Dispatcher: SSDmRequestDispatcher>: TaskViewing where Dispatcher.Request == SSModify {
     typealias Processor = SSUETaskDmProcessor<TaskDmView, Dispatcher>
     var title: String
     var processor: Processor
@@ -123,7 +123,7 @@ class TaskDmView<Dispatcher: SSDmRequestDispatcher>: TaskViewing where Dispatche
 }
 
 public class ProcessorTester {
-    typealias ModifyCenter = SSDataModifyCenter<SSUEModify, SSUEModify, SSUETaskBatchApplier, SSUEBatchAdpater>
+    typealias ModifyCenter = SSDataModifyCenter<SSModify, SSModify, SSUETaskBatchApplier, SSUEBatchAdpater>
     
     var updater = SSUpdater()
     var modifyCenter: ModifyCenter

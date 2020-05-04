@@ -1,7 +1,7 @@
 import Foundation
 
 internal class SSUETaskDmMutator<Source: SSMutatingEntitySource, Dispatcher: SSDmRequestDispatcher>: SSEntityDmMutator<Source, Dispatcher>
-where Source.Entity == SSUETask, Dispatcher.Request == SSUEModify {
+where Source.Entity == SSUETask, Dispatcher.Request == SSModify {
     typealias Request = Dispatcher.Request
     
     private func mutateTask(job: @escaping (_ task: SSUETask) throws -> [Request], handler:

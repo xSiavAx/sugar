@@ -13,7 +13,7 @@ internal class SSUETaskIncrementPagesChange: SSUEChange<SSUETaskIncrementPagesDm
         super.init(core: SSUETaskIncrementPagesDmCore(taskID: taskID, prevPages: prevPages))
     }
     
-    internal required init(copy other: SSUEModify) {
+    internal required init(copy other: SSModify) {
         super.init(copy: other)
     }
 }
@@ -29,7 +29,7 @@ internal class SSUETaskRenameChange: SSUEChange<SSUETaskRenameDmCore> {
         super.init(core: SSUETaskRenameDmCore(taskID: taskID, taskTitle: taskTitle))
     }
 
-    internal required init(copy other: SSUEModify) {
+    internal required init(copy other: SSModify) {
         super.init(copy: other)
     }
 }
@@ -45,7 +45,7 @@ internal class SSUETaskRemoveChange: SSUEChange<SSUETaskRemoveDmCore> {
         super.init(core: SSUETaskRemoveDmCore(taskID: taskID))
     }
 
-    internal required init(copy other: SSUEModify) {
+    internal required init(copy other: SSModify) {
         super.init(copy: other)
     }
 }

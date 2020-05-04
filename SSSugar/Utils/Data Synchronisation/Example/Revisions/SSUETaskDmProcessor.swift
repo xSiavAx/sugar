@@ -1,7 +1,7 @@
 import Foundation
 
 internal class SSUETaskDmProcessor<UpdateDelegate: SSUETaskUpdaterDelegate, Dispatcher: SSDmRequestDispatcher>
-where Dispatcher.Request == SSUEModify {
+where Dispatcher.Request == SSModify {
     typealias Entity = SSUETask
     
     private(set) var entity: SSUETask?
