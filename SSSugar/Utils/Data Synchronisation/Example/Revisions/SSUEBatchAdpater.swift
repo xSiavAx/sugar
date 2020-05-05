@@ -3,6 +3,8 @@ import Foundation
 internal class SSUEBatchAdpater: SSDmBatchAdapting {
     typealias Change = SSModify
     typealias Request = SSModify
+    /// Adapting strategy Builder Type
+    typealias Builder = SSDMAdaptStrategyBuilder<Change, Request>
     
     let strategies = createStrategies()
     
@@ -15,15 +17,15 @@ internal class SSUEBatchAdpater: SSDmBatchAdapting {
     }
     
     static func taskStrategies() -> Strategies {
-        typealias Creator = Builder.Adapt<SSUETaskChangeAdapting>
+        typealias Creator = Builder.Adapting<SSUETaskChangeAdapting>
         
         let increment = Creator.To<SSUETaskIncrementPagesChange>.strategy {(adapting, change) in
             adapting.adaptByIncrementPages(change:change)
         }
-        let rename = Builder.Try<SSUETaskChangeAdapting, SSUETaskRenameChange>.strategy {(adapting, change) in
+        let rename = Builder.AdaptingTo<SSUETaskChangeAdapting, SSUETaskRenameChange>.strategy {(adapting, change) in
             adapting.adaptByRename(change: change)
         }
-        let remove = Builder.Try<SSUETaskChangeAdapting, SSUETaskRemoveChange>.strategy {(adapting, change) in
+        let remove = Builder.AdaptingTo<SSUETaskChangeAdapting, SSUETaskRemoveChange>.strategy {(adapting, change) in
             adapting.adaptByRemove(change: change)
         }
         return [increment.title : increment.adapt,

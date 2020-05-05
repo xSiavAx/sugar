@@ -1,8 +1,8 @@
 import Foundation
 
 /// Errors may occur during Revisions Dispatching.
-/// * emptyRevisions - passed revisions sequence is empty.
-/// * revisionMissmatch - numbers of passed revisions don't corespond to stored data revision number.
+/// * `emptyRevisions` - passed revisions sequence is empty.
+/// * `revisionMissmatch` - numbers of passed revisions don't corespond to stored data revision number.
 public enum SSDmRevisionDispatcherError: Error {
     /// Passed revisions sequence is empty.
     case emptyRevisions
@@ -32,7 +32,7 @@ public protocol SSDmRevisionDispatcher {
 
 /// Error may occur during requests dispatching.
 ///
-/// * invalidData – modification(s) of requests doesn't conform to stored data.
+/// * `invalidData` – modification(s) of requests doesn't conform to stored data.
 public enum SSDmRequestDispatchError: Error {
     /// Modification(s) of requests doesn't fit stored data.
     case invalidData
@@ -57,8 +57,8 @@ public protocol SSDmRequestDispatcher {
 }
 
 /// Errors may occur during Requests apply
-/// * revisionMissmatch - passed revision doesn't conforms to stored data's revision number.
-/// * invalidData - one of request's modify doesn't fit stored data.
+/// * `revisionMissmatch` - passed revision doesn't conforms to stored data's revision number.
+/// * `invalidData` - one of request's modify doesn't fit stored data.
 public enum SSDmBatchApplyError: Error {
     /// Passed revision doesn't conforms to stored data's revision number.
     case revisionMissmatch
