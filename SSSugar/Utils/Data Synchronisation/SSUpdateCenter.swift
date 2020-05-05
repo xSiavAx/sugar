@@ -1,8 +1,5 @@
 import Foundation
 
-#warning("Notification center")
-//TODO: Add and change documtantaion
-
 #warning("Race condition")
 //TODO: It's reace condition on add/remove observer. Add usually calls from BG queue. Remove may be called within `deinit` from main queue.
 
@@ -21,13 +18,17 @@ public protocol SSUpdateReceiversManaging {
 
 /// Updater protocol with requierement to notifying
 public protocol SSUpdateNotifier {
-    /// Send passed notification for all listeners that wait for it (except passed ignores)
-    ///
+    /// Send passed update to all listeners that wait for it
     /// - Parameters:
-    ///   - update: Update for notification
+    ///   - update: Update to send
+    ///   - onApply: Finish handler
     func notify(update: SSUpdate, onApply:(()->Void)?)
         
-    //TODO: Add docs
+    
+    /// Send passed updates to all listeners that wait for them
+    /// - Parameters:
+    ///   - updates: Updates to send
+    ///   - onApply: Finish handler
     func notify(updates: [SSUpdate], onApply:(()->Void)?)
 }
 
@@ -37,6 +38,7 @@ extension SSUpdateNotifier {
     }
 }
 
+/// Requirements for Update Center tool. Composition of `SSUpdateReceiversManaging` and `SSUpdateNotifier`.
 public protocol SSUpdateCenter: SSUpdateReceiversManaging, SSUpdateNotifier {}
 
 /// Concreate Update Center implementation that use SDK's Notification Center inside.
@@ -93,6 +95,13 @@ extension SSUpdater: SSUpdateReceiversManaging {
 
 extension SSUpdater: SSUpdateNotifier {
     //MARK: SSUpdateNotifier
+    
+    /// Send passed updates to all listeners that subscribed on 'em.
+    ///
+    /// For each update calls reaction methods of each Receiver to let receivers obtain additional data (if needed) and collect modifications. Then call `apply()` for each receiver on Main Queue.
+    /// - Parameters:
+    ///   - updates: Updates to send
+    ///   - onApply: Finish handler
     public func notify(updates: [SSUpdate], onApply: (() -> Void)?) {
         func apply() {
             observers.forEach { $0.receiver.apply() }
