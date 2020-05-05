@@ -4,6 +4,7 @@ import Foundation
 /// - Note:
 /// It's inheritors responsobility to provide storage modification logic and notification creating. See examples for more info.
 open class SSEntityDBMutator<Source: SSMutatingEntitySource> {
+    /// Modifying entity source
     public private(set) weak var source: Source?
     /// Executor for tasks that work with storage.
     public let executor: SSExecutor
