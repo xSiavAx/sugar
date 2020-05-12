@@ -17,10 +17,14 @@ import XCTest
 @testable import SSSugar
 
 class IndexSetInsertableCollection: XCTestCase {
+    //TODO: [Review] Why din't use IndexSet?
+    // static let defaultSet = IndexSet(integersIn: 0..<5)
     static let defaultArray = [0, 1, 2, 3, 4]
     
+    //TODO: [Review] Just `defaultArray`
     var sut = IndexSet(IndexSetInsertableCollection.defaultArray)
 
+    //TODO: [Review] Its better to define `expectedResult` instead of inline calculation
     func testInsertContainedElement() {
         XCTAssert(sut.insert(e: 3))
         XCTAssertEqual(sut, IndexSet(Self.defaultArray))
@@ -35,11 +39,13 @@ class IndexSetInsertableCollection: XCTestCase {
         sut = IndexSet()
 
         XCTAssert(sut.insert(e: 10))
+        //TODO: [Review] IndexSet(integer: 10)
         XCTAssertEqual(sut, IndexSet(arrayLiteral: 10))
     }
 
     func testRemoveContainedElement() {
         XCTAssert(sut.remove(e: 3))
+        //TODO: [Review] Index set with range
         XCTAssertEqual(sut, IndexSet(arrayLiteral: 0, 1, 2, 4))
     }
 

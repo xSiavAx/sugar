@@ -20,7 +20,9 @@ import XCTest
 class ArrayShuffleUsingTypeTests: XCTestCase {
     static let defaultArray = [0, 1, 2, 3, 4]
 
+    //TODO: [Review] U should ur custom dummy generator to check determinated result
     var generator = SystemRandomNumberGenerator()
+    //TODO: [Review] Why not just `defaultArray`?
     var sut = ArrayShuffleUsingTypeTests.defaultArray
 
     func testShuffleBuiltInType() {

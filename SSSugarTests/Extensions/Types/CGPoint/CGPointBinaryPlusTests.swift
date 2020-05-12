@@ -36,6 +36,9 @@
 import XCTest
 @testable import SSSugar
 
+//TODO: [Review] Operations's name is `sum` (or `operatorSum`)
+//TODO: [Review] Number can't have `plus` or `minus` attribute, but could be positive or negative
+
 class CGPointBinaryPlusTests: XCTestCase {
     typealias Items = CGPointTestItems
     
