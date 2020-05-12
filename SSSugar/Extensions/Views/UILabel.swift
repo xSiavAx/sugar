@@ -30,14 +30,9 @@ extension UILabel {
         
         if (numberOfLines != 0) {
             let text = Array(repeating: " ", count: numberOfLines).joined(separator: "\n")
-            let receivedHeight = sizeThatFits(size, withText: text).height
-            let maxHeight = receivedHeight > size.height ? receivedHeight : size.height
+            let fitsHeight = sizeThatFits(size, withText: text).height
             
-            //TODO: [Review] Do u like to invent bicycles?
-            // `It was here before me` is not acceptable excuce.
-            // max(receivedHeight, size.height)
-            
-            return (size, CGSize(width: size.width, height: maxHeight))
+            return (size, CGSize(width: size.width, height: max(fitsHeight, size.height)))
         }
         return (size, size)
     }
