@@ -1,5 +1,9 @@
 import Foundation
 
+/// Batch adaptation strategy building tool.
+///
+/// # Confroms to:
+/// SSDmBatchAdapting
 internal class SSUEBatchAdpater: SSDmBatchAdapting {
     typealias Change = SSModify
     typealias Request = SSModify
@@ -8,6 +12,8 @@ internal class SSUEBatchAdpater: SSDmBatchAdapting {
     
     let strategies = createStrategies()
     
+    /// Creates and returns adaptaion strategies
+    /// - Returns: Adaptation strategies
     static func createStrategies() -> Strategies {
         var strategies = Strategies()
         
@@ -16,6 +22,8 @@ internal class SSUEBatchAdpater: SSDmBatchAdapting {
         return strategies
     }
     
+    /// Creates and returns task adaptaion strategies
+    /// - Returns: Task adaptation strategies
     static func taskStrategies() -> Strategies {
         typealias Creator = Builder.Adapting<SSUETaskChangeAdapting>
         
