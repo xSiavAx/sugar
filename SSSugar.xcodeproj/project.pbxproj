@@ -8,13 +8,13 @@
 
 /* Begin PBXBuildFile section */
 		2D00D99424379D3B0059EB09 /* CGPointTestItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D00D99324379D3B0059EB09 /* CGPointTestItems.swift */; };
-		2D00D99624379EA20059EB09 /* CGPointBinaryPlusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D00D99524379EA20059EB09 /* CGPointBinaryPlusTests.swift */; };
+		2D00D99624379EA20059EB09 /* CGPointSumOperatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D00D99524379EA20059EB09 /* CGPointSumOperatorTests.swift */; };
 		2D00D99A2437A46A0059EB09 /* DictionaryTestKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D00D9992437A46A0059EB09 /* DictionaryTestKey.swift */; };
 		2D207BB324379349001D808E /* CGPointUnaryMinusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D207BB224379349001D808E /* CGPointUnaryMinusTests.swift */; };
-		2D207BB62437992E001D808E /* CGPointBinaryMinusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D207BB52437992E001D808E /* CGPointBinaryMinusTests.swift */; };
+		2D207BB62437992E001D808E /* CGPointSubtractionOperatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D207BB52437992E001D808E /* CGPointSubtractionOperatorTests.swift */; };
 		2D3043BE243727E800EBD898 /* CGSizeUnaryMinusOperatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3043BD243727E800EBD898 /* CGSizeUnaryMinusOperatorTests.swift */; };
-		2D3043C02437369500EBD898 /* CGSizeBinaryMinusOperatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3043BF2437369500EBD898 /* CGSizeBinaryMinusOperatorTests.swift */; };
-		2D3043C224377B1500EBD898 /* CGSizeBinaryPlusOperatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3043C124377B1500EBD898 /* CGSizeBinaryPlusOperatorTests.swift */; };
+		2D3043C02437369500EBD898 /* CGSizeSubtractionOperatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3043BF2437369500EBD898 /* CGSizeSubtractionOperatorTests.swift */; };
+		2D3043C224377B1500EBD898 /* CGSizeSumOperatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3043C124377B1500EBD898 /* CGSizeSumOperatorTests.swift */; };
 		2D3043C42437829000EBD898 /* CGSizeTestItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D3043C32437829000EBD898 /* CGSizeTestItems.swift */; };
 		2D4398A824222AAB00D01464 /* AutoMapInitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4398A724222AAB00D01464 /* AutoMapInitTests.swift */; };
 		2D4A6BB42429104A001E0487 /* DictionaryPickForTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D4A6BB32429104A001E0487 /* DictionaryPickForTests.swift */; };
@@ -187,13 +187,13 @@
 
 /* Begin PBXFileReference section */
 		2D00D99324379D3B0059EB09 /* CGPointTestItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPointTestItems.swift; sourceTree = "<group>"; };
-		2D00D99524379EA20059EB09 /* CGPointBinaryPlusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPointBinaryPlusTests.swift; sourceTree = "<group>"; };
+		2D00D99524379EA20059EB09 /* CGPointSumOperatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPointSumOperatorTests.swift; sourceTree = "<group>"; };
 		2D00D9992437A46A0059EB09 /* DictionaryTestKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryTestKey.swift; sourceTree = "<group>"; };
 		2D207BB224379349001D808E /* CGPointUnaryMinusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPointUnaryMinusTests.swift; sourceTree = "<group>"; };
-		2D207BB52437992E001D808E /* CGPointBinaryMinusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPointBinaryMinusTests.swift; sourceTree = "<group>"; };
+		2D207BB52437992E001D808E /* CGPointSubtractionOperatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPointSubtractionOperatorTests.swift; sourceTree = "<group>"; };
 		2D3043BD243727E800EBD898 /* CGSizeUnaryMinusOperatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeUnaryMinusOperatorTests.swift; sourceTree = "<group>"; };
-		2D3043BF2437369500EBD898 /* CGSizeBinaryMinusOperatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeBinaryMinusOperatorTests.swift; sourceTree = "<group>"; };
-		2D3043C124377B1500EBD898 /* CGSizeBinaryPlusOperatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeBinaryPlusOperatorTests.swift; sourceTree = "<group>"; };
+		2D3043BF2437369500EBD898 /* CGSizeSubtractionOperatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeSubtractionOperatorTests.swift; sourceTree = "<group>"; };
+		2D3043C124377B1500EBD898 /* CGSizeSumOperatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeSumOperatorTests.swift; sourceTree = "<group>"; };
 		2D3043C32437829000EBD898 /* CGSizeTestItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeTestItems.swift; sourceTree = "<group>"; };
 		2D4398A724222AAB00D01464 /* AutoMapInitTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AutoMapInitTests.swift; sourceTree = "<group>"; };
 		2D4A6BB32429104A001E0487 /* DictionaryPickForTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryPickForTests.swift; sourceTree = "<group>"; };
@@ -404,8 +404,8 @@
 			isa = PBXGroup;
 			children = (
 				2D207BB224379349001D808E /* CGPointUnaryMinusTests.swift */,
-				2D207BB52437992E001D808E /* CGPointBinaryMinusTests.swift */,
-				2D00D99524379EA20059EB09 /* CGPointBinaryPlusTests.swift */,
+				2D207BB52437992E001D808E /* CGPointSubtractionOperatorTests.swift */,
+				2D00D99524379EA20059EB09 /* CGPointSumOperatorTests.swift */,
 				2D00D99324379D3B0059EB09 /* CGPointTestItems.swift */,
 			);
 			path = CGPoint;
@@ -440,8 +440,8 @@
 				2D6E0EA12435DA9F0035679F /* CGSizeAddedTests.swift */,
 				2D6E0EA324362A5F0035679F /* CGSizeExtendedTests.swift */,
 				2D3043BD243727E800EBD898 /* CGSizeUnaryMinusOperatorTests.swift */,
-				2D3043BF2437369500EBD898 /* CGSizeBinaryMinusOperatorTests.swift */,
-				2D3043C124377B1500EBD898 /* CGSizeBinaryPlusOperatorTests.swift */,
+				2D3043BF2437369500EBD898 /* CGSizeSubtractionOperatorTests.swift */,
+				2D3043C124377B1500EBD898 /* CGSizeSumOperatorTests.swift */,
 				2D3043C32437829000EBD898 /* CGSizeTestItems.swift */,
 			);
 			path = CGSize;
@@ -1066,10 +1066,10 @@
 				2DC1D1A9242CD2060049020B /* AutoMapRemoveTests.swift in Sources */,
 				2D6E0EA424362A5F0035679F /* CGSizeExtendedTests.swift in Sources */,
 				2D7E5A49241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperUnmarkNonMarkedTC.swift in Sources */,
-				2D00D99624379EA20059EB09 /* CGPointBinaryPlusTests.swift in Sources */,
+				2D00D99624379EA20059EB09 /* CGPointSumOperatorTests.swift in Sources */,
 				2D7E5A4A241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperUnmarkTC.swift in Sources */,
 				2DFE398C242E4080001B9AAE /* AutoMapIteratorNextTests.swift in Sources */,
-				2D3043C224377B1500EBD898 /* CGSizeBinaryPlusOperatorTests.swift in Sources */,
+				2D3043C224377B1500EBD898 /* CGSizeSumOperatorTests.swift in Sources */,
 				2D3043C42437829000EBD898 /* CGSizeTestItems.swift in Sources */,
 				2DC1D1AF242D41740049020B /* AutoMapInsertTests.swift in Sources */,
 				2DA5F26C243DC116001FA712 /* UILabelSizeThatFitsWithTextTests.swift in Sources */,
@@ -1085,7 +1085,7 @@
 				2D7E5A4E241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperMarkNonActiveTC.swift in Sources */,
 				2D535E12242A0F7E0024D4C0 /* SSGroupExecutorTests.swift in Sources */,
 				2D78DB19242D49A500D77DD1 /* AutoMapUpdateTests.swift in Sources */,
-				2D207BB62437992E001D808E /* CGPointBinaryMinusTests.swift in Sources */,
+				2D207BB62437992E001D808E /* CGPointSubtractionOperatorTests.swift in Sources */,
 				2D7E5A4F241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperMarkTC.swift in Sources */,
 				2D82C242243C723A005B2DE1 /* UILabelTestHelper.swift in Sources */,
 				2DBCCFB2242BB45E00100093 /* AutoMapRemoveForTests.swift in Sources */,
@@ -1104,7 +1104,7 @@
 				2D5E66D62424CD0F00D82DEE /* CGRectDividedCountVerticalyTests.swift in Sources */,
 				2D95D5F8243B247D0060E1F8 /* UILabelNonEmptySizeThatFitsTests.swift in Sources */,
 				2D207BB324379349001D808E /* CGPointUnaryMinusTests.swift in Sources */,
-				2D3043C02437369500EBD898 /* CGSizeBinaryMinusOperatorTests.swift in Sources */,
+				2D3043C02437369500EBD898 /* CGSizeSubtractionOperatorTests.swift in Sources */,
 				2D7E5A57241FD0E5009EE074 /* UIColorInitTests.swift in Sources */,
 				2DF4E966243326F8005CF7A2 /* UIViewControllerShowErrorAlertTests.swift in Sources */,
 				2D78DB1B242D519800D77DD1 /* AutoMapEqualityOperatorTests.swift in Sources */,

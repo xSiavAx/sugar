@@ -1,5 +1,5 @@
 /*
- Tests for binary minus operator in CGPoint extension
+ Tests for binary subtraction operator in CGPoint extension
  
  options of difference between the left and right points
     [greater x greater y] left.x > right.x & left.y > right.y
@@ -33,20 +33,20 @@
     x < 0 & y < 0
  
  [Done] (greater x greater y) * left * right
- [Done] (greater x same    y) * left * rihgt
- [Done] (greater x smaller y) * left * rihgt
- [Done] (same    x greater y) * left * rihgt
- [Done] (same    x same    y) * left * rihgt
- [Done] (same    x smaller y) * left * rihgt
- [Done] (smaller x greater y) * left * rihgt
- [Done] (smaller x same    y) * left * rihgt
- [Done] (smaller x smaller y) * left * rihgt
+ [Done] (greater x same    y) * left * right
+ [Done] (greater x smaller y) * left * right
+ [Done] (same    x greater y) * left * right
+ [Done] (same    x same    y) * left * right
+ [Done] (same    x smaller y) * left * right
+ [Done] (smaller x greater y) * left * right
+ [Done] (smaller x same    y) * left * right
+ [Done] (smaller x smaller y) * left * right
  */
 
 import XCTest
 @testable import SSSugar
 
-class CGPointBinaryMinusTests: XCTestCase {
+class CGPointBinarySubtractionTests: XCTestCase {
     typealias Items = CGPointTestItems
     
     var itemsArray = [Items]()
