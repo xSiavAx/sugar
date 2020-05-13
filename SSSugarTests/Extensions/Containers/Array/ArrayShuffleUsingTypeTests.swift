@@ -3,14 +3,14 @@
 
  [shuffle] shuffle(using:type:)
  [shuffled] shuffled(using:type:)
- [type] variants for the `type` argument that is passed to the method
-    [built in] built in
+ variants for the `type` argument that is passed to the method
+    [built-in] built-in
     [durstenfeld] durstenfeld
 
- [Done] shuffle + built in type
- [Done] shuffle + durstenfeld type
- [Done] shuffled + built in type
- [Done] shuffled + durstenfeld type
+ [Done] shuffle + built-in
+ [Done] shuffle + durstenfeld
+ [Done] shuffled + built-in
+ [Done] shuffled + durstenfeld
  [Done] empty array
  */
 
@@ -18,36 +18,36 @@ import XCTest
 @testable import SSSugar
 
 class ArrayShuffleUsingTypeTests: XCTestCase {
-    static let defaultArray = [0, 1, 2, 3, 4]
+    static let defaultArray = [0, 1, 2, 3]
 
-    //TODO: [Review] U should ur custom dummy generator to check determinated result
-    var generator = SystemRandomNumberGenerator()
-    //TODO: [Review] Why not just `defaultArray`?
-    var sut = ArrayShuffleUsingTypeTests.defaultArray
+	fileprivate var generator = ConstantNumberGenerator()
+	var expectedResult: (durstenfeld: [Int], builtIn: [Int]) {
+		// The expected result of the built-in shuffle is calculated because its algorithm may change. For more details check Array.shuffled(using:) documentation.
+		([1, 3, 0, 2], Self.defaultArray.shuffled(using: &generator))
+	}
+	var sut = defaultArray
 
     func testShuffleBuiltInType() {
         sut.shuffle(using: &generator, type: .bultin)
-
-        assertShuffleForDifferentElements(sut)
+		XCTAssertEqual(sut, expectedResult.builtIn)
     }
 
     func testShuffleDurstenfeldType() {
         sut.shuffle(using: &generator, type: .durstenfeld)
-
-        assertShuffleForDifferentElements(sut)
+		XCTAssertEqual(sut, expectedResult.durstenfeld)
     }
 
     func testShuffledBuiltInType() {
         let result = sut.shuffled(using: &generator, type: .bultin)
 
-        assertShuffleForDifferentElements(result)
+		XCTAssertEqual(result, expectedResult.builtIn)
         XCTAssertEqual(sut, Self.defaultArray)
     }
 
     func testShuffledDurstenfeldType() {
         let result = sut.shuffled(using: &generator, type: .durstenfeld)
 
-        assertShuffleForDifferentElements(result)
+		XCTAssertEqual(result, expectedResult.durstenfeld)
         XCTAssertEqual(sut, Self.defaultArray)
     }
 
@@ -57,24 +57,8 @@ class ArrayShuffleUsingTypeTests: XCTestCase {
 
         XCTAssert(sut.isEmpty)
     }
+}
 
-    func assertShuffleForDifferentElements(_ firstArray: [Int], _ secondArray: [Int] = ArrayShuffleUsingTypeTests.defaultArray, file: StaticString = #file, line: UInt = #line) {
-        XCTAssertNotEqual(firstArray, secondArray, "", file: file, line: line)
-        XCTAssertEqual(firstArray.count, secondArray.count, "different number of elements", file: file, line: line)
-        assertContainAllElements(firstArray, secondArray, file: file, line: line)
-    }
-
-    func assertContainAllElements(_ firstArray: [Int], _ secondArray: [Int], file: StaticString, line: UInt) {
-        var secondArray = secondArray
-
-        sut.forEach {
-            guard let index = secondArray.firstIndex(of: $0) else {
-                XCTFail("doesn't contain element \($0)", file: file, line: line)
-                return
-            }
-
-            secondArray.remove(at: index)
-        }
-        XCTAssert(secondArray.isEmpty, "difference \(secondArray)", file: file, line: line)
-    }
+fileprivate struct ConstantNumberGenerator: RandomNumberGenerator {
+	func next() -> UInt64 { 42 }
 }
