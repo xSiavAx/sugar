@@ -1,7 +1,7 @@
 /*
- Tests for divided(count:verticaly:) in CGRect extension
+ Tests for divided(count:vertically:) in CGRect extension
  
- [count] varioation for the count value (passed as an argument to method)
+ [count] variations for the count value (passed as an argument to method)
     = 1
     > 1
  [vertically] variations for the vertically property (passed as an argument to method)
@@ -36,8 +36,8 @@
 import XCTest
 @testable import SSSugar
 
-class CGRectDividedCountVerticalyTests: XCTestCase {
-    var testDataArray = CGRectDividedCountVerticalyTests.allTestData
+class CGRectDividedCountVerticallyTests: XCTestCase {
+    var testDataArray = allTestData
     
     override func tearDown() {
         testDataArray = []
@@ -84,7 +84,7 @@ class CGRectDividedCountVerticalyTests: XCTestCase {
 
 // MARK: - Test Data
 
-extension CGRectDividedCountVerticalyTests {
+extension CGRectDividedCountVerticallyTests {
     struct TestData {
         let sut: CGRect
         let parameters: Parameters
