@@ -46,7 +46,7 @@
 import XCTest
 @testable import SSSugar
 
-class CGPointBinarySubtractionTests: XCTestCase {
+class CGPointSubtractionOperatorTests: XCTestCase {
     typealias Items = CGPointTestItems
     
     var itemsArray = [Items]()
