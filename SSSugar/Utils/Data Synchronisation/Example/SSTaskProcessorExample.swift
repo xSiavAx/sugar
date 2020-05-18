@@ -1,10 +1,15 @@
 import Foundation
 
+/// DB stub
 class DB {
     static var task : SSUETask? = SSUETask(taskID: 1, title: "Task 1", pages: 2)
     static var revision = 0
 }
 
+/// DB API stub
+///
+/// #Confroms to:
+/// `SSUETaskApi`, `SSUETaskEditApi`
 class SSUETaskDBApi {}
 
 extension SSUETaskDBApi: SSUETaskApi {
@@ -33,6 +38,10 @@ extension SSUETaskDBApi: SSUETaskEditApi {
     }
 }
 
+/// Requirements for Task View
+///
+/// # Provides:
+/// * `SSUETaskUpdaterDelegate` methods default implementation – prints update info.
 protocol TaskViewing: SSUETaskUpdaterDelegate {
     associatedtype Processor: SSSingleEntityProcessing
     
@@ -54,6 +63,10 @@ extension TaskViewing {
     }
 }
 
+/// Task view
+///
+/// # Conforms to:
+/// `TaskViewing`
 class TaskDBView: TaskViewing {
     typealias Processor = SSUETaskProcessor<TaskDBView>
     var title: String
@@ -66,6 +79,7 @@ class TaskDBView: TaskViewing {
     }
 }
 
+/// Task Batch requests applier stub.
 class SSUETaskBatchApplier: SSDmBatchApplier {
     typealias Request = SSModify
     

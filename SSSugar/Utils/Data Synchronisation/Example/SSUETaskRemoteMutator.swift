@@ -1,14 +1,40 @@
 import Foundation
 
+/// Task Mutator working with Network.
+///
+/// See `SSEntityRemoteMutator` for more info. Implements `SSUETaskUpdateReceiver` to match updates on newtwork mutating requests and to determine mutating finish.
+///
+/// # Requires:
+/// * some `SSMutatingEntitySource` with `SSUETask` as `Entity`
+///
+/// # Extends:
+/// `SSEntityRemoteMutator`
+///
+/// # Conforms to:
+/// `SSUETaskMutator`, `SSUETaskUpdateReceiver`
 internal class SSUETaskRemoteMutator<TaskSource: SSMutatingEntitySource>: SSEntityRemoteMutator<TaskSource> where TaskSource.Entity == SSUETask {
-    private typealias TaskAsyncJob = (Int, String, Handler)->Void
-    public let api: SSUETaskEditAsyncApi
+    /// Task remote modification Type
+    /// - Parameters:
+    ///   - taskID: Mutating task id
+    ///   - marker: Modification marker
+    ///   - handler: Finish handler.
+    private typealias TaskAsyncJob = (_ taskdID: Int, _ marker: String, _ handler: Handler)->Void
+    /// Task newtwork edit API
+    internal let api: SSUETaskEditAsyncApi
     
-    public init(api mApi: SSUETaskEditAsyncApi, manager: SSUpdateReceiversManaging) {
+    /// Creates new mutator.
+    /// - Parameters:
+    ///   - api: Task Edit asynchroniously API (newtwork API)
+    ///   - manager: Update receiver's manager
+    internal init(api mApi: SSUETaskEditAsyncApi, manager: SSUpdateReceiversManaging) {
         api = mApi
         super.init(manager: manager)
     }
     
+    /// Warpper that helps mutate task. It uses super's `mutate(job:handler:)` method.
+    /// - Parameters:
+    ///   - taskJob: Task mutating job to execute.
+    ///   - handler: Finish handler.
     private func mutate(taskJob: @escaping TaskAsyncJob, handler: @escaping Handler) {
         if let task = source?.entity(for: self) {
             func job(marker: String, handler: Handler) {

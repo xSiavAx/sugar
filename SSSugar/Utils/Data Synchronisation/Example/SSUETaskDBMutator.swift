@@ -1,8 +1,25 @@
 import Foundation
 
+/// Task Mutator working with DB.
+///
+/// For each Task mutation – mutate data via DB Api and sends coresponding Interface update via Update Notifier.
+///
+/// # Requires:
+/// * some `SSMutatingEntitySource` with `SSUETask` as `Entity`
+///
+/// # Extends:
+/// `SSEntityDBMutator`
+/// # Conforms to:
+/// `SSUETaskMutator`
 internal class SSUETaskDBMutator<TaskSource: SSMutatingEntitySource>: SSEntityDBMutator<TaskSource>, SSUETaskUpdate where TaskSource.Entity == SSUETask {
+    /// Task edit DB API.
     public let api: SSUETaskEditApi
-
+    
+    /// Creates new mutator.
+    /// - Parameters:
+    ///   - api: Task DB API
+    ///   - executor: BG tasks executor.
+    ///   - notifier: Update notifier.
     public init(api mApi: SSUETaskEditApi, executor: SSExecutor, notifier: SSUpdateNotifier) {
         api = mApi
         super.init(executor:executor, notifier:notifier)

@@ -21,7 +21,7 @@ extension SSMarkerGenerating {
 
 /// Requirements for Entity Mutator with some addons (like marker generating or dispatching on main queue).
 ///
-/// # Implemets:
+/// # Conforms to:
 /// `SSMarkerGenerating`, `SSOnMainExecutor`
 public protocol SSBaseEntityMutating: SSMarkerGenerating, SSOnMainExecutor {
     /// Mutator's entity Source Type

@@ -26,7 +26,7 @@ public protocol SSEntityProcessing {
 /// * Default imnplementation for `SSMutatingEntitySource` when `Entity` and `Mutator.Entity` is same.
 /// * Default implementation for `start` – creates Updater and Mutator via abstract method `createUpdaterAndMutator`, obtain Enriry via `Obtainer`, assign it via abstract method `assign(entity:)`, starts `Updater` and `Mutator` when `Processor` is Enity source for updater and mutator (see previous 2 items).
 ///
-/// # Implements:
+/// # Conforms to:
 /// `SSUpdaterEntitySource`, `SSMutatingEntitySource`, `SSOnMainExecutor`
 ///
 /// # Requires:

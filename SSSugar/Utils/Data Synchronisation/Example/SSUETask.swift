@@ -1,14 +1,19 @@
 import Foundation
 
 /// Simple entity class for Data Synchronisation class usages demonstration
+///
+/// # Conforms to:
+/// `SSCopying`
 internal class SSUETask {
+    /// Task's pages limit.
     static let maxPages = 100
     
+    /// Errors may occur during works with Task
     enum mError: Error {
         case pagesLimitReached
     }
     
-    /// Task identifie
+    /// Task identifier
     internal var taskID: Int
     /// Task title
     internal var title: String

@@ -20,7 +20,7 @@ public protocol SSEntityUpdaterDelegate: AnyObject {}
 /// * `func start(source: Source, delegate: Delegate)` implementation.
 /// * `func stop()` implementation.
 ///
-/// # Implements:
+/// # Conforms to:
 /// `SSOnMainExecutor`
 public protocol SSBaseEntityUpdating: AnyObject, SSOnMainExecutor {
     /// Updater's entity Source Type

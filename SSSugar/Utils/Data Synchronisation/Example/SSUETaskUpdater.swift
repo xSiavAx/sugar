@@ -2,18 +2,46 @@ import Foundation
 
 #warning("Improove.")
 //TODO: How to replace 'Any' by type?
+/// Requirements for Task Updater's delegate.
 internal protocol SSUETaskUpdaterDelegate: SSEntityUpdaterDelegate {
+    /// Updater did increment task's pages
+    /// - Parameters:
+    ///   - updater: Updater made modification
+    ///   - oldPages: Old pages number value
     func updater(_ updater: Any, didIncrementPages oldPages: Int)
+    
+    /// Updater did rename task
+    /// - Parameters:
+    ///   - updater: Updater made modification
+    ///   - oldTitle: Task's old title
     func updater(_ updater: Any, didRenameTask oldTitle: String)
+    
+    /// Updater did remove task
+    /// - Parameter updater: Updater made modification
     func updaterDidRemoveTask(_ updater: Any)
 }
 
+/// Requirements for Task entity source.
+///
+/// # Entends:
+/// `SSUpdaterEntitySource`
 internal protocol SSUETaskSource: SSUpdaterEntitySource where Entity == SSUETask {}
 
+/// Task updater.
+///
+/// Reacts on task updates (`SSUETaskUpdateReceiver`), modifies entity and calls coresponding delegate's method.
+///
+/// # Requires:
+/// * some `SSUETaskSource`
+/// * some `SSUETaskUpdaterDelegate`
+///
+/// # Conforms to:
+/// `SSBaseEntityUpdating`, `SSUETaskUpdateReceiver`
 internal class SSUETaskUpdater<TaskSource: SSUETaskSource, TaskDelegate: SSUETaskUpdaterDelegate>: SSBaseEntityUpdating {
     typealias Source = TaskSource
     typealias Delegate = TaskDelegate
     
+    /// Collected Task updates (uses in `apply()`)
     var updates = [()->Void]()
     var receiversManager: SSUpdateReceiversManaging
     
