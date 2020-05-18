@@ -124,7 +124,7 @@ extension SSUpdater.UpdatesConverter {
     private static let markerKey = "notification_marker"
     private static let argsKey = "notification_args"
     
-    public func info(from notification: Notification) -> SSUpdate {
+    func info(from notification: Notification) -> SSUpdate {
         guard let userInfo = notification.userInfo else {
             fatalError("Invalid notification")
         }
@@ -135,20 +135,20 @@ extension SSUpdater.UpdatesConverter {
         return SSUpdate(name: name, marker: marker, args: args)
     }
 
-    public func notification(from update: SSUpdate) -> Notification {
+    func notification(from update: SSUpdate) -> Notification {
         let notName = notificationName(withUpdateName: update.name)
         let userInfo = [Self.markerKey : update.marker, Self.argsKey : update.args] as [AnyHashable : Any]
         return Notification(name: notName, object: nil, userInfo: userInfo)
     }
     
-    public func notificationName(withUpdateName name: String) -> Notification.Name {
+    func notificationName(withUpdateName name: String) -> Notification.Name {
         if let mPrefix = prefix {
             return Notification.Name("\(mPrefix)_\(name)")
         }
         return Notification.Name(name)
     }
     
-    public func updateName(fromNotificationName name: Notification.Name) -> String {
+    private func updateName(fromNotificationName name: Notification.Name) -> String {
         if let mPrefix = prefix {
             return String(name.rawValue.dropFirst(mPrefix.count + 1))
         }

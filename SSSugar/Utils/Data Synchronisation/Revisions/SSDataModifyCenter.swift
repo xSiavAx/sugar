@@ -165,8 +165,7 @@ extension SSDataModifyCenter: SSDmRevisionDispatcher where
     
     private func dispatchRevisions(_ revisions: [SSDmRevision<Change>]) throws {
         guard !revisions.isEmpty else { throw SSDmRevisionDispatcherError.emptyRevisions }
-        guard revisions.first!.number == revNumber + 1 else { throw SSDmRevisionDispatcherError.revisionMissmatch }
-        
+
         notify(revisions: revisions)
     }
     
@@ -177,6 +176,9 @@ extension SSDataModifyCenter: SSDmRevisionDispatcher where
             let updates = revision.changes.map { $0.toUpdate() }
             
             func onApply() {
+                guard revisions.first!.number == revNumber + 1 else {
+                    fatalError("Invalid revision number \(revisions.first!.number), but expected \(revNumber + 1)")
+                }
                 revNumber = revision.number
                 adaptBatches(to: revision)
                 reaplySchedules()
