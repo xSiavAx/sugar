@@ -4,7 +4,7 @@ internal class SSUETaskDmProcessor<UpdateDelegate: SSUETaskUpdaterDelegate, Disp
 where Dispatcher.Request == SSModify {
     typealias Entity = SSUETask
     
-    private(set) var entity: SSUETask?
+    var entity: SSUETask?
     let executor: SSExecutor
     let obtainer: SSUETaskObtainer
     private(set) var updater: SSUETaskUpdater<SSUETaskDmProcessor, UpdateDelegate>?
@@ -27,10 +27,6 @@ extension SSUETaskDmProcessor: SSSingleEntityProcessing {
     func createUpdaterAndMutator() {
         updater = SSUETaskUpdater(receiversManager: updateCenter)
         mutator = SSUETaskDmMutator(requestDispatcher: dispatcher)
-    }
-    
-    func assign(entity mEntity: Entity) {
-        entity = mEntity
     }
 }
 

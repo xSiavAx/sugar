@@ -20,7 +20,7 @@ extension SSUETaskObtainer: SSEntityObtainer {
 internal class SSUETaskProcessor<UpdateDelegate: SSUETaskUpdaterDelegate> {
     typealias Entity = SSUETask
     
-    private(set) var entity: SSUETask?
+    var entity: SSUETask?
     let executor: SSExecutor
     let obtainer: SSUETaskObtainer
     private(set) var updater: SSUETaskUpdater<SSUETaskProcessor, UpdateDelegate>?
@@ -44,9 +44,5 @@ extension SSUETaskProcessor: SSSingleEntityProcessing {
     func createUpdaterAndMutator() {
         updater = SSUETaskUpdater(receiversManager: updateCenter)
         mutator = SSUETaskDBMutator(api: taskApi, executor: executor, notifier: updateCenter)
-    }
-    
-    func assign(entity mEntity: Entity) {
-        entity = mEntity
     }
 }
