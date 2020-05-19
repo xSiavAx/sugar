@@ -55,9 +55,9 @@ public class SSUpdater: SSUpdateCenter {
         }
     }
     class UpdatesConverter {
-        public let prefix: String?
+        let prefix: String?
         
-        public init(prefix mPrefix: String?) {
+        init(prefix mPrefix: String?) {
             prefix = mPrefix
         }
     }
