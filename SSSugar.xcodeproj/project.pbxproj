@@ -119,7 +119,7 @@
 		99745CBE239FC10900DAAFFA /* SSEntityRemoteMutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CBD239FC10900DAAFFA /* SSEntityRemoteMutator.swift */; };
 		99745CC0239FC69F00DAAFFA /* SSEntityUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CBF239FC69F00DAAFFA /* SSEntityUpdater.swift */; };
 		99745CC2239FC9B700DAAFFA /* SSUETaskUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CC1239FC9B700DAAFFA /* SSUETaskUpdater.swift */; };
-		998211852449DC6800A7A8B6 /* SSUETaskModify.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998211842449DC6800A7A8B6 /* SSUETaskModify.swift */; };
+		998211852449DC6800A7A8B6 /* SSUETaskModifyCores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998211842449DC6800A7A8B6 /* SSUETaskModifyCores.swift */; };
 		998211892449F1A500A7A8B6 /* SSUEBatchAdpater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998211882449F1A500A7A8B6 /* SSUEBatchAdpater.swift */; };
 		9982118B244F2DEA00A7A8B6 /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9982118A244F2DEA00A7A8B6 /* Base.swift */; };
 		998534B523CC8EE700FD9325 /* SSLinearCongruentialRandomizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998534B423CC8EE700FD9325 /* SSLinearCongruentialRandomizer.swift */; };
@@ -277,7 +277,7 @@
 		99745CC1239FC9B700DAAFFA /* SSUETaskUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUETaskUpdater.swift; sourceTree = "<group>"; };
 		997B344E225A134B00F2A3A0 /* ArrayInitBuildBlockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayInitBuildBlockTests.swift; sourceTree = "<group>"; };
 		997E315222493AC8006A5B7C /* CGSizeUnitedIntersectedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeUnitedIntersectedTests.swift; sourceTree = "<group>"; };
-		998211842449DC6800A7A8B6 /* SSUETaskModify.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUETaskModify.swift; sourceTree = "<group>"; };
+		998211842449DC6800A7A8B6 /* SSUETaskModifyCores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUETaskModifyCores.swift; sourceTree = "<group>"; };
 		998211882449F1A500A7A8B6 /* SSUEBatchAdpater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUEBatchAdpater.swift; sourceTree = "<group>"; };
 		9982118A244F2DEA00A7A8B6 /* Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
 		998534B423CC8EE700FD9325 /* SSLinearCongruentialRandomizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLinearCongruentialRandomizer.swift; sourceTree = "<group>"; };
@@ -620,7 +620,7 @@
 			children = (
 				998211882449F1A500A7A8B6 /* SSUEBatchAdpater.swift */,
 				9982118A244F2DEA00A7A8B6 /* Base.swift */,
-				998211842449DC6800A7A8B6 /* SSUETaskModify.swift */,
+				998211842449DC6800A7A8B6 /* SSUETaskModifyCores.swift */,
 				995327BE24506FEE0007F30B /* SSUEChanges.swift */,
 				995327C024506FFC0007F30B /* SSUERequests.swift */,
 				995327C2245090200007F30B /* SSUETaskDmMutator.swift */,
@@ -1161,7 +1161,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				998211852449DC6800A7A8B6 /* SSUETaskModify.swift in Sources */,
+				998211852449DC6800A7A8B6 /* SSUETaskModifyCores.swift in Sources */,
 				9944ED5D22CF9D09005B129A /* SSDataBaseTransactionController.swift in Sources */,
 				99EABD7C22401D550037645B /* SSMarkbaleCollectionCellHelper.swift in Sources */,
 				99F3F41C23ABBD97003C88D9 /* String.swift in Sources */,

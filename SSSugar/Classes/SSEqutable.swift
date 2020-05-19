@@ -3,9 +3,10 @@ import Foundation
 /// Requirements for `Equtable` that could be implemented with two new methods (instead of operator==).
 ///
 /// # Provides:
-/// Default `Equtable` implementation for types confroms `Hashable`.
+/// Default `Equatable` implementation for types confroms `Hashable`.
 ///
 /// Useful for inheritance, cuz methods could be easy overridden.
+///
 /// # See Also:
 /// `SSInheritedEquatble`
 protocol SSEquatable: Equatable {
@@ -27,11 +28,11 @@ extension Equatable where Self: Hashable & SSEquatable {
 /// # Provides:
 /// * isAncestorSameType(_:) -> Bool - helper for `isSameType` overrideing.
 /// * cast(_:, check:) -> Bool - helper for `isSameProps` overrideing.
-protocol SSInheritedEquatble: SSEquatable {
+protocol SSInheritedEquatable: SSEquatable {
     associatedtype Ancestor: SSEquatable
 }
 
-extension SSInheritedEquatble {
+extension SSInheritedEquatable {
     /// Indicates is passed ancestor has same type or not
     /// - Parameter ancestor: Ancestor object to check
     ///

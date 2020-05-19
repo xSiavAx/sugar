@@ -2,8 +2,6 @@ import Foundation
 
 //MARK: - Task base
 
-#warning("Add Equality")
-
 /// Errors may occur in `SSUETaskDMCore` and it's inheritors
 enum SSUETaskDMCoreError: Error {
     /// Core has invalid data
@@ -15,8 +13,8 @@ enum SSUETaskDMCoreError: Error {
 /// Base class for Task Modify Core.
 ///
 /// # Confroms to:
-/// `SSCopying`, `SSUETaskUpdate`, `SSMarkerGenerating`
-internal class SSUETaskDMCore: SSCopying, SSUETaskUpdate, SSMarkerGenerating {
+/// `SSCopying`, `SSUETaskUpdate`, `SSMarkerGenerating`, `Hashable`, `SSEquatable`
+internal class SSUETaskDMCore: SSCopying, SSUETaskUpdate, SSMarkerGenerating, Hashable, SSEquatable {
     /// Modyfing task's id
     internal let taskID: Int
     
@@ -40,15 +38,37 @@ internal class SSUETaskDMCore: SSCopying, SSUETaskUpdate, SSMarkerGenerating {
     internal func shouldAdapt(to core: SSUETaskDMCore) -> Bool {
         return taskID == core.taskID
     }
+    
+    //MARK: Hashable
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(taskID)
+    }
+    
+    //MARK: SSEquatable
+    
+    func isSameProps(with other: SSUETaskDMCore) -> Bool {
+        return taskID == other.taskID
+    }
+    
+    func isSameType(with other: SSUETaskDMCore) -> Bool {
+        return true
+    }
 }
 
 //MARK: - Increment pages
 
 /// Task pages incrementation Data Modify Core
 ///
-/// #Confroms to:
-/// `SSDataModifyCore`
-internal class SSUETaskIncrementPagesDmCore: SSUETaskDMCore {
+/// # Extedns:
+/// `SSUETaskDMCore`
+///
+/// # Confroms to:
+/// * `SSDataModifyCore`, `SSInheritedEquatable`
+internal class SSUETaskIncrementPagesDmCore: SSUETaskDMCore, SSInheritedEquatable {
+    /// Anscestor type for `InheritedEquatble`
+    typealias Ancestor = SSUETaskDMCore
+    
     /// Task's pages previous count.
     internal private(set) var prevPages: Int?
     
@@ -76,6 +96,21 @@ internal class SSUETaskIncrementPagesDmCore: SSUETaskDMCore {
         
         prevPages! += 1
     }
+    
+    //MARK: Override
+    
+    override func hash(into hasher: inout Hasher) {
+        super.hash(into: &hasher)
+        hasher.combine(prevPages)
+    }
+    
+    override func isSameType(with other: SSUETaskDMCore) -> Bool {
+        return isAncestorSameType(other)
+    }
+    
+    override func isSameProps(with other: SSUETaskDMCore) -> Bool {
+        return cast(other) { prevPages == $0.prevPages }
+    }
 }
 
 extension SSUETaskIncrementPagesDmCore: SSDataModifyCore {
@@ -86,9 +121,15 @@ extension SSUETaskIncrementPagesDmCore: SSDataModifyCore {
 
 /// Task renaming Data Modify Core
 ///
-/// #Confroms to:
-/// `SSDataModifyCore`
-internal class SSUETaskRenameDmCore: SSUETaskDMCore {
+/// # Extedns:
+/// `SSUETaskDMCore`
+///
+/// # Confroms to:
+/// * `SSDataModifyCore`, `SSInheritedEquatable`
+internal class SSUETaskRenameDmCore: SSUETaskDMCore, SSInheritedEquatable {
+    /// Anscestor type for `InheritedEquatble`
+    typealias Ancestor = SSUETaskDMCore
+    
     /// Renaming task's new title
     internal let taskTitle: String
     
@@ -109,6 +150,21 @@ internal class SSUETaskRenameDmCore: SSUETaskDMCore {
         taskTitle = mChange.taskTitle
         super.init(copy: other)
     }
+    
+    //MARK: Override
+    
+    override func hash(into hasher: inout Hasher) {
+        super.hash(into: &hasher)
+        hasher.combine(taskTitle)
+    }
+    
+    override func isSameType(with other: SSUETaskDMCore) -> Bool {
+        return isAncestorSameType(other)
+    }
+    
+    override func isSameProps(with other: SSUETaskDMCore) -> Bool {
+        return cast(other) { taskTitle == $0.taskTitle }
+    }
 }
 
 extension SSUETaskRenameDmCore: SSDataModifyCore {
@@ -119,8 +175,11 @@ extension SSUETaskRenameDmCore: SSDataModifyCore {
 
 /// Task removing Data Modify Core
 ///
-/// #Confroms to:
-/// `SSDataModifyCore`
+/// # Extedns:
+/// `SSUETaskDMCore`
+///
+/// # Confroms to:
+/// * `SSDataModifyCore`
 internal class SSUETaskRemoveDmCore: SSUETaskDMCore {}
 
 extension SSUETaskRemoveDmCore: SSDataModifyCore {
