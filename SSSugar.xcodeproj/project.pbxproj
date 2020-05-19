@@ -109,6 +109,7 @@
 		995327C124506FFC0007F30B /* SSUERequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995327C024506FFC0007F30B /* SSUERequests.swift */; };
 		995327C3245090200007F30B /* SSUETaskDmMutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995327C2245090200007F30B /* SSUETaskDmMutator.swift */; };
 		995327C524509A400007F30B /* SSUETaskDmProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995327C424509A400007F30B /* SSUETaskDmProcessor.swift */; };
+		99584E6F2474003000FB43AD /* SSEqutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99584E6E2474003000FB43AD /* SSEqutable.swift */; };
 		9967832022D3906900E33300 /* SSDataBaseSavePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9967831F22D3906900E33300 /* SSDataBaseSavePoint.swift */; };
 		9967832222D3955000E33300 /* SSCacheContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9967832122D3955000E33300 /* SSCacheContainer.swift */; };
 		9967832422D3993D00E33300 /* SSDataBaseStatemntCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9967832322D3993D00E33300 /* SSDataBaseStatemntCache.swift */; };
@@ -263,6 +264,7 @@
 		995327C024506FFC0007F30B /* SSUERequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUERequests.swift; sourceTree = "<group>"; };
 		995327C2245090200007F30B /* SSUETaskDmMutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUETaskDmMutator.swift; sourceTree = "<group>"; };
 		995327C424509A400007F30B /* SSUETaskDmProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUETaskDmProcessor.swift; sourceTree = "<group>"; };
+		99584E6E2474003000FB43AD /* SSEqutable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSEqutable.swift; sourceTree = "<group>"; };
 		9967831F22D3906900E33300 /* SSDataBaseSavePoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDataBaseSavePoint.swift; sourceTree = "<group>"; };
 		9967832122D3955000E33300 /* SSCacheContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCacheContainer.swift; sourceTree = "<group>"; };
 		9967832322D3993D00E33300 /* SSDataBaseStatemntCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDataBaseStatemntCache.swift; sourceTree = "<group>"; };
@@ -829,6 +831,7 @@
 				99AA28D323A2A05400DA9C2F /* SSGroupExecutor.swift */,
 				99AA28D523A2A88F00DA9C2F /* SSChainExecutor.swift */,
 				9918B5BF2447434500E49E81 /* SSTry.swift */,
+				99584E6E2474003000FB43AD /* SSEqutable.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1182,6 +1185,7 @@
 				99D70DA9239A8FC100EA96B4 /* SSExecutor.swift in Sources */,
 				99E85E292240F3A0005E2B13 /* SSCollectionViewMarkable.swift in Sources */,
 				9944ED6122CFA660005B129A /* SSReleaseDecorator.swift in Sources */,
+				99584E6F2474003000FB43AD /* SSEqutable.swift in Sources */,
 				99D29669223D3763003FD9F0 /* UIViewController.swift in Sources */,
 				99EABD7A22401B8A0037645B /* SSCollectionViewCellMarkable.swift in Sources */,
 				995327C524509A400007F30B /* SSUETaskDmProcessor.swift in Sources */,
