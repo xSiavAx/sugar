@@ -47,7 +47,9 @@ public protocol SSDmRequest: SSDataModifying {
 /// For inheritance purpouses use `SSCoredModify` class.
 /// - Warning: Copying and title property should be implemented by inheritors.
 public class SSModify: SSDataModifying {
+    /// Modification's core
     public var core: SSDataModifyCore
+    /// Modification's title
     public var title: String { fatalError("Not implemented") }
     
     /// Creates new Modification.
