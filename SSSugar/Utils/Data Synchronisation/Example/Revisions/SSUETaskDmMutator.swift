@@ -1,5 +1,18 @@
 import Foundation
 
+/// Task Mutator working with Data Modifications (based on revisions).
+///
+/// For each Task mutation – mutate data via super's `mutate` (see docs).
+///
+/// # Requires:
+/// * some `SSMutatingEntitySource` with `SSUETask` as `Entity`
+/// * some `SSDmRequestDispatcher` with `SSModify` as `Request`
+///
+/// # Extends:
+/// `SSEntityDmMutator`
+///
+/// # Conforms to:
+/// `SSUETaskMutator`
 internal class SSUETaskDmMutator<Source: SSMutatingEntitySource, Dispatcher: SSDmRequestDispatcher>: SSEntityDmMutator<Source, Dispatcher>
 where Source.Entity == SSUETask, Dispatcher.Request == SSModify {
     typealias Request = Dispatcher.Request

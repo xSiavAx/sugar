@@ -30,7 +30,7 @@ extension SSUETaskObtainer: SSEntityObtainer {
 ///
 /// Uses `SSUETaskObtainer` as obtainer, `SSUETaskUpdater` as updater, `SSUETaskDBMutator` as mutator.
 ///
-/// - Note: Entity's type should be provided exp;icitly (`typealias Entity = SSUETask`) and can't be obtained by entity property type (Looks like it's swift's bug).
+/// - Note: Entity's type should be provided explicitly (`typealias Entity = SSUETask`) and can't be obtained by entity property type (Looks like it's swift's bug).
 ///
 /// # Confroms to:
 /// `SSUETaskSource`, `SSSingleEntityProcessing`.
@@ -51,7 +51,7 @@ internal class SSUETaskProcessor<UpdateDelegate: SSUETaskUpdaterDelegate> {
     /// Creates new Task Processor
     /// - Parameters:
     ///   - taskID: Identifier of task to process.
-    ///   - taskApi: Task API to pass obtainer and mutator.
+    ///   - taskApi: Task API to pass to obtainer and mutator.
     ///   - executor: BG tasks executor.
     ///   - updateCenter: Update center.
     public init(taskID: Int, taskApi mTaskApi: SSUETaskApi & SSUETaskEditApi, mExecutor: SSExecutor, updateCenter mUpdateCenter: SSUpdateCenter) {

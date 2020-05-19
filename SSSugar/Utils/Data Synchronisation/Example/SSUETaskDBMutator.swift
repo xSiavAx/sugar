@@ -9,6 +9,7 @@ import Foundation
 ///
 /// # Extends:
 /// `SSEntityDBMutator`
+/// 
 /// # Conforms to:
 /// `SSUETaskMutator`
 internal class SSUETaskDBMutator<TaskSource: SSMutatingEntitySource>: SSEntityDBMutator<TaskSource>, SSUETaskUpdate where TaskSource.Entity == SSUETask {

@@ -16,6 +16,8 @@ open class SSEntityDmMutator<Source: SSMutatingEntitySource, Dispatcher: SSDmReq
     }
     
     /// Protected method for mutating entity.
+    ///
+    /// Dispatches passed request via `dispatcher`.
     /// - Important: By design this method should be used only withing inheritors.
     /// - Parameters:
     ///   - requests: Requests array to dispatch.

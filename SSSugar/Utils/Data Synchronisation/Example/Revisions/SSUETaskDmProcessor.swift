@@ -1,5 +1,13 @@
 import Foundation
 
+/// Task processor working with TaskDMMutator.
+///
+/// Uses `SSUETaskObtainer` as obtainer, `SSUETaskUpdater` as updater, `SSUETaskDmMutator` as mutator.
+///
+/// - Note: Entity's type should be provided explicitly (`typealias Entity = SSUETask`) and can't be obtained by entity property type (Looks like it's swift's bug).
+///
+/// # Confroms to:
+/// `SSUETaskSource`, `SSSingleEntityProcessing`.
 internal class SSUETaskDmProcessor<UpdateDelegate: SSUETaskUpdaterDelegate, Dispatcher: SSDmRequestDispatcher>
 where Dispatcher.Request == SSModify {
     typealias Entity = SSUETask
@@ -13,7 +21,14 @@ where Dispatcher.Request == SSModify {
     let dispatcher: Dispatcher
     weak var updateDelegate: UpdateDelegate?
     
-    public init(taskID: Int, taskApi: SSUETaskApi, mExecutor: SSExecutor, dispatcher mDispatcher: Dispatcher, updateCenter mUpdateCenter: SSUpdateCenter) {
+    /// Creates new Task Processor
+    /// - Parameters:
+    ///   - taskID: Identifier of task to process.
+    ///   - taskApi: Task API to pass to obtainer
+    ///   - executor: BG tasks executor.
+    ///   - dispatcher: Requests dispatcher.
+    ///   - updateCenter: Update center.
+    internal init(taskID: Int, taskApi: SSUETaskApi, mExecutor: SSExecutor, dispatcher mDispatcher: Dispatcher, updateCenter mUpdateCenter: SSUpdateCenter) {
         updateCenter = mUpdateCenter
         dispatcher = mDispatcher
         executor = mExecutor
