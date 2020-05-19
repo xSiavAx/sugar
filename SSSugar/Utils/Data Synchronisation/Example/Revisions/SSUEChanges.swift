@@ -13,74 +13,99 @@ internal protocol SSUETaskChangeAdapting {
     func adaptByRemove(change: SSUETaskRemoveChange) -> SSDmToChangeAdaptResult
 }
 
-/// Task increment pages change
+/// Increment task pages change
 ///
 /// Usees `SSUETaskIncrementPagesDmCore` as core
 ///
 /// # Inherited from:
 /// `SSUEChange`
+///
 /// # Conforms to:
 /// `SSDmChange`
 internal class SSUETaskIncrementPagesChange: SSUEChange<SSUETaskIncrementPagesDmCore> {
+    /// Increment task pages change's title
     override var title: String {Self.title}
     
+    /// Creates new Increment task pages change
+    /// - Parameters:
+    ///   - taskID: Identifier of incrementation pages task.
+    ///   - prevPages: Previous pages count of incrementation pages task.
     internal init(taskID: Int, prevPages: Int? = nil) {
         super.init(core: SSUETaskIncrementPagesDmCore(taskID: taskID, prevPages: prevPages))
     }
     
+    /// Creates new Increment task pages change based on passed one
+    /// - Parameter other: Increment task pages change to create new one based on
     internal required init(copy other: SSModify) {
         super.init(copy: other)
     }
 }
 
 extension SSUETaskIncrementPagesChange: SSDmChange {
+    /// Increment task pages change's title
     static var title: String = "task_pages_incremented"
 }
 
-/// Task rename change
+/// Rename task change
 ///
 /// Usees `SSUETaskRenameDmCore` as core
 ///
 /// # Inherited from:
 /// `SSUEChange`
+///
 /// # Conforms to:
 /// `SSDmChange`
 internal class SSUETaskRenameChange: SSUEChange<SSUETaskRenameDmCore> {
+    /// Rename task change's title
     override var title: String {Self.title}
     
+    /// Creates new Rename task change
+    /// - Parameters:
+    ///   - taskID: Renaming task's id
+    ///   - taskTitle: New task title
     internal init(taskID: Int, taskTitle: String) {
         super.init(core: SSUETaskRenameDmCore(taskID: taskID, taskTitle: taskTitle))
     }
 
+    /// Creates new Rename task change based on passed one
+    /// - Parameter other: Rename task change to create new one based on
     internal required init(copy other: SSModify) {
         super.init(copy: other)
     }
 }
 
 extension SSUETaskRenameChange: SSDmChange {
+    /// Rename task change's title
     internal static var title = "task_renamed"
 }
 
-/// Task remove change
+/// Remove task change
 ///
 /// Usees `SSUETaskRemoveDmCore` as core
 ///
 /// # Inherited from:
 /// `SSUEChange`
+///
 /// # Conforms to:
 /// `SSDmChange`
 internal class SSUETaskRemoveChange: SSUEChange<SSUETaskRemoveDmCore> {
+    /// Remove task change's title
     override var title: String {Self.title}
     
+    /// Creates new Remove task change
+    /// - Parameter taskID: Removing task's id
     internal init(taskID: Int) {
         super.init(core: SSUETaskRemoveDmCore(taskID: taskID))
     }
 
+    /// Creates new Remove task change based on passed one
+    /// - Parameter other: Remove task change to create new one based on
     internal required init(copy other: SSModify) {
         super.init(copy: other)
     }
 }
 
 extension SSUETaskRemoveChange: SSDmChange {
+    /// Remove task change's title
     internal static var title = "task_removed"
 }

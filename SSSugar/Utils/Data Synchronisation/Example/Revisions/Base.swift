@@ -15,6 +15,9 @@ internal class SSUEChange<Core: SSDataModifyCore&SSCopying>: SSCoredModify<Core>
 ///
 /// # Inherited from:
 /// `SSCoredModify`
+///
+/// #Extended by:
+/// Tasks entity – added `shouldAdapt` and `adaptByRemove` methods.
 internal class SSUERequest<Core: SSDataModifyCore&SSCopying>: SSCoredModify<Core> {
     // Project specific Request related logic
 }
