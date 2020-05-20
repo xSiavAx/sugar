@@ -13,7 +13,15 @@ public protocol SSEntityProcessing {
     /// - Parameter handler: Finish handler
     func start(_ handler: @escaping ()->Void)
     /// Stops processing entity
+    func stop(_ handler: (()->Void)?)
+    /// Stops processing entity
     func stop()
+}
+
+extension SSEntityProcessing {
+    func stop() {
+        stop(nil)
+    }
 }
 
 /// Requirements for processor that works with single entity.
@@ -31,7 +39,7 @@ public protocol SSEntityProcessing {
 ///
 /// # Requires:
 /// Processor's, Obtainer's and Mutator's `Entity` should be the same type.
-public protocol SSSingleEntityProcessing: SSUpdaterEntitySource, SSMutatingEntitySource, SSOnMainExecutor
+public protocol SSSingleEntityProcessing: SSEntityProcessing, SSUpdaterEntitySource, SSMutatingEntitySource, SSOnMainExecutor
 where
     Entity == Obtainer.Entity,
     Entity == Mutator.Entity
@@ -71,16 +79,19 @@ where
 extension SSSingleEntityProcessing {
     public var startOnEmptyEntity: Bool { true }
     
-    public func stop() {
-        updater?.stop()
-        mutator?.stop()
+    func stop(_ handler: (() -> Void)?) {
+        func onBG() {
+            updater?.stop()
+            mutator?.stop()
+            handler?()
+        }
+        executor.execute(onBG)
     }
 }
 
+
 extension SSSingleEntityProcessing where Updater.Source == Self, Mutator.Source == Self {
-    public func start(_ handler: @escaping () -> Void) {
-        createUpdaterAndMutator()
-        
+    public func start(_ handler: @escaping ()->Void) {
         func onBg() {
             if let obtained = obtainer.obtain() {
                 func assignAndFinish() {
@@ -100,6 +111,7 @@ extension SSSingleEntityProcessing where Updater.Source == Self, Mutator.Source 
     }
     
     private func startHelpers() {
+        createUpdaterAndMutator()
         updater?.start(source: self, delegate: updateDelegate!)
         mutator?.start(source: self)
     }

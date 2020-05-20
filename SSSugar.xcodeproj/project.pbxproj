@@ -112,6 +112,8 @@
 		99584E6F2474003000FB43AD /* SSEqutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99584E6E2474003000FB43AD /* SSEqutable.swift */; };
 		99584E73247412F100FB43AD /* SSUpdateCenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99584E72247412F100FB43AD /* SSUpdateCenterTests.swift */; };
 		99584E75247521EA00FB43AD /* SSSugarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99584E74247521EA00FB43AD /* SSSugarTests.swift */; };
+		99584E7924754A0C00FB43AD /* SSSingleEntityProcessingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99584E7824754A0C00FB43AD /* SSSingleEntityProcessingTest.swift */; };
+		99584E7B24754CD300FB43AD /* SSUpdatesHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99584E7A24754CD300FB43AD /* SSUpdatesHelpers.swift */; };
 		9967832022D3906900E33300 /* SSDataBaseSavePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9967831F22D3906900E33300 /* SSDataBaseSavePoint.swift */; };
 		9967832222D3955000E33300 /* SSCacheContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9967832122D3955000E33300 /* SSCacheContainer.swift */; };
 		9967832422D3993D00E33300 /* SSDataBaseStatemntCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9967832322D3993D00E33300 /* SSDataBaseStatemntCache.swift */; };
@@ -269,6 +271,8 @@
 		99584E6E2474003000FB43AD /* SSEqutable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSEqutable.swift; sourceTree = "<group>"; };
 		99584E72247412F100FB43AD /* SSUpdateCenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUpdateCenterTests.swift; sourceTree = "<group>"; };
 		99584E74247521EA00FB43AD /* SSSugarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarTests.swift; sourceTree = "<group>"; };
+		99584E7824754A0C00FB43AD /* SSSingleEntityProcessingTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSingleEntityProcessingTest.swift; sourceTree = "<group>"; };
+		99584E7A24754CD300FB43AD /* SSUpdatesHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUpdatesHelpers.swift; sourceTree = "<group>"; };
 		9967831F22D3906900E33300 /* SSDataBaseSavePoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDataBaseSavePoint.swift; sourceTree = "<group>"; };
 		9967832122D3955000E33300 /* SSCacheContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCacheContainer.swift; sourceTree = "<group>"; };
 		9967832322D3993D00E33300 /* SSDataBaseStatemntCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDataBaseStatemntCache.swift; sourceTree = "<group>"; };
@@ -612,6 +616,8 @@
 			isa = PBXGroup;
 			children = (
 				99584E72247412F100FB43AD /* SSUpdateCenterTests.swift */,
+				99584E7824754A0C00FB43AD /* SSSingleEntityProcessingTest.swift */,
+				99584E7A24754CD300FB43AD /* SSUpdatesHelpers.swift */,
 			);
 			path = "Data Synchronisation";
 			sourceTree = "<group>";
@@ -1123,6 +1129,7 @@
 				2D7E5A49241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperUnmarkNonMarkedTC.swift in Sources */,
 				2D00D99624379EA20059EB09 /* CGPointBinaryPlusTests.swift in Sources */,
 				2D7E5A4A241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperUnmarkTC.swift in Sources */,
+				99584E7924754A0C00FB43AD /* SSSingleEntityProcessingTest.swift in Sources */,
 				2DFE398C242E4080001B9AAE /* AutoMapIteratorNextTests.swift in Sources */,
 				2D3043C224377B1500EBD898 /* CGSizeBinaryPlusOperatorTests.swift in Sources */,
 				2D3043C42437829000EBD898 /* CGSizeTestItems.swift in Sources */,
@@ -1157,6 +1164,7 @@
 				2D3043C02437369500EBD898 /* CGSizeBinaryMinusOperatorTests.swift in Sources */,
 				2D7E5A57241FD0E5009EE074 /* UIColorInitTests.swift in Sources */,
 				2DF4E966243326F8005CF7A2 /* UIViewControllerShowErrorAlertTests.swift in Sources */,
+				99584E7B24754CD300FB43AD /* SSUpdatesHelpers.swift in Sources */,
 				2D78DB1B242D519800D77DD1 /* AutoMapEqualityOperatorTests.swift in Sources */,
 				2D7E5A58241FD0E5009EE074 /* RangeMiddleTests.swift in Sources */,
 				2DFE398E242E412D001B9AAE /* AutoMapIteratorInitMapTests.swift in Sources */,

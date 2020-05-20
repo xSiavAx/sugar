@@ -131,7 +131,7 @@ class TaskDmView<Dispatcher: SSDmRequestDispatcher>: TaskViewing where Dispatche
     init(title mTitle: String, updateCenter: SSUpdateCenter, dispatcher: Dispatcher) {
         title = mTitle
         
-        processor = SSUETaskDmProcessor(taskID: 1, taskApi: SSUETaskDBApi(), mExecutor: DispatchQueue.bg, dispatcher: dispatcher, updateCenter: updateCenter)
+        processor = SSUETaskDmProcessor(taskID: 1, taskApi: SSUETaskDBApi(), executor: DispatchQueue.bg, dispatcher: dispatcher, updateCenter: updateCenter)
         processor.updateDelegate = self;
     }
 }

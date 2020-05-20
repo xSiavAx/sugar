@@ -28,7 +28,7 @@ where Dispatcher.Request == SSModify {
     ///   - executor: BG tasks executor.
     ///   - dispatcher: Requests dispatcher.
     ///   - updateCenter: Update center.
-    internal init(taskID: Int, taskApi: SSUETaskApi, mExecutor: SSExecutor, dispatcher mDispatcher: Dispatcher, updateCenter mUpdateCenter: SSUpdateCenter) {
+    internal init(taskID: Int, taskApi: SSUETaskApi, executor mExecutor: SSExecutor, dispatcher mDispatcher: Dispatcher, updateCenter mUpdateCenter: SSUpdateCenter) {
         updateCenter = mUpdateCenter
         dispatcher = mDispatcher
         executor = mExecutor
