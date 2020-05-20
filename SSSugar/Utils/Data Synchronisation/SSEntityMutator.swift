@@ -33,10 +33,9 @@ public protocol SSBaseEntityMutating: SSMarkerGenerating, SSOnMainExecutor {
     var source: Source? {get}
     
     /// Starts `Updater`.
-    /// - Parameter source: Entity source.
-    ///
     /// Implementation should include source assigning.
-    func start(source: Source)
+    /// - Important: `source` should be assigned.
+    func start()
     
     /// Stops `Updater`.
     func stop()

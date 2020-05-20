@@ -21,9 +21,9 @@ internal class SSUETaskDBMutator<TaskSource: SSMutatingEntitySource>: SSEntityDB
     ///   - api: Task DB API
     ///   - executor: BG tasks executor.
     ///   - notifier: Update notifier.
-    public init(api mApi: SSUETaskEditApi, executor: SSExecutor, notifier: SSUpdateNotifier) {
+    public init(api mApi: SSUETaskEditApi, executor: SSExecutor, notifier: SSUpdateNotifier, source: TaskSource) {
         api = mApi
-        super.init(executor:executor, notifier:notifier)
+        super.init(executor:executor, notifier:notifier, source: source)
     }
     
     /// Warpper that helps mutate task. It uses super's `mutate(job:handler:)` method.

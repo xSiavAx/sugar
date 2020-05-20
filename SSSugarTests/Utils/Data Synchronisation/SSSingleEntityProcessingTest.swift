@@ -21,7 +21,7 @@ class SSSingleEntityProcessingTest: XCTestCase, TestUpdaterDelegate {
         testQueue = TestQueue()
         processor = TestProcessor(obtainer: obtainer, executor: testQueue.queue, updateCenter: SSUpdater())
         
-//        processor.updateDelegate = self
+        processor.updateDelegate = self
         processor.onUtilStart = checkBgQueue
         processor.onUtilStop = checkBgQueue
         obtainer.onObtain = checkBgQueue
@@ -68,7 +68,6 @@ class SSSingleEntityProcessingTest: XCTestCase, TestUpdaterDelegate {
                 exp.fulfill()
             }
         }
-        processor.stop()
         wait { (exp) in
             processor.stop {
                 exp.fulfill()

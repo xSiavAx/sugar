@@ -11,8 +11,9 @@ open class SSEntityDmMutator<Source: SSMutatingEntitySource, Dispatcher: SSDmReq
     
     /// Creates new Mutator with passed dispatcher
     /// - Parameter requestDispatcher: Requests dispatcher.
-    public init(requestDispatcher: Dispatcher) {
+    public init(requestDispatcher: Dispatcher, source mSource: Source) {
         dispatcher = requestDispatcher
+        source = mSource
     }
     
     /// Protected method for mutating entity.
@@ -30,9 +31,7 @@ open class SSEntityDmMutator<Source: SSMutatingEntitySource, Dispatcher: SSDmReq
 
 extension SSEntityDmMutator: SSBaseEntityMutating {
     #warning("TODO: Add started/stopped logic?")
-    public func start(source mSource: Source) {
-        source = mSource
-    }
+    public func start() {}
     
     public func stop() {}
 }

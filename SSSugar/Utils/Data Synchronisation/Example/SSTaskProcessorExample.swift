@@ -68,7 +68,7 @@ extension TaskViewing {
 /// # Conforms to:
 /// `TaskViewing`
 class TaskDBView: TaskViewing {
-    typealias Processor = SSUETaskProcessor<TaskDBView>
+    typealias Processor = SSUETaskProcessor
     var title: String
     var processor: Processor
     

@@ -74,8 +74,7 @@ open class SSEntityRemoteMutator<Source: SSMutatingEntitySource> {
 
 extension SSEntityRemoteMutator: SSBaseEntityMutating {
     #warning("TODO: Add started/stopped logic?")
-    public func start(source mSource: Source) {
-        source = mSource
+    public func start() {
         manager.addReceiver(self)
     }
     

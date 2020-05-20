@@ -11,9 +11,10 @@ open class SSEntityDBMutator<Source: SSMutatingEntitySource> {
     /// Notifier for modification notification sending
     public let notifier: SSUpdateNotifier
 
-    public init(executor mExecutor: SSExecutor, notifier mNotifier: SSUpdateNotifier) {
+    public init(executor mExecutor: SSExecutor, notifier mNotifier: SSUpdateNotifier, source mSource: Source) {
         executor = mExecutor
         notifier = mNotifier
+        source = mSource
     }
     
     /// Protected method for mutating entity.
@@ -42,9 +43,7 @@ open class SSEntityDBMutator<Source: SSMutatingEntitySource> {
 
 extension SSEntityDBMutator: SSBaseEntityMutating {
     #warning("TODO: Add started/stopped logic?")
-    public func start(source mSource: Source) {
-        source = mSource
-    }
+    public func start() {}
     
     public func stop() {}
 }

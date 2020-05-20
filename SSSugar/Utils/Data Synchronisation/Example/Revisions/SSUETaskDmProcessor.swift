@@ -40,8 +40,11 @@ extension SSUETaskDmProcessor: SSUETaskSource {}
 
 extension SSUETaskDmProcessor: SSSingleEntityProcessing {
     func createUpdaterAndMutator() {
-        updater = SSUETaskUpdater(receiversManager: updateCenter)
-        mutator = SSUETaskDmMutator(requestDispatcher: dispatcher)
+        let mUpdater = SSUETaskUpdater(receiversManager: updateCenter, source: self, delegate: updateDelegate!)
+        let mMutator = SSUETaskDmMutator(requestDispatcher: dispatcher, source: self)
+        
+        updater = mUpdater
+        mutator = mMutator
     }
 }
 

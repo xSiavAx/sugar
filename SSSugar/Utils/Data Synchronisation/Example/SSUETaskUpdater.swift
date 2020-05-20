@@ -48,8 +48,10 @@ internal class SSUETaskUpdater<TaskSource: SSUETaskSource, TaskDelegate: SSUETas
     weak var delegate: TaskDelegate?
     weak var source: TaskSource?
     
-    init(receiversManager mReceiversManager: SSUpdateReceiversManaging) {
+    init(receiversManager mReceiversManager: SSUpdateReceiversManaging, source mSource: TaskSource, delegate mDelegate: TaskDelegate) {
         receiversManager = mReceiversManager
+        source = mSource
+        delegate = mDelegate
     }
 
     private func checkedTask(_ taskID: Int) -> SSUETask? {

@@ -34,11 +34,13 @@ class TestUpdater<TestSource: TestEntitySource, TestDelegate: TestUpdaterDelegat
     var onStart: (()->Void)?
     var onStop: (()->Void)?
     
-    init(receiversManager mReceiversManager: SSUpdateReceiversManaging) {
+    init(receiversManager mReceiversManager: SSUpdateReceiversManaging, source mSource: TestSource, delegate mDelegate: TestDelegate) {
         receiversManager = mReceiversManager
+        source = mSource
+        delegate = mDelegate
     }
     
-    func start(source: TestSource, delegate: TestDelegate) {
+    func start() {
         started = true
         onStart?()
     }
@@ -49,20 +51,25 @@ class TestUpdater<TestSource: TestEntitySource, TestDelegate: TestUpdaterDelegat
     }
 }
 
-class TestMutator<Source: SSMutatingEntitySource>: SSBaseEntityMutating {
-    var source: Source?
+class TestMutator<TestSource: SSMutatingEntitySource>: SSBaseEntityMutating {
+    var source: TestSource?
     
-    var started: Bool { get { source != nil } }
+    var started = false
+    
     var onStart: (()->Void)?
     var onStop: (()->Void)?
     
-    func start(source mSource: Source) {
+    init(source mSource: TestSource) {
         source = mSource
+    }
+    
+    func start() {
+        started = true
         onStart?()
     }
     
     func stop() {
-        source = nil
+        started = false
         onStop?()
     }
 }
@@ -94,12 +101,16 @@ extension TestProcessor: TestEntitySource {}
 
 extension TestProcessor: SSSingleEntityProcessing {
     func createUpdaterAndMutator() {
-        updater = TestUpdater(receiversManager: updateCenter)
-        mutator = TestMutator()
+        updater = TestUpdater(receiversManager: updateCenter, source: self, delegate: updateDelegate!)
+        mutator = TestMutator(source: self)
         
         updater?.onStart = onUtilStart
         updater?.onStop = onUtilStop
         mutator?.onStart = onUtilStart
         mutator?.onStop = onUtilStop
+        
+        updater?.delegate = updateDelegate
+        updater?.source = self
+        mutator?.source = self
     }
 }

@@ -35,15 +35,16 @@ public protocol SSBaseEntityUpdating: AnyObject, SSOnMainExecutor {
     /// Manager to subscribe/unsubscribe to/from updates.
     var receiversManager: SSUpdateReceiversManaging {get}
     
-    /// Startes updater.
+    /// Starts updater.
     ///
     /// # Default implementation:
-    /// Assign `source` and `delegate`, subscribe for updates.
-    /// - Parameters:
-    ///   - source: Entity source.
-    ///   - delegate: Entity updater's delegate.
-    func start(source: Source, delegate: Delegate)
+    /// Subscribe for updates.
+    ///
+    /// - Important: `source` and `delegate` should be assigned.
+    func start()
+    
     /// Stops updater.
+    ///
     /// # Default implementation:
     /// Unsubscribe from updates.
     func stop()
@@ -54,9 +55,8 @@ extension SSBaseEntityUpdating {
 }
 
 extension SSBaseEntityUpdating where Self: SSUpdateReceiver {
-    public func start(source mSource: Source, delegate mDelegate: Delegate) {
-        source = mSource
-        delegate = mDelegate
+    public func start() {
+        guard source != nil, delegate != nil else { fatalError("`Source` and `Delegate` should be assigned before `start`") }
         receiversManager.addReceiver(self)
     }
     

@@ -72,14 +72,15 @@ where
     
     /// Creates `Updater` and `Mutator`.
     ///
-    /// Override it – create and assign to corresponding properties concrete `Updater` and `Mutator`.
+    /// Override it – create and config concrete `Updater` and `Mutator`.
+    /// - Note: Don't forget to assign `Update Delegate` and `Entity Source` for created `Updater` and `Mutator`.
     func createUpdaterAndMutator()
 }
 
 extension SSSingleEntityProcessing {
     public var startOnEmptyEntity: Bool { true }
     
-    func stop(_ handler: (() -> Void)?) {
+    public func stop(_ handler: (() -> Void)?) {
         func onBG() {
             updater?.stop()
             mutator?.stop()
@@ -87,11 +88,8 @@ extension SSSingleEntityProcessing {
         }
         executor.execute(onBG)
     }
-}
-
-
-extension SSSingleEntityProcessing where Updater.Source == Self, Mutator.Source == Self {
-    public func start(_ handler: @escaping ()->Void) {
+    
+    public func start(_ handler: @escaping () -> Void) {
         func onBg() {
             if let obtained = obtainer.obtain() {
                 func assignAndFinish() {
@@ -112,8 +110,8 @@ extension SSSingleEntityProcessing where Updater.Source == Self, Mutator.Source 
     
     private func startHelpers() {
         createUpdaterAndMutator()
-        updater?.start(source: self, delegate: updateDelegate!)
-        mutator?.start(source: self)
+        updater?.start()
+        mutator?.start()
     }
 }
 
