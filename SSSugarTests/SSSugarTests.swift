@@ -9,3 +9,51 @@ extension XCTestCase {
         wait(for: [expectation], timeout: 1.0)
     }
 }
+
+class TestQueue {
+    let queue: DispatchQueue
+    let checker: Checker
+    private static let defaultQueueValue = "testing_queue_val"
+    
+    init(label: String = "testing_queue", value: String = defaultQueueValue) {
+        queue = DispatchQueue(label: label)
+        checker = Checker(queue: queue, value: value)
+    }
+
+    func isCurrent() -> Bool {
+        return checker.isCurrent()
+    }
+    
+    func finilize() {
+        checker.finilize()
+    }
+}
+
+extension TestQueue {
+    class Checker {
+        
+        private let queue: DispatchQueue
+        let value: String
+        let key: DispatchSpecificKey<String>? = DispatchSpecificKey()
+        
+        init(queue mQueue: DispatchQueue, value mValue: String = defaultQueueValue) {
+            queue = mQueue
+            value = mValue
+            queue.setSpecific(key: key!, value: value)
+        }
+        
+        deinit {
+            if let _ = key {
+                finilize()
+            }
+        }
+        
+        func isCurrent() -> Bool {
+            return DispatchQueue.getSpecific(key: key!) == value
+        }
+        
+        func finilize() {
+            queue.setSpecific(key: key!, value: nil)
+        }
+    }
+}
