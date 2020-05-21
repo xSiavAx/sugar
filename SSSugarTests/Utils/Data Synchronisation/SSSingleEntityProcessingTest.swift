@@ -3,15 +3,17 @@ import XCTest
 
 @testable import SSSugar
 
-/// # Test plan
+/// `SSSingleEntityProcessing` protocol extension tests.
 ///
-/// Check queues if possible
+/// - Note: Test-cases for different notifications, different args and delegate callbacks provided by Updater Tests (see `SSEntityUpdaterTest`).
+///
+/// # Test plan
 ///
 /// * Test start (obtained)
 /// * Test start (not obtained)
 /// * Test start (not obtained, not started)
 /// * Test stop
-class SSSingleEntityProcessingTest: XCTestCase, TestUpdaterDelegate {
+class SSSingleEntityProcessingTest: XCTestCase, TPUpdaterDelegate {
     var testQueue: TestQueue!
     var processor: TestProcessor<SSSingleEntityProcessingTest>!
     
@@ -100,3 +102,97 @@ class SSSingleEntityProcessingTest: XCTestCase, TestUpdaterDelegate {
     }
 }
 
+class TestProcessor<UpdateDelegate: TPUpdaterDelegate> {
+    typealias Entity = TestEntity
+    
+    var entity: TestEntity?
+    let executor: SSExecutor
+    let obtainer: TestEnityObtainer
+    private(set) var updater: TPUpdater<TestProcessor, UpdateDelegate>?
+    private(set) var mutator: TPMutator<TestProcessor>?
+    let updateCenter: SSUpdateCenter
+    weak var updateDelegate: UpdateDelegate?
+    
+    var startOnEmptyEntity: Bool = true
+    
+    var onUtilStart: (()->Void)?
+    var onUtilStop: (()->Void)?
+    
+    init(obtainer mObtainer: TestEnityObtainer, executor mExecutor: SSExecutor, updateCenter mUpdateCenter: SSUpdateCenter) {
+        obtainer = mObtainer
+        executor = mExecutor
+        updateCenter = mUpdateCenter
+    }
+}
+
+extension TestProcessor: TestEntitySource {}
+
+extension TestProcessor: SSSingleEntityProcessing {
+    func createUpdaterAndMutator() {
+        updater = TPUpdater(receiversManager: updateCenter, source: self, delegate: updateDelegate!)
+        mutator = TPMutator(source: self)
+        
+        updater?.onStart = onUtilStart
+        updater?.onStop = onUtilStop
+        mutator?.onStart = onUtilStart
+        mutator?.onStop = onUtilStop
+        
+        updater?.delegate = updateDelegate
+        updater?.source = self
+        mutator?.source = self
+    }
+}
+
+extension TestProcessor {
+    class TPUpdater<TestSource: TestEntitySource, TestDelegate: TPUpdaterDelegate>: SSBaseEntityUpdating {
+        typealias Source = TestSource
+        typealias Delegate = TestDelegate
+        
+        var source: TestSource?
+        var delegate: TestDelegate?
+        var receiversManager: SSUpdateReceiversManaging
+        
+        var started = false
+        var onStart: (()->Void)?
+        var onStop: (()->Void)?
+        
+        init(receiversManager mReceiversManager: SSUpdateReceiversManaging, source mSource: TestSource, delegate mDelegate: TestDelegate) {
+            receiversManager = mReceiversManager
+            source = mSource
+            delegate = mDelegate
+        }
+        
+        func start() {
+            started = true
+            onStart?()
+        }
+        
+        func stop() {
+            started = false
+            onStop?()
+        }
+    }
+
+    class TPMutator<TestSource: SSMutatingEntitySource>: SSBaseEntityMutating {
+        var source: TestSource?
+        
+        var started = false
+        
+        var onStart: (()->Void)?
+        var onStop: (()->Void)?
+        
+        init(source mSource: TestSource) {
+            source = mSource
+        }
+        
+        func start() {
+            started = true
+            onStart?()
+        }
+        
+        func stop() {
+            started = false
+            onStop?()
+        }
+    }
+}

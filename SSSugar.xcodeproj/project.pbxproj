@@ -133,6 +133,7 @@
 		99991DC622E624F900F3D294 /* SSReleaseDecoratorDBExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99991DC522E624F900F3D294 /* SSReleaseDecoratorDBExtensions.swift */; };
 		99A2EE8D22CA5D30001B2B28 /* SSDataBaseConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A2EE8C22CA5D30001B2B28 /* SSDataBaseConnection.swift */; };
 		99A2EEA722CCFAFE001B2B28 /* SSDataBaseStatement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A2EEA622CCFAFE001B2B28 /* SSDataBaseStatement.swift */; };
+		99A6F9AB2476756F00DD3474 /* SSEntityUpdaterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A6F9AA2476756F00DD3474 /* SSEntityUpdaterTests.swift */; };
 		99AA28D223A295F700DA9C2F /* SSTaskProcessorExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AA28D123A295F700DA9C2F /* SSTaskProcessorExample.swift */; };
 		99AA28D423A2A05400DA9C2F /* SSGroupExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AA28D323A2A05400DA9C2F /* SSGroupExecutor.swift */; };
 		99AA28D623A2A88F00DA9C2F /* SSChainExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AA28D523A2A88F00DA9C2F /* SSChainExecutor.swift */; };
@@ -301,6 +302,7 @@
 		99991DC522E624F900F3D294 /* SSReleaseDecoratorDBExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSReleaseDecoratorDBExtensions.swift; sourceTree = "<group>"; };
 		99A2EE8C22CA5D30001B2B28 /* SSDataBaseConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDataBaseConnection.swift; sourceTree = "<group>"; };
 		99A2EEA622CCFAFE001B2B28 /* SSDataBaseStatement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDataBaseStatement.swift; sourceTree = "<group>"; };
+		99A6F9AA2476756F00DD3474 /* SSEntityUpdaterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSEntityUpdaterTests.swift; sourceTree = "<group>"; };
 		99AA28D123A295F700DA9C2F /* SSTaskProcessorExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSTaskProcessorExample.swift; sourceTree = "<group>"; };
 		99AA28D323A2A05400DA9C2F /* SSGroupExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSGroupExecutor.swift; sourceTree = "<group>"; };
 		99AA28D523A2A88F00DA9C2F /* SSChainExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSChainExecutor.swift; sourceTree = "<group>"; };
@@ -618,6 +620,7 @@
 				99584E72247412F100FB43AD /* SSUpdateCenterTests.swift */,
 				99584E7824754A0C00FB43AD /* SSSingleEntityProcessingTest.swift */,
 				99584E7A24754CD300FB43AD /* SSUpdatesHelpers.swift */,
+				99A6F9AA2476756F00DD3474 /* SSEntityUpdaterTests.swift */,
 			);
 			path = "Data Synchronisation";
 			sourceTree = "<group>";
@@ -1169,6 +1172,7 @@
 				2D7E5A58241FD0E5009EE074 /* RangeMiddleTests.swift in Sources */,
 				2DFE398E242E412D001B9AAE /* AutoMapIteratorInitMapTests.swift in Sources */,
 				2D7E5A59241FD0E5009EE074 /* ArrayForEachTests.swift in Sources */,
+				99A6F9AB2476756F00DD3474 /* SSEntityUpdaterTests.swift in Sources */,
 				2D7E5A5A241FD0E5009EE074 /* ArrayBinarySearchTests.swift in Sources */,
 				2D94676D242A378E00AC5637 /* SSChainExecutorTests.swift in Sources */,
 				2D7E5A5B241FD0E5009EE074 /* ArrayInitBuildBlockTests.swift in Sources */,

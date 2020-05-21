@@ -42,7 +42,7 @@ internal class SSUETaskUpdater<TaskSource: SSUETaskSource, TaskDelegate: SSUETas
     typealias Delegate = TaskDelegate
     
     /// Collected Task updates (uses in `apply()`)
-    var updates = [()->Void]()
+    var collectedUpdates = [CollectableUpdate]()
     var receiversManager: SSUpdateReceiversManaging
     
     weak var delegate: TaskDelegate?
@@ -62,6 +62,8 @@ internal class SSUETaskUpdater<TaskSource: SSUETaskSource, TaskDelegate: SSUETas
     }
 }
 
+extension SSUETaskUpdater: SSUpdateApplying {}
+
 extension SSUETaskUpdater: SSUETaskUpdateReceiver {
     func taskDidIncrementPages(taskID: Int, marker: String?) {
         func increment() {
@@ -72,7 +74,7 @@ extension SSUETaskUpdater: SSUETaskUpdateReceiver {
                 delegate?.updater(self, didIncrementPages: old)
             }
         }
-        updates.append(increment)
+        collect(update: increment)
     }
 
     func taskDidRename(taskID: Int, title: String, marker: String?) {
@@ -84,7 +86,7 @@ extension SSUETaskUpdater: SSUETaskUpdateReceiver {
                 delegate?.updater(self, didRenameTask: old)
             }
         }
-        updates.append(rename)
+        collect(update: rename)
     }
 
     func taskDidRemove(taskID: Int, marker: String?) {
@@ -93,11 +95,6 @@ extension SSUETaskUpdater: SSUETaskUpdateReceiver {
                 delegate?.updaterDidRemoveTask(self)
             }
         }
-        updates.append(remove)
-    }
-    
-    func apply() {
-        updates.forEach { $0() }
-        updates.removeAll()
+        collect(update: remove)
     }
 }

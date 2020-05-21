@@ -64,3 +64,22 @@ extension SSBaseEntityUpdating where Self: SSUpdateReceiver {
         receiversManager.removeReceiver(self)
     }
 }
+
+/// Protocol-helper, contains updates collecting and applying logic.
+///
+/// Usefull to extend some `SSUpdateReceiver` implementator.
+public protocol SSUpdateApplying: AnyObject {
+    typealias CollectableUpdate = ()->Void
+    var collectedUpdates: [CollectableUpdate] {get set}
+}
+
+extension SSUpdateApplying {
+    public func collect(update: @escaping CollectableUpdate) {
+        collectedUpdates.append(update)
+    }
+    
+    public func apply() {
+        collectedUpdates.forEach { $0() }
+        collectedUpdates.removeAll()
+    }
+}

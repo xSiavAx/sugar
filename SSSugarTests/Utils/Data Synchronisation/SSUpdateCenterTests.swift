@@ -3,11 +3,14 @@ import XCTest
 
 @testable import SSSugar
 
+/// `SSUpdater` tests.
+///
 /// # Test plan
 ///
 /// # As Notifier
 /// * One notification -> got on BG -> Apply on Main
 /// * Several notifications -> got on BG -> Apply on Main
+/// * Two updaters with different identifiers
 ///
 /// # As Receiver Manager
 /// * Notify -> Not Received
@@ -60,6 +63,39 @@ class SSUpdateCenterTest: XCTestCase {
         }
         XCTAssert(expectedUpdates == receiver.collectedUpdates)
         updater.removeReceiver(receiver)
+    }
+    
+    func testMultipleUpdaters() {
+        let otherUpdater = SSUpdater(withIdentifier: "testing_other")
+        
+        let receiver = createReceiver()
+        let otherReceiver = createReceiver()
+        let update = TestUpdatesReceiver.firstUpdate()
+        let expectedUpdates = [update.name]
+        
+        updater.addReceiver(receiver)
+        otherUpdater.addReceiver(otherReceiver)
+        
+        wait { (exp) in
+            notify([update]) {
+                exp.fulfill()
+            }
+        }
+        XCTAssert(expectedUpdates == receiver.collectedUpdates)
+        XCTAssert(!otherReceiver.updated)
+        receiver.updated = false
+        
+        wait { (exp) in
+            notify(via: otherUpdater, updates: [update]) {
+                exp.fulfill()
+            }
+        }
+        
+        XCTAssert(expectedUpdates == otherReceiver.collectedUpdates)
+        XCTAssert(!receiver.updated)
+        
+        updater.removeReceiver(receiver)
+        otherUpdater.removeReceiver(otherReceiver)
     }
     
     func testNotNotified() {
@@ -125,6 +161,10 @@ class SSUpdateCenterTest: XCTestCase {
     }
     
     func notify(_ updates: [SSUpdate], onApply: @escaping ()->Void) {
+        notify(via: updater, updates: updates, onApply: onApply)
+    }
+    
+    func notify(via updater: SSUpdater, updates: [SSUpdate], onApply: @escaping ()->Void) {
         func notify() {
             if (updates.count == 1) {
                 updater.notify(update: updates.first!, onApply: onApply)
@@ -184,15 +224,5 @@ extension TestUpdatesReceiver: SSMarkerGenerating {
     
     static func secondUpdate() -> SSUpdate {
         return SSUpdate(name: "test_notification_2", marker: Self.newMarker())
-    }
-}
-
-extension SSUpdate {
-    #warning("Move me to Updater tests")
-    func hasSameArgs(as other: SSUpdate) -> Bool {
-        if name != other.name || args.count != other.args.count {
-            return false
-        }
-        return NSDictionary(dictionary: self.args).isEqual(to: other.args)
     }
 }
