@@ -3,7 +3,7 @@ import XCTest
 
 @testable import SSSugar
 
-/// Extensions of `SSBaseEntityUpdating` protocols tests.
+/// `SSBaseEntityUpdating` extension protocols tests.
 ///
 /// # Tests plan
 ///
@@ -14,13 +14,13 @@ class SSEntityUpdaterTests: XCTestCase, SSMarkerGenerating {
     var updateCenter: SSUpdater!
     var source: TestSomeEntitySource!
     var delegate: TestSomeUpdaterDelegate!
-    var updater: TestUpdater<TestSomeEntitySource, TestSomeUpdaterDelegate>!
+    var updater: UTUpdater<TestSomeEntitySource, TestSomeUpdaterDelegate>!
     
     override func setUp() {
         updateCenter = SSUpdater(withIdentifier: "updater_tests")
         source = TestSomeEntitySource()
         delegate = TestSomeUpdaterDelegate()
-        updater = TestUpdater(receiversManager: updateCenter, source: source, delegate: delegate)
+        updater = UTUpdater(receiversManager: updateCenter, source: source, delegate: delegate)
     }
     
     func testNotStartedNotReceived() {
@@ -89,7 +89,7 @@ class SSEntityUpdaterTests: XCTestCase, SSMarkerGenerating {
     }
 }
 
-class TestUpdater<TestSource: TestEntitySource, TestDelegate: TestUpdaterDelegate>: SSBaseEntityUpdating {
+class UTUpdater<TestSource: TestEntitySource, TestDelegate: TestUpdaterDelegate>: SSBaseEntityUpdating {
     typealias Source = TestSource
     typealias Delegate = TestDelegate
     
@@ -107,11 +107,9 @@ class TestUpdater<TestSource: TestEntitySource, TestDelegate: TestUpdaterDelegat
     }
 }
 
-class TestSomeUpdaterDelegate: TestUpdaterDelegate {
-    
-}
+class TestSomeUpdaterDelegate: TestUpdaterDelegate {}
 
-extension TestUpdater: TestUpdateReceiver {
+extension UTUpdater: UTUpdateReceiver {
     func updateDidReceive() {
         received = true
     }
@@ -123,11 +121,11 @@ extension TestUpdater: TestUpdateReceiver {
 
 protocol TestUpdaterDelegate: SSEntityUpdaterDelegate {}
 
-protocol TestUpdateReceiver: SSUpdateReceiver {
+protocol UTUpdateReceiver: SSUpdateReceiver {
     func updateDidReceive()
 }
 
-extension TestUpdateReceiver {
+extension UTUpdateReceiver {
     func reactions() -> SSUpdate.ReactionMap {
         return ["test_notification" : updateReceived(_:)]
     }

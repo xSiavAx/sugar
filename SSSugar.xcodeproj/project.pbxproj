@@ -134,6 +134,7 @@
 		99A2EE8D22CA5D30001B2B28 /* SSDataBaseConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A2EE8C22CA5D30001B2B28 /* SSDataBaseConnection.swift */; };
 		99A2EEA722CCFAFE001B2B28 /* SSDataBaseStatement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A2EEA622CCFAFE001B2B28 /* SSDataBaseStatement.swift */; };
 		99A6F9AB2476756F00DD3474 /* SSEntityUpdaterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A6F9AA2476756F00DD3474 /* SSEntityUpdaterTests.swift */; };
+		99A6F9AD2476924D00DD3474 /* SSUpdateReceiverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99A6F9AC2476924D00DD3474 /* SSUpdateReceiverTests.swift */; };
 		99AA28D223A295F700DA9C2F /* SSTaskProcessorExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AA28D123A295F700DA9C2F /* SSTaskProcessorExample.swift */; };
 		99AA28D423A2A05400DA9C2F /* SSGroupExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AA28D323A2A05400DA9C2F /* SSGroupExecutor.swift */; };
 		99AA28D623A2A88F00DA9C2F /* SSChainExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99AA28D523A2A88F00DA9C2F /* SSChainExecutor.swift */; };
@@ -303,6 +304,7 @@
 		99A2EE8C22CA5D30001B2B28 /* SSDataBaseConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDataBaseConnection.swift; sourceTree = "<group>"; };
 		99A2EEA622CCFAFE001B2B28 /* SSDataBaseStatement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDataBaseStatement.swift; sourceTree = "<group>"; };
 		99A6F9AA2476756F00DD3474 /* SSEntityUpdaterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSEntityUpdaterTests.swift; sourceTree = "<group>"; };
+		99A6F9AC2476924D00DD3474 /* SSUpdateReceiverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUpdateReceiverTests.swift; sourceTree = "<group>"; };
 		99AA28D123A295F700DA9C2F /* SSTaskProcessorExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSTaskProcessorExample.swift; sourceTree = "<group>"; };
 		99AA28D323A2A05400DA9C2F /* SSGroupExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSGroupExecutor.swift; sourceTree = "<group>"; };
 		99AA28D523A2A88F00DA9C2F /* SSChainExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSChainExecutor.swift; sourceTree = "<group>"; };
@@ -621,6 +623,7 @@
 				99584E7824754A0C00FB43AD /* SSSingleEntityProcessingTest.swift */,
 				99584E7A24754CD300FB43AD /* SSUpdatesHelpers.swift */,
 				99A6F9AA2476756F00DD3474 /* SSEntityUpdaterTests.swift */,
+				99A6F9AC2476924D00DD3474 /* SSUpdateReceiverTests.swift */,
 			);
 			path = "Data Synchronisation";
 			sourceTree = "<group>";
@@ -1166,6 +1169,7 @@
 				2D207BB324379349001D808E /* CGPointUnaryMinusTests.swift in Sources */,
 				2D3043C02437369500EBD898 /* CGSizeBinaryMinusOperatorTests.swift in Sources */,
 				2D7E5A57241FD0E5009EE074 /* UIColorInitTests.swift in Sources */,
+				99A6F9AD2476924D00DD3474 /* SSUpdateReceiverTests.swift in Sources */,
 				2DF4E966243326F8005CF7A2 /* UIViewControllerShowErrorAlertTests.swift in Sources */,
 				99584E7B24754CD300FB43AD /* SSUpdatesHelpers.swift in Sources */,
 				2D78DB1B242D519800D77DD1 /* AutoMapEqualityOperatorTests.swift in Sources */,
