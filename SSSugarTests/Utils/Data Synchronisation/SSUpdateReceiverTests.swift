@@ -24,45 +24,58 @@ class SSUpdateReceiverTests: XCTestCase, TestUpdate {
     }
     
     func testUpdate() {
+        let receives: [SomeTestUpdateReceiver.Received] = [.first]
+        let notifications = [firstUpdate()]
+        
         wait { (exp) in
-            notify([firstUpdate()], exp: exp)
+            notify(notifications, exp: exp, receives: receives)
         }
-        check([.first])
+        check(receives)
     }
     
     func testTwoUpdates() {
+        let receives: [SomeTestUpdateReceiver.Received] = [.first, .second]
+        let notifications = [firstUpdate(), secondUpdate()]
+        
         wait { (exp) in
-            notify([firstUpdate(), secondUpdate()], exp: exp)
+            notify(notifications, exp: exp, receives: receives)
         }
-        check([.first, .second])
+        check(receives)
     }
     
     func testSingleArgUpdate() {
+        let receives: [SomeTestUpdateReceiver.Received] = [.withArg(arg: true)]
+        let notifications = [oneArgUpdate(arg: true)]
+        
         wait { (exp) in
-            notify([oneArgUpdate(arg: true)], exp: exp)
+            notify(notifications, exp: exp, receives: receives)
         }
-        check([.withArg(arg: true)])
+        check(receives)
     }
     
     func testMultipleArgsUpdate() {
+        let receives: [SomeTestUpdateReceiver.Received] = [.withMultipleArg(first: false, second: 5, third: ["lol"])]
+        let notifications = [multipleArgsUpdate(first: false, second: 5, third: ["lol"])]
+        
         wait { (exp) in
-            notify([multipleArgsUpdate(first: false, second: 5, third: ["lol"])], exp: exp)
+            notify(notifications, exp: exp, receives: receives)
         }
-        check([.withMultipleArg(first: false, second: 5, third: ["lol"])])
+        check(receives)
     }
     
-    func notify(_ updates: [SSUpdate], exp: XCTestExpectation) {
+    func notify(_ updates: [SSUpdate], exp: XCTestExpectation, receives: [SomeTestUpdateReceiver.Received]) {
         func onBG() {
             center.notify(updates: updates) {
                 exp.fulfill()
             }
+            XCTAssert(receiver.recives == receives)
+            XCTAssert(receiver.applies == [])
         }
         DispatchQueue.bg.async(execute: onBG)
     }
     
-    func check(_ receives: [SomeTestUpdateReceiver.Received]) {
-        XCTAssert(receiver.recives == receives)
-        XCTAssert(receiver.applied)
+    func check(_ applies: [SomeTestUpdateReceiver.Received]) {
+        XCTAssert(receiver.applies == applies)
         receiver.reset()
     }
 }
@@ -74,7 +87,7 @@ protocol TestUpdateReceiver: SSUpdateReceiver {
     func updateWithMultipleArgsDidReceive(first: Bool, second: Int, third: [String])
 }
 
-class SomeTestUpdateReceiver: TestUpdateReceiver {
+class SomeTestUpdateReceiver: TestUpdateReceiver, SSUpdateApplying {
     enum Received: Equatable {
         case first
         case second
@@ -83,31 +96,43 @@ class SomeTestUpdateReceiver: TestUpdateReceiver {
     }
     
     var recives = [Received]()
-    var applied = false
+    var applies = [Received]()
+    var collectedUpdates = [CollectableUpdate]()
     
     func firstUpdateDidReceive() {
+        func onApply() {
+            applies.append(.first)
+        }
         recives.append(.first)
+        collect(update: onApply)
     }
     
     func secondUpdateDidReceive() {
+        func onApply() {
+            applies.append(.second)
+        }
         recives.append(.second)
+        collect(update: onApply)
     }
     
     func updateWithArgDidReceive(arg: Bool) {
+        func onApply() {
+            applies.append(.withArg(arg: arg))
+        }
         recives.append(.withArg(arg: arg))
+        collect(update: onApply)
     }
     
     func updateWithMultipleArgsDidReceive(first: Bool, second: Int, third: [String]) {
+        func onApply() {
+            applies.append(.withMultipleArg(first: first, second: second, third: third))
+        }
         recives.append(.withMultipleArg(first: first, second: second, third: third))
-    }
-    
-    func apply() {
-        applied = true
+        collect(update: onApply)
     }
     
     func reset() {
         recives.removeAll()
-        applied = false
     }
 }
 
