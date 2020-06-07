@@ -619,9 +619,9 @@
 		99584E71247412C500FB43AD /* Data Synchronisation */ = {
 			isa = PBXGroup;
 			children = (
+				99584E7A24754CD300FB43AD /* SSUpdatesHelpers.swift */,
 				99584E72247412F100FB43AD /* SSUpdateCenterTests.swift */,
 				99584E7824754A0C00FB43AD /* SSSingleEntityProcessingTest.swift */,
-				99584E7A24754CD300FB43AD /* SSUpdatesHelpers.swift */,
 				99A6F9AA2476756F00DD3474 /* SSEntityUpdaterTests.swift */,
 				99A6F9AC2476924D00DD3474 /* SSUpdateReceiverTests.swift */,
 			);

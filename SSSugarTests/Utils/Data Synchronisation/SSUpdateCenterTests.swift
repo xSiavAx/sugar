@@ -14,8 +14,8 @@ import XCTest
 ///
 /// # As Receiver Manager
 /// * Notify -> Not Received
-/// * Subscrive two listeners -> Notify -> Received both
-/// * Subscrive -> Unsubscrive -> Notify -> Not Received
+/// * Subscribe two listeners -> Notify -> Received both
+/// * Subscribe -> Unsubscrive -> Notify -> Not Received
 /// * Unsubscribe -> Nothing
 class SSUpdateCenterTest: XCTestCase {
     let updater = SSUpdater(withIdentifier: "testing")

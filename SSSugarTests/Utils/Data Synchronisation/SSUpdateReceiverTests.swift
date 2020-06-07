@@ -9,7 +9,62 @@ import XCTest
 /// * Several updates
 /// * Update with single argument
 /// * Update with multiple arguments
-class SSUpdateReceiverTests: XCTestCase {
+class SSUpdateReceiverTests: XCTestCase, TestUpdate {
+    var receiver: SomeTestUpdateReceiver!
+    var center = SSUpdater()
+    
+    override func setUp() {
+        receiver = SomeTestUpdateReceiver()
+        
+        center.addReceiver(receiver)
+    }
+    
+    override func tearDown() {
+        center.removeReceiver(receiver)
+    }
+    
+    func testUpdate() {
+        wait { (exp) in
+            notify([firstUpdate()], exp: exp)
+        }
+        check([.first])
+    }
+    
+    func testTwoUpdates() {
+        wait { (exp) in
+            notify([firstUpdate(), secondUpdate()], exp: exp)
+        }
+        check([.first, .second])
+    }
+    
+    func testSingleArgUpdate() {
+        wait { (exp) in
+            notify([oneArgUpdate(arg: true)], exp: exp)
+        }
+        check([.withArg(arg: true)])
+    }
+    
+    func testMultipleArgsUpdate() {
+        wait { (exp) in
+            notify([multipleArgsUpdate(first: false, second: 5, third: ["lol"])], exp: exp)
+        }
+        check([.withMultipleArg(first: false, second: 5, third: ["lol"])])
+    }
+    
+    func notify(_ updates: [SSUpdate], exp: XCTestExpectation) {
+        func onBG() {
+            center.notify(updates: updates) {
+                exp.fulfill()
+            }
+        }
+        DispatchQueue.bg.async(execute: onBG)
+    }
+    
+    func check(_ receives: [SomeTestUpdateReceiver.Received]) {
+        XCTAssert(receiver.recives == receives)
+        XCTAssert(receiver.applied)
+        receiver.reset()
+    }
 }
 
 protocol TestUpdateReceiver: SSUpdateReceiver {
@@ -17,6 +72,43 @@ protocol TestUpdateReceiver: SSUpdateReceiver {
     func secondUpdateDidReceive()
     func updateWithArgDidReceive(arg: Bool)
     func updateWithMultipleArgsDidReceive(first: Bool, second: Int, third: [String])
+}
+
+class SomeTestUpdateReceiver: TestUpdateReceiver {
+    enum Received: Equatable {
+        case first
+        case second
+        case withArg(arg: Bool)
+        case withMultipleArg(first: Bool, second: Int, third: [String])
+    }
+    
+    var recives = [Received]()
+    var applied = false
+    
+    func firstUpdateDidReceive() {
+        recives.append(.first)
+    }
+    
+    func secondUpdateDidReceive() {
+        recives.append(.second)
+    }
+    
+    func updateWithArgDidReceive(arg: Bool) {
+        recives.append(.withArg(arg: arg))
+    }
+    
+    func updateWithMultipleArgsDidReceive(first: Bool, second: Int, third: [String]) {
+        recives.append(.withMultipleArg(first: first, second: second, third: third))
+    }
+    
+    func apply() {
+        applied = true
+    }
+    
+    func reset() {
+        recives.removeAll()
+        applied = false
+    }
 }
 
 protocol TestUpdate: SSMarkerGenerating {
@@ -96,7 +188,6 @@ extension TestUpdateReceiver {
         updateWithMultipleArgsDidReceive(first: first, second: second, third: third)
     }
 }
-
 
 //extension SSUpdate {
 //    #warning("Move me to Updater tests")
