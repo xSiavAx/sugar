@@ -1,10 +1,9 @@
 import Foundation
 @testable import SSSugar
 
-
 class TestEntity {}
 
-protocol TestEntitySource: SSUpdaterEntitySource where Entity == TestEntity {}
+protocol TestEntitySource: SSUpdaterEntitySource, SSMutatingEntitySource where Entity == TestEntity {}
 
 protocol TPUpdaterDelegate: SSEntityUpdaterDelegate {}
 
@@ -28,4 +27,12 @@ class TestSomeEntitySource: TestEntitySource {
     func entity<Updater : SSBaseEntityUpdating>(for updater: Updater) -> TestEntity? {
         return entity
     }
+    
+    func entity<Mutating>(for mutator: Mutating) -> TestEntity? where Mutating : SSBaseEntityMutating {
+        return entity
+    }
+}
+
+enum TestMutatorError: Error {
+    case mutatorError
 }

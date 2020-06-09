@@ -35,7 +35,6 @@ open class SSEntityDBMutator<Source: SSMutatingEntitySource> {
             } catch {
                 onMain { handler(error) }
             }
-            
         }
         executor.execute(work)
     }

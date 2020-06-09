@@ -172,6 +172,7 @@
 		99E36E4923225DB6005E6C05 /* SSCertificatesObtainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E36E4823225DB6005E6C05 /* SSCertificatesObtainer.swift */; };
 		99E36E7723293933005E6C05 /* SSSugar.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 99E36E7623293932005E6C05 /* SSSugar.podspec */; };
 		99E3BA4122FB26290023D9AE /* SSCopying.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E3BA4022FB26290023D9AE /* SSCopying.swift */; };
+		99E3CE68248D20FD005CDE8A /* SSEntityStorageMutatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E3CE67248D20FD005CDE8A /* SSEntityStorageMutatorTests.swift */; };
 		99E85E292240F3A0005E2B13 /* SSCollectionViewMarkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E85E282240F3A0005E2B13 /* SSCollectionViewMarkable.swift */; };
 		99E85E2B2240F5AC005E2B13 /* SSCollectionViewMarkableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E85E2A2240F5AC005E2B13 /* SSCollectionViewMarkableController.swift */; };
 		99E85E2D224103C6005E2B13 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E85E2C224103C6005E2B13 /* Array.swift */; };
@@ -356,6 +357,7 @@
 		99E36E4823225DB6005E6C05 /* SSCertificatesObtainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCertificatesObtainer.swift; sourceTree = "<group>"; };
 		99E36E7623293932005E6C05 /* SSSugar.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = SSSugar.podspec; sourceTree = "<group>"; };
 		99E3BA4022FB26290023D9AE /* SSCopying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCopying.swift; sourceTree = "<group>"; };
+		99E3CE67248D20FD005CDE8A /* SSEntityStorageMutatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSEntityStorageMutatorTests.swift; sourceTree = "<group>"; };
 		99E85E282240F3A0005E2B13 /* SSCollectionViewMarkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkable.swift; sourceTree = "<group>"; };
 		99E85E2A2240F5AC005E2B13 /* SSCollectionViewMarkableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableController.swift; sourceTree = "<group>"; };
 		99E85E2C224103C6005E2B13 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
@@ -624,6 +626,7 @@
 				99584E7824754A0C00FB43AD /* SSSingleEntityProcessingTest.swift */,
 				99A6F9AA2476756F00DD3474 /* SSEntityUpdaterTests.swift */,
 				99A6F9AC2476924D00DD3474 /* SSUpdateReceiverTests.swift */,
+				99E3CE67248D20FD005CDE8A /* SSEntityStorageMutatorTests.swift */,
 			);
 			path = "Data Synchronisation";
 			sourceTree = "<group>";
@@ -1180,6 +1183,7 @@
 				2D7E5A5A241FD0E5009EE074 /* ArrayBinarySearchTests.swift in Sources */,
 				2D94676D242A378E00AC5637 /* SSChainExecutorTests.swift in Sources */,
 				2D7E5A5B241FD0E5009EE074 /* ArrayInitBuildBlockTests.swift in Sources */,
+				99E3CE68248D20FD005CDE8A /* SSEntityStorageMutatorTests.swift in Sources */,
 				2D7E5A5C241FD0E5009EE074 /* AutoMapAddContainerTests.swift in Sources */,
 				2D7E5A5E241FD0E5009EE074 /* AutoMapSubscriptKeyTests.swift in Sources */,
 				2D4F5E282434E197003EF8D4 /* UIViewControllerDismissPresentedAnimatedOnFinishTests.swift in Sources */,
