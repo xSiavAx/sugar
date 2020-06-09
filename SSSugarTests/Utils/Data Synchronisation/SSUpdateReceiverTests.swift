@@ -80,14 +80,14 @@ class SSUpdateReceiverTests: XCTestCase, TestUpdate {
     }
 }
 
-protocol TestUpdateReceiver: SSUpdateReceiver {
+protocol URTUpdateReceiver: SSUpdateReceiver {
     func firstUpdateDidReceive()
     func secondUpdateDidReceive()
     func updateWithArgDidReceive(arg: Bool)
     func updateWithMultipleArgsDidReceive(first: Bool, second: Int, third: [String])
 }
 
-class SomeTestUpdateReceiver: TestUpdateReceiver, SSUpdateApplying {
+class SomeTestUpdateReceiver: URTUpdateReceiver, SSUpdateApplying {
     enum Received: Equatable {
         case first
         case second
@@ -177,7 +177,7 @@ extension TestUpdate {
     }
 }
 
-extension TestUpdateReceiver {
+extension URTUpdateReceiver {
     func reactions() -> SSUpdate.ReactionMap {
         return testReactions()
     }

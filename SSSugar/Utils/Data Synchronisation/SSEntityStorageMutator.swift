@@ -41,7 +41,7 @@ open class SSEntityDBMutator<Source: SSMutatingEntitySource> {
 }
 
 extension SSEntityDBMutator: SSBaseEntityMutating {
-    #warning("TODO: Add started/stopped logic?")
+    #warning("TODO: Add started/stopped logic (like in Remote)?")
     public func start() {}
     
     public func stop() {}

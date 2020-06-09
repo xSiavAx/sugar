@@ -73,9 +73,9 @@ internal protocol SSUETaskEditApi {
 /// Async api for task altering.
 /// It may be Network proxing.
 internal protocol SSUETaskEditAsyncApi {
-    func renameTask(taskID: Int, title: String, marker: String, handler: (Error?)->Void)
-    func removeTask(taskID: Int, marker: String, handler: (Error?)->Void)
-    func incrementPages(taskID: Int, marker: String, handler: (Error?)->Void)
+    func renameTask(taskID: Int, title: String, marker: String, handler: @escaping (Error?)->Void)
+    func removeTask(taskID: Int, marker: String, handler: @escaping (Error?)->Void)
+    func incrementPages(taskID: Int, marker: String, handler: @escaping (Error?)->Void)
 }
 
 extension SSUETaskUpdate {

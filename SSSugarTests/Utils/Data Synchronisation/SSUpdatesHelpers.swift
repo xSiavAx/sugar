@@ -30,12 +30,32 @@ protocol TestUpdateProducer {
 }
 
 extension TestUpdateProducer {
+    static var updateTitle: String {"test_update"}
+    
     func produceUpdate(marker: String) -> SSUpdate {
-        return SSUpdate(name: "test_update", marker: marker)
+        return SSUpdate(name: Self.updateTitle, marker: marker)
     }
 }
 
 protocol TestEntitySource: SSUpdaterEntitySource, SSMutatingEntitySource where Entity == TestEntity {}
+
+protocol TestUpdateReceiver: SSUpdateReceiver, TestUpdateProducer {
+    func onUpdate(marker: String)
+}
+
+extension TestUpdateReceiver {
+    private func onReceive(_ update: SSUpdate) {
+        onUpdate(marker: update.marker)
+    }
+    
+    func reactions() -> SSUpdate.ReactionMap {
+        return testReactions()
+    }
+    
+    func testReactions() -> SSUpdate.ReactionMap {
+        return [Self.updateTitle : onReceive]
+    }
+}
 
 protocol TPUpdaterDelegate: SSEntityUpdaterDelegate {}
 

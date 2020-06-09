@@ -18,7 +18,7 @@ internal class SSUETaskRemoteMutator<TaskSource: SSMutatingEntitySource>: SSEnti
     ///   - taskID: Mutating task id
     ///   - marker: Modification marker
     ///   - handler: Finish handler.
-    private typealias TaskAsyncJob = (_ taskdID: Int, _ marker: String, _ handler: Handler)->Void
+    private typealias TaskAsyncJob = (_ taskdID: Int, _ marker: String, _ handler: @escaping Handler)->Void
     /// Task newtwork edit API
     internal let api: SSUETaskEditAsyncApi
     
@@ -26,39 +26,43 @@ internal class SSUETaskRemoteMutator<TaskSource: SSMutatingEntitySource>: SSEnti
     /// - Parameters:
     ///   - api: Task Edit asynchroniously API (newtwork API)
     ///   - manager: Update receiver's manager
-    internal init(api mApi: SSUETaskEditAsyncApi, manager: SSUpdateReceiversManaging) {
+    internal init(api mApi: SSUETaskEditAsyncApi, manager: SSUpdateReceiversManaging, source: TaskSource) {
         api = mApi
-        super.init(manager: manager)
+        super.init(manager: manager, source: source)
     }
     
     /// Warpper that helps mutate task. It uses super's `mutate(job:handler:)` method.
     /// - Parameters:
     ///   - taskJob: Task mutating job to execute.
     ///   - handler: Finish handler.
-    private func mutate(taskJob: @escaping TaskAsyncJob, handler: @escaping Handler) {
+    private func mutate(taskJob: @escaping TaskAsyncJob, handler: @escaping Handler) throws {
         if let task = source?.entity(for: self) {
-            func job(marker: String, handler: Handler) {
+            func job(marker: String, handler: @escaping Handler) {
                 taskJob(task.taskID, marker, handler)
             }
-            mutate(job: job(marker:handler:), handler: handler)
+            try mutate(job: job(marker:handler:), handler: handler)
         }
+    }
+    
+    override func reactions() -> SSUpdate.ReactionMap {
+        return taskReactions()
     }
 }
 
 extension SSUETaskRemoteMutator: SSUETaskMutator {
-    public func increment(_ handler: @escaping Handler) {
-        mutate(taskJob: api.incrementPages(taskID:marker:handler:), handler: handler)
+    public func increment(_ handler: @escaping Handler) throws {
+        try mutate(taskJob: api.incrementPages(taskID:marker:handler:), handler: handler)
     }
     
-    public func rename(new name: String, _ handler: @escaping Handler) {
-        func rename(taskID: Int, marker: String, handler: Handler) {
+    public func rename(new name: String, _ handler: @escaping Handler) throws {
+        func rename(taskID: Int, marker: String, handler: @escaping Handler) {
             api.renameTask(taskID: taskID, title: name, marker: marker, handler: handler)
         }
-        mutate(taskJob: rename(taskID:marker:handler:), handler: handler)
+        try mutate(taskJob: rename(taskID:marker:handler:), handler: handler)
     }
     
-    public func remove(_ handler: @escaping Handler) {
-        mutate(taskJob: api.removeTask(taskID:marker:handler:), handler: handler)
+    public func remove(_ handler: @escaping Handler) throws {
+        try mutate(taskJob: api.removeTask(taskID:marker:handler:), handler: handler)
     }
 }
 
