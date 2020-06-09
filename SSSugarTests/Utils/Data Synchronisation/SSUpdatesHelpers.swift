@@ -3,6 +3,38 @@ import Foundation
 
 class TestEntity {}
 
+class TestDataModifyCore: SSDataModifyCore, TestUpdateProducer, SSMarkerGenerating, SSCopying {
+    init() {}
+    
+    required init(copy other: TestDataModifyCore) {}
+    
+    func toUpdate() -> SSUpdate {
+        return produceUpdate(marker: Self.newMarker())
+    }
+}
+
+class TestRequest: SSCoredModify<TestDataModifyCore> {
+    override var title: String { "test_request" }
+    
+    init() {
+        super.init(core: TestDataModifyCore())
+    }
+    
+    required init(copy other: SSModify) {
+        super.init(copy: other)
+    }
+}
+
+protocol TestUpdateProducer {
+    func produceUpdate(marker: String) -> SSUpdate
+}
+
+extension TestUpdateProducer {
+    func produceUpdate(marker: String) -> SSUpdate {
+        return SSUpdate(name: "test_update", marker: marker)
+    }
+}
+
 protocol TestEntitySource: SSUpdaterEntitySource, SSMutatingEntitySource where Entity == TestEntity {}
 
 protocol TPUpdaterDelegate: SSEntityUpdaterDelegate {}

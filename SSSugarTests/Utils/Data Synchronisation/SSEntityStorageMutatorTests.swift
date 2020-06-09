@@ -56,10 +56,10 @@ class SSEntityStorageMutatorTests: XCTestCase {
     }
 }
 
-class TestStorageMutator: SSEntityDBMutator<TestSomeEntitySource> {
+class TestStorageMutator: SSEntityDBMutator<TestSomeEntitySource>, TestUpdateProducer {
     func action(_ handler: @escaping (Error?)->Void) {
         func job(marker: String) -> SSUpdate {
-            return SSUpdate(name: "test_update", marker: marker)
+            return produceUpdate(marker: marker)
         }
         mutate(job: job(marker:), handler: handler)
     }

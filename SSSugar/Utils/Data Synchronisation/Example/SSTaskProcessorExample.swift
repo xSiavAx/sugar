@@ -94,9 +94,7 @@ class SSUETaskBatchApplier: SSDmBatchApplier {
                 if (!failIndex.isEmpty) {
                     handler(.invalidData(indexes:failIndex))
                 } else {
-                    print("Start apply")
                     func apply(_ request: Request) {
-                        print("On \(revNumber) applly: \(request.title)")
                         let core = request.core as! SSUETaskDMCore
                         
                         switch request.title {
@@ -113,7 +111,6 @@ class SSUETaskBatchApplier: SSDmBatchApplier {
                         }
                     }
                     batches.forEach { $0.requests.forEach(apply(_:)) }
-                    print("End apply")
                     handler(nil)
                 }
             }
