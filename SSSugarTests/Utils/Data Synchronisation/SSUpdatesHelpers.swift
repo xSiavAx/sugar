@@ -13,8 +13,12 @@ class TestDataModifyCore: SSDataModifyCore, TestUpdateProducer, SSMarkerGenerati
     }
 }
 
-class TestRequest: SSCoredModify<TestDataModifyCore> {
-    override var title: String { "test_request" }
+class TestRequest: SSCoredModify<TestDataModifyCore>, SSDmRequest {
+    static var title: String = "test_request"
+    override var title: String { Self.title }
+    var adaptResult = SSDmToChangeAdaptResult.passed
+    var identifier: Int?
+    var adapted = false
     
     init() {
         super.init(core: TestDataModifyCore())
@@ -22,6 +26,67 @@ class TestRequest: SSCoredModify<TestDataModifyCore> {
     
     required init(copy other: SSModify) {
         super.init(copy: other)
+        identifier = (other as! Self).identifier
+    }
+}
+
+extension TestRequest: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(identifier)
+        hasher.combine(adaptResult)
+        hasher.combine(title)
+    }
+}
+
+extension TestRequest: Equatable {
+    static func == (lhs: TestRequest, rhs: TestRequest) -> Bool {
+        return lhs.hashValue == rhs.hashValue &&
+            lhs.identifier == rhs.identifier &&
+            lhs.adaptResult == rhs.adaptResult &&
+            lhs.title == rhs.title
+    }
+}
+
+class TestChange: SSCoredModify<TestDataModifyCore>, SSDmChange {
+    static var title: String = "test_change"
+    override var title: String { Self.title }
+    var affectsAdaptation = true
+    
+    init() {
+        super.init(core: TestDataModifyCore())
+    }
+    
+    required init(copy other: SSModify) {
+        super.init(copy: other)
+    }
+}
+
+class TestAnotherChange: SSCoredModify<TestDataModifyCore>, SSDmChange {
+    static var title: String = "test_another_change"
+    override var title: String { Self.title }
+    
+    init() {
+        super.init(core: TestDataModifyCore())
+    }
+    
+    required init(copy other: SSModify) {
+        super.init(copy: other)
+    }
+}
+
+protocol ToTestChangeAdapating {
+    func adaptToTestChange(_ change: TestChange) -> SSDmToChangeAdaptResult
+}
+
+extension TestRequest: ToTestChangeAdapating {
+    func adaptToTestChange(_ change: TestChange) -> SSDmToChangeAdaptResult {
+        if (change.affectsAdaptation) {
+            if (adaptResult == .adapted) {
+                adapted = true
+            }
+            return adaptResult
+        }
+        return .passed
     }
 }
 

@@ -60,9 +60,9 @@ public protocol SSDmBatchAdapting {
     /// - Parameters:
     ///   - batch: Batch to adpat.
     ///   - revisions: revisions sequence to adpat by.
-    /// - Returns: Adaptation error if occur. (See `SSDmBatchAdaptError` for more info).///
+    /// - Returns: Adaptation error if occur. (See `SSDmBatchAdaptError` for more info).
     /// # Default Implementation
-    /// For each revision and for each reviosion's change picks adaptaion strategy and applies to each request of Batch.
+    /// For each revision and for each reviosion's change picks adaptaion strategy and applies to each request of Batch. Skip change if there is no coresponding strategy.
     /// Removes Request from Batch if adaptation result is `canceled`. Stops and throws `SSDmBatchAdaptError.cantAdapt` if adaptation result is `invalid`.
     func adaptBatch(_ batch: Batch, by revisions: [Revision]) -> SSDmBatchAdaptError?
 }
@@ -88,7 +88,9 @@ extension SSDmBatchAdapting {
         func adapt() throws {
             try revisions.forEach {
                 try $0.changes.forEach {
-                    try adaptBatch(batch, by: $0, using: strategies[$0.title]!)
+                    if let strategy = strategies[$0.title] {
+                        try adaptBatch(batch, by: $0, using: strategy)
+                    }
                 }
             }
         }
