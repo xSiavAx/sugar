@@ -176,6 +176,7 @@
 		99E3CE6A248FD1ED005CDE8A /* SSEntityDmMutatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E3CE69248FD1ED005CDE8A /* SSEntityDmMutatorTests.swift */; };
 		99E3CE6C248FE369005CDE8A /* SSEntityRemoteMutatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E3CE6B248FE369005CDE8A /* SSEntityRemoteMutatorTests.swift */; };
 		99E3CE6E249107BC005CDE8A /* SSDmBatchAdapterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E3CE6D249107BC005CDE8A /* SSDmBatchAdapterTests.swift */; };
+		99E3CE702491168C005CDE8A /* SSDataModifyCenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E3CE6F2491168C005CDE8A /* SSDataModifyCenterTests.swift */; };
 		99E85E292240F3A0005E2B13 /* SSCollectionViewMarkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E85E282240F3A0005E2B13 /* SSCollectionViewMarkable.swift */; };
 		99E85E2B2240F5AC005E2B13 /* SSCollectionViewMarkableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E85E2A2240F5AC005E2B13 /* SSCollectionViewMarkableController.swift */; };
 		99E85E2D224103C6005E2B13 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E85E2C224103C6005E2B13 /* Array.swift */; };
@@ -364,6 +365,7 @@
 		99E3CE69248FD1ED005CDE8A /* SSEntityDmMutatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSEntityDmMutatorTests.swift; sourceTree = "<group>"; };
 		99E3CE6B248FE369005CDE8A /* SSEntityRemoteMutatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSEntityRemoteMutatorTests.swift; sourceTree = "<group>"; };
 		99E3CE6D249107BC005CDE8A /* SSDmBatchAdapterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDmBatchAdapterTests.swift; sourceTree = "<group>"; };
+		99E3CE6F2491168C005CDE8A /* SSDataModifyCenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDataModifyCenterTests.swift; sourceTree = "<group>"; };
 		99E85E282240F3A0005E2B13 /* SSCollectionViewMarkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkable.swift; sourceTree = "<group>"; };
 		99E85E2A2240F5AC005E2B13 /* SSCollectionViewMarkableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableController.swift; sourceTree = "<group>"; };
 		99E85E2C224103C6005E2B13 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
@@ -636,6 +638,7 @@
 				99E3CE69248FD1ED005CDE8A /* SSEntityDmMutatorTests.swift */,
 				99E3CE6B248FE369005CDE8A /* SSEntityRemoteMutatorTests.swift */,
 				99E3CE6D249107BC005CDE8A /* SSDmBatchAdapterTests.swift */,
+				99E3CE6F2491168C005CDE8A /* SSDataModifyCenterTests.swift */,
 			);
 			path = "Data Synchronisation";
 			sourceTree = "<group>";
@@ -1175,6 +1178,7 @@
 				2D7E5A53241FD0E5009EE074 /* CGRectInsetToWHTests.swift in Sources */,
 				2D7E5A54241FD0E5009EE074 /* CGRectInsetToSizeTests.swift in Sources */,
 				2D7E5A55241FD0E5009EE074 /* CGRectCenterTests.swift in Sources */,
+				99E3CE702491168C005CDE8A /* SSDataModifyCenterTests.swift in Sources */,
 				2DC1D1AD242D0BB70049020B /* AutoMapRemoveForKeyAndIndexes.swift in Sources */,
 				2DFE3991242E48BA001B9AAE /* AutoMapMakeIteratorTests.swift in Sources */,
 				2D8BABC024292ADA00B8A84D /* DictionaryPickingForTests.swift in Sources */,

@@ -4,12 +4,28 @@ import Foundation
 class TestEntity {}
 
 class TestDataModifyCore: SSDataModifyCore, TestUpdateProducer, SSMarkerGenerating, SSCopying {
+    var identifier: Int?
+    
     init() {}
     
-    required init(copy other: TestDataModifyCore) {}
+    required init(copy other: TestDataModifyCore) {
+        identifier = (other as! Self).identifier
+    }
     
     func toUpdate() -> SSUpdate {
-        return produceUpdate(marker: Self.newMarker())
+        return produceUpdate(marker: Self.newMarker(), identifier: identifier)
+    }
+}
+
+extension TestDataModifyCore: Hashable {
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(identifier)
+    }
+}
+
+extension TestDataModifyCore: Equatable {
+    static func == (lhs: TestDataModifyCore, rhs: TestDataModifyCore) -> Bool {
+        return lhs.hashValue == rhs.hashValue && lhs.identifier == rhs.identifier
     }
 }
 
@@ -17,7 +33,7 @@ class TestRequest: SSCoredModify<TestDataModifyCore>, SSDmRequest {
     static var title: String = "test_request"
     override var title: String { Self.title }
     var adaptResult = SSDmToChangeAdaptResult.passed
-    var identifier: Int?
+    
     var adapted = false
     
     init() {
@@ -26,13 +42,12 @@ class TestRequest: SSCoredModify<TestDataModifyCore>, SSDmRequest {
     
     required init(copy other: SSModify) {
         super.init(copy: other)
-        identifier = (other as! Self).identifier
     }
 }
 
 extension TestRequest: Hashable {
     func hash(into hasher: inout Hasher) {
-        hasher.combine(identifier)
+        hasher.combine(iCore)
         hasher.combine(adaptResult)
         hasher.combine(title)
     }
@@ -41,7 +56,7 @@ extension TestRequest: Hashable {
 extension TestRequest: Equatable {
     static func == (lhs: TestRequest, rhs: TestRequest) -> Bool {
         return lhs.hashValue == rhs.hashValue &&
-            lhs.identifier == rhs.identifier &&
+            lhs.iCore == rhs.iCore &&
             lhs.adaptResult == rhs.adaptResult &&
             lhs.title == rhs.title
     }
@@ -98,7 +113,14 @@ extension TestUpdateProducer {
     static var updateTitle: String {"test_update"}
     
     func produceUpdate(marker: String) -> SSUpdate {
-        return SSUpdate(name: Self.updateTitle, marker: marker)
+        return produceUpdate(marker: marker, identifier: nil)
+    }
+    
+    func produceUpdate(marker: String, identifier: Int?) -> SSUpdate {
+        var args = [String : Any]()
+        
+        args["identifier"] = identifier
+        return SSUpdate(name: Self.updateTitle, marker: marker, args: args)
     }
 }
 

@@ -83,7 +83,7 @@ class TaskDBView: TaskViewing {
 class SSUETaskBatchApplier: SSDmBatchApplier {
     typealias Request = SSModify
     
-    var failIndex = [Int]()
+    var failIndex = [Int]() //used for test purpouses
     var api = SSUETaskDBApi()
     
     func applyBatches(_ batches: [Batch], revNumber: Int, handler: @escaping Handler) {
@@ -170,12 +170,10 @@ public class ProcessorTester {
                 
                 DB.task?.title = change.iCore.taskTitle
                 DispatchQueue.main.async(execute: handler)
-                modifyCenter.dispatchRevisions([revision]) { (error) in
-                    if let mError = error {
-                        print("Revision dispatch error \(mError)")
-                    } else {
-                        print("Revision dispatched")
-                    }
+                if let error = modifyCenter.dispatchRevisions([revision]) {
+                    print("Revision dispatch error \(error)")
+                } else {
+                    print("Revision dispatched")
                 }
             }
             print("Start CH rename")
@@ -190,12 +188,10 @@ public class ProcessorTester {
                 
                 DB.task = nil
                 DispatchQueue.main.async(execute: handler)
-                modifyCenter.dispatchRevisions([revision]) { (error) in
-                    if let mError = error {
-                        print("Revision dispatch error \(mError)")
-                    } else {
-                        print("Revision dispatched")
-                    }
+                if let error = modifyCenter.dispatchRevisions([revision]) {
+                    print("Revision dispatch error \(error)")
+                } else {
+                    print("Revision dispatched")
                 }
             }
             print("Start CH remove")

@@ -15,7 +15,6 @@ import XCTest
 /// * Canceled all
 /// * Invalid
 /// * No strategy for change
-
 class SSDmBatchAdapterTests: XCTestCase {
     typealias Change = SSModify
     typealias Request = SSModify
@@ -108,7 +107,7 @@ class SSDmBatchAdapterTests: XCTestCase {
         firstRevisionChanges = [TestChange(), TestChange()]
         secondRevisionChanges = [TestChange()]
         
-        batchRequests.forEach { $0.identifier = $1 }
+        batchRequests.forEach { $0.iCore.identifier = $1 }
         firstRevisionChanges.forEach { $0.affectsAdaptation = true }
         secondRevisionChanges.forEach { $0.affectsAdaptation = true }
         

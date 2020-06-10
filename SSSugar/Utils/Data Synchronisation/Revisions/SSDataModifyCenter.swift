@@ -6,8 +6,6 @@ import Foundation
 public enum SSDmRevisionDispatcherError: Error {
     /// Passed revisions sequence is empty.
     case emptyRevisions
-    /// Numbers of passed revisions don't corespond to stored data revision number.
-    case revisionMissmatch
 }
 
 /// Requirements for Revisions dispatching utility
@@ -18,16 +16,12 @@ public protocol SSDmRevisionDispatcher {
     associatedtype Change : SSDataModifying
     /// Revision type
     typealias Revision = SSDmRevision<Change>
-    /// Finish handler type
-    /// - Parameters:
-    ///   - error: Error might occur during dispatching, passed to handler.
-    typealias Handler = (_ error: SSDmRevisionDispatcherError?)->Void
     
     /// Dispatch passed revisions
     /// - Parameters:
     ///   - revisions: Array of revisions to dispatch.
-    ///   - handler: Finish handler.
-    func dispatchRevisions(_ revisions: [Revision], handler: @escaping Handler)
+    /// - Returns: Error might occur during dispatching.
+    func dispatchRevisions(_ revisions: [Revision]) -> SSDmRevisionDispatcherError?
 }
 
 /// Error may occur during requests dispatching.
@@ -158,15 +152,12 @@ extension SSDataModifyCenter: SSDmRevisionDispatcher where
     /// Dispatch passed revisions. Checks 'em, checks revision number. Creates and post notifications. Then asynchronously (on apply) updates revision number, adapts and applies scheduled batches.
     /// - Parameters:
     ///   - revisions: Revisions to dispatch
-    ///   - handler: Finish handler
-    public func dispatchRevisions(_ revisions: [SSDmRevision<Change>], handler: @escaping SSDmRevisionDispatcher.Handler) {
-        handler(SSTry.cast { try dispatchRevisions(revisions) })
-    }
-    
-    private func dispatchRevisions(_ revisions: [SSDmRevision<Change>]) throws {
-        guard !revisions.isEmpty else { throw SSDmRevisionDispatcherError.emptyRevisions }
-
+    /// - Returns: Error might occur during dispatching.
+    public func dispatchRevisions(_ revisions: [SSDmRevision<Change>]) -> SSDmRevisionDispatcherError? {
+        guard !revisions.isEmpty else { return SSDmRevisionDispatcherError.emptyRevisions }
+        
         notify(revisions: revisions)
+        return nil
     }
     
     /// Creates and posts updates, then update revision number adapts and applies scheduled batches.
@@ -176,7 +167,7 @@ extension SSDataModifyCenter: SSDmRevisionDispatcher where
             let updates = revision.changes.map { $0.toUpdate() }
             
             func onApply() {
-                guard revisions.first!.number == revNumber + 1 else {
+                guard revision.number == revNumber + 1 else {
                     fatalError("Invalid revision number \(revisions.first!.number), but expected \(revNumber + 1)")
                 }
                 revNumber = revision.number
