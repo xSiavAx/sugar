@@ -66,32 +66,35 @@ class SSDataModifyCenterTests: XCTestCase {
             }
         }
         
-        wait { (exp) in
-            dispatch(revisions: revisions) { (error) in
-                XCTAssert(error == nil)
-                exp.fulfill()
-            }
+        func onDispatch(_ error: SSDmRevisionDispatcherError?) {
+            XCTAssert(error == nil)
+            checkUpdates()
         }
-        checkUpdates()
+        func onApply(exp: XCTestExpectation) {
+            XCTAssert(center.revNumber == expectedRevNumber)
+        }
         wait { (exp) in
-            checkRevNumber {
+            dispatch(revisions: revisions, onDispatch: onDispatch(_:)) {
+                onApply(exp: exp)
                 exp.fulfill()
             }
         }
         checkToolsCalled()
     }
     
-    func dispatch(revisions: [Revision], handler: @escaping (SSDmRevisionDispatcherError?)->Void) {
+    func dispatch(revisions: [Revision], onDispatch: @escaping (SSDmRevisionDispatcherError?)->Void, onApply: (()->Void)?) {
         func dispatch() {
-            let error = center.dispatchRevisions(revisions)
-            handler(error)
+            let error = center.dispatchRevisions(revisions) {
+                onApply?()
+            }
+            onDispatch(error)
         }
         DispatchQueue.bg.async(execute: dispatch)
     }
     
     func checkRevNumber(handler: @escaping ()->Void) {
         func check() {
-            XCTAssert(center.revNumber == expectedRevNumber)
+            
             handler()
         }
         DispatchQueue.main.async(execute: check)

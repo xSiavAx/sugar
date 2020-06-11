@@ -20,8 +20,21 @@ public protocol SSDmRevisionDispatcher {
     /// Dispatch passed revisions
     /// - Parameters:
     ///   - revisions: Array of revisions to dispatch.
+    ///   - onApply: Apply revisions handler.
+    /// - Returns: Error might occur during dispatching.
+    func dispatchRevisions(_ revisions: [Revision], onApply: (()->Void)?) -> SSDmRevisionDispatcherError?
+    
+    /// Dispatch passed revisions
+    /// - Parameters:
+    ///   - revisions: Array of revisions to dispatch.
     /// - Returns: Error might occur during dispatching.
     func dispatchRevisions(_ revisions: [Revision]) -> SSDmRevisionDispatcherError?
+}
+
+extension SSDmRevisionDispatcher {
+    public func dispatchRevisions(_ revisions: [Revision]) -> SSDmRevisionDispatcherError? {
+        dispatchRevisions(revisions, onApply: nil)
+    }
 }
 
 /// Error may occur during requests dispatching.
@@ -153,30 +166,38 @@ extension SSDataModifyCenter: SSDmRevisionDispatcher where
     /// - Parameters:
     ///   - revisions: Revisions to dispatch
     /// - Returns: Error might occur during dispatching.
-    public func dispatchRevisions(_ revisions: [SSDmRevision<Change>]) -> SSDmRevisionDispatcherError? {
+    public func dispatchRevisions(_ revisions: [SSDmRevision<Change>], onApply: (() -> Void)?) -> SSDmRevisionDispatcherError? {
         guard !revisions.isEmpty else { return SSDmRevisionDispatcherError.emptyRevisions }
         
-        notify(revisions: revisions)
+        notify(revisions: revisions, onApply: onApply)
         return nil
     }
     
     /// Creates and posts updates, then update revision number adapts and applies scheduled batches.
     /// - Parameter revisions: Revisions to process
-    private func notify(revisions: [SSDmRevision<Change>]) {
-        revisions.forEach {(revision) in
+    private func notify(revisions: [SSDmRevision<Change>], onApply: (() -> Void)? = nil) {
+        func onNotify(revision: SSDmRevision<Change>) {
+            guard revision.number == revNumber + 1 else {
+                fatalError("Invalid revision number \(revisions.first!.number), but expected \(revNumber + 1)")
+            }
+            revNumber = revision.number
+            adaptBatches(to: revision)
+        }
+        func onLastNotify(revision: SSDmRevision<Change>) {
+            onNotify(revision: revision)
+            reaplySchedules()
+            onApply?()
+        }
+        func notify(revision: SSDmRevision<Change>, handler: @escaping ()->Void) {
             let updates = revision.changes.map { $0.toUpdate() }
             
-            func onApply() {
-                guard revision.number == revNumber + 1 else {
-                    fatalError("Invalid revision number \(revisions.first!.number), but expected \(revNumber + 1)")
-                }
-                revNumber = revision.number
-                adaptBatches(to: revision)
-                reaplySchedules()
-            }
-            
-            updateNotifier.notify(updates: updates, onApply: onApply)
+            updateNotifier.notify(updates: updates, onApply: handler)
         }
+        for i in (0..<revisions.count-1) {
+            let revision = revisions[i]
+            notify(revision: revision) { onNotify(revision: revision) }
+        }
+        notify(revision: revisions.last!) { onLastNotify(revision: revisions.last!) }
     }
     
     /// Adapts scheduled batches by passed revisions
