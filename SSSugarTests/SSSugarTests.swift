@@ -2,9 +2,10 @@ import Foundation
 import XCTest
 
 extension XCTestCase {
-    func wait(on block: (XCTestExpectation)->Void) {
+    func wait(count: Int = 1, on block: (XCTestExpectation)->Void) {
         let expectation = XCTestExpectation()
         
+        expectation.expectedFulfillmentCount = count
         block(expectation)
         wait(for: [expectation], timeout: 1.0)
     }

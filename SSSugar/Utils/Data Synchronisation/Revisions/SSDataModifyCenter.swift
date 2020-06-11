@@ -40,9 +40,12 @@ extension SSDmRevisionDispatcher {
 /// Error may occur during requests dispatching.
 ///
 /// * `invalidData` – modification(s) of requests doesn't conform to stored data.
+/// * `emptyRequests` – passed requests sequence is empty.
 public enum SSDmRequestDispatchError: Error {
     /// Modification(s) of requests doesn't fit stored data.
     case invalidData
+    /// Passed requests sequence is empty.
+    case emptyRequests
 }
 
 /// Requirements for Requests dispatching tool.
@@ -244,12 +247,16 @@ extension SSDataModifyCenter: SSDmRequestDispatcher where Request == Applier.Req
     ///   - requests: Requests to dispatch
     ///   - handler: Finish handler
     public func dispatchReuqests(_ requests: [Request], handler: @escaping (SSDmRequestDispatchError?)->Void) {
-        let scheduled = ScheduledBatch(batch: SSDmBatch(requests: requests), handler: handler)
-        
-        ensureIsMain()
-        
-        schedules.append(scheduled)
-        apply([scheduled])
+        if (requests.count > 0) {
+            let scheduled = ScheduledBatch(batch: SSDmBatch(requests: requests), handler: handler)
+            
+            ensureIsMain()
+            
+            schedules.append(scheduled)
+            apply([scheduled])
+        } else {
+            DispatchQueue.main.async { handler(.emptyRequests) }
+        }
     }
     
     /// Tries apply passed schedules via `applier`. Calls finish handlers on success or onvalid data error. Does nothing on rev missmatch error, cuz stored scheduled batches will adapt and apply on new revisions arrive.

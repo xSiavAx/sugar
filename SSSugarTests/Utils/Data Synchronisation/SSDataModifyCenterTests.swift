@@ -13,14 +13,16 @@ import XCTest
 /// # Revision Dispathcer
 /// * regular
 /// * empty
-/// * invalid rev number
-/// * adapt batch (many cases)
 ///
 /// # Request Dispathcer
 /// * regular
 /// * empty
 /// * invalid data
-/// * revision missmatch
+///
+/// # Mixed
+/// * revision missmatch + reaply after revisions
+/// * Adapt batch, one canceled
+/// * Dispatch requests (delayed, due revision) + Dispatch requests + Reapply
 ///
 class SSDataModifyCenterTests: XCTestCase {
     typealias Change = SSModify
@@ -36,7 +38,9 @@ class SSDataModifyCenterTests: XCTestCase {
     
     var expectedRevNumber = 0
     var expectedAdapts = 0
+    var expectedAdaptFails = 0
     var expectedApplies = 0
+    var expectedApplyFails = 0
     var expectedUpdates: [SSUpdate]!
     
     override func setUp() {
@@ -65,27 +69,214 @@ class SSDataModifyCenterTests: XCTestCase {
                 expectedUpdates.append($0.toUpdate())
             }
         }
-        
-        func onDispatch(_ error: SSDmRevisionDispatcherError?) {
-            XCTAssert(error == nil)
-            checkUpdates()
-        }
-        func onApply(exp: XCTestExpectation) {
-            XCTAssert(center.revNumber == expectedRevNumber)
-        }
+
         wait { (exp) in
-            dispatch(revisions: revisions, onDispatch: onDispatch(_:)) {
-                onApply(exp: exp)
+            func onDispatch(_ error: SSDmRevisionDispatcherError?) {
+                XCTAssert(error == nil)
+                checkUpdates()
+            }
+            func onApply() {
+                XCTAssert(center.revNumber == expectedRevNumber)
                 exp.fulfill()
             }
+            dispatch(revisions: revisions, onDispatch: onDispatch, onApply: onApply)
         }
         checkToolsCalled()
     }
     
-    func dispatch(revisions: [Revision], onDispatch: @escaping (SSDmRevisionDispatcherError?)->Void, onApply: (()->Void)?) {
+    func testRevisionEmpty() {
+        expectedUpdates = [SSUpdate]()
+        
+        wait { (exp) in
+            func onDispatch(_ error: SSDmRevisionDispatcherError?) {
+                XCTAssert(error == .emptyRevisions)
+                checkUpdates()
+                exp.fulfill()
+            }
+            func onApply() { XCTAssert(false) }
+            dispatch(revisions: [], onDispatch: onDispatch, onApply: onApply)
+        }
+        checkToolsCalled()
+    }
+    
+    func testRequestsDispatch() {
+        let requests = createRequests()
+        
+        expectedUpdates = requests.map { $0.toUpdate() }
+        expectedApplies = 1
+
+        wait { (exp) in
+            func onDispatch(_ error: SSDmRequestDispatchError?) {
+                XCTAssert(error == nil)
+                exp.fulfill()
+            }
+            center.dispatchReuqests(requests, handler: onDispatch)
+        }
+        checkUpdates()
+        checkToolsCalled()
+    }
+    
+    func testRequestsEmpty() {
+        expectedUpdates = [SSUpdate]()
+
+        wait { (exp) in
+            func onDispatch(_ error: SSDmRequestDispatchError?) {
+                XCTAssert(error == .emptyRequests)
+                exp.fulfill()
+            }
+            center.dispatchReuqests([Request](), handler: onDispatch)
+        }
+        checkUpdates()
+        checkToolsCalled()
+    }
+    
+    func testRequestsInvalidData() {
+        let requests = createRequests()
+        
+        expectedUpdates = [SSUpdate]()
+        
+        expectedApplyFails = 1
+        
+        applier.error = .invalidData(indexes: [requests.startIndex, requests.endIndex])
+
+        wait { (exp) in
+            func onDispatch(_ error: SSDmRequestDispatchError?) {
+                XCTAssert(error == .invalidData)
+                exp.fulfill()
+            }
+            center.dispatchReuqests(requests, handler: onDispatch)
+        }
+        checkUpdates()
+        checkToolsCalled()
+    }
+    
+    func testRevMissmatchAndReapply() {
+        let requests = createRequests()
+        let revisions = createRevisions()
+        
+        expectedUpdates = [SSUpdate]()
+        expectedApplies = 1
+        expectedAdapts = revisions.count
+        expectedApplyFails = 1
+        expectedRevNumber = 2
+        
+        revisions.forEach {
+            $0.changes.forEach {
+                expectedUpdates.append($0.toUpdate())
+            }
+        }
+        
+        applier.error = .revisionMissmatch
+
+        wait { (exp) in
+            func onRequestDispatch(_ error: SSDmRequestDispatchError?) {
+                XCTAssert(error == nil)
+                exp.fulfill()
+            }
+            center.dispatchReuqests(requests, handler: onRequestDispatch)
+            
+            func onDispatch(_ error: SSDmRevisionDispatcherError?) {
+                XCTAssert(error == nil)
+                checkUpdates()
+                applier.error = nil
+                expectedUpdates.append(contentsOf: requests.map { $0.toUpdate() })
+            }
+            func onApply() {
+                XCTAssert(center.revNumber == expectedRevNumber)
+            }
+            dispatch(revisions: revisions, onDispatch: onDispatch, onApply: onApply)
+        }
+        checkUpdates()
+        checkToolsCalled()
+    }
+    
+    func testAdaptCancel() {
+        let requests = createRequests()
+        let revisions = createRevisions()
+        
+        expectedUpdates = [SSUpdate]()
+        expectedApplies = 1
+        expectedAdapts = revisions.count
+        expectedApplyFails = 1
+        expectedRevNumber = 2
+        
+        revisions.forEach {
+            $0.changes.forEach {
+                expectedUpdates.append($0.toUpdate())
+            }
+        }
+        requests[1].adaptResult = .canceled
+        applier.error = .revisionMissmatch
+
+        wait { (exp) in
+            func onRequestDispatch(_ error: SSDmRequestDispatchError?) {
+                XCTAssert(error == nil)
+                exp.fulfill()
+            }
+            center.dispatchReuqests(requests, handler: onRequestDispatch)
+            
+            func onDispatch(_ error: SSDmRevisionDispatcherError?) {
+                XCTAssert(error == nil)
+                checkUpdates()
+                applier.error = nil
+                expectedUpdates.append(contentsOf: requests.compactMap { $0.adaptResult == .canceled ? nil : $0.toUpdate()  })
+            }
+            func onApply() {
+                XCTAssert(center.revNumber == expectedRevNumber)
+            }
+            dispatch(revisions: revisions, onDispatch: onDispatch, onApply: onApply)
+        }
+        checkUpdates()
+        checkToolsCalled()
+    }
+    
+    func testMultipleRequestReapply() {
+        let requests1 = createRequests()
+        let requests2 = createRequests(multiplier: 100)
+        let revisions = createRevisions()
+        
+        expectedUpdates = [SSUpdate]()
+        expectedApplies = 1
+        expectedAdapts = revisions.count * 2 // 2 batches
+        expectedApplyFails = 2
+        expectedRevNumber = 2
+        
+        revisions.forEach {
+            $0.changes.forEach {
+                expectedUpdates.append($0.toUpdate())
+            }
+        }
+        
+        applier.error = .revisionMissmatch
+
+        wait(count: 2) { (exp) in
+            func onRequestDispatch(_ error: SSDmRequestDispatchError?) {
+                XCTAssert(error == nil)
+                exp.fulfill()
+            }
+            center.dispatchReuqests(requests1, handler: onRequestDispatch)
+            center.dispatchReuqests(requests2, handler: onRequestDispatch)
+            
+            func onDispatch(_ error: SSDmRevisionDispatcherError?) {
+                XCTAssert(error == nil)
+                checkUpdates()
+                applier.error = nil
+                expectedUpdates.append(contentsOf: requests1.map { $0.toUpdate() })
+                expectedUpdates.append(contentsOf: requests2.map { $0.toUpdate() })
+            }
+            func onApply() {
+                XCTAssert(center.revNumber == expectedRevNumber)
+            }
+            dispatch(revisions: revisions, onDispatch: onDispatch, onApply: onApply)
+        }
+        checkUpdates()
+        checkToolsCalled()
+    }
+    
+    func dispatch(revisions: [Revision], onDispatch: @escaping (SSDmRevisionDispatcherError?)->Void, onApply: @escaping ()->Void) {
         func dispatch() {
             let error = center.dispatchRevisions(revisions) {
-                onApply?()
+                onApply()
             }
             onDispatch(error)
         }
@@ -113,14 +304,16 @@ class SSDataModifyCenterTests: XCTestCase {
     
     func checkToolsCalled() {
         XCTAssert(expectedAdapts == adapter.adaptsCount)
+        XCTAssert(expectedAdaptFails == adapter.failsCount)
         XCTAssert(expectedApplies == applier.appliesCount)
+        XCTAssert(expectedApplyFails == applier.failsCount)
     }
     
     func createRevisions() -> [Revision] {
         func createChange(_ idx: Int) -> TestChange {
             let change = TestChange()
             
-            change.iCore.identifier = idx
+            change.iCore.identifier = 10 * idx
             return change
         }
         let count = 3
@@ -129,6 +322,17 @@ class SSDataModifyCenterTests: XCTestCase {
 
         return [Revision(number: 1, changes: Array(changes[0..<separator])),
                 Revision(number: 2, changes: Array(changes[separator..<count]))]
+    }
+    
+    func createRequests(multiplier: Int = 1) -> [TestRequest] {
+        let count = 3
+        
+        return (0..<count).map {
+            let request = TestRequest()
+            
+            request.iCore.identifier = multiplier * $0
+            return request
+        }
     }
 }
 
@@ -144,6 +348,7 @@ class SSDMCenterTestAdapter: SSDmBatchAdapting {
     
     func adaptBatch(_ batch: Batch, by revisions: [Revision]) -> SSDmBatchAdaptError? {
         if (error == nil) {
+            batch.filterRequests { ($0 as! TestRequest).adaptResult != .canceled }
             adaptsCount += 1
         } else {
             failsCount += 1

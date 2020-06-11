@@ -21,7 +21,7 @@ public class SSDmBatch<Request : SSDataModifying>: SSCopying {
     
     //MARK: - public
     
-    /// Filters requests seria using passed block.
+    /// Filters requests seria – leaving requests that satisfy given block.
     /// - Parameter block: Predicates to filter requests with.
     /// - Throws: Rethrows block exceptions.
     public func filterRequests(using block: (Request) throws -> Bool) rethrows {
