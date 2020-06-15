@@ -189,3 +189,22 @@ class SSGroupExecutorTests: XCTestCase {
         return task(queue) { expectation.fulfill() }
     }
 }
+
+// MARK: - Dispatch Queue Extension
+
+fileprivate extension DispatchQueue {
+    private struct QueueReference {
+        weak var queue: DispatchQueue?
+    }
+
+    private static let key = DispatchSpecificKey<QueueReference>()
+
+    static func registerDetection(_ queues: DispatchQueue...) {
+        queues.forEach { $0.setSpecific(key: key, value: QueueReference(queue: $0)) }
+    }
+
+    static var current: DispatchQueue {
+        guard let queue = DispatchQueue.getSpecific(key: key)?.queue else { fatalError("Failed to get current queue. Make sure you registered the queue for detection.") }
+        return queue
+    }
+}
