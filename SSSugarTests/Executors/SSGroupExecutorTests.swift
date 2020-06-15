@@ -32,7 +32,7 @@ class SSGroupExecutorTests: XCTestCase {
     func testAdd() {
         XCTAssertEqual(sut.tasks.count, 0)
         for index in 1...100 {
-            sut.add(makeTask())
+            sut.add(task())
             XCTAssertEqual(sut.tasks.count, index)
         }
     }
@@ -48,18 +48,18 @@ class SSGroupExecutorTests: XCTestCase {
         let expectationTask = XCTestExpectation()
         let expectationFinish = XCTestExpectation()
         
-        sut.add(makeTaskFullfill(expectationTask))
+        sut.add(fulfillTask(expectationTask))
         sut.finish { expectationFinish.fulfill() }
         wait(for: [expectationTask, expectationFinish], timeout: 1, enforceOrder: true)
     }
     
     func testSeveralTasks() {
-        let expectationTasks = makeExpectation()
+        let expectationTasks = expectation()
         let expectationFinish = XCTestExpectation()
         
-        sut.add(makeTaskFullfill(expectationTasks))
-        sut.add(makeTaskFullfill(expectationTasks))
-        sut.add(makeTaskFullfill(expectationTasks))
+        sut.add(fulfillTask(expectationTasks))
+        sut.add(fulfillTask(expectationTasks))
+        sut.add(fulfillTask(expectationTasks))
         sut.finish { expectationFinish.fulfill() }
         wait(for: [expectationTasks, expectationFinish], timeout: 1, enforceOrder: true)
     }
@@ -75,30 +75,30 @@ class SSGroupExecutorTests: XCTestCase {
         let expectationTask = XCTestExpectation()
         let expectationFinish = XCTestExpectation()
         
-        sut.add(makeTaskFullfill(expectationTask, in: .global()))
+        sut.add(fulfillTask(expectationTask, in: .global()))
         sut.finish { expectationFinish.fulfill() }
         wait(for: [expectationTask, expectationFinish], timeout: 1, enforceOrder: true)
     }
     
     func testSeveralTasksBackgroundQueue() {
         let queue = DispatchQueue.global()
-        let expectationTasks = makeExpectation()
+        let expectationTasks = expectation()
         let expectationFinish = XCTestExpectation()
         
-        sut.add(makeTaskFullfill(expectationTasks, in: queue))
-        sut.add(makeTaskFullfill(expectationTasks, in: queue))
-        sut.add(makeTaskFullfill(expectationTasks, in: queue))
+        sut.add(fulfillTask(expectationTasks, in: queue))
+        sut.add(fulfillTask(expectationTasks, in: queue))
+        sut.add(fulfillTask(expectationTasks, in: queue))
         sut.finish { expectationFinish.fulfill() }
         wait(for: [expectationTasks, expectationFinish], timeout: 1, enforceOrder: true)
     }
      
     func testSeveralTasksMixedQueues() {
-        let expectationTasks = makeExpectation()
+        let expectationTasks = expectation()
         let expectationFinish = XCTestExpectation()
         
-        sut.add(makeTaskFullfill(expectationTasks, in: .global()))
-        sut.add(makeTaskFullfill(expectationTasks, in: .main))
-        sut.add(makeTaskFullfill(expectationTasks, in: .global()))
+        sut.add(fulfillTask(expectationTasks, in: .global()))
+        sut.add(fulfillTask(expectationTasks, in: .main))
+        sut.add(fulfillTask(expectationTasks, in: .global()))
         sut.finish { expectationFinish.fulfill() }
         wait(for: [expectationTasks, expectationFinish], timeout: 1, enforceOrder: true)
     }
@@ -114,18 +114,18 @@ class SSGroupExecutorTests: XCTestCase {
         let expectationTask = XCTestExpectation()
         let expectationFinish = XCTestExpectation()
         
-        sut.add(makeTaskFullfill(expectationTask))
+        sut.add(fulfillTask(expectationTask))
         sut.finish(queue: .global()) { expectationFinish.fulfill() }
         wait(for: [expectationTask, expectationFinish], timeout: 1, enforceOrder: true)
     }
     
     func testSeveralTasksBackgroundFinish() {
-        let expectationTasks = makeExpectation()
+        let expectationTasks = expectation()
         let expectationFinish = XCTestExpectation()
         
-        sut.add(makeTaskFullfill(expectationTasks))
-        sut.add(makeTaskFullfill(expectationTasks))
-        sut.add(makeTaskFullfill(expectationTasks))
+        sut.add(fulfillTask(expectationTasks))
+        sut.add(fulfillTask(expectationTasks))
+        sut.add(fulfillTask(expectationTasks))
         sut.finish(queue: .global()) { expectationFinish.fulfill() }
         wait(for: [expectationTasks, expectationFinish], timeout: 1, enforceOrder: true)
     }
@@ -141,41 +141,42 @@ class SSGroupExecutorTests: XCTestCase {
         let expectationTask = XCTestExpectation()
         let expectationFinish = XCTestExpectation()
         
-        sut.add(makeTaskFullfill(expectationTask, in: .global()))
+        sut.add(fulfillTask(expectationTask, in: .global()))
         sut.finish(queue: .global()) { expectationFinish.fulfill() }
         wait(for: [expectationTask, expectationFinish], timeout: 1, enforceOrder: true)
     }
     
     func testSeveralTasksBackgroundQueueBackgroundFinish() {
         let queue = DispatchQueue.global()
-        let expectationTasks = makeExpectation()
+        let expectationTasks = expectation()
         let expectationFinish = XCTestExpectation()
         
-        sut.add(makeTaskFullfill(expectationTasks, in: queue))
-        sut.add(makeTaskFullfill(expectationTasks, in: queue))
-        sut.add(makeTaskFullfill(expectationTasks, in: queue))
+        sut.add(fulfillTask(expectationTasks, in: queue))
+        sut.add(fulfillTask(expectationTasks, in: queue))
+        sut.add(fulfillTask(expectationTasks, in: queue))
         sut.finish(queue: .global()) { expectationFinish.fulfill() }
         wait(for: [expectationTasks, expectationFinish], timeout: 1, enforceOrder: true)
     }
      
     func testSeveralTasksMixedQueuesBackgroundFinish() {
-        let expectationTasks = makeExpectation()
+        let expectationTasks = expectation()
         let expectationFinish = XCTestExpectation()
         
-        sut.add(makeTaskFullfill(expectationTasks, in: .global()))
-        sut.add(makeTaskFullfill(expectationTasks, in: .main))
-        sut.add(makeTaskFullfill(expectationTasks, in: .global()))
+        sut.add(fulfillTask(expectationTasks, in: .global()))
+        sut.add(fulfillTask(expectationTasks, in: .main))
+        sut.add(fulfillTask(expectationTasks, in: .global()))
         sut.finish(queue: .global()) { expectationFinish.fulfill() }
         wait(for: [expectationTasks, expectationFinish], timeout: 1, enforceOrder: true)
     }
     
-    func makeExpectation(withFulfillmentCount count: Int = 3) -> XCTestExpectation {
+    func expectation(withFulfillmentCount count: Int = 3) -> XCTestExpectation {
         let expectation = XCTestExpectation()
+
         expectation.expectedFulfillmentCount = count
         return expectation
     }
     
-    func makeTask(_ queue: DispatchQueue = .main, work: @escaping () -> Void = {}) -> SSGroupExecutor.Task {
+    func task(_ queue: DispatchQueue = .main, work: @escaping () -> Void = {}) -> SSGroupExecutor.Task {
         return { handler in
             queue.async {
                 work()
@@ -184,7 +185,7 @@ class SSGroupExecutorTests: XCTestCase {
         }
     }
     
-    func makeTaskFullfill(_ expectation: XCTestExpectation, in queue: DispatchQueue = .main) -> SSGroupExecutor.Task {
-        makeTask(queue) { expectation.fulfill() }
+    func fulfillTask(_ expectation: XCTestExpectation, in queue: DispatchQueue = .main) -> SSGroupExecutor.Task {
+        return task(queue) { expectation.fulfill() }
     }
 }
