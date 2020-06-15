@@ -188,6 +188,32 @@ class SSGroupExecutorTests: XCTestCase {
     func fulfillTask(_ expectation: XCTestExpectation, in queue: DispatchQueue = .main) -> SSGroupExecutor.Task {
         return task(queue) { expectation.fulfill() }
     }
+
+    /// Asserts queues are equal.
+    ///
+    /// Works in background threads. A standard `XCTestsEqual(_:_:)` method works incorrectly.
+    ///
+    /// - Parameters:
+    ///   - queue1: The queue to check equality.
+    ///   - queue2: The queue to check equality.
+    ///   - file: The file in which failure occurred. Defaults to the file name of the test case in which this function was called.
+    ///   - line: The line number on which failure occurred. Defaults to the line number on which this function was called.
+    func assertQueuesEqual(_ queue1: DispatchQueue, _ queue2: DispatchQueue, file: StaticString = #file, line: UInt = #line) {
+        XCTAssert(queue1 == queue2, "\(queue1) is not equal to \(queue2)", file: file, line: line)
+    }
+
+    /// Asserts queues are not equal.
+    ///
+    /// Works in background threads. A standard `XCTestsNotEqual(_:_:)` method works incorrectly.
+    ///
+    /// - Parameters:
+    ///   - queue1: The queue to check equality.
+    ///   - queue2: The queue to check equality.
+    ///   - file: The file in which failure occurred. Defaults to the file name of the test case in which this function was called.
+    ///   - line: The line number on which failure occurred. Defaults to the line number on which this function was called.
+    func assertQueuesNotEqual(_ queue1: DispatchQueue, _ queue2: DispatchQueue, file: StaticString = #file, line: UInt = #line) {
+        XCTAssert(queue1 != queue2, "\(queue1) is equal to \(queue2)", file: file, line: line)
+    }
 }
 
 // MARK: - Dispatch Queue Extension
