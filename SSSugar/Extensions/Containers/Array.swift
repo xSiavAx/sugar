@@ -168,3 +168,8 @@ public extension Array where Element : Comparable {
         return binarySearch(forInsert:needle) {$0.compare($1)}
     }
 }
+
+public extension Array where Element: SSCopying {
+    /// Creates new array contains copy of each element
+    func deepCopy() -> Self { map { $0.copy() } }
+}

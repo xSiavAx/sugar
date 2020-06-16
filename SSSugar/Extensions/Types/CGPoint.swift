@@ -1,6 +1,7 @@
 import Foundation
+import CoreGraphics
 
-//TODO: Add docs and tests
+//TODO: Add docs
 
 public prefix func -(point: CGPoint) -> CGPoint {
     return CGPoint(x: -point.x, y: -point.y)

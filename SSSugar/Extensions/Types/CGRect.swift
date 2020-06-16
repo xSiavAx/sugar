@@ -1,4 +1,5 @@
 import Foundation
+import CoreGraphics
 
 public extension CGRect {
     /// Returns center of rectangle. Calculated property.

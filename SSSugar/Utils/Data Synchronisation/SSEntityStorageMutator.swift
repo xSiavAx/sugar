@@ -4,15 +4,17 @@ import Foundation
 /// - Note:
 /// It's inheritors responsobility to provide storage modification logic and notification creating. See examples for more info.
 open class SSEntityDBMutator<Source: SSMutatingEntitySource> {
+    /// Modifying entity source
     public private(set) weak var source: Source?
     /// Executor for tasks that work with storage.
     public let executor: SSExecutor
     /// Notifier for modification notification sending
     public let notifier: SSUpdateNotifier
 
-    public init(executor mExecutor: SSExecutor, notifier mNotifier: SSUpdateNotifier) {
+    public init(executor mExecutor: SSExecutor, notifier mNotifier: SSUpdateNotifier, source mSource: Source) {
         executor = mExecutor
         notifier = mNotifier
+        source = mSource
     }
     
     /// Protected method for mutating entity.
@@ -22,34 +24,25 @@ open class SSEntityDBMutator<Source: SSMutatingEntitySource> {
     ///   - marker: Marker for notification.
     ///   - handler: Finish handler runned on main thread.
     ///   - error: Error that amy occurs during mutating.
-    public func mutate(job: @escaping (_ marker: String) throws ->SSUpdate, handler: @escaping (_ error: Error?)->Void) {
+    public func mutate(job: @escaping (_ marker: String) throws -> SSUpdate, handler: @escaping (_ error: Error?)->Void) {
         let marker = Self.newMarker()
 
         func work() {
-            let error = execute(job: job, marker: marker)
-            
-            onMain { handler(error) }
+            do {
+                let update = try job(marker)
+                
+                notifier.notify(update: update) { handler(nil) }
+            } catch {
+                onMain { handler(error) }
+            }
         }
         executor.execute(work)
-    }
-    
-    private func execute(job: (_ marker: String) throws ->SSUpdate, marker: String) -> Error? {
-        do {
-            let update = try job(marker)
-            notifier.notify(update: update)
-        } catch {
-            return error
-        }
-        return nil
     }
 }
 
 extension SSEntityDBMutator: SSBaseEntityMutating {
-    #warning("TODO: Add started/stopped logic?")
-    public func start(source mSource: Source) {
-        source = mSource
-    }
+    #warning("TODO: Add started/stopped logic (like in Remote)?")
+    public func start() {}
     
     public func stop() {}
 }
-

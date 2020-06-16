@@ -14,18 +14,14 @@ FOUNDATION_EXPORT const unsigned char SSSugarVersionString[];
 
 //TODO: To each sum operator (operator+) add minus operator and also += and -=
 //TODO: Fix CGSize.extended(by size:)
-//TODO: Add CGRect.divided(count:vetically) tests
-//TODO: Add dict 'pick' and 'picking' tests and documentation for Array and Dict
-//TODO: Add SSGroupExecutor and SSChainExecutor tests and documentation
-//TODO: Write AutoMap containers tests
+//TODO: Add dict 'pick' and 'picking' documentation for Array and Dict
+//TODO: Add SSGroupExecutor and SSChainExecutor documentation
 //TODO: Add DataBase tests
 //TODO: Add default values '0' to 'extended' method inside CGSize extension
-//TODO: Write docs and test for 'added' and 'extended' methods inside CGSize extension
-//TODO: Write docs and test for 'init' inside UIColor extension
+//TODO: Write docs for 'added' and 'extended' methods inside CGSize extension
+//TODO: Write docs for 'init' inside UIColor extension
 
-//TODO: Write UIViewController extensions tests
 //TODO: Write Comparable extension's docs
-//TODO: Write Comparable extension's tests
 
 //TODO: Write docs and test for all extensions and classes
 //TODO: Implements "Sugar" from UkrNet
