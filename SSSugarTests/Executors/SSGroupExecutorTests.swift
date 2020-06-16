@@ -38,7 +38,11 @@ class SSGroupExecutorTests: XCTestCase {
     func testZeroTasks() {
         let expectation = XCTestExpectation()
         
-        sut.finish { expectation.fulfill() }
+        sut.finish {
+            expectation.fulfill()
+
+            XCTAssert(Thread.isMainThread)
+        }
         wait(for: [expectation], timeout: 1)
     }
     
@@ -46,8 +50,12 @@ class SSGroupExecutorTests: XCTestCase {
         let expectationTask = XCTestExpectation()
         let expectationFinish = XCTestExpectation()
 
-        sut.add(fulfillTask(expectationTask, in: .main))
-        sut.finish { expectationFinish.fulfill() }
+        sut.add(fulfillTask(expectationTask, in: .main) { XCTAssert(Thread.isMainThread) })
+        sut.finish {
+            expectationFinish.fulfill()
+
+            XCTAssert(Thread.isMainThread)
+        }
         wait(for: [expectationTask, expectationFinish], timeout: 1, enforceOrder: true)
     }
     
@@ -55,26 +63,27 @@ class SSGroupExecutorTests: XCTestCase {
         let expectationTasks = expectation()
         let expectationFinish = XCTestExpectation()
         
-        sut.add(fulfillTask(expectationTasks, in: .main))
-        sut.add(fulfillTask(expectationTasks, in: .main))
-        sut.add(fulfillTask(expectationTasks, in: .main))
-        sut.finish { expectationFinish.fulfill() }
+        sut.add(fulfillTask(expectationTasks, in: .main) { XCTAssert(Thread.isMainThread) })
+        sut.add(fulfillTask(expectationTasks, in: .main) { XCTAssert(Thread.isMainThread) })
+        sut.add(fulfillTask(expectationTasks, in: .main) { XCTAssert(Thread.isMainThread) })
+        sut.finish {
+            expectationFinish.fulfill()
+
+            XCTAssert(Thread.isMainThread)
+        }
         wait(for: [expectationTasks, expectationFinish], timeout: 1, enforceOrder: true)
     }
     
     func testOneTaskBackgroundQueue() {
         let expectationTask = XCTestExpectation()
         let expectationFinish = XCTestExpectation()
-        let finishQueue = DispatchQueue.main
-        var taskQueue: DispatchQueue? = nil
+        let testQueue = TestQueue()
 
-        sut.add(fulfillTask(expectationTask, in: .global()) { taskQueue = $0 })
-        DispatchQueue.registerDetection(finishQueue)
-        sut.finish(queue: finishQueue) {
+        sut.add(fulfillTask(expectationTask, in: testQueue.queue) { XCTAssert(testQueue.isCurrent()) })
+        sut.finish {
             expectationFinish.fulfill()
 
-            self.assertQueuesEqual(DispatchQueue.current, finishQueue)
-            self.assertQueuesNotEqual(taskQueue!, finishQueue)
+            XCTAssert(Thread.isMainThread)
         }
         wait(for: [expectationTask, expectationFinish], timeout: 1, enforceOrder: true)
     }
@@ -82,18 +91,15 @@ class SSGroupExecutorTests: XCTestCase {
     func testSeveralTasksBackgroundQueue() {
         let expectationTasks = expectation()
         let expectationFinish = XCTestExpectation()
-        let finishQueue = DispatchQueue.main
-        var taskQueues = [DispatchQueue]()
+        let testQueue = TestQueue()
 
-        sut.add(fulfillTask(expectationTasks, in: .global()) { taskQueues.append($0) })
-        sut.add(fulfillTask(expectationTasks, in: .global()) { taskQueues.append($0) })
-        sut.add(fulfillTask(expectationTasks, in: .global()) { taskQueues.append($0) })
-        DispatchQueue.registerDetection(finishQueue)
-        sut.finish(queue: finishQueue) {
+        for _ in 0..<3 {
+            sut.add(fulfillTask(expectationTasks, in: testQueue.queue) { XCTAssert(testQueue.isCurrent()) })
+        }
+        sut.finish {
             expectationFinish.fulfill()
 
-            self.assertQueuesEqual(DispatchQueue.current, finishQueue)
-            taskQueues.forEach { self.assertQueuesNotEqual($0, finishQueue) }
+            XCTAssert(Thread.isMainThread)
         }
         wait(for: [expectationTasks, expectationFinish], timeout: 1, enforceOrder: true)
     }
@@ -101,44 +107,41 @@ class SSGroupExecutorTests: XCTestCase {
     func testSeveralTasksMixedQueues() {
         let expectationTasks = expectation()
         let expectationFinish = XCTestExpectation()
-        let finishQueue = DispatchQueue.main
-        var taskQueues = [Int: DispatchQueue]()
+        let testQueue = TestQueue()
 
-
-        sut.add(fulfillTask(expectationTasks, in: .global()) { taskQueues[0] = $0 })
-        sut.add(fulfillTask(expectationTasks, in: .main) { taskQueues[1] = $0 })
-        sut.add(fulfillTask(expectationTasks, in: .global()))
-        DispatchQueue.registerDetection(finishQueue)
-        sut.finish(queue: finishQueue) {
+        sut.add(fulfillTask(expectationTasks, in: testQueue.queue) { XCTAssert(testQueue.isCurrent()) })
+        sut.add(fulfillTask(expectationTasks, in: .main) { XCTAssert(Thread.isMainThread) })
+        sut.add(fulfillTask(expectationTasks, in: testQueue.queue) { XCTAssert(testQueue.isCurrent()) })
+        sut.finish {
             expectationFinish.fulfill()
 
-            self.assertQueuesEqual(DispatchQueue.current, finishQueue)
-            self.assertQueuesNotEqual(taskQueues[0]!, finishQueue)
-            self.assertQueuesEqual(taskQueues[1]!, finishQueue)
+            XCTAssert(Thread.isMainThread)
         }
         wait(for: [expectationTasks, expectationFinish], timeout: 1, enforceOrder: true)
     }
     
     func testZeroTasksBackgroundFinish() {
         let expectation = XCTestExpectation()
+        let testQueue = TestQueue()
         
-        sut.finish(queue: .global()) { expectation.fulfill() }
+        sut.finish(queue: testQueue.queue) {
+            expectation.fulfill()
+
+            XCTAssert(testQueue.isCurrent())
+        }
         wait(for: [expectation], timeout: 1)
     }
     
     func testOneTaskBackgroundFinish() {
         let expectationTask = XCTestExpectation()
         let expectationFinish = XCTestExpectation()
-        let finishQueue = DispatchQueue.global()
-        var taskQueue: DispatchQueue? = nil
+        let testQueue = TestQueue()
         
-        sut.add(fulfillTask(expectationTask, in: .main) { taskQueue = $0 })
-        DispatchQueue.registerDetection(finishQueue)
-        sut.finish(queue: finishQueue) {
+        sut.add(fulfillTask(expectationTask, in: .main))
+        sut.finish(queue: testQueue.queue) {
             expectationFinish.fulfill()
 
-            self.assertQueuesEqual(DispatchQueue.current, finishQueue)
-            self.assertQueuesNotEqual(taskQueue!, finishQueue)
+            XCTAssert(testQueue.isCurrent())
         }
         wait(for: [expectationTask, expectationFinish], timeout: 1, enforceOrder: true)
     }
@@ -146,18 +149,15 @@ class SSGroupExecutorTests: XCTestCase {
     func testSeveralTasksBackgroundFinish() {
         let expectationTasks = expectation()
         let expectationFinish = XCTestExpectation()
-        let finishQueue = DispatchQueue.global()
-        var taskQueue: DispatchQueue? = nil
-        
-        sut.add(fulfillTask(expectationTasks, in: .main) { taskQueue = $0 })
-        sut.add(fulfillTask(expectationTasks, in: .main))
-        sut.add(fulfillTask(expectationTasks, in: .main))
-        DispatchQueue.registerDetection(finishQueue)
-        sut.finish(queue: finishQueue) {
+        let testQueue = TestQueue()
+
+        for _ in 0..<3 {
+            sut.add(fulfillTask(expectationTasks, in: .main) { XCTAssert(Thread.isMainThread) })
+        }
+        sut.finish(queue: testQueue.queue) {
             expectationFinish.fulfill()
 
-            self.assertQueuesEqual(DispatchQueue.current, finishQueue)
-            self.assertQueuesNotEqual(taskQueue!, finishQueue)
+            XCTAssert(testQueue.isCurrent())
         }
         wait(for: [expectationTasks, expectationFinish], timeout: 1, enforceOrder: true)
     }
@@ -165,16 +165,14 @@ class SSGroupExecutorTests: XCTestCase {
     func testOneTaskBackgroundQueueBackgroundFinish() {
         let expectationTask = XCTestExpectation()
         let expectationFinish = XCTestExpectation()
-        let finishQueue = DispatchQueue.global(qos: .utility)
-        var taskQueue: DispatchQueue? = nil
+        let taskTestQueue = TestQueue(label: "taskTestQueue", value: "taskTestQueue")
+        let finishTestQueue = TestQueue(label: "finishTestQueue", value: "finishTestQueue")
         
-        sut.add(fulfillTask(expectationTask, in: .global()) { taskQueue = $0 })
-        DispatchQueue.registerDetection(finishQueue)
-        sut.finish(queue: finishQueue) {
+        sut.add(fulfillTask(expectationTask, in: taskTestQueue.queue) { XCTAssert(taskTestQueue.isCurrent()) })
+        sut.finish(queue: finishTestQueue.queue) {
             expectationFinish.fulfill()
 
-            self.assertQueuesEqual(DispatchQueue.current, finishQueue)
-            self.assertQueuesNotEqual(taskQueue!, finishQueue)
+            XCTAssert(finishTestQueue.isCurrent())
         }
         wait(for: [expectationTask, expectationFinish], timeout: 1, enforceOrder: true)
     }
@@ -182,18 +180,16 @@ class SSGroupExecutorTests: XCTestCase {
     func testSeveralTasksBackgroundQueueBackgroundFinish() {
         let expectationTasks = expectation()
         let expectationFinish = XCTestExpectation()
-        let finishQueue = DispatchQueue.global(qos: .userInteractive)
-        var taskQueue: DispatchQueue? = nil
-        
-        sut.add(fulfillTask(expectationTasks, in: .global()) { taskQueue = $0 })
-        sut.add(fulfillTask(expectationTasks, in: .global()))
-        sut.add(fulfillTask(expectationTasks, in: .global()))
-        DispatchQueue.registerDetection(finishQueue)
-        sut.finish(queue: finishQueue) {
+        let taskTestQueue = TestQueue(label: "taskTestQueue", value: "taskTestQueue")
+        let finishTestQueue = TestQueue(label: "finishTestQueue", value: "finishTestQueue")
+
+        for _ in 0..<3 {
+            sut.add(fulfillTask(expectationTasks, in: taskTestQueue.queue) { XCTAssert(taskTestQueue.isCurrent()) })
+        }
+        sut.finish(queue: finishTestQueue.queue) {
             expectationFinish.fulfill()
 
-            self.assertQueuesEqual(DispatchQueue.current, finishQueue)
-            self.assertQueuesNotEqual(taskQueue!, finishQueue)
+            XCTAssert(finishTestQueue.isCurrent())
         }
         wait(for: [expectationTasks, expectationFinish], timeout: 1, enforceOrder: true)
     }
@@ -201,19 +197,16 @@ class SSGroupExecutorTests: XCTestCase {
     func testSeveralTasksMixedQueuesBackgroundFinish() {
         let expectationTasks = expectation()
         let expectationFinish = XCTestExpectation()
-        let finishQueue = DispatchQueue.global(qos: .userInteractive)
-        var taskQueues = [Int: DispatchQueue]()
+        let taskTestQueue = TestQueue(label: "taskTestQueue", value: "taskTestQueue")
+        let finishTestQueue = TestQueue(label: "finishTestQueue", value: "finishTestQueue")
         
-        sut.add(fulfillTask(expectationTasks, in: .global()) { taskQueues[0] = $0 })
-        sut.add(fulfillTask(expectationTasks, in: .main) { taskQueues[1] = $0 })
-        sut.add(fulfillTask(expectationTasks, in: .global()))
-        DispatchQueue.registerDetection(finishQueue)
-        sut.finish(queue: finishQueue) {
+        sut.add(fulfillTask(expectationTasks, in: taskTestQueue.queue) { XCTAssert(taskTestQueue.isCurrent()) })
+        sut.add(fulfillTask(expectationTasks, in: .main) { XCTAssert(Thread.isMainThread) })
+        sut.add(fulfillTask(expectationTasks, in: taskTestQueue.queue) { XCTAssert(taskTestQueue.isCurrent()) })
+        sut.finish(queue: finishTestQueue.queue) {
             expectationFinish.fulfill()
 
-            self.assertQueuesEqual(DispatchQueue.current, finishQueue)
-            self.assertQueuesNotEqual(taskQueues[0]!, finishQueue)
-            self.assertQueuesNotEqual(taskQueues[1]!, finishQueue)
+            XCTAssert(finishTestQueue.isCurrent())
         }
         wait(for: [expectationTasks, expectationFinish], timeout: 1, enforceOrder: true)
     }
@@ -225,65 +218,17 @@ class SSGroupExecutorTests: XCTestCase {
         return expectation
     }
     
-    func task(_ queue: DispatchQueue = .main, work: @escaping () -> Void = {}, queueCheckHandler: @escaping (DispatchQueue) -> Void = { _ in }) -> SSGroupExecutor.Task {
+    func task(_ queue: DispatchQueue = .main, work: @escaping () -> Void = {}, queueCheckHandler: @escaping () -> Void = {}) -> SSGroupExecutor.Task {
         return { handler in
             queue.async {
                 work()
+                queueCheckHandler()
                 handler()
-                queueCheckHandler(DispatchQueue.current)
             }
         }
     }
     
-    func fulfillTask(_ expectation: XCTestExpectation, in queue: DispatchQueue, queueCheckHandler: @escaping (DispatchQueue) -> Void = { _ in }) -> SSGroupExecutor.Task {
-        let fulfillWork = { expectation.fulfill() }
-
-        DispatchQueue.registerDetection(queue)
-        return task(queue, work: fulfillWork ,queueCheckHandler: queueCheckHandler)
-    }
-
-    /// Asserts queues are equal.
-    ///
-    /// Works in background threads. A standard `XCTestsEqual(_:_:)` method works incorrectly.
-    ///
-    /// - Parameters:
-    ///   - queue1: The queue to check equality.
-    ///   - queue2: The queue to check equality.
-    ///   - file: The file in which failure occurred. Defaults to the file name of the test case in which this function was called.
-    ///   - line: The line number on which failure occurred. Defaults to the line number on which this function was called.
-    func assertQueuesEqual(_ queue1: DispatchQueue, _ queue2: DispatchQueue, file: StaticString = #file, line: UInt = #line) {
-        XCTAssert(queue1 == queue2, "\(queue1) is not equal to \(queue2)", file: file, line: line)
-    }
-
-    /// Asserts queues are not equal.
-    ///
-    /// Works in background threads. A standard `XCTestsNotEqual(_:_:)` method works incorrectly.
-    ///
-    /// - Parameters:
-    ///   - queue1: The queue to check equality.
-    ///   - queue2: The queue to check equality.
-    ///   - file: The file in which failure occurred. Defaults to the file name of the test case in which this function was called.
-    ///   - line: The line number on which failure occurred. Defaults to the line number on which this function was called.
-    func assertQueuesNotEqual(_ queue1: DispatchQueue, _ queue2: DispatchQueue, file: StaticString = #file, line: UInt = #line) {
-        XCTAssert(queue1 != queue2, "\(queue1) is equal to \(queue2)", file: file, line: line)
-    }
-}
-
-// MARK: - Dispatch Queue Extension
-
-fileprivate extension DispatchQueue {
-    private struct QueueReference {
-        weak var queue: DispatchQueue?
-    }
-
-    private static let key = DispatchSpecificKey<QueueReference>()
-
-    static func registerDetection(_ queues: DispatchQueue...) {
-        queues.forEach { $0.setSpecific(key: key, value: QueueReference(queue: $0)) }
-    }
-
-    static var current: DispatchQueue {
-        guard let queue = DispatchQueue.getSpecific(key: key)?.queue else { fatalError("Failed to get current queue. Make sure you registered the queue for detection.") }
-        return queue
+    func fulfillTask(_ expectation: XCTestExpectation, in queue: DispatchQueue, queueCheckHandler: @escaping () -> Void = {}) -> SSGroupExecutor.Task {
+        return task(queue, work: { expectation.fulfill() }, queueCheckHandler: queueCheckHandler)
     }
 }
