@@ -73,11 +73,10 @@ internal protocol SSUETaskEditApi {
 /// Async api for task altering.
 /// It may be Network proxing.
 internal protocol SSUETaskEditAsyncApi {
-    func renameTask(taskID: Int, title: String, marker: String, handler: (Error?)->Void)
-    func removeTask(taskID: Int, marker: String, handler: (Error?)->Void)
-    func incrementPages(taskID: Int, marker: String, handler: (Error?)->Void)
+    func renameTask(taskID: Int, title: String, marker: String, handler: @escaping (Error?)->Void)
+    func removeTask(taskID: Int, marker: String, handler: @escaping (Error?)->Void)
+    func incrementPages(taskID: Int, marker: String, handler: @escaping (Error?)->Void)
 }
-
 
 extension SSUETaskUpdate {
     internal func incrementPages(taskID: Int, marker: String) -> SSUpdate {
@@ -100,6 +99,7 @@ extension SSUETaskUpdateReceiver {
     public func reactions() -> SSUpdate.ReactionMap {
         return taskReactions()
     }
+    
     internal func taskReactions() -> SSUpdate.ReactionMap {
         return [SSUETaskUpdateNotifications.incrementPages.name : taskDidIncrementPages(_:),
                 SSUETaskUpdateNotifications.rename.name : taskDidRename(_:),
