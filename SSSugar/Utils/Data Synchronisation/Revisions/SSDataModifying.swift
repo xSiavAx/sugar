@@ -46,18 +46,18 @@ public protocol SSDmRequest: SSDataModifying {
 /// Implements core property.
 /// For inheritance purpouses use `SSCoredModify` class.
 /// - Warning: Copying and title property should be implemented by inheritors.
-public class SSModify: SSDataModifying {
+open class SSModify: SSDataModifying {
     /// Modification's core
     public var core: SSDataModifyCore
     /// Modification's title
-    public var title: String { fatalError("Not implemented") }
-    
+    open var title: String { fatalError("Not implemented") }
+
     /// Creates new Modification.
     /// - Parameter core: Modifycation core.
     public init(core mCore: SSDataModifyCore) {
         core = mCore
     }
-    
+
     /// Creates new Modification based on other one.
     /// - Parameter other: Modification to create new one with.
     /// - Warning: Should be implemented by inheritor.
@@ -70,7 +70,7 @@ public class SSModify: SSDataModifying {
 ///
 /// Implements core acess, creating, copying. See `SSUEChange` and `SSUERequest` (and their inheritors) for examples.
 /// - Warning: Title property should be implemented by inheritors.
-public class SSCoredModify<Core: SSDataModifyCore&SSCopying>: SSModify {
+open class SSCoredModify<Core: SSDataModifyCore&SSCopying>: SSModify {
     /// Concretized core
     public var iCore: Core { core as! Core }
 
@@ -79,7 +79,7 @@ public class SSCoredModify<Core: SSDataModifyCore&SSCopying>: SSModify {
     public init(core: Core) {
         super.init(core: core)
     }
-    
+
     /// Creates new Modification based on other one.
     /// - Parameter other: Modification to create new one with.
     public required init(copy other: SSModify) {
