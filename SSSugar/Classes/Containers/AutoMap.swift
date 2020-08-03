@@ -19,15 +19,15 @@ public struct AutoMap<Key : Hashable, Container : InsertableCollection> {
     public var keys : Keys { return containers.keys }
     
     public init(map mMap : [Key : Container]) {
-        count       = mMap.reduce(0) { $0 + $1.value.count }
-        containers  = mMap.filter { return $1.count > 0 }
+        count = mMap.reduce(0) { $0 + $1.value.count }
+        containers = mMap.filter { return $1.count > 0 }
     }
     
     public init() {
         self.init(map:[Key : Container]())
     }
     
-    subscript(key: Key) -> Container? {
+    public subscript(key: Key) -> Container? {
         get {
             return containers[key]
         }
@@ -40,7 +40,8 @@ public struct AutoMap<Key : Hashable, Container : InsertableCollection> {
         }
     }
     
-    @discardableResult mutating func add(container: Container, for key: Key) -> Bool {
+    @discardableResult
+    public mutating func add(container: Container, for key: Key) -> Bool {
         guard container.count != 0 && containers[key] == nil else {
             return false
         }
@@ -48,7 +49,8 @@ public struct AutoMap<Key : Hashable, Container : InsertableCollection> {
         return true
     }
     
-    @discardableResult mutating func add(_ element: Value, for key: Key) -> Bool {
+    @discardableResult
+    public mutating func add(_ element: Value, for key: Key) -> Bool {
         createContainerIfNeeded(for: key)
         if (containers[key]!.insert(e:element)) {
             count += 1
@@ -57,7 +59,8 @@ public struct AutoMap<Key : Hashable, Container : InsertableCollection> {
         return false
     }
     
-    @discardableResult mutating func replace(_ container: Container, for key: Key) -> Container? {
+    @discardableResult
+    public mutating func replace(_ container: Container, for key: Key) -> Container? {
         guard container.count > 0 else {
             fatalError("Invalid argument. Container shouldn't be empty.")
         }
@@ -68,7 +71,8 @@ public struct AutoMap<Key : Hashable, Container : InsertableCollection> {
     }
     
     
-    @discardableResult mutating func remove(for key: Key) -> Container? {
+    @discardableResult
+    public mutating func remove(for key: Key) -> Container? {
         if let container = containers.removeValue(forKey: key) {
             count -= container.count
             return container
@@ -76,7 +80,8 @@ public struct AutoMap<Key : Hashable, Container : InsertableCollection> {
         return nil
     }
     
-    @discardableResult mutating func removeAll() -> Bool {
+    @discardableResult
+    public mutating func removeAll() -> Bool {
         if count > 0 {
             containers.removeAll()
             count = 0
@@ -100,7 +105,8 @@ public struct AutoMap<Key : Hashable, Container : InsertableCollection> {
 }
 
 extension AutoMap where Container : ReplaceableCollection {
-    @discardableResult mutating func remove(_ element: Value, for key: Key) -> Bool {
+    @discardableResult
+    public mutating func remove(_ element: Value, for key: Key) -> Bool {
         if (containers[key]?.remove(e:element) ?? false) {
             if (containers[key]?.count == 0) {
                 containers.removeValue(forKey: key)
@@ -113,7 +119,7 @@ extension AutoMap where Container : ReplaceableCollection {
 }
 
 extension AutoMap where Value : Equatable {
-    func contains(_ value : Value, for key : Key) -> Bool {
+    public func contains(_ value : Value, for key : Key) -> Bool {
         return containers[key]?.contains(value) ?? false
     }
 }
@@ -133,7 +139,7 @@ extension AutoMap : Sequence {
         private var containerIterator : Container.Iterator!
         private var container : Container!
         
-        init(map : [Key : Container]) {
+        public init(map : [Key : Container]) {
             iterator = map.makeIterator()
             mapIteratorNext()
         }
@@ -161,9 +167,9 @@ extension AutoMap : Sequence {
 }
 
 extension AutoMap where Container : RangeReplaceableCollection & MutableCollection {
-    typealias Index = Container.Index
+    public typealias Index = Container.Index
     
-    subscript(key: Key, index: Index) -> Value? {
+    public subscript(key: Key, index: Index) -> Value? {
         get {
             return containers[key]?[index]
         }
@@ -176,13 +182,14 @@ extension AutoMap where Container : RangeReplaceableCollection & MutableCollecti
         }
     }
     
-    mutating func insert(_ element: Value, for key: Key, at index: Container.Index) {
+    public mutating func insert(_ element: Value, for key: Key, at index: Container.Index) {
         createContainerIfNeeded(for: key)
         containers[key]!.insert(element, at: index)
         count += 1;
     }
     
-    @discardableResult mutating func update(_ element: Value, for key: Key, at index: Container.Index) -> Value {
+    @discardableResult
+    public mutating func update(_ element: Value, for key: Key, at index: Container.Index) -> Value {
         if let old = containers[key]?[index] {
             containers[key]![index] = element
             return old
@@ -190,7 +197,8 @@ extension AutoMap where Container : RangeReplaceableCollection & MutableCollecti
         fatalError("attempt to update a not contained \(containers[key] == nil ? "key" : "index")")
     }
     
-    @discardableResult mutating func remove(for key: Key, at index: Container.Index) -> Value? {
+    @discardableResult
+    public mutating func remove(for key: Key, at index: Container.Index) -> Value? {
         if let old = containers[key]?.remove(at: index) {
             count -= 1
             if (containers[key]?.count == 0) {
@@ -201,7 +209,8 @@ extension AutoMap where Container : RangeReplaceableCollection & MutableCollecti
         return nil
     }
     
-    @discardableResult mutating func remove(forKeyAndIndexes keysAndIndexes: AutoMap<Key, [Index]>) -> AutoMap<Key, [Value]> {
+    @discardableResult
+    public mutating func remove(forKeyAndIndexes keysAndIndexes: AutoMap<Key, [Index]>) -> AutoMap<Key, [Value]> {
         var result = AutoMap<Key, [Value]>()
         
         for (key, indexes) in keysAndIndexes.containers {
