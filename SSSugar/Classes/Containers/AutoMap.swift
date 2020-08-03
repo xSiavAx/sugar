@@ -18,12 +18,12 @@ public struct AutoMap<Key : Hashable, Container : InsertableCollection> {
     
     public var keys : Keys { return containers.keys }
     
-    init(map mMap : [Key : Container]) {
+    public init(map mMap : [Key : Container]) {
         count       = mMap.reduce(0) { $0 + $1.value.count }
         containers  = mMap.filter { return $1.count > 0 }
     }
     
-    init() {
+    public init() {
         self.init(map:[Key : Container]())
     }
     
