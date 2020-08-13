@@ -2,9 +2,12 @@ import Foundation
 
 /// Represents atomic seria of changes with unique number and optional marker of request caused these changes. Implements SSCopying.
 ///
-/// Requires some `SSDataModifying` as change type.
-public class SSDmRevision<Change: SSDataModifying>: SSCopying {
-    /// Revision number. Erlier revisions should has lower number.
+/// Requires some `SSDataModifying` as `Change` type.
+///
+/// # Conforms to
+/// `SSCopying`
+open class SSDmRevision<Change: SSDataModifying>: SSCopying {
+    /// Revision number. Earlier revisions should has lower number.
     public let number: Int
     /// Revision's changes seria
     public let changes: [Change]
@@ -24,7 +27,9 @@ public class SSDmRevision<Change: SSDataModifying>: SSCopying {
     
     /// Creates new Revision based on passed one.
     /// - Parameter other: Revision to create new one with.
-    public required convenience init(copy other: SSDmRevision<Change>) {
-        self.init(number: other.number, changes: other.changes.map { $0.copy() }, marker: other.marker)
+    public required init(copy other: SSDmRevision<Change>) {
+        number = other.number
+        changes = other.changes.deepCopy()
+        marker = other.marker
     }
 }
