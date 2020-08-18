@@ -12,7 +12,7 @@ public class SSChainExecutor {
         return self
     }
     
-    public func finish(queue: DispatchQueue = DispatchQueue.main, _ handler: (()->Void)? = nil) {
+    public func finish(_ handler: (()->Void)? = nil) {
         var mTasks = Array(tasks.reversed())
         
         func iteration() {

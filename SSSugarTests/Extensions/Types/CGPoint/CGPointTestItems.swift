@@ -1,4 +1,5 @@
 import Foundation
+import CoreGraphics
 
 struct CGPointTestItems {
     let left: CGPoint

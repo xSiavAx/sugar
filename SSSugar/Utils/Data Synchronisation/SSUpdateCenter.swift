@@ -18,13 +18,27 @@ public protocol SSUpdateReceiversManaging {
 
 /// Updater protocol with requierement to notifying
 public protocol SSUpdateNotifier {
-    /// Send passed notification for all listeners that wait for it (except passed ignores)
-    ///
+    /// Send passed update to all listeners that wait for it
     /// - Parameters:
-    ///   - update: Update for notification
-    func notify(update: SSUpdate)
+    ///   - update: Update to send
+    ///   - onApply: Finish handler
+    func notify(update: SSUpdate, onApply:(()->Void)?)
+        
+    
+    /// Send passed updates to all listeners that wait for them
+    /// - Parameters:
+    ///   - updates: Updates to send
+    ///   - onApply: Finish handler
+    func notify(updates: [SSUpdate], onApply:(()->Void)?)
 }
 
+extension SSUpdateNotifier {
+    public func notify(update: SSUpdate, onApply:(()->Void)? = nil) {
+        notify(updates: [update], onApply: onApply)
+    }
+}
+
+/// Requirements for Update Center tool. Composition of `SSUpdateReceiversManaging` and `SSUpdateNotifier`.
 public protocol SSUpdateCenter: SSUpdateReceiversManaging, SSUpdateNotifier {}
 
 /// Concreate Update Center implementation that use SDK's Notification Center inside.
@@ -41,9 +55,9 @@ public class SSUpdater: SSUpdateCenter {
         }
     }
     class UpdatesConverter {
-        public let prefix: String?
+        let prefix: String?
         
-        public init(prefix mPrefix: String?) {
+        init(prefix mPrefix: String?) {
             prefix = mPrefix
         }
     }
@@ -81,8 +95,28 @@ extension SSUpdater: SSUpdateReceiversManaging {
 
 extension SSUpdater: SSUpdateNotifier {
     //MARK: SSUpdateNotifier
-    public func notify(update: SSUpdate) {
-        NotificationCenter.default.post(converter.notification(from: update))
+    
+    /// Send passed updates to all listeners that subscribed on 'em.
+    ///
+    /// For each update calls reaction methods of each Receiver to let receivers obtain additional data (if needed) and collect modifications. Then call `apply()` for each receiver on Main Queue.
+    /// - Parameters:
+    ///   - updates: Updates to send
+    ///   - onApply: Finish handler
+    public func notify(updates: [SSUpdate], onApply: (() -> Void)?) {
+        func apply() {
+            observers.forEach { $0.receiver.apply() }
+            onApply?()
+        }
+        notifications(from:updates).forEach(post(_:))
+        DispatchQueue.main.async(execute: apply)
+    }
+    
+    private func notifications(from updates: [SSUpdate]) -> [Notification] {
+        return updates.map { converter.notification(from: $0) }
+    }
+    
+    private func post(_ notification: Notification) {
+        NotificationCenter.default.post(notification)
     }
 }
 
@@ -90,7 +124,7 @@ extension SSUpdater.UpdatesConverter {
     private static let markerKey = "notification_marker"
     private static let argsKey = "notification_args"
     
-    public func info(from notification: Notification) -> SSUpdate {
+    func info(from notification: Notification) -> SSUpdate {
         guard let userInfo = notification.userInfo else {
             fatalError("Invalid notification")
         }
@@ -101,20 +135,20 @@ extension SSUpdater.UpdatesConverter {
         return SSUpdate(name: name, marker: marker, args: args)
     }
 
-    public func notification(from update: SSUpdate) -> Notification {
+    func notification(from update: SSUpdate) -> Notification {
         let notName = notificationName(withUpdateName: update.name)
         let userInfo = [Self.markerKey : update.marker, Self.argsKey : update.args] as [AnyHashable : Any]
         return Notification(name: notName, object: nil, userInfo: userInfo)
     }
     
-    public func notificationName(withUpdateName name: String) -> Notification.Name {
+    func notificationName(withUpdateName name: String) -> Notification.Name {
         if let mPrefix = prefix {
             return Notification.Name("\(mPrefix)_\(name)")
         }
         return Notification.Name(name)
     }
     
-    public func updateName(fromNotificationName name: Notification.Name) -> String {
+    private func updateName(fromNotificationName name: Notification.Name) -> String {
         if let mPrefix = prefix {
             return String(name.rawValue.dropFirst(mPrefix.count + 1))
         }
