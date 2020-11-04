@@ -105,6 +105,12 @@
 		9944ED6522CFA6E5005B129A /* SSTransacted.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9944ED6422CFA6E5005B129A /* SSTransacted.swift */; };
 		9947C43A22CA58C100AB3327 /* SSDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9947C43922CA58C100AB3327 /* SSDataBase.swift */; };
 		9947C43C22CA58D800AB3327 /* SSDataBaseProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9947C43B22CA58D800AB3327 /* SSDataBaseProtocols.swift */; };
+		994AACC5255311C100419F3B /* SSStorageCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994AACBB255311C000419F3B /* SSStorageCoder.swift */; };
+		994AACC6255311C100419F3B /* SSKeyStoringProp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994AACBC255311C000419F3B /* SSKeyStoringProp.swift */; };
+		994AACC7255311C100419F3B /* SSKeyField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994AACBD255311C000419F3B /* SSKeyField.swift */; };
+		994AACC9255311C100419F3B /* SSKeyFieldConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994AACC0255311C000419F3B /* SSKeyFieldConverter.swift */; };
+		994AACCA255311C100419F3B /* SSErrorConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994AACC1255311C000419F3B /* SSErrorConverter.swift */; };
+		994AACCD255311C100419F3B /* SSKeyFieldStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 994AACC4255311C000419F3B /* SSKeyFieldStorage.swift */; };
 		995327BF24506FEE0007F30B /* SSUEChanges.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995327BE24506FEE0007F30B /* SSUEChanges.swift */; };
 		995327C124506FFC0007F30B /* SSUERequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995327C024506FFC0007F30B /* SSUERequests.swift */; };
 		995327C3245090200007F30B /* SSUETaskDmMutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 995327C2245090200007F30B /* SSUETaskDmMutator.swift */; };
@@ -123,6 +129,12 @@
 		99745CBE239FC10900DAAFFA /* SSEntityRemoteMutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CBD239FC10900DAAFFA /* SSEntityRemoteMutator.swift */; };
 		99745CC0239FC69F00DAAFFA /* SSEntityUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CBF239FC69F00DAAFFA /* SSEntityUpdater.swift */; };
 		99745CC2239FC9B700DAAFFA /* SSUETaskUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CC1239FC9B700DAAFFA /* SSUETaskUpdater.swift */; };
+		997B6F8C255313FD005E50D7 /* SSStringRepresentableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997B6F8B255313FD005E50D7 /* SSStringRepresentableError.swift */; };
+		997B6F9D2553151B005E50D7 /* KeyFieldTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997B6F952553151B005E50D7 /* KeyFieldTest.swift */; };
+		997B6F9E2553151B005E50D7 /* StorageCoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997B6F962553151B005E50D7 /* StorageCoderTests.swift */; };
+		997B6F9F2553151B005E50D7 /* KeyFieldConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997B6F982553151B005E50D7 /* KeyFieldConverterTests.swift */; };
+		997B6FA12553151B005E50D7 /* ErrorConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997B6F9A2553151B005E50D7 /* ErrorConverterTests.swift */; };
+		997B6FA22553151B005E50D7 /* KeyStoringPropTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997B6F9B2553151B005E50D7 /* KeyStoringPropTests.swift */; };
 		998211852449DC6800A7A8B6 /* SSUETaskModifyCores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998211842449DC6800A7A8B6 /* SSUETaskModifyCores.swift */; };
 		998211892449F1A500A7A8B6 /* SSUEBatchAdpater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998211882449F1A500A7A8B6 /* SSUEBatchAdpater.swift */; };
 		9982118B244F2DEA00A7A8B6 /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9982118A244F2DEA00A7A8B6 /* Base.swift */; };
@@ -271,6 +283,12 @@
 		9944ED6422CFA6E5005B129A /* SSTransacted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSTransacted.swift; sourceTree = "<group>"; };
 		9947C43922CA58C100AB3327 /* SSDataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDataBase.swift; sourceTree = "<group>"; };
 		9947C43B22CA58D800AB3327 /* SSDataBaseProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDataBaseProtocols.swift; sourceTree = "<group>"; };
+		994AACBB255311C000419F3B /* SSStorageCoder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSStorageCoder.swift; sourceTree = "<group>"; };
+		994AACBC255311C000419F3B /* SSKeyStoringProp.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSKeyStoringProp.swift; sourceTree = "<group>"; };
+		994AACBD255311C000419F3B /* SSKeyField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSKeyField.swift; sourceTree = "<group>"; };
+		994AACC0255311C000419F3B /* SSKeyFieldConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSKeyFieldConverter.swift; sourceTree = "<group>"; };
+		994AACC1255311C000419F3B /* SSErrorConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSErrorConverter.swift; sourceTree = "<group>"; };
+		994AACC4255311C000419F3B /* SSKeyFieldStorage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSKeyFieldStorage.swift; sourceTree = "<group>"; };
 		995327BE24506FEE0007F30B /* SSUEChanges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUEChanges.swift; sourceTree = "<group>"; };
 		995327C024506FFC0007F30B /* SSUERequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUERequests.swift; sourceTree = "<group>"; };
 		995327C2245090200007F30B /* SSUETaskDmMutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUETaskDmMutator.swift; sourceTree = "<group>"; };
@@ -291,6 +309,12 @@
 		99745CBF239FC69F00DAAFFA /* SSEntityUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSEntityUpdater.swift; sourceTree = "<group>"; };
 		99745CC1239FC9B700DAAFFA /* SSUETaskUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUETaskUpdater.swift; sourceTree = "<group>"; };
 		997B344E225A134B00F2A3A0 /* ArrayInitBuildBlockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayInitBuildBlockTests.swift; sourceTree = "<group>"; };
+		997B6F8B255313FD005E50D7 /* SSStringRepresentableError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSStringRepresentableError.swift; sourceTree = "<group>"; };
+		997B6F952553151B005E50D7 /* KeyFieldTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyFieldTest.swift; sourceTree = "<group>"; };
+		997B6F962553151B005E50D7 /* StorageCoderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageCoderTests.swift; sourceTree = "<group>"; };
+		997B6F982553151B005E50D7 /* KeyFieldConverterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyFieldConverterTests.swift; sourceTree = "<group>"; };
+		997B6F9A2553151B005E50D7 /* ErrorConverterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorConverterTests.swift; sourceTree = "<group>"; };
+		997B6F9B2553151B005E50D7 /* KeyStoringPropTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyStoringPropTests.swift; sourceTree = "<group>"; };
 		997E315222493AC8006A5B7C /* CGSizeUnitedIntersectedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeUnitedIntersectedTests.swift; sourceTree = "<group>"; };
 		998211842449DC6800A7A8B6 /* SSUETaskModifyCores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUETaskModifyCores.swift; sourceTree = "<group>"; };
 		998211882449F1A500A7A8B6 /* SSUEBatchAdpater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUEBatchAdpater.swift; sourceTree = "<group>"; };
@@ -493,7 +517,7 @@
 				99584E70247412A900FB43AD /* Utils */,
 				99B1A796224678B400D96BEE /* SSSugarPlayground */,
 				2DAEA1642431F92000DF53D0 /* Extensions */,
-				99F6A1912295AF5C00183436 /* AutoMap */,
+				997B6F932553151B005E50D7 /* Classes */,
 				2D535E13242A0F8C0024D4C0 /* Executors */,
 				2D8CF9BB241FC4BA00168C8A /* Info.plist */,
 				99584E74247521EA00FB43AD /* SSSugarTests.swift */,
@@ -617,6 +641,27 @@
 			path = DataBase;
 			sourceTree = "<group>";
 		};
+		994AACBA255311C000419F3B /* Key Coding */ = {
+			isa = PBXGroup;
+			children = (
+				994AACBE255311C000419F3B /* Adapters */,
+				994AACBB255311C000419F3B /* SSStorageCoder.swift */,
+				994AACBC255311C000419F3B /* SSKeyStoringProp.swift */,
+				994AACBD255311C000419F3B /* SSKeyField.swift */,
+				994AACC4255311C000419F3B /* SSKeyFieldStorage.swift */,
+			);
+			path = "Key Coding";
+			sourceTree = "<group>";
+		};
+		994AACBE255311C000419F3B /* Adapters */ = {
+			isa = PBXGroup;
+			children = (
+				994AACC0255311C000419F3B /* SSKeyFieldConverter.swift */,
+				994AACC1255311C000419F3B /* SSErrorConverter.swift */,
+			);
+			path = Adapters;
+			sourceTree = "<group>";
+		};
 		99584E70247412A900FB43AD /* Utils */ = {
 			isa = PBXGroup;
 			children = (
@@ -648,6 +693,43 @@
 			children = (
 				2D00D9972437A3AF0059EB09 /* Array */,
 				2D00D9982437A3D50059EB09 /* Dictionary */,
+			);
+			path = Containers;
+			sourceTree = "<group>";
+		};
+		997B6F932553151B005E50D7 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				997B6FA825531549005E50D7 /* Containers */,
+				997B6F942553151B005E50D7 /* Key Coding */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		997B6F942553151B005E50D7 /* Key Coding */ = {
+			isa = PBXGroup;
+			children = (
+				997B6F972553151B005E50D7 /* Adapters */,
+				997B6F952553151B005E50D7 /* KeyFieldTest.swift */,
+				997B6F962553151B005E50D7 /* StorageCoderTests.swift */,
+				997B6F9B2553151B005E50D7 /* KeyStoringPropTests.swift */,
+			);
+			path = "Key Coding";
+			sourceTree = "<group>";
+		};
+		997B6F972553151B005E50D7 /* Adapters */ = {
+			isa = PBXGroup;
+			children = (
+				997B6F982553151B005E50D7 /* KeyFieldConverterTests.swift */,
+				997B6F9A2553151B005E50D7 /* ErrorConverterTests.swift */,
+			);
+			path = Adapters;
+			sourceTree = "<group>";
+		};
+		997B6FA825531549005E50D7 /* Containers */ = {
+			isa = PBXGroup;
+			children = (
+				99F6A1912295AF5C00183436 /* AutoMap */,
 			);
 			path = Containers;
 			sourceTree = "<group>";
@@ -808,6 +890,11 @@
 				99EABD7722401B3A0037645B /* Utils */,
 				99D29672223D37BD003FD9F0 /* Extensions */,
 				99D29671223D37A2003FD9F0 /* Classes */,
+				993BC5B82317CFB3008DCE98 /* SSAtomic.swift */,
+				99AA28D523A2A88F00DA9C2F /* SSChainExecutor.swift */,
+				99584E6E2474003000FB43AD /* SSEqutable.swift */,
+				99AA28D323A2A05400DA9C2F /* SSGroupExecutor.swift */,
+				9918B5BF2447434500E49E81 /* SSTry.swift */,
 				99D2965F223D3763003FD9F0 /* Other */,
 				99D2965A223D3710003FD9F0 /* Protocols */,
 				99D29641223D3057003FD9F0 /* SSSugar.h */,
@@ -855,6 +942,7 @@
 				9967832122D3955000E33300 /* SSCacheContainer.swift */,
 				99E3BA4022FB26290023D9AE /* SSCopying.swift */,
 				99D70DA8239A8FC100EA96B4 /* SSExecutor.swift */,
+				997B6F8B255313FD005E50D7 /* SSStringRepresentableError.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -871,16 +959,12 @@
 			isa = PBXGroup;
 			children = (
 				9937E11123C60A2800F73905 /* Animators */,
-				99991DBB22E60D5500F3D294 /* Decorators */,
-				9947C43822CA58B000AB3327 /* DataBase */,
 				99F6A185228981BF00183436 /* Containers */,
+				9947C43822CA58B000AB3327 /* DataBase */,
+				99991DBB22E60D5500F3D294 /* Decorators */,
+				994AACBA255311C000419F3B /* Key Coding */,
 				99D2964B223D3107003FD9F0 /* ViewControllers */,
 				99D29651223D3681003FD9F0 /* Views */,
-				993BC5B82317CFB3008DCE98 /* SSAtomic.swift */,
-				99AA28D323A2A05400DA9C2F /* SSGroupExecutor.swift */,
-				99AA28D523A2A88F00DA9C2F /* SSChainExecutor.swift */,
-				9918B5BF2447434500E49E81 /* SSTry.swift */,
-				99584E6E2474003000FB43AD /* SSEqutable.swift */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1083,7 +1167,7 @@
 					};
 					99D2963D223D3057003FD9F0 = {
 						CreatedOnToolsVersion = 10.1;
-						LastSwiftMigration = 1020;
+						LastSwiftMigration = 1210;
 					};
 				};
 			};
@@ -1171,6 +1255,7 @@
 				2D207BB62437992E001D808E /* CGPointBinaryMinusTests.swift in Sources */,
 				2D7E5A4F241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperMarkTC.swift in Sources */,
 				2DBCCFB2242BB45E00100093 /* AutoMapRemoveForTests.swift in Sources */,
+				997B6F9D2553151B005E50D7 /* KeyFieldTest.swift in Sources */,
 				2D7E5A50241FD0E5009EE074 /* SSSugarPlaygroundTests.swift in Sources */,
 				2D7E5A51241FD0E5009EE074 /* CGRectCuttedTests.swift in Sources */,
 				2D7E5A52241FD0E5009EE074 /* CGRectInitCenterSize.swift in Sources */,
@@ -1183,8 +1268,10 @@
 				2DFE3991242E48BA001B9AAE /* AutoMapMakeIteratorTests.swift in Sources */,
 				2D8BABC024292ADA00B8A84D /* DictionaryPickingForTests.swift in Sources */,
 				2D7E5A56241FD0E5009EE074 /* CGSizeUnitedIntersectedTests.swift in Sources */,
+				997B6F9F2553151B005E50D7 /* KeyFieldConverterTests.swift in Sources */,
 				2D5E66D62424CD0F00D82DEE /* CGRectDividedCountVerticalyTests.swift in Sources */,
 				2D95D5F8243B247D0060E1F8 /* UILabelNonEmptySizeThatFits.swift in Sources */,
+				997B6FA12553151B005E50D7 /* ErrorConverterTests.swift in Sources */,
 				2D207BB324379349001D808E /* CGPointUnaryMinusTests.swift in Sources */,
 				2D3043C02437369500EBD898 /* CGSizeBinaryMinusOperatorTests.swift in Sources */,
 				2D7E5A57241FD0E5009EE074 /* UIColorInitTests.swift in Sources */,
@@ -1201,6 +1288,7 @@
 				2D7E5A5B241FD0E5009EE074 /* ArrayInitBuildBlockTests.swift in Sources */,
 				99E3CE68248D20FD005CDE8A /* SSEntityStorageMutatorTests.swift in Sources */,
 				2D7E5A5C241FD0E5009EE074 /* AutoMapAddContainerTests.swift in Sources */,
+				997B6F9E2553151B005E50D7 /* StorageCoderTests.swift in Sources */,
 				2D7E5A5E241FD0E5009EE074 /* AutoMapSubscriptKeyTests.swift in Sources */,
 				2D4F5E282434E197003EF8D4 /* UIViewControllerDismissPresentedAnimatedOnFinishTests.swift in Sources */,
 				2DBCCFB0242BAB7500100093 /* AutoMapReplaceTests.swift in Sources */,
@@ -1209,6 +1297,7 @@
 				2DAEA168243206AF00DF53D0 /* ComparableCompareTests.swift in Sources */,
 				99584E73247412F100FB43AD /* SSUpdateCenterTests.swift in Sources */,
 				2D61561A2423C4F80015A9E0 /* SSCollectionViewMarkableControllerUnmarkTC.swift in Sources */,
+				997B6FA22553151B005E50D7 /* KeyStoringPropTests.swift in Sources */,
 				2DC1D1AB242CF63E0049020B /* AutoMapRemoveForAtTests.swift in Sources */,
 				2DAEA16D24321D0700DF53D0 /* UIViewControllerShowAlertTests.swift in Sources */,
 				2D7E5A5F241FD0E5009EE074 /* AutoMapContainsTests.swift in Sources */,
@@ -1249,6 +1338,7 @@
 				99D29669223D3763003FD9F0 /* UIViewController.swift in Sources */,
 				99EABD7A22401B8A0037645B /* SSCollectionViewCellMarkable.swift in Sources */,
 				995327C524509A400007F30B /* SSUETaskDmProcessor.swift in Sources */,
+				994AACC7255311C100419F3B /* SSKeyField.swift in Sources */,
 				99B1A7902246751300D96BEE /* Comparable.swift in Sources */,
 				993BC5B92317CFB3008DCE98 /* SSAtomic.swift in Sources */,
 				993BC5BC2318028D008DCE98 /* Dictionary.swift in Sources */,
@@ -1268,6 +1358,7 @@
 				99D29650223D3107003FD9F0 /* SSRootViewController.swift in Sources */,
 				99D2964F223D3107003FD9F0 /* SSRootView.swift in Sources */,
 				9982118B244F2DEA00A7A8B6 /* Base.swift in Sources */,
+				994AACC5255311C100419F3B /* SSStorageCoder.swift in Sources */,
 				99E27B5A239EB01800CC5984 /* SSUETaskRemoteMutator.swift in Sources */,
 				995327C3245090200007F30B /* SSUETaskDmMutator.swift in Sources */,
 				99713B9522EF555700EBD1FD /* UILabel.swift in Sources */,
@@ -1291,15 +1382,20 @@
 				99991DC122E6219000F3D294 /* SSDataBaseSavePointProxy.swift in Sources */,
 				99E85E3122411583005E2B13 /* UITableVIew.swift in Sources */,
 				9937E11623C60B2900F73905 /* SSViewShowHideByAlphaAnimator.swift in Sources */,
+				994AACCD255311C100419F3B /* SSKeyFieldStorage.swift in Sources */,
 				998211892449F1A500A7A8B6 /* SSUEBatchAdpater.swift in Sources */,
 				99E36E4423225356005E6C05 /* SSCertificatePinner.swift in Sources */,
 				99D70DA7239A8C3300EA96B4 /* SSUETaskUpdate.swift in Sources */,
 				99D70DB6239AB66900EA96B4 /* SSEntityMutator.swift in Sources */,
 				99745CBC239FC0ED00DAAFFA /* SSEntityStorageMutator.swift in Sources */,
 				99A2EEA722CCFAFE001B2B28 /* SSDataBaseStatement.swift in Sources */,
+				997B6F8C255313FD005E50D7 /* SSStringRepresentableError.swift in Sources */,
+				994AACC9255311C100419F3B /* SSKeyFieldConverter.swift in Sources */,
 				9918B5C22448707B00E49E81 /* SSDmBatchAdapting.swift in Sources */,
 				99E27B58239EAAA400CC5984 /* SSUETaskMutator.swift in Sources */,
+				994AACC6255311C100419F3B /* SSKeyStoringProp.swift in Sources */,
 				99E85E2B2240F5AC005E2B13 /* SSCollectionViewMarkableController.swift in Sources */,
+				994AACCA255311C100419F3B /* SSErrorConverter.swift in Sources */,
 				99F6A187228981CE00183436 /* AutoMap.swift in Sources */,
 				99E36E462322539C005E6C05 /* URLSession.swift in Sources */,
 				99EABD80224025CC0037645B /* CGSize.swift in Sources */,
@@ -1510,7 +1606,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5.6;
+				MARKETING_VERSION = 1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.byteslight.SSSugar;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1542,7 +1638,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.5.6;
+				MARKETING_VERSION = 1.6;
 				PRODUCT_BUNDLE_IDENTIFIER = com.byteslight.SSSugar;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";

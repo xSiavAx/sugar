@@ -32,7 +32,6 @@ class TestQueue {
 
 extension TestQueue {
     class Checker {
-        
         private let queue: DispatchQueue
         let value: String
         let key: DispatchSpecificKey<String>? = DispatchSpecificKey()
