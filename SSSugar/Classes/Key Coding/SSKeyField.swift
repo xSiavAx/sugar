@@ -5,7 +5,7 @@ public struct SSKeyField<T> {
     /// Holder for blocks that uses by `KeyField` to adapt custom types to storage ones.
     /// Since storage passes to block adapter could create object from several fields or, even, with data that it stored (in case of inheritor extends `Adapater`). Same are true for backwards logic – writting object to storage.
     /// There is converters (See `Converter`, `ErrorConverter`, `ApiConverter`) with predefined adapters creation logic for common cases (like errors and strings, int and date, UUID and string etc.)
-    public class Adapter {
+    open class Adapter {
         /// Simplified read closure type
         /// - Parameter val: Value from storage to convert to T
         public typealias To = (_ val: Any?)->T
