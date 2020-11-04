@@ -13,7 +13,7 @@ public protocol SSKeyStoringOwner: AnyObject {
 ///
 /// See `KeyField` for more info.
 @propertyWrapper
-public struct KeyStoring<T> {
+public struct SSKeyStoring<T> {
     /// Shortcut for `KeyField<T>` type
     public typealias Field = SSKeyField<T>
     
