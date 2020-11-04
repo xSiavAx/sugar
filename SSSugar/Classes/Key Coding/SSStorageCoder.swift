@@ -31,7 +31,7 @@ open class SSStorageCoder: SSKeyStoringOwner {
     /// Method for binding `self` as `owner` to `SSKeyStoring` fields.
     ///
     /// Calls at end of init. Do nothing as is. Inheritors should override this method to setup (via `setup` their fields.
-    public func bindPropOwner() {}
+    open func bindPropOwner() {}
     
     /// Set `self` and passed `adapter` as `owner` and `adapter` to passed `SSKeyStoring` field.
     /// - Parameters:
