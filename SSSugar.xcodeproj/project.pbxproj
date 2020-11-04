@@ -130,6 +130,11 @@
 		99745CC0239FC69F00DAAFFA /* SSEntityUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CBF239FC69F00DAAFFA /* SSEntityUpdater.swift */; };
 		99745CC2239FC9B700DAAFFA /* SSUETaskUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CC1239FC9B700DAAFFA /* SSUETaskUpdater.swift */; };
 		997B6F8C255313FD005E50D7 /* SSStringRepresentableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997B6F8B255313FD005E50D7 /* SSStringRepresentableError.swift */; };
+		997B6F9D2553151B005E50D7 /* KeyFieldTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997B6F952553151B005E50D7 /* KeyFieldTest.swift */; };
+		997B6F9E2553151B005E50D7 /* StorageCoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997B6F962553151B005E50D7 /* StorageCoderTests.swift */; };
+		997B6F9F2553151B005E50D7 /* KeyFieldConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997B6F982553151B005E50D7 /* KeyFieldConverterTests.swift */; };
+		997B6FA12553151B005E50D7 /* ErrorConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997B6F9A2553151B005E50D7 /* ErrorConverterTests.swift */; };
+		997B6FA22553151B005E50D7 /* KeyStoringPropTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997B6F9B2553151B005E50D7 /* KeyStoringPropTests.swift */; };
 		998211852449DC6800A7A8B6 /* SSUETaskModifyCores.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998211842449DC6800A7A8B6 /* SSUETaskModifyCores.swift */; };
 		998211892449F1A500A7A8B6 /* SSUEBatchAdpater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 998211882449F1A500A7A8B6 /* SSUEBatchAdpater.swift */; };
 		9982118B244F2DEA00A7A8B6 /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9982118A244F2DEA00A7A8B6 /* Base.swift */; };
@@ -305,6 +310,11 @@
 		99745CC1239FC9B700DAAFFA /* SSUETaskUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUETaskUpdater.swift; sourceTree = "<group>"; };
 		997B344E225A134B00F2A3A0 /* ArrayInitBuildBlockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayInitBuildBlockTests.swift; sourceTree = "<group>"; };
 		997B6F8B255313FD005E50D7 /* SSStringRepresentableError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSStringRepresentableError.swift; sourceTree = "<group>"; };
+		997B6F952553151B005E50D7 /* KeyFieldTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyFieldTest.swift; sourceTree = "<group>"; };
+		997B6F962553151B005E50D7 /* StorageCoderTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StorageCoderTests.swift; sourceTree = "<group>"; };
+		997B6F982553151B005E50D7 /* KeyFieldConverterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyFieldConverterTests.swift; sourceTree = "<group>"; };
+		997B6F9A2553151B005E50D7 /* ErrorConverterTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ErrorConverterTests.swift; sourceTree = "<group>"; };
+		997B6F9B2553151B005E50D7 /* KeyStoringPropTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeyStoringPropTests.swift; sourceTree = "<group>"; };
 		997E315222493AC8006A5B7C /* CGSizeUnitedIntersectedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeUnitedIntersectedTests.swift; sourceTree = "<group>"; };
 		998211842449DC6800A7A8B6 /* SSUETaskModifyCores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUETaskModifyCores.swift; sourceTree = "<group>"; };
 		998211882449F1A500A7A8B6 /* SSUEBatchAdpater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUEBatchAdpater.swift; sourceTree = "<group>"; };
@@ -507,7 +517,7 @@
 				99584E70247412A900FB43AD /* Utils */,
 				99B1A796224678B400D96BEE /* SSSugarPlayground */,
 				2DAEA1642431F92000DF53D0 /* Extensions */,
-				99F6A1912295AF5C00183436 /* AutoMap */,
+				997B6F932553151B005E50D7 /* Classes */,
 				2D535E13242A0F8C0024D4C0 /* Executors */,
 				2D8CF9BB241FC4BA00168C8A /* Info.plist */,
 				99584E74247521EA00FB43AD /* SSSugarTests.swift */,
@@ -683,6 +693,43 @@
 			children = (
 				2D00D9972437A3AF0059EB09 /* Array */,
 				2D00D9982437A3D50059EB09 /* Dictionary */,
+			);
+			path = Containers;
+			sourceTree = "<group>";
+		};
+		997B6F932553151B005E50D7 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				997B6FA825531549005E50D7 /* Containers */,
+				997B6F942553151B005E50D7 /* Key Coding */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		997B6F942553151B005E50D7 /* Key Coding */ = {
+			isa = PBXGroup;
+			children = (
+				997B6F972553151B005E50D7 /* Adapters */,
+				997B6F952553151B005E50D7 /* KeyFieldTest.swift */,
+				997B6F962553151B005E50D7 /* StorageCoderTests.swift */,
+				997B6F9B2553151B005E50D7 /* KeyStoringPropTests.swift */,
+			);
+			path = "Key Coding";
+			sourceTree = "<group>";
+		};
+		997B6F972553151B005E50D7 /* Adapters */ = {
+			isa = PBXGroup;
+			children = (
+				997B6F982553151B005E50D7 /* KeyFieldConverterTests.swift */,
+				997B6F9A2553151B005E50D7 /* ErrorConverterTests.swift */,
+			);
+			path = Adapters;
+			sourceTree = "<group>";
+		};
+		997B6FA825531549005E50D7 /* Containers */ = {
+			isa = PBXGroup;
+			children = (
+				99F6A1912295AF5C00183436 /* AutoMap */,
 			);
 			path = Containers;
 			sourceTree = "<group>";
@@ -1208,6 +1255,7 @@
 				2D207BB62437992E001D808E /* CGPointBinaryMinusTests.swift in Sources */,
 				2D7E5A4F241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperMarkTC.swift in Sources */,
 				2DBCCFB2242BB45E00100093 /* AutoMapRemoveForTests.swift in Sources */,
+				997B6F9D2553151B005E50D7 /* KeyFieldTest.swift in Sources */,
 				2D7E5A50241FD0E5009EE074 /* SSSugarPlaygroundTests.swift in Sources */,
 				2D7E5A51241FD0E5009EE074 /* CGRectCuttedTests.swift in Sources */,
 				2D7E5A52241FD0E5009EE074 /* CGRectInitCenterSize.swift in Sources */,
@@ -1220,8 +1268,10 @@
 				2DFE3991242E48BA001B9AAE /* AutoMapMakeIteratorTests.swift in Sources */,
 				2D8BABC024292ADA00B8A84D /* DictionaryPickingForTests.swift in Sources */,
 				2D7E5A56241FD0E5009EE074 /* CGSizeUnitedIntersectedTests.swift in Sources */,
+				997B6F9F2553151B005E50D7 /* KeyFieldConverterTests.swift in Sources */,
 				2D5E66D62424CD0F00D82DEE /* CGRectDividedCountVerticalyTests.swift in Sources */,
 				2D95D5F8243B247D0060E1F8 /* UILabelNonEmptySizeThatFits.swift in Sources */,
+				997B6FA12553151B005E50D7 /* ErrorConverterTests.swift in Sources */,
 				2D207BB324379349001D808E /* CGPointUnaryMinusTests.swift in Sources */,
 				2D3043C02437369500EBD898 /* CGSizeBinaryMinusOperatorTests.swift in Sources */,
 				2D7E5A57241FD0E5009EE074 /* UIColorInitTests.swift in Sources */,
@@ -1238,6 +1288,7 @@
 				2D7E5A5B241FD0E5009EE074 /* ArrayInitBuildBlockTests.swift in Sources */,
 				99E3CE68248D20FD005CDE8A /* SSEntityStorageMutatorTests.swift in Sources */,
 				2D7E5A5C241FD0E5009EE074 /* AutoMapAddContainerTests.swift in Sources */,
+				997B6F9E2553151B005E50D7 /* StorageCoderTests.swift in Sources */,
 				2D7E5A5E241FD0E5009EE074 /* AutoMapSubscriptKeyTests.swift in Sources */,
 				2D4F5E282434E197003EF8D4 /* UIViewControllerDismissPresentedAnimatedOnFinishTests.swift in Sources */,
 				2DBCCFB0242BAB7500100093 /* AutoMapReplaceTests.swift in Sources */,
@@ -1246,6 +1297,7 @@
 				2DAEA168243206AF00DF53D0 /* ComparableCompareTests.swift in Sources */,
 				99584E73247412F100FB43AD /* SSUpdateCenterTests.swift in Sources */,
 				2D61561A2423C4F80015A9E0 /* SSCollectionViewMarkableControllerUnmarkTC.swift in Sources */,
+				997B6FA22553151B005E50D7 /* KeyStoringPropTests.swift in Sources */,
 				2DC1D1AB242CF63E0049020B /* AutoMapRemoveForAtTests.swift in Sources */,
 				2DAEA16D24321D0700DF53D0 /* UIViewControllerShowAlertTests.swift in Sources */,
 				2D7E5A5F241FD0E5009EE074 /* AutoMapContainsTests.swift in Sources */,
