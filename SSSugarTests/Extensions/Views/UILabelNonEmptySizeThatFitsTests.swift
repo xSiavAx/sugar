@@ -1,3 +1,6 @@
+import XCTest
+@testable import SSSugar
+
 /*
  Tests for nonEmptySizeThatFits(_:) method in UILabel extension
  
@@ -53,8 +56,7 @@
  [Done] (eight lines text + zero number of lines) * size
  */
 
-import XCTest
-@testable import SSSugar
+//TODO: [Review] Fail almost every case
 
 class UILabelNonEmptySizeThatFitsTests: XCTestCase {
     typealias Text = UILabelTestHelper.Text

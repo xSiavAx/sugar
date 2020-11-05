@@ -8,7 +8,7 @@
 import XCTest
 @testable import SSSugar
 
-class ArrayInsertETests: XCTestCase {
+class ArrayInsertTests: XCTestCase {
     var sut = [0, 1, 2, 3, 4]
     
     func testContainedElement() {

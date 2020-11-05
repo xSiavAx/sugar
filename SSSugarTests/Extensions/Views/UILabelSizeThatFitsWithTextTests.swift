@@ -1,3 +1,6 @@
+import XCTest
+@testable import SSSugar
+
 /*
  Tests for sizeThatFits(_:withText:) method in UILabel extension
  
@@ -34,8 +37,7 @@
  [Done] eight lines text * size
  */
 
-import XCTest
-@testable import SSSugar
+//TODO: [Review] Fail almost every case
 
 class UILabelSizeThatFitsWithText: XCTestCase {
     typealias Text = UILabelTestHelper.Text

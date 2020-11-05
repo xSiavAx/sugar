@@ -12,7 +12,7 @@
 import XCTest
 @testable import SSSugar
 
-class ArrayRemoveETests: XCTestCase {
+class ArrayRemoveTests: XCTestCase {
     var sut = [0, 1, 2, 3, 4]
     
     func testContainedElement() {
