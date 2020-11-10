@@ -36,7 +36,7 @@ extension UILabel {
     ///
     /// It works like regular `sizeThatFits(_:)` for label with passed `text` as it's content with the `numberOfLines` parameter equal to `0`.
     ///
-    /// - Importnat: Be careful. Method chaanges label's text 2 times.
+    /// - Importnat: Be careful. Method changes label's text 2 times.
     ///
     /// - Parameters:
     ///   - size: Size to fit.
