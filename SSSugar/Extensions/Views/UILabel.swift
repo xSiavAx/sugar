@@ -36,18 +36,25 @@ extension UILabel {
     ///
     /// It works like regular `sizeThatFits(_:)` for label with passed `text` as it's content with the `numberOfLines` parameter equal to `0`.
     ///
+    /// - Importnat: Be careful. Method chaanges label's text 2 times.
+    ///
     /// - Parameters:
     ///   - size: Size to fit.
     ///   - withText: Text to mesure
     /// - Returns: Estimated size fits passed one.
     public func sizeThatFits(_ size: CGSize, withText: String) -> CGSize {
-        let calculateLabel = UILabel()
+        let oldText = text
+        let oldNumOfLines = numberOfLines
+        
+        text = withText
+        numberOfLines = 0
+        
+        defer {
+            text = oldText
+            numberOfLines = oldNumOfLines
+        }
 
-        calculateLabel.font = font
-        calculateLabel.text = withText
-        calculateLabel.numberOfLines = 0
-
-        return calculateLabel.sizeThatFits(size)
+        return sizeThatFits(size)
     }
     
     //MARK: - Deprecated
