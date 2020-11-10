@@ -1288,10 +1288,14 @@
 				2DFE3991242E48BA001B9AAE /* AutoMapMakeIteratorTests.swift in Sources */,
 				2D8BABC024292ADA00B8A84D /* DictionaryPickingForTests.swift in Sources */,
 				2D7E5A56241FD0E5009EE074 /* CGSizeUnitedIntersectedTests.swift in Sources */,
+<<<<<<< HEAD
 				997B6F9F2553151B005E50D7 /* KeyFieldConverterTests.swift in Sources */,
-				2D5E66D62424CD0F00D82DEE /* CGRectDividedCountVerticallyTests.swift in Sources */,
+				2D5E66D62424CD0F00D82DEE /* CGRectDividedCountVerticalyTests.swift in Sources */,
 				2D95D5F8243B247D0060E1F8 /* UILabelNonEmptySizeThatFits.swift in Sources */,
 				997B6FA12553151B005E50D7 /* ErrorConverterTests.swift in Sources */,
+=======
+				2D5E66D62424CD0F00D82DEE /* CGRectDividedCountVerticallyTests.swift in Sources */,
+>>>>>>> feature/test_coverage
 				2D207BB324379349001D808E /* CGPointUnaryMinusTests.swift in Sources */,
 				2D3043C02437369500EBD898 /* CGSizeSubtractionOperatorTests.swift in Sources */,
 				2D7E5A57241FD0E5009EE074 /* UIColorInitTests.swift in Sources */,

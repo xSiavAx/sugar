@@ -1,47 +1,47 @@
 /*
- Tests for binary plus operator in CGSize extension
- 
- options of the left size
-    [plus  width plus  height] width > 0 & height > 0
-    [plus  width zero  height] width > 0 & height = 0
-    [plus  width minus height] width > 0 & height < 0
-    [zero  width plus  height] width = 0 & height > 0
-    [zero  width zero  height] width = 0 & height = 0
-    [zero  width minus height] width = 0 & height < 0
-    [minus width plus  height] width < 0 & height > 0
-    [minus width zero  height] width < 0 & height = 0
-    [minus width minus height] width < 0 & height < 0
- [right] options of the right size
-    width > 0 & height > 0
-    width > 0 & height = 0
-    width > 0 & height < 0
-    width = 0 & height > 0
-    width = 0 & height = 0
-    width = 0 & height < 0
-    width < 0 & height > 0
-    width < 0 & height = 0
-    width < 0 & height < 0
- 
- [Done] plus  width plus  height * right
- [Done] plus  width zero  height * right
- [Done] plus  width minus height * right
- [Done] zero  width plus  height * right
- [Done] zero  width zero  height * right
- [Done] zero  width minus height * right
- [Done] minus width plus  height * right
- [Done] minus width zero  height * right
- [Done] minus width minus height * right
+Tests for sum operator in CGSize extension
+
+options of the left size
+	[positive width positive height] width > 0 & height > 0
+	[positive width zero     height] width > 0 & height = 0
+	[positive width negative height] width > 0 & height < 0
+	[zero     width positive height] width = 0 & height > 0
+	[zero     width zero     height] width = 0 & height = 0
+	[zero     width negative height] width = 0 & height < 0
+	[negative width positive height] width < 0 & height > 0
+	[negative width zero     height] width < 0 & height = 0
+	[negative width negative height] width < 0 & height < 0
+[right] options of the right size
+	width > 0 & height > 0
+	width > 0 & height = 0
+	width > 0 & height < 0
+	width = 0 & height > 0
+	width = 0 & height = 0
+	width = 0 & height < 0
+	width < 0 & height > 0
+	width < 0 & height = 0
+	width < 0 & height < 0
+
+[Done] positive width positive height * right
+[Done] positive width zero     height * right
+[Done] positive width negative height * right
+[Done] zero     width positive height * right
+[Done] zero     width zero     height * right
+[Done] zero     width negative height * right
+[Done] negative width positive height * right
+[Done] negative width zero     height * right
+[Done] negative width negative height * right
  */
 
 import XCTest
 @testable import SSSugar
 
-class CGSizeBinaryPlusOperatorTests: XCTestCase {
+class CGSizeSumOperatorTests: XCTestCase {
     typealias Items = CGSizeTestItems
     
     var itemsArray = [Items]()
     
-    func testPlusWidthPlusHeight() {
+    func testPositiveWidthPositiveHeight() {
         itemsArray = [
             Items(lW: 10, lH: 62, rW: 38, rH: 81, eW: 48, eH: 143),
             Items(lW: 97, lH: 79, rW: 13, rH: 0, eW: 110, eH: 79),
@@ -56,7 +56,7 @@ class CGSizeBinaryPlusOperatorTests: XCTestCase {
         assertEqualItemsArray()
     }
     
-    func testPlusWidthZeroHeight() {
+    func testPositiveWidthZeroHeight() {
         itemsArray = [
             Items(lW: 44, lH: 0, rW: 38, rH: 95, eW: 82, eH: 95),
             Items(lW: 1, lH: 0, rW: 1, rH: 0, eW: 2, eH: 0),
@@ -71,7 +71,7 @@ class CGSizeBinaryPlusOperatorTests: XCTestCase {
         assertEqualItemsArray()
     }
     
-    func testPlusWidthMinusHeight() {
+    func testPositiveWidthNegativeHeight() {
         itemsArray = [
             Items(lW: 89, lH: -66, rW: 80, rH: 24, eW: 169, eH: -42),
             Items(lW: 43, lH: -10, rW: 72, rH: 0, eW: 115, eH: -10),
@@ -86,7 +86,7 @@ class CGSizeBinaryPlusOperatorTests: XCTestCase {
         assertEqualItemsArray()
     }
 
-    func testZeroWidthPlusHeight() {
+    func testZeroWidthPositiveHeight() {
         itemsArray = [
             Items(lW: 0, lH: 99, rW: 87, rH: 64, eW: 87, eH: 163),
             Items(lW: 0, lH: 86, rW: 40, rH: 0, eW: 40, eH: 86),
@@ -116,7 +116,7 @@ class CGSizeBinaryPlusOperatorTests: XCTestCase {
         assertEqualItemsArray()
     }
 
-    func testZeroWidthMinusHeight() {
+    func testZeroWidthNegativeHeight() {
         itemsArray = [
             Items(lW: 0, lH: -95, rW: 47, rH: 54, eW: 47, eH: -41),
             Items(lW: 0, lH: -94, rW: 42, rH: 0, eW: 42, eH: -94),
@@ -131,7 +131,7 @@ class CGSizeBinaryPlusOperatorTests: XCTestCase {
         assertEqualItemsArray()
     }
 
-    func testMinusWidthPlusHeight() {
+    func testNegativeWidthPositiveHeight() {
         itemsArray = [
             Items(lW: -16, lH: 40, rW: 58, rH: 60, eW: 42, eH: 100),
             Items(lW: -70, lH: 6, rW: 35, rH: 0, eW: -35, eH: 6),
@@ -146,7 +146,7 @@ class CGSizeBinaryPlusOperatorTests: XCTestCase {
         assertEqualItemsArray()
     }
 
-    func testMinusWidthZeroHeight() {
+    func testNegativeWidthZeroHeight() {
         itemsArray = [
             Items(lW: -15, lH: 0, rW: 22, rH: 52, eW: 7, eH: 52),
             Items(lW: -42, lH: 0, rW: 35, rH: 0, eW: -7, eH: 0),
@@ -161,7 +161,7 @@ class CGSizeBinaryPlusOperatorTests: XCTestCase {
         assertEqualItemsArray()
     }
 
-    func testMinusWidthMinusHeight() {
+    func testNegativeWidthNegativeHeight() {
         itemsArray = [
             Items(lW: -72, lH: -8, rW: 63, rH: 7, eW: -9, eH: -1),
             Items(lW: -76, lH: -34, rW: 87, rH: 0, eW: 11, eH: -34),
