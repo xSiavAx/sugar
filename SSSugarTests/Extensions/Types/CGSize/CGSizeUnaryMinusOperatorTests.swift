@@ -2,23 +2,23 @@
  Tests for unary minus operator in CGSize extension
  
  [width] options of the width for the size to which the operator is applied
-    [plus] above zero
+    [positive] above zero
     [zero] equals zero
-    [minus] less than zero
+    [negative] less than zero
  [height] options of the height for the size to which the operator is applied
-    [plus] above zero
+    [positive] above zero
     [zero] equals zero
-    [minus] less than zero
+    [negative] less than zero
  
- [Done] plus width + plus height
- [Done] plus width + zero height
- [Done] plus width + minus height
- [Done] zero width + plus height
+ [Done] positive width + positive height
+ [Done] positive width + zero height
+ [Done] positive width + negative height
+ [Done] zero width + positive height
  [Done] zero width + zero height
- [Done] zero width + minus height
- [Done] minus width + plus height
- [Done] minus width + zero height
- [Done] minus width + minus height
+ [Done] zero width + negative height
+ [Done] negative width + positive height
+ [Done] negative width + zero height
+ [Done] negative width + negative height
  */
 
 import XCTest
@@ -27,19 +27,19 @@ import XCTest
 class CGSizeUnaryMinusOperatorTests: XCTestCase {
     var sut: CGSize!
     
-    func testPlusWidthPlusHeight() {
+    func testPositiveWidthPositiveHeight() {
         XCTAssertEqual(-CGSize(width: 345, height: 789), CGSize(width: -345, height: -789))
     }
     
-    func testPlusWidthZeroHeight() {
+    func testPositiveWidthZeroHeight() {
         XCTAssertEqual(-CGSize(width: 53, height: 0), CGSize(width: -53, height: 0))
     }
     
-    func testPlusWidthMinusHeight() {
+    func testPositiveWidthNegativeHeight() {
         XCTAssertEqual(-CGSize(width: 49, height: -56), CGSize(width: -49, height: 56))
     }
     
-    func testZeroWidthPlusHeight() {
+    func testZeroWidthPositiveHeight() {
         XCTAssertEqual(-CGSize(width: 0, height: 890), CGSize(width: 0, height: -890))
     }
     
@@ -47,19 +47,19 @@ class CGSizeUnaryMinusOperatorTests: XCTestCase {
         XCTAssertEqual(-CGSize(width: 0, height: 0), CGSize(width: 0, height: 0))
     }
     
-    func testZeroWidthMinusHeight() {
+    func testZeroWidthNegativeHeight() {
         XCTAssertEqual(-CGSize(width: 0, height: -3214), CGSize(width: 0, height: 3214))
     }
     
-    func testMinusWidthPlusHeight() {
+    func testNegativeWidthPositiveHeight() {
         XCTAssertEqual(-CGSize(width: -89, height: 14), CGSize(width: 89, height: -14))
     }
     
-    func testMinusWidthZeroHeight() {
+    func testNegativeWidthZeroHeight() {
         XCTAssertEqual(-CGSize(width: -294, height: 0), CGSize(width: 294, height: 0))
     }
     
-    func testMinusWidthMinusHeight() {
+    func testNegativeWidthNegativeHeight() {
         XCTAssertEqual(-CGSize(width: -8, height: -637), CGSize(width: 8, height: 637))
     }
 }

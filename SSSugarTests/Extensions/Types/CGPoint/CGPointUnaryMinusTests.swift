@@ -1,43 +1,43 @@
 /*
- Tests for unary minus operator in CGPoint extesnion
+ Tests for unary minus operator in CGPoint extension
  
  [x] options of the x coordinate for the point to which the operator is applied
-    [plus] above zero
+    [positive] above zero
     [zero] equals zero
-    [minus] less than zero
+    [negative] less than zero
  [y] options of the y coordinate for the point to which the operator is applied
-    [plus] above zero
+    [positive] above zero
     [zero] equals zero
-    [minus] less than zero
+    [negative] less than zero
  
- [Done] plus x plus y
- [Done] plus x zero y
- [Done] plus x minus y
- [Done] zero x plus y
- [Done] zero x zero y
- [Done] zero x minus y
- [Done] minus x plus y
- [Done] minus x zero y
- [Done] minus x minus y
+ [Done] positive x positive y
+ [Done] positive x zero     y
+ [Done] positive x negative y
+ [Done] zero     x positive y
+ [Done] zero     x zero     y
+ [Done] zero     x negative y
+ [Done] negative x positive y
+ [Done] negative x zero     y
+ [Done] negative x negative y
  */
 
 import XCTest
 @testable import SSSugar
 
 class CGPointUnaryMinusTests: XCTestCase {
-    func testPlusXPlusY() {
+    func testPositiveXPositiveY() {
         XCTAssertEqual(-CGPoint(x: 324, y: 23), CGPoint(x: -324, y: -23))
     }
     
-    func testPlusXZeroY() {
+    func testPositiveXZeroY() {
         XCTAssertEqual(-CGPoint(x: 86, y: 0), CGPoint(x: -86, y: 0))
     }
     
-    func testPlusXMinusY() {
+    func testPositiveXNegativeY() {
         XCTAssertEqual(-CGPoint(x: 7, y: -100), CGPoint(x: -7, y: 100))
     }
     
-    func testZeroXPlusY() {
+    func testZeroXPositiveY() {
         XCTAssertEqual(-CGPoint(x: 0, y: 69), CGPoint(x: 0, y: -69))
     }
     
@@ -45,19 +45,19 @@ class CGPointUnaryMinusTests: XCTestCase {
         XCTAssertEqual(-CGPoint(x: 0, y: 0), CGPoint(x: 0, y: 0))
     }
     
-    func testZeroXMinusY() {
+    func testZeroXNegativeY() {
         XCTAssertEqual(-CGPoint(x: 0, y: -982), CGPoint(x: 0, y: 982))
     }
     
-    func testMinusXPlusY() {
+    func testNegativeXPositiveY() {
         XCTAssertEqual(-CGPoint(x: -20, y: 55), CGPoint(x: 20, y: -55))
     }
     
-    func testMinusXZeroY() {
+    func testNegativeXZeroY() {
         XCTAssertEqual(-CGPoint(x: -67, y: 0), CGPoint(x: 67, y: 0))
     }
     
-    func testMinusXMinusY() {
+    func testNegativeXNegativeY() {
         XCTAssertEqual(-CGPoint(x: -94, y: -72), CGPoint(x: 94, y: 72))
     }
 }

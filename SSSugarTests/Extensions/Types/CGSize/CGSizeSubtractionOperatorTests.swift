@@ -1,5 +1,5 @@
 /*
- Tests for binary minus operator in CGSize extension
+ Tests for subtraction operator in CGSize extension
  
  options of difference between the left and right sizes
     [greater width greater height] left.width > right.width & left.height > right.height
@@ -33,20 +33,20 @@
     width < 0 & height < 0
  
  [Done] greater width greater height * left * right
- [Done] greater width same    height * left * rihgt
- [Done] greater width smaller height * left * rihgt
- [Done] same    width greater height * left * rihgt
- [Done] same    width same    height * left * rihgt
- [Done] same    width smaller height * left * rihgt
- [Done] smaller width greater height * left * rihgt
- [Done] smaller width same    height * left * rihgt
- [Done] smaller width smaller height * left * rihgt
+ [Done] greater width same    height * left * right
+ [Done] greater width smaller height * left * right
+ [Done] same    width greater height * left * right
+ [Done] same    width same    height * left * right
+ [Done] same    width smaller height * left * right
+ [Done] smaller width greater height * left * right
+ [Done] smaller width same    height * left * right
+ [Done] smaller width smaller height * left * right
  */
 
 import XCTest
 @testable import SSSugar
 
-class CGSizeBinaryMinusOperatorTests: XCTestCase {
+class CGSizeSubtractionOperatorTests: XCTestCase {
     typealias Items = CGSizeTestItems
     
     var itemsArray = [Items]()
