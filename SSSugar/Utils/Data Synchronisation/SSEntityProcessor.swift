@@ -19,7 +19,7 @@ public protocol SSEntityProcessing {
 }
 
 extension SSEntityProcessing {
-    func stop() {
+    public func stop() {
         stop(nil)
     }
 }
