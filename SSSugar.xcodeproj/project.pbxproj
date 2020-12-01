@@ -1290,7 +1290,6 @@
 				2D7E5A56241FD0E5009EE074 /* CGSizeUnitedIntersectedTests.swift in Sources */,
 				997B6F9F2553151B005E50D7 /* KeyFieldConverterTests.swift in Sources */,
 				2D5E66D62424CD0F00D82DEE /* CGRectDividedCountVerticallyTests.swift in Sources */,
-				2D95D5F8243B247D0060E1F8 /* UILabelNonEmptySizeThatFits.swift in Sources */,
 				997B6FA12553151B005E50D7 /* ErrorConverterTests.swift in Sources */,
 				2D207BB324379349001D808E /* CGPointUnaryMinusTests.swift in Sources */,
 				2D3043C02437369500EBD898 /* CGSizeSubtractionOperatorTests.swift in Sources */,
@@ -1627,7 +1626,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.6.3;
+				MARKETING_VERSION = 1.6.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.byteslight.SSSugar;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1659,7 +1658,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.6.3;
+				MARKETING_VERSION = 1.6.4;
 				PRODUCT_BUNDLE_IDENTIFIER = com.byteslight.SSSugar;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
