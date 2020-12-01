@@ -1,6 +1,6 @@
 Pod::Spec.new do |spec|
   spec.name           = "SSSugar"
-  spec.version        = "1.6.3"
+  spec.version        = "1.6.4"
   spec.summary        = "Language sugar, extensions and classes that will make developmenmt easier."
   spec.description    = "Include extensions for Controllers, CGRect, UIColor, DispatchQueue and many other useful staff."
   spec.homepage       = "https://siva.pp.ua"
