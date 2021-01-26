@@ -635,7 +635,7 @@
 			path = "ShowAndHide Animators";
 			sourceTree = "<group>";
 		};
-		9947C43822CA58B000AB3327 /* DataBase */ = {
+		9947C43822CA58B000AB3327 /* Data Base */ = {
 			isa = PBXGroup;
 			children = (
 				99991DC422E624D700F3D294 /* Release Decorator Extensions */,
@@ -651,7 +651,7 @@
 				9967832522D39B4000E33300 /* SSDataBaseStatementCacheHolder.swift */,
 				993E8A0D22E0C8BE00688555 /* SSDBStatementProcessor.swift */,
 			);
-			path = DataBase;
+			path = "Data Base";
 			sourceTree = "<group>";
 		};
 		994AACBA255311C000419F3B /* Key Coding */ = {
@@ -699,6 +699,23 @@
 				99E3CE6F2491168C005CDE8A /* SSDataModifyCenterTests.swift */,
 			);
 			path = "Data Synchronisation";
+			sourceTree = "<group>";
+		};
+		997444F225C0382500BEB297 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				997444F325C0385400BEB297 /* Network Communication */,
+				99E36E06232137DD005E6C05 /* Data Synchronisation */,
+				9947C43822CA58B000AB3327 /* Data Base */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		997444F325C0385400BEB297 /* Network Communication */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Network Communication";
 			sourceTree = "<group>";
 		};
 		997B344D225A134B00F2A3A0 /* Containers */ = {
@@ -902,6 +919,7 @@
 		99D29640223D3057003FD9F0 /* SSSugar */ = {
 			isa = PBXGroup;
 			children = (
+				997444F225C0382500BEB297 /* Tools */,
 				99EABD7722401B3A0037645B /* Utils */,
 				99D29672223D37BD003FD9F0 /* Extensions */,
 				99D29671223D37A2003FD9F0 /* Classes */,
@@ -975,9 +993,7 @@
 			children = (
 				9937E11123C60A2800F73905 /* Animators */,
 				99F6A185228981BF00183436 /* Containers */,
-				9947C43822CA58B000AB3327 /* DataBase */,
 				99991DBB22E60D5500F3D294 /* Decorators */,
-				994AACBA255311C000419F3B /* Key Coding */,
 				99D2964B223D3107003FD9F0 /* ViewControllers */,
 				99D29651223D3681003FD9F0 /* Views */,
 			);
@@ -1062,7 +1078,7 @@
 		99EABD7722401B3A0037645B /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				99E36E06232137DD005E6C05 /* Data Synchronisation */,
+				994AACBA255311C000419F3B /* Key Coding */,
 				990A18A522E641E5008DCCF0 /* View Styles */,
 				99EABD7822401B470037645B /* Collections Custom Select */,
 				9937E11823C61A1800F73905 /* SSProtectionViewHelper.swift */,
