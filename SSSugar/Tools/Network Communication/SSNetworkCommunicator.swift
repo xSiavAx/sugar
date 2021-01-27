@@ -13,6 +13,9 @@ import Foundation
 public class SSNetworkCommunicator {
     public typealias URLSessionConfigSetup = (URLSessionConfiguration)->Void
     
+    
+    //TODO: Move log logic to separated tool
+    
     /// Logging options Type. Only for debug purposes.
     ///
     /// Defines which properties of Request or Response should be logged.
@@ -70,7 +73,9 @@ public class SSNetworkCommunicator {
     /// Logging options. Only for debug purposes.
     ///
     /// Set this var to see debug logs of requests or responses.
-    public var logOptions: (requests: LoggingOptions?, response: LoggingOptions?) = (nil, nil)
+    private var logOptions: (requests: LoggingOptions?, response: LoggingOptions?) = (nil, nil)
+    
+    private var onLog: ((String)->Void)?
     
     /// Creates new Network Communicator.
     ///
@@ -79,8 +84,8 @@ public class SSNetworkCommunicator {
     /// - Parameters:
     ///   - backgroundSessionIdentifier: Identifier for background session. Pass `nil` to create communicator for foreground tasks. Default is `nil`.
     ///   - certificatePinner: Certificate pinner if one is needed. See `SSCertificatePinner` for more details. To create pinner based on names of certificates that stores in assets use `init(backgroundSessionIdentifier: certificatePinner: onConfigSetup:)`
-    ///   - onConfigSetup: Additional session configuration (`URLSessionConfiguration`) setup if needed.
-    public init(backgroundSessionIdentifier: String? = nil, certificatePinner: SSCertificatePinner? = nil, onConfigSetup: URLSessionConfigSetup? = nil) {
+    ///   - onConfigSetup: Additional session configuration (`URLSessionConfiguration`) setup. Any Framework user could make extension with it's own `onConfigSetup` closure (including `nil`). `onConfigSetup` has no default value to avoid ambiguity of default constructor with one that user will define.
+    public init(backgroundSessionIdentifier: String? = nil, certificatePinner: SSCertificatePinner? = nil, onConfigSetup: URLSessionConfigSetup?) {
         func createConfig() -> URLSessionConfiguration {
             if let identifier = backgroundSessionIdentifier {
                 return .background(withIdentifier: identifier)
@@ -100,10 +105,15 @@ public class SSNetworkCommunicator {
         }
     }
     
-    public convenience init(backgroundSessionIdentifier: String? = nil, certificateTitles: [String], onConfigSetup: URLSessionConfigSetup? = nil) {
+    public convenience init(backgroundSessionIdentifier: String? = nil, certificateTitles: [String], onConfigSetup: URLSessionConfigSetup?) {
         let pinner = SSCertificatePinner(obtainer: SSAssetCertificateObtainer(certTitles: certificateTitles))
         
         self.init(backgroundSessionIdentifier: backgroundSessionIdentifier, certificatePinner: pinner, onConfigSetup: onConfigSetup)
+    }
+    
+    public func setupLogs(request: LoggingOptions, response: LoggingOptions, onLog mOnLog: ((String)->Void)?) {
+        logOptions = (request, response)
+        onLog = mOnLog
     }
 }
 
@@ -220,6 +230,6 @@ extension SSNetworkCommunicator: SSCommunicating {
                 components.append("No Body.")
             }
         }
-        print(components.joined(separator: "\n"))
+        onLog?(components.joined(separator: "\n"))
     }
 }
