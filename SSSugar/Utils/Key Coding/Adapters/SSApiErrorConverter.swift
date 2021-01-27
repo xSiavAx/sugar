@@ -5,25 +5,25 @@ import Foundation
 /// Contains simplified methods for cases when one of error components confoms `ApiErrorCause`, see `parser(buildSpecific:)`, `parser(buildCommon:)`. When both components conform to `ApiErrorCause` use corresponding `SSErrorConverter` extension (`readAdapter()`)
 public class SSApiErrorConverter<CommonError: Error, SpecificError: Error> {
     /// Api Error type shortcut
-    typealias IApiError = SSApiError<CommonError, SpecificError>
+    public typealias IApiError = SSApiError<CommonError, SpecificError>
     /// `SSKeyField<ApiError> Adapter` type shortcut
-    typealias Adapter = SSKeyField<IApiError?>.Adapter
+    public typealias Adapter = SSKeyField<IApiError?>.Adapter
     /// Build error commponent Closure type
     /// - Parameters:
     ///   - input: Value parsed form storage and converted to String
     ///   - storage: Storage to create error based on data from.
-    typealias BuildErrorComponent<T> = (_ input: String, _ storage: SSKeyFieldStorage)->T?
+    public typealias BuildErrorComponent<T> = (_ input: String, _ storage: SSKeyFieldStorage)->T?
     /// Build Common error commponent Closure type
-    typealias BuildCommon = BuildErrorComponent<CommonError>
+    public typealias BuildCommon = BuildErrorComponent<CommonError>
     /// Build Specific error commponent Closure type
-    typealias BuildSpecific = BuildErrorComponent<SpecificError>
+    public typealias BuildSpecific = BuildErrorComponent<SpecificError>
     
     /// Creates read closure that creates api error, that may be used to initialize `SSKeyField<iApiError>.Adapter`.
     /// - Parameters:
     ///   - buildCommon: Closure that builds `Common` error components (if possible)
     ///   - buildSpecific: Closure that builds `Specific` error components (if possible)
     /// - Returns: Read closure.
-    static func onRead(buildCommon: @escaping BuildCommon, buildSpecific: @escaping BuildSpecific) -> Adapter.Read {
+    public static func onRead(buildCommon: @escaping BuildCommon, buildSpecific: @escaping BuildSpecific) -> Adapter.Read {
         func onRead(storage: SSKeyFieldStorage, key: String, parsed: Any?) -> IApiError? {
             func onCommon(input: String) -> CommonError? {
                 return buildCommon(input, storage)
@@ -43,7 +43,7 @@ public class SSApiErrorConverter<CommonError: Error, SpecificError: Error> {
     ///   - buildCommon: Closure that builds `Common` error components (if possible)
     ///   - buildSpecific: Closure that builds `Specific` error components (if possible)
     /// - Returns: Created adapter.
-    static func parser(buildCommon: @escaping BuildCommon, buildSpecific: @escaping BuildSpecific) -> Adapter {
+    public static func parser(buildCommon: @escaping BuildCommon, buildSpecific: @escaping BuildSpecific) -> Adapter {
         return Adapter(onRead: onRead(buildCommon: buildCommon, buildSpecific: buildSpecific))
     }
 }
@@ -56,7 +56,7 @@ extension SSApiErrorConverter where CommonError: SSStringRepresentableApiErrorCo
     /// - Returns: Created adapter.
     ///
     /// Use `ApiErrorCause.from(string:)` to build `Common` error
-    static func parser(buildSpecific: @escaping BuildSpecific) -> Adapter {
+    public static func parser(buildSpecific: @escaping BuildSpecific) -> Adapter {
         return parser(buildCommon: buildCommon, buildSpecific: buildSpecific)
     }
     
@@ -72,7 +72,7 @@ extension SSApiErrorConverter where SpecificError: SSStringRepresentableApiError
     /// - Returns: Created adapter.
     ///
     /// Use `ApiErrorCause.from(string:)` to build `Specific` error
-    static func parser(buildCommon: @escaping BuildCommon) -> Adapter {
+    public static func parser(buildCommon: @escaping BuildCommon) -> Adapter {
         return parser(buildCommon: buildCommon, buildSpecific: buildSpecific)
     }
     
