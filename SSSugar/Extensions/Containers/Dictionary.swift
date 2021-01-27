@@ -26,3 +26,8 @@ public extension Dictionary {
         return nil
     }
 }
+
+public extension Dictionary where Value: SSCopying {
+    /// Creates new dictionary contains copy of each values.
+    func deepCopy() -> Self { mapValues { $0.copy() } }
+}
