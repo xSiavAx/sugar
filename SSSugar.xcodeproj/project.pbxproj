@@ -143,6 +143,7 @@
 		9974454C25C1832F00BEB297 /* SSApiCallOptionstTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974454B25C1832F00BEB297 /* SSApiCallOptionstTests.swift */; };
 		9974455B25C1857200BEB297 /* SSApiErrorConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974455A25C1857200BEB297 /* SSApiErrorConverter.swift */; };
 		9974455F25C1859600BEB297 /* ApiErrorConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974455E25C1859600BEB297 /* ApiErrorConverterTests.swift */; };
+		9974456725C1862500BEB297 /* RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974456625C1862500BEB297 /* RawRepresentable.swift */; };
 		99745CBC239FC0ED00DAAFFA /* SSEntityStorageMutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CBB239FC0ED00DAAFFA /* SSEntityStorageMutator.swift */; };
 		99745CBE239FC10900DAAFFA /* SSEntityRemoteMutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CBD239FC10900DAAFFA /* SSEntityRemoteMutator.swift */; };
 		99745CC0239FC69F00DAAFFA /* SSEntityUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CBF239FC69F00DAAFFA /* SSEntityUpdater.swift */; };
@@ -340,6 +341,7 @@
 		9974454B25C1832F00BEB297 /* SSApiCallOptionstTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSApiCallOptionstTests.swift; sourceTree = "<group>"; };
 		9974455A25C1857200BEB297 /* SSApiErrorConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSApiErrorConverter.swift; sourceTree = "<group>"; };
 		9974455E25C1859600BEB297 /* ApiErrorConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiErrorConverterTests.swift; sourceTree = "<group>"; };
+		9974456625C1862500BEB297 /* RawRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawRepresentable.swift; sourceTree = "<group>"; };
 		99745CBB239FC0ED00DAAFFA /* SSEntityStorageMutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSEntityStorageMutator.swift; sourceTree = "<group>"; };
 		99745CBD239FC10900DAAFFA /* SSEntityRemoteMutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSEntityRemoteMutator.swift; sourceTree = "<group>"; };
 		99745CBF239FC69F00DAAFFA /* SSEntityUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSEntityUpdater.swift; sourceTree = "<group>"; };
@@ -699,6 +701,7 @@
 				994AACC0255311C000419F3B /* SSKeyFieldConverter.swift */,
 				994AACC1255311C000419F3B /* SSErrorConverter.swift */,
 				9974455A25C1857200BEB297 /* SSApiErrorConverter.swift */,
+				9974456625C1862500BEB297 /* RawRepresentable.swift */,
 			);
 			path = Adapters;
 			sourceTree = "<group>";
@@ -1434,6 +1437,7 @@
 				99AA28D423A2A05400DA9C2F /* SSGroupExecutor.swift in Sources */,
 				99D2966C223D3763003FD9F0 /* UIColor.swift in Sources */,
 				9947C43C22CA58D800AB3327 /* SSDataBaseProtocols.swift in Sources */,
+				9974456725C1862500BEB297 /* RawRepresentable.swift in Sources */,
 				99E3BA4122FB26290023D9AE /* SSCopying.swift in Sources */,
 				9947C43A22CA58C100AB3327 /* SSDataBase.swift in Sources */,
 				9967832622D39B4000E33300 /* SSDataBaseStatementCacheHolder.swift in Sources */,
