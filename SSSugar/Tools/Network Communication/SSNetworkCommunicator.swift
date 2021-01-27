@@ -13,6 +13,9 @@ import Foundation
 public class SSNetworkCommunicator {
     public typealias URLSessionConfigSetup = (URLSessionConfiguration)->Void
     
+    
+    //TODO: Move log logic to separated tool
+    
     /// Logging options Type. Only for debug purposes.
     ///
     /// Defines which properties of Request or Response should be logged.
@@ -70,7 +73,9 @@ public class SSNetworkCommunicator {
     /// Logging options. Only for debug purposes.
     ///
     /// Set this var to see debug logs of requests or responses.
-    public var logOptions: (requests: LoggingOptions?, response: LoggingOptions?) = (nil, nil)
+    private var logOptions: (requests: LoggingOptions?, response: LoggingOptions?) = (nil, nil)
+    
+    private var onLog: ((String)->Void)?
     
     /// Creates new Network Communicator.
     ///
@@ -104,6 +109,11 @@ public class SSNetworkCommunicator {
         let pinner = SSCertificatePinner(obtainer: SSAssetCertificateObtainer(certTitles: certificateTitles))
         
         self.init(backgroundSessionIdentifier: backgroundSessionIdentifier, certificatePinner: pinner, onConfigSetup: onConfigSetup)
+    }
+    
+    public func setupLogs(request: LoggingOptions, response: LoggingOptions, onLog mOnLog: ((String)->Void)?) {
+        logOptions = (request, response)
+        onLog = mOnLog
     }
 }
 
@@ -220,6 +230,6 @@ extension SSNetworkCommunicator: SSCommunicating {
                 components.append("No Body.")
             }
         }
-        print(components.joined(separator: "\n"))
+        onLog?(components.joined(separator: "\n"))
     }
 }
