@@ -134,9 +134,9 @@
 		997444FB25C0392E00BEB297 /* SSCommunicating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997444FA25C0392E00BEB297 /* SSCommunicating.swift */; };
 		9974450925C03A4F00BEB297 /* SSNetworkCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974450825C03A4F00BEB297 /* SSNetworkCommunicator.swift */; };
 		9974450F25C03B8300BEB297 /* URLSessionConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974450E25C03B8300BEB297 /* URLSessionConfiguration.swift */; };
-		9974451B25C0541E00BEB297 /* SSApiCallOprions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974451A25C0541E00BEB297 /* SSApiCallOprions.swift */; };
+		9974451B25C0541E00BEB297 /* SSApiCallOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974451A25C0541E00BEB297 /* SSApiCallOptions.swift */; };
 		9974451F25C0543400BEB297 /* SSApiArgsConverting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974451E25C0543400BEB297 /* SSApiArgsConverting.swift */; };
-		9974452525C0547D00BEB297 /* SSRemoteApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974452425C0547D00BEB297 /* SSRemoteApi.swift */; };
+		9974452525C0547D00BEB297 /* SSRemoteApiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974452425C0547D00BEB297 /* SSRemoteApiModel.swift */; };
 		9974452B25C054DF00BEB297 /* SSApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974452A25C054DF00BEB297 /* SSApiError.swift */; };
 		9974452F25C054FD00BEB297 /* SSApiNoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974452E25C054FD00BEB297 /* SSApiNoError.swift */; };
 		9974454625C1816E00BEB297 /* SSRemoteApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974454525C1816E00BEB297 /* SSRemoteApiTests.swift */; };
@@ -329,9 +329,9 @@
 		997444FA25C0392E00BEB297 /* SSCommunicating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCommunicating.swift; sourceTree = "<group>"; };
 		9974450825C03A4F00BEB297 /* SSNetworkCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSNetworkCommunicator.swift; sourceTree = "<group>"; };
 		9974450E25C03B8300BEB297 /* URLSessionConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionConfiguration.swift; sourceTree = "<group>"; };
-		9974451A25C0541E00BEB297 /* SSApiCallOprions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSApiCallOprions.swift; sourceTree = "<group>"; };
+		9974451A25C0541E00BEB297 /* SSApiCallOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSApiCallOptions.swift; sourceTree = "<group>"; };
 		9974451E25C0543400BEB297 /* SSApiArgsConverting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSApiArgsConverting.swift; sourceTree = "<group>"; };
-		9974452425C0547D00BEB297 /* SSRemoteApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSRemoteApi.swift; sourceTree = "<group>"; };
+		9974452425C0547D00BEB297 /* SSRemoteApiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSRemoteApiModel.swift; sourceTree = "<group>"; };
 		9974452A25C054DF00BEB297 /* SSApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSApiError.swift; sourceTree = "<group>"; };
 		9974452E25C054FD00BEB297 /* SSApiNoError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSApiNoError.swift; sourceTree = "<group>"; };
 		9974454525C1816E00BEB297 /* SSRemoteApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSRemoteApiTests.swift; sourceTree = "<group>"; };
@@ -749,9 +749,9 @@
 		9974451725C053F800BEB297 /* Api */ = {
 			isa = PBXGroup;
 			children = (
-				9974451A25C0541E00BEB297 /* SSApiCallOprions.swift */,
+				9974451A25C0541E00BEB297 /* SSApiCallOptions.swift */,
 				9974451E25C0543400BEB297 /* SSApiArgsConverting.swift */,
-				9974452425C0547D00BEB297 /* SSRemoteApi.swift */,
+				9974452425C0547D00BEB297 /* SSRemoteApiModel.swift */,
 				9974452A25C054DF00BEB297 /* SSApiError.swift */,
 				9974452E25C054FD00BEB297 /* SSApiNoError.swift */,
 			);
@@ -1423,7 +1423,7 @@
 				99E27B56239EAA0F00CC5984 /* SSUETaskDBMutator.swift in Sources */,
 				9967832222D3955000E33300 /* SSCacheContainer.swift in Sources */,
 				9944ED6522CFA6E5005B129A /* SSTransacted.swift in Sources */,
-				9974451B25C0541E00BEB297 /* SSApiCallOprions.swift in Sources */,
+				9974451B25C0541E00BEB297 /* SSApiCallOptions.swift in Sources */,
 				99AA28D423A2A05400DA9C2F /* SSGroupExecutor.swift in Sources */,
 				99D2966C223D3763003FD9F0 /* UIColor.swift in Sources */,
 				9947C43C22CA58D800AB3327 /* SSDataBaseProtocols.swift in Sources */,
@@ -1478,7 +1478,7 @@
 				99D2966D223D3763003FD9F0 /* DispatchQueue.swift in Sources */,
 				99D29656223D3681003FD9F0 /* SSTextField.swift in Sources */,
 				99991DC322E6219C00F3D294 /* SSDataBaseStatementProxy.swift in Sources */,
-				9974452525C0547D00BEB297 /* SSRemoteApi.swift in Sources */,
+				9974452525C0547D00BEB297 /* SSRemoteApiModel.swift in Sources */,
 				9937E11923C61A1800F73905 /* SSProtectionViewHelper.swift in Sources */,
 				99745CC0239FC69F00DAAFFA /* SSEntityUpdater.swift in Sources */,
 				99D70DA5239A8B4E00EA96B4 /* SSUETask.swift in Sources */,
