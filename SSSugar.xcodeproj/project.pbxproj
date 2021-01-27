@@ -145,6 +145,7 @@
 		9974455F25C1859600BEB297 /* ApiErrorConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974455E25C1859600BEB297 /* ApiErrorConverterTests.swift */; };
 		9974456725C1862500BEB297 /* RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974456625C1862500BEB297 /* RawRepresentable.swift */; };
 		9974466125C1A02000BEB297 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974466025C1A02000BEB297 /* Date.swift */; };
+		9974469125C1A2FC00BEB297 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974469025C1A2FC00BEB297 /* Bundle.swift */; };
 		99745CBC239FC0ED00DAAFFA /* SSEntityStorageMutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CBB239FC0ED00DAAFFA /* SSEntityStorageMutator.swift */; };
 		99745CBE239FC10900DAAFFA /* SSEntityRemoteMutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CBD239FC10900DAAFFA /* SSEntityRemoteMutator.swift */; };
 		99745CC0239FC69F00DAAFFA /* SSEntityUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CBF239FC69F00DAAFFA /* SSEntityUpdater.swift */; };
@@ -344,6 +345,7 @@
 		9974455E25C1859600BEB297 /* ApiErrorConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiErrorConverterTests.swift; sourceTree = "<group>"; };
 		9974456625C1862500BEB297 /* RawRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawRepresentable.swift; sourceTree = "<group>"; };
 		9974466025C1A02000BEB297 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		9974469025C1A2FC00BEB297 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
 		99745CBB239FC0ED00DAAFFA /* SSEntityStorageMutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSEntityStorageMutator.swift; sourceTree = "<group>"; };
 		99745CBD239FC10900DAAFFA /* SSEntityRemoteMutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSEntityRemoteMutator.swift; sourceTree = "<group>"; };
 		99745CBF239FC69F00DAAFFA /* SSEntityUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSEntityUpdater.swift; sourceTree = "<group>"; };
@@ -1088,6 +1090,7 @@
 				99B1A8782247FF5C00D96BEE /* Views */,
 				99D29664223D3763003FD9F0 /* DispatchQueue.swift */,
 				99F3F41D23ABBDE7003C88D9 /* UIDevice.swift */,
+				9974469025C1A2FC00BEB297 /* Bundle.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -1484,6 +1487,7 @@
 				99713B9522EF555700EBD1FD /* UILabel.swift in Sources */,
 				99AA28D623A2A88F00DA9C2F /* SSChainExecutor.swift in Sources */,
 				99D29670223D3763003FD9F0 /* UIButton.swift in Sources */,
+				9974469125C1A2FC00BEB297 /* Bundle.swift in Sources */,
 				99745CC2239FC9B700DAAFFA /* SSUETaskUpdater.swift in Sources */,
 				99E36E0A23213A1B005E6C05 /* SSUpdateCenter.swift in Sources */,
 				99AA28D223A295F700DA9C2F /* SSTaskProcessorExample.swift in Sources */,
