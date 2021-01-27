@@ -130,9 +130,9 @@ class StorageCoderTests: XCTestCase {
     }
     
     class Fileds {
-        @KeyStoring("int") var intField: Int
-        @KeyStoring("str") var strField: String
-        @KeyStoring("opt") var optField: Int?
+        @SSKeyStoring("int") var intField: Int
+        @SSKeyStoring("str") var strField: String
+        @SSKeyStoring("opt") var optField: Int?
         
         func setup(coder: SSStorageCoder) {
             coder.setup(&_intField)
@@ -146,9 +146,9 @@ class StorageCoderTests: XCTestCase {
     }
     
     class TestStorage: SSStorageCoder {
-        @KeyStoring("int") var intField: Int
-        @KeyStoring("str") var strField: String
-        @KeyStoring("opt") var optField: Int?
+        @SSKeyStoring("int") var intField: Int
+        @SSKeyStoring("str") var strField: String
+        @SSKeyStoring("opt") var optField: Int?
         
         override func bindPropOwner() {
             setup(&_intField)

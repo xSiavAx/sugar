@@ -99,7 +99,7 @@ class DictCodingWrapperTest: XCTestCase {
     }
     
     class RegularOwner<Title: PropertyOwnerTitle, T>: PropertyOwner {
-        @KeyStoring(Title.title) var prop: T
+        @SSKeyStoring(Title.title) var prop: T
         
         override init(_ mDict: [String : Any] = [:]) {
             super.init(mDict)
@@ -110,7 +110,7 @@ class DictCodingWrapperTest: XCTestCase {
     class DefaultOwner<Title: PropertyOwnerTitle, Default: PropertyOwnerDefault>: PropertyOwner {
         typealias T = Default.T
         
-        @KeyStoring(Title.title, Default.value, writeOnStart: Default.writeOnInit) var prop: T
+        @SSKeyStoring(Title.title, Default.value, writeOnStart: Default.writeOnInit) var prop: T
         
         override init(_ mDict: [String : Any] = [:]) {
             super.init(mDict)
