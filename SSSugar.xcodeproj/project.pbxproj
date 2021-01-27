@@ -1006,7 +1006,6 @@
 				99D29671223D37A2003FD9F0 /* Classes */,
 				993BC5B82317CFB3008DCE98 /* SSAtomic.swift */,
 				99AA28D523A2A88F00DA9C2F /* SSChainExecutor.swift */,
-				99584E6E2474003000FB43AD /* SSEqutable.swift */,
 				99AA28D323A2A05400DA9C2F /* SSGroupExecutor.swift */,
 				9918B5BF2447434500E49E81 /* SSTry.swift */,
 				99D2965F223D3763003FD9F0 /* Other */,
@@ -1057,6 +1056,7 @@
 				99E3BA4022FB26290023D9AE /* SSCopying.swift */,
 				99D70DA8239A8FC100EA96B4 /* SSExecutor.swift */,
 				997B6F8B255313FD005E50D7 /* SSStringRepresentableError.swift */,
+				99584E6E2474003000FB43AD /* SSEqutable.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
