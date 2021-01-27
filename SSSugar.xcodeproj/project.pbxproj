@@ -141,6 +141,8 @@
 		9974452F25C054FD00BEB297 /* SSApiNoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974452E25C054FD00BEB297 /* SSApiNoError.swift */; };
 		9974454625C1816E00BEB297 /* SSRemoteApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974454525C1816E00BEB297 /* SSRemoteApiTests.swift */; };
 		9974454C25C1832F00BEB297 /* SSApiCallOptionstTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974454B25C1832F00BEB297 /* SSApiCallOptionstTests.swift */; };
+		9974455B25C1857200BEB297 /* SSApiErrorConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974455A25C1857200BEB297 /* SSApiErrorConverter.swift */; };
+		9974455F25C1859600BEB297 /* ApiErrorConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974455E25C1859600BEB297 /* ApiErrorConverterTests.swift */; };
 		99745CBC239FC0ED00DAAFFA /* SSEntityStorageMutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CBB239FC0ED00DAAFFA /* SSEntityStorageMutator.swift */; };
 		99745CBE239FC10900DAAFFA /* SSEntityRemoteMutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CBD239FC10900DAAFFA /* SSEntityRemoteMutator.swift */; };
 		99745CC0239FC69F00DAAFFA /* SSEntityUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CBF239FC69F00DAAFFA /* SSEntityUpdater.swift */; };
@@ -336,6 +338,8 @@
 		9974452E25C054FD00BEB297 /* SSApiNoError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSApiNoError.swift; sourceTree = "<group>"; };
 		9974454525C1816E00BEB297 /* SSRemoteApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSRemoteApiTests.swift; sourceTree = "<group>"; };
 		9974454B25C1832F00BEB297 /* SSApiCallOptionstTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSApiCallOptionstTests.swift; sourceTree = "<group>"; };
+		9974455A25C1857200BEB297 /* SSApiErrorConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSApiErrorConverter.swift; sourceTree = "<group>"; };
+		9974455E25C1859600BEB297 /* ApiErrorConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiErrorConverterTests.swift; sourceTree = "<group>"; };
 		99745CBB239FC0ED00DAAFFA /* SSEntityStorageMutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSEntityStorageMutator.swift; sourceTree = "<group>"; };
 		99745CBD239FC10900DAAFFA /* SSEntityRemoteMutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSEntityRemoteMutator.swift; sourceTree = "<group>"; };
 		99745CBF239FC69F00DAAFFA /* SSEntityUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSEntityUpdater.swift; sourceTree = "<group>"; };
@@ -694,6 +698,7 @@
 			children = (
 				994AACC0255311C000419F3B /* SSKeyFieldConverter.swift */,
 				994AACC1255311C000419F3B /* SSErrorConverter.swift */,
+				9974455A25C1857200BEB297 /* SSApiErrorConverter.swift */,
 			);
 			path = Adapters;
 			sourceTree = "<group>";
@@ -819,6 +824,7 @@
 			children = (
 				997B6F982553151B005E50D7 /* KeyFieldConverterTests.swift */,
 				997B6F9A2553151B005E50D7 /* ErrorConverterTests.swift */,
+				9974455E25C1859600BEB297 /* ApiErrorConverterTests.swift */,
 			);
 			path = Adapters;
 			sourceTree = "<group>";
@@ -1399,6 +1405,7 @@
 				2D7FD9F42420F73200D4C28F /* AutoMapTestHelper.swift in Sources */,
 				2DAEA168243206AF00DF53D0 /* ComparableCompareTests.swift in Sources */,
 				99584E73247412F100FB43AD /* SSUpdateCenterTests.swift in Sources */,
+				9974455F25C1859600BEB297 /* ApiErrorConverterTests.swift in Sources */,
 				2D61561A2423C4F80015A9E0 /* SSCollectionViewMarkableControllerUnmarkTC.swift in Sources */,
 				997B6FA22553151B005E50D7 /* KeyStoringPropTests.swift in Sources */,
 				2DC1D1AB242CF63E0049020B /* AutoMapRemoveForAtTests.swift in Sources */,
@@ -1499,6 +1506,7 @@
 				997B6F8C255313FD005E50D7 /* SSStringRepresentableError.swift in Sources */,
 				994AACC9255311C100419F3B /* SSKeyFieldConverter.swift in Sources */,
 				9918B5C22448707B00E49E81 /* SSDmBatchAdapting.swift in Sources */,
+				9974455B25C1857200BEB297 /* SSApiErrorConverter.swift in Sources */,
 				99E27B58239EAAA400CC5984 /* SSUETaskMutator.swift in Sources */,
 				994AACC6255311C100419F3B /* SSKeyStoringProp.swift in Sources */,
 				99E85E2B2240F5AC005E2B13 /* SSCollectionViewMarkableController.swift in Sources */,
