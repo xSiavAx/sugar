@@ -3,12 +3,12 @@ import Foundation
 /// Methods providing version and build number
 ///
 /// `Bundle` confroms to this protocol.
-public protocol AppVersioning {
+public protocol SSAppVersioning {
     var releaseVersion: String? {get}
     var buildVersion: String? {get}
 }
 
-extension Bundle: AppVersioning {
+extension Bundle: SSAppVersioning {
     public var releaseVersion: String? {
         return infoDictionary?["CFBundleShortVersionString"] as? String
     }
