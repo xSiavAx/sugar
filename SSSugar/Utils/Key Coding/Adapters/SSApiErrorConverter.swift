@@ -3,7 +3,7 @@ import Foundation
 /// Tool helps create Api Error Adapters (with some `Common` and `Spiceific`) for corresponding `KeyStoring` field.
 ///
 /// Contains simplified methods for cases when one of error components confoms `ApiErrorCause`, see `parser(buildSpecific:)`, `parser(buildCommon:)`. When both components conform to `ApiErrorCause` use corresponding `SSErrorConverter` extension (`readAdapter()`)
-class SSApiErrorConverter<CommonError: Error, SpecificError: Error> {
+public class SSApiErrorConverter<CommonError: Error, SpecificError: Error> {
     /// Api Error type shortcut
     typealias IApiError = SSApiError<CommonError, SpecificError>
     /// `SSKeyField<ApiError> Adapter` type shortcut
@@ -48,7 +48,7 @@ class SSApiErrorConverter<CommonError: Error, SpecificError: Error> {
     }
 }
 
-extension SSApiErrorConverter where CommonError: StringRepresentableApiErrorComponent {
+extension SSApiErrorConverter where CommonError: SSStringRepresentableApiErrorComponent {
     /// Creates read-only `Adapter` for `SSKeyField<ApiError<CommonError, SpecificError>>`, that returns `nil` on input is `nil`.
     ///
     /// - Parameters:
@@ -65,7 +65,7 @@ extension SSApiErrorConverter where CommonError: StringRepresentableApiErrorComp
     }
 }
 
-extension SSApiErrorConverter where SpecificError: StringRepresentableApiErrorComponent {
+extension SSApiErrorConverter where SpecificError: SSStringRepresentableApiErrorComponent {
     /// Creates read-only `Adapter` for `SSKeyField<ApiError<CommonError, SpecificError>>`, that returns `nil` on input is `nil`.
     /// - Parameters:
     ///   - buildCommon: Closure that builds `Common` error components (if possible)
