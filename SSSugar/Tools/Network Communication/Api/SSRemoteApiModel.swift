@@ -51,7 +51,7 @@ public protocol SSRemoteApiModel: AnyObject {
     func entity() -> Entity
 }
 
-extension SSRemoteApiModel {
+public extension SSRemoteApiModel {
     /// Request's field key for Content Type value
     static var contentTypeKey: String {"Content-Type"}
     
