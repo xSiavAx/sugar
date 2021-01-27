@@ -12,7 +12,7 @@ public class SSCertificatePinner: NSObject {
     public var onReject: (() -> Void)?
     
     public override init() {
-        fatalError("Use init(onReject:)")
+        fatalError("Use init(certificates: [SecCertificate])")
     }
     
     /// Creates new pinner
@@ -40,7 +40,7 @@ extension SSCertificatePinner: URLSessionDelegate {
         if (isServerAuthentication && !certificatesValid(challenge: challenge)) {
             onReject?()
             completionHandler(.cancelAuthenticationChallenge, nil)
-            return;
+            return
         }
         completionHandler(.performDefaultHandling, nil)
     }

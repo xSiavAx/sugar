@@ -130,6 +130,20 @@
 		9967832422D3993D00E33300 /* SSDataBaseStatemntCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9967832322D3993D00E33300 /* SSDataBaseStatemntCache.swift */; };
 		9967832622D39B4000E33300 /* SSDataBaseStatementCacheHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9967832522D39B4000E33300 /* SSDataBaseStatementCacheHolder.swift */; };
 		99713B9522EF555700EBD1FD /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99713B9422EF555700EBD1FD /* UILabel.swift */; };
+		997444F725C038FC00BEB297 /* SSCommunicationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997444F625C038FC00BEB297 /* SSCommunicationError.swift */; };
+		997444FB25C0392E00BEB297 /* SSCommunicating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997444FA25C0392E00BEB297 /* SSCommunicating.swift */; };
+		9974450925C03A4F00BEB297 /* SSNetworkCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974450825C03A4F00BEB297 /* SSNetworkCommunicator.swift */; };
+		9974450F25C03B8300BEB297 /* URLSessionConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974450E25C03B8300BEB297 /* URLSessionConfiguration.swift */; };
+		9974451B25C0541E00BEB297 /* SSApiCallOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974451A25C0541E00BEB297 /* SSApiCallOptions.swift */; };
+		9974451F25C0543400BEB297 /* SSApiArgsConverting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974451E25C0543400BEB297 /* SSApiArgsConverting.swift */; };
+		9974452525C0547D00BEB297 /* SSRemoteApiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974452425C0547D00BEB297 /* SSRemoteApiModel.swift */; };
+		9974452B25C054DF00BEB297 /* SSApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974452A25C054DF00BEB297 /* SSApiError.swift */; };
+		9974452F25C054FD00BEB297 /* SSApiNoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974452E25C054FD00BEB297 /* SSApiNoError.swift */; };
+		9974454625C1816E00BEB297 /* SSRemoteApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974454525C1816E00BEB297 /* SSRemoteApiTests.swift */; };
+		9974454C25C1832F00BEB297 /* SSApiCallOptionstTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974454B25C1832F00BEB297 /* SSApiCallOptionstTests.swift */; };
+		9974455B25C1857200BEB297 /* SSApiErrorConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974455A25C1857200BEB297 /* SSApiErrorConverter.swift */; };
+		9974455F25C1859600BEB297 /* ApiErrorConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974455E25C1859600BEB297 /* ApiErrorConverterTests.swift */; };
+		9974456725C1862500BEB297 /* RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974456625C1862500BEB297 /* RawRepresentable.swift */; };
 		99745CBC239FC0ED00DAAFFA /* SSEntityStorageMutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CBB239FC0ED00DAAFFA /* SSEntityStorageMutator.swift */; };
 		99745CBE239FC10900DAAFFA /* SSEntityRemoteMutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CBD239FC10900DAAFFA /* SSEntityRemoteMutator.swift */; };
 		99745CC0239FC69F00DAAFFA /* SSEntityUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CBF239FC69F00DAAFFA /* SSEntityUpdater.swift */; };
@@ -314,6 +328,20 @@
 		9967832522D39B4000E33300 /* SSDataBaseStatementCacheHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDataBaseStatementCacheHolder.swift; sourceTree = "<group>"; };
 		996F380122417014007FF8B6 /* SSMarkbaleCollectionCellHelperMarkTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSMarkbaleCollectionCellHelperMarkTC.swift; sourceTree = "<group>"; };
 		99713B9422EF555700EBD1FD /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
+		997444F625C038FC00BEB297 /* SSCommunicationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCommunicationError.swift; sourceTree = "<group>"; };
+		997444FA25C0392E00BEB297 /* SSCommunicating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCommunicating.swift; sourceTree = "<group>"; };
+		9974450825C03A4F00BEB297 /* SSNetworkCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSNetworkCommunicator.swift; sourceTree = "<group>"; };
+		9974450E25C03B8300BEB297 /* URLSessionConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionConfiguration.swift; sourceTree = "<group>"; };
+		9974451A25C0541E00BEB297 /* SSApiCallOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSApiCallOptions.swift; sourceTree = "<group>"; };
+		9974451E25C0543400BEB297 /* SSApiArgsConverting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSApiArgsConverting.swift; sourceTree = "<group>"; };
+		9974452425C0547D00BEB297 /* SSRemoteApiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSRemoteApiModel.swift; sourceTree = "<group>"; };
+		9974452A25C054DF00BEB297 /* SSApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSApiError.swift; sourceTree = "<group>"; };
+		9974452E25C054FD00BEB297 /* SSApiNoError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSApiNoError.swift; sourceTree = "<group>"; };
+		9974454525C1816E00BEB297 /* SSRemoteApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSRemoteApiTests.swift; sourceTree = "<group>"; };
+		9974454B25C1832F00BEB297 /* SSApiCallOptionstTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSApiCallOptionstTests.swift; sourceTree = "<group>"; };
+		9974455A25C1857200BEB297 /* SSApiErrorConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSApiErrorConverter.swift; sourceTree = "<group>"; };
+		9974455E25C1859600BEB297 /* ApiErrorConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiErrorConverterTests.swift; sourceTree = "<group>"; };
+		9974456625C1862500BEB297 /* RawRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawRepresentable.swift; sourceTree = "<group>"; };
 		99745CBB239FC0ED00DAAFFA /* SSEntityStorageMutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSEntityStorageMutator.swift; sourceTree = "<group>"; };
 		99745CBD239FC10900DAAFFA /* SSEntityRemoteMutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSEntityRemoteMutator.swift; sourceTree = "<group>"; };
 		99745CBF239FC69F00DAAFFA /* SSEntityUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSEntityUpdater.swift; sourceTree = "<group>"; };
@@ -527,6 +555,7 @@
 		2D8CF9B8241FC4BA00168C8A /* SSSugarTests */ = {
 			isa = PBXGroup;
 			children = (
+				9974453425C17F6800BEB297 /* Tools */,
 				99584E70247412A900FB43AD /* Utils */,
 				99B1A796224678B400D96BEE /* SSSugarPlayground */,
 				2DAEA1642431F92000DF53D0 /* Extensions */,
@@ -671,6 +700,8 @@
 			children = (
 				994AACC0255311C000419F3B /* SSKeyFieldConverter.swift */,
 				994AACC1255311C000419F3B /* SSErrorConverter.swift */,
+				9974455A25C1857200BEB297 /* SSApiErrorConverter.swift */,
+				9974456625C1862500BEB297 /* RawRepresentable.swift */,
 			);
 			path = Adapters;
 			sourceTree = "<group>";
@@ -678,7 +709,7 @@
 		99584E70247412A900FB43AD /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				99584E71247412C500FB43AD /* Data Synchronisation */,
+				997B6F942553151B005E50D7 /* Key Coding */,
 				2D7E59EC241FC996009EE074 /* SSCustomSelection */,
 			);
 			path = Utils;
@@ -714,8 +745,51 @@
 		997444F325C0385400BEB297 /* Network Communication */ = {
 			isa = PBXGroup;
 			children = (
+				9974451725C053F800BEB297 /* Api */,
+				997444F625C038FC00BEB297 /* SSCommunicationError.swift */,
+				997444FA25C0392E00BEB297 /* SSCommunicating.swift */,
+				9974450825C03A4F00BEB297 /* SSNetworkCommunicator.swift */,
+				9974450E25C03B8300BEB297 /* URLSessionConfiguration.swift */,
 			);
 			path = "Network Communication";
+			sourceTree = "<group>";
+		};
+		9974451725C053F800BEB297 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				9974451A25C0541E00BEB297 /* SSApiCallOptions.swift */,
+				9974451E25C0543400BEB297 /* SSApiArgsConverting.swift */,
+				9974452425C0547D00BEB297 /* SSRemoteApiModel.swift */,
+				9974452A25C054DF00BEB297 /* SSApiError.swift */,
+				9974452E25C054FD00BEB297 /* SSApiNoError.swift */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		9974453425C17F6800BEB297 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				9974453525C1806300BEB297 /* Network Communication */,
+				99584E71247412C500FB43AD /* Data Synchronisation */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		9974453525C1806300BEB297 /* Network Communication */ = {
+			isa = PBXGroup;
+			children = (
+				9974454425C1815A00BEB297 /* Api */,
+			);
+			path = "Network Communication";
+			sourceTree = "<group>";
+		};
+		9974454425C1815A00BEB297 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				9974454525C1816E00BEB297 /* SSRemoteApiTests.swift */,
+				9974454B25C1832F00BEB297 /* SSApiCallOptionstTests.swift */,
+			);
+			path = Api;
 			sourceTree = "<group>";
 		};
 		997B344D225A134B00F2A3A0 /* Containers */ = {
@@ -733,7 +807,6 @@
 			isa = PBXGroup;
 			children = (
 				997B6FA825531549005E50D7 /* Containers */,
-				997B6F942553151B005E50D7 /* Key Coding */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -754,6 +827,7 @@
 			children = (
 				997B6F982553151B005E50D7 /* KeyFieldConverterTests.swift */,
 				997B6F9A2553151B005E50D7 /* ErrorConverterTests.swift */,
+				9974455E25C1859600BEB297 /* ApiErrorConverterTests.swift */,
 			);
 			path = Adapters;
 			sourceTree = "<group>";
@@ -1260,6 +1334,7 @@
 				2D00D99A2437A46A0059EB09 /* DictionaryTestKey.swift in Sources */,
 				2D7E5A46241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperDeactivateDeactivatedTC.swift in Sources */,
 				99E3CE6A248FD1ED005CDE8A /* SSEntityDmMutatorTests.swift in Sources */,
+				9974454C25C1832F00BEB297 /* SSApiCallOptionstTests.swift in Sources */,
 				2D5CCF122429F9700065278E /* ArrayPickAtTests.swift in Sources */,
 				2D7E5A47241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperDeactivateTC.swift in Sources */,
 				2D7E5A48241FD0E5009EE074 /* SSMarkbaleCollectionCellHelperActivateActivatedTC.swift in Sources */,
@@ -1324,6 +1399,7 @@
 				2D7E5A5B241FD0E5009EE074 /* ArrayInitBuildBlockTests.swift in Sources */,
 				99E3CE68248D20FD005CDE8A /* SSEntityStorageMutatorTests.swift in Sources */,
 				2D7E5A5C241FD0E5009EE074 /* AutoMapAddContainerTests.swift in Sources */,
+				9974454625C1816E00BEB297 /* SSRemoteApiTests.swift in Sources */,
 				997B6F9E2553151B005E50D7 /* StorageCoderTests.swift in Sources */,
 				2D7E5A5E241FD0E5009EE074 /* AutoMapSubscriptKeyTests.swift in Sources */,
 				2D4F5E282434E197003EF8D4 /* UIViewControllerDismissPresentedAnimatedOnFinishTests.swift in Sources */,
@@ -1332,6 +1408,7 @@
 				2D7FD9F42420F73200D4C28F /* AutoMapTestHelper.swift in Sources */,
 				2DAEA168243206AF00DF53D0 /* ComparableCompareTests.swift in Sources */,
 				99584E73247412F100FB43AD /* SSUpdateCenterTests.swift in Sources */,
+				9974455F25C1859600BEB297 /* ApiErrorConverterTests.swift in Sources */,
 				2D61561A2423C4F80015A9E0 /* SSCollectionViewMarkableControllerUnmarkTC.swift in Sources */,
 				997B6FA22553151B005E50D7 /* KeyStoringPropTests.swift in Sources */,
 				2DC1D1AB242CF63E0049020B /* AutoMapRemoveForAtTests.swift in Sources */,
@@ -1351,13 +1428,16 @@
 				99EABD7C22401D550037645B /* SSMarkbaleCollectionCellHelper.swift in Sources */,
 				99F3F41C23ABBD97003C88D9 /* String.swift in Sources */,
 				99E85E2F22410806005E2B13 /* Range.swift in Sources */,
+				9974450F25C03B8300BEB297 /* URLSessionConfiguration.swift in Sources */,
 				99EABD7E22401EF60037645B /* SSSelectionMarkView.swift in Sources */,
 				99E27B56239EAA0F00CC5984 /* SSUETaskDBMutator.swift in Sources */,
 				9967832222D3955000E33300 /* SSCacheContainer.swift in Sources */,
 				9944ED6522CFA6E5005B129A /* SSTransacted.swift in Sources */,
+				9974451B25C0541E00BEB297 /* SSApiCallOptions.swift in Sources */,
 				99AA28D423A2A05400DA9C2F /* SSGroupExecutor.swift in Sources */,
 				99D2966C223D3763003FD9F0 /* UIColor.swift in Sources */,
 				9947C43C22CA58D800AB3327 /* SSDataBaseProtocols.swift in Sources */,
+				9974456725C1862500BEB297 /* RawRepresentable.swift in Sources */,
 				99E3BA4122FB26290023D9AE /* SSCopying.swift in Sources */,
 				9947C43A22CA58C100AB3327 /* SSDataBase.swift in Sources */,
 				9967832622D39B4000E33300 /* SSDataBaseStatementCacheHolder.swift in Sources */,
@@ -1391,6 +1471,7 @@
 				9918B5BE24473D5B00E49E81 /* SSEntityDmMutator.swift in Sources */,
 				9918B5B824471A9300E49E81 /* SSDmRevision.swift in Sources */,
 				99D29658223D3681003FD9F0 /* SSWindow.swift in Sources */,
+				9974452B25C054DF00BEB297 /* SSApiError.swift in Sources */,
 				99D29650223D3107003FD9F0 /* SSRootViewController.swift in Sources */,
 				99D2964F223D3107003FD9F0 /* SSRootView.swift in Sources */,
 				9982118B244F2DEA00A7A8B6 /* Base.swift in Sources */,
@@ -1408,6 +1489,7 @@
 				99D2966D223D3763003FD9F0 /* DispatchQueue.swift in Sources */,
 				99D29656223D3681003FD9F0 /* SSTextField.swift in Sources */,
 				99991DC322E6219C00F3D294 /* SSDataBaseStatementProxy.swift in Sources */,
+				9974452525C0547D00BEB297 /* SSRemoteApiModel.swift in Sources */,
 				9937E11923C61A1800F73905 /* SSProtectionViewHelper.swift in Sources */,
 				99745CC0239FC69F00DAAFFA /* SSEntityUpdater.swift in Sources */,
 				99D70DA5239A8B4E00EA96B4 /* SSUETask.swift in Sources */,
@@ -1428,6 +1510,7 @@
 				997B6F8C255313FD005E50D7 /* SSStringRepresentableError.swift in Sources */,
 				994AACC9255311C100419F3B /* SSKeyFieldConverter.swift in Sources */,
 				9918B5C22448707B00E49E81 /* SSDmBatchAdapting.swift in Sources */,
+				9974455B25C1857200BEB297 /* SSApiErrorConverter.swift in Sources */,
 				99E27B58239EAAA400CC5984 /* SSUETaskMutator.swift in Sources */,
 				994AACC6255311C100419F3B /* SSKeyStoringProp.swift in Sources */,
 				99E85E2B2240F5AC005E2B13 /* SSCollectionViewMarkableController.swift in Sources */,
@@ -1438,13 +1521,18 @@
 				9918B5BA24471AC100E49E81 /* SSDmBatch.swift in Sources */,
 				99F3F41E23ABBDE7003C88D9 /* UIDevice.swift in Sources */,
 				99D2966E223D3763003FD9F0 /* CGRect.swift in Sources */,
+				9974452F25C054FD00BEB297 /* SSApiNoError.swift in Sources */,
+				997444FB25C0392E00BEB297 /* SSCommunicating.swift in Sources */,
+				997444F725C038FC00BEB297 /* SSCommunicationError.swift in Sources */,
 				99EDE7A222AD2397002BD904 /* SSProgressView.swift in Sources */,
 				990A18A722E641F4008DCCF0 /* SSViewStyles.swift in Sources */,
 				99D70DB4239AAF7700EA96B4 /* SSUETaskProcessor.swift in Sources */,
 				9918B5B624471A0F00E49E81 /* SSDataModifying.swift in Sources */,
 				9937E11423C60A6400F73905 /* SSViewShowHideAnimating.swift in Sources */,
+				9974450925C03A4F00BEB297 /* SSNetworkCommunicator.swift in Sources */,
 				99E36E4923225DB6005E6C05 /* SSCertificatesObtainer.swift in Sources */,
 				9918B5BC2447231700E49E81 /* SSDataModifyCenter.swift in Sources */,
+				9974451F25C0543400BEB297 /* SSApiArgsConverting.swift in Sources */,
 				99CBE33423B232BF000CE10D /* CGPoint.swift in Sources */,
 				9967832422D3993D00E33300 /* SSDataBaseStatemntCache.swift in Sources */,
 				99C1270424323A5F00A0D716 /* RandomNumberGenerator.swift in Sources */,
