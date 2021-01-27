@@ -9,6 +9,15 @@ extension XCTestCase {
         block(expectation)
         wait(for: [expectation], timeout: 1.0)
     }
+    
+    func assertError(job: () throws -> Void, checkError: (Error)->Bool) {
+        do {
+            try job()
+            XCTAssert(false, "Error expected")
+        } catch {
+            XCTAssert(checkError(error), "Unexpected error \(error)")
+        }
+    }
 }
 
 class TestQueue {
