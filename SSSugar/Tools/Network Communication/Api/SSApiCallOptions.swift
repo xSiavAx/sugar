@@ -9,6 +9,12 @@ public struct SSApiCallOptions {
     /// Content type of arguments sent to server
     public var contentType: SSApiContentType { argsConverter.contentType }
     
+    public init(baseURL url: URL, headers mHeaders: [String : String], argsConverter converter: SSApiArgsConverting) {
+        baseURL = url
+        headers = mHeaders
+        argsConverter = converter
+    }
+    
     /// Checks args not nil and proxies call to converter
     /// - Parameter args: Arguments to convert
     /// - Throws: Errors from converter
