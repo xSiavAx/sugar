@@ -4,7 +4,7 @@ import Foundation
 ///
 /// # Conforms to:
 /// `StringRepresentableApiErrorComponent`
-public enum SSApiNoError: Error, StringRepresentableApiErrorComponent {
+public enum SSApiNoError: Error, SSStringRepresentableApiErrorComponent {
     public var rawValue: String { "" }
 
     public init?(rawValue: String) {
