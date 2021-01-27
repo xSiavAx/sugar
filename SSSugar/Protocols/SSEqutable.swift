@@ -9,12 +9,12 @@ import Foundation
 ///
 /// # See Also:
 /// `SSInheritedEquatble`
-protocol SSEquatable: Equatable {
+public protocol SSEquatable: Equatable {
     func isSameProps(with other: Self) -> Bool
     func isSameType(with other: Self) -> Bool
 }
 
-extension Equatable where Self: Hashable & SSEquatable {
+public extension Equatable where Self: Hashable & SSEquatable {
     static func == (lhs: Self, rhs: Self) -> Bool {
         return lhs.isSameType(with: rhs)
             && rhs.isSameType(with: lhs)
@@ -28,11 +28,11 @@ extension Equatable where Self: Hashable & SSEquatable {
 /// # Provides:
 /// * isAncestorSameType(_:) -> Bool - helper for `isSameType` overrideing.
 /// * cast(_:, check:) -> Bool - helper for `isSameProps` overrideing.
-protocol SSInheritedEquatable: SSEquatable {
+public protocol SSInheritedEquatable: SSEquatable {
     associatedtype Ancestor: SSEquatable
 }
 
-extension SSInheritedEquatable {
+public extension SSInheritedEquatable {
     /// Indicates is passed ancestor has same type or not
     /// - Parameter ancestor: Ancestor object to check
     ///
