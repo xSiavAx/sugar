@@ -134,6 +134,11 @@
 		997444FB25C0392E00BEB297 /* SSCommunicating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997444FA25C0392E00BEB297 /* SSCommunicating.swift */; };
 		9974450925C03A4F00BEB297 /* SSNetworkCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974450825C03A4F00BEB297 /* SSNetworkCommunicator.swift */; };
 		9974450F25C03B8300BEB297 /* URLSessionConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974450E25C03B8300BEB297 /* URLSessionConfiguration.swift */; };
+		9974451B25C0541E00BEB297 /* SSApiCallOprions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974451A25C0541E00BEB297 /* SSApiCallOprions.swift */; };
+		9974451F25C0543400BEB297 /* SSApiArgsConverting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974451E25C0543400BEB297 /* SSApiArgsConverting.swift */; };
+		9974452525C0547D00BEB297 /* SSRemoteApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974452425C0547D00BEB297 /* SSRemoteApi.swift */; };
+		9974452B25C054DF00BEB297 /* SSApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974452A25C054DF00BEB297 /* SSApiError.swift */; };
+		9974452F25C054FD00BEB297 /* SSApiNoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974452E25C054FD00BEB297 /* SSApiNoError.swift */; };
 		99745CBC239FC0ED00DAAFFA /* SSEntityStorageMutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CBB239FC0ED00DAAFFA /* SSEntityStorageMutator.swift */; };
 		99745CBE239FC10900DAAFFA /* SSEntityRemoteMutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CBD239FC10900DAAFFA /* SSEntityRemoteMutator.swift */; };
 		99745CC0239FC69F00DAAFFA /* SSEntityUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CBF239FC69F00DAAFFA /* SSEntityUpdater.swift */; };
@@ -322,6 +327,11 @@
 		997444FA25C0392E00BEB297 /* SSCommunicating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCommunicating.swift; sourceTree = "<group>"; };
 		9974450825C03A4F00BEB297 /* SSNetworkCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSNetworkCommunicator.swift; sourceTree = "<group>"; };
 		9974450E25C03B8300BEB297 /* URLSessionConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionConfiguration.swift; sourceTree = "<group>"; };
+		9974451A25C0541E00BEB297 /* SSApiCallOprions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSApiCallOprions.swift; sourceTree = "<group>"; };
+		9974451E25C0543400BEB297 /* SSApiArgsConverting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSApiArgsConverting.swift; sourceTree = "<group>"; };
+		9974452425C0547D00BEB297 /* SSRemoteApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSRemoteApi.swift; sourceTree = "<group>"; };
+		9974452A25C054DF00BEB297 /* SSApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSApiError.swift; sourceTree = "<group>"; };
+		9974452E25C054FD00BEB297 /* SSApiNoError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSApiNoError.swift; sourceTree = "<group>"; };
 		99745CBB239FC0ED00DAAFFA /* SSEntityStorageMutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSEntityStorageMutator.swift; sourceTree = "<group>"; };
 		99745CBD239FC10900DAAFFA /* SSEntityRemoteMutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSEntityRemoteMutator.swift; sourceTree = "<group>"; };
 		99745CBF239FC69F00DAAFFA /* SSEntityUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSEntityUpdater.swift; sourceTree = "<group>"; };
@@ -722,12 +732,25 @@
 		997444F325C0385400BEB297 /* Network Communication */ = {
 			isa = PBXGroup;
 			children = (
+				9974451725C053F800BEB297 /* Api */,
 				997444F625C038FC00BEB297 /* SSCommunicationError.swift */,
 				997444FA25C0392E00BEB297 /* SSCommunicating.swift */,
 				9974450825C03A4F00BEB297 /* SSNetworkCommunicator.swift */,
 				9974450E25C03B8300BEB297 /* URLSessionConfiguration.swift */,
 			);
 			path = "Network Communication";
+			sourceTree = "<group>";
+		};
+		9974451725C053F800BEB297 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				9974451A25C0541E00BEB297 /* SSApiCallOprions.swift */,
+				9974451E25C0543400BEB297 /* SSApiArgsConverting.swift */,
+				9974452425C0547D00BEB297 /* SSRemoteApi.swift */,
+				9974452A25C054DF00BEB297 /* SSApiError.swift */,
+				9974452E25C054FD00BEB297 /* SSApiNoError.swift */,
+			);
+			path = Api;
 			sourceTree = "<group>";
 		};
 		997B344D225A134B00F2A3A0 /* Containers */ = {
@@ -1368,6 +1391,7 @@
 				99E27B56239EAA0F00CC5984 /* SSUETaskDBMutator.swift in Sources */,
 				9967832222D3955000E33300 /* SSCacheContainer.swift in Sources */,
 				9944ED6522CFA6E5005B129A /* SSTransacted.swift in Sources */,
+				9974451B25C0541E00BEB297 /* SSApiCallOprions.swift in Sources */,
 				99AA28D423A2A05400DA9C2F /* SSGroupExecutor.swift in Sources */,
 				99D2966C223D3763003FD9F0 /* UIColor.swift in Sources */,
 				9947C43C22CA58D800AB3327 /* SSDataBaseProtocols.swift in Sources */,
@@ -1404,6 +1428,7 @@
 				9918B5BE24473D5B00E49E81 /* SSEntityDmMutator.swift in Sources */,
 				9918B5B824471A9300E49E81 /* SSDmRevision.swift in Sources */,
 				99D29658223D3681003FD9F0 /* SSWindow.swift in Sources */,
+				9974452B25C054DF00BEB297 /* SSApiError.swift in Sources */,
 				99D29650223D3107003FD9F0 /* SSRootViewController.swift in Sources */,
 				99D2964F223D3107003FD9F0 /* SSRootView.swift in Sources */,
 				9982118B244F2DEA00A7A8B6 /* Base.swift in Sources */,
@@ -1421,6 +1446,7 @@
 				99D2966D223D3763003FD9F0 /* DispatchQueue.swift in Sources */,
 				99D29656223D3681003FD9F0 /* SSTextField.swift in Sources */,
 				99991DC322E6219C00F3D294 /* SSDataBaseStatementProxy.swift in Sources */,
+				9974452525C0547D00BEB297 /* SSRemoteApi.swift in Sources */,
 				9937E11923C61A1800F73905 /* SSProtectionViewHelper.swift in Sources */,
 				99745CC0239FC69F00DAAFFA /* SSEntityUpdater.swift in Sources */,
 				99D70DA5239A8B4E00EA96B4 /* SSUETask.swift in Sources */,
@@ -1451,6 +1477,7 @@
 				9918B5BA24471AC100E49E81 /* SSDmBatch.swift in Sources */,
 				99F3F41E23ABBDE7003C88D9 /* UIDevice.swift in Sources */,
 				99D2966E223D3763003FD9F0 /* CGRect.swift in Sources */,
+				9974452F25C054FD00BEB297 /* SSApiNoError.swift in Sources */,
 				997444FB25C0392E00BEB297 /* SSCommunicating.swift in Sources */,
 				997444F725C038FC00BEB297 /* SSCommunicationError.swift in Sources */,
 				99EDE7A222AD2397002BD904 /* SSProgressView.swift in Sources */,
@@ -1461,6 +1488,7 @@
 				9974450925C03A4F00BEB297 /* SSNetworkCommunicator.swift in Sources */,
 				99E36E4923225DB6005E6C05 /* SSCertificatesObtainer.swift in Sources */,
 				9918B5BC2447231700E49E81 /* SSDataModifyCenter.swift in Sources */,
+				9974451F25C0543400BEB297 /* SSApiArgsConverting.swift in Sources */,
 				99CBE33423B232BF000CE10D /* CGPoint.swift in Sources */,
 				9967832422D3993D00E33300 /* SSDataBaseStatemntCache.swift in Sources */,
 				99C1270424323A5F00A0D716 /* RandomNumberGenerator.swift in Sources */,
