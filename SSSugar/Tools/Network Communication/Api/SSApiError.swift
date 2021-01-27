@@ -1,7 +1,7 @@
 import Foundation
 
 /// Requirements for ApiError component that may be represented as string. Uses to simplify and unify creating ApiError code (see `SSApiErrorConverter`, `MailApiErrorReader`...).
-public protocol StringRepresentableApiErrorComponent: Error, RawRepresentable where RawValue == String {}
+public protocol SSStringRepresentableApiErrorComponent: Error, RawRepresentable where RawValue == String {}
 
 /// Errors may occur during performing Api calls.
 ///
@@ -40,7 +40,7 @@ public enum SSApiError<Common: Error, Specific: Error>: Error {
     }
 }
 
-extension SSApiError: SSStringRepresentableError where Common: StringRepresentableApiErrorComponent, Specific: StringRepresentableApiErrorComponent {
+extension SSApiError: SSStringRepresentableError where Common: SSStringRepresentableApiErrorComponent, Specific: SSStringRepresentableApiErrorComponent {
     public static func from(string: String) -> SSApiError? {
         return from(string: string, onCommon: Common.init(rawValue:), onSpecific: Specific.init(rawValue:))
     }
