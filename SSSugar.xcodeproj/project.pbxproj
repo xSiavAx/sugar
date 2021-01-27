@@ -144,6 +144,7 @@
 		9974455B25C1857200BEB297 /* SSApiErrorConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974455A25C1857200BEB297 /* SSApiErrorConverter.swift */; };
 		9974455F25C1859600BEB297 /* ApiErrorConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974455E25C1859600BEB297 /* ApiErrorConverterTests.swift */; };
 		9974456725C1862500BEB297 /* RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974456625C1862500BEB297 /* RawRepresentable.swift */; };
+		9974466125C1A02000BEB297 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9974466025C1A02000BEB297 /* Date.swift */; };
 		99745CBC239FC0ED00DAAFFA /* SSEntityStorageMutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CBB239FC0ED00DAAFFA /* SSEntityStorageMutator.swift */; };
 		99745CBE239FC10900DAAFFA /* SSEntityRemoteMutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CBD239FC10900DAAFFA /* SSEntityRemoteMutator.swift */; };
 		99745CC0239FC69F00DAAFFA /* SSEntityUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99745CBF239FC69F00DAAFFA /* SSEntityUpdater.swift */; };
@@ -342,6 +343,7 @@
 		9974455A25C1857200BEB297 /* SSApiErrorConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSApiErrorConverter.swift; sourceTree = "<group>"; };
 		9974455E25C1859600BEB297 /* ApiErrorConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiErrorConverterTests.swift; sourceTree = "<group>"; };
 		9974456625C1862500BEB297 /* RawRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawRepresentable.swift; sourceTree = "<group>"; };
+		9974466025C1A02000BEB297 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
 		99745CBB239FC0ED00DAAFFA /* SSEntityStorageMutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSEntityStorageMutator.swift; sourceTree = "<group>"; };
 		99745CBD239FC10900DAAFFA /* SSEntityRemoteMutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSEntityRemoteMutator.swift; sourceTree = "<group>"; };
 		99745CBF239FC69F00DAAFFA /* SSEntityUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSEntityUpdater.swift; sourceTree = "<group>"; };
@@ -959,6 +961,7 @@
 				99F3F41B23ABBD97003C88D9 /* String.swift */,
 				99CBE33323B232BF000CE10D /* CGPoint.swift */,
 				998534B623CCA6E300FD9325 /* Data.swift */,
+				9974466025C1A02000BEB297 /* Date.swift */,
 			);
 			path = Types;
 			sourceTree = "<group>";
@@ -1496,6 +1499,7 @@
 				99D29659223D3681003FD9F0 /* SSScrollContainerView.swift in Sources */,
 				9944ED5F22CF9DC9005B129A /* SSDataBaseTransaction.swift in Sources */,
 				99D2966F223D3763003FD9F0 /* UIView.swift in Sources */,
+				9974466125C1A02000BEB297 /* Date.swift in Sources */,
 				9967832022D3906900E33300 /* SSDataBaseSavePoint.swift in Sources */,
 				99991DC122E6219000F3D294 /* SSDataBaseSavePointProxy.swift in Sources */,
 				99E85E3122411583005E2B13 /* UITableVIew.swift in Sources */,
