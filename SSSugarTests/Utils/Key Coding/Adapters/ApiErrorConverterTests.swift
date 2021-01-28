@@ -226,7 +226,7 @@ class ApiErrorConverterTests: XCTestCase {
         }
     }
     
-    class SpecificErrorCaused: TestError, StringRepresentableApiErrorComponent {
+    class SpecificErrorCaused: TestError, SSStringRepresentableApiErrorComponent {
         required override init?(rawValue: String) {
             if (rawValue == "nil") {
                 return nil
@@ -235,7 +235,7 @@ class ApiErrorConverterTests: XCTestCase {
         }
     }
     
-    class TestErrorCaused: TestError, StringRepresentableApiErrorComponent {
+    class TestErrorCaused: TestError, SSStringRepresentableApiErrorComponent {
         required override init?(rawValue: String) {
             if (rawValue.hasPrefix("specific") || rawValue == "nil") {
                 return nil
