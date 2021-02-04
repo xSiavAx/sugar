@@ -10,7 +10,7 @@ open class SSDmRevision<Change: SSDataModifying>: SSCopying {
     /// Revision number. Earlier revisions should has lower number.
     public let number: Int
     /// Revision's changes seria
-    public let changes: [Change]
+    public private(set) var changes: [Change]
     /// Optional marker of request caused creating this revision.
     public let marker: String?
     
@@ -31,5 +31,9 @@ open class SSDmRevision<Change: SSDataModifying>: SSCopying {
         number = other.number
         changes = other.changes.deepCopy()
         marker = other.marker
+    }
+    
+    public func filterChanges(isIncluding: (Change)->Bool) {
+        changes = changes.filter(isIncluding)
     }
 }

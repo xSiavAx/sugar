@@ -19,7 +19,7 @@ public class SSCollectionViewMarkableController {
     //MARK: - public properties
     
     /// State for control selection. Set true to start selection and false for end it.
-    public var active: Bool { get {return pActive} set{setActive(newValue, animated:false)} }
+    public var active: Bool { get {return pActive} set {setActive(newValue, animated:false)} }
     
     /// The object that acts as the delegate of SSCollectionViewMarkableController
     public weak var delegate : SSCollectionViewMarkableControllerDelegate?

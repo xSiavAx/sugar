@@ -8,7 +8,6 @@ public protocol SSCarrierInfo {
     var name: String? { get }
 }
 
-
 extension CTCarrier: SSCarrierInfo {
     public var name: String? { carrierName }
 }

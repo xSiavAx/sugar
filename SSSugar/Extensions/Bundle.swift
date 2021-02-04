@@ -9,10 +9,12 @@ public protocol SSAppVersioning {
 }
 
 extension Bundle: SSAppVersioning {
+    /// App version
     public var releaseVersion: String? {
         return infoDictionary?["CFBundleShortVersionString"] as? String
     }
     
+    /// Build number
     public var buildVersion: String? {
         return infoDictionary?["CFBundleVersion"] as? String
     }
