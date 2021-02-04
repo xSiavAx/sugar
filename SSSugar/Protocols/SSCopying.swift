@@ -7,6 +7,6 @@ public protocol SSCopying: AnyObject {
 
 extension SSCopying {
     public func copy() -> Self {
-        return Self.init(copy: self)
+        return type(of: self).init(copy: self)
     }
 }
