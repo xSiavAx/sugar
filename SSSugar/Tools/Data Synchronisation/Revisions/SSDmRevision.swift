@@ -33,7 +33,7 @@ open class SSDmRevision<Change: SSDataModifying>: SSCopying {
         marker = other.marker
     }
     
-    func filterChanges(isIncluding: (Change)->Bool) {
+    public func filterChanges(isIncluding: (Change)->Bool) {
         changes = changes.filter(isIncluding)
     }
 }
