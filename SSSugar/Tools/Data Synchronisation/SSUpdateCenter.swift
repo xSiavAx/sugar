@@ -65,7 +65,7 @@ public class SSUpdater: SSUpdateCenter {
     private var observers = [Observer]()
     
     /// Creates new Updater instance.
-    /// - Parameter withIdentifier: Updater identifier. Updaters with different identifiers works with their own's notifications pool. In case updaters has  equal identifiers – notification posted via one will be recieved by UpdateReceiver's of another updater.
+    /// - Parameter withIdentifier: Updater identifier. Updaters with different identifiers works with their own's notifications pool. In case updaters has equal identifiers – notification posted via one will be recieved by UpdateReceiver's of another updater.
     ///
     /// Due to implementation using NotificationCenter, all updaters work in common notifications poll. This identifier may be used to separate notifications for different update centers (cuz it adds as prefix to notifications name). Its especially usefull for tests.
     public init(withIdentifier: String? = nil) {

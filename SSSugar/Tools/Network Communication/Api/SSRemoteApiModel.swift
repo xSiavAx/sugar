@@ -62,6 +62,7 @@ public extension SSRemoteApiModel {
     ///   - handler: Processing handler.
     ///   - response: Api response.
     /// - Returns: Created task created by communicator on `runTask(url:headers:body:handler:)` call.
+    /// - Throws: Rethrows errors from injected args converter
     @discardableResult
     func processWith(communicator: SSCommunicating, options: SSApiCallOptions, handler: @escaping (_ response: Response)->Void) throws -> SSCommunicatingTask {
         let url = options.baseURL.appendingPathComponent(path)
