@@ -35,11 +35,11 @@ internal class SSUETaskDBMutator<TaskSource: SSMutatingEntitySource>: SSEntityDB
     ///   - marker: Modification marker
     ///   - handler: Finish handler.
     ///   - error: Finish error.
-    private func mutateTask(pre: ((_ task: SSUETask)->())? = nil, job: @escaping (_ taskID: Int, _ marker: String)throws->SSUpdate, handler:
-        @escaping (_ error: Error?)->Void) {
+    private func mutateTask(pre: ((_ task: SSUETask)->())? = nil, handler:
+        @escaping (_ error: Error?)->Void, job: @escaping (_ taskID: Int, _ marker: String) throws -> SSUpdate?) {
         if let task = source?.entity(for: self) {
             pre?(task)
-            mutate(job: {try job(task.taskID, $0)}, handler: handler)
+            mutate(job: { try job(task.taskID, $0) }, handler: handler)
         } else {
             DispatchQueue.main.async { handler(nil) }
         }
@@ -48,29 +48,39 @@ internal class SSUETaskDBMutator<TaskSource: SSMutatingEntitySource>: SSEntityDB
 
 extension SSUETaskDBMutator: SSUETaskMutator {
     public func increment(_ handler: @escaping (Error?)->Void) {
-        func check(task: SSUETask) {
-            do {try task.ensureCanIncrement()} catch {fatalError(error.localizedDescription)}
+        mutateTask(pre: { try! $0.ensureCanIncrement() }, handler:handler) {[weak self] in
+            try self?.increment(taskID: $0, marker: $1)
         }
-        func job(taskID: Int, marker: String) throws -> SSUpdate {
-            try api.incrementPages(taskID:taskID)
-            return incrementPages(taskID: taskID, marker: marker)
-        }
-        mutateTask(pre:check(task:), job:job(taskID:marker:), handler:handler)
     }
     
     public func rename(new name: String, _ handler: @escaping (Error?)->Void) {
-        func job(taskID: Int, marker: String) throws -> SSUpdate {
-            try api.renameTask(taskID: taskID, title: name)
-            return rename(taskID: taskID, title: name, marker: marker)
+        mutateTask(handler: handler) {[weak self] in
+            try self?.rename(taskID: $0, name: name, marker: $1)
         }
-        mutateTask(job: job(taskID:marker:), handler: handler)
     }
+
     
     public func remove(_ handler: @escaping (Error?)->Void) {
-        func job(taskID: Int, marker: String) throws -> SSUpdate {
-            try api.removeTask(taskID:taskID)
-            return remove(taskID: taskID, marker: marker)
+        mutateTask(handler: handler) {[weak self] in
+            try self?.removeTask($0, marker: $1)
         }
-        mutateTask(job: job(taskID:marker:), handler: handler)
+    }
+    
+    //MARK: private
+    
+    private func increment(taskID: Int, marker: String) throws -> SSUpdate {
+        try api.incrementPages(taskID:taskID)
+        return incrementPages(taskID: taskID, marker: marker)
+    }
+    
+    
+    private func rename(taskID: Int, name: String, marker: String) throws -> SSUpdate {
+        try api.renameTask(taskID: taskID, title: name)
+        return rename(taskID: taskID, title: name, marker: marker)
+    }
+    
+    private func removeTask(_ id: Int, marker: String) throws -> SSUpdate {
+        try api.removeTask(taskID:id)
+        return remove(taskID: id, marker: marker)
     }
 }

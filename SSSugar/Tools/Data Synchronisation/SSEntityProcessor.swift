@@ -30,9 +30,9 @@ extension SSEntityProcessing {
 ///
 /// # Provides:
 /// * Default implementation for `stop` – stops Updater and Mutator.
-/// * Default imnplementation for `SSUpdaterEntitySource` when `Entity` and `Updater.Source.Enity` is same.
-/// * Default imnplementation for `SSMutatingEntitySource` when `Entity` and `Mutator.Entity` is same.
-/// * Default implementation for `start` – creates Updater and Mutator via abstract method `createUpdaterAndMutator`, obtain Enriry via `Obtainer`, assign it via abstract method `assign(entity:)`, starts `Updater` and `Mutator` when `Processor` is Enity source for updater and mutator (see previous 2 items).
+/// * Default implementation for `SSUpdaterEntitySource` when `Entity` and `Updater.Source.Enity` is same.
+/// * Default implementation for `SSMutatingEntitySource` when `Entity` and `Mutator.Entity` is same.
+/// * Default implementation for `start` – creates Updater and Mutator via abstract method `createUpdaterAndMutator`, obtain Entity via `Obtainer`, assign it via abstract method `assign(entity:)`, starts `Updater` and `Mutator` when `Processor` is Enity source for updater and mutator (see previous 2 items).
 ///
 /// # Conforms to:
 /// `SSUpdaterEntitySource`, `SSMutatingEntitySource`, `SSOnMainExecutor`
@@ -81,37 +81,42 @@ extension SSSingleEntityProcessing {
     public var startOnEmptyEntity: Bool { true }
     
     public func stop(_ handler: (() -> Void)?) {
-        func onBG() {
-            updater?.stop()
-            mutator?.stop()
+        executor.execute() {[weak self] in
+            self?.stopHelpers()
             handler?()
         }
-        executor.execute(onBG)
     }
     
     public func start(_ handler: @escaping () -> Void) {
-        func onBg() {
-            if let obtained = obtainer.obtain() {
-                func assignAndFinish() {
-                    entity = obtained
-                    handler()
-                }
-                startHelpers()
-                onMain(assignAndFinish)
-            } else {
-                if (startOnEmptyEntity) {
-                    startHelpers()
-                }
-                onMain(handler)
-            }
+        executor.execute() {[weak self] in
+            self?.startInBG(using: handler)
         }
-        executor.execute(onBg)
+    }
+    
+    private func startInBG(using handler: @escaping () -> Void) {
+        if let obtained = obtainer.obtain() {
+            startHelpers()
+            onMain() {[weak self] in
+                self?.entity = obtained
+                handler()
+            }
+        } else {
+            if (startOnEmptyEntity) {
+                startHelpers()
+            }
+            onMain(handler)
+        }
     }
     
     private func startHelpers() {
         createUpdaterAndMutator()
         updater?.start()
         mutator?.start()
+    }
+    
+    private func stopHelpers() {
+        updater?.stop()
+        mutator?.stop()
     }
 }
 

@@ -42,7 +42,7 @@ extension SSUpdateNotifier {
 public protocol SSUpdateCenter: SSUpdateReceiversManaging, SSUpdateNotifier {}
 
 /// Concreate Update Center implementation that use SDK's Notification Center inside.
-public class SSUpdater: SSUpdateCenter {
+public class SSUpdater: SSUpdateCenter, SSOnMainExecutor {
     /// Internal class for simplyfy Update Center code.
     class Observer {
         var tokens : [AnyObject]?
@@ -103,12 +103,11 @@ extension SSUpdater: SSUpdateNotifier {
     ///   - updates: Updates to send
     ///   - onApply: Finish handler
     public func notify(updates: [SSUpdate], onApply: (() -> Void)?) {
-        func apply() {
-            observers.forEach { $0.receiver.apply() }
+        notifications(from:updates).forEach(post(_:))
+        onMain {[weak self] in
+            self?.observers.forEach { $0.receiver.apply() }
             onApply?()
         }
-        notifications(from:updates).forEach(post(_:))
-        DispatchQueue.main.async(execute: apply)
     }
     
     private func notifications(from updates: [SSUpdate]) -> [Notification] {

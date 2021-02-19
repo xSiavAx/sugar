@@ -195,6 +195,7 @@
 		99D70DA9239A8FC100EA96B4 /* SSExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D70DA8239A8FC100EA96B4 /* SSExecutor.swift */; };
 		99D70DB4239AAF7700EA96B4 /* SSUETaskProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D70DB3239AAF7700EA96B4 /* SSUETaskProcessor.swift */; };
 		99D70DB6239AB66900EA96B4 /* SSEntityMutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D70DB5239AB66900EA96B4 /* SSEntityMutator.swift */; };
+		99D9710325DE80080036D377 /* SSUpdateReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D9710225DE80080036D377 /* SSUpdateReceiver.swift */; };
 		99E27B56239EAA0F00CC5984 /* SSUETaskDBMutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E27B55239EAA0F00CC5984 /* SSUETaskDBMutator.swift */; };
 		99E27B58239EAAA400CC5984 /* SSUETaskMutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E27B57239EAAA400CC5984 /* SSUETaskMutator.swift */; };
 		99E27B5A239EB01800CC5984 /* SSUETaskRemoteMutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99E27B59239EB01800CC5984 /* SSUETaskRemoteMutator.swift */; };
@@ -415,6 +416,7 @@
 		99D70DA8239A8FC100EA96B4 /* SSExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSExecutor.swift; sourceTree = "<group>"; };
 		99D70DB3239AAF7700EA96B4 /* SSUETaskProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUETaskProcessor.swift; sourceTree = "<group>"; };
 		99D70DB5239AB66900EA96B4 /* SSEntityMutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSEntityMutator.swift; sourceTree = "<group>"; };
+		99D9710225DE80080036D377 /* SSUpdateReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUpdateReceiver.swift; sourceTree = "<group>"; };
 		99DB1A78229ED6BB005C4823 /* AutoMapContainsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapContainsTests.swift; sourceTree = "<group>"; };
 		99DB1A7A229ED9FC005C4823 /* AutoMapSubscriptKeyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapSubscriptKeyTests.swift; sourceTree = "<group>"; };
 		99DB1A7E229EE36D005C4823 /* AutoMapAddContainerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapAddContainerTests.swift; sourceTree = "<group>"; };
@@ -1120,6 +1122,7 @@
 				99D70DA3239A8B0900EA96B4 /* Example */,
 				9918B5B4244719E500E49E81 /* Revisions */,
 				99E36E07232137F9005E6C05 /* SSUpdate.swift */,
+				99D9710225DE80080036D377 /* SSUpdateReceiver.swift */,
 				99E36E0923213A1B005E6C05 /* SSUpdateCenter.swift */,
 				99E36E0C23213C90005E6C05 /* SSEntityProcessor.swift */,
 				99745CBF239FC69F00DAAFFA /* SSEntityUpdater.swift */,
@@ -1482,6 +1485,7 @@
 				9918B5B824471A9300E49E81 /* SSDmRevision.swift in Sources */,
 				99D29658223D3681003FD9F0 /* SSWindow.swift in Sources */,
 				9974452B25C054DF00BEB297 /* SSApiError.swift in Sources */,
+				99D9710325DE80080036D377 /* SSUpdateReceiver.swift in Sources */,
 				99D29650223D3107003FD9F0 /* SSRootViewController.swift in Sources */,
 				99D2964F223D3107003FD9F0 /* SSRootView.swift in Sources */,
 				9982118B244F2DEA00A7A8B6 /* Base.swift in Sources */,
