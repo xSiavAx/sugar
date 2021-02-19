@@ -35,7 +35,7 @@ internal class SSUETaskRemoteMutator<TaskSource: SSMutatingEntitySource>: SSEnti
     /// - Parameters:
     ///   - taskJob: Task mutating job to execute.
     ///   - handler: Finish handler.
-    private func mutate(taskJob: @escaping TaskAsyncJob, handler: @escaping Handler) throws {
+    private func mutate(handler: @escaping Handler, taskJob: @escaping TaskAsyncJob) throws {
         if let task = source?.entity(for: self) {
             func job(marker: String, handler: @escaping Handler) {
                 taskJob(task.taskID, marker, handler)
@@ -51,18 +51,21 @@ internal class SSUETaskRemoteMutator<TaskSource: SSMutatingEntitySource>: SSEnti
 
 extension SSUETaskRemoteMutator: SSUETaskMutator {
     public func increment(_ handler: @escaping Handler) throws {
-        try mutate(taskJob: api.incrementPages(taskID:marker:handler:), handler: handler)
+        try mutate(handler: handler) {[weak self] in
+            self?.api.incrementPages(taskID:$0, marker:$1, handler:$2)
+        }
     }
     
     public func rename(new name: String, _ handler: @escaping Handler) throws {
-        func rename(taskID: Int, marker: String, handler: @escaping Handler) {
-            api.renameTask(taskID: taskID, title: name, marker: marker, handler: handler)
+        try mutate(handler: handler) {[weak self] in
+            self?.api.renameTask(taskID: $0, title: name, marker: $1, handler: $2)
         }
-        try mutate(taskJob: rename(taskID:marker:handler:), handler: handler)
     }
     
     public func remove(_ handler: @escaping Handler) throws {
-        try mutate(taskJob: api.removeTask(taskID:marker:handler:), handler: handler)
+        try mutate(handler: handler) {[weak self] in
+            self?.api.removeTask(taskID:$0, marker:$1, handler:$2)
+        }
     }
 }
 

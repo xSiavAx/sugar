@@ -22,21 +22,24 @@ open class SSEntityDBMutator<Source: SSMutatingEntitySource> {
     /// - Parameters:
     ///   - job: Closure that describe which changes should be applyed to storage
     ///   - marker: Marker for notification.
-    ///   - handler: Finish handler runned on main thread.
+    ///   - handler: Finish handler runs on main thread.
     ///   - error: Error that amy occurs during mutating.
-    public func mutate(job: @escaping (_ marker: String) throws -> SSUpdate, handler: @escaping (_ error: Error?)->Void) {
+    public func mutate(job: @escaping (_ marker: String) throws -> SSUpdate?, handler: @escaping (_ error: Error?)->Void) {
         let marker = Self.newMarker()
-
-        func work() {
-            do {
-                let update = try job(marker)
-                
-                notifier.notify(update: update) { handler(nil) }
-            } catch {
-                onMain { handler(error) }
-            }
+        
+        executor.execute() {[weak self] in
+            self?.bgMutate(marker: marker, job: job, handler: handler)
         }
-        executor.execute(work)
+    }
+    
+    private func bgMutate(marker: String, job: @escaping (_ marker: String) throws -> SSUpdate?, handler: @escaping (_ error: Error?)->Void) {
+        do {
+            if let update = try job(marker) {
+                notifier.notify(update: update) { handler(nil) }
+            }
+        } catch {
+            onMain { handler(error) }
+        }
     }
 }
 

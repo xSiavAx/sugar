@@ -10,7 +10,7 @@ enum SSEntityRemoteMutatorError: Error {
 
 /// Base class for any Entity Mutator that works with Remote Storage. Remote storage – any place with hight latency and asynchronious interface and splited communication. (Back-end server, cloud etc.). Splitted communications means that async modfication is only intent (not an real modification) and system should wait on notification that arrives via 'SSUpdateReceiversManaging' to ensure modification is applied. Mutator will match notification on modifiation by marker and will call it's handler.
 /// - Note:
-/// It's inheritors responsobility to provide storage modification logic (usually it's api calls). Also inheritor must implements it's notifications handling by simply calling `handleUpdate(marker:error:)` method. See examples for more info.
+/// It's inheritors responsobility to provide storage modification logic (usually it's api calls). Also inheritor must implements notifications handling, usually it's just calling `handleUpdate(marker:error:)` method. See examples for more info.
 /// - Important: Remote mutator count on some `Updater` working on `DispatchQueue.bg` queue. Methods works with `handlers` property may cause racecondition otherwise, cuz `mutate` dispatches to `DispatchQueue.bg` on it's own  and `handleUpdate` usually calls from reaction on update.
 open class SSEntityRemoteMutator<Source: SSMutatingEntitySource>: SSUpdateReceiver {
     /// Type for handler closure
@@ -20,7 +20,7 @@ open class SSEntityRemoteMutator<Source: SSMutatingEntitySource>: SSUpdateReceiv
     
     public weak var source: Source?
     
-    /// Manager to subscibe on notifications for mathing them with modifications.
+    /// Manager to subscibe on notifications for matching them with modifications.
     public let manager: SSUpdateReceiversManaging
     
     /// Finish handlers stored by markers.
@@ -66,11 +66,16 @@ open class SSEntityRemoteMutator<Source: SSMutatingEntitySource>: SSUpdateReceiv
         guard started else { throw SSEntityRemoteMutatorError.notStarted }
         let marker = Self.newMarker()
 
-        func onBg() {
-            store(handler: handler, marker: marker)
-            job(marker, remoteHandler(with: marker))
+        DispatchQueue.bg.async {[weak self] in
+            self?.handlers[marker] = handler
+            job(marker) {
+                if let mError = $0 {
+                    DispatchQueue.bg.async {
+                        self?.handleError(mError, marker: marker)
+                    }
+                }
+            }
         }
-        DispatchQueue.bg.async(execute: onBg)
     }
     
     /// Protected method for handling notifications. Should be used only whithing inheritors in every SSUpdatesReceiver's method.
@@ -79,36 +84,13 @@ open class SSEntityRemoteMutator<Source: SSMutatingEntitySource>: SSUpdateReceiv
     ///   - error: Error.
     public func handleUpdate(with marker: String, error: Error? = nil) {
         if let handler = handlers.pick(for: marker) {
-            func collectHandler() {
-                handlersToApply.append((handler:handler, error: error))
+            onMain() {[weak self] in
+                self?.handlersToApply.append((handler:handler, error: error))
             }
-            onMain(collectHandler)
         }
     }
     
     //MARK: private
-    
-    /// Store passed finish handler for matching in future.
-    /// - Parameters:
-    ///   - handler: Closure to store
-    ///   - marker: Modification marker which identify notification for handler matching.
-    private func store(handler: @escaping (Error?) -> Void, marker: String) {
-        handlers[marker] = handler
-    }
-    
-    /// Creates handler that will call stored handler for passed marker in case of error occurs.
-    /// - Parameter marker: marker for handler matching.
-    private func remoteHandler(with marker: String) -> Handler {
-        func handle(error: Error?) {
-            if let mError = error {
-                func onError() {
-                    handleError(mError, marker: marker)
-                }
-                DispatchQueue.bg.async(execute: onError)
-            }
-        }
-        return handle
-    }
     
     private func handleError(_ error: Error, marker: String) {
         guard let handler = handlers.pick(for: marker) else { fatalError("No handler for \(marker)") }
