@@ -42,7 +42,7 @@ extension SSUpdateNotifier {
 public protocol SSUpdateCenter: SSUpdateReceiversManaging, SSUpdateNotifier {}
 
 /// Concreate Update Center implementation that use SDK's Notification Center inside.
-public class SSUpdater: SSUpdateCenter {
+public class SSUpdater: SSUpdateCenter, SSOnMainExecutor {
     /// Internal class for simplyfy Update Center code.
     class Observer {
         var tokens : [AnyObject]?
@@ -65,7 +65,7 @@ public class SSUpdater: SSUpdateCenter {
     private var observers = [Observer]()
     
     /// Creates new Updater instance.
-    /// - Parameter withIdentifier: Updater identifier. Updaters with different identifiers works with their own's notifications pool. In case updaters has  equal identifiers – notification posted via one will be recieved by UpdateReceiver's of another updater.
+    /// - Parameter withIdentifier: Updater identifier. Updaters with different identifiers works with their own's notifications pool. In case updaters has equal identifiers – notification posted via one will be recieved by UpdateReceiver's of another updater.
     ///
     /// Due to implementation using NotificationCenter, all updaters work in common notifications poll. This identifier may be used to separate notifications for different update centers (cuz it adds as prefix to notifications name). Its especially usefull for tests.
     public init(withIdentifier: String? = nil) {
@@ -103,12 +103,11 @@ extension SSUpdater: SSUpdateNotifier {
     ///   - updates: Updates to send
     ///   - onApply: Finish handler
     public func notify(updates: [SSUpdate], onApply: (() -> Void)?) {
-        func apply() {
-            observers.forEach { $0.receiver.apply() }
+        notifications(from:updates).forEach(post(_:))
+        onMain {[weak self] in
+            self?.observers.forEach { $0.receiver.apply() }
             onApply?()
         }
-        notifications(from:updates).forEach(post(_:))
-        DispatchQueue.main.async(execute: apply)
     }
     
     private func notifications(from updates: [SSUpdate]) -> [Notification] {

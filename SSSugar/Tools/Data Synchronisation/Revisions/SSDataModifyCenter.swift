@@ -101,7 +101,7 @@ public protocol SSDmBatchApplier {
 /// - Conforms to: SSDmRevisionDispatcher, SSDmRequestDispatcher (if Chnage and Request types are the same via coresponding utils).
 ///
 /// Requires some `SSDataModifying` as Change, some `SSDataModifying` as Request, some `SSDmBatchApplier` as Batch Applier and `SSDmBatchAdapting` as Batch Adapter.
-public class SSDataModifyCenter<Change: SSDataModifying, Request: SSDataModifying, Applier: SSDmBatchApplier, Adapter: SSDmBatchAdapting> {
+public class SSDataModifyCenter<Change: SSDataModifying, Request: SSDataModifying, Applier: SSDmBatchApplier, Adapter: SSDmBatchAdapting>: SSOnMainExecutor {
     /// Modify Center batch of requests type
     typealias Batch = SSDmBatch<Request>
     
@@ -179,18 +179,6 @@ extension SSDataModifyCenter: SSDmRevisionDispatcher where
     /// Creates and posts updates, then update revision number adapts and applies scheduled batches.
     /// - Parameter revisions: Revisions to process
     private func notify(revisions: [SSDmRevision<Change>], onApply: (() -> Void)? = nil) {
-        func onNotify(revision: SSDmRevision<Change>) {
-            guard revision.number == revNumber + 1 else {
-                fatalError("Invalid revision number \(revisions.first!.number), but expected \(revNumber + 1)")
-            }
-            revNumber = revision.number
-            adaptBatches(to: revision)
-        }
-        func onLastNotify(revision: SSDmRevision<Change>) {
-            onNotify(revision: revision)
-            reaplySchedules()
-            onApply?()
-        }
         func notify(revision: SSDmRevision<Change>, handler: @escaping ()->Void) {
             let updates = revision.changes.map { $0.toUpdate() }
             
@@ -198,9 +186,28 @@ extension SSDataModifyCenter: SSDmRevisionDispatcher where
         }
         for i in (0..<revisions.count-1) {
             let revision = revisions[i]
-            notify(revision: revision) { onNotify(revision: revision) }
+            
+            notify(revision: revision) {[weak self] in
+                self?.onNotify(revision: revision)
+            }
         }
-        notify(revision: revisions.last!) { onLastNotify(revision: revisions.last!) }
+        notify(revision: revisions.last!) {[weak self] in
+            self?.onLastNotify(revision: revisions.last!)
+        }
+    }
+    
+    private func onNotify(revision: SSDmRevision<Change>) {
+        guard revision.number == revNumber + 1 else {
+            fatalError("Invalid revision number \(revision.number), but expected \(revNumber + 1)")
+        }
+        revNumber = revision.number
+        adaptBatches(to: revision)
+    }
+    
+    private func onLastNotify(revision: SSDmRevision<Change>, onApply: (() -> Void)? = nil) {
+        onNotify(revision: revision)
+        reaplySchedules()
+        onApply?()
     }
     
     /// Adapts scheduled batches by passed revisions
@@ -255,49 +262,59 @@ extension SSDataModifyCenter: SSDmRequestDispatcher where Request == Applier.Req
             schedules.append(scheduled)
             apply([scheduled])
         } else {
-            DispatchQueue.main.async { handler(.emptyRequests) }
+            onMain { handler(.emptyRequests) }
         }
     }
     
     /// Tries apply passed schedules via `applier`. Calls finish handlers on success or onvalid data error. Does nothing on rev missmatch error, cuz stored scheduled batches will adapt and apply on new revisions arrive.
     /// - Parameter schedules: Schedules to apply.
     private func apply(_ schedules: [ScheduledBatch]) {
-        func onApply(error: SSDmBatchApplyError?) {
-            switch error {
-            case .revisionMissmatch:
-                break //New dispatch already scheduled on Request adapting
-            case .invalidData(let indexes):
-                schedules.forEach {
-                    if (indexes.contains($1)) {
-                        $0.error = .invalidData
-                    }
-                    finish(scheduled: $0)
+        applier.applyBatches(schedules.map{ $0.batch }, revNumber: revNumber) {[weak self] in
+            self?.onApply(error: $0, schedules: schedules)
+        }
+    }
+    
+    private func onApply(error: SSDmBatchApplyError?, schedules: [ScheduledBatch]) {
+        switch error {
+        case .revisionMissmatch:
+            break //New dispatch already scheduled on Request adapting
+        case .invalidData(let indexes):
+            schedules.forEach {
+                if (indexes.contains($1)) {
+                    $0.error = .invalidData
                 }
-            case .none:
-                schedules.forEach {
-                    finish(scheduled: $0)
-                }
+                finish(scheduled: $0)
+            }
+        case .none:
+            schedules.forEach {
+                finish(scheduled: $0)
             }
         }
-        applier.applyBatches(schedules.map{ $0.batch }, revNumber: revNumber, handler: onApply(error:))
     }
     
     /// Finishes passed scheduled batch. Calls corresponding finish handler, removes it from stored schedules, creates and sends updates if no error occured.
     /// - Parameter scheduled: Scheduled batch to finish.
     private func finish(scheduled: ScheduledBatch) {
-        func finish() {
-            scheduled.finish()
-            if let index = schedules.firstIndex(where:{ $0 === scheduled }) {
-                schedules.remove(at: index)
-            } else {
-                assert(false, "Batch not found")
-            }
-        }
         if (scheduled.error == nil) {
             let updates = scheduled.batch.requests.map { $0.toUpdate() }
-            updateNotifier.notify(updates: updates, onApply: finish)
+            
+            updateNotifier.notify(updates: updates) {[weak self] in
+                self?.finish(scheduled: scheduled)
+            }
         } else {
-            DispatchQueue.main.async { finish() }
+            onMain {[weak self] in
+                self?.finishInMain(scheduled: scheduled)
+            }
+        }
+    }
+    
+    private func finishInMain(scheduled: ScheduledBatch) {
+        scheduled.finish()
+        
+        if let index = schedules.firstIndex(where:{ $0 === scheduled }) {
+            schedules.remove(at: index)
+        } else {
+            assert(false, "Batch not found")
         }
     }
 }

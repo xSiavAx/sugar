@@ -66,35 +66,46 @@ extension SSUETaskUpdater: SSUpdateApplying {}
 
 extension SSUETaskUpdater: SSUETaskUpdateReceiver {
     func taskDidIncrementPages(taskID: Int, marker: String?) {
-        func increment() {
-            if let mTask = checkedTask(taskID) {
-                let old = mTask.pages
-
-                do {try mTask.incrementPages()} catch {fatalError(error.localizedDescription)}
-                delegate?.updater(self, didIncrementPages: old)
-            }
+        collect() {[weak self] in
+            self?.increment(taskID: taskID)
         }
-        collect(update: increment)
     }
-
+    
     func taskDidRename(taskID: Int, title: String, marker: String?) {
-        func rename() {
-            if let mTask = checkedTask(taskID) {
-                let old = mTask.title
-
-                mTask.title = title
-                delegate?.updater(self, didRenameTask: old)
-            }
+        collect() {[weak self] in
+            self?.rename(taskID: taskID, title: title)
         }
-        collect(update: rename)
     }
 
     func taskDidRemove(taskID: Int, marker: String?) {
-        func remove() {
-            if let _ = checkedTask(taskID) {
-                delegate?.updaterDidRemoveTask(self)
-            }
+        collect() {[weak self] in
+            self?.remove(taskID: taskID)
         }
-        collect(update: remove)
+    }
+    
+    //MARK: private
+    
+    private func increment(taskID: Int) {
+        if let mTask = checkedTask(taskID) {
+            let old = mTask.pages
+
+            do {try mTask.incrementPages()} catch { fatalError(error.localizedDescription) }
+            delegate?.updater(self, didIncrementPages: old)
+        }
+    }
+    
+    private func rename(taskID: Int, title: String) {
+        if let mTask = checkedTask(taskID) {
+            let old = mTask.title
+
+            mTask.title = title
+            delegate?.updater(self, didRenameTask: old)
+        }
+    }
+    
+    private func remove(taskID: Int) {
+        if let _ = checkedTask(taskID) {
+            delegate?.updaterDidRemoveTask(self)
+        }
     }
 }
