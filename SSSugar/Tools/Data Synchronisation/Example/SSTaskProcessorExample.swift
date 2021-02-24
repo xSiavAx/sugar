@@ -14,12 +14,12 @@ class SSUETaskDBApi {}
 
 extension SSUETaskDBApi: SSUETaskApi {
     func getTask(taskID: Int) -> SSUETask? {
-        return DB.task?.copy()
+        return DB.task
     }
     
     func getTasks(bookID: Int) -> [SSUETask] {
         if let task = DB.task {
-            return [task.copy()]
+            return [task]
         }
         return []
     }
@@ -75,7 +75,7 @@ class TaskDBView: TaskViewing {
     init(title mTitle: String, updater: SSUpdater) {
         title = mTitle
         processor = SSUETaskProcessor(taskID: 1, taskApi: SSUETaskDBApi(), mExecutor: DispatchQueue.bg, updateCenter: updater)
-        processor.updateDelegate = self;
+        processor.updateDelegate = self
     }
 }
 
@@ -87,36 +87,38 @@ class SSUETaskBatchApplier: SSDmBatchApplier {
     var api = SSUETaskDBApi()
     
     func applyBatches(_ batches: [Batch], revNumber: Int, handler: @escaping Handler) {
-        func apply() {
-            if (DB.revision != revNumber) {
-                handler(.revisionMissmatch)
-            } else {
-                if (!failIndex.isEmpty) {
-                    handler(.invalidData(indexes:failIndex))
-                } else {
-                    func apply(_ request: Request) {
-                        let core = request.core as! SSUETaskDMCore
-                        
-                        switch request.title {
-                        case SSUETaskIncrementPagesRequest.title:
-                            try! api.incrementPages(taskID: core.taskID)
-                        case SSUETaskRenameRequest.title:
-                            let mCore = core as! SSUETaskRenameDmCore
-                            
-                            try! api.renameTask(taskID: mCore.taskID, title: mCore.taskTitle)
-                        case SSUETaskRemoveRequest.title:
-                            try! api.removeTask(taskID: core.taskID)
-                        default:
-                            fatalError("Unexpected request")
-                        }
-                    }
-                    batches.forEach { $0.requests.forEach(apply(_:)) }
-                    handler(nil)
-                }
-            }
-            
+        DispatchQueue.bg.async {[weak self] in
+            self?.apply(batches, revNumber: revNumber, handler: handler)
         }
-        DispatchQueue.bg.async(execute:apply)
+    }
+    
+    func apply(_ batches: [Batch], revNumber: Int, handler: @escaping Handler) {
+        if (DB.revision != revNumber) {
+            handler(.revisionMissmatch)
+        } else {
+            if (!failIndex.isEmpty) {
+                handler(.invalidData(indexes:failIndex))
+            } else {
+                func apply(_ request: Request) {
+                    let core = request.core as! SSUETaskDMCore
+                    
+                    switch request.title {
+                    case SSUETaskIncrementPagesRequest.title:
+                        try! api.incrementPages(taskID: core.taskID)
+                    case SSUETaskRenameRequest.title:
+                        let mCore = core as! SSUETaskRenameDmCore
+                        
+                        try! api.renameTask(taskID: mCore.taskID, title: mCore.taskTitle)
+                    case SSUETaskRemoveRequest.title:
+                        try! api.removeTask(taskID: core.taskID)
+                    default:
+                        fatalError("Unexpected request")
+                    }
+                }
+                batches.forEach { $0.requests.forEach(apply(_:)) }
+                handler(nil)
+            }
+        }
     }
 }
 
@@ -148,19 +150,14 @@ public class ProcessorTester {
     }
     
     public func run() {
-        start(handler: mutate)
+        start {[weak self] in self?.onStart() }
+    }
+    
+    private func onStart() {
+        mutate()
     }
     
     private func mutate() {
-        func increment(_ handler: @escaping ()->Void) {
-            print("DB task: \(String(describing: DB.task))")
-            print("Start incrementing by view 1")
-            view1.processor.mutator?.increment() {(error) in
-                print("Finish incrementing by view 1")
-                print("DB task: \(String(describing: DB.task))")
-                DispatchQueue.main.async(execute: handler)
-            }
-        }
         func renameViaChange(_ handler: @escaping ()->Void) {
             func change() {
                 DB.revision += 1
@@ -178,6 +175,15 @@ public class ProcessorTester {
             }
             print("Start CH rename")
             DispatchQueue.bg.async(execute: change)
+        }
+        func increment(_ handler: @escaping ()->Void) {
+            print("DB task: \(String(describing: DB.task))")
+            print("Start incrementing by view 1")
+            view1.processor.mutator?.increment() {(error) in
+                print("Finish incrementing by view 1")
+                print("DB task: \(String(describing: DB.task))")
+                DispatchQueue.main.async(execute: handler)
+            }
         }
         func removeViaChange(_ handler: @escaping ()->Void) {
             func change() {
@@ -213,7 +219,11 @@ public class ProcessorTester {
                 DispatchQueue.main.async(execute: handler)
             }
         }
-        SSChainExecutor().add(renameViaChange).add(increment).add(removeViaChange).add(rename).add(remove).finish()
+        SSChainExecutor()
+            .add(renameViaChange)
+            .add(increment)
+            .add(removeViaChange).add(rename).add(remove)
+            .finish()
     }
     
     private func start(handler: @escaping ()->Void) {

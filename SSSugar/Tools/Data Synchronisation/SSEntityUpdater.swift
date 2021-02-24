@@ -5,9 +5,11 @@ public protocol SSUpdaterEntitySource: AnyObject {
     /// Source Entity type
     associatedtype Entity
     
-    /// Returns entity for Updater
-    /// - Parameter updater: Updater that requiries entity.
-    func entity<Updater: SSBaseEntityUpdating>(for updater: Updater) -> Entity?
+    /// Updates entity by passed `updater` using passed `closure`.
+    /// - Parameters:
+    ///   - updater: Updater which will modify entity.
+    ///   - job: Closure that makes entity updates.
+    func updateEntity<Updater: SSBaseEntityUpdating>(by updater: Updater, job: (inout Entity?)->Void)
 }
 
 /// Base protocol for Updater's delegate
@@ -16,7 +18,6 @@ public protocol SSEntityUpdaterDelegate: AnyObject {}
 /// Requirements for Entity Updater
 ///
 /// # Provides:
-/// * `entity` implementation via `source.entity` proxing.
 /// * `func start(source: Source, delegate: Delegate)` implementation.
 /// * `func stop()` implementation.
 ///
@@ -51,7 +52,12 @@ public protocol SSBaseEntityUpdating: AnyObject, SSOnMainExecutor {
 }
 
 extension SSBaseEntityUpdating {
-    public var entity: Source.Entity? { return source?.entity(for: self) }
+    /// Updates entity using passed closure.
+    ///
+    /// - Inportnat: Protected means it's for internal usage only. Don't use this method whenever except inheritors.
+    public func protUpdate(_ job: (inout Source.Entity?)->Void ) -> Void {
+        source?.updateEntity(by: self, job: job)
+    }
 }
 
 extension SSBaseEntityUpdating where Self: SSUpdateReceiver {

@@ -54,11 +54,15 @@ internal class SSUETaskUpdater<TaskSource: SSUETaskSource, TaskDelegate: SSUETas
         delegate = mDelegate
     }
 
-    private func checkedTask(_ taskID: Int) -> SSUETask? {
-        if let task = entity, task.taskID == taskID {
-            return task
+    private func checkedUpdate(_ taskID: Int, job: (inout SSUETask) -> () -> Void) {
+        var onDone: (()->Void)? = nil
+        
+        protUpdate() {
+            if let task = $0, task.taskID == taskID {
+                onDone = job(&($0!))
+            }
         }
-        return nil
+        onDone?()
     }
 }
 
@@ -86,25 +90,33 @@ extension SSUETaskUpdater: SSUETaskUpdateReceiver {
     //MARK: private
     
     private func increment(taskID: Int) {
-        if let mTask = checkedTask(taskID) {
-            let old = mTask.pages
+        checkedUpdate(taskID) {(task) in
+            let old = task.pages
 
-            do {try mTask.incrementPages()} catch { fatalError(error.localizedDescription) }
-            delegate?.updater(self, didIncrementPages: old)
+            try! task.incrementPages()
+            return { self.delegate?.updater(self, didIncrementPages: old) }
         }
     }
     
     private func rename(taskID: Int, title: String) {
-        if let mTask = checkedTask(taskID) {
-            let old = mTask.title
+        checkedUpdate(taskID) {(task) in
+            let old = task.title
 
-            mTask.title = title
-            delegate?.updater(self, didRenameTask: old)
+            task.title = title
+            return { self.delegate?.updater(self, didRenameTask: old) }
         }
     }
     
     private func remove(taskID: Int) {
-        if let _ = checkedTask(taskID) {
+        var removed = false
+        
+        protUpdate() {(task) in
+            if (task?.taskID == taskID) {
+                task = nil
+                removed = true
+            }
+        }
+        if (removed) {
             delegate?.updaterDidRemoveTask(self)
         }
     }
