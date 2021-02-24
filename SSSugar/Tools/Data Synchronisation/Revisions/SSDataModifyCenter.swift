@@ -299,7 +299,7 @@ extension SSDataModifyCenter: SSDmRequestDispatcher where Request == Applier.Req
             let updates = scheduled.batch.requests.map { $0.toUpdate() }
             
             updateNotifier.notify(updates: updates) {[weak self] in
-                self?.finish(scheduled: scheduled)
+                self?.finishInMain(scheduled: scheduled)
             }
         } else {
             onMain {[weak self] in
