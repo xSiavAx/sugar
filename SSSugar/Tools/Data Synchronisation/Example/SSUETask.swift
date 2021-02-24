@@ -4,7 +4,7 @@ import Foundation
 ///
 /// # Conforms to:
 /// `SSCopying`
-internal class SSUETask {
+internal struct SSUETask: Hashable, Equatable, CustomStringConvertible {
     /// Task's pages limit.
     static let maxPages = 100
     
@@ -14,30 +14,17 @@ internal class SSUETask {
     }
     
     /// Task identifier
-    internal var taskID: Int
+    internal let taskID: Int
     /// Task title
     internal var title: String
     /// Number of pages in task
     internal private(set) var pages: Int
     
-    /// Creates new task instance
-    /// - Parameters:
-    ///   - taskID: Task's identifier
-    ///   - title: Task's title
-    ///   - pages: Number of Task's pages
-    internal init(taskID mTaskID: Int, title mTitle: String, pages mPages: Int) {
-        taskID = mTaskID
-        title = mTitle
-        pages = mPages
-    }
-    
-    required convenience init(copy other: SSUETask) {
-        self.init(taskID: other.taskID, title: other.title, pages:other.pages)
-    }
+    var description: String { return "Task '\(title)' [\(pages)]" }
     
     /// Increment number of Task's pages
     /// Can throw 'pagesLimitReached' on pages limit reached
-    internal func incrementPages() throws {
+    internal mutating func incrementPages() throws {
         try ensureCanIncrement()
         pages += 1
     }
@@ -54,9 +41,3 @@ internal class SSUETask {
         return pages < Self.maxPages
     }
 }
-
-extension SSUETask: CustomStringConvertible {
-    var description: String { return "Task '\(title)' [\(pages)]" }
-}
-
-extension SSUETask: SSCopying {}
