@@ -96,9 +96,10 @@ public class SSDataBaseStatementProcessor {
     private func bindOpt<T>(val: T?, onRegular: (T)->Void) {
         if let val = val {
             onRegular(val)
+        } else {
+            bindNull(pos: bindIndex)
+            bindIndex += 1
         }
-        bindNull(pos: bindIndex)
-        bindIndex += 1
     }
 }
 
