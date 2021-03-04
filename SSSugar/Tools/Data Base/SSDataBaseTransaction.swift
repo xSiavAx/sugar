@@ -1,18 +1,18 @@
 import Foundation
 
-protocol SSDataBaseQueryExecutor : AnyObject {
+public protocol SSDataBaseQueryExecutor : AnyObject {
     func exec(query: String)
 }
 
-class SSDataBaseTransaction {
-    unowned let executor : SSDataBaseQueryExecutor
+public class SSDataBaseTransaction {
+    public unowned let executor : SSDataBaseQueryExecutor
     private var closed = false
     
-    enum mError: Error {
+    public enum mError: Error {
         case alreadyClosed
     }
     
-    init(executor mExecutor: SSDataBaseQueryExecutor) {
+    public init(executor mExecutor: SSDataBaseQueryExecutor) {
         executor = mExecutor
         executor.exec(query: "begin transaction;")
     }
@@ -24,20 +24,20 @@ class SSDataBaseTransaction {
     }
     
     //MARK: - public
-    func commit() throws {
+    public func commit() throws {
         try ensureOpen()
         executor.exec(query:"commit transaction;")
         closed = true
     }
     
-    func cancel() throws {
+    public func cancel() throws {
         try ensureOpen()
         executor.exec(query:"rollback transaction;")
         closed = true
     }
     
     //MARK: - private
-    func ensureOpen() throws {
+    private func ensureOpen() throws {
         guard !closed else {
             throw mError.alreadyClosed
         }

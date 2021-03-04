@@ -4,9 +4,9 @@ import Foundation
 //TODO: Add error messages to all DB exceptions (like cantCompile inside stmt)
 
 public class SSDataBase {
-    let connection: SSDataBaseConnectionProtocol
-    let transactionController : SSDataBaseTransactionController
-    let statementsCache : SSDataBaseStatementCache
+    public let connection: SSDataBaseConnectionProtocol
+    public let transactionController : SSDataBaseTransactionController
+    public let statementsCache : SSDataBaseStatementCache
     
     public init(path: URL) {
         connection = SSDataBaseConnection(path: path)
@@ -58,7 +58,7 @@ extension SSDataBase: SSDataBaseStatementCreator {
 //MARK: - SSDataBaseTransactionCreator
 
 extension SSDataBase: SSDataBaseTransactionCreator {
-    func createTransaction() -> SSDataBaseTransaction {
+    public func createTransaction() -> SSDataBaseTransaction {
         return SSDataBaseTransaction(executor: self)
     }
 }
@@ -66,7 +66,7 @@ extension SSDataBase: SSDataBaseTransactionCreator {
 //MARK: - SSDataBaseQueryExecutor
 
 extension SSDataBase: SSDataBaseQueryExecutor {
-    func exec(query: String) {
+    public func exec(query: String) {
         do {
             let stmt = try statementsCache.statement(query: query)
             

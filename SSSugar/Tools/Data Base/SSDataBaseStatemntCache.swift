@@ -1,24 +1,24 @@
 import Foundation
 
-protocol SSDataBaseStatementCacheProtocol {
+public protocol SSDataBaseStatementCacheProtocol {
     func statement(query: String) throws -> SSDataBaseStatementProtocol
     func clearOld()
     func clearOlderThen(interval: TimeInterval)
     func clearAll() throws
 }
 
-class SSDataBaseStatementCache {
-    static let kDefaultLifeTime : TimeInterval = 60.0
+public class SSDataBaseStatementCache {
+    public static let kDefaultLifeTime : TimeInterval = 60.0
     
-    enum mError: Error {
+    public enum mError: Error {
         case statementsAreInUse
     }
     
-    let lifeTime : TimeInterval
-    unowned var creator : SSDataBaseStatementCreator
+    public let lifeTime : TimeInterval
+    public unowned var creator : SSDataBaseStatementCreator
     private var holders = AutoMap<String, [SSDataBaseStatementCacheHolder]>()
     
-    init(lifeTime mLifeTime: TimeInterval = SSDataBaseStatementCache.kDefaultLifeTime, statementsCreator: SSDataBaseStatementCreator) {
+    public init(lifeTime mLifeTime: TimeInterval = SSDataBaseStatementCache.kDefaultLifeTime, statementsCreator: SSDataBaseStatementCreator) {
         lifeTime = mLifeTime
         creator = statementsCreator
     }
@@ -27,7 +27,7 @@ class SSDataBaseStatementCache {
 //MARK: - SSDataBaseStatementCacheProtocol
 
 extension SSDataBaseStatementCache: SSDataBaseStatementCacheProtocol {
-    func statement(query: String) throws -> SSDataBaseStatementProtocol {
+    public func statement(query: String) throws -> SSDataBaseStatementProtocol {
         let holder = try (cachedHolderByQuery(query) ?? createHolderForQuery(query))
         
         return SSReleaseDecorator(decorated:SSDataBaseStatementProxy(statement: holder.statement), onCreate: { [unowned self] (stmt) in
@@ -39,11 +39,11 @@ extension SSDataBaseStatementCache: SSDataBaseStatementCacheProtocol {
         
     }
     
-    func clearOld() {
+    public func clearOld() {
         clearOlderThen(interval: lifeTime)
     }
     
-    func clearOlderThen(interval: TimeInterval) {
+    public func clearOlderThen(interval: TimeInterval) {
         var indexes = AutoMap<String, [Int]>()
         
         for query in holders.keys {
@@ -59,7 +59,7 @@ extension SSDataBaseStatementCache: SSDataBaseStatementCacheProtocol {
         }
     }
     
-    func clearAll() throws {
+    public func clearAll() throws {
         for (_, _, holder) in holders {
             guard !holder.occupied else {
                 throw mError.statementsAreInUse

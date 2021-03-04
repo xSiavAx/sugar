@@ -1,9 +1,9 @@
 import Foundation
 
 public class SSDataBaseStatementProcessor {
-    var bindIndex = 0
-    var getIndex = 0
-    let statement : SSDataBaseStatementProtocol
+    public var bindIndex = 0
+    public var getIndex = 0
+    public let statement : SSDataBaseStatementProtocol
     
     public init(_ mStmt: SSDataBaseStatementProtocol) {
         statement = mStmt
