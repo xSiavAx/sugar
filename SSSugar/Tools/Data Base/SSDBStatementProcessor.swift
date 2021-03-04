@@ -10,63 +10,95 @@ public class SSDataBaseStatementProcessor {
     }
     
     public func bind(int: Int) {
-        bind(int:int, pos:bindIndex)
+        bind(int:int, pos: bindIndex)
         bindIndex += 1
+    }
+    
+    public func bind(int: Int?) {
+        bindOpt(val: int, onRegular: bind(int:))
     }
     
     public func bind(int64: Int64) {
-        bind(int64:int64, pos:bindIndex)
+        bind(int64:int64, pos: bindIndex)
         bindIndex += 1
+    }
+    public func bind(int64: Int64?) {
+        bindOpt(val: int64, onRegular: bind(int64:))
     }
     
     public func bind(double: Double) {
-        bind(double:double, pos:bindIndex)
+        bind(double:double, pos: bindIndex)
         bindIndex += 1
+    }
+    
+    public func bind(double: Double?) {
+        bindOpt(val: double, onRegular: bind(double:))
     }
     
     public func bind(string: String) {
-        bind(string:string, pos:bindIndex)
+        bind(string:string, pos: bindIndex)
         bindIndex += 1
+    }
+    
+    public func bind(string: String?) {
+        bindOpt(val: string, onRegular: bind(string:))
     }
     
     public func bind(data: Data) {
-        bind(data:data, pos:bindIndex)
+        bind(data:data, pos: bindIndex)
         bindIndex += 1
     }
     
+    public func bind(data: Data?) {
+        bindOpt(val: data, onRegular: bind(data:))
+    }
+    
     public func getInt() -> Int {
-        let val = getInt(pos:getIndex)
-        getIndex += 1;
-        
-        return val
+        defer { getIndex += 1; }
+        return getInt(pos: getIndex)
+    }
+    
+    public func getIntOp() -> Int? {
+        defer { getIndex += 1; }
+        return getIntOp(pos: getIndex)
     }
     
     public func getInt64() -> Int64 {
-        let val = getInt64(pos:getIndex)
-        getIndex += 1;
-        
-        return val
+        defer { getIndex += 1; }
+        return getInt64(pos: getIndex)
+    }
+    
+    public func getInt64Op() -> Int64? {
+        defer { getIndex += 1; }
+        return getInt64Op(pos: getIndex)
     }
     
     public func getDouble() -> Double {
-        let val = getDouble(pos:getIndex)
-        getIndex += 1;
-        
-        return val
+        defer { getIndex += 1; }
+        return getDouble(pos: getIndex)
+    }
+    
+    public func getDouble() -> Double? {
+        defer { getIndex += 1; }
+        return getDoubleOp(pos: getIndex)
     }
     
     public func getString() -> String? {
-        let val = getString(pos:getIndex)
-        getIndex += 1;
-        
-        return val
+        defer { getIndex += 1; }
+        return getString(pos: getIndex)
     }
     
-    public func getData() -> Data {
-        let val = getData(pos:getIndex)
-        getIndex += 1;
-        
-        return val
+    public func getData() -> Data? {
+        defer { getIndex += 1; }
+        return getData(pos: getIndex)
+    }
+    
+    private func bindOpt<T>(val: T?, onRegular: (T)->Void) {
+        if let val = val {
+            onRegular(val)
+        }
+        bindNull(pos: bindIndex)
+        bindIndex += 1
     }
 }
 
