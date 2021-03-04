@@ -1,16 +1,16 @@
 import Foundation
 
-protocol SSDataBaseTransactionControllerProtocol : SSTransacted {
+public protocol SSDataBaseTransactionControllerProtocol : SSTransacted {
     func registerStatement(_ stmt: SSDataBaseStatementProtocol) throws -> SSDataBaseStatementProtocol
     func registerSavePoint(_ stmt: SSDataBaseSavePointProtocol) throws -> SSDataBaseSavePointProtocol
 }
 
-protocol SSDataBaseTransactionCreator: AnyObject {
+public protocol SSDataBaseTransactionCreator: AnyObject {
     func createTransaction() -> SSDataBaseTransaction
 }
 
-class SSDataBaseTransactionController {
-    enum mError: Error {
+public class SSDataBaseTransactionController {
+    public enum mError: Error {
         case alreadyStarted
         case noTransactionStarted
         case statemtnsHasnRelease
@@ -20,7 +20,7 @@ class SSDataBaseTransactionController {
     private(set) var statemetnsCount = 0
     private(set) var savePointsCount = 0
     private(set) var transaction : SSDataBaseTransaction?
-    unowned var transactionCreator : SSDataBaseTransactionCreator!
+    public unowned var transactionCreator : SSDataBaseTransactionCreator!
     
     //MARK: - private
     private func didRegister(stmt: SSDataBaseStatementProtocol) {
@@ -45,12 +45,12 @@ class SSDataBaseTransactionController {
 
 //MARK: - SSDataBaseTransactionControllerProtocol
 extension SSDataBaseTransactionController: SSDataBaseTransactionControllerProtocol {
-    func registerStatement(_ stmt: SSDataBaseStatementProtocol) throws -> SSDataBaseStatementProtocol {
+    public func registerStatement(_ stmt: SSDataBaseStatementProtocol) throws -> SSDataBaseStatementProtocol {
         try ensureStarted()
         return SSReleaseDecorator(decorated: SSDataBaseStatementProxy(statement: stmt), onCreate: didRegister(stmt:), onRelease: didRelease(stmt:))
     }
     
-    func registerSavePoint(_ sp: SSDataBaseSavePointProtocol) throws -> SSDataBaseSavePointProtocol {
+    public func registerSavePoint(_ sp: SSDataBaseSavePointProtocol) throws -> SSDataBaseSavePointProtocol {
         try ensureStarted()
         return SSReleaseDecorator(decorated: SSDataBaseSavePointProxy(savePoint: sp), onCreate: didRegister(sp:), onRelease: didRelease(sp:))
     }
@@ -58,20 +58,20 @@ extension SSDataBaseTransactionController: SSDataBaseTransactionControllerProtoc
 
 //MARK: SSTransacted
 extension SSDataBaseTransactionController : SSTransacted {
-    var isTransactionStarted: Bool { return !(transaction === nil) }
+    public var isTransactionStarted: Bool { return !(transaction === nil) }
     
-    func beginTransaction() throws {
+    public func beginTransaction() throws {
         try ensureCanStart()
         transaction = transactionCreator.createTransaction()
     }
     
-    func commitTransaction() throws {
+    public func commitTransaction() throws {
         try ensureCanClose()
         do { try transaction?.commit() } catch { fatalError("\(error)") }
         transaction = nil
     }
     
-    func cancelTransaction() throws {
+    public func cancelTransaction() throws {
         try ensureCanClose()
         do { try transaction?.cancel() } catch { fatalError("\(error)") }
         transaction = nil

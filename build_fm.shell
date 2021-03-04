@@ -15,9 +15,6 @@ IOS_DEVICE_ARCHIVE_PATH="$./${FRAMEWORK_FOLDER_NAME}/iOS.xcarchive"
 #docs path
 DOCS_PATH="${OUT_PATH}/docs"
 
-jazzy --min-acl internal --no-hide-documentation-coverage --theme fullwidth --output $DOCS_PATH --separate-global-declarations
-exit 1
-
 
 rm -rf "${HOME}/Desktop/${FRAMEWORK_FOLDER_NAME}/${FRAMEWORK_FOLDER_NAME}"
 echo "Deleted ${FRAMEWORK_FOLDER_NAME}"

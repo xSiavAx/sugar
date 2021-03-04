@@ -8,6 +8,7 @@ extension SSDataBaseStatementProxing {
     public func bind(int: Int, pos: Int) {
         statement.bind(int:int, pos:pos)
     }
+    
     public func bind(int64: Int64, pos: Int) {
         statement.bind(int64:int64, pos:pos)
     }
@@ -25,22 +26,38 @@ extension SSDataBaseStatementProxing {
     }
     
     public func getInt(pos: Int) -> Int {
-        return statement.getInt(pos:pos)
+        return statement.getInt(pos: pos)
+    }
+    
+    public func bindNull(pos: Int) {
+        return statement.bindNull(pos: pos)
+    }
+    
+    public func getIntOp(pos: Int) -> Int? {
+        return statement.getIntOp(pos: pos)
     }
     
     public func getInt64(pos: Int) -> Int64 {
         return statement.getInt64(pos:pos)
     }
     
+    public func getInt64Op(pos: Int) -> Int64? {
+        return statement.getInt64Op(pos: pos)
+    }
+    
     public func getDouble(pos: Int) -> Double {
         return statement.getDouble(pos:pos)
+    }
+    
+    public func getDoubleOp(pos: Int) -> Double? {
+        return statement.getDoubleOp(pos: pos)
     }
     
     public func getString(pos: Int) -> String? {
         return statement.getString(pos:pos)
     }
     
-    public func getData(pos: Int) -> Data {
+    public func getData(pos: Int) -> Data? {
         return statement.getData(pos:pos)
     }
     
@@ -57,11 +74,10 @@ extension SSDataBaseStatementProxing {
     }
     
     public func release() throws {
-        print("\(self) proxing release to \(statement)")
         try statement.release()
     }
 }
 
-struct SSDataBaseStatementProxy : SSDataBaseStatementProxing {
+public struct SSDataBaseStatementProxy : SSDataBaseStatementProxing {
     let statement: SSDataBaseStatementProtocol
 }

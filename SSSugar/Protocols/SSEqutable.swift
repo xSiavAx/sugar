@@ -29,6 +29,9 @@ public extension Equatable where Self: Hashable & SSEquatable {
 /// * isAncestorSameType(_:) -> Bool - helper for `isSameType` overrideing.
 /// * cast(_:, check:) -> Bool - helper for `isSameProps` overrideing.
 public protocol SSInheritedEquatable: SSEquatable {
+    #warning("TODO")
+    //TODO: Remove Ancestor typealias. Use function generic or Any instead; or remove methods at all.
+    //Cuz user just forget to declare this typealias in inheritors
     associatedtype Ancestor: SSEquatable
 }
 
