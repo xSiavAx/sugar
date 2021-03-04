@@ -74,7 +74,6 @@ extension SSDataBaseStatementProxing {
     }
     
     public func release() throws {
-        print("\(self) proxing release to \(statement)")
         try statement.release()
     }
 }
