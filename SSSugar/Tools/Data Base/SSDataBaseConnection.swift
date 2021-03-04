@@ -10,9 +10,9 @@ public protocol SSDataBaseConnectionProtocol: SSDataBaseStatementCreator {
 public class SSDataBaseConnection {
     public private(set) var isOpen = false
     private (set) var db: OpaquePointer!
-    let pathUrl : URL
+    public let pathUrl : URL
     
-    init(path: URL) {
+    public init(path: URL) {
         pathUrl = path
     }
 }

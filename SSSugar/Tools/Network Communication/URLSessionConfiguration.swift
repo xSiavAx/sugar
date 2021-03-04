@@ -1,5 +1,4 @@
 import Foundation
-import UIKit
 
 extension URLSessionConfiguration {
     /// Session configuratuon to use within the app.

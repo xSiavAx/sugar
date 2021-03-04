@@ -1,14 +1,15 @@
 import Foundation
 
-class SSDataBaseSavePoint {
+public class SSDataBaseSavePoint {
     enum mError: Error {
         case alreadyFinished
     }
-    let title : String
+    public let title : String
+    
     private var finished = false
     private unowned let executor: SSDataBaseQueryExecutor
     
-    init(executor mExecutor: SSDataBaseQueryExecutor, title mTitle: String) {
+    public init(executor mExecutor: SSDataBaseQueryExecutor, title mTitle: String) {
         executor = mExecutor
         title = mTitle
         executor.exec(query: "savepoint \(title);")
@@ -24,7 +25,7 @@ class SSDataBaseSavePoint {
 
 //MARK: - SSDataBaseSavePointProtocol
 extension SSDataBaseSavePoint: SSDataBaseSavePointProtocol {
-    func rollBack() throws {
+    public func rollBack() throws {
         try ensureNotFinished()
         executor.exec(query: "rollback to \(title);")
         finished = true
@@ -33,7 +34,7 @@ extension SSDataBaseSavePoint: SSDataBaseSavePointProtocol {
 
 //MARK: SSReleasable
 extension SSDataBaseSavePoint: SSReleasable {
-    func release() throws {
+    public func release() throws {
         try ensureNotFinished()
         executor.exec(query: "release \(title);")
         finished = true
