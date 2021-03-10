@@ -30,6 +30,6 @@ public protocol SSDataBaseStatementCreator: AnyObject {
     func statement(forQuery : String) throws -> SSDataBaseStatementProtocol
 }
 
-public protocol SSDataBaseProtocol: SSTransacted, SSDataBaseStatementCreator, SSCacheContainer {
+public protocol SSDataBaseProtocol: SSTransacted, SSDataBaseStatementCreator, SSDataBaseQueryExecutor, SSCacheContainer {
     func savePoint(withTitle: String) throws -> SSDataBaseSavePointProtocol
 }
