@@ -6,7 +6,7 @@ public protocol SSDataBaseTransactionControllerProtocol : SSTransacted {
 }
 
 public protocol SSDataBaseTransactionCreator: AnyObject {
-    func createTransaction() -> SSDataBaseTransaction
+    func createTransaction() throws -> SSDataBaseTransaction
 }
 
 public class SSDataBaseTransactionController {
@@ -62,7 +62,7 @@ extension SSDataBaseTransactionController : SSTransacted {
     
     public func beginTransaction() throws {
         try ensureCanStart()
-        transaction = transactionCreator.createTransaction()
+        transaction = try transactionCreator.createTransaction()
     }
     
     public func commitTransaction() throws {

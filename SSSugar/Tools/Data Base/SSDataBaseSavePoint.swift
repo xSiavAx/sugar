@@ -9,10 +9,10 @@ public class SSDataBaseSavePoint {
     private var finished = false
     private unowned let executor: SSDataBaseQueryExecutor
     
-    public init(executor mExecutor: SSDataBaseQueryExecutor, title mTitle: String) {
+    public init(executor mExecutor: SSDataBaseQueryExecutor, title mTitle: String) throws {
         executor = mExecutor
         title = mTitle
-        executor.exec(query: "savepoint \(title);")
+        try executor.exec(query: "savepoint \(title);")
     }
     
     //MARK: - private
@@ -27,7 +27,7 @@ public class SSDataBaseSavePoint {
 extension SSDataBaseSavePoint: SSDataBaseSavePointProtocol {
     public func rollBack() throws {
         try ensureNotFinished()
-        executor.exec(query: "rollback to \(title);")
+        try executor.exec(query: "rollback to \(title);")
         finished = true
     }
 }
@@ -36,7 +36,7 @@ extension SSDataBaseSavePoint: SSDataBaseSavePointProtocol {
 extension SSDataBaseSavePoint: SSReleasable {
     public func release() throws {
         try ensureNotFinished()
-        executor.exec(query: "release \(title);")
+        try executor.exec(query: "release \(title);")
         finished = true
     }
 }
