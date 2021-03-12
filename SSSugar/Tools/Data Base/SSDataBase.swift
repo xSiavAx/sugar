@@ -16,6 +16,25 @@ public class SSDataBase {
         transactionController.transactionCreator = self
         connection.open()
     }
+    
+    public func exec(queries: [String]) throws {
+        let doTransaction = !self.isTransactionStarted
+        
+        if (doTransaction) {
+            try beginTransaction()
+        }
+        do {
+            try queries.forEach(exec(query:))
+        } catch {
+            if (doTransaction) {
+                try cancelTransaction()
+            }
+            throw error
+        }
+        if (doTransaction) {
+            try commitTransaction()
+        }
+    }
 }
 
 //MARK: - SSDataBaseProtocol
