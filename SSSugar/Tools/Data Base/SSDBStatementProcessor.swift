@@ -9,102 +9,112 @@ public class SSDataBaseStatementProcessor {
         statement = mStmt
     }
     
-    public func bind(int: Int) {
-        bind(int:int, pos: bindIndex)
-        bindIndex += 1
-    }
-    
-    public func bind(int: Int?) {
-        bind(int: int, pos: bindIndex)
+    public func bind(int: Int) throws {
+        try bind(int:int, pos: bindIndex)
         bindIndex += 1
     }
 
-    public func bind(int64: Int64) {
-        bind(int64:int64, pos: bindIndex)
+    public func bind(int: Int?) throws {
+        try bind(int: int, pos: bindIndex)
         bindIndex += 1
     }
 
-    public func bind(int64: Int64?) {
-        bind(int64: int64, pos: bindIndex)
+    public func bind(int64: Int64) throws {
+        try bind(int64:int64, pos: bindIndex)
         bindIndex += 1
     }
 
-    public func bind(double: Double) {
-        bind(double:double, pos: bindIndex)
+    public func bind(int64: Int64?) throws {
+        try bind(int64: int64, pos: bindIndex)
         bindIndex += 1
     }
 
-    public func bind(double: Double?) {
-        bind(double: double, pos: bindIndex)
+    public func bind(double: Double) throws {
+        try bind(double:double, pos: bindIndex)
         bindIndex += 1
     }
 
-    public func bind(string: String) {
-        bind(string:string, pos: bindIndex)
+    public func bind(double: Double?) throws {
+        try bind(double: double, pos: bindIndex)
         bindIndex += 1
     }
 
-    public func bind(string: String?) {
-        bind(string: string, pos: bindIndex)
+    public func bind(string: String) throws {
+        try bind(string:string, pos: bindIndex)
         bindIndex += 1
     }
 
-    public func bind(data: Data) {
-        bind(data:data, pos: bindIndex)
+    public func bind(string: String?) throws {
+        try bind(string: string, pos: bindIndex)
         bindIndex += 1
     }
 
-    public func bind(data: Data?) {
-        bind(data: data, pos: bindIndex)
+    public func bind(data: Data) throws {
+        try bind(data:data, pos: bindIndex)
         bindIndex += 1
     }
-    
-    public func getInt() -> Int {
-        defer { getIndex += 1; }
-        return getInt(pos: getIndex)
+
+    public func bind(data: Data?) throws {
+        try bind(data: data, pos: bindIndex)
+        bindIndex += 1
     }
-    
-    public func getIntOp() -> Int? {
+
+    public func getInt() throws -> Int {
         defer { getIndex += 1; }
-        return getIntOp(pos: getIndex)
+        return try getInt(pos: getIndex)
     }
-    
-    public func getInt64() -> Int64 {
+
+    public func getIntOp() throws -> Int? {
         defer { getIndex += 1; }
-        return getInt64(pos: getIndex)
+        return try getIntOp(pos: getIndex)
     }
-    
-    public func getInt64Op() -> Int64? {
+
+    public func getInt64() throws -> Int64 {
         defer { getIndex += 1; }
-        return getInt64Op(pos: getIndex)
+        return try getInt64(pos: getIndex)
     }
-    
-    public func getDouble() -> Double {
+
+    public func getInt64Op() throws -> Int64? {
         defer { getIndex += 1; }
-        return getDouble(pos: getIndex)
+        return try getInt64Op(pos: getIndex)
     }
-    
-    public func getDouble() -> Double? {
+
+    public func getDouble() throws -> Double {
         defer { getIndex += 1; }
-        return getDoubleOp(pos: getIndex)
+        return try getDouble(pos: getIndex)
     }
-    
-    public func getString() -> String? {
+
+    public func getDouble() throws -> Double? {
         defer { getIndex += 1; }
-        return getString(pos: getIndex)
+        return try getDoubleOp(pos: getIndex)
     }
-    
-    public func getData() -> Data? {
+
+    public func getString() throws -> String {
         defer { getIndex += 1; }
-        return getData(pos: getIndex)
+        return try getString(pos: getIndex)
+    }
+
+    public func getStringOp() throws -> String? {
+        defer { getIndex += 1; }
+        return try getStringOp(pos: getIndex)
+    }
+
+    public func getData() throws -> Data {
+        defer { getIndex += 1; }
+        return try getData(pos: getIndex)
+    }
+
+    public func getDataOp() throws -> Data? {
+        defer { getIndex += 1; }
+        return try getDataOp(pos: getIndex)
     }
 }
 
 extension SSDataBaseStatementProcessor: SSDataBaseStatementProxing {
-    public func select() -> Bool {
+    public func select() throws -> Bool {
         getIndex = 0
         bindIndex = 0
-        return statement.select()
+        return try statement.select()
     }
     
     public func commit() throws {
@@ -113,8 +123,8 @@ extension SSDataBaseStatementProcessor: SSDataBaseStatementProxing {
         try statement.commit()
     }
     
-    public func clear() {
+    public func clear() throws {
         bindIndex = 0
-        statement.clear()
+        try statement.clear()
     }
 }
