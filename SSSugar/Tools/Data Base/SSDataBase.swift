@@ -66,13 +66,11 @@ extension SSDataBase: SSDataBaseTransactionCreator {
 //MARK: - SSDataBaseQueryExecutor
 
 extension SSDataBase: SSDataBaseQueryExecutor {
-    public func exec(query: String) {
-        do {
-            let stmt = try statementsCache.statement(query: query)
-            
-            try stmt.commit()
-            try stmt.release()
-        } catch { fatalError("\(error)") }
+    public func exec(query: String) throws {
+        let stmt = try statementsCache.statement(query: query)
+        
+        try stmt.commit()
+        try stmt.release()
     }
 }
 
