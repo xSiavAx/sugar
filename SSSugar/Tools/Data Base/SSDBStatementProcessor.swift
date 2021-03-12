@@ -15,42 +15,48 @@ public class SSDataBaseStatementProcessor {
     }
     
     public func bind(int: Int?) {
-        bindOpt(val: int, onRegular: bind(int:))
+        bind(int: int, pos: bindIndex)
+        bindIndex += 1
     }
-    
+
     public func bind(int64: Int64) {
         bind(int64:int64, pos: bindIndex)
         bindIndex += 1
     }
+
     public func bind(int64: Int64?) {
-        bindOpt(val: int64, onRegular: bind(int64:))
+        bind(int64: int64, pos: bindIndex)
+        bindIndex += 1
     }
-    
+
     public func bind(double: Double) {
         bind(double:double, pos: bindIndex)
         bindIndex += 1
     }
-    
+
     public func bind(double: Double?) {
-        bindOpt(val: double, onRegular: bind(double:))
+        bind(double: double, pos: bindIndex)
+        bindIndex += 1
     }
-    
+
     public func bind(string: String) {
         bind(string:string, pos: bindIndex)
         bindIndex += 1
     }
-    
+
     public func bind(string: String?) {
-        bindOpt(val: string, onRegular: bind(string:))
+        bind(string: string, pos: bindIndex)
+        bindIndex += 1
     }
-    
+
     public func bind(data: Data) {
         bind(data:data, pos: bindIndex)
         bindIndex += 1
     }
-    
+
     public func bind(data: Data?) {
-        bindOpt(val: data, onRegular: bind(data:))
+        bind(data: data, pos: bindIndex)
+        bindIndex += 1
     }
     
     public func getInt() -> Int {
@@ -92,18 +98,9 @@ public class SSDataBaseStatementProcessor {
         defer { getIndex += 1; }
         return getData(pos: getIndex)
     }
-    
-    private func bindOpt<T>(val: T?, onRegular: (T)->Void) {
-        if let val = val {
-            onRegular(val)
-        } else {
-            bindNull(pos: bindIndex)
-            bindIndex += 1
-        }
-    }
 }
 
-extension SSDataBaseStatementProcessor : SSDataBaseStatementProxing {
+extension SSDataBaseStatementProcessor: SSDataBaseStatementProxing {
     public func select() -> Bool {
         getIndex = 0
         bindIndex = 0

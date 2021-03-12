@@ -1,6 +1,6 @@
 import Foundation
 
-protocol SSDataBaseStatementProxing : SSDataBaseStatementProtocol {
+protocol SSDataBaseStatementProxing: SSDataBaseStatementProtocol {
     var statement : SSDataBaseStatementProtocol {get}
 }
 
@@ -8,29 +8,49 @@ extension SSDataBaseStatementProxing {
     public func bind(int: Int, pos: Int) {
         statement.bind(int:int, pos:pos)
     }
-    
+
+    public func bind(int: Int?, pos: Int) {
+        statement.bind(int:int, pos:pos)
+    }
+
     public func bind(int64: Int64, pos: Int) {
         statement.bind(int64:int64, pos:pos)
     }
-    
+
+    public func bind(int64: Int64?, pos: Int) {
+        statement.bind(int64:int64, pos:pos)
+    }
+
     public func bind(double: Double, pos: Int) {
         statement.bind(double:double, pos:pos)
     }
-    
+
+    public func bind(double: Double?, pos: Int) {
+        statement.bind(double:double, pos:pos)
+    }
+
     public func bind(string: String, pos: Int) {
         statement.bind(string:string, pos:pos)
     }
-    
+
+    public func bind(string: String?, pos: Int) {
+        statement.bind(string:string, pos:pos)
+    }
+
     public func bind(data: Data, pos: Int) {
         statement.bind(data:data, pos:pos)
+    }
+
+    public func bind(data: Data?, pos: Int) {
+        statement.bind(data:data, pos:pos)
+    }
+    
+    public func bindNull(pos: Int) {
+        statement.bindNull(pos: pos)
     }
     
     public func getInt(pos: Int) -> Int {
         return statement.getInt(pos: pos)
-    }
-    
-    public func bindNull(pos: Int) {
-        return statement.bindNull(pos: pos)
     }
     
     public func getIntOp(pos: Int) -> Int? {
@@ -78,6 +98,6 @@ extension SSDataBaseStatementProxing {
     }
 }
 
-public struct SSDataBaseStatementProxy : SSDataBaseStatementProxing {
+public struct SSDataBaseStatementProxy: SSDataBaseStatementProxing {
     let statement: SSDataBaseStatementProtocol
 }

@@ -4,7 +4,7 @@ import UIKit
 import Foundation
 
 public extension UIDevice {
-    /// Model name id used to convert to readable string. See https://gist.github.com/adamawolf/3048717
+    /// Model name id used to convert to readable string. See [repo](https://gist.github.com/adamawolf/3048717).
     static let modelNameID: String = determineModelNameID()
 
     private static func determineModelNameID() -> String {
