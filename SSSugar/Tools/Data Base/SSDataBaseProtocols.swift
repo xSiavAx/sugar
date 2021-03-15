@@ -8,6 +8,7 @@ enum StatementError: Error {
     
 //    case unexpected(code: Int, msg: String)
     case bindError(code: Int, msg: String)
+    case selectError(code: Int, msg: String)
     case commitError(code: Int, msg: String)
     case unexpectedNil
     

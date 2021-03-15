@@ -45,6 +45,10 @@ public class SSDataBaseStatement {
         }
     }
     
+    private func selectError(code: Int32) -> StatementError {
+        return .selectError(code: Int(code), msg: lastOccuredError().message)
+    }
+    
     private func commitError(code: Int32) -> StatementError {
         return .commitError(code: Int(code), msg: lastOccuredError().message)
     }
@@ -54,10 +58,17 @@ extension SSDataBaseStatement: SSDataBaseStatementProtocol {
     public func select() throws -> Bool {
         try ensureNotReleased()
         
-        hasData = sqlite3_step(stmt) == SQLITE_OK
+        func onRow() {
+            if (selectColumsCount == nil) {
+                selectColumsCount = Int(sqlite3_column_count(stmt))
+            }
+            hasData = true
+        }
         
-        if (selectColumsCount == nil) {
-            selectColumsCount = Int(sqlite3_column_count(stmt))
+        switch sqlite3_step(stmt) {
+        case SQLITE_ROW: onRow()
+        case SQLITE_DONE: hasData = false
+        case let code: throw selectError(code: code)
         }
         return hasData
     }
@@ -66,7 +77,7 @@ extension SSDataBaseStatement: SSDataBaseStatementProtocol {
         try ensureNotReleased()
         
         switch sqlite3_step(stmt) {
-        case SQLITE_OK: sqlite3_reset(stmt)
+        case SQLITE_DONE: sqlite3_reset(stmt)
         case SQLITE_FULL: throw StatementError.outOfMemory
         case let code: throw commitError(code: code)
         }

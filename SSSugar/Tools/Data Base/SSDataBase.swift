@@ -17,6 +17,12 @@ public class SSDataBase {
         connection.open()
     }
     
+    deinit {
+        if (connection.isOpen) {
+            connection.close()
+        }
+    }
+    
     public func exec(queries: [String]) throws {
         let doTransaction = !self.isTransactionStarted
         
