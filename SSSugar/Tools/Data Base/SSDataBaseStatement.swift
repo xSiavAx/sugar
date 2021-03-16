@@ -105,90 +105,37 @@ extension SSDataBaseStatement {
 
 extension SSDataBaseStatement {
     public func bind(int: Int, pos: Int) throws {
-        try bind(val: int, pos: pos, onBind: bindRaw(int:pos:))
-    }
-
-    public func bind(int: Int?, pos: Int) throws {
-        try bindOpt(val: int, pos: pos, onBind: bindRaw(int:pos:))
+        try process() { sqlite3_bind_int(stmt, Int32(pos+1), Int32(int)) }
     }
 
     public func bind(int64: Int64, pos: Int) throws {
-        try bind(val: int64, pos: pos, onBind: bindRaw(int64:pos:))
-    }
-
-    public func bind(int64: Int64?, pos: Int) throws {
-        try bindOpt(val: int64, pos: pos, onBind: bindRaw(int64:pos:))
+        try process() { sqlite3_bind_int64(stmt, Int32(pos+1), int64) }
     }
 
     public func bind(double: Double, pos: Int) throws {
-        try bind(val: double, pos: pos, onBind: bindRaw(double:pos:))
+        try process() { sqlite3_bind_double(stmt, Int32(pos+1), double) }
     }
-
-    public func bind(double: Double?, pos: Int) throws {
-        try bindOpt(val: double, pos: pos, onBind: bindRaw(double:pos:))
-    }
-
+    
     public func bind(string: String, pos: Int) throws {
-        try bind(val: string, pos: pos, onBind: bindRaw(string:pos:))
-    }
-
-    public func bind(string: String?, pos: Int) throws {
-        try bindOpt(val: string, pos: pos, onBind: bindRaw(string:pos:))
+        try process() {
+            sqlite3_bind_text(stmt, Int32(pos+1), string, -1, SSDataBaseStatement.SQLITE_TRANSIENT)
+        }
     }
     
     public func bind(data: Data, pos: Int) throws {
-        try bind(val: data, pos: pos, onBind: bindRaw(data:pos:))
-    }
-    
-    public func bind(data: Data?, pos: Int) throws {
-        try bindOpt(val: data, pos: pos, onBind: bindRaw(data:pos:))
+        try process() {
+            func onData(_ ptr: UnsafeRawBufferPointer) -> Int32 {
+                sqlite3_bind_blob(stmt, Int32(pos+1), ptr.baseAddress, Int32(data.count), SSDataBaseStatement.SQLITE_TRANSIENT)
+            }
+            return data.withUnsafeBytes(onData(_:))
+        }
     }
     
     public func bindNull(pos: Int) throws {
-        try process() {
-            bindRawNull(pos: pos)
-        }
+        try process() { sqlite3_bind_null(stmt, Int32(pos+1)) }
     }
     
     //MARK: private
-    
-    func bindRaw(int: Int, pos: Int) -> Int32 {
-        return sqlite3_bind_int(stmt, Int32(pos+1), Int32(int))
-    }
-    
-    func bindRaw(int64: Int64, pos: Int) -> Int32 {
-        return sqlite3_bind_int64(stmt, Int32(pos+1), int64)
-    }
-    
-    func bindRaw(double: Double, pos: Int) -> Int32 {
-        return sqlite3_bind_double(stmt, Int32(pos+1), double)
-    }
-    
-    func bindRaw(string: String, pos: Int) -> Int32 {
-        return sqlite3_bind_text(stmt, Int32(pos+1), string, -1, SSDataBaseStatement.SQLITE_TRANSIENT)
-    }
-    
-    func bindRaw(data: Data, pos: Int) -> Int32 {
-        func onData(_ ptr: UnsafeRawBufferPointer) -> Int32 {
-            sqlite3_bind_blob(stmt, Int32(pos+1), ptr.baseAddress, Int32(data.count), SSDataBaseStatement.SQLITE_TRANSIENT)
-        }
-        return data.withUnsafeBytes(onData(_:))
-    }
-    
-    func bindRawNull(pos: Int) -> Int32 {
-        sqlite3_bind_null(stmt, Int32(pos+1))
-    }
-    
-    private func bind<T>(val: T, pos: Int, onBind: (T, Int) -> Int32 ) throws {
-        try process() { onBind(val, pos) }
-    }
-    
-    private func bindOpt<T>(val: T?, pos: Int, onBind: (T, Int) -> Int32) throws {
-        try process() {
-            guard let val = val else { return bindRawNull(pos: pos) }
-            return onBind(val, pos)
-        }
-    }
     
     private func process(bind: () -> Int32 ) throws {
         try ensureNotReleased()
@@ -209,105 +156,53 @@ extension SSDataBaseStatement {
 
 extension SSDataBaseStatement {
     public func getInt(pos: Int) throws -> Int {
-        return try get(pos: pos, onNotNull: getRawInt(pos:))
-    }
-    
-    public func getIntOp(pos: Int) throws -> Int? {
-        return try getOptional(pos: pos, onNotNull: getRawInt(pos:))
+        return try get(pos: pos) { (pos) in
+            return Int(sqlite3_column_int(stmt, Int32(pos)))
+        }
     }
     
     public func getInt64(pos: Int) throws -> Int64 {
-        return try get(pos: pos, onNotNull: getRawInt64(pos:))
-    }
-    
-    public func getInt64Op(pos: Int) throws -> Int64? {
-        return try getOptional(pos: pos, onNotNull: getRawInt64(pos:))
+        return try get(pos: pos) { (pos) in
+            return Int64(sqlite3_column_int64(stmt, Int32(pos)))
+        }
     }
     
     public func getDouble(pos: Int) throws -> Double {
-        return try get(pos: pos, onNotNull: getRawDouble(pos:))
-    }
-    
-    public func getDoubleOp(pos: Int) throws -> Double? {
-        return try getOptional(pos: pos, onNotNull: getRawDouble(pos:))
-    }
-    
-    public func getString(pos: Int) throws -> String {
-        return try get(pos: pos) {
-            guard let result = getRawString(pos: $0) else {
-                throw StatementError.unexpectedNil
-            }
-            return result
+        return try get(pos: pos) { (pos) in
+            return Double(sqlite3_column_double(stmt, Int32(pos)))
         }
     }
-    
-    public func getStringOp(pos: Int) throws -> String? {
-        return try getOptional(pos: pos, onNotNull: getRawString(pos:))
+
+    public func getString(pos: Int) throws -> String {
+        return try get(pos: pos) { (pos) in
+            guard let ptr = sqlite3_column_text(stmt, Int32(pos)) else {
+                fatalError("Can't build string")
+            }
+            return String(cString: ptr)
+        }
     }
     
     public func getData(pos: Int) throws -> Data {
-        return try get(pos: pos) {
-            guard let result = getRawData(pos: $0) else {
-                throw StatementError.unexpectedNil
+        return try get(pos: pos) { (pos) in
+            guard let ptr = sqlite3_column_blob(stmt, Int32(pos)) else {
+                fatalError("Can't build data")
             }
-            return result
+            return Data(bytes: ptr, count: Int(sqlite3_column_bytes(stmt, Int32(pos))))
         }
     }
     
-    public func getDataOp(pos: Int) throws -> Data? {
-        return try getOptional(pos: pos, onNotNull: getRawData(pos:))
+    public func isNull(pos: Int) throws -> Bool {
+        return try get(pos: pos) { (pos) in
+            return sqlite3_column_type(stmt, Int32(pos)) == SQLITE_NULL
+        }
     }
     
     //MARK: private
     
-    private func getRawInt(pos: Int) -> Int {
-        return Int(sqlite3_column_int(stmt, Int32(pos)))
-    }
-    
-    private func getRawInt64(pos: Int) -> Int64 {
-        return Int64(sqlite3_column_int64(stmt, Int32(pos)))
-    }
-    
-    private func getRawDouble(pos: Int) -> Double {
-        return Double(sqlite3_column_double(stmt, Int32(pos)))
-    }
-    
-    private func getRawString(pos: Int) -> String? {
-        guard let ptr = sqlite3_column_text(stmt, Int32(pos)) else {
-            return nil
-        }
-        return String(cString: ptr)
-    }
-    
-    private func getRawData(pos: Int) -> Data? {
-        guard let ptr = sqlite3_column_blob(stmt, Int32(pos)) else {
-            return nil
-        }
-        return Data(bytes: ptr, count: Int(sqlite3_column_bytes(stmt, Int32(pos))))
-    }
-    
-    private func get<T>(pos: Int, onNotNull: (Int) throws -> T) throws -> T {
-        try sharedGet(pos: pos) {
-            guard !isNull(pos: $0) else { throw StatementError.unexpectedNil }
-            return try onNotNull($0)
-        }
-    }
-    
-    private func getOptional<T>(pos: Int, onNotNull: (Int)->T?) throws -> T? {
-        try sharedGet(pos: pos) {
-            guard !isNull(pos: $0) else { return nil }
-            return onNotNull($0)
-        }
-    }
-    
-    private func sharedGet<T>(pos: Int, onGet: (Int) throws -> T) throws -> T {
+    private func get<T>(pos: Int, onGet: (Int) throws -> T) throws -> T {
         try ensureNotReleased()
         try ensureHasData(at: pos)
         return try onGet(pos)
-    }
-    
-    private func isNull(pos: Int) -> Bool {
-        return sqlite3_column_type(stmt, Int32(pos)) == SQLITE_NULL
     }
     
     private func ensureHasData(at pos: Int) throws {
