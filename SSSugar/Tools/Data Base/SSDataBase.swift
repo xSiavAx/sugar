@@ -23,6 +23,11 @@ public class SSDataBase {
         }
     }
     
+    public func stmtProcessor(query: String) throws -> SSDataBaseStatementProcessor {
+        let stmt = try statement(forQuery: query)
+        return SSDataBaseStatementProcessor(stmt)
+    }
+    
     public func exec(queries: [String]) throws {
         let doTransaction = !self.isTransactionStarted
         
