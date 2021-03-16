@@ -90,10 +90,18 @@ extension String: SSDBColType {
     }
 }
 
-extension RawRepresentable where RawValue: SSDBColType {
-    static var name: String { RawValue.colName }
+public extension RawRepresentable where RawValue: SSDBColType {
+    static var colName: String { RawValue.colName }
     
-    func asDefault() -> String {
+    static func onGetNonNil(stmt: SSDataBaseStatement, pos: Int) throws -> Self {
+        return Self(rawValue: try RawValue.onGetNonNil(stmt: stmt, pos: pos))!
+    }
+    
+    func bindTo(stmt: SSDataBaseStatement, pos: Int) throws {
+        try rawValue.bindTo(stmt: stmt, pos: pos)
+    }
+    
+    func asColDefault() -> String {
         return rawValue.asColDefault()
     }
 }
