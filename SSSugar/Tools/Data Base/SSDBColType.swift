@@ -92,12 +92,12 @@ extension String: SSDBColType {
 
 public extension RawRepresentable where RawValue: SSDBColType {
     static var colName: String { RawValue.colName }
-    
-    static func onGetNonNil(stmt: SSDataBaseStatement, pos: Int) throws -> Self {
+
+    static func onGetNonNil(stmt: SSDataBaseStatementProtocol, pos: Int) throws -> Self {
         return Self(rawValue: try RawValue.onGetNonNil(stmt: stmt, pos: pos))!
     }
     
-    func bindTo(stmt: SSDataBaseStatement, pos: Int) throws {
+    func bindTo(stmt: SSDataBaseStatementProtocol, pos: Int) throws {
         try rawValue.bindTo(stmt: stmt, pos: pos)
     }
     
