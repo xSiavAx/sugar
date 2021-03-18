@@ -1,6 +1,6 @@
 import Foundation
 
-protocol SSDataBaseStatementProxing: SSDataBaseStatementProtocol {
+public protocol SSDataBaseStatementProxing: SSDataBaseStatementProtocol {
     var statement : SSDataBaseStatementProtocol {get}
 }
 
@@ -71,5 +71,9 @@ extension SSDataBaseStatementProxing {
 }
 
 public struct SSDataBaseStatementProxy: SSDataBaseStatementProxing {
-    let statement: SSDataBaseStatementProtocol
+    public let statement: SSDataBaseStatementProtocol
+    
+    public init(_ stmt: SSDataBaseStatementProtocol) {
+        statement = stmt
+    }
 }

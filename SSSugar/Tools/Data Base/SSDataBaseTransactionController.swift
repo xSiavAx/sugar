@@ -47,7 +47,7 @@ public class SSDataBaseTransactionController {
 extension SSDataBaseTransactionController: SSDataBaseTransactionControllerProtocol {
     public func registerStatement(_ stmt: SSDataBaseStatementProtocol) throws -> SSDataBaseStatementProtocol {
         try ensureStarted()
-        return SSReleaseDecorator(decorated: SSDataBaseStatementProxy(statement: stmt), onCreate: didRegister(stmt:), onRelease: didRelease(stmt:))
+        return SSReleaseDecorator(decorated: SSDataBaseStatementProxy(stmt), onCreate: didRegister(stmt:), onRelease: didRelease(stmt:))
     }
     
     public func registerSavePoint(_ sp: SSDataBaseSavePointProtocol) throws -> SSDataBaseSavePointProtocol {
