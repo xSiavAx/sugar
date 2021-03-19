@@ -1,6 +1,6 @@
 import Foundation
 
-enum StatementError: Error {
+public enum StatementError: Error {
     case alreadyReleased
     
     case cantCompile(code: Int, msg: String)
