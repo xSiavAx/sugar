@@ -17,9 +17,7 @@ public class SSDataBaseSavePoint {
     
     //MARK: - private
     private func ensureNotFinished() throws {
-        guard finished else {
-            throw mError.alreadyFinished
-        }
+        guard !finished else { throw mError.alreadyFinished }
     }
 }
 
