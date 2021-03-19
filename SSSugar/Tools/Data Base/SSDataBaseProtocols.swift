@@ -45,6 +45,8 @@ public protocol SSDataBaseStatementProtocol: SSDataBaseBindingStatement, SSDataB
 }
 
 public protocol SSDataBaseSavePointProtocol: SSReleasable {
+    /// Revert all changes withing save point.
+    /// - Importnat: Doesnt cause releasing. U should call release() on your own, nevermind did `rollBack` called or not.
     func rollBack() throws
 }
 

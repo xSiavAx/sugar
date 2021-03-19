@@ -26,7 +26,6 @@ extension SSDataBaseSavePoint: SSDataBaseSavePointProtocol {
     public func rollBack() throws {
         try ensureNotFinished()
         try executor.exec(query: "rollback to \(title);")
-        finished = true
     }
 }
 
