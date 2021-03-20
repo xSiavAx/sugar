@@ -16,12 +16,42 @@ public class SSDataBase {
         transactionController.transactionCreator = self
         connection.open()
     }
+    
+    deinit {
+        if (connection.isOpen) {
+            connection.close()
+        }
+    }
+    
+    public func stmtProcessor(query: String) throws -> SSDataBaseStatementProcessor {
+        let stmt = try statement(forQuery: query)
+        return SSDataBaseStatementProcessor(stmt)
+    }
+    
+    public func exec(queries: [String]) throws {
+        let doTransaction = !self.isTransactionStarted
+        
+        if (doTransaction) {
+            try beginTransaction()
+        }
+        do {
+            try queries.forEach(exec(query:))
+        } catch {
+            if (doTransaction) {
+                try cancelTransaction()
+            }
+            throw error
+        }
+        if (doTransaction) {
+            try commitTransaction()
+        }
+    }
 }
 
 //MARK: - SSDataBaseProtocol
 extension SSDataBase: SSDataBaseProtocol {
     public func savePoint(withTitle: String) throws -> SSDataBaseSavePointProtocol {
-        let sp = SSDataBaseSavePoint(executor: self, title: withTitle)
+        let sp = try SSDataBaseSavePoint(executor: self, title: withTitle)
         return try transactionController.registerSavePoint(sp)
     }
 }
@@ -58,21 +88,19 @@ extension SSDataBase: SSDataBaseStatementCreator {
 //MARK: - SSDataBaseTransactionCreator
 
 extension SSDataBase: SSDataBaseTransactionCreator {
-    public func createTransaction() -> SSDataBaseTransaction {
-        return SSDataBaseTransaction(executor: self)
+    public func createTransaction() throws -> SSDataBaseTransaction {
+        return try SSDataBaseTransaction(executor: self)
     }
 }
 
 //MARK: - SSDataBaseQueryExecutor
 
 extension SSDataBase: SSDataBaseQueryExecutor {
-    public func exec(query: String) {
-        do {
-            let stmt = try statementsCache.statement(query: query)
-            
-            try stmt.commit()
-            try stmt.release()
-        } catch { fatalError("\(error)") }
+    public func exec(query: String) throws {
+        let stmt = try statementsCache.statement(query: query)
+        
+        try stmt.commit()
+        try stmt.release()
     }
 }
 

@@ -1,7 +1,7 @@
 import Foundation
 
 public protocol SSDataBaseQueryExecutor : AnyObject {
-    func exec(query: String)
+    func exec(query: String) throws
 }
 
 public class SSDataBaseTransaction {
@@ -12,9 +12,9 @@ public class SSDataBaseTransaction {
         case alreadyClosed
     }
     
-    public init(executor mExecutor: SSDataBaseQueryExecutor) {
+    public init(executor mExecutor: SSDataBaseQueryExecutor) throws {
         executor = mExecutor
-        executor.exec(query: "begin transaction;")
+        try executor.exec(query: "begin transaction;")
     }
     
     deinit {
@@ -26,13 +26,13 @@ public class SSDataBaseTransaction {
     //MARK: - public
     public func commit() throws {
         try ensureOpen()
-        executor.exec(query:"commit transaction;")
+        try executor.exec(query:"commit transaction;")
         closed = true
     }
     
     public func cancel() throws {
         try ensureOpen()
-        executor.exec(query:"rollback transaction;")
+        try executor.exec(query:"rollback transaction;")
         closed = true
     }
     
