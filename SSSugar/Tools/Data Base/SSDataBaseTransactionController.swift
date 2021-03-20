@@ -6,7 +6,7 @@ public protocol SSDataBaseTransactionControllerProtocol : SSTransacted {
 }
 
 public protocol SSDataBaseTransactionCreator: AnyObject {
-    func createTransaction() -> SSDataBaseTransaction
+    func createTransaction() throws -> SSDataBaseTransaction
 }
 
 public class SSDataBaseTransactionController {
@@ -47,12 +47,16 @@ public class SSDataBaseTransactionController {
 extension SSDataBaseTransactionController: SSDataBaseTransactionControllerProtocol {
     public func registerStatement(_ stmt: SSDataBaseStatementProtocol) throws -> SSDataBaseStatementProtocol {
         try ensureStarted()
-        return SSReleaseDecorator(decorated: SSDataBaseStatementProxy(statement: stmt), onCreate: didRegister(stmt:), onRelease: didRelease(stmt:))
+        return SSReleaseDecorator(decorated: SSDataBaseStatementProxy(stmt),
+                                  onCreate: {[weak self] in self?.didRegister(stmt: $0)},
+                                  onRelease: {[weak self] in self?.didRelease(stmt: $0) ?? true})
     }
     
     public func registerSavePoint(_ sp: SSDataBaseSavePointProtocol) throws -> SSDataBaseSavePointProtocol {
         try ensureStarted()
-        return SSReleaseDecorator(decorated: SSDataBaseSavePointProxy(savePoint: sp), onCreate: didRegister(sp:), onRelease: didRelease(sp:))
+        return SSReleaseDecorator(decorated: SSDataBaseSavePointProxy(savePoint: sp),
+                                  onCreate: {[weak self] in self?.didRegister(sp: $0)},
+                                  onRelease: {[weak self] in self?.didRelease(sp: $0) ?? true})
     }
 }
 
@@ -62,7 +66,7 @@ extension SSDataBaseTransactionController : SSTransacted {
     
     public func beginTransaction() throws {
         try ensureCanStart()
-        transaction = transactionCreator.createTransaction()
+        transaction = try transactionCreator.createTransaction()
     }
     
     public func commitTransaction() throws {

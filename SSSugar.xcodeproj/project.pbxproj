@@ -225,6 +225,7 @@
 		99F3F41C23ABBD97003C88D9 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F3F41B23ABBD97003C88D9 /* String.swift */; };
 		99F3F41E23ABBDE7003C88D9 /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F3F41D23ABBDE7003C88D9 /* UIDevice.swift */; };
 		99F6A187228981CE00183436 /* AutoMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F6A186228981CE00183436 /* AutoMap.swift */; };
+		99FBC1892600E34A006DBAD8 /* SSDBColType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99FBC1882600E34A006DBAD8 /* SSDBColType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -459,6 +460,7 @@
 		99FA1FF02250F46500C534E3 /* CGRectInsetToWHTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CGRectInsetToWHTests.swift; path = SSSugarTests/Extensions/Types/CGRect/CGRectInsetToWHTests.swift; sourceTree = SOURCE_ROOT; };
 		99FA1FF22250FA0D00C534E3 /* CGRectInitCenterSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGRectInitCenterSize.swift; sourceTree = "<group>"; };
 		99FA1FF52250FD2900C534E3 /* CGRectCuttedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGRectCuttedTests.swift; sourceTree = "<group>"; };
+		99FBC1882600E34A006DBAD8 /* SSDBColType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDBColType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -687,6 +689,7 @@
 				9967832322D3993D00E33300 /* SSDataBaseStatemntCache.swift */,
 				9967832522D39B4000E33300 /* SSDataBaseStatementCacheHolder.swift */,
 				993E8A0D22E0C8BE00688555 /* SSDBStatementProcessor.swift */,
+				99FBC1882600E34A006DBAD8 /* SSDBColType.swift */,
 			);
 			path = "Data Base";
 			sourceTree = "<group>";
@@ -1447,6 +1450,7 @@
 				9944ED6522CFA6E5005B129A /* SSTransacted.swift in Sources */,
 				9974451B25C0541E00BEB297 /* SSApiCallOptions.swift in Sources */,
 				99AA28D423A2A05400DA9C2F /* SSGroupExecutor.swift in Sources */,
+				99FBC1892600E34A006DBAD8 /* SSDBColType.swift in Sources */,
 				99D2966C223D3763003FD9F0 /* UIColor.swift in Sources */,
 				9974469925C1A37700BEB297 /* CTCarrier.swift in Sources */,
 				9947C43C22CA58D800AB3327 /* SSDataBaseProtocols.swift in Sources */,
@@ -1748,7 +1752,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.8.1;
+				MARKETING_VERSION = 1.8.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.byteslight.SSSugar;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -1782,7 +1786,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.8.1;
+				MARKETING_VERSION = 1.8.2;
 				PRODUCT_BUNDLE_IDENTIFIER = com.byteslight.SSSugar;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
