@@ -192,7 +192,7 @@ extension SSDataModifyCenter: SSDmRevisionDispatcher where
             }
         }
         notify(revision: revisions.last!) {[weak self] in
-            self?.onLastNotify(revision: revisions.last!, onApply: onApply)
+            self?.onLastNotify(revision: revisions.last!)
         }
     }
     

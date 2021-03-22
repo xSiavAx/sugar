@@ -17,7 +17,7 @@
             "en"
          );
          mainGroup = "OBJ_5";
-         productRefGroup = "OBJ_292";
+         productRefGroup = "OBJ_293";
          projectDirPath = ".";
          targets = (
             "SSSugar::SSSugar",
@@ -43,72 +43,86 @@
          isa = "PBXGroup";
          children = (
             "OBJ_101",
-            "OBJ_109",
-            "OBJ_110",
-            "OBJ_111",
-            "OBJ_112",
-            "OBJ_113",
-            "OBJ_114",
-            "OBJ_115",
-            "OBJ_116"
+            "OBJ_118",
+            "OBJ_124",
+            "OBJ_125",
+            "OBJ_126",
+            "OBJ_127",
+            "OBJ_128",
+            "OBJ_129",
+            "OBJ_130",
+            "OBJ_131",
+            "OBJ_132"
          );
-         name = "Example";
-         path = "Example";
+         name = "Data Synchronisation";
+         path = "Data Synchronisation";
          sourceTree = "<group>";
       };
       "OBJ_101" = {
          isa = "PBXGroup";
          children = (
             "OBJ_102",
+            "OBJ_110",
+            "OBJ_111",
+            "OBJ_112",
+            "OBJ_113",
+            "OBJ_114",
+            "OBJ_115",
+            "OBJ_116",
+            "OBJ_117"
+         );
+         name = "Example";
+         path = "Example";
+         sourceTree = "<group>";
+      };
+      "OBJ_102" = {
+         isa = "PBXGroup";
+         children = (
             "OBJ_103",
             "OBJ_104",
             "OBJ_105",
             "OBJ_106",
             "OBJ_107",
-            "OBJ_108"
+            "OBJ_108",
+            "OBJ_109"
          );
          name = "Revisions";
          path = "Revisions";
          sourceTree = "<group>";
       };
-      "OBJ_102" = {
+      "OBJ_103" = {
          isa = "PBXFileReference";
          path = "Base.swift";
          sourceTree = "<group>";
       };
-      "OBJ_103" = {
+      "OBJ_104" = {
          isa = "PBXFileReference";
          path = "SSUEBatchAdpater.swift";
          sourceTree = "<group>";
       };
-      "OBJ_104" = {
+      "OBJ_105" = {
          isa = "PBXFileReference";
          path = "SSUEChanges.swift";
          sourceTree = "<group>";
       };
-      "OBJ_105" = {
+      "OBJ_106" = {
          isa = "PBXFileReference";
          path = "SSUERequests.swift";
          sourceTree = "<group>";
       };
-      "OBJ_106" = {
+      "OBJ_107" = {
          isa = "PBXFileReference";
          path = "SSUETaskDmMutator.swift";
          sourceTree = "<group>";
       };
-      "OBJ_107" = {
+      "OBJ_108" = {
          isa = "PBXFileReference";
          path = "SSUETaskDmProcessor.swift";
          sourceTree = "<group>";
       };
-      "OBJ_108" = {
-         isa = "PBXFileReference";
-         path = "SSUETaskModifyCores.swift";
-         sourceTree = "<group>";
-      };
       "OBJ_109" = {
          isa = "PBXFileReference";
-         path = "SSTaskProcessorExample.swift";
+         path = "SSUETaskModifyCores.swift";
          sourceTree = "<group>";
       };
       "OBJ_11" = {
@@ -123,60 +137,60 @@
       };
       "OBJ_110" = {
          isa = "PBXFileReference";
-         path = "SSUETask.swift";
+         path = "SSTaskProcessorExample.swift";
          sourceTree = "<group>";
       };
       "OBJ_111" = {
          isa = "PBXFileReference";
-         path = "SSUETaskDBMutator.swift";
+         path = "SSUETask.swift";
          sourceTree = "<group>";
       };
       "OBJ_112" = {
          isa = "PBXFileReference";
-         path = "SSUETaskMutator.swift";
+         path = "SSUETaskDBMutator.swift";
          sourceTree = "<group>";
       };
       "OBJ_113" = {
          isa = "PBXFileReference";
-         path = "SSUETaskProcessor.swift";
+         path = "SSUETaskMutator.swift";
          sourceTree = "<group>";
       };
       "OBJ_114" = {
          isa = "PBXFileReference";
-         path = "SSUETaskRemoteMutator.swift";
+         path = "SSUETaskProcessor.swift";
          sourceTree = "<group>";
       };
       "OBJ_115" = {
          isa = "PBXFileReference";
-         path = "SSUETaskUpdate.swift";
+         path = "SSUETaskRemoteMutator.swift";
          sourceTree = "<group>";
       };
       "OBJ_116" = {
          isa = "PBXFileReference";
-         path = "SSUETaskUpdater.swift";
+         path = "SSUETaskUpdate.swift";
          sourceTree = "<group>";
       };
       "OBJ_117" = {
+         isa = "PBXFileReference";
+         path = "SSUETaskUpdater.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_118" = {
          isa = "PBXGroup";
          children = (
-            "OBJ_118",
             "OBJ_119",
             "OBJ_120",
             "OBJ_121",
-            "OBJ_122"
+            "OBJ_122",
+            "OBJ_123"
          );
          name = "Revisions";
          path = "Revisions";
          sourceTree = "<group>";
       };
-      "OBJ_118" = {
-         isa = "PBXFileReference";
-         path = "SSDataModifyCenter.swift";
-         sourceTree = "<group>";
-      };
       "OBJ_119" = {
          isa = "PBXFileReference";
-         path = "SSDataModifying.swift";
+         path = "SSDataModifyCenter.swift";
          sourceTree = "<group>";
       };
       "OBJ_12" = {
@@ -191,52 +205,52 @@
       };
       "OBJ_120" = {
          isa = "PBXFileReference";
-         path = "SSDmBatch.swift";
+         path = "SSDataModifying.swift";
          sourceTree = "<group>";
       };
       "OBJ_121" = {
          isa = "PBXFileReference";
-         path = "SSDmBatchAdapting.swift";
+         path = "SSDmBatch.swift";
          sourceTree = "<group>";
       };
       "OBJ_122" = {
          isa = "PBXFileReference";
-         path = "SSDmRevision.swift";
+         path = "SSDmBatchAdapting.swift";
          sourceTree = "<group>";
       };
       "OBJ_123" = {
          isa = "PBXFileReference";
-         path = "SSEntityDmMutator.swift";
+         path = "SSDmRevision.swift";
          sourceTree = "<group>";
       };
       "OBJ_124" = {
          isa = "PBXFileReference";
-         path = "SSEntityMutator.swift";
+         path = "SSEntityDmMutator.swift";
          sourceTree = "<group>";
       };
       "OBJ_125" = {
          isa = "PBXFileReference";
-         path = "SSEntityProcessor.swift";
+         path = "SSEntityMutator.swift";
          sourceTree = "<group>";
       };
       "OBJ_126" = {
          isa = "PBXFileReference";
-         path = "SSEntityRemoteMutator.swift";
+         path = "SSEntityProcessor.swift";
          sourceTree = "<group>";
       };
       "OBJ_127" = {
          isa = "PBXFileReference";
-         path = "SSEntityStorageMutator.swift";
+         path = "SSEntityRemoteMutator.swift";
          sourceTree = "<group>";
       };
       "OBJ_128" = {
          isa = "PBXFileReference";
-         path = "SSEntityUpdater.swift";
+         path = "SSEntityStorageMutator.swift";
          sourceTree = "<group>";
       };
       "OBJ_129" = {
          isa = "PBXFileReference";
-         path = "SSUpdate.swift";
+         path = "SSEntityUpdater.swift";
          sourceTree = "<group>";
       };
       "OBJ_13" = {
@@ -246,68 +260,68 @@
       };
       "OBJ_130" = {
          isa = "PBXFileReference";
-         path = "SSUpdateCenter.swift";
+         path = "SSUpdate.swift";
          sourceTree = "<group>";
       };
       "OBJ_131" = {
          isa = "PBXFileReference";
-         path = "SSUpdateReceiver.swift";
+         path = "SSUpdateCenter.swift";
          sourceTree = "<group>";
       };
       "OBJ_132" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_133",
-            "OBJ_139",
-            "OBJ_140",
-            "OBJ_141",
-            "OBJ_142"
-         );
-         name = "Network Communication";
-         path = "Network Communication";
+         isa = "PBXFileReference";
+         path = "SSUpdateReceiver.swift";
          sourceTree = "<group>";
       };
       "OBJ_133" = {
          isa = "PBXGroup";
          children = (
             "OBJ_134",
+            "OBJ_140",
+            "OBJ_141",
+            "OBJ_142",
+            "OBJ_143"
+         );
+         name = "Network Communication";
+         path = "Network Communication";
+         sourceTree = "<group>";
+      };
+      "OBJ_134" = {
+         isa = "PBXGroup";
+         children = (
             "OBJ_135",
             "OBJ_136",
             "OBJ_137",
-            "OBJ_138"
+            "OBJ_138",
+            "OBJ_139"
          );
          name = "Api";
          path = "Api";
          sourceTree = "<group>";
       };
-      "OBJ_134" = {
+      "OBJ_135" = {
          isa = "PBXFileReference";
          path = "SSApiArgsConverting.swift";
          sourceTree = "<group>";
       };
-      "OBJ_135" = {
+      "OBJ_136" = {
          isa = "PBXFileReference";
          path = "SSApiCallOptions.swift";
          sourceTree = "<group>";
       };
-      "OBJ_136" = {
+      "OBJ_137" = {
          isa = "PBXFileReference";
          path = "SSApiError.swift";
          sourceTree = "<group>";
       };
-      "OBJ_137" = {
+      "OBJ_138" = {
          isa = "PBXFileReference";
          path = "SSApiNoError.swift";
          sourceTree = "<group>";
       };
-      "OBJ_138" = {
-         isa = "PBXFileReference";
-         path = "SSRemoteApiModel.swift";
-         sourceTree = "<group>";
-      };
       "OBJ_139" = {
          isa = "PBXFileReference";
-         path = "SSCommunicating.swift";
+         path = "SSRemoteApiModel.swift";
          sourceTree = "<group>";
       };
       "OBJ_14" = {
@@ -317,75 +331,67 @@
       };
       "OBJ_140" = {
          isa = "PBXFileReference";
-         path = "SSCommunicationError.swift";
+         path = "SSCommunicating.swift";
          sourceTree = "<group>";
       };
       "OBJ_141" = {
          isa = "PBXFileReference";
-         path = "SSNetworkCommunicator.swift";
+         path = "SSCommunicationError.swift";
          sourceTree = "<group>";
       };
       "OBJ_142" = {
          isa = "PBXFileReference";
-         path = "URLSessionConfiguration.swift";
+         path = "SSNetworkCommunicator.swift";
          sourceTree = "<group>";
       };
       "OBJ_143" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_144",
-            "OBJ_149",
-            "OBJ_159",
-            "OBJ_160",
-            "OBJ_161"
-         );
-         name = "Utils";
-         path = "Utils";
+         isa = "PBXFileReference";
+         path = "URLSessionConfiguration.swift";
          sourceTree = "<group>";
       };
       "OBJ_144" = {
          isa = "PBXGroup";
          children = (
             "OBJ_145",
+            "OBJ_150",
+            "OBJ_160",
+            "OBJ_161",
+            "OBJ_162"
+         );
+         name = "Utils";
+         path = "Utils";
+         sourceTree = "<group>";
+      };
+      "OBJ_145" = {
+         isa = "PBXGroup";
+         children = (
             "OBJ_146",
             "OBJ_147",
-            "OBJ_148"
+            "OBJ_148",
+            "OBJ_149"
          );
          name = "Collections Custom Select";
          path = "Collections Custom Select";
          sourceTree = "<group>";
       };
-      "OBJ_145" = {
+      "OBJ_146" = {
          isa = "PBXFileReference";
          path = "SSCollectionViewCellMarkable.swift";
          sourceTree = "<group>";
       };
-      "OBJ_146" = {
+      "OBJ_147" = {
          isa = "PBXFileReference";
          path = "SSCollectionViewMarkable.swift";
          sourceTree = "<group>";
       };
-      "OBJ_147" = {
+      "OBJ_148" = {
          isa = "PBXFileReference";
          path = "SSCollectionViewMarkableController.swift";
          sourceTree = "<group>";
       };
-      "OBJ_148" = {
+      "OBJ_149" = {
          isa = "PBXFileReference";
          path = "SSMarkbaleCollectionCellHelper.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_149" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_150",
-            "OBJ_155",
-            "OBJ_156",
-            "OBJ_157",
-            "OBJ_158"
-         );
-         name = "Key Coding";
-         path = "Key Coding";
          sourceTree = "<group>";
       };
       "OBJ_15" = {
@@ -402,57 +408,65 @@
          isa = "PBXGroup";
          children = (
             "OBJ_151",
+            "OBJ_156",
+            "OBJ_157",
+            "OBJ_158",
+            "OBJ_159"
+         );
+         name = "Key Coding";
+         path = "Key Coding";
+         sourceTree = "<group>";
+      };
+      "OBJ_151" = {
+         isa = "PBXGroup";
+         children = (
             "OBJ_152",
             "OBJ_153",
-            "OBJ_154"
+            "OBJ_154",
+            "OBJ_155"
          );
          name = "Adapters";
          path = "Adapters";
          sourceTree = "<group>";
       };
-      "OBJ_151" = {
+      "OBJ_152" = {
          isa = "PBXFileReference";
          path = "RawRepresentable.swift";
          sourceTree = "<group>";
       };
-      "OBJ_152" = {
+      "OBJ_153" = {
          isa = "PBXFileReference";
          path = "SSApiErrorConverter.swift";
          sourceTree = "<group>";
       };
-      "OBJ_153" = {
+      "OBJ_154" = {
          isa = "PBXFileReference";
          path = "SSErrorConverter.swift";
          sourceTree = "<group>";
       };
-      "OBJ_154" = {
+      "OBJ_155" = {
          isa = "PBXFileReference";
          path = "SSKeyFieldConverter.swift";
          sourceTree = "<group>";
       };
-      "OBJ_155" = {
+      "OBJ_156" = {
          isa = "PBXFileReference";
          path = "SSKeyField.swift";
          sourceTree = "<group>";
       };
-      "OBJ_156" = {
+      "OBJ_157" = {
          isa = "PBXFileReference";
          path = "SSKeyFieldStorage.swift";
          sourceTree = "<group>";
       };
-      "OBJ_157" = {
+      "OBJ_158" = {
          isa = "PBXFileReference";
          path = "SSKeyStoringProp.swift";
          sourceTree = "<group>";
       };
-      "OBJ_158" = {
-         isa = "PBXFileReference";
-         path = "SSStorageCoder.swift";
-         sourceTree = "<group>";
-      };
       "OBJ_159" = {
          isa = "PBXFileReference";
-         path = "SSLinearCongruentialRandomizer.swift";
+         path = "SSStorageCoder.swift";
          sourceTree = "<group>";
       };
       "OBJ_16" = {
@@ -462,71 +476,75 @@
       };
       "OBJ_160" = {
          isa = "PBXFileReference";
-         path = "SSProtectionViewHelper.swift";
+         path = "SSLinearCongruentialRandomizer.swift";
          sourceTree = "<group>";
       };
       "OBJ_161" = {
+         isa = "PBXFileReference";
+         path = "SSProtectionViewHelper.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_162" = {
          isa = "PBXGroup";
          children = (
-            "OBJ_162"
+            "OBJ_163"
          );
          name = "View Styles";
          path = "View Styles";
          sourceTree = "<group>";
       };
-      "OBJ_162" = {
+      "OBJ_163" = {
          isa = "PBXFileReference";
          path = "SSViewStyles.swift";
          sourceTree = "<group>";
       };
-      "OBJ_163" = {
+      "OBJ_164" = {
          isa = "PBXGroup";
          children = (
-            "OBJ_164"
+            "OBJ_165"
          );
          name = "Tests";
          path = "";
          sourceTree = "SOURCE_ROOT";
       };
-      "OBJ_164" = {
+      "OBJ_165" = {
          isa = "PBXGroup";
          children = (
-            "OBJ_165",
-            "OBJ_190",
-            "OBJ_193",
-            "OBJ_243",
-            "OBJ_245",
+            "OBJ_166",
+            "OBJ_191",
+            "OBJ_194",
+            "OBJ_244",
             "OBJ_246",
             "OBJ_247",
-            "OBJ_263",
-            "OBJ_291"
+            "OBJ_248",
+            "OBJ_264",
+            "OBJ_292"
          );
          name = "SSSugarTests";
          path = "Tests/SSSugarTests";
          sourceTree = "SOURCE_ROOT";
-      };
-      "OBJ_165" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_166"
-         );
-         name = "Classes";
-         path = "Classes";
-         sourceTree = "<group>";
       };
       "OBJ_166" = {
          isa = "PBXGroup";
          children = (
             "OBJ_167"
          );
-         name = "Containers";
-         path = "Containers";
+         name = "Classes";
+         path = "Classes";
          sourceTree = "<group>";
       };
       "OBJ_167" = {
          isa = "PBXGroup";
          children = (
-            "OBJ_168",
+            "OBJ_168"
+         );
+         name = "Containers";
+         path = "Containers";
+         sourceTree = "<group>";
+      };
+      "OBJ_168" = {
+         isa = "PBXGroup";
+         children = (
             "OBJ_169",
             "OBJ_170",
             "OBJ_171",
@@ -545,20 +563,16 @@
             "OBJ_184",
             "OBJ_185",
             "OBJ_186",
-            "OBJ_187"
+            "OBJ_187",
+            "OBJ_188"
          );
          name = "AutoMap";
          path = "AutoMap";
          sourceTree = "<group>";
       };
-      "OBJ_168" = {
-         isa = "PBXFileReference";
-         path = "AutoMapAddContainerTests.swift";
-         sourceTree = "<group>";
-      };
       "OBJ_169" = {
          isa = "PBXFileReference";
-         path = "AutoMapAddTests.swift";
+         path = "AutoMapAddContainerTests.swift";
          sourceTree = "<group>";
       };
       "OBJ_17" = {
@@ -568,52 +582,52 @@
       };
       "OBJ_170" = {
          isa = "PBXFileReference";
-         path = "AutoMapContainsTests.swift";
+         path = "AutoMapAddTests.swift";
          sourceTree = "<group>";
       };
       "OBJ_171" = {
          isa = "PBXFileReference";
-         path = "AutoMapCountTests.swift";
+         path = "AutoMapContainsTests.swift";
          sourceTree = "<group>";
       };
       "OBJ_172" = {
          isa = "PBXFileReference";
-         path = "AutoMapEqualityOperatorTests.swift";
+         path = "AutoMapCountTests.swift";
          sourceTree = "<group>";
       };
       "OBJ_173" = {
          isa = "PBXFileReference";
-         path = "AutoMapInitTests.swift";
+         path = "AutoMapEqualityOperatorTests.swift";
          sourceTree = "<group>";
       };
       "OBJ_174" = {
          isa = "PBXFileReference";
-         path = "AutoMapInsertTests.swift";
+         path = "AutoMapInitTests.swift";
          sourceTree = "<group>";
       };
       "OBJ_175" = {
          isa = "PBXFileReference";
-         path = "AutoMapIsEmptyTests.swift";
+         path = "AutoMapInsertTests.swift";
          sourceTree = "<group>";
       };
       "OBJ_176" = {
          isa = "PBXFileReference";
-         path = "AutoMapMakeIteratorTests.swift";
+         path = "AutoMapIsEmptyTests.swift";
          sourceTree = "<group>";
       };
       "OBJ_177" = {
          isa = "PBXFileReference";
-         path = "AutoMapRemoveAllTests.swift";
+         path = "AutoMapMakeIteratorTests.swift";
          sourceTree = "<group>";
       };
       "OBJ_178" = {
          isa = "PBXFileReference";
-         path = "AutoMapRemoveForAtTests.swift";
+         path = "AutoMapRemoveAllTests.swift";
          sourceTree = "<group>";
       };
       "OBJ_179" = {
          isa = "PBXFileReference";
-         path = "AutoMapRemoveForKeyAndIndexes.swift";
+         path = "AutoMapRemoveForAtTests.swift";
          sourceTree = "<group>";
       };
       "OBJ_18" = {
@@ -627,57 +641,57 @@
       };
       "OBJ_180" = {
          isa = "PBXFileReference";
-         path = "AutoMapRemoveForTests.swift";
+         path = "AutoMapRemoveForKeyAndIndexes.swift";
          sourceTree = "<group>";
       };
       "OBJ_181" = {
          isa = "PBXFileReference";
-         path = "AutoMapRemoveTests.swift";
+         path = "AutoMapRemoveForTests.swift";
          sourceTree = "<group>";
       };
       "OBJ_182" = {
          isa = "PBXFileReference";
-         path = "AutoMapReplaceTests.swift";
+         path = "AutoMapRemoveTests.swift";
          sourceTree = "<group>";
       };
       "OBJ_183" = {
          isa = "PBXFileReference";
-         path = "AutoMapSubscriptKeyIndexTests.swift";
+         path = "AutoMapReplaceTests.swift";
          sourceTree = "<group>";
       };
       "OBJ_184" = {
          isa = "PBXFileReference";
-         path = "AutoMapSubscriptKeyTests.swift";
+         path = "AutoMapSubscriptKeyIndexTests.swift";
          sourceTree = "<group>";
       };
       "OBJ_185" = {
          isa = "PBXFileReference";
-         path = "AutoMapTestHelper.swift";
+         path = "AutoMapSubscriptKeyTests.swift";
          sourceTree = "<group>";
       };
       "OBJ_186" = {
          isa = "PBXFileReference";
-         path = "AutoMapUpdateTests.swift";
+         path = "AutoMapTestHelper.swift";
          sourceTree = "<group>";
       };
       "OBJ_187" = {
+         isa = "PBXFileReference";
+         path = "AutoMapUpdateTests.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_188" = {
          isa = "PBXGroup";
          children = (
-            "OBJ_188",
-            "OBJ_189"
+            "OBJ_189",
+            "OBJ_190"
          );
          name = "Iterator";
          path = "Iterator";
          sourceTree = "<group>";
       };
-      "OBJ_188" = {
-         isa = "PBXFileReference";
-         path = "AutoMapIteratorInitMapTests.swift";
-         sourceTree = "<group>";
-      };
       "OBJ_189" = {
          isa = "PBXFileReference";
-         path = "AutoMapIteratorNextTests.swift";
+         path = "AutoMapIteratorInitMapTests.swift";
          sourceTree = "<group>";
       };
       "OBJ_19" = {
@@ -686,83 +700,83 @@
          sourceTree = "<group>";
       };
       "OBJ_190" = {
+         isa = "PBXFileReference";
+         path = "AutoMapIteratorNextTests.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_191" = {
          isa = "PBXGroup";
          children = (
-            "OBJ_191",
-            "OBJ_192"
+            "OBJ_192",
+            "OBJ_193"
          );
          name = "Executors";
          path = "Executors";
          sourceTree = "<group>";
       };
-      "OBJ_191" = {
+      "OBJ_192" = {
          isa = "PBXFileReference";
          path = "SSChainExecutorTests.swift";
          sourceTree = "<group>";
       };
-      "OBJ_192" = {
+      "OBJ_193" = {
          isa = "PBXFileReference";
          path = "SSGroupExecutorTests.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_193" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_194",
-            "OBJ_209",
-            "OBJ_216",
-            "OBJ_218",
-            "OBJ_241"
-         );
-         name = "Extensions";
-         path = "Extensions";
          sourceTree = "<group>";
       };
       "OBJ_194" = {
          isa = "PBXGroup";
          children = (
             "OBJ_195",
-            "OBJ_203",
-            "OBJ_207",
-            "OBJ_208"
+            "OBJ_210",
+            "OBJ_217",
+            "OBJ_219",
+            "OBJ_242"
          );
-         name = "Containers";
-         path = "Containers";
+         name = "Extensions";
+         path = "Extensions";
          sourceTree = "<group>";
       };
       "OBJ_195" = {
          isa = "PBXGroup";
          children = (
             "OBJ_196",
+            "OBJ_204",
+            "OBJ_208",
+            "OBJ_209"
+         );
+         name = "Containers";
+         path = "Containers";
+         sourceTree = "<group>";
+      };
+      "OBJ_196" = {
+         isa = "PBXGroup";
+         children = (
             "OBJ_197",
             "OBJ_198",
             "OBJ_199",
             "OBJ_200",
             "OBJ_201",
-            "OBJ_202"
+            "OBJ_202",
+            "OBJ_203"
          );
          name = "Array";
          path = "Array";
          sourceTree = "<group>";
       };
-      "OBJ_196" = {
+      "OBJ_197" = {
          isa = "PBXFileReference";
          path = "ArrayBinarySearchTests.swift";
          sourceTree = "<group>";
       };
-      "OBJ_197" = {
+      "OBJ_198" = {
          isa = "PBXFileReference";
          path = "ArrayForEachTests.swift";
          sourceTree = "<group>";
       };
-      "OBJ_198" = {
-         isa = "PBXFileReference";
-         path = "ArrayInitBuildBlockTests.swift";
-         sourceTree = "<group>";
-      };
       "OBJ_199" = {
          isa = "PBXFileReference";
-         path = "ArrayInsertTests.swift";
+         path = "ArrayInitBuildBlockTests.swift";
          sourceTree = "<group>";
       };
       "OBJ_2" = {
@@ -785,67 +799,58 @@
       };
       "OBJ_200" = {
          isa = "PBXFileReference";
-         path = "ArrayPickAtTests.swift";
+         path = "ArrayInsertTests.swift";
          sourceTree = "<group>";
       };
       "OBJ_201" = {
          isa = "PBXFileReference";
-         path = "ArrayRemoveTests.swift";
+         path = "ArrayPickAtTests.swift";
          sourceTree = "<group>";
       };
       "OBJ_202" = {
          isa = "PBXFileReference";
-         path = "ArrayShuffleUsingTypeTests.swift";
+         path = "ArrayRemoveTests.swift";
          sourceTree = "<group>";
       };
       "OBJ_203" = {
+         isa = "PBXFileReference";
+         path = "ArrayShuffleUsingTypeTests.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_204" = {
          isa = "PBXGroup";
          children = (
-            "OBJ_204",
             "OBJ_205",
-            "OBJ_206"
+            "OBJ_206",
+            "OBJ_207"
          );
          name = "Dictionary";
          path = "Dictionary";
          sourceTree = "<group>";
       };
-      "OBJ_204" = {
+      "OBJ_205" = {
          isa = "PBXFileReference";
          path = "DictionaryPickForTests.swift";
          sourceTree = "<group>";
       };
-      "OBJ_205" = {
+      "OBJ_206" = {
          isa = "PBXFileReference";
          path = "DictionaryPickingForTests.swift";
          sourceTree = "<group>";
       };
-      "OBJ_206" = {
+      "OBJ_207" = {
          isa = "PBXFileReference";
          path = "DictionaryTestKey.swift";
          sourceTree = "<group>";
       };
-      "OBJ_207" = {
+      "OBJ_208" = {
          isa = "PBXFileReference";
          path = "IndexSetInsertableCollection.swift";
          sourceTree = "<group>";
       };
-      "OBJ_208" = {
+      "OBJ_209" = {
          isa = "PBXFileReference";
          path = "SetInsertableCollection.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_209" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_210",
-            "OBJ_211",
-            "OBJ_212",
-            "OBJ_213",
-            "OBJ_214",
-            "OBJ_215"
-         );
-         name = "Controllers";
-         path = "Controllers";
          sourceTree = "<group>";
       };
       "OBJ_21" = {
@@ -854,72 +859,74 @@
          sourceTree = "<group>";
       };
       "OBJ_210" = {
-         isa = "PBXFileReference";
-         path = "UIViewControllerDismissPresentedAnimatedOnFinishTests.swift";
+         isa = "PBXGroup";
+         children = (
+            "OBJ_211",
+            "OBJ_212",
+            "OBJ_213",
+            "OBJ_214",
+            "OBJ_215",
+            "OBJ_216"
+         );
+         name = "Controllers";
+         path = "Controllers";
          sourceTree = "<group>";
       };
       "OBJ_211" = {
          isa = "PBXFileReference";
-         path = "UIViewControllerKBNotificationsTests.swift";
+         path = "UIViewControllerDismissPresentedAnimatedOnFinishTests.swift";
          sourceTree = "<group>";
       };
       "OBJ_212" = {
          isa = "PBXFileReference";
-         path = "UIViewControllerShowAlertTests.swift";
+         path = "UIViewControllerKBNotificationsTests.swift";
          sourceTree = "<group>";
       };
       "OBJ_213" = {
          isa = "PBXFileReference";
-         path = "UIViewControllerShowErrorAlertTests.swift";
+         path = "UIViewControllerShowAlertTests.swift";
          sourceTree = "<group>";
       };
       "OBJ_214" = {
          isa = "PBXFileReference";
-         path = "UIViewControllerShowWarningAlertTests.swift";
+         path = "UIViewControllerShowErrorAlertTests.swift";
          sourceTree = "<group>";
       };
       "OBJ_215" = {
          isa = "PBXFileReference";
-         path = "UIViewControllerTestHelper.swift";
+         path = "UIViewControllerShowWarningAlertTests.swift";
          sourceTree = "<group>";
       };
       "OBJ_216" = {
+         isa = "PBXFileReference";
+         path = "UIViewControllerTestHelper.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_217" = {
          isa = "PBXGroup";
          children = (
-            "OBJ_217"
+            "OBJ_218"
          );
          name = "Protocols";
          path = "Protocols";
          sourceTree = "<group>";
       };
-      "OBJ_217" = {
+      "OBJ_218" = {
          isa = "PBXFileReference";
          path = "ComparableCompareTests.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_218" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_219",
-            "OBJ_224",
-            "OBJ_231",
-            "OBJ_239",
-            "OBJ_240"
-         );
-         name = "Types";
-         path = "Types";
          sourceTree = "<group>";
       };
       "OBJ_219" = {
          isa = "PBXGroup";
          children = (
             "OBJ_220",
-            "OBJ_221",
-            "OBJ_222",
-            "OBJ_223"
+            "OBJ_225",
+            "OBJ_232",
+            "OBJ_240",
+            "OBJ_241"
          );
-         name = "CGPoint";
-         path = "CGPoint";
+         name = "Types";
+         path = "Types";
          sourceTree = "<group>";
       };
       "OBJ_22" = {
@@ -932,62 +939,69 @@
          sourceTree = "<group>";
       };
       "OBJ_220" = {
-         isa = "PBXFileReference";
-         path = "CGPointSubtractionOperatorTests.swift";
+         isa = "PBXGroup";
+         children = (
+            "OBJ_221",
+            "OBJ_222",
+            "OBJ_223",
+            "OBJ_224"
+         );
+         name = "CGPoint";
+         path = "CGPoint";
          sourceTree = "<group>";
       };
       "OBJ_221" = {
          isa = "PBXFileReference";
-         path = "CGPointSumOperatorTests.swift";
+         path = "CGPointSubtractionOperatorTests.swift";
          sourceTree = "<group>";
       };
       "OBJ_222" = {
          isa = "PBXFileReference";
-         path = "CGPointTestItems.swift";
+         path = "CGPointSumOperatorTests.swift";
          sourceTree = "<group>";
       };
       "OBJ_223" = {
          isa = "PBXFileReference";
-         path = "CGPointUnaryMinusTests.swift";
+         path = "CGPointTestItems.swift";
          sourceTree = "<group>";
       };
       "OBJ_224" = {
+         isa = "PBXFileReference";
+         path = "CGPointUnaryMinusTests.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_225" = {
          isa = "PBXGroup";
          children = (
-            "OBJ_225",
             "OBJ_226",
             "OBJ_227",
             "OBJ_228",
             "OBJ_229",
-            "OBJ_230"
+            "OBJ_230",
+            "OBJ_231"
          );
          name = "CGRect";
          path = "CGRect";
          sourceTree = "<group>";
       };
-      "OBJ_225" = {
+      "OBJ_226" = {
          isa = "PBXFileReference";
          path = "CGRectCenterTests.swift";
          sourceTree = "<group>";
       };
-      "OBJ_226" = {
+      "OBJ_227" = {
          isa = "PBXFileReference";
          path = "CGRectCuttedTests.swift";
          sourceTree = "<group>";
       };
-      "OBJ_227" = {
+      "OBJ_228" = {
          isa = "PBXFileReference";
          path = "CGRectDividedCountVerticallyTests.swift";
          sourceTree = "<group>";
       };
-      "OBJ_228" = {
-         isa = "PBXFileReference";
-         path = "CGRectInitCenterSize.swift";
-         sourceTree = "<group>";
-      };
       "OBJ_229" = {
          isa = "PBXFileReference";
-         path = "CGRectInsetToSizeTests.swift";
+         path = "CGRectInitCenterSize.swift";
          sourceTree = "<group>";
       };
       "OBJ_23" = {
@@ -1002,62 +1016,62 @@
       };
       "OBJ_230" = {
          isa = "PBXFileReference";
-         path = "CGRectInsetToWHTests.swift";
+         path = "CGRectInsetToSizeTests.swift";
          sourceTree = "<group>";
       };
       "OBJ_231" = {
+         isa = "PBXFileReference";
+         path = "CGRectInsetToWHTests.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_232" = {
          isa = "PBXGroup";
          children = (
-            "OBJ_232",
             "OBJ_233",
             "OBJ_234",
             "OBJ_235",
             "OBJ_236",
             "OBJ_237",
-            "OBJ_238"
+            "OBJ_238",
+            "OBJ_239"
          );
          name = "CGSize";
          path = "CGSize";
          sourceTree = "<group>";
       };
-      "OBJ_232" = {
+      "OBJ_233" = {
          isa = "PBXFileReference";
          path = "CGSizeAddedTests.swift";
          sourceTree = "<group>";
       };
-      "OBJ_233" = {
+      "OBJ_234" = {
          isa = "PBXFileReference";
          path = "CGSizeExtendedTests.swift";
          sourceTree = "<group>";
       };
-      "OBJ_234" = {
+      "OBJ_235" = {
          isa = "PBXFileReference";
          path = "CGSizeSubtractionOperatorTests.swift";
          sourceTree = "<group>";
       };
-      "OBJ_235" = {
+      "OBJ_236" = {
          isa = "PBXFileReference";
          path = "CGSizeSumOperatorTests.swift";
          sourceTree = "<group>";
       };
-      "OBJ_236" = {
+      "OBJ_237" = {
          isa = "PBXFileReference";
          path = "CGSizeTestItems.swift";
          sourceTree = "<group>";
       };
-      "OBJ_237" = {
+      "OBJ_238" = {
          isa = "PBXFileReference";
          path = "CGSizeUnaryMinusOperatorTests.swift";
          sourceTree = "<group>";
       };
-      "OBJ_238" = {
-         isa = "PBXFileReference";
-         path = "CGSizeUnitedIntersectedTests.swift";
-         sourceTree = "<group>";
-      };
       "OBJ_239" = {
          isa = "PBXFileReference";
-         path = "RangeMiddleTests.swift";
+         path = "CGSizeUnitedIntersectedTests.swift";
          sourceTree = "<group>";
       };
       "OBJ_24" = {
@@ -1067,61 +1081,65 @@
       };
       "OBJ_240" = {
          isa = "PBXFileReference";
-         path = "UIColorInitTests.swift";
+         path = "RangeMiddleTests.swift";
          sourceTree = "<group>";
       };
       "OBJ_241" = {
+         isa = "PBXFileReference";
+         path = "UIColorInitTests.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_242" = {
          isa = "PBXGroup";
          children = (
-            "OBJ_242"
+            "OBJ_243"
          );
          name = "Views";
          path = "Views";
          sourceTree = "<group>";
       };
-      "OBJ_242" = {
+      "OBJ_243" = {
          isa = "PBXFileReference";
          path = "UILabelTests.swift";
          sourceTree = "<group>";
       };
-      "OBJ_243" = {
+      "OBJ_244" = {
          isa = "PBXGroup";
          children = (
-            "OBJ_244"
+            "OBJ_245"
          );
          name = "SSSugarPlayground";
          path = "SSSugarPlayground";
          sourceTree = "<group>";
       };
-      "OBJ_244" = {
+      "OBJ_245" = {
          isa = "PBXFileReference";
          path = "SSSugarPlaygroundTests.swift";
          sourceTree = "<group>";
       };
-      "OBJ_245" = {
+      "OBJ_246" = {
          isa = "PBXFileReference";
          path = "SSSugarTests.swift";
          sourceTree = "<group>";
       };
-      "OBJ_246" = {
+      "OBJ_247" = {
          isa = "PBXFileReference";
          path = "SSSugarTests_AutoGenerated.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_247" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_248",
-            "OBJ_259"
-         );
-         name = "Tools";
-         path = "Tools";
          sourceTree = "<group>";
       };
       "OBJ_248" = {
          isa = "PBXGroup";
          children = (
             "OBJ_249",
+            "OBJ_260"
+         );
+         name = "Tools";
+         path = "Tools";
+         sourceTree = "<group>";
+      };
+      "OBJ_249" = {
+         isa = "PBXGroup";
+         children = (
             "OBJ_250",
             "OBJ_251",
             "OBJ_252",
@@ -1130,15 +1148,11 @@
             "OBJ_255",
             "OBJ_256",
             "OBJ_257",
-            "OBJ_258"
+            "OBJ_258",
+            "OBJ_259"
          );
          name = "Data Synchronisation";
          path = "Data Synchronisation";
-         sourceTree = "<group>";
-      };
-      "OBJ_249" = {
-         isa = "PBXFileReference";
-         path = "SSDataModifyCenterTests.swift";
          sourceTree = "<group>";
       };
       "OBJ_25" = {
@@ -1148,56 +1162,52 @@
       };
       "OBJ_250" = {
          isa = "PBXFileReference";
-         path = "SSDmBatchAdapterTests.swift";
+         path = "SSDataModifyCenterTests.swift";
          sourceTree = "<group>";
       };
       "OBJ_251" = {
          isa = "PBXFileReference";
-         path = "SSEntityDmMutatorTests.swift";
+         path = "SSDmBatchAdapterTests.swift";
          sourceTree = "<group>";
       };
       "OBJ_252" = {
          isa = "PBXFileReference";
-         path = "SSEntityRemoteMutatorTests.swift";
+         path = "SSEntityDmMutatorTests.swift";
          sourceTree = "<group>";
       };
       "OBJ_253" = {
          isa = "PBXFileReference";
-         path = "SSEntityStorageMutatorTests.swift";
+         path = "SSEntityRemoteMutatorTests.swift";
          sourceTree = "<group>";
       };
       "OBJ_254" = {
          isa = "PBXFileReference";
-         path = "SSEntityUpdaterTests.swift";
+         path = "SSEntityStorageMutatorTests.swift";
          sourceTree = "<group>";
       };
       "OBJ_255" = {
          isa = "PBXFileReference";
-         path = "SSSingleEntityProcessingTest.swift";
+         path = "SSEntityUpdaterTests.swift";
          sourceTree = "<group>";
       };
       "OBJ_256" = {
          isa = "PBXFileReference";
-         path = "SSUpdateCenterTests.swift";
+         path = "SSSingleEntityProcessingTest.swift";
          sourceTree = "<group>";
       };
       "OBJ_257" = {
          isa = "PBXFileReference";
-         path = "SSUpdateReceiverTests.swift";
+         path = "SSUpdateCenterTests.swift";
          sourceTree = "<group>";
       };
       "OBJ_258" = {
          isa = "PBXFileReference";
-         path = "SSUpdatesHelpers.swift";
+         path = "SSUpdateReceiverTests.swift";
          sourceTree = "<group>";
       };
       "OBJ_259" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_260"
-         );
-         name = "Network Communication";
-         path = "Network Communication";
+         isa = "PBXFileReference";
+         path = "SSUpdatesHelpers.swift";
          sourceTree = "<group>";
       };
       "OBJ_26" = {
@@ -1217,74 +1227,78 @@
       "OBJ_260" = {
          isa = "PBXGroup";
          children = (
-            "OBJ_261",
-            "OBJ_262"
+            "OBJ_261"
+         );
+         name = "Network Communication";
+         path = "Network Communication";
+         sourceTree = "<group>";
+      };
+      "OBJ_261" = {
+         isa = "PBXGroup";
+         children = (
+            "OBJ_262",
+            "OBJ_263"
          );
          name = "Api";
          path = "Api";
          sourceTree = "<group>";
       };
-      "OBJ_261" = {
+      "OBJ_262" = {
          isa = "PBXFileReference";
          path = "SSApiCallOptionstTests.swift";
          sourceTree = "<group>";
       };
-      "OBJ_262" = {
+      "OBJ_263" = {
          isa = "PBXFileReference";
          path = "SSRemoteApiTests.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_263" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_264",
-            "OBJ_272"
-         );
-         name = "Utils";
-         path = "Utils";
          sourceTree = "<group>";
       };
       "OBJ_264" = {
          isa = "PBXGroup";
          children = (
             "OBJ_265",
-            "OBJ_269",
-            "OBJ_270",
-            "OBJ_271"
+            "OBJ_273"
          );
-         name = "Key Coding";
-         path = "Key Coding";
+         name = "Utils";
+         path = "Utils";
          sourceTree = "<group>";
       };
       "OBJ_265" = {
          isa = "PBXGroup";
          children = (
             "OBJ_266",
+            "OBJ_270",
+            "OBJ_271",
+            "OBJ_272"
+         );
+         name = "Key Coding";
+         path = "Key Coding";
+         sourceTree = "<group>";
+      };
+      "OBJ_266" = {
+         isa = "PBXGroup";
+         children = (
             "OBJ_267",
-            "OBJ_268"
+            "OBJ_268",
+            "OBJ_269"
          );
          name = "Adapters";
          path = "Adapters";
          sourceTree = "<group>";
       };
-      "OBJ_266" = {
+      "OBJ_267" = {
          isa = "PBXFileReference";
          path = "ApiErrorConverterTests.swift";
          sourceTree = "<group>";
       };
-      "OBJ_267" = {
+      "OBJ_268" = {
          isa = "PBXFileReference";
          path = "ErrorConverterTests.swift";
          sourceTree = "<group>";
       };
-      "OBJ_268" = {
-         isa = "PBXFileReference";
-         path = "KeyFieldConverterTests.swift";
-         sourceTree = "<group>";
-      };
       "OBJ_269" = {
          isa = "PBXFileReference";
-         path = "KeyFieldTest.swift";
+         path = "KeyFieldConverterTests.swift";
          sourceTree = "<group>";
       };
       "OBJ_27" = {
@@ -1294,66 +1308,66 @@
       };
       "OBJ_270" = {
          isa = "PBXFileReference";
-         path = "KeyStoringPropTests.swift";
+         path = "KeyFieldTest.swift";
          sourceTree = "<group>";
       };
       "OBJ_271" = {
          isa = "PBXFileReference";
-         path = "StorageCoderTests.swift";
+         path = "KeyStoringPropTests.swift";
          sourceTree = "<group>";
       };
       "OBJ_272" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_273",
-            "OBJ_280"
-         );
-         name = "SSCustomSelection";
-         path = "SSCustomSelection";
+         isa = "PBXFileReference";
+         path = "StorageCoderTests.swift";
          sourceTree = "<group>";
       };
       "OBJ_273" = {
          isa = "PBXGroup";
          children = (
             "OBJ_274",
+            "OBJ_281"
+         );
+         name = "SSCustomSelection";
+         path = "SSCustomSelection";
+         sourceTree = "<group>";
+      };
+      "OBJ_274" = {
+         isa = "PBXGroup";
+         children = (
             "OBJ_275",
             "OBJ_276",
             "OBJ_277",
             "OBJ_278",
-            "OBJ_279"
+            "OBJ_279",
+            "OBJ_280"
          );
          name = "SSCollectionViewMarkableController";
          path = "SSCollectionViewMarkableController";
          sourceTree = "<group>";
       };
-      "OBJ_274" = {
+      "OBJ_275" = {
          isa = "PBXFileReference";
          path = "SSCollectionViewMarkableControllerActivateTC.swift";
          sourceTree = "<group>";
       };
-      "OBJ_275" = {
+      "OBJ_276" = {
          isa = "PBXFileReference";
          path = "SSCollectionViewMarkableControllerConfigCellTC.swift";
          sourceTree = "<group>";
       };
-      "OBJ_276" = {
+      "OBJ_277" = {
          isa = "PBXFileReference";
          path = "SSCollectionViewMarkableControllerDeactivateTC.swift";
          sourceTree = "<group>";
       };
-      "OBJ_277" = {
+      "OBJ_278" = {
          isa = "PBXFileReference";
          path = "SSCollectionViewMarkableControllerMarkTC.swift";
          sourceTree = "<group>";
       };
-      "OBJ_278" = {
-         isa = "PBXFileReference";
-         path = "SSCollectionViewMarkableControllerTestHelper.swift";
-         sourceTree = "<group>";
-      };
       "OBJ_279" = {
          isa = "PBXFileReference";
-         path = "SSCollectionViewMarkableControllerUnmarkTC.swift";
+         path = "SSCollectionViewMarkableControllerTestHelper.swift";
          sourceTree = "<group>";
       };
       "OBJ_28" = {
@@ -1362,9 +1376,13 @@
          sourceTree = "<group>";
       };
       "OBJ_280" = {
+         isa = "PBXFileReference";
+         path = "SSCollectionViewMarkableControllerUnmarkTC.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_281" = {
          isa = "PBXGroup";
          children = (
-            "OBJ_281",
             "OBJ_282",
             "OBJ_283",
             "OBJ_284",
@@ -1373,55 +1391,51 @@
             "OBJ_287",
             "OBJ_288",
             "OBJ_289",
-            "OBJ_290"
+            "OBJ_290",
+            "OBJ_291"
          );
          name = "SSMarkbaleCollectionCellHelper";
          path = "SSMarkbaleCollectionCellHelper";
          sourceTree = "<group>";
       };
-      "OBJ_281" = {
+      "OBJ_282" = {
          isa = "PBXFileReference";
          path = "SSMarkbaleCollectionCellHelperActivateActivatedTC.swift";
          sourceTree = "<group>";
       };
-      "OBJ_282" = {
+      "OBJ_283" = {
          isa = "PBXFileReference";
          path = "SSMarkbaleCollectionCellHelperActivateTC.swift";
          sourceTree = "<group>";
       };
-      "OBJ_283" = {
+      "OBJ_284" = {
          isa = "PBXFileReference";
          path = "SSMarkbaleCollectionCellHelperDeactivateDeactivatedTC.swift";
          sourceTree = "<group>";
       };
-      "OBJ_284" = {
+      "OBJ_285" = {
          isa = "PBXFileReference";
          path = "SSMarkbaleCollectionCellHelperDeactivateTC.swift";
          sourceTree = "<group>";
       };
-      "OBJ_285" = {
+      "OBJ_286" = {
          isa = "PBXFileReference";
          path = "SSMarkbaleCollectionCellHelperMarkMarkedTC.swift";
          sourceTree = "<group>";
       };
-      "OBJ_286" = {
+      "OBJ_287" = {
          isa = "PBXFileReference";
          path = "SSMarkbaleCollectionCellHelperMarkNonActiveTC.swift";
          sourceTree = "<group>";
       };
-      "OBJ_287" = {
+      "OBJ_288" = {
          isa = "PBXFileReference";
          path = "SSMarkbaleCollectionCellHelperMarkTC.swift";
          sourceTree = "<group>";
       };
-      "OBJ_288" = {
-         isa = "PBXFileReference";
-         path = "SSMarkbaleCollectionCellHelperTestHelper.swift";
-         sourceTree = "<group>";
-      };
       "OBJ_289" = {
          isa = "PBXFileReference";
-         path = "SSMarkbaleCollectionCellHelperUnmarkNonMarkedTC.swift";
+         path = "SSMarkbaleCollectionCellHelperTestHelper.swift";
          sourceTree = "<group>";
       };
       "OBJ_29" = {
@@ -1431,83 +1445,48 @@
       };
       "OBJ_290" = {
          isa = "PBXFileReference";
-         path = "SSMarkbaleCollectionCellHelperUnmarkTC.swift";
+         path = "SSMarkbaleCollectionCellHelperUnmarkNonMarkedTC.swift";
          sourceTree = "<group>";
       };
       "OBJ_291" = {
          isa = "PBXFileReference";
-         path = "XCTestManifests.swift";
+         path = "SSMarkbaleCollectionCellHelperUnmarkTC.swift";
          sourceTree = "<group>";
       };
       "OBJ_292" = {
+         isa = "PBXFileReference";
+         path = "XCTestManifests.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_293" = {
          isa = "PBXGroup";
          children = (
-            "SSSugar::SSSugarTests::Product",
-            "SSSugar::SSSugar::Product"
+            "SSSugar::SSSugar::Product",
+            "SSSugar::SSSugarTests::Product"
          );
          name = "Products";
          path = "";
          sourceTree = "BUILT_PRODUCTS_DIR";
       };
-      "OBJ_295" = {
+      "OBJ_296" = {
+         isa = "PBXFileReference";
+         path = "SSSugar_XCFramework";
+         sourceTree = "SOURCE_ROOT";
+      };
+      "OBJ_297" = {
+         isa = "PBXFileReference";
+         path = "SSCustomSelectionTests";
+         sourceTree = "SOURCE_ROOT";
+      };
+      "OBJ_298" = {
+         isa = "PBXFileReference";
+         path = "docs";
+         sourceTree = "SOURCE_ROOT";
+      };
+      "OBJ_299" = {
          isa = "PBXFileReference";
          path = "README.md";
          sourceTree = "<group>";
-      };
-      "OBJ_296" = {
-         isa = "PBXFileReference";
-         path = "build_fm.shell";
-         sourceTree = "<group>";
-      };
-      "OBJ_298" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_299",
-            "OBJ_300"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
-      };
-      "OBJ_299" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            ENABLE_TESTABILITY = "YES";
-            FRAMEWORK_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
-            );
-            HEADER_SEARCH_PATHS = (
-               "$(inherited)"
-            );
-            INFOPLIST_FILE = "SSSugar.xcodeproj/SSSugar_Info.plist";
-            IPHONEOS_DEPLOYMENT_TARGET = "11.0";
-            LD_RUNPATH_SEARCH_PATHS = (
-               "$(inherited)",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
-            );
-            MACOSX_DEPLOYMENT_TARGET = "11.0";
-            OTHER_CFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_LDFLAGS = (
-               "$(inherited)"
-            );
-            OTHER_SWIFT_FLAGS = (
-               "$(inherited)"
-            );
-            PRODUCT_BUNDLE_IDENTIFIER = "SSSugar";
-            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-            SKIP_INSTALL = "YES";
-            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
-               "$(inherited)"
-            );
-            SWIFT_VERSION = "5.0";
-            TARGET_NAME = "SSSugar";
-            TVOS_DEPLOYMENT_TARGET = "9.0";
-            WATCHOS_DEPLOYMENT_TARGET = "2.0";
-         };
-         name = "Debug";
       };
       "OBJ_3" = {
          isa = "XCBuildConfiguration";
@@ -1557,6 +1536,61 @@
          sourceTree = "<group>";
       };
       "OBJ_300" = {
+         isa = "PBXFileReference";
+         path = "build_fm.shell";
+         sourceTree = "<group>";
+      };
+      "OBJ_302" = {
+         isa = "XCConfigurationList";
+         buildConfigurations = (
+            "OBJ_303",
+            "OBJ_304"
+         );
+         defaultConfigurationIsVisible = "0";
+         defaultConfigurationName = "Release";
+      };
+      "OBJ_303" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+            ENABLE_TESTABILITY = "YES";
+            FRAMEWORK_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(PLATFORM_DIR)/Developer/Library/Frameworks"
+            );
+            HEADER_SEARCH_PATHS = (
+               "$(inherited)"
+            );
+            INFOPLIST_FILE = "SSSugar.xcodeproj/SSSugar_Info.plist";
+            IPHONEOS_DEPLOYMENT_TARGET = "11.0";
+            LD_RUNPATH_SEARCH_PATHS = (
+               "$(inherited)",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/macosx"
+            );
+            MACOSX_DEPLOYMENT_TARGET = "11.0";
+            OTHER_CFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_LDFLAGS = (
+               "$(inherited)"
+            );
+            OTHER_SWIFT_FLAGS = (
+               "$(inherited)"
+            );
+            PRODUCT_BUNDLE_IDENTIFIER = "SSSugar";
+            PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+            PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+            SKIP_INSTALL = "YES";
+            SWIFT_ACTIVE_COMPILATION_CONDITIONS = (
+               "$(inherited)"
+            );
+            SWIFT_VERSION = "5.0";
+            TARGET_NAME = "SSSugar";
+            TVOS_DEPLOYMENT_TARGET = "9.0";
+            WATCHOS_DEPLOYMENT_TARGET = "2.0";
+         };
+         name = "Debug";
+      };
+      "OBJ_304" = {
          isa = "XCBuildConfiguration";
          buildSettings = {
             ENABLE_TESTABILITY = "YES";
@@ -1597,13 +1631,9 @@
          };
          name = "Release";
       };
-      "OBJ_301" = {
+      "OBJ_305" = {
          isa = "PBXSourcesBuildPhase";
          files = (
-            "OBJ_302",
-            "OBJ_303",
-            "OBJ_304",
-            "OBJ_305",
             "OBJ_306",
             "OBJ_307",
             "OBJ_308",
@@ -1718,40 +1748,29 @@
             "OBJ_417",
             "OBJ_418",
             "OBJ_419",
-            "OBJ_420"
+            "OBJ_420",
+            "OBJ_421",
+            "OBJ_422",
+            "OBJ_423",
+            "OBJ_424",
+            "OBJ_425"
          );
-      };
-      "OBJ_302" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_13";
-      };
-      "OBJ_303" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_14";
-      };
-      "OBJ_304" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_16";
-      };
-      "OBJ_305" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_17";
       };
       "OBJ_306" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_19";
+         fileRef = "OBJ_13";
       };
       "OBJ_307" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_21";
+         fileRef = "OBJ_14";
       };
       "OBJ_308" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_24";
+         fileRef = "OBJ_16";
       };
       "OBJ_309" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_25";
+         fileRef = "OBJ_17";
       };
       "OBJ_31" = {
          isa = "PBXFileReference";
@@ -1760,43 +1779,43 @@
       };
       "OBJ_310" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_27";
+         fileRef = "OBJ_19";
       };
       "OBJ_311" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_28";
+         fileRef = "OBJ_21";
       };
       "OBJ_312" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_29";
+         fileRef = "OBJ_24";
       };
       "OBJ_313" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_30";
+         fileRef = "OBJ_25";
       };
       "OBJ_314" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_31";
+         fileRef = "OBJ_27";
       };
       "OBJ_315" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_32";
+         fileRef = "OBJ_28";
       };
       "OBJ_316" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_34";
+         fileRef = "OBJ_29";
       };
       "OBJ_317" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_35";
+         fileRef = "OBJ_30";
       };
       "OBJ_318" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_37";
+         fileRef = "OBJ_31";
       };
       "OBJ_319" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_38";
+         fileRef = "OBJ_32";
       };
       "OBJ_32" = {
          isa = "PBXFileReference";
@@ -1805,43 +1824,43 @@
       };
       "OBJ_320" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_40";
+         fileRef = "OBJ_34";
       };
       "OBJ_321" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_41";
+         fileRef = "OBJ_35";
       };
       "OBJ_322" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_43";
+         fileRef = "OBJ_37";
       };
       "OBJ_323" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_44";
+         fileRef = "OBJ_38";
       };
       "OBJ_324" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_46";
+         fileRef = "OBJ_40";
       };
       "OBJ_325" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_47";
+         fileRef = "OBJ_41";
       };
       "OBJ_326" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_48";
+         fileRef = "OBJ_43";
       };
       "OBJ_327" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_49";
+         fileRef = "OBJ_44";
       };
       "OBJ_328" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_50";
+         fileRef = "OBJ_46";
       };
       "OBJ_329" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_51";
+         fileRef = "OBJ_47";
       };
       "OBJ_33" = {
          isa = "PBXGroup";
@@ -1863,43 +1882,43 @@
       };
       "OBJ_330" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_52";
+         fileRef = "OBJ_48";
       };
       "OBJ_331" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_53";
+         fileRef = "OBJ_49";
       };
       "OBJ_332" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_54";
+         fileRef = "OBJ_50";
       };
       "OBJ_333" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_57";
+         fileRef = "OBJ_51";
       };
       "OBJ_334" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_58";
+         fileRef = "OBJ_52";
       };
       "OBJ_335" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_59";
+         fileRef = "OBJ_53";
       };
       "OBJ_336" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_61";
+         fileRef = "OBJ_54";
       };
       "OBJ_337" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_62";
+         fileRef = "OBJ_57";
       };
       "OBJ_338" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_63";
+         fileRef = "OBJ_58";
       };
       "OBJ_339" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_64";
+         fileRef = "OBJ_59";
       };
       "OBJ_34" = {
          isa = "PBXFileReference";
@@ -1908,43 +1927,43 @@
       };
       "OBJ_340" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_66";
+         fileRef = "OBJ_61";
       };
       "OBJ_341" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_68";
+         fileRef = "OBJ_62";
       };
       "OBJ_342" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_69";
+         fileRef = "OBJ_63";
       };
       "OBJ_343" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_70";
+         fileRef = "OBJ_64";
       };
       "OBJ_344" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_71";
+         fileRef = "OBJ_66";
       };
       "OBJ_345" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_72";
+         fileRef = "OBJ_68";
       };
       "OBJ_346" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_73";
+         fileRef = "OBJ_69";
       };
       "OBJ_347" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_74";
+         fileRef = "OBJ_70";
       };
       "OBJ_348" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_75";
+         fileRef = "OBJ_71";
       };
       "OBJ_349" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_76";
+         fileRef = "OBJ_72";
       };
       "OBJ_35" = {
          isa = "PBXFileReference";
@@ -1953,43 +1972,43 @@
       };
       "OBJ_350" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_77";
+         fileRef = "OBJ_73";
       };
       "OBJ_351" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_78";
+         fileRef = "OBJ_74";
       };
       "OBJ_352" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_79";
+         fileRef = "OBJ_75";
       };
       "OBJ_353" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_80";
+         fileRef = "OBJ_76";
       };
       "OBJ_354" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_81";
+         fileRef = "OBJ_77";
       };
       "OBJ_355" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_85";
+         fileRef = "OBJ_78";
       };
       "OBJ_356" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_86";
+         fileRef = "OBJ_79";
       };
       "OBJ_357" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_88";
+         fileRef = "OBJ_80";
       };
       "OBJ_358" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_89";
+         fileRef = "OBJ_81";
       };
       "OBJ_359" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_90";
+         fileRef = "OBJ_85";
       };
       "OBJ_36" = {
          isa = "PBXGroup";
@@ -2003,43 +2022,43 @@
       };
       "OBJ_360" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_91";
+         fileRef = "OBJ_86";
       };
       "OBJ_361" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_92";
+         fileRef = "OBJ_88";
       };
       "OBJ_362" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_93";
+         fileRef = "OBJ_89";
       };
       "OBJ_363" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_94";
+         fileRef = "OBJ_90";
       };
       "OBJ_364" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_95";
+         fileRef = "OBJ_91";
       };
       "OBJ_365" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_96";
+         fileRef = "OBJ_92";
       };
       "OBJ_366" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_97";
+         fileRef = "OBJ_93";
       };
       "OBJ_367" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_98";
+         fileRef = "OBJ_94";
       };
       "OBJ_368" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_102";
+         fileRef = "OBJ_95";
       };
       "OBJ_369" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_103";
+         fileRef = "OBJ_96";
       };
       "OBJ_37" = {
          isa = "PBXFileReference";
@@ -2048,43 +2067,43 @@
       };
       "OBJ_370" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_104";
+         fileRef = "OBJ_97";
       };
       "OBJ_371" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_105";
+         fileRef = "OBJ_98";
       };
       "OBJ_372" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_106";
+         fileRef = "OBJ_99";
       };
       "OBJ_373" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_107";
+         fileRef = "OBJ_103";
       };
       "OBJ_374" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_108";
+         fileRef = "OBJ_104";
       };
       "OBJ_375" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_109";
+         fileRef = "OBJ_105";
       };
       "OBJ_376" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_110";
+         fileRef = "OBJ_106";
       };
       "OBJ_377" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_111";
+         fileRef = "OBJ_107";
       };
       "OBJ_378" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_112";
+         fileRef = "OBJ_108";
       };
       "OBJ_379" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_113";
+         fileRef = "OBJ_109";
       };
       "OBJ_38" = {
          isa = "PBXFileReference";
@@ -2093,43 +2112,43 @@
       };
       "OBJ_380" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_114";
+         fileRef = "OBJ_110";
       };
       "OBJ_381" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_115";
+         fileRef = "OBJ_111";
       };
       "OBJ_382" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_116";
+         fileRef = "OBJ_112";
       };
       "OBJ_383" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_118";
+         fileRef = "OBJ_113";
       };
       "OBJ_384" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_119";
+         fileRef = "OBJ_114";
       };
       "OBJ_385" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_120";
+         fileRef = "OBJ_115";
       };
       "OBJ_386" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_121";
+         fileRef = "OBJ_116";
       };
       "OBJ_387" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_122";
+         fileRef = "OBJ_117";
       };
       "OBJ_388" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_123";
+         fileRef = "OBJ_119";
       };
       "OBJ_389" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_124";
+         fileRef = "OBJ_120";
       };
       "OBJ_39" = {
          isa = "PBXGroup";
@@ -2142,43 +2161,43 @@
       };
       "OBJ_390" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_125";
+         fileRef = "OBJ_121";
       };
       "OBJ_391" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_126";
+         fileRef = "OBJ_122";
       };
       "OBJ_392" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_127";
+         fileRef = "OBJ_123";
       };
       "OBJ_393" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_128";
+         fileRef = "OBJ_124";
       };
       "OBJ_394" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_129";
+         fileRef = "OBJ_125";
       };
       "OBJ_395" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_130";
+         fileRef = "OBJ_126";
       };
       "OBJ_396" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_131";
+         fileRef = "OBJ_127";
       };
       "OBJ_397" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_134";
+         fileRef = "OBJ_128";
       };
       "OBJ_398" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_135";
+         fileRef = "OBJ_129";
       };
       "OBJ_399" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_136";
+         fileRef = "OBJ_130";
       };
       "OBJ_4" = {
          isa = "XCBuildConfiguration";
@@ -2225,43 +2244,43 @@
       };
       "OBJ_400" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_137";
+         fileRef = "OBJ_131";
       };
       "OBJ_401" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_138";
+         fileRef = "OBJ_132";
       };
       "OBJ_402" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_139";
+         fileRef = "OBJ_135";
       };
       "OBJ_403" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_140";
+         fileRef = "OBJ_136";
       };
       "OBJ_404" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_141";
+         fileRef = "OBJ_137";
       };
       "OBJ_405" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_142";
+         fileRef = "OBJ_138";
       };
       "OBJ_406" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_145";
+         fileRef = "OBJ_139";
       };
       "OBJ_407" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_146";
+         fileRef = "OBJ_140";
       };
       "OBJ_408" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_147";
+         fileRef = "OBJ_141";
       };
       "OBJ_409" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_148";
+         fileRef = "OBJ_142";
       };
       "OBJ_41" = {
          isa = "PBXFileReference";
@@ -2270,43 +2289,43 @@
       };
       "OBJ_410" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_151";
+         fileRef = "OBJ_143";
       };
       "OBJ_411" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_152";
+         fileRef = "OBJ_146";
       };
       "OBJ_412" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_153";
+         fileRef = "OBJ_147";
       };
       "OBJ_413" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_154";
+         fileRef = "OBJ_148";
       };
       "OBJ_414" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_155";
+         fileRef = "OBJ_149";
       };
       "OBJ_415" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_156";
+         fileRef = "OBJ_152";
       };
       "OBJ_416" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_157";
+         fileRef = "OBJ_153";
       };
       "OBJ_417" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_158";
+         fileRef = "OBJ_154";
       };
       "OBJ_418" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_159";
+         fileRef = "OBJ_155";
       };
       "OBJ_419" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_160";
+         fileRef = "OBJ_156";
       };
       "OBJ_42" = {
          isa = "PBXGroup";
@@ -2320,23 +2339,43 @@
       };
       "OBJ_420" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_162";
+         fileRef = "OBJ_157";
       };
       "OBJ_421" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_158";
+      };
+      "OBJ_422" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_159";
+      };
+      "OBJ_423" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_160";
+      };
+      "OBJ_424" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_161";
+      };
+      "OBJ_425" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_163";
+      };
+      "OBJ_426" = {
          isa = "PBXFrameworksBuildPhase";
          files = (
          );
       };
-      "OBJ_423" = {
+      "OBJ_428" = {
          isa = "XCConfigurationList";
          buildConfigurations = (
-            "OBJ_424",
-            "OBJ_425"
+            "OBJ_429",
+            "OBJ_430"
          );
          defaultConfigurationIsVisible = "0";
          defaultConfigurationName = "Release";
       };
-      "OBJ_424" = {
+      "OBJ_429" = {
          isa = "XCBuildConfiguration";
          buildSettings = {
             LD = "/usr/bin/true";
@@ -2353,43 +2392,6 @@
             SWIFT_VERSION = "5.0";
          };
          name = "Debug";
-      };
-      "OBJ_425" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
-            LD = "/usr/bin/true";
-            OTHER_SWIFT_FLAGS = (
-               "-swift-version",
-               "5",
-               "-I",
-               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
-               "-sdk",
-               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk",
-               "-package-description-version",
-               "5.3.0"
-            );
-            SWIFT_VERSION = "5.0";
-         };
-         name = "Release";
-      };
-      "OBJ_426" = {
-         isa = "PBXSourcesBuildPhase";
-         files = (
-            "OBJ_427"
-         );
-      };
-      "OBJ_427" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_6";
-      };
-      "OBJ_429" = {
-         isa = "XCConfigurationList";
-         buildConfigurations = (
-            "OBJ_430",
-            "OBJ_431"
-         );
-         defaultConfigurationIsVisible = "0";
-         defaultConfigurationName = "Release";
       };
       "OBJ_43" = {
          isa = "PBXFileReference";
@@ -2399,18 +2401,30 @@
       "OBJ_430" = {
          isa = "XCBuildConfiguration";
          buildSettings = {
-         };
-         name = "Debug";
-      };
-      "OBJ_431" = {
-         isa = "XCBuildConfiguration";
-         buildSettings = {
+            LD = "/usr/bin/true";
+            OTHER_SWIFT_FLAGS = (
+               "-swift-version",
+               "5",
+               "-I",
+               "$(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2",
+               "-sdk",
+               "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk",
+               "-package-description-version",
+               "5.3.0"
+            );
+            SWIFT_VERSION = "5.0";
          };
          name = "Release";
       };
+      "OBJ_431" = {
+         isa = "PBXSourcesBuildPhase";
+         files = (
+            "OBJ_432"
+         );
+      };
       "OBJ_432" = {
-         isa = "PBXTargetDependency";
-         target = "SSSugar::SSSugarTests";
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_6";
       };
       "OBJ_434" = {
          isa = "XCConfigurationList";
@@ -2424,6 +2438,36 @@
       "OBJ_435" = {
          isa = "XCBuildConfiguration";
          buildSettings = {
+         };
+         name = "Debug";
+      };
+      "OBJ_436" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
+         };
+         name = "Release";
+      };
+      "OBJ_437" = {
+         isa = "PBXTargetDependency";
+         target = "SSSugar::SSSugarTests";
+      };
+      "OBJ_439" = {
+         isa = "XCConfigurationList";
+         buildConfigurations = (
+            "OBJ_440",
+            "OBJ_441"
+         );
+         defaultConfigurationIsVisible = "0";
+         defaultConfigurationName = "Release";
+      };
+      "OBJ_44" = {
+         isa = "PBXFileReference";
+         path = "RandomNumberGenerator.swift";
+         sourceTree = "<group>";
+      };
+      "OBJ_440" = {
+         isa = "XCBuildConfiguration";
+         buildSettings = {
             CLANG_ENABLE_MODULES = "YES";
             EMBEDDED_CONTENT_CONTAINS_SWIFT = "YES";
             FRAMEWORK_SEARCH_PATHS = (
@@ -2460,7 +2504,7 @@
          };
          name = "Debug";
       };
-      "OBJ_436" = {
+      "OBJ_441" = {
          isa = "XCBuildConfiguration";
          buildSettings = {
             CLANG_ENABLE_MODULES = "YES";
@@ -2499,14 +2543,9 @@
          };
          name = "Release";
       };
-      "OBJ_437" = {
+      "OBJ_442" = {
          isa = "PBXSourcesBuildPhase";
          files = (
-            "OBJ_438",
-            "OBJ_439",
-            "OBJ_440",
-            "OBJ_441",
-            "OBJ_442",
             "OBJ_443",
             "OBJ_444",
             "OBJ_445",
@@ -2601,61 +2640,41 @@
             "OBJ_534",
             "OBJ_535",
             "OBJ_536",
-            "OBJ_537"
+            "OBJ_537",
+            "OBJ_538",
+            "OBJ_539",
+            "OBJ_540",
+            "OBJ_541",
+            "OBJ_542"
          );
-      };
-      "OBJ_438" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_168";
-      };
-      "OBJ_439" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_169";
-      };
-      "OBJ_44" = {
-         isa = "PBXFileReference";
-         path = "RandomNumberGenerator.swift";
-         sourceTree = "<group>";
-      };
-      "OBJ_440" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_170";
-      };
-      "OBJ_441" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_171";
-      };
-      "OBJ_442" = {
-         isa = "PBXBuildFile";
-         fileRef = "OBJ_172";
       };
       "OBJ_443" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_173";
+         fileRef = "OBJ_169";
       };
       "OBJ_444" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_174";
+         fileRef = "OBJ_170";
       };
       "OBJ_445" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_175";
+         fileRef = "OBJ_171";
       };
       "OBJ_446" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_176";
+         fileRef = "OBJ_172";
       };
       "OBJ_447" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_177";
+         fileRef = "OBJ_173";
       };
       "OBJ_448" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_178";
+         fileRef = "OBJ_174";
       };
       "OBJ_449" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_179";
+         fileRef = "OBJ_175";
       };
       "OBJ_45" = {
          isa = "PBXGroup";
@@ -2675,43 +2694,43 @@
       };
       "OBJ_450" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_180";
+         fileRef = "OBJ_176";
       };
       "OBJ_451" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_181";
+         fileRef = "OBJ_177";
       };
       "OBJ_452" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_182";
+         fileRef = "OBJ_178";
       };
       "OBJ_453" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_183";
+         fileRef = "OBJ_179";
       };
       "OBJ_454" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_184";
+         fileRef = "OBJ_180";
       };
       "OBJ_455" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_185";
+         fileRef = "OBJ_181";
       };
       "OBJ_456" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_186";
+         fileRef = "OBJ_182";
       };
       "OBJ_457" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_188";
+         fileRef = "OBJ_183";
       };
       "OBJ_458" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_189";
+         fileRef = "OBJ_184";
       };
       "OBJ_459" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_191";
+         fileRef = "OBJ_185";
       };
       "OBJ_46" = {
          isa = "PBXFileReference";
@@ -2720,43 +2739,43 @@
       };
       "OBJ_460" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_192";
+         fileRef = "OBJ_186";
       };
       "OBJ_461" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_196";
+         fileRef = "OBJ_187";
       };
       "OBJ_462" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_197";
+         fileRef = "OBJ_189";
       };
       "OBJ_463" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_198";
+         fileRef = "OBJ_190";
       };
       "OBJ_464" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_199";
+         fileRef = "OBJ_192";
       };
       "OBJ_465" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_200";
+         fileRef = "OBJ_193";
       };
       "OBJ_466" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_201";
+         fileRef = "OBJ_197";
       };
       "OBJ_467" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_202";
+         fileRef = "OBJ_198";
       };
       "OBJ_468" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_204";
+         fileRef = "OBJ_199";
       };
       "OBJ_469" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_205";
+         fileRef = "OBJ_200";
       };
       "OBJ_47" = {
          isa = "PBXFileReference";
@@ -2765,43 +2784,43 @@
       };
       "OBJ_470" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_206";
+         fileRef = "OBJ_201";
       };
       "OBJ_471" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_207";
+         fileRef = "OBJ_202";
       };
       "OBJ_472" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_208";
+         fileRef = "OBJ_203";
       };
       "OBJ_473" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_210";
+         fileRef = "OBJ_205";
       };
       "OBJ_474" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_211";
+         fileRef = "OBJ_206";
       };
       "OBJ_475" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_212";
+         fileRef = "OBJ_207";
       };
       "OBJ_476" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_213";
+         fileRef = "OBJ_208";
       };
       "OBJ_477" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_214";
+         fileRef = "OBJ_209";
       };
       "OBJ_478" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_215";
+         fileRef = "OBJ_211";
       };
       "OBJ_479" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_217";
+         fileRef = "OBJ_212";
       };
       "OBJ_48" = {
          isa = "PBXFileReference";
@@ -2810,43 +2829,43 @@
       };
       "OBJ_480" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_220";
+         fileRef = "OBJ_213";
       };
       "OBJ_481" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_221";
+         fileRef = "OBJ_214";
       };
       "OBJ_482" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_222";
+         fileRef = "OBJ_215";
       };
       "OBJ_483" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_223";
+         fileRef = "OBJ_216";
       };
       "OBJ_484" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_225";
+         fileRef = "OBJ_218";
       };
       "OBJ_485" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_226";
+         fileRef = "OBJ_221";
       };
       "OBJ_486" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_227";
+         fileRef = "OBJ_222";
       };
       "OBJ_487" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_228";
+         fileRef = "OBJ_223";
       };
       "OBJ_488" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_229";
+         fileRef = "OBJ_224";
       };
       "OBJ_489" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_230";
+         fileRef = "OBJ_226";
       };
       "OBJ_49" = {
          isa = "PBXFileReference";
@@ -2855,53 +2874,56 @@
       };
       "OBJ_490" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_232";
+         fileRef = "OBJ_227";
       };
       "OBJ_491" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_233";
+         fileRef = "OBJ_228";
       };
       "OBJ_492" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_234";
+         fileRef = "OBJ_229";
       };
       "OBJ_493" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_235";
+         fileRef = "OBJ_230";
       };
       "OBJ_494" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_236";
+         fileRef = "OBJ_231";
       };
       "OBJ_495" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_237";
+         fileRef = "OBJ_233";
       };
       "OBJ_496" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_238";
+         fileRef = "OBJ_234";
       };
       "OBJ_497" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_239";
+         fileRef = "OBJ_235";
       };
       "OBJ_498" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_240";
+         fileRef = "OBJ_236";
       };
       "OBJ_499" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_242";
+         fileRef = "OBJ_237";
       };
       "OBJ_5" = {
          isa = "PBXGroup";
          children = (
             "OBJ_6",
             "OBJ_7",
-            "OBJ_163",
-            "OBJ_292",
-            "OBJ_295",
-            "OBJ_296"
+            "OBJ_164",
+            "OBJ_293",
+            "OBJ_296",
+            "OBJ_297",
+            "OBJ_298",
+            "OBJ_299",
+            "OBJ_300"
          );
          path = "";
          sourceTree = "<group>";
@@ -2913,43 +2935,43 @@
       };
       "OBJ_500" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_244";
+         fileRef = "OBJ_238";
       };
       "OBJ_501" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_245";
+         fileRef = "OBJ_239";
       };
       "OBJ_502" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_246";
+         fileRef = "OBJ_240";
       };
       "OBJ_503" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_249";
+         fileRef = "OBJ_241";
       };
       "OBJ_504" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_250";
+         fileRef = "OBJ_243";
       };
       "OBJ_505" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_251";
+         fileRef = "OBJ_245";
       };
       "OBJ_506" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_252";
+         fileRef = "OBJ_246";
       };
       "OBJ_507" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_253";
+         fileRef = "OBJ_247";
       };
       "OBJ_508" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_254";
+         fileRef = "OBJ_250";
       };
       "OBJ_509" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_255";
+         fileRef = "OBJ_251";
       };
       "OBJ_51" = {
          isa = "PBXFileReference";
@@ -2958,43 +2980,43 @@
       };
       "OBJ_510" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_256";
+         fileRef = "OBJ_252";
       };
       "OBJ_511" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_257";
+         fileRef = "OBJ_253";
       };
       "OBJ_512" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_258";
+         fileRef = "OBJ_254";
       };
       "OBJ_513" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_261";
+         fileRef = "OBJ_255";
       };
       "OBJ_514" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_262";
+         fileRef = "OBJ_256";
       };
       "OBJ_515" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_266";
+         fileRef = "OBJ_257";
       };
       "OBJ_516" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_267";
+         fileRef = "OBJ_258";
       };
       "OBJ_517" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_268";
+         fileRef = "OBJ_259";
       };
       "OBJ_518" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_269";
+         fileRef = "OBJ_262";
       };
       "OBJ_519" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_270";
+         fileRef = "OBJ_263";
       };
       "OBJ_52" = {
          isa = "PBXFileReference";
@@ -3003,43 +3025,43 @@
       };
       "OBJ_520" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_271";
+         fileRef = "OBJ_267";
       };
       "OBJ_521" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_274";
+         fileRef = "OBJ_268";
       };
       "OBJ_522" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_275";
+         fileRef = "OBJ_269";
       };
       "OBJ_523" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_276";
+         fileRef = "OBJ_270";
       };
       "OBJ_524" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_277";
+         fileRef = "OBJ_271";
       };
       "OBJ_525" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_278";
+         fileRef = "OBJ_272";
       };
       "OBJ_526" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_279";
+         fileRef = "OBJ_275";
       };
       "OBJ_527" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_281";
+         fileRef = "OBJ_276";
       };
       "OBJ_528" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_282";
+         fileRef = "OBJ_277";
       };
       "OBJ_529" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_283";
+         fileRef = "OBJ_278";
       };
       "OBJ_53" = {
          isa = "PBXFileReference";
@@ -3048,45 +3070,43 @@
       };
       "OBJ_530" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_284";
+         fileRef = "OBJ_279";
       };
       "OBJ_531" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_285";
+         fileRef = "OBJ_280";
       };
       "OBJ_532" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_286";
+         fileRef = "OBJ_282";
       };
       "OBJ_533" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_287";
+         fileRef = "OBJ_283";
       };
       "OBJ_534" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_288";
+         fileRef = "OBJ_284";
       };
       "OBJ_535" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_289";
+         fileRef = "OBJ_285";
       };
       "OBJ_536" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_290";
+         fileRef = "OBJ_286";
       };
       "OBJ_537" = {
          isa = "PBXBuildFile";
-         fileRef = "OBJ_291";
+         fileRef = "OBJ_287";
       };
       "OBJ_538" = {
-         isa = "PBXFrameworksBuildPhase";
-         files = (
-            "OBJ_539"
-         );
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_288";
       };
       "OBJ_539" = {
          isa = "PBXBuildFile";
-         fileRef = "SSSugar::SSSugar::Product";
+         fileRef = "OBJ_289";
       };
       "OBJ_54" = {
          isa = "PBXFileReference";
@@ -3094,6 +3114,28 @@
          sourceTree = "<group>";
       };
       "OBJ_540" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_290";
+      };
+      "OBJ_541" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_291";
+      };
+      "OBJ_542" = {
+         isa = "PBXBuildFile";
+         fileRef = "OBJ_292";
+      };
+      "OBJ_543" = {
+         isa = "PBXFrameworksBuildPhase";
+         files = (
+            "OBJ_544"
+         );
+      };
+      "OBJ_544" = {
+         isa = "PBXBuildFile";
+         fileRef = "SSSugar::SSSugar::Product";
+      };
+      "OBJ_545" = {
          isa = "PBXTargetDependency";
          target = "SSSugar::SSSugar";
       };
@@ -3284,7 +3326,7 @@
             "OBJ_80",
             "OBJ_81",
             "OBJ_82",
-            "OBJ_143"
+            "OBJ_144"
          );
          name = "SSSugar";
          path = "Sources/SSSugar";
@@ -3304,8 +3346,8 @@
          isa = "PBXGroup";
          children = (
             "OBJ_83",
-            "OBJ_99",
-            "OBJ_132"
+            "OBJ_100",
+            "OBJ_133"
          );
          name = "Tools";
          path = "Tools";
@@ -3325,7 +3367,8 @@
             "OBJ_95",
             "OBJ_96",
             "OBJ_97",
-            "OBJ_98"
+            "OBJ_98",
+            "OBJ_99"
          );
          name = "Data Base";
          path = "Data Base";
@@ -3367,7 +3410,7 @@
       };
       "OBJ_89" = {
          isa = "PBXFileReference";
-         path = "SSDBStatementProcessor.swift";
+         path = "SSDBColType.swift";
          sourceTree = "<group>";
       };
       "OBJ_9" = {
@@ -3377,74 +3420,60 @@
       };
       "OBJ_90" = {
          isa = "PBXFileReference";
-         path = "SSDataBase.swift";
+         path = "SSDBStatementProcessor.swift";
          sourceTree = "<group>";
       };
       "OBJ_91" = {
          isa = "PBXFileReference";
-         path = "SSDataBaseConnection.swift";
+         path = "SSDataBase.swift";
          sourceTree = "<group>";
       };
       "OBJ_92" = {
          isa = "PBXFileReference";
-         path = "SSDataBaseProtocols.swift";
+         path = "SSDataBaseConnection.swift";
          sourceTree = "<group>";
       };
       "OBJ_93" = {
          isa = "PBXFileReference";
-         path = "SSDataBaseSavePoint.swift";
+         path = "SSDataBaseProtocols.swift";
          sourceTree = "<group>";
       };
       "OBJ_94" = {
          isa = "PBXFileReference";
-         path = "SSDataBaseStatement.swift";
+         path = "SSDataBaseSavePoint.swift";
          sourceTree = "<group>";
       };
       "OBJ_95" = {
          isa = "PBXFileReference";
-         path = "SSDataBaseStatementCacheHolder.swift";
+         path = "SSDataBaseStatement.swift";
          sourceTree = "<group>";
       };
       "OBJ_96" = {
          isa = "PBXFileReference";
-         path = "SSDataBaseStatemntCache.swift";
+         path = "SSDataBaseStatementCacheHolder.swift";
          sourceTree = "<group>";
       };
       "OBJ_97" = {
          isa = "PBXFileReference";
-         path = "SSDataBaseTransaction.swift";
+         path = "SSDataBaseStatemntCache.swift";
          sourceTree = "<group>";
       };
       "OBJ_98" = {
          isa = "PBXFileReference";
-         path = "SSDataBaseTransactionController.swift";
+         path = "SSDataBaseTransaction.swift";
          sourceTree = "<group>";
       };
       "OBJ_99" = {
-         isa = "PBXGroup";
-         children = (
-            "OBJ_100",
-            "OBJ_117",
-            "OBJ_123",
-            "OBJ_124",
-            "OBJ_125",
-            "OBJ_126",
-            "OBJ_127",
-            "OBJ_128",
-            "OBJ_129",
-            "OBJ_130",
-            "OBJ_131"
-         );
-         name = "Data Synchronisation";
-         path = "Data Synchronisation";
+         isa = "PBXFileReference";
+         path = "SSDataBaseTransactionController.swift";
          sourceTree = "<group>";
       };
       "SSSugar::SSSugar" = {
          isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_298";
+         buildConfigurationList = "OBJ_302";
          buildPhases = (
-            "OBJ_301",
-            "OBJ_421"
+            "OBJ_305",
+            "OBJ_426"
          );
          dependencies = (
          );
@@ -3460,24 +3489,24 @@
       };
       "SSSugar::SSSugarPackageTests::ProductTarget" = {
          isa = "PBXAggregateTarget";
-         buildConfigurationList = "OBJ_429";
+         buildConfigurationList = "OBJ_434";
          buildPhases = (
          );
          dependencies = (
-            "OBJ_432"
+            "OBJ_437"
          );
          name = "SSSugarPackageTests";
          productName = "SSSugarPackageTests";
       };
       "SSSugar::SSSugarTests" = {
          isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_434";
+         buildConfigurationList = "OBJ_439";
          buildPhases = (
-            "OBJ_437",
-            "OBJ_538"
+            "OBJ_442",
+            "OBJ_543"
          );
          dependencies = (
-            "OBJ_540"
+            "OBJ_545"
          );
          name = "SSSugarTests";
          productName = "SSSugarTests";
@@ -3491,9 +3520,9 @@
       };
       "SSSugar::SwiftPMPackageDescription" = {
          isa = "PBXNativeTarget";
-         buildConfigurationList = "OBJ_423";
+         buildConfigurationList = "OBJ_428";
          buildPhases = (
-            "OBJ_426"
+            "OBJ_431"
          );
          dependencies = (
          );
