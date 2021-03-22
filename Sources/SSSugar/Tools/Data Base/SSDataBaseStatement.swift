@@ -1,139 +1,216 @@
 import Foundation
 import SQLite3
 
-//Error's code list
-//https://www.sqlite.org/rescode.html
-
-/// Bind and get starts from zero
+/// SQLITE3 statemnet wrapper
+///
+/// Bind and get starts from zero.
+///
+/// # Links
+/// Error's code [list](https://www.sqlite.org/rescode.html)
+///
 public class SSDataBaseStatement {
-    public enum IError: Error {
-        case cantCompile(sqliteCode: Int, msg: String)
-        case outOfMemory
-        case commitError(sqliteCode: Int)
-    }
-    private (set) var stmt: OpaquePointer!
+    static let SQLITE_STATIC = unsafeBitCast(0, to: sqlite3_destructor_type.self)
+    static let SQLITE_TRANSIENT = unsafeBitCast(-1, to: sqlite3_destructor_type.self)
     
-    public init(query: String, db: OpaquePointer) throws {
-        let result = sqlite3_prepare_v2(db, query, -1, &stmt, nil)
+    private (set) var stmt: OpaquePointer?
+    private (set) var selectColumsCount: Int!
+    private (set) var hasData: Bool = false
+    var db: OpaquePointer
+    var isReleased: Bool { stmt == nil }
+    
+    public init(query: String, db dataBase: OpaquePointer) throws {
+        let result = sqlite3_prepare_v2(dataBase, query, -1, &stmt, nil)
         
-        guard result == SQLITE_OK else {
-            throw IError.cantCompile(sqliteCode: Int(result), msg:String(cString: sqlite3_errmsg(db)))
+        guard result == SQLITE_OK, stmt != nil else {
+            throw StatementError.cantCompile(code: Int(result), msg: Self.errorMessage(db: dataBase))
+        }
+        db = dataBase
+    }
+    
+    public func lastOccuredError() -> (code: Int, message: String) {
+        return (Self.errorCode(db: db), Self.errorMessage(db: db))
+    }
+    
+    private static func errorCode(db: OpaquePointer) -> Int {
+        return Int(sqlite3_errcode(db))
+    }
+    
+    private static func errorMessage(db: OpaquePointer) -> String {
+        return String(cString: sqlite3_errmsg(db))
+    }
+    
+    private func ensureNotReleased() throws {
+        guard !isReleased else {
+            throw StatementError.alreadyReleased
+        }
+    }
+    
+    private func selectError(code: Int32) -> StatementError {
+        return .selectError(code: Int(code), msg: lastOccuredError().message)
+    }
+    
+    private func commitError(code: Int32) -> StatementError {
+        return .commitError(code: Int(code), msg: lastOccuredError().message)
+    }
+}
+
+extension SSDataBaseStatement: SSDataBaseStatementProtocol {
+    public func select() throws -> Bool {
+        try ensureNotReleased()
+        
+        func onRow() {
+            if (selectColumsCount == nil) {
+                selectColumsCount = Int(sqlite3_column_count(stmt))
+            }
+            hasData = true
+        }
+        
+        switch sqlite3_step(stmt) {
+        case SQLITE_ROW: onRow()
+        case SQLITE_DONE: hasData = false
+        case let code: throw selectError(code: code)
+        }
+        return hasData
+    }
+    
+    public func commit() throws {
+        try ensureNotReleased()
+        
+        switch sqlite3_step(stmt) {
+        case SQLITE_DONE: sqlite3_reset(stmt)
+        case SQLITE_FULL: throw StatementError.outOfMemory
+        case let code: throw commitError(code: code)
+        }
+    }
+    
+    public func clear() throws {
+        try ensureNotReleased()
+        sqlite3_clear_bindings(stmt)
+    }
+}
+
+//MARK: - SSReleasable
+
+extension SSDataBaseStatement {
+    public func release() {
+        if (!isReleased) {
+            sqlite3_finalize(stmt)
+            hasData = false
+            stmt = nil
         }
     }
 }
 
-extension SSDataBaseStatement : SSDataBaseStatementProtocol {
-    static let SQLITE_STATIC = unsafeBitCast(0, to: sqlite3_destructor_type.self)
-    static let SQLITE_TRANSIENT = unsafeBitCast(-1, to: sqlite3_destructor_type.self)
+//MARK: - SSDataBaseBindingStatement
+
+extension SSDataBaseStatement {
+    public func bind(int: Int, pos: Int) throws {
+        try process() { sqlite3_bind_int(stmt, Int32(pos+1), Int32(int)) }
+    }
+
+    public func bind(int64: Int64, pos: Int) throws {
+        try process() { sqlite3_bind_int64(stmt, Int32(pos+1), int64) }
+    }
+
+    public func bind(double: Double, pos: Int) throws {
+        try process() { sqlite3_bind_double(stmt, Int32(pos+1), double) }
+    }
     
-    public func bind(int: Int, pos: Int) {
-        guard sqlite3_bind_int(stmt, Int32(pos+1), Int32(int)) == SQLITE_OK else {
-            fatalError("Can't bind value")
+    public func bind(string: String, pos: Int) throws {
+        try process() {
+            sqlite3_bind_text(stmt, Int32(pos+1), string, -1, SSDataBaseStatement.SQLITE_TRANSIENT)
         }
     }
     
-    public func bind(int64: Int64, pos: Int) {
-        guard sqlite3_bind_int64(stmt, Int32(pos+1), int64) == SQLITE_OK else {
-            fatalError("Can't bind value")
-        }
-    }
-    
-    public func bind(double: Double, pos: Int) {
-        guard sqlite3_bind_double(stmt, Int32(pos+1), double) == SQLITE_OK else {
-            fatalError("Can't bind value")
-        }
-    }
-    
-    public func bind(string: String, pos: Int) {
-        guard sqlite3_bind_text(stmt, Int32(pos+1), string, -1, SSDataBaseStatement.SQLITE_TRANSIENT) == SQLITE_OK else {
-            fatalError("Can't bind value")
-        }
-    }
-    
-    public func bind(data: Data, pos: Int) {
-        //TODO: Remake it after Swift 5.1 migration
-        let result = data.withUnsafeBytes { sqlite3_bind_blob(stmt, Int32(pos+1), $0, Int32(data.count), SSDataBaseStatement.SQLITE_TRANSIENT) }
-        
-        guard result == SQLITE_OK else {
-            fatalError("Can't bind value")
-        }
-    }
-    
-    public func bindNull(pos: Int) {
-        guard sqlite3_bind_null(stmt, Int32(pos+1)) == SQLITE_OK else {
-            fatalError("Can't bind null")
-        }
-    }
-    
-    public func getInt(pos: Int) -> Int {
-        return Int(sqlite3_column_int(stmt, Int32(pos)))
-    }
-    
-    public func getIntOp(pos: Int) -> Int? {
-        getOptional(pos: pos, onNotNull: getInt(pos:))
-    }
-    
-    public func getInt64(pos: Int) -> Int64 {
-        return Int64(sqlite3_column_int64(stmt, Int32(pos)))
-    }
-    
-    public func getInt64Op(pos: Int) -> Int64? {
-        getOptional(pos: pos, onNotNull: getInt64(pos:))
-    }
-    
-    public func getDouble(pos: Int) -> Double {
-        return Double(sqlite3_column_double(stmt, Int32(pos)))
-    }
-    
-    public func getDoubleOp(pos: Int) -> Double? {
-        getOptional(pos: pos, onNotNull: getDouble(pos:))
-    }
-    
-    public func getString(pos: Int) -> String? {
-        guard let ptr = sqlite3_column_text(stmt, Int32(pos)) else {
-            return nil
-        }
-        return String(cString: ptr)
-    }
-    
-    public func getData(pos: Int) -> Data? {
-        guard let ptr = sqlite3_column_blob(stmt, Int32(pos)) else {
-            return nil
-        }
-        return Data(bytes: ptr, count: Int(sqlite3_column_bytes(stmt, Int32(pos))))
-    }
-    
-    public func select() -> Bool {
-        return sqlite3_step(stmt) == SQLITE_ROW
-    }
-    
-    public func commit() throws {
-        let result = sqlite3_step(stmt)
-        
-        sqlite3_reset(stmt)
-        
-        guard result != SQLITE_OK else {
-            if (result == SQLITE_FULL) {
-                throw IError.outOfMemory
+    public func bind(data: Data, pos: Int) throws {
+        try process() {
+            func onData(_ ptr: UnsafeRawBufferPointer) -> Int32 {
+                sqlite3_bind_blob(stmt, Int32(pos+1), ptr.baseAddress, Int32(data.count), SSDataBaseStatement.SQLITE_TRANSIENT)
             }
-            throw IError.commitError(sqliteCode: Int(result))
+            return data.withUnsafeBytes(onData(_:))
         }
     }
     
-    public func clear() {
-        sqlite3_clear_bindings(stmt)
+    public func bindNull(pos: Int) throws {
+        try process() { sqlite3_bind_null(stmt, Int32(pos+1)) }
     }
     
-    public func release() {
-        sqlite3_finalize(stmt)
+    //MARK: private
+    
+    private func process(bind: () -> Int32 ) throws {
+        try ensureNotReleased()
+
+        switch bind() {
+        case SQLITE_OK: break;
+        case SQLITE_RANGE: throw StatementError.indexOutOfRange
+        case let code: throw bindError(code: code)
+        }
     }
     
-    private func getOptional<T>(pos: Int, onNotNull: (Int)->T) -> T? {
-        guard typeIsNotNull(pos: pos) else { return nil }
-        return onNotNull(pos)
+    private func bindError(code: Int32) -> StatementError {
+        return .commitError(code: Int(code), msg: lastOccuredError().message)
+    }
+}
+
+//MARK: - SSDataBaseGettingStatement
+
+extension SSDataBaseStatement {
+    public func getInt(pos: Int) throws -> Int {
+        return try get(pos: pos) { (pos) in
+            return Int(sqlite3_column_int(stmt, Int32(pos)))
+        }
     }
     
-    private func typeIsNotNull(pos: Int) -> Bool {
-        return sqlite3_column_type(stmt, Int32(pos)) != SQLITE_NULL
+    public func getInt64(pos: Int) throws -> Int64 {
+        return try get(pos: pos) { (pos) in
+            return Int64(sqlite3_column_int64(stmt, Int32(pos)))
+        }
+    }
+    
+    public func getDouble(pos: Int) throws -> Double {
+        return try get(pos: pos) { (pos) in
+            return Double(sqlite3_column_double(stmt, Int32(pos)))
+        }
+    }
+
+    public func getString(pos: Int) throws -> String {
+        return try get(pos: pos) { (pos) in
+            guard let ptr = sqlite3_column_text(stmt, Int32(pos)) else {
+                fatalError("Can't build string")
+            }
+            return String(cString: ptr)
+        }
+    }
+    
+    public func getData(pos: Int) throws -> Data {
+        return try get(pos: pos) { (pos) in
+            guard let ptr = sqlite3_column_blob(stmt, Int32(pos)) else {
+                fatalError("Can't build data")
+            }
+            return Data(bytes: ptr, count: Int(sqlite3_column_bytes(stmt, Int32(pos))))
+        }
+    }
+    
+    public func isNull(pos: Int) throws -> Bool {
+        return try get(pos: pos) { (pos) in
+            return sqlite3_column_type(stmt, Int32(pos)) == SQLITE_NULL
+        }
+    }
+    
+    //MARK: private
+    
+    private func get<T>(pos: Int, onGet: (Int) throws -> T) throws -> T {
+        try ensureNotReleased()
+        try ensureHasData(at: pos)
+        return try onGet(pos)
+    }
+    
+    private func ensureHasData(at pos: Int) throws {
+        guard hasData else {
+            throw StatementError.noData
+        }
+        guard pos >= 0 && pos < selectColumsCount else {
+            throw StatementError.indexOutOfRange
+        }
     }
 }
