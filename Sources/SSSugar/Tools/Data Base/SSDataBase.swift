@@ -1,4 +1,5 @@
 import Foundation
+import SQLite3
 
 #warning("DB: Error msg")
 //TODO: Add error messages to all DB exceptions (like cantCompile inside stmt)
@@ -53,6 +54,10 @@ extension SSDataBase: SSDataBaseProtocol {
     public func savePoint(withTitle: String) throws -> SSDataBaseSavePointProtocol {
         let sp = try SSDataBaseSavePoint(executor: self, title: withTitle)
         return try transactionController.registerSavePoint(sp)
+    }
+    
+    public func lastInsrtedRowID() -> Int64 {
+        connection.lastInsertedRowID()
     }
 }
 

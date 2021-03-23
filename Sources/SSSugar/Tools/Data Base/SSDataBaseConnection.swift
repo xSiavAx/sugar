@@ -5,6 +5,8 @@ public protocol SSDataBaseConnectionProtocol: SSDataBaseStatementCreator {
     var isOpen : Bool {get}
     func open()
     func close()
+    
+    func lastInsertedRowID() -> Int64
 }
 
 public class SSDataBaseConnection {
@@ -32,6 +34,10 @@ extension SSDataBaseConnection: SSDataBaseConnectionProtocol {
     
     public func statement(forQuery: String) throws -> SSDataBaseStatementProtocol {
         return try SSDataBaseStatement(query: forQuery, db: db)
+    }
+    
+    public func lastInsertedRowID() -> Int64 {
+        return sqlite3_last_insert_rowid(db)
     }
 }
 
