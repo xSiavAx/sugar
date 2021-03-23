@@ -21,6 +21,19 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		99781FBB260A95C500D646E7 /* SSDBStoraging.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99781FB6260A95C500D646E7 /* SSDBStoraging.swift */; };
+		99781FBC260A95C500D646E7 /* SSDBColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99781FB7260A95C500D646E7 /* SSDBColumn.swift */; };
+		99781FBD260A95C500D646E7 /* SSDBTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99781FB9260A95C500D646E7 /* SSDBTable.swift */; };
+		99781FBE260A95C500D646E7 /* SSDBTableIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99781FBA260A95C500D646E7 /* SSDBTableIndex.swift */; };
+		99781FD0260A960A00D646E7 /* SSDBTypedQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99781FC5260A960A00D646E7 /* SSDBTypedQuery.swift */; };
+		99781FD1260A960A00D646E7 /* SSDBQueryBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99781FC6260A960A00D646E7 /* SSDBQueryBuilder.swift */; };
+		99781FD2260A960A00D646E7 /* SSDBColumnCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99781FC8260A960A00D646E7 /* SSDBColumnCondition.swift */; };
+		99781FD3260A960A00D646E7 /* SSDBQueryCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99781FC9260A960A00D646E7 /* SSDBQueryCondition.swift */; };
+		99781FD4260A960A00D646E7 /* SSDBConditionSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99781FCA260A960A00D646E7 /* SSDBConditionSet.swift */; };
+		99781FD5260A960A00D646E7 /* SSDBQueryProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99781FCC260A960A00D646E7 /* SSDBQueryProcessor.swift */; };
+		99781FD6260A960A00D646E7 /* SSDBQueryProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99781FCD260A960A00D646E7 /* SSDBQueryProxy.swift */; };
+		99781FD7260A960A00D646E7 /* SSDataBaseQueryHandleCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99781FCE260A960A00D646E7 /* SSDataBaseQueryHandleCore.swift */; };
+		99781FD8260A960A00D646E7 /* SSDBTypedQueryHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99781FCF260A960A00D646E7 /* SSDBTypedQueryHandling.swift */; };
 		OBJ_306 /* SSViewShowHideAnimating.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* SSViewShowHideAnimating.swift */; };
 		OBJ_307 /* SSViewShowHideByAlphaAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* SSViewShowHideByAlphaAnimator.swift */; };
 		OBJ_308 /* SSScaleAndAlphaTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* SSScaleAndAlphaTransitionAnimator.swift */; };
@@ -263,6 +276,19 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		99781FB6260A95C500D646E7 /* SSDBStoraging.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSDBStoraging.swift; sourceTree = "<group>"; };
+		99781FB7260A95C500D646E7 /* SSDBColumn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSDBColumn.swift; sourceTree = "<group>"; };
+		99781FB9260A95C500D646E7 /* SSDBTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSDBTable.swift; sourceTree = "<group>"; };
+		99781FBA260A95C500D646E7 /* SSDBTableIndex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSDBTableIndex.swift; sourceTree = "<group>"; };
+		99781FC5260A960A00D646E7 /* SSDBTypedQuery.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSDBTypedQuery.swift; sourceTree = "<group>"; };
+		99781FC6260A960A00D646E7 /* SSDBQueryBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSDBQueryBuilder.swift; sourceTree = "<group>"; };
+		99781FC8260A960A00D646E7 /* SSDBColumnCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSDBColumnCondition.swift; sourceTree = "<group>"; };
+		99781FC9260A960A00D646E7 /* SSDBQueryCondition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSDBQueryCondition.swift; sourceTree = "<group>"; };
+		99781FCA260A960A00D646E7 /* SSDBConditionSet.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSDBConditionSet.swift; sourceTree = "<group>"; };
+		99781FCC260A960A00D646E7 /* SSDBQueryProcessor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSDBQueryProcessor.swift; sourceTree = "<group>"; };
+		99781FCD260A960A00D646E7 /* SSDBQueryProxy.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSDBQueryProxy.swift; sourceTree = "<group>"; };
+		99781FCE260A960A00D646E7 /* SSDataBaseQueryHandleCore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSDataBaseQueryHandleCore.swift; sourceTree = "<group>"; };
+		99781FCF260A960A00D646E7 /* SSDBTypedQueryHandling.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SSDBTypedQueryHandling.swift; sourceTree = "<group>"; };
 		OBJ_103 /* Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
 		OBJ_104 /* SSUEBatchAdpater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUEBatchAdpater.swift; sourceTree = "<group>"; };
 		OBJ_105 /* SSUEChanges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUEChanges.swift; sourceTree = "<group>"; };
@@ -513,6 +539,51 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		99781F5A260A8DE200D646E7 /* Structure */ = {
+			isa = PBXGroup;
+			children = (
+				99781FC4260A960A00D646E7 /* Query Builder */,
+				99781FB6260A95C500D646E7 /* SSDBStoraging.swift */,
+				99781FB7260A95C500D646E7 /* SSDBColumn.swift */,
+				99781FB9260A95C500D646E7 /* SSDBTable.swift */,
+				99781FBA260A95C500D646E7 /* SSDBTableIndex.swift */,
+				OBJ_89 /* SSDBColType.swift */,
+			);
+			path = Structure;
+			sourceTree = "<group>";
+		};
+		99781FC4260A960A00D646E7 /* Query Builder */ = {
+			isa = PBXGroup;
+			children = (
+				99781FCB260A960A00D646E7 /* Concreate Query Handlers */,
+				99781FC7260A960A00D646E7 /* Query Condition */,
+				99781FC5260A960A00D646E7 /* SSDBTypedQuery.swift */,
+				99781FC6260A960A00D646E7 /* SSDBQueryBuilder.swift */,
+				99781FCF260A960A00D646E7 /* SSDBTypedQueryHandling.swift */,
+			);
+			path = "Query Builder";
+			sourceTree = "<group>";
+		};
+		99781FC7260A960A00D646E7 /* Query Condition */ = {
+			isa = PBXGroup;
+			children = (
+				99781FC8260A960A00D646E7 /* SSDBColumnCondition.swift */,
+				99781FC9260A960A00D646E7 /* SSDBQueryCondition.swift */,
+				99781FCA260A960A00D646E7 /* SSDBConditionSet.swift */,
+			);
+			path = "Query Condition";
+			sourceTree = "<group>";
+		};
+		99781FCB260A960A00D646E7 /* Concreate Query Handlers */ = {
+			isa = PBXGroup;
+			children = (
+				99781FCC260A960A00D646E7 /* SSDBQueryProcessor.swift */,
+				99781FCD260A960A00D646E7 /* SSDBQueryProxy.swift */,
+				99781FCE260A960A00D646E7 /* SSDataBaseQueryHandleCore.swift */,
+			);
+			path = "Concreate Query Handlers";
+			sourceTree = "<group>";
+		};
 		OBJ_10 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
@@ -1135,7 +1206,7 @@
 			path = Types;
 			sourceTree = "<group>";
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -1148,7 +1219,6 @@
 				OBJ_299 /* README.md */,
 				OBJ_300 /* build_fm.shell */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_55 /* Utils */ = {
@@ -1245,9 +1315,9 @@
 		OBJ_83 /* Data Base */ = {
 			isa = PBXGroup;
 			children = (
+				99781F5A260A8DE200D646E7 /* Structure */,
 				OBJ_84 /* Proxies */,
 				OBJ_87 /* Release Decorator Extensions */,
-				OBJ_89 /* SSDBColType.swift */,
 				OBJ_90 /* SSDBStatementProcessor.swift */,
 				OBJ_91 /* SSDataBase.swift */,
 				OBJ_92 /* SSDataBaseConnection.swift */,
@@ -1345,7 +1415,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_293 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -1364,6 +1434,7 @@
 			buildActionMask = 0;
 			files = (
 				OBJ_306 /* SSViewShowHideAnimating.swift in Sources */,
+				99781FD2260A960A00D646E7 /* SSDBColumnCondition.swift in Sources */,
 				OBJ_307 /* SSViewShowHideByAlphaAnimator.swift in Sources */,
 				OBJ_308 /* SSScaleAndAlphaTransitionAnimator.swift in Sources */,
 				OBJ_309 /* SSViewTransitionAnimating.swift in Sources */,
@@ -1387,6 +1458,7 @@
 				OBJ_327 /* RandomNumberGenerator.swift in Sources */,
 				OBJ_328 /* CGPoint.swift in Sources */,
 				OBJ_329 /* CGRect.swift in Sources */,
+				99781FD5260A960A00D646E7 /* SSDBQueryProcessor.swift in Sources */,
 				OBJ_330 /* CGSize.swift in Sources */,
 				OBJ_331 /* Data.swift in Sources */,
 				OBJ_332 /* Date.swift in Sources */,
@@ -1400,9 +1472,11 @@
 				OBJ_340 /* UIButton.swift in Sources */,
 				OBJ_341 /* UILabel.swift in Sources */,
 				OBJ_342 /* UITableVIew.swift in Sources */,
+				99781FBC260A95C500D646E7 /* SSDBColumn.swift in Sources */,
 				OBJ_343 /* UIView.swift in Sources */,
 				OBJ_344 /* Common.swift in Sources */,
 				OBJ_345 /* SSCacheContainer.swift in Sources */,
+				99781FD0260A960A00D646E7 /* SSDBTypedQuery.swift in Sources */,
 				OBJ_346 /* SSCopying.swift in Sources */,
 				OBJ_347 /* SSEqutable.swift in Sources */,
 				OBJ_348 /* SSExecutor.swift in Sources */,
@@ -1413,11 +1487,14 @@
 				OBJ_353 /* SSAtomic.swift in Sources */,
 				OBJ_354 /* SSChainExecutor.swift in Sources */,
 				OBJ_355 /* SSGroupExecutor.swift in Sources */,
+				99781FBE260A95C500D646E7 /* SSDBTableIndex.swift in Sources */,
 				OBJ_356 /* SSSugar.swift in Sources */,
 				OBJ_357 /* SSSugarPackage.swift in Sources */,
 				OBJ_358 /* SSTry.swift in Sources */,
+				99781FD4260A960A00D646E7 /* SSDBConditionSet.swift in Sources */,
 				OBJ_359 /* SSDataBaseSavePointProxy.swift in Sources */,
 				OBJ_360 /* SSDataBaseStatementProxy.swift in Sources */,
+				99781FD8260A960A00D646E7 /* SSDBTypedQueryHandling.swift in Sources */,
 				OBJ_361 /* SSReleaseDecoratorDBExtensions.swift in Sources */,
 				OBJ_362 /* SSDBColType.swift in Sources */,
 				OBJ_363 /* SSDBStatementProcessor.swift in Sources */,
@@ -1441,15 +1518,19 @@
 				OBJ_381 /* SSUETask.swift in Sources */,
 				OBJ_382 /* SSUETaskDBMutator.swift in Sources */,
 				OBJ_383 /* SSUETaskMutator.swift in Sources */,
+				99781FD6260A960A00D646E7 /* SSDBQueryProxy.swift in Sources */,
 				OBJ_384 /* SSUETaskProcessor.swift in Sources */,
 				OBJ_385 /* SSUETaskRemoteMutator.swift in Sources */,
 				OBJ_386 /* SSUETaskUpdate.swift in Sources */,
 				OBJ_387 /* SSUETaskUpdater.swift in Sources */,
 				OBJ_388 /* SSDataModifyCenter.swift in Sources */,
+				99781FD1260A960A00D646E7 /* SSDBQueryBuilder.swift in Sources */,
 				OBJ_389 /* SSDataModifying.swift in Sources */,
 				OBJ_390 /* SSDmBatch.swift in Sources */,
 				OBJ_391 /* SSDmBatchAdapting.swift in Sources */,
 				OBJ_392 /* SSDmRevision.swift in Sources */,
+				99781FD3260A960A00D646E7 /* SSDBQueryCondition.swift in Sources */,
+				99781FD7260A960A00D646E7 /* SSDataBaseQueryHandleCore.swift in Sources */,
 				OBJ_393 /* SSEntityDmMutator.swift in Sources */,
 				OBJ_394 /* SSEntityMutator.swift in Sources */,
 				OBJ_395 /* SSEntityProcessor.swift in Sources */,
@@ -1458,12 +1539,14 @@
 				OBJ_398 /* SSEntityUpdater.swift in Sources */,
 				OBJ_399 /* SSUpdate.swift in Sources */,
 				OBJ_400 /* SSUpdateCenter.swift in Sources */,
+				99781FBD260A95C500D646E7 /* SSDBTable.swift in Sources */,
 				OBJ_401 /* SSUpdateReceiver.swift in Sources */,
 				OBJ_402 /* SSApiArgsConverting.swift in Sources */,
 				OBJ_403 /* SSApiCallOptions.swift in Sources */,
 				OBJ_404 /* SSApiError.swift in Sources */,
 				OBJ_405 /* SSApiNoError.swift in Sources */,
 				OBJ_406 /* SSRemoteApiModel.swift in Sources */,
+				99781FBB260A95C500D646E7 /* SSDBStoraging.swift in Sources */,
 				OBJ_407 /* SSCommunicating.swift in Sources */,
 				OBJ_408 /* SSCommunicationError.swift in Sources */,
 				OBJ_409 /* SSNetworkCommunicator.swift in Sources */,

@@ -1,6 +1,12 @@
 import Foundation
 import SQLite3
 
+#warning("DB: Test")
+//TODO: Add tests for every DB component
+
+#warning("DB: DOCS")
+//TODO: Add docs for every file from DB Structure
+
 #warning("DB: Error msg")
 //TODO: Add error messages to all DB exceptions (like cantCompile inside stmt)
 

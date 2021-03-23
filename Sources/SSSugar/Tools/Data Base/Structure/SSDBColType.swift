@@ -38,6 +38,54 @@ public extension SSDBColType where Self: CustomStringConvertible {
     func asColDefault() -> String { return "\(self)" }
 }
 
+extension Int: SSDBColType {
+    public static var colName: String { "integer" }
+    
+    public static func onGetNonNil(stmt: Statement, pos: Int) throws -> Int {
+        return try stmt.getInt(pos: pos)
+    }
+    
+    public func bindTo(stmt: Statement, pos: Int) throws {
+        try stmt.bind(int: self, pos: pos)
+    }
+}
+
+extension Bool: SSDBColType {
+    public static var colName: String { Int.colName }
+    
+    public static func onGetNonNil(stmt: Statement, pos: Int) throws -> Bool {
+        return try stmt.getInt(pos: pos) != 0
+    }
+    
+    public func bindTo(stmt: Statement, pos: Int) throws {
+        try stmt.bind(int: self ? 1 : 0, pos: pos)
+    }
+}
+
+extension String: SSDBColType {
+    public static var colName: String { "text" }
+    
+    public static func onGetNonNil(stmt: Statement, pos: Int) throws -> String {
+        return try stmt.getString(pos: pos)
+    }
+    
+    public func bindTo(stmt: Statement, pos: Int) throws {
+        try stmt.bind(string: self, pos: pos)
+    }
+}
+
+extension Data: SSDBColType {
+    public static var colName: String { "blob" }
+    
+    public static func onGetNonNil(stmt: Statement, pos: Int) throws -> Data {
+        return try stmt.getData(pos: pos)
+    }
+    
+    public func bindTo(stmt: Statement, pos: Int) throws {
+        try stmt.bind(data: self, pos: pos)
+    }
+}
+
 extension Optional: SSDBColType where Wrapped: SSDBColType {
     public typealias Value = Wrapped
     
@@ -63,30 +111,6 @@ extension Optional: SSDBColType where Wrapped: SSDBColType {
     
     public func asColDefault() -> String {
         return "\(self!)"
-    }
-}
-
-extension Int: SSDBColType {
-    public static var colName: String { "integer" }
-    
-    public static func onGetNonNil(stmt: Statement, pos: Int) throws -> Int {
-        return try stmt.getInt(pos: pos)
-    }
-    
-    public func bindTo(stmt: Statement, pos: Int) throws {
-        try stmt.bind(int: self, pos: pos)
-    }
-}
-
-extension String: SSDBColType {
-    public static var colName: String { "text" }
-    
-    public static func onGetNonNil(stmt: Statement, pos: Int) throws -> String {
-        return try stmt.getString(pos: pos)
-    }
-    
-    public func bindTo(stmt: Statement, pos: Int) throws {
-        try stmt.bind(string: self, pos: pos)
     }
 }
 
