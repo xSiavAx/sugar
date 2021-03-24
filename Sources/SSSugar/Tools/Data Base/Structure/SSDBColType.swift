@@ -62,6 +62,18 @@ extension Bool: SSDBColType {
     }
 }
 
+extension Date: SSDBColType {
+    public static var colName: String { Int.colName }
+    
+    public static func onGetNonNil(stmt: Statement, pos: Int) throws -> Date {
+        return Date(timeIntervalSince1970: try stmt.getDouble(pos: pos))
+    }
+    
+    public func bindTo(stmt: Statement, pos: Int) throws {
+        try stmt.bind(double: timeIntervalSince1970, pos: pos)
+    }
+}
+
 extension String: SSDBColType {
     public static var colName: String { "text" }
     
