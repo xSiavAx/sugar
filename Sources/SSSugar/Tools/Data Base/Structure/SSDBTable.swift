@@ -7,7 +7,6 @@ public protocol SSDBTable {
     
     func createQuery() -> String
     func dropQuery() -> String
-    func selectQuery() -> String
 }
 
 public protocol SSDBTableWithID: SSDBTable {
