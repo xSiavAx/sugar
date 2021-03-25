@@ -7,6 +7,3 @@ public protocol SSDBColumnProtocol {
     
     func toCreateComponent() -> String
 }
-
-#warning("todo")
-//TODO: Could we add ColType to SSDBColumnProtocol, to make binding/getting more strength and based on colums?

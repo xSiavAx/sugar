@@ -23,6 +23,7 @@
 /* Begin PBXBuildFile section */
 		99782069260C9B7500D646E7 /* SSDBColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99782068260C9B7500D646E7 /* SSDBColumn.swift */; };
 		99782079260C9B7F00D646E7 /* SSDBForeignKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99782078260C9B7F00D646E7 /* SSDBForeignKey.swift */; };
+		99782089260C9C9E00D646E7 /* SSDBTypedStatement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99782088260C9C9E00D646E7 /* SSDBTypedStatement.swift */; };
 		OBJ_381 /* BashCompletionsGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_327 /* BashCompletionsGenerator.swift */; };
 		OBJ_382 /* CompletionsGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_328 /* CompletionsGenerator.swift */; };
 		OBJ_383 /* FishCompletionsGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_329 /* FishCompletionsGenerator.swift */; };
@@ -340,6 +341,7 @@
 /* Begin PBXFileReference section */
 		99782068260C9B7500D646E7 /* SSDBColumn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDBColumn.swift; sourceTree = "<group>"; };
 		99782078260C9B7F00D646E7 /* SSDBForeignKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDBForeignKey.swift; sourceTree = "<group>"; };
+		99782088260C9C9E00D646E7 /* SSDBTypedStatement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDBTypedStatement.swift; sourceTree = "<group>"; };
 		OBJ_102 /* SSDBQueryProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDBQueryProcessor.swift; sourceTree = "<group>"; };
 		OBJ_103 /* SSDBQueryProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDBQueryProxy.swift; sourceTree = "<group>"; };
 		OBJ_104 /* SSDataBaseQueryHandleCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDataBaseQueryHandleCore.swift; sourceTree = "<group>"; };
@@ -685,16 +687,17 @@
 			path = Classes;
 			sourceTree = "<group>";
 		};
-		OBJ_100 /* Query Builder */ = {
+		OBJ_100 /* Query */ = {
 			isa = PBXGroup;
 			children = (
 				OBJ_101 /* Concreate Query Handlers */,
 				OBJ_105 /* Query Condition */,
 				OBJ_109 /* SSDBQueryBuilder.swift */,
 				OBJ_110 /* SSDBTypedQuery.swift */,
+				99782088260C9C9E00D646E7 /* SSDBTypedStatement.swift */,
 				OBJ_111 /* SSDBTypedQueryHandling.swift */,
 			);
-			path = "Query Builder";
+			path = Query;
 			sourceTree = "<group>";
 		};
 		OBJ_101 /* Concreate Query Handlers */ = {
@@ -1623,7 +1626,7 @@
 		OBJ_99 /* Structure */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_100 /* Query Builder */,
+				OBJ_100 /* Query */,
 				99782067260C9B6100D646E7 /* Columns */,
 				OBJ_112 /* SSDBColType.swift */,
 				OBJ_114 /* SSDBStoraging.swift */,
@@ -1916,6 +1919,7 @@
 				OBJ_523 /* SSEntityMutator.swift in Sources */,
 				OBJ_524 /* SSEntityProcessor.swift in Sources */,
 				OBJ_525 /* SSEntityRemoteMutator.swift in Sources */,
+				99782089260C9C9E00D646E7 /* SSDBTypedStatement.swift in Sources */,
 				OBJ_526 /* SSEntityStorageMutator.swift in Sources */,
 				OBJ_527 /* SSEntityUpdater.swift in Sources */,
 				OBJ_528 /* SSUpdate.swift in Sources */,

@@ -1,9 +1,5 @@
 import Foundation
 
-public struct SSDBTypedQuery<BArgs, GArgs> {
-    public let raw: String
-}
-
 public struct DBTypedStatemnt<Stmt: SSDataBaseStatementProtocol, BArgs, GArgs>: SSDataBaseStatementProxing {
     public typealias OnBind = SSDBTypedQueryHandlerCore<Stmt, BArgs, GArgs>.OnBind
     public typealias OnGet = SSDBTypedQueryHandlerCore<Stmt, BArgs, GArgs>.OnGet
