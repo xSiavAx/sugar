@@ -2,10 +2,11 @@ import Foundation
 
 public protocol SSDBTable {
     static var tableName: String { get }
+    static var primaryKey: SSDBPrimaryKeyProtocol? { get }
     static var colums: [SSDBColumnProtocol] {get}
     static var foreignKeys: [SSDBTableComponent] { get }
     
-    static var indexes: [SSDBTableIndexProtocol]? {get}
+    static var indexes: [SSDBTableIndexProtocol] {get}
     
     static func createQuery() -> String
     static func dropQuery() -> String
@@ -14,8 +15,9 @@ public protocol SSDBTable {
 //MARK: - Default implementation
 
 public extension SSDBTable {
+    static var primaryKey: SSDBPrimaryKeyProtocol? { nil }
     static var foreignKeys: [SSDBTableComponent] { [] }
-    static var indexes: [SSDBTableIndexProtocol]? { nil }
+    static var indexes: [SSDBTableIndexProtocol] { [] }
     
     static func createQuery() -> String {
         return baseCreateQuery()
@@ -23,6 +25,22 @@ public extension SSDBTable {
     
     static func dropQuery() -> String {
         return baseDropQuery()
+    }
+}
+
+//MARK - Primary key creating
+
+public extension SSDBTable {
+    static func pk(_ col: SSDBColumnProtocol) -> SSDBPrimaryKey {
+        return pk(cols: [col])
+    }
+    
+    static func pk(_ cols: SSDBColumnProtocol...) -> SSDBPrimaryKey {
+        return pk(cols: cols)
+    }
+    
+    static func pk(cols: [SSDBColumnProtocol]) -> SSDBPrimaryKey {
+        return SSDBPrimaryKey(cols: cols)
     }
 }
 
@@ -50,8 +68,7 @@ public extension SSDBTable {
 
 public extension SSDBTable {
     static func baseCreateQuery() -> String {
-        let components = colums + foreignKeys
-        let colComponents = components.map { $0.toCreate() }.joined(separator: ",\n    ")
+        let colComponents = allComponents().map { $0.toCreate() }.joined(separator: ",\n    ")
         let base = """
         create table `\(tableName)` (
             \(colComponents)
@@ -86,11 +103,20 @@ public extension SSDBTable {
         return query(.select).add(cols: colums)
     }
     
+    private static func allComponents() -> [SSDBTableComponent] {
+        var components = colums + foreignKeys
+        
+        if let pk = primaryKey {
+            components.append(pk)
+        }
+        return components
+    }
+    
     private static func createIndexesQueries() -> [String] {
-        return indexes?.map { $0.toCreateComponent() } ?? []
+        return indexes.map { $0.toCreateComponent() }
     }
     
     private static func dropIndexesQueries() -> [String] {
-        return indexes?.map { $0.toDropComponent() } ?? []
+        return indexes.map { $0.toDropComponent() }
     }
 }

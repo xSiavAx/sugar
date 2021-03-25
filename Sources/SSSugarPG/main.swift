@@ -6,7 +6,7 @@ struct Contact: SSDBIDTable {
     static var idColumn = id
     static var idLessColumns: [SSDBColumnProtocol] = [firstName, lastName, birthDay, color, initials, notes, company]
     
-    static let id = SSDBColumn<Int>(name: "id", primaryKey: true)
+    static let id = SSDBColumn<Int>(name: "id")
     static let firstName = SSDBColumn<String?>(name: "first_name")
     static let lastName = SSDBColumn<String?>(name: "last_name")
     static let birthDay = SSDBColumn<Date?>(name: "birth_day")
@@ -23,17 +23,14 @@ struct ContactGroup: SSDBIDTable {
     static var idLessColumns: [SSDBColumnProtocol] = [title]
     static var indexes: [SSDBTableIndexProtocol]? = idxs() { $0.title }
     
-    static let id = SSDBColumn<Int>(name: "id", primaryKey: true)
+    static let id = SSDBColumn<Int>(name: "id")
     static let title = SSDBColumn<String>(name: "title", unique: true)
-    
-    static func save() -> SSDBQueryProcessor<String, Void> {
-        return SSDBQueryProcessor(saveQuery(), onBind: { try $0.bind($1) })
-    }
 }
 
 struct ContactGroupRel: SSDBTable {
     static var tableName: String = "contact_group_contact_relation"
     
+    static var primaryKey: SSDBPrimaryKeyProtocol? = pk(contact, group)
     static var colums: [SSDBColumnProtocol] = [group, contact]
     static var foreignKeys: [SSDBTableComponent] = [group.fk(), contact.fk()]
     
@@ -41,15 +38,9 @@ struct ContactGroupRel: SSDBTable {
     static var contact = Contact.idRef()
 }
 
-struct TestTable: SSDBTable {
-    static var tableName: String = "test"
-    static var colums: [SSDBColumnProtocol] = [contactID, contactFN]
-    
-    static var contactID = Contact.idRef()
-    static var contactFN = SSDBColumnRef(table: Contact.self) { $0.firstName }
-}
-
 func main() {
+    print(Contact.createQuery())
+    print(ContactGroup.createQuery())
     print(ContactGroupRel.createQuery())
 }
 

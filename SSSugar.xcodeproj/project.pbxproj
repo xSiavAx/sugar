@@ -23,6 +23,7 @@
 /* Begin PBXBuildFile section */
 		99355AE5260CC9FD004E0150 /* SSDBColumnRef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99355AE4260CC9FD004E0150 /* SSDBColumnRef.swift */; };
 		99355AF5260CD213004E0150 /* SSDBIDTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99355AF4260CD213004E0150 /* SSDBIDTable.swift */; };
+		99355B09260CFFD2004E0150 /* SSDBPrimaryKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99355B08260CFFD2004E0150 /* SSDBPrimaryKey.swift */; };
 		99782069260C9B7500D646E7 /* SSDBColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99782068260C9B7500D646E7 /* SSDBColumn.swift */; };
 		99782079260C9B7F00D646E7 /* SSDBForeignKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99782078260C9B7F00D646E7 /* SSDBForeignKey.swift */; };
 		99782089260C9C9E00D646E7 /* SSDBTypedStatement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99782088260C9C9E00D646E7 /* SSDBTypedStatement.swift */; };
@@ -336,6 +337,7 @@
 /* Begin PBXFileReference section */
 		99355AE4260CC9FD004E0150 /* SSDBColumnRef.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDBColumnRef.swift; sourceTree = "<group>"; };
 		99355AF4260CD213004E0150 /* SSDBIDTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDBIDTable.swift; sourceTree = "<group>"; };
+		99355B08260CFFD2004E0150 /* SSDBPrimaryKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDBPrimaryKey.swift; sourceTree = "<group>"; };
 		99782068260C9B7500D646E7 /* SSDBColumn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDBColumn.swift; sourceTree = "<group>"; };
 		99782078260C9B7F00D646E7 /* SSDBForeignKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDBForeignKey.swift; sourceTree = "<group>"; };
 		99782088260C9C9E00D646E7 /* SSDBTypedStatement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDBTypedStatement.swift; sourceTree = "<group>"; };
@@ -663,6 +665,7 @@
 				99355AE4260CC9FD004E0150 /* SSDBColumnRef.swift */,
 				99782078260C9B7F00D646E7 /* SSDBForeignKey.swift */,
 				OBJ_112 /* SSDBColType.swift */,
+				99355B08260CFFD2004E0150 /* SSDBPrimaryKey.swift */,
 			);
 			path = Columns;
 			sourceTree = "<group>";
@@ -1790,6 +1793,7 @@
 				99355AF5260CD213004E0150 /* SSDBIDTable.swift in Sources */,
 				OBJ_435 /* SSWindow.swift in Sources */,
 				OBJ_436 /* Bundle.swift in Sources */,
+				99355B09260CFFD2004E0150 /* SSDBPrimaryKey.swift in Sources */,
 				OBJ_437 /* CTCarrier.swift in Sources */,
 				99782079260C9B7F00D646E7 /* SSDBForeignKey.swift in Sources */,
 				OBJ_438 /* Array.swift in Sources */,

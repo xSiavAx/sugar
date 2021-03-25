@@ -11,6 +11,8 @@ public protocol SSDBIDTable: SSDBTable {
 //MARK: - SSDBTable
 
 public extension SSDBIDTable {
+    static var primaryKey: SSDBPrimaryKeyProtocol? { pk(idColumn) }
+    
     static var colums: [SSDBColumnProtocol] { [idColumn] + idLessColumns }
 }
 

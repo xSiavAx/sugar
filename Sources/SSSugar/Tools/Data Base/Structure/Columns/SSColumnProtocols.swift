@@ -27,3 +27,15 @@ public typealias SSDBTypedTableColumnRef = SSDBTypedTableComponent & SSDBColumnR
 public protocol SSDBTypedTableComponent {
     associatedtype OtherTable: SSDBTable
 }
+
+public protocol SSDBPrimaryKeyProtocol: SSDBTableComponent {
+    var cols: [SSDBColumnProtocol] { get }
+}
+
+extension SSDBPrimaryKeyProtocol {
+    public func toCreate() -> String {
+        let colNames = cols.map { "`\($0.name)`" }
+        
+        return "primary key(\(colNames.joined(separator: ", ")))"
+    }
+}
