@@ -1,0 +1,367 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "SSCertificatePinner"
+provides-nominal:
+- "7SSSugar19SSCertificatePinnerC"
+provides-member:
+- ["7SSSugar19SSCertificatePinnerC", ""]
+provides-dynamic-lookup:
+- "certificates"
+- "certificatesValid"
+- "onReject"
+- "urlSession"
+depends-top-level:
+- !private "!"
+- !private "&&"
+- !private "..<"
+- !private "=="
+- "AssignmentPrecedence"
+- "Bool"
+- !private "BooleanLiteralType"
+- !private "FloatLiteralType"
+- !private "IntegerLiteralType"
+- "NSObject"
+- !private "NSURLAuthenticationMethodServerTrust"
+- "SSCertificatePinner"
+- "SSCertificatesObtainer"
+- "SecCertificate"
+- !private "SecTrustGetCertificateAtIndex"
+- !private "SecTrustGetCertificateCount"
+- !private "StringLiteralType"
+- "URLAuthenticationChallenge"
+- "URLCredential"
+- "URLSession"
+- "URLSessionDelegate"
+- "Void"
+- !private "certificates"
+- !private "certificatesValid"
+- !private "fatalError"
+- !private "onReject"
+depends-member:
+- !private ["Sa", "contains"]
+- !private ["So36NSURLSessionAuthChallengeDispositionV", "cancelAuthenticationChallenge"]
+- !private ["So36NSURLSessionAuthChallengeDispositionV", "performDefaultHandling"]
+- !private ["SK", ""]
+- !private ["SK", "contains"]
+- ["s7CVarArgP", "AuthChallengeDisposition"]
+- !private ["s7CVarArgP", "NSURLAuthenticationMethodServerTrust"]
+- !private ["s7CVarArgP", "SecTrustGetCertificateAtIndex"]
+- !private ["s7CVarArgP", "SecTrustGetCertificateCount"]
+- ["s7CVarArgP", "URLSession"]
+- ["s7CVarArgP", "URLSessionDidFinishEventsForBackgroundURLSession"]
+- ["s7CVarArgP", ""]
+- !private ["s7CVarArgP", "authenticationMethod"]
+- !private ["s7CVarArgP", "certificates"]
+- !private ["s7CVarArgP", "certificatesValid"]
+- !private ["s7CVarArgP", "contains"]
+- !private ["s7CVarArgP", "fatalError"]
+- !private ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "onReject"]
+- !private ["s7CVarArgP", "protectionSpace"]
+- !private ["s7CVarArgP", "serverTrust"]
+- ["s7CVarArgP", "urlSession"]
+- ["s7CVarArgP", "urlSessionDidFinishEvents"]
+- ["Sl", ""]
+- !private ["Sl", "contains"]
+- !private ["10Foundation15ContiguousBytesP", "contains"]
+- ["s28CustomDebugStringConvertibleP", "AuthChallengeDisposition"]
+- !private ["s28CustomDebugStringConvertibleP", "NSURLAuthenticationMethodServerTrust"]
+- !private ["s28CustomDebugStringConvertibleP", "SecTrustGetCertificateAtIndex"]
+- !private ["s28CustomDebugStringConvertibleP", "SecTrustGetCertificateCount"]
+- ["s28CustomDebugStringConvertibleP", "URLSession"]
+- ["s28CustomDebugStringConvertibleP", "URLSessionDidFinishEventsForBackgroundURLSession"]
+- ["s28CustomDebugStringConvertibleP", ""]
+- !private ["s28CustomDebugStringConvertibleP", "authenticationMethod"]
+- !private ["s28CustomDebugStringConvertibleP", "certificates"]
+- !private ["s28CustomDebugStringConvertibleP", "certificatesValid"]
+- !private ["s28CustomDebugStringConvertibleP", "contains"]
+- !private ["s28CustomDebugStringConvertibleP", "fatalError"]
+- !private ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "onReject"]
+- !private ["s28CustomDebugStringConvertibleP", "protectionSpace"]
+- !private ["s28CustomDebugStringConvertibleP", "serverTrust"]
+- ["s28CustomDebugStringConvertibleP", "urlSession"]
+- ["s28CustomDebugStringConvertibleP", "urlSessionDidFinishEvents"]
+- !private ["s17CustomReflectableP", "contains"]
+- ["s23CustomStringConvertibleP", "AuthChallengeDisposition"]
+- !private ["s23CustomStringConvertibleP", "NSURLAuthenticationMethodServerTrust"]
+- !private ["s23CustomStringConvertibleP", "SecTrustGetCertificateAtIndex"]
+- !private ["s23CustomStringConvertibleP", "SecTrustGetCertificateCount"]
+- ["s23CustomStringConvertibleP", "URLSession"]
+- ["s23CustomStringConvertibleP", "URLSessionDidFinishEventsForBackgroundURLSession"]
+- ["s23CustomStringConvertibleP", ""]
+- !private ["s23CustomStringConvertibleP", "authenticationMethod"]
+- !private ["s23CustomStringConvertibleP", "certificates"]
+- !private ["s23CustomStringConvertibleP", "certificatesValid"]
+- !private ["s23CustomStringConvertibleP", "contains"]
+- !private ["s23CustomStringConvertibleP", "fatalError"]
+- !private ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "onReject"]
+- !private ["s23CustomStringConvertibleP", "protectionSpace"]
+- !private ["s23CustomStringConvertibleP", "serverTrust"]
+- ["s23CustomStringConvertibleP", "urlSession"]
+- ["s23CustomStringConvertibleP", "urlSessionDidFinishEvents"]
+- !private ["10Foundation12DataProtocolP", ""]
+- !private ["10Foundation12DataProtocolP", "contains"]
+- !private ["Se", "contains"]
+- !private ["SE", "contains"]
+- ["SQ", "AuthChallengeDisposition"]
+- !private ["SQ", "NSURLAuthenticationMethodServerTrust"]
+- !private ["SQ", "SecTrustGetCertificateAtIndex"]
+- !private ["SQ", "SecTrustGetCertificateCount"]
+- ["SQ", "URLSession"]
+- ["SQ", "URLSessionDidFinishEventsForBackgroundURLSession"]
+- ["SQ", ""]
+- !private ["SQ", "authenticationMethod"]
+- !private ["SQ", "cancelAuthenticationChallenge"]
+- !private ["SQ", "certificates"]
+- !private ["SQ", "certificatesValid"]
+- !private ["SQ", "contains"]
+- !private ["SQ", "fatalError"]
+- !private ["SQ", "init"]
+- !private ["SQ", "onReject"]
+- !private ["SQ", "performDefaultHandling"]
+- !private ["SQ", "protectionSpace"]
+- !private ["SQ", "serverTrust"]
+- ["SQ", "urlSession"]
+- ["SQ", "urlSessionDidFinishEvents"]
+- !private ["s25ExpressibleByArrayLiteralP", ""]
+- !private ["s25ExpressibleByArrayLiteralP", "contains"]
+- ["SH", "AuthChallengeDisposition"]
+- !private ["SH", "NSURLAuthenticationMethodServerTrust"]
+- !private ["SH", "SecTrustGetCertificateAtIndex"]
+- !private ["SH", "SecTrustGetCertificateCount"]
+- ["SH", "URLSession"]
+- ["SH", "URLSessionDidFinishEventsForBackgroundURLSession"]
+- ["SH", ""]
+- !private ["SH", "authenticationMethod"]
+- !private ["SH", "cancelAuthenticationChallenge"]
+- !private ["SH", "certificates"]
+- !private ["SH", "certificatesValid"]
+- !private ["SH", "contains"]
+- !private ["SH", "fatalError"]
+- !private ["SH", "init"]
+- !private ["SH", "onReject"]
+- !private ["SH", "performDefaultHandling"]
+- !private ["SH", "protectionSpace"]
+- !private ["SH", "serverTrust"]
+- ["SH", "urlSession"]
+- ["SH", "urlSessionDidFinishEvents"]
+- ["7SSSugar20InsertableCollectionP", ""]
+- !private ["7SSSugar20InsertableCollectionP", "contains"]
+- !private ["SM", ""]
+- !private ["SM", "contains"]
+- !private ["10Foundation19MutableDataProtocolP", "contains"]
+- ["So8NSCodingP", ""]
+- !private ["So8NSCodingP", "authenticationMethod"]
+- !private ["So8NSCodingP", "protectionSpace"]
+- !private ["So8NSCodingP", "serverTrust"]
+- !private ["So9NSCopyingP", "authenticationMethod"]
+- !private ["So9NSCopyingP", "serverTrust"]
+- ["So8NSObjectC", "AuthChallengeDisposition"]
+- ["So8NSObjectC", "Bool"]
+- !private ["So8NSObjectC", "NSURLAuthenticationMethodServerTrust"]
+- ["So8NSObjectC", "SSCertificatesObtainer"]
+- ["So8NSObjectC", "SecCertificate"]
+- !private ["So8NSObjectC", "SecTrustGetCertificateAtIndex"]
+- !private ["So8NSObjectC", "SecTrustGetCertificateCount"]
+- ["So8NSObjectC", "URLAuthenticationChallenge"]
+- ["So8NSObjectC", "URLCredential"]
+- ["So8NSObjectC", "URLSession"]
+- ["So8NSObjectC", "URLSessionDidFinishEventsForBackgroundURLSession"]
+- ["So8NSObjectC", "Void"]
+- ["So8NSObjectC", ""]
+- !private ["So8NSObjectC", "authenticationMethod"]
+- ["So8NSObjectC", "certificates"]
+- ["So8NSObjectC", "certificatesValid"]
+- !private ["So8NSObjectC", "fatalError"]
+- ["So8NSObjectC", "init"]
+- ["So8NSObjectC", "onReject"]
+- !private ["So8NSObjectC", "protectionSpace"]
+- !private ["So8NSObjectC", "serverTrust"]
+- ["So8NSObjectC", "urlSession"]
+- ["So8NSObjectC", "urlSessionDidFinishEvents"]
+- ["So8NSObjectP", "AuthChallengeDisposition"]
+- ["So8NSObjectP", "Bool"]
+- !private ["So8NSObjectP", "NSURLAuthenticationMethodServerTrust"]
+- ["So8NSObjectP", "SSCertificatesObtainer"]
+- ["So8NSObjectP", "SecCertificate"]
+- !private ["So8NSObjectP", "SecTrustGetCertificateAtIndex"]
+- !private ["So8NSObjectP", "SecTrustGetCertificateCount"]
+- ["So8NSObjectP", "URLAuthenticationChallenge"]
+- ["So8NSObjectP", "URLCredential"]
+- ["So8NSObjectP", "URLSession"]
+- ["So8NSObjectP", "URLSessionDidFinishEventsForBackgroundURLSession"]
+- ["So8NSObjectP", "Void"]
+- ["So8NSObjectP", ""]
+- !private ["So8NSObjectP", "authenticationMethod"]
+- ["So8NSObjectP", "certificates"]
+- ["So8NSObjectP", "certificatesValid"]
+- !private ["So8NSObjectP", "fatalError"]
+- ["So8NSObjectP", "init"]
+- ["So8NSObjectP", "onReject"]
+- !private ["So8NSObjectP", "protectionSpace"]
+- !private ["So8NSObjectP", "serverTrust"]
+- ["So8NSObjectP", "urlSession"]
+- ["So8NSObjectP", "urlSessionDidFinishEvents"]
+- !private ["So14NSSecureCodingP", "authenticationMethod"]
+- !private ["So14NSSecureCodingP", "protectionSpace"]
+- !private ["So14NSSecureCodingP", "serverTrust"]
+- !private ["Sk", ""]
+- !private ["Sk", "contains"]
+- !private ["Sm", ""]
+- !private ["Sm", "contains"]
+- !private ["SY", "cancelAuthenticationChallenge"]
+- !private ["SY", "performDefaultHandling"]
+- !private ["7SSSugar21ReplaceableCollectionP", "contains"]
+- ["7SSSugar19SSCertificatePinnerC", "Bool"]
+- !private ["7SSSugar19SSCertificatePinnerC", "NSURLAuthenticationMethodServerTrust"]
+- ["7SSSugar19SSCertificatePinnerC", "SSCertificatesObtainer"]
+- ["7SSSugar19SSCertificatePinnerC", "SecCertificate"]
+- !private ["7SSSugar19SSCertificatePinnerC", "SecTrustGetCertificateAtIndex"]
+- !private ["7SSSugar19SSCertificatePinnerC", "SecTrustGetCertificateCount"]
+- ["7SSSugar19SSCertificatePinnerC", "URLAuthenticationChallenge"]
+- ["7SSSugar19SSCertificatePinnerC", "URLCredential"]
+- ["7SSSugar19SSCertificatePinnerC", "URLSession"]
+- ["7SSSugar19SSCertificatePinnerC", "URLSessionDidFinishEventsForBackgroundURLSession"]
+- ["7SSSugar19SSCertificatePinnerC", "Void"]
+- ["7SSSugar19SSCertificatePinnerC", ""]
+- ["7SSSugar19SSCertificatePinnerC", "certificates"]
+- !private ["7SSSugar19SSCertificatePinnerC", "certificatesValid"]
+- ["7SSSugar19SSCertificatePinnerC", "deinit"]
+- !private ["7SSSugar19SSCertificatePinnerC", "fatalError"]
+- ["7SSSugar19SSCertificatePinnerC", "init"]
+- ["7SSSugar19SSCertificatePinnerC", "onReject"]
+- ["7SSSugar19SSCertificatePinnerC", "urlSession"]
+- ["7SSSugar19SSCertificatePinnerC", "urlSessionDidFinishEvents"]
+- !private ["7SSSugar22SSCertificatesObtainerP", "certificates"]
+- !private ["ST", "Element"]
+- !private ["ST", "Iterator"]
+- !private ["ST", ""]
+- !private ["ST", "contains"]
+- !private ["So28NSURLAuthenticationChallengeC", "protectionSpace"]
+- !private ["So20NSURLProtectionSpaceC", "authenticationMethod"]
+- !private ["So20NSURLProtectionSpaceC", "serverTrust"]
+- ["So12NSURLSessionC", "AuthChallengeDisposition"]
+- !private ["So20NSURLSessionDelegateP", "NSURLAuthenticationMethodServerTrust"]
+- !private ["So20NSURLSessionDelegateP", "SecTrustGetCertificateAtIndex"]
+- !private ["So20NSURLSessionDelegateP", "SecTrustGetCertificateCount"]
+- ["So20NSURLSessionDelegateP", "URLSession"]
+- ["So20NSURLSessionDelegateP", "URLSessionDidFinishEventsForBackgroundURLSession"]
+- ["So20NSURLSessionDelegateP", ""]
+- ["So20NSURLSessionDelegateP", "certificates"]
+- ["So20NSURLSessionDelegateP", "certificatesValid"]
+- !private ["So20NSURLSessionDelegateP", "fatalError"]
+- ["So20NSURLSessionDelegateP", "init"]
+- ["So20NSURLSessionDelegateP", "onReject"]
+- ["So20NSURLSessionDelegateP", "urlSession"]
+- ["So20NSURLSessionDelegateP", "urlSessionDidFinishEvents"]
+- !private ["s14_ArrayProtocolP", "contains"]
+- !private ["s24_DestructorSafeContainerP", "contains"]
+- !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "init"]
+- !private ["s35_ExpressibleByBuiltinIntegerLiteralP", "init"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- !private ["s19_HasContiguousBytesP", "contains"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "contains"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "AuthChallengeDisposition"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "NSURLAuthenticationMethodServerTrust"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "SecTrustGetCertificateAtIndex"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "SecTrustGetCertificateCount"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "URLSession"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "URLSessionDidFinishEventsForBackgroundURLSession"]
+- ["10Foundation27_KeyValueCodingAndObservingP", ""]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "authenticationMethod"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "certificates"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "certificatesValid"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "fatalError"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "init"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "onReject"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "protectionSpace"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "serverTrust"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "urlSession"]
+- ["10Foundation27_KeyValueCodingAndObservingP", "urlSessionDidFinishEvents"]
+- ["10Foundation37_KeyValueCodingAndObservingPublishingP", "AuthChallengeDisposition"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "NSURLAuthenticationMethodServerTrust"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "SecTrustGetCertificateAtIndex"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "SecTrustGetCertificateCount"]
+- ["10Foundation37_KeyValueCodingAndObservingPublishingP", "URLSession"]
+- ["10Foundation37_KeyValueCodingAndObservingPublishingP", "URLSessionDidFinishEventsForBackgroundURLSession"]
+- ["10Foundation37_KeyValueCodingAndObservingPublishingP", ""]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "authenticationMethod"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "certificates"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "certificatesValid"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "fatalError"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "init"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "onReject"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "protectionSpace"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "serverTrust"]
+- ["10Foundation37_KeyValueCodingAndObservingPublishingP", "urlSession"]
+- ["10Foundation37_KeyValueCodingAndObservingPublishingP", "urlSessionDidFinishEvents"]
+- !private ["s21_ObjectiveCBridgeableP", "contains"]
+depends-nominal:
+- !private "Sa"
+- !private "So36NSURLSessionAuthChallengeDispositionV"
+- !private "SK"
+- "s7CVarArgP"
+- "Sl"
+- !private "10Foundation15ContiguousBytesP"
+- "s28CustomDebugStringConvertibleP"
+- !private "s17CustomReflectableP"
+- "s23CustomStringConvertibleP"
+- !private "10Foundation12DataProtocolP"
+- !private "Se"
+- !private "SE"
+- "SQ"
+- !private "s25ExpressibleByArrayLiteralP"
+- "SH"
+- "7SSSugar20InsertableCollectionP"
+- !private "SM"
+- !private "10Foundation19MutableDataProtocolP"
+- "So8NSCodingP"
+- !private "So9NSCopyingP"
+- "So8NSObjectC"
+- "So8NSObjectP"
+- !private "So14NSSecureCodingP"
+- !private "Sk"
+- !private "Sm"
+- !private "SY"
+- !private "7SSSugar21ReplaceableCollectionP"
+- "7SSSugar19SSCertificatePinnerC"
+- !private "7SSSugar22SSCertificatesObtainerP"
+- !private "ST"
+- !private "So28NSURLAuthenticationChallengeC"
+- !private "So20NSURLProtectionSpaceC"
+- "So12NSURLSessionC"
+- "So20NSURLSessionDelegateP"
+- !private "s14_ArrayProtocolP"
+- !private "s24_DestructorSafeContainerP"
+- !private "s35_ExpressibleByBuiltinBooleanLiteralP"
+- !private "s35_ExpressibleByBuiltinIntegerLiteralP"
+- !private "s34_ExpressibleByBuiltinStringLiteralP"
+- !private "s19_HasContiguousBytesP"
+- !private "s35_HasCustomAnyHashableRepresentationP"
+- "10Foundation27_KeyValueCodingAndObservingP"
+- "10Foundation37_KeyValueCodingAndObservingPublishingP"
+- !private "s21_ObjectiveCBridgeableP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/XPC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/ObjectiveC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Dispatch.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/CoreFoundation.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/CoreGraphics.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/IOKit.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/SwiftOnoneSupport.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/mach-o/dyld.modulemap"
+- "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/mach-o/compact_unwind_encoding.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/xpc/XPC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/apinotes/Dispatch.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "825458218c0b5f997cce2dc09c132082"

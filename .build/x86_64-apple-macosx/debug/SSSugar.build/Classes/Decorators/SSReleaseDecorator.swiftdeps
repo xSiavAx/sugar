@@ -1,0 +1,86 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "SSReleaseDecorator"
+provides-nominal:
+- "7SSSugar18SSReleaseDecoratorC"
+provides-member:
+- ["7SSSugar18SSReleaseDecoratorC", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- "AssignmentPrecedence"
+- "Bool"
+- "Decorated"
+- "SSReleasable"
+- "SSReleaseDecorator"
+- "Void"
+- !private "decorated"
+- !private "onRelease"
+depends-member:
+- ["7SSSugar26SSDataBaseBindingStatementP", ""]
+- !private ["7SSSugar26SSDataBaseBindingStatementP", "decorated"]
+- !private ["7SSSugar26SSDataBaseBindingStatementP", "onRelease"]
+- ["7SSSugar26SSDataBaseBindingStatementP", "release"]
+- ["7SSSugar26SSDataBaseGettingStatementP", ""]
+- !private ["7SSSugar26SSDataBaseGettingStatementP", "decorated"]
+- !private ["7SSSugar26SSDataBaseGettingStatementP", "onRelease"]
+- ["7SSSugar26SSDataBaseGettingStatementP", "release"]
+- ["7SSSugar27SSDataBaseSavePointProtocolP", ""]
+- !private ["7SSSugar27SSDataBaseSavePointProtocolP", "decorated"]
+- !private ["7SSSugar27SSDataBaseSavePointProtocolP", "onRelease"]
+- ["7SSSugar27SSDataBaseSavePointProtocolP", "release"]
+- !private ["7SSSugar26SSDataBaseSavePointProxingP", "decorated"]
+- !private ["7SSSugar26SSDataBaseSavePointProxingP", "onRelease"]
+- ["7SSSugar26SSDataBaseSavePointProxingP", "release"]
+- ["7SSSugar27SSDataBaseStatementProtocolP", ""]
+- !private ["7SSSugar27SSDataBaseStatementProtocolP", "decorated"]
+- !private ["7SSSugar27SSDataBaseStatementProtocolP", "onRelease"]
+- ["7SSSugar27SSDataBaseStatementProtocolP", "release"]
+- !private ["7SSSugar26SSDataBaseStatementProxingP", "decorated"]
+- !private ["7SSSugar26SSDataBaseStatementProxingP", "onRelease"]
+- ["7SSSugar26SSDataBaseStatementProxingP", "release"]
+- ["7SSSugar12SSReleasableP", ""]
+- !private ["7SSSugar12SSReleasableP", "decorated"]
+- !private ["7SSSugar12SSReleasableP", "onRelease"]
+- ["7SSSugar12SSReleasableP", "release"]
+- ["7SSSugar18SSReleaseDecoratorC", "Bool"]
+- ["7SSSugar18SSReleaseDecoratorC", "Void"]
+- ["7SSSugar18SSReleaseDecoratorC", ""]
+- ["7SSSugar18SSReleaseDecoratorC", "decorated"]
+- ["7SSSugar18SSReleaseDecoratorC", "deinit"]
+- ["7SSSugar18SSReleaseDecoratorC", "init"]
+- ["7SSSugar18SSReleaseDecoratorC", "onRelease"]
+- ["7SSSugar18SSReleaseDecoratorC", "release"]
+depends-nominal:
+- "7SSSugar26SSDataBaseBindingStatementP"
+- "7SSSugar26SSDataBaseGettingStatementP"
+- "7SSSugar27SSDataBaseSavePointProtocolP"
+- "7SSSugar26SSDataBaseSavePointProxingP"
+- "7SSSugar27SSDataBaseStatementProtocolP"
+- "7SSSugar26SSDataBaseStatementProxingP"
+- "7SSSugar12SSReleasableP"
+- "7SSSugar18SSReleaseDecoratorC"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/XPC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/ObjectiveC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Combine.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Dispatch.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Darwin.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Foundation.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/CoreFoundation.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/CoreGraphics.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/IOKit.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/SwiftOnoneSupport.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/mach-o/dyld.modulemap"
+- "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/mach-o/compact_unwind_encoding.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/xpc/XPC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/apinotes/Dispatch.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "03f0992b87659b3ec158c44ef4b0bff3"

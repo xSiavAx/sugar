@@ -1,0 +1,176 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "SSDBColumnCondition"
+provides-nominal:
+- "7SSSugar19SSDBColumnConditionV"
+- "7SSSugar19SSDBColumnConditionV9OperationO"
+provides-member:
+- ["7SSSugar19SSDBColumnConditionV", ""]
+- ["7SSSugar19SSDBColumnConditionV9OperationO", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- "=="
+- !private "??"
+- !private "Array"
+- "AssignmentPrecedence"
+- !private "FloatLiteralType"
+- !private "IntegerLiteralType"
+- "Operation"
+- "SSDBColumnCondition"
+- "SSDBColumnProtocol"
+- "SSDBQueryCondition"
+- "String"
+- "StringLiteralType"
+- "UnicodeScalarType"
+- !private "_findStringSwitchCase"
+- !private "column"
+- !private "operation"
+- !private "value"
+- !private "~="
+depends-member:
+- ["Sl", ""]
+- !private ["s23CustomStringConvertibleP", "appendInterpolation"]
+- !private ["s23CustomStringConvertibleP", "appendLiteral"]
+- !private ["s26DefaultStringInterpolationV", "appendInterpolation"]
+- !private ["s26DefaultStringInterpolationV", "appendLiteral"]
+- ["SQ", "=="]
+- ["SQ", "Default_RawValue"]
+- ["SQ", "RawValue"]
+- ["SQ", ""]
+- ["SQ", "_Default_RawValue"]
+- !private ["SQ", "_findStringSwitchCase"]
+- ["SQ", "_rawHashValue"]
+- !private ["SQ", "equal"]
+- !private ["SQ", "findStringSwitchCase"]
+- ["SQ", "hash"]
+- ["SQ", "hashValue"]
+- ["SQ", "init"]
+- ["SQ", "rawValue"]
+- !private ["s25ExpressibleByArrayLiteralP", "init"]
+- !private ["s32ExpressibleByStringInterpolationP", "StringInterpolation"]
+- !private ["s32ExpressibleByStringInterpolationP", "init"]
+- ["SH", "=="]
+- ["SH", "Default_RawValue"]
+- ["SH", "RawValue"]
+- ["SH", ""]
+- ["SH", "_Default_RawValue"]
+- !private ["SH", "_findStringSwitchCase"]
+- ["SH", "_rawHashValue"]
+- !private ["SH", "equal"]
+- !private ["SH", "findStringSwitchCase"]
+- ["SH", "hash"]
+- ["SH", "hashValue"]
+- ["SH", "init"]
+- ["SH", "rawValue"]
+- ["7SSSugar20InsertableCollectionP", "Element"]
+- ["7SSSugar20InsertableCollectionP", "Index"]
+- ["7SSSugar20InsertableCollectionP", "IndexDistance"]
+- ["7SSSugar20InsertableCollectionP", "Indices"]
+- ["7SSSugar20InsertableCollectionP", "Iterator"]
+- ["7SSSugar20InsertableCollectionP", "SubSequence"]
+- ["So8NSCodingP", ""]
+- ["So8NSObjectP", ""]
+- ["7SSSugar19SSDBColumnConditionV9OperationO", "=="]
+- ["7SSSugar19SSDBColumnConditionV9OperationO", "Default_RawValue"]
+- ["7SSSugar19SSDBColumnConditionV9OperationO", "RawValue"]
+- ["7SSSugar19SSDBColumnConditionV9OperationO", ""]
+- ["7SSSugar19SSDBColumnConditionV9OperationO", "_Default_RawValue"]
+- !private ["7SSSugar19SSDBColumnConditionV9OperationO", "_findStringSwitchCase"]
+- ["7SSSugar19SSDBColumnConditionV9OperationO", "_rawHashValue"]
+- ["7SSSugar19SSDBColumnConditionV9OperationO", "equal"]
+- !private ["7SSSugar19SSDBColumnConditionV9OperationO", "findStringSwitchCase"]
+- ["7SSSugar19SSDBColumnConditionV9OperationO", "greater"]
+- ["7SSSugar19SSDBColumnConditionV9OperationO", "greaterOrEqual"]
+- ["7SSSugar19SSDBColumnConditionV9OperationO", "hash"]
+- ["7SSSugar19SSDBColumnConditionV9OperationO", "hashValue"]
+- ["7SSSugar19SSDBColumnConditionV9OperationO", "init"]
+- ["7SSSugar19SSDBColumnConditionV9OperationO", "lower"]
+- ["7SSSugar19SSDBColumnConditionV9OperationO", "lowerOrEqual"]
+- ["7SSSugar19SSDBColumnConditionV9OperationO", "notEqual"]
+- ["7SSSugar19SSDBColumnConditionV9OperationO", "rawValue"]
+- ["SY", "=="]
+- ["SY", "Default_RawValue"]
+- ["SY", "RawValue"]
+- ["SY", ""]
+- ["SY", "_Default_RawValue"]
+- !private ["SY", "_findStringSwitchCase"]
+- ["SY", "_rawHashValue"]
+- !private ["SY", "equal"]
+- !private ["SY", "findStringSwitchCase"]
+- ["SY", "hash"]
+- ["SY", "hashValue"]
+- ["SY", "init"]
+- ["SY", "rawValue"]
+- ["7SSSugar19SSDBColumnConditionV", "Operation"]
+- ["7SSSugar19SSDBColumnConditionV", "SSDBColumnProtocol"]
+- ["7SSSugar19SSDBColumnConditionV", "String"]
+- !private ["7SSSugar19SSDBColumnConditionV", "_findStringSwitchCase"]
+- ["7SSSugar19SSDBColumnConditionV", "column"]
+- !private ["7SSSugar19SSDBColumnConditionV", "findStringSwitchCase"]
+- ["7SSSugar19SSDBColumnConditionV", "init"]
+- ["7SSSugar19SSDBColumnConditionV", "operation"]
+- ["7SSSugar19SSDBColumnConditionV", "toString"]
+- ["7SSSugar19SSDBColumnConditionV", "value"]
+- !private ["7SSSugar18SSDBColumnProtocolP", "name"]
+- ["7SSSugar18SSDBQueryConditionP", ""]
+- !private ["7SSSugar18SSDBQueryConditionP", "_findStringSwitchCase"]
+- !private ["7SSSugar18SSDBQueryConditionP", "column"]
+- !private ["7SSSugar18SSDBQueryConditionP", "findStringSwitchCase"]
+- !private ["7SSSugar18SSDBQueryConditionP", "operation"]
+- ["7SSSugar18SSDBQueryConditionP", "toString"]
+- !private ["7SSSugar18SSDBQueryConditionP", "value"]
+- ["ST", ""]
+- !private ["s27StringInterpolationProtocolP", "appendInterpolation"]
+- !private ["s27StringInterpolationProtocolP", "appendLiteral"]
+- !private ["s27StringInterpolationProtocolP", "init"]
+- !private ["s16TextOutputStreamP", "appendInterpolation"]
+- !private ["s16TextOutputStreamP", "appendLiteral"]
+- !private ["s35_ExpressibleByBuiltinIntegerLiteralP", "init"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+depends-nominal:
+- "Sl"
+- !private "s23CustomStringConvertibleP"
+- !private "s26DefaultStringInterpolationV"
+- "SQ"
+- !private "s25ExpressibleByArrayLiteralP"
+- !private "s32ExpressibleByStringInterpolationP"
+- "SH"
+- "7SSSugar20InsertableCollectionP"
+- "So8NSCodingP"
+- "So8NSObjectP"
+- "7SSSugar19SSDBColumnConditionV9OperationO"
+- "SY"
+- "7SSSugar19SSDBColumnConditionV"
+- !private "7SSSugar18SSDBColumnProtocolP"
+- "7SSSugar18SSDBQueryConditionP"
+- "ST"
+- !private "s27StringInterpolationProtocolP"
+- !private "s16TextOutputStreamP"
+- !private "s35_ExpressibleByBuiltinIntegerLiteralP"
+- "s34_ExpressibleByBuiltinStringLiteralP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/XPC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/ObjectiveC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Combine.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Dispatch.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Darwin.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Foundation.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/CoreFoundation.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/CoreGraphics.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Swift.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/IOKit.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/SwiftOnoneSupport.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/mach-o/dyld.modulemap"
+- "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/mach-o/compact_unwind_encoding.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/xpc/XPC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/apinotes/Dispatch.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "085b6a74df33c54b2a114ff715332947"

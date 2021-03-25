@@ -1,0 +1,101 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "SSRootedStorageCoding"
+- "SSStorageCoder"
+provides-nominal:
+- "7SSSugar21SSRootedStorageCodingP"
+- "7SSSugar14SSStorageCoderC"
+provides-member:
+- ["7SSSugar21SSRootedStorageCodingP", ""]
+- ["7SSSugar14SSStorageCoderC", ""]
+- ["7SSSugar21SSRootedStorageCodingP", "init"]
+- ["7SSSugar21SSRootedStorageCodingP", "wtite"]
+provides-dynamic-lookup:
+- "bindPropOwner"
+- "dict"
+- "setup"
+- "storage"
+depends-top-level:
+- "AssignmentPrecedence"
+- "CastingPrecedence"
+- "SSKeyFieldObj"
+- "SSKeyFieldStorage"
+- "SSKeyStoring"
+- "SSKeyStoringOwner"
+- "SSRootedStorageCoding"
+- "SSStorageCoder"
+- "Self"
+- "String"
+- !private "bindPropOwner"
+- !private "dict"
+- !private "storage"
+depends-member:
+- !private ["SD", ""]
+- ["s30ExpressibleByDictionaryLiteralP", "Key"]
+- ["s30ExpressibleByDictionaryLiteralP", "Value"]
+- ["s30ExpressibleByDictionaryLiteralP", "init"]
+- !private ["7SSSugar10SSKeyFieldV", "parse"]
+- !private ["7SSSugar10SSKeyFieldV", "write"]
+- !private ["7SSSugar12SSKeyStoringV", "owner"]
+- !private ["7SSSugar17SSKeyStoringOwnerP", "Self"]
+- ["7SSSugar17SSKeyStoringOwnerP", ""]
+- !private ["7SSSugar17SSKeyStoringOwnerP", "bindPropOwner"]
+- !private ["7SSSugar17SSKeyStoringOwnerP", "dict"]
+- !private ["7SSSugar17SSKeyStoringOwnerP", "init"]
+- !private ["7SSSugar17SSKeyStoringOwnerP", "root"]
+- !private ["7SSSugar17SSKeyStoringOwnerP", "setup"]
+- ["7SSSugar17SSKeyStoringOwnerP", "storage"]
+- ["7SSSugar21SSRootedStorageCodingP", "SSKeyFieldObj"]
+- ["7SSSugar21SSRootedStorageCodingP", "SSKeyFieldStorage"]
+- ["7SSSugar21SSRootedStorageCodingP", "SSStorageCoder"]
+- !private ["7SSSugar21SSRootedStorageCodingP", "Self"]
+- ["7SSSugar21SSRootedStorageCodingP", "String"]
+- ["7SSSugar21SSRootedStorageCodingP", ""]
+- !private ["7SSSugar21SSRootedStorageCodingP", "dict"]
+- ["7SSSugar21SSRootedStorageCodingP", "init"]
+- ["7SSSugar21SSRootedStorageCodingP", "root"]
+- ["7SSSugar21SSRootedStorageCodingP", "wtite"]
+- ["7SSSugar14SSStorageCoderC", "SSKeyFieldStorage"]
+- ["7SSSugar14SSStorageCoderC", "SSKeyStoring"]
+- ["7SSSugar14SSStorageCoderC", "SSStorageCoder"]
+- !private ["7SSSugar14SSStorageCoderC", "Self"]
+- ["7SSSugar14SSStorageCoderC", "String"]
+- !private ["7SSSugar14SSStorageCoderC", ""]
+- ["7SSSugar14SSStorageCoderC", "bindPropOwner"]
+- ["7SSSugar14SSStorageCoderC", "deinit"]
+- ["7SSSugar14SSStorageCoderC", "dict"]
+- ["7SSSugar14SSStorageCoderC", "init"]
+- !private ["7SSSugar14SSStorageCoderC", "root"]
+- ["7SSSugar14SSStorageCoderC", "setup"]
+- ["7SSSugar14SSStorageCoderC", "storage"]
+depends-nominal:
+- !private "SD"
+- "s30ExpressibleByDictionaryLiteralP"
+- !private "7SSSugar10SSKeyFieldV"
+- !private "7SSSugar12SSKeyStoringV"
+- "7SSSugar17SSKeyStoringOwnerP"
+- "7SSSugar21SSRootedStorageCodingP"
+- "7SSSugar14SSStorageCoderC"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/XPC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/ObjectiveC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Dispatch.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/CoreFoundation.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/CoreGraphics.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Swift.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/IOKit.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/SwiftOnoneSupport.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/mach-o/dyld.modulemap"
+- "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/mach-o/compact_unwind_encoding.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/xpc/XPC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/apinotes/Dispatch.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "396223696d9178cb1539cd8e4883e190"

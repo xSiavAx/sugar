@@ -1,0 +1,195 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "StatementError"
+- "SSDataBaseBindingStatement"
+- "SSDataBaseGettingStatement"
+- "SSDataBaseStatementProtocol"
+- "SSDataBaseSavePointProtocol"
+- "SSDataBaseStatementCreator"
+- "SSDataBaseProtocol"
+provides-nominal:
+- "7SSSugar14StatementErrorO"
+- "7SSSugar26SSDataBaseBindingStatementP"
+- "7SSSugar26SSDataBaseGettingStatementP"
+- "7SSSugar27SSDataBaseStatementProtocolP"
+- "7SSSugar27SSDataBaseSavePointProtocolP"
+- "7SSSugar26SSDataBaseStatementCreatorP"
+- "7SSSugar18SSDataBaseProtocolP"
+provides-member:
+- ["7SSSugar14StatementErrorO", ""]
+- ["7SSSugar26SSDataBaseBindingStatementP", ""]
+- ["7SSSugar26SSDataBaseGettingStatementP", ""]
+- ["7SSSugar27SSDataBaseStatementProtocolP", ""]
+- ["7SSSugar27SSDataBaseSavePointProtocolP", ""]
+- ["7SSSugar26SSDataBaseStatementCreatorP", ""]
+- ["7SSSugar18SSDataBaseProtocolP", ""]
+- ["7SSSugar27SSDataBaseStatementProtocolP", "bind"]
+- ["7SSSugar27SSDataBaseStatementProtocolP", "get"]
+provides-dynamic-lookup:
+depends-top-level:
+- "AnyObject"
+- "Bool"
+- "Data"
+- "Double"
+- "Error"
+- "Int"
+- "Int64"
+- "SSCacheContainer"
+- "SSDBColType"
+- "SSDataBaseBindingStatement"
+- "SSDataBaseGettingStatement"
+- "SSDataBaseProtocol"
+- "SSDataBaseQueryExecutor"
+- "SSDataBaseSavePointProtocol"
+- "SSDataBaseStatementCreator"
+- "SSDataBaseStatementProtocol"
+- "SSReleasable"
+- "SSTransacted"
+- "StatementError"
+- "String"
+depends-member:
+- ["s5ErrorP", ""]
+- ["s5ErrorP", "_code"]
+- ["s5ErrorP", "_domain"]
+- ["s5ErrorP", "_getEmbeddedNSError"]
+- ["s5ErrorP", "_userInfo"]
+- ["s5ErrorP", "code"]
+- ["s5ErrorP", "domain"]
+- ["s5ErrorP", "userInfo"]
+- ["7SSSugar16SSCacheContainerP", "Int64"]
+- ["7SSSugar16SSCacheContainerP", "SSDataBaseSavePointProtocol"]
+- ["7SSSugar16SSCacheContainerP", "String"]
+- ["7SSSugar16SSCacheContainerP", ""]
+- ["7SSSugar16SSCacheContainerP", "lastInsrtedRowID"]
+- ["7SSSugar16SSCacheContainerP", "savePoint"]
+- !private ["7SSSugar11SSDBColTypeP", "bindTo"]
+- !private ["7SSSugar11SSDBColTypeP", "from"]
+- ["7SSSugar26SSDataBaseBindingStatementP", "Bool"]
+- ["7SSSugar26SSDataBaseBindingStatementP", "Data"]
+- ["7SSSugar26SSDataBaseBindingStatementP", "Double"]
+- ["7SSSugar26SSDataBaseBindingStatementP", "Int"]
+- ["7SSSugar26SSDataBaseBindingStatementP", "Int64"]
+- ["7SSSugar26SSDataBaseBindingStatementP", "SSDBColType"]
+- ["7SSSugar26SSDataBaseBindingStatementP", "String"]
+- ["7SSSugar26SSDataBaseBindingStatementP", ""]
+- ["7SSSugar26SSDataBaseBindingStatementP", "bind"]
+- ["7SSSugar26SSDataBaseBindingStatementP", "bindNull"]
+- ["7SSSugar26SSDataBaseBindingStatementP", "clear"]
+- ["7SSSugar26SSDataBaseBindingStatementP", "commit"]
+- ["7SSSugar26SSDataBaseBindingStatementP", "select"]
+- ["7SSSugar26SSDataBaseGettingStatementP", "Bool"]
+- ["7SSSugar26SSDataBaseGettingStatementP", "Data"]
+- ["7SSSugar26SSDataBaseGettingStatementP", "Double"]
+- ["7SSSugar26SSDataBaseGettingStatementP", "Int"]
+- ["7SSSugar26SSDataBaseGettingStatementP", "Int64"]
+- ["7SSSugar26SSDataBaseGettingStatementP", "SSDBColType"]
+- ["7SSSugar26SSDataBaseGettingStatementP", "String"]
+- ["7SSSugar26SSDataBaseGettingStatementP", ""]
+- ["7SSSugar26SSDataBaseGettingStatementP", "clear"]
+- ["7SSSugar26SSDataBaseGettingStatementP", "commit"]
+- ["7SSSugar26SSDataBaseGettingStatementP", "getData"]
+- ["7SSSugar26SSDataBaseGettingStatementP", "getDouble"]
+- ["7SSSugar26SSDataBaseGettingStatementP", "getInt"]
+- ["7SSSugar26SSDataBaseGettingStatementP", "getInt64"]
+- ["7SSSugar26SSDataBaseGettingStatementP", "getString"]
+- ["7SSSugar26SSDataBaseGettingStatementP", "isNull"]
+- ["7SSSugar26SSDataBaseGettingStatementP", "select"]
+- ["7SSSugar18SSDataBaseProtocolP", "Int64"]
+- ["7SSSugar18SSDataBaseProtocolP", "SSDataBaseSavePointProtocol"]
+- ["7SSSugar18SSDataBaseProtocolP", "String"]
+- ["7SSSugar18SSDataBaseProtocolP", "lastInsrtedRowID"]
+- ["7SSSugar18SSDataBaseProtocolP", "savePoint"]
+- ["7SSSugar23SSDataBaseQueryExecutorP", "Int64"]
+- ["7SSSugar23SSDataBaseQueryExecutorP", "SSDataBaseSavePointProtocol"]
+- ["7SSSugar23SSDataBaseQueryExecutorP", "String"]
+- ["7SSSugar23SSDataBaseQueryExecutorP", ""]
+- ["7SSSugar23SSDataBaseQueryExecutorP", "lastInsrtedRowID"]
+- ["7SSSugar23SSDataBaseQueryExecutorP", "savePoint"]
+- ["7SSSugar27SSDataBaseSavePointProtocolP", "rollBack"]
+- ["7SSSugar26SSDataBaseStatementCreatorP", "Int64"]
+- ["7SSSugar26SSDataBaseStatementCreatorP", "SSDataBaseSavePointProtocol"]
+- ["7SSSugar26SSDataBaseStatementCreatorP", "SSDataBaseStatementProtocol"]
+- ["7SSSugar26SSDataBaseStatementCreatorP", "String"]
+- ["7SSSugar26SSDataBaseStatementCreatorP", ""]
+- ["7SSSugar26SSDataBaseStatementCreatorP", "lastInsrtedRowID"]
+- ["7SSSugar26SSDataBaseStatementCreatorP", "savePoint"]
+- ["7SSSugar26SSDataBaseStatementCreatorP", "statement"]
+- ["7SSSugar27SSDataBaseStatementProtocolP", "Bool"]
+- ["7SSSugar27SSDataBaseStatementProtocolP", "Int"]
+- ["7SSSugar27SSDataBaseStatementProtocolP", "SSDBColType"]
+- ["7SSSugar27SSDataBaseStatementProtocolP", ""]
+- ["7SSSugar27SSDataBaseStatementProtocolP", "bind"]
+- ["7SSSugar27SSDataBaseStatementProtocolP", "clear"]
+- ["7SSSugar27SSDataBaseStatementProtocolP", "commit"]
+- ["7SSSugar27SSDataBaseStatementProtocolP", "get"]
+- ["7SSSugar27SSDataBaseStatementProtocolP", "select"]
+- ["7SSSugar12SSReleasableP", "Bool"]
+- ["7SSSugar12SSReleasableP", "Int"]
+- ["7SSSugar12SSReleasableP", "SSDBColType"]
+- ["7SSSugar12SSReleasableP", ""]
+- ["7SSSugar12SSReleasableP", "clear"]
+- ["7SSSugar12SSReleasableP", "commit"]
+- ["7SSSugar12SSReleasableP", "rollBack"]
+- ["7SSSugar12SSReleasableP", "select"]
+- ["7SSSugar12SSTransactedP", "Int64"]
+- ["7SSSugar12SSTransactedP", "SSDataBaseSavePointProtocol"]
+- ["7SSSugar12SSTransactedP", "String"]
+- ["7SSSugar12SSTransactedP", ""]
+- ["7SSSugar12SSTransactedP", "lastInsrtedRowID"]
+- ["7SSSugar12SSTransactedP", "savePoint"]
+- ["7SSSugar14StatementErrorO", "Int"]
+- ["7SSSugar14StatementErrorO", "String"]
+- ["7SSSugar14StatementErrorO", ""]
+- ["7SSSugar14StatementErrorO", "_code"]
+- ["7SSSugar14StatementErrorO", "_domain"]
+- ["7SSSugar14StatementErrorO", "_getEmbeddedNSError"]
+- ["7SSSugar14StatementErrorO", "_userInfo"]
+- ["7SSSugar14StatementErrorO", "alreadyReleased"]
+- ["7SSSugar14StatementErrorO", "bindError"]
+- ["7SSSugar14StatementErrorO", "cantCompile"]
+- ["7SSSugar14StatementErrorO", "code"]
+- ["7SSSugar14StatementErrorO", "commitError"]
+- ["7SSSugar14StatementErrorO", "domain"]
+- ["7SSSugar14StatementErrorO", "indexOutOfRange"]
+- ["7SSSugar14StatementErrorO", "noData"]
+- ["7SSSugar14StatementErrorO", "outOfMemory"]
+- ["7SSSugar14StatementErrorO", "selectError"]
+- ["7SSSugar14StatementErrorO", "userInfo"]
+depends-nominal:
+- "s5ErrorP"
+- "7SSSugar16SSCacheContainerP"
+- !private "7SSSugar11SSDBColTypeP"
+- "7SSSugar26SSDataBaseBindingStatementP"
+- "7SSSugar26SSDataBaseGettingStatementP"
+- "7SSSugar18SSDataBaseProtocolP"
+- "7SSSugar23SSDataBaseQueryExecutorP"
+- "7SSSugar27SSDataBaseSavePointProtocolP"
+- "7SSSugar26SSDataBaseStatementCreatorP"
+- "7SSSugar27SSDataBaseStatementProtocolP"
+- "7SSSugar12SSReleasableP"
+- "7SSSugar12SSTransactedP"
+- "7SSSugar14StatementErrorO"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/XPC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/ObjectiveC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Combine.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Dispatch.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Foundation.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/CoreFoundation.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/CoreGraphics.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/IOKit.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/SwiftOnoneSupport.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/mach-o/dyld.modulemap"
+- "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/mach-o/compact_unwind_encoding.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/xpc/XPC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/apinotes/Dispatch.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "41391c041743fdf5494b7351926fdca5"

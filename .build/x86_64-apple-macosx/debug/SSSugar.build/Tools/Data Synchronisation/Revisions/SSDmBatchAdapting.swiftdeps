@@ -1,0 +1,315 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "SSDmBatchAdaptError"
+- "SSDmToChangeAdaptResult"
+- "SSDmBatchAdapting"
+- "SSDMAdaptStrategyBuilder"
+provides-nominal:
+- "7SSSugar19SSDmBatchAdaptErrorO"
+- "7SSSugar23SSDmToChangeAdaptResultO"
+- "7SSSugar17SSDmBatchAdaptingP"
+- "7SSSugar24SSDMAdaptStrategyBuilderC"
+- "7SSSugar24SSDMAdaptStrategyBuilderC8AdaptingC"
+- "7SSSugar24SSDMAdaptStrategyBuilderC8AdaptingC2ToC"
+- "7SSSugar24SSDMAdaptStrategyBuilderC10AdaptingToC"
+provides-member:
+- ["7SSSugar19SSDmBatchAdaptErrorO", ""]
+- ["7SSSugar23SSDmToChangeAdaptResultO", ""]
+- ["7SSSugar17SSDmBatchAdaptingP", ""]
+- ["7SSSugar24SSDMAdaptStrategyBuilderC", ""]
+- ["7SSSugar24SSDMAdaptStrategyBuilderC8AdaptingC", ""]
+- ["7SSSugar24SSDMAdaptStrategyBuilderC8AdaptingC2ToC", ""]
+- ["7SSSugar24SSDMAdaptStrategyBuilderC10AdaptingToC", ""]
+- ["7SSSugar17SSDmBatchAdaptingP", "adaptBatch"]
+- ["7SSSugar17SSDmBatchAdaptingP", "adaptBatch"]
+provides-dynamic-lookup:
+depends-top-level:
+- "=="
+- "Adapting"
+- !private "AdaptingTo"
+- !private "Array"
+- "Batch"
+- "BooleanLiteralType"
+- !private "CastingPrecedence"
+- "Change"
+- "Error"
+- !private "FloatLiteralType"
+- !private "IntegerLiteralType"
+- "Request"
+- "Result"
+- "Revision"
+- "SSDMAdaptStrategyBuilder"
+- "SSDataModifying"
+- "SSDmBatch"
+- "SSDmBatchAdaptError"
+- "SSDmBatchAdapting"
+- "SSDmChange"
+- "SSDmRevision"
+- "SSDmToChangeAdaptResult"
+- !private "SSTry"
+- "Strategies"
+- "Strategy"
+- "String"
+- "ToChange"
+- !private "adapt"
+- "adaptBatch"
+- "strategies"
+depends-member:
+- !private ["7SSSugar24SSDMAdaptStrategyBuilderC8AdaptingC", "AdaptingTo"]
+- ["7SSSugar24SSDMAdaptStrategyBuilderC8AdaptingC", "Result"]
+- ["7SSSugar24SSDMAdaptStrategyBuilderC8AdaptingC", "SSDmChange"]
+- ["7SSSugar24SSDMAdaptStrategyBuilderC8AdaptingC", "SSDmToChangeAdaptResult"]
+- ["7SSSugar24SSDMAdaptStrategyBuilderC8AdaptingC", "To"]
+- ["7SSSugar24SSDMAdaptStrategyBuilderC8AdaptingC", "deinit"]
+- ["7SSSugar24SSDMAdaptStrategyBuilderC8AdaptingC", "init"]
+- !private ["7SSSugar24SSDMAdaptStrategyBuilderC10AdaptingToC", "Change"]
+- !private ["7SSSugar24SSDMAdaptStrategyBuilderC10AdaptingToC", "Request"]
+- ["7SSSugar24SSDMAdaptStrategyBuilderC10AdaptingToC", "Result"]
+- ["7SSSugar24SSDMAdaptStrategyBuilderC10AdaptingToC", "SSDmToChangeAdaptResult"]
+- !private ["7SSSugar24SSDMAdaptStrategyBuilderC10AdaptingToC", "ToChange"]
+- ["7SSSugar24SSDMAdaptStrategyBuilderC10AdaptingToC", "deinit"]
+- ["7SSSugar24SSDMAdaptStrategyBuilderC10AdaptingToC", "init"]
+- ["7SSSugar24SSDMAdaptStrategyBuilderC10AdaptingToC", "strategy"]
+- !private ["Sa", "forEach"]
+- !private ["SK", ""]
+- !private ["SK", "forEach"]
+- !private ["s7CVarArgP", "forEach"]
+- !private ["s7CVarArgP", "subscript"]
+- ["Sl", ""]
+- !private ["Sl", "forEach"]
+- !private ["Sl", "subscript"]
+- !private ["10Foundation15ContiguousBytesP", "forEach"]
+- !private ["s28CustomDebugStringConvertibleP", "forEach"]
+- !private ["s28CustomDebugStringConvertibleP", "subscript"]
+- !private ["s17CustomReflectableP", "forEach"]
+- !private ["s17CustomReflectableP", "subscript"]
+- !private ["s23CustomStringConvertibleP", "forEach"]
+- !private ["s23CustomStringConvertibleP", "subscript"]
+- !private ["10Foundation12DataProtocolP", ""]
+- !private ["10Foundation12DataProtocolP", "forEach"]
+- !private ["Se", "forEach"]
+- !private ["Se", "subscript"]
+- !private ["SD", ""]
+- !private ["SD", "subscript"]
+- !private ["SE", "forEach"]
+- !private ["SE", "subscript"]
+- ["SQ", "=="]
+- ["SQ", ""]
+- ["SQ", "_code"]
+- ["SQ", "_domain"]
+- ["SQ", "_getEmbeddedNSError"]
+- ["SQ", "_rawHashValue"]
+- ["SQ", "_userInfo"]
+- !private ["SQ", "adapted"]
+- !private ["SQ", "canceled"]
+- !private ["SQ", "cantAdapt"]
+- ["SQ", "code"]
+- ["SQ", "domain"]
+- !private ["SQ", "forEach"]
+- ["SQ", "hash"]
+- ["SQ", "hashValue"]
+- !private ["SQ", "invalid"]
+- !private ["SQ", "passed"]
+- !private ["SQ", "subscript"]
+- ["SQ", "userInfo"]
+- ["s5ErrorP", "=="]
+- ["s5ErrorP", ""]
+- ["s5ErrorP", "_code"]
+- ["s5ErrorP", "_domain"]
+- ["s5ErrorP", "_getEmbeddedNSError"]
+- ["s5ErrorP", "_rawHashValue"]
+- ["s5ErrorP", "_userInfo"]
+- !private ["s5ErrorP", "cantAdapt"]
+- ["s5ErrorP", "code"]
+- ["s5ErrorP", "domain"]
+- ["s5ErrorP", "hash"]
+- ["s5ErrorP", "hashValue"]
+- ["s5ErrorP", "userInfo"]
+- !private ["s25ExpressibleByArrayLiteralP", ""]
+- !private ["s25ExpressibleByArrayLiteralP", "forEach"]
+- !private ["s25ExpressibleByArrayLiteralP", "init"]
+- !private ["s30ExpressibleByDictionaryLiteralP", "subscript"]
+- ["SH", "=="]
+- ["SH", ""]
+- ["SH", "_code"]
+- ["SH", "_domain"]
+- ["SH", "_getEmbeddedNSError"]
+- ["SH", "_rawHashValue"]
+- ["SH", "_userInfo"]
+- !private ["SH", "adapted"]
+- !private ["SH", "canceled"]
+- !private ["SH", "cantAdapt"]
+- ["SH", "code"]
+- ["SH", "domain"]
+- !private ["SH", "forEach"]
+- ["SH", "hash"]
+- ["SH", "hashValue"]
+- !private ["SH", "invalid"]
+- !private ["SH", "passed"]
+- !private ["SH", "subscript"]
+- ["SH", "userInfo"]
+- !private ["s6HasherV", "combine"]
+- ["7SSSugar20InsertableCollectionP", ""]
+- !private ["7SSSugar20InsertableCollectionP", "forEach"]
+- !private ["SM", ""]
+- !private ["SM", "forEach"]
+- !private ["10Foundation19MutableDataProtocolP", "forEach"]
+- !private ["Sk", ""]
+- !private ["Sk", "forEach"]
+- !private ["Sm", ""]
+- !private ["Sm", "forEach"]
+- !private ["7SSSugar21ReplaceableCollectionP", "forEach"]
+- ["7SSSugar9SSCopyingP", ""]
+- !private ["7SSSugar9SSCopyingP", "changes"]
+- !private ["7SSSugar9SSCopyingP", "filterRequests"]
+- !private ["7SSSugar9SSCopyingP", "title"]
+- ["7SSSugar24SSDMAdaptStrategyBuilderC", "Adapting"]
+- ["7SSSugar24SSDMAdaptStrategyBuilderC", "AdaptingTo"]
+- ["7SSSugar24SSDMAdaptStrategyBuilderC", "Result"]
+- ["7SSSugar24SSDMAdaptStrategyBuilderC", "SSDmChange"]
+- ["7SSSugar24SSDMAdaptStrategyBuilderC", "SSDmToChangeAdaptResult"]
+- ["7SSSugar24SSDMAdaptStrategyBuilderC", "Strategy"]
+- ["7SSSugar24SSDMAdaptStrategyBuilderC", "String"]
+- !private ["7SSSugar24SSDMAdaptStrategyBuilderC", "ToChange"]
+- ["7SSSugar24SSDMAdaptStrategyBuilderC", "deinit"]
+- ["7SSSugar24SSDMAdaptStrategyBuilderC", "init"]
+- ["7SSSugar15SSDataModifyingP", ""]
+- !private ["7SSSugar15SSDataModifyingP", "title"]
+- !private ["7SSSugar9SSDmBatchC", "filterRequests"]
+- ["7SSSugar19SSDmBatchAdaptErrorO", "=="]
+- ["7SSSugar19SSDmBatchAdaptErrorO", ""]
+- ["7SSSugar19SSDmBatchAdaptErrorO", "__derived_enum_equals"]
+- ["7SSSugar19SSDmBatchAdaptErrorO", "_code"]
+- ["7SSSugar19SSDmBatchAdaptErrorO", "_domain"]
+- ["7SSSugar19SSDmBatchAdaptErrorO", "_getEmbeddedNSError"]
+- ["7SSSugar19SSDmBatchAdaptErrorO", "_rawHashValue"]
+- ["7SSSugar19SSDmBatchAdaptErrorO", "_userInfo"]
+- ["7SSSugar19SSDmBatchAdaptErrorO", "cantAdapt"]
+- ["7SSSugar19SSDmBatchAdaptErrorO", "code"]
+- ["7SSSugar19SSDmBatchAdaptErrorO", "domain"]
+- ["7SSSugar19SSDmBatchAdaptErrorO", "hash"]
+- ["7SSSugar19SSDmBatchAdaptErrorO", "hashValue"]
+- ["7SSSugar19SSDmBatchAdaptErrorO", "userInfo"]
+- ["7SSSugar17SSDmBatchAdaptingP", "Batch"]
+- ["7SSSugar17SSDmBatchAdaptingP", "Change"]
+- ["7SSSugar17SSDmBatchAdaptingP", "Request"]
+- ["7SSSugar17SSDmBatchAdaptingP", "Revision"]
+- ["7SSSugar17SSDmBatchAdaptingP", "SSDataModifying"]
+- ["7SSSugar17SSDmBatchAdaptingP", "SSDmBatch"]
+- ["7SSSugar17SSDmBatchAdaptingP", "SSDmBatchAdaptError"]
+- ["7SSSugar17SSDmBatchAdaptingP", "SSDmRevision"]
+- ["7SSSugar17SSDmBatchAdaptingP", "SSDmToChangeAdaptResult"]
+- !private ["7SSSugar17SSDmBatchAdaptingP", "SSTry"]
+- ["7SSSugar17SSDmBatchAdaptingP", "Strategies"]
+- ["7SSSugar17SSDmBatchAdaptingP", "Strategy"]
+- ["7SSSugar17SSDmBatchAdaptingP", "String"]
+- ["7SSSugar17SSDmBatchAdaptingP", ""]
+- !private ["7SSSugar17SSDmBatchAdaptingP", "adapt"]
+- ["7SSSugar17SSDmBatchAdaptingP", "adaptBatch"]
+- ["7SSSugar17SSDmBatchAdaptingP", "strategies"]
+- !private ["7SSSugar10SSDmChangeP", "title"]
+- !private ["7SSSugar12SSDmRevisionC", "changes"]
+- ["7SSSugar23SSDmToChangeAdaptResultO", "=="]
+- ["7SSSugar23SSDmToChangeAdaptResultO", ""]
+- ["7SSSugar23SSDmToChangeAdaptResultO", "__derived_enum_equals"]
+- ["7SSSugar23SSDmToChangeAdaptResultO", "_rawHashValue"]
+- ["7SSSugar23SSDmToChangeAdaptResultO", "adapted"]
+- ["7SSSugar23SSDmToChangeAdaptResultO", "canceled"]
+- ["7SSSugar23SSDmToChangeAdaptResultO", "hash"]
+- ["7SSSugar23SSDmToChangeAdaptResultO", "hashValue"]
+- ["7SSSugar23SSDmToChangeAdaptResultO", "invalid"]
+- ["7SSSugar23SSDmToChangeAdaptResultO", "passed"]
+- !private ["7SSSugar17SSKeyFieldStorageP", "subscript"]
+- !private ["7SSSugar5SSTryC", "cast"]
+- !private ["ST", ""]
+- !private ["ST", "forEach"]
+- !private ["ST", "subscript"]
+- ["7SSSugar24SSDMAdaptStrategyBuilderC8AdaptingC2ToC", "Adapting"]
+- !private ["7SSSugar24SSDMAdaptStrategyBuilderC8AdaptingC2ToC", "AdaptingTo"]
+- ["7SSSugar24SSDMAdaptStrategyBuilderC8AdaptingC2ToC", "Result"]
+- ["7SSSugar24SSDMAdaptStrategyBuilderC8AdaptingC2ToC", "SSDmToChangeAdaptResult"]
+- ["7SSSugar24SSDMAdaptStrategyBuilderC8AdaptingC2ToC", "deinit"]
+- ["7SSSugar24SSDMAdaptStrategyBuilderC8AdaptingC2ToC", "init"]
+- ["7SSSugar24SSDMAdaptStrategyBuilderC8AdaptingC2ToC", "strategy"]
+- !private ["s14_ArrayProtocolP", "forEach"]
+- !private ["s24_DestructorSafeContainerP", "forEach"]
+- !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "init"]
+- !private ["s35_ExpressibleByBuiltinIntegerLiteralP", "init"]
+- !private ["s19_HasContiguousBytesP", "forEach"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "forEach"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "subscript"]
+- !private ["s21_ObjectiveCBridgeableP", "forEach"]
+- !private ["s21_ObjectiveCBridgeableP", "subscript"]
+depends-nominal:
+- "7SSSugar24SSDMAdaptStrategyBuilderC8AdaptingC"
+- "7SSSugar24SSDMAdaptStrategyBuilderC10AdaptingToC"
+- !private "Sa"
+- !private "SK"
+- !private "s7CVarArgP"
+- "Sl"
+- !private "10Foundation15ContiguousBytesP"
+- !private "s28CustomDebugStringConvertibleP"
+- !private "s17CustomReflectableP"
+- !private "s23CustomStringConvertibleP"
+- !private "10Foundation12DataProtocolP"
+- !private "Se"
+- !private "SD"
+- !private "SE"
+- "SQ"
+- "s5ErrorP"
+- !private "s25ExpressibleByArrayLiteralP"
+- !private "s30ExpressibleByDictionaryLiteralP"
+- "SH"
+- !private "s6HasherV"
+- "7SSSugar20InsertableCollectionP"
+- !private "SM"
+- !private "10Foundation19MutableDataProtocolP"
+- !private "Sk"
+- !private "Sm"
+- !private "7SSSugar21ReplaceableCollectionP"
+- "7SSSugar9SSCopyingP"
+- "7SSSugar24SSDMAdaptStrategyBuilderC"
+- "7SSSugar15SSDataModifyingP"
+- !private "7SSSugar9SSDmBatchC"
+- "7SSSugar19SSDmBatchAdaptErrorO"
+- "7SSSugar17SSDmBatchAdaptingP"
+- !private "7SSSugar10SSDmChangeP"
+- !private "7SSSugar12SSDmRevisionC"
+- "7SSSugar23SSDmToChangeAdaptResultO"
+- !private "7SSSugar17SSKeyFieldStorageP"
+- !private "7SSSugar5SSTryC"
+- !private "ST"
+- "7SSSugar24SSDMAdaptStrategyBuilderC8AdaptingC2ToC"
+- !private "s14_ArrayProtocolP"
+- !private "s24_DestructorSafeContainerP"
+- !private "s35_ExpressibleByBuiltinBooleanLiteralP"
+- !private "s35_ExpressibleByBuiltinIntegerLiteralP"
+- !private "s19_HasContiguousBytesP"
+- !private "s35_HasCustomAnyHashableRepresentationP"
+- !private "s21_ObjectiveCBridgeableP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/XPC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/ObjectiveC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Combine.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Dispatch.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Darwin.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Foundation.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/CoreFoundation.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/CoreGraphics.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Swift.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/IOKit.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/SwiftOnoneSupport.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/mach-o/dyld.modulemap"
+- "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/mach-o/compact_unwind_encoding.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/xpc/XPC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/apinotes/Dispatch.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "c1dcf7b4f6c0a3533717c4035084f334"

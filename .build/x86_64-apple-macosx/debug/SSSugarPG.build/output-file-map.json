@@ -1,0 +1,59 @@
+{
+  "": {
+    "swift-dependencies": "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarPG.build/master.swiftdeps"
+  },
+  "/Users/siava/dev/SSSugar/Sources/SSSugarPG/Data Base/DBStorage.swift": {
+    "dependencies": "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarPG.build/Data Base/DBStorage.d",
+    "object": "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarPG.build/Data Base/DBStorage.swift.o",
+    "swiftmodule": "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarPG.build/Data Base/DBStorage~partial.swiftmodule",
+    "swift-dependencies": "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarPG.build/Data Base/DBStorage.swiftdeps"
+  },
+  "/Users/siava/dev/SSSugar/Sources/SSSugarPG/Data Base/Storages/Dynamic/ContactEmail.swift": {
+    "dependencies": "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarPG.build/Data Base/Storages/Dynamic/ContactEmail.d",
+    "object": "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarPG.build/Data Base/Storages/Dynamic/ContactEmail.swift.o",
+    "swiftmodule": "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarPG.build/Data Base/Storages/Dynamic/ContactEmail~partial.swiftmodule",
+    "swift-dependencies": "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarPG.build/Data Base/Storages/Dynamic/ContactEmail.swiftdeps"
+  },
+  "/Users/siava/dev/SSSugar/Sources/SSSugarPG/Data Base/Storages/Dynamic/ContactGroupTable.swift": {
+    "dependencies": "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarPG.build/Data Base/Storages/Dynamic/ContactGroupTable.d",
+    "object": "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarPG.build/Data Base/Storages/Dynamic/ContactGroupTable.swift.o",
+    "swiftmodule": "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarPG.build/Data Base/Storages/Dynamic/ContactGroupTable~partial.swiftmodule",
+    "swift-dependencies": "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarPG.build/Data Base/Storages/Dynamic/ContactGroupTable.swiftdeps"
+  },
+  "/Users/siava/dev/SSSugar/Sources/SSSugarPG/Data Base/Storages/Dynamic/ContactPhoneTable.swift": {
+    "dependencies": "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarPG.build/Data Base/Storages/Dynamic/ContactPhoneTable.d",
+    "object": "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarPG.build/Data Base/Storages/Dynamic/ContactPhoneTable.swift.o",
+    "swiftmodule": "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarPG.build/Data Base/Storages/Dynamic/ContactPhoneTable~partial.swiftmodule",
+    "swift-dependencies": "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarPG.build/Data Base/Storages/Dynamic/ContactPhoneTable.swiftdeps"
+  },
+  "/Users/siava/dev/SSSugar/Sources/SSSugarPG/Data Base/Storages/Dynamic/ContactTable.swift": {
+    "dependencies": "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarPG.build/Data Base/Storages/Dynamic/ContactTable.d",
+    "object": "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarPG.build/Data Base/Storages/Dynamic/ContactTable.swift.o",
+    "swiftmodule": "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarPG.build/Data Base/Storages/Dynamic/ContactTable~partial.swiftmodule",
+    "swift-dependencies": "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarPG.build/Data Base/Storages/Dynamic/ContactTable.swiftdeps"
+  },
+  "/Users/siava/dev/SSSugar/Sources/SSSugarPG/Data Base/Storages/Dynamic/DynamicStorage.swift": {
+    "dependencies": "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarPG.build/Data Base/Storages/Dynamic/DynamicStorage.d",
+    "object": "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarPG.build/Data Base/Storages/Dynamic/DynamicStorage.swift.o",
+    "swiftmodule": "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarPG.build/Data Base/Storages/Dynamic/DynamicStorage~partial.swiftmodule",
+    "swift-dependencies": "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarPG.build/Data Base/Storages/Dynamic/DynamicStorage.swiftdeps"
+  },
+  "/Users/siava/dev/SSSugar/Sources/SSSugarPG/Data Base/Storages/Dynamic/IdentityTable.swift": {
+    "dependencies": "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarPG.build/Data Base/Storages/Dynamic/IdentityTable.d",
+    "object": "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarPG.build/Data Base/Storages/Dynamic/IdentityTable.swift.o",
+    "swiftmodule": "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarPG.build/Data Base/Storages/Dynamic/IdentityTable~partial.swiftmodule",
+    "swift-dependencies": "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarPG.build/Data Base/Storages/Dynamic/IdentityTable.swiftdeps"
+  },
+  "/Users/siava/dev/SSSugar/Sources/SSSugarPG/Data Base/Storages/Dynamic/VariableTable.swift": {
+    "dependencies": "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarPG.build/Data Base/Storages/Dynamic/VariableTable.d",
+    "object": "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarPG.build/Data Base/Storages/Dynamic/VariableTable.swift.o",
+    "swiftmodule": "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarPG.build/Data Base/Storages/Dynamic/VariableTable~partial.swiftmodule",
+    "swift-dependencies": "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarPG.build/Data Base/Storages/Dynamic/VariableTable.swiftdeps"
+  },
+  "/Users/siava/dev/SSSugar/Sources/SSSugarPG/main.swift": {
+    "dependencies": "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarPG.build/main.d",
+    "object": "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarPG.build/main.swift.o",
+    "swiftmodule": "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarPG.build/main~partial.swiftmodule",
+    "swift-dependencies": "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarPG.build/main.swiftdeps"
+  }
+}

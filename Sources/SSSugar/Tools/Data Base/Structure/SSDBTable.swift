@@ -1,98 +1,105 @@
 import Foundation
 
 public protocol SSDBTable {
-    var tableName: String { get }
-    var columns: [SSDBColumnProtocol] { get }
-    var indexes: [SSDBTableIndexProtocol]? {get}
+    static var tableName: String { get }
+    static var columns: [SSDBColumnProtocol] { get }
+    static var indexCols: [SSDBColumnProtocol]? {get}
+    static var customIndexes: [SSDBTableIndexProtocol]? {get}
     
-    func createQuery() -> String
-    func dropQuery() -> String
+    static func createQuery() -> String
+    static func dropQuery() -> String
 }
 
 public protocol SSDBTableWithID: SSDBTable {
-    var idColumn: SSDBColumnProtocol { get }
+    static var idColumn: SSDBColumnProtocol { get }
     
-    var idLessColumns: [SSDBColumnProtocol] { get }
+    static var idLessColumns: [SSDBColumnProtocol] { get }
 }
 
 public extension SSDBTable {
-    var indexes: [SSDBTableIndexProtocol]? { nil }
+    static var indexCols: [SSDBColumnProtocol]? { nil }
+    static var customIndexes: [SSDBTableIndexProtocol]? { nil }
     
-    func createQuery() -> String {
+    static func createQuery() -> String {
         return baseCreateQuery()
     }
     
-    func dropQuery() -> String {
+    static func dropQuery() -> String {
         return baseDropQuery()
     }
     
-    func baseCreateQuery() -> String {
+    static func baseCreateQuery() -> String {
         let tableQuery = try! query(.create).add(cols: columns).build()
         return ([tableQuery] + createIndexesQueries()).joined(separator: "\n")
     }
     
-    func baseDropQuery() -> String {
+    static func baseDropQuery() -> String {
         let tableQuery = try! query(.drop).build()
         return ([tableQuery] + dropIndexesQueries()).joined(separator: "\n")
     }
     
     //Query for inserting row with every table colum (including id)
-    func insertQuery() -> String {
+    static func insertQuery() -> String {
         return insertQuery(cols: columns)
     }
     
-    func insertQuery(cols: [SSDBColumnProtocol]) -> String {
+    static func insertQuery(cols: [SSDBColumnProtocol]) -> String {
         return try! query(.insert).add(cols: cols).build()
     }
 
-    func selectAllQuery() -> String {
+    static func selectAllQuery() -> String {
         return try! selectAllQueryBuilder().build()
     }
     
-    func query(_ kind: SSDBQueryBuilder.Kind) -> SSDBQueryBuilder {
+    static func query(_ kind: SSDBQueryBuilder.Kind) -> SSDBQueryBuilder {
         return SSDBQueryBuilder(kind, table: tableName)
     }
     
-    func selectAllQueryBuilder() -> SSDBQueryBuilder {
+    static func selectAllQueryBuilder() -> SSDBQueryBuilder {
         return query(.select).add(cols: columns)
     }
     
-    private func createIndexesQueries() -> [String] {
-        guard let indexes = indexes else { return [] }
-        return indexes.map { $0.toCreateComponent(table: tableName) }
+    private static func createIndexesQueries() -> [String] {
+        return allIndexes().map { $0.toCreateComponent() }
     }
     
-    private func dropIndexesQueries() -> [String] {
-        guard let indexes = indexes else { return [] }
-        return indexes.map { $0.toDropComponent(table: tableName) }
+    private static func dropIndexesQueries() -> [String] {
+        return allIndexes().map { $0.toDropComponent() }
+    }
+    
+    private static func allIndexes() -> [SSDBTableIndexProtocol] {
+        let base = indexCols?.map { SSDBTableIndex<Self>(col: $0) } ?? []
+        let custom = customIndexes ?? []
+        
+        return base + custom
     }
 }
 
 public extension SSDBTableWithID {
-    var columns: [SSDBColumnProtocol] { [idColumn] + idLessColumns }
+    static var columns: [SSDBColumnProtocol] { [idColumn] + idLessColumns }
     
     // Query for inserting row with every table colums except id
-    func saveQuery() -> String {
+    static func saveQuery() -> String {
         insertQuery(cols: idLessColumns)
     }
     
-    func updateQuery(cols: [SSDBColumnProtocol]) -> String {
+    static func updateQuery(cols: [SSDBColumnProtocol]) -> String {
         return try! whereQuery(.update).add(cols: idLessColumns).build()
     }
     
-    func updateQuery() -> String {
+    static func updateQuery() -> String {
         return updateQuery(cols: idLessColumns)
     }
     
-    func selectQuery() -> String {
+    static func selectQuery() -> String {
         return try! selectAllQueryBuilder().add(colCondition: idColumn).build()
     }
     
-    func removeQuery() -> String {
+    static func removeQuery() -> String {
         return try! whereQuery(.delete).build()
     }
     
-    func whereQuery(_ kind: SSDBQueryBuilder.Kind) -> SSDBQueryBuilder {
+    static func whereQuery(_ kind: SSDBQueryBuilder.Kind) -> SSDBQueryBuilder {
         return query(kind).add(colCondition: idColumn)
     }
 }

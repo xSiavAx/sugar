@@ -3,29 +3,21 @@ import Foundation
 public protocol SSDBStoraging {
     var db: SSDataBase { get }
     
-    var tables: [SSDBTable] {get}
+    static var tables: [SSDBTable.Type] {get}
 }
 
 public extension SSDBStoraging {
     func initializeStructure() throws {
-        let queries = tables.map { $0.createQuery() }
+        let queries = Self.tables.map { $0.createQuery() }
         
         try db.exec(queries: queries)
     }
     
     func deinitializeStructure() throws {
-        let queries = tables.map { $0.dropQuery() }
+        let queries = Self.tables.map { $0.dropQuery() }
         
         try db.exec(queries: queries)
     }
-}
-
-public protocol SSDBStorageWrapper {
-    var core: SSDBStoraging { get }
-}
-
-public extension SSDBStorageWrapper {
-    var db: SSDataBase { core.db }
     
     func withinTransaction<T>(job: () throws -> T ) throws -> T {
         try within(create: { try db.beginTransaction() },
@@ -58,3 +50,4 @@ public extension SSDBStorageWrapper {
         return result
     }
 }
+

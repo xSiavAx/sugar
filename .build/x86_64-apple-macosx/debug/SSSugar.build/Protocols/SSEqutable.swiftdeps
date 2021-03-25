@@ -1,0 +1,105 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "SSEquatable"
+- "SSInheritedEquatable"
+- "=="
+provides-nominal:
+- "7SSSugar11SSEquatableP"
+- "7SSSugar20SSInheritedEquatableP"
+provides-member:
+- ["7SSSugar11SSEquatableP", ""]
+- ["SQ", ""]
+- ["7SSSugar20SSInheritedEquatableP", ""]
+- ["SQ", "=="]
+- ["7SSSugar20SSInheritedEquatableP", "isAncestorSameType"]
+- ["7SSSugar20SSInheritedEquatableP", "cast"]
+provides-dynamic-lookup:
+depends-top-level:
+- !private "!="
+- !private "&&"
+- "=="
+- "Ancestor"
+- "Bool"
+- !private "BooleanLiteralType"
+- "CastingPrecedence"
+- "Equatable"
+- "Hashable"
+- "SSEquatable"
+- "SSInheritedEquatable"
+- "Self"
+depends-member:
+- ["Sl", ""]
+- ["SQ", "=="]
+- ["SQ", "Ancestor"]
+- ["SQ", "Bool"]
+- ["SQ", "Hashable"]
+- ["SQ", "SSEquatable"]
+- ["SQ", ""]
+- !private ["SQ", "hashValue"]
+- ["SQ", "isSameProps"]
+- ["SQ", "isSameType"]
+- !private ["s23ExpressibleByNilLiteralP", "init"]
+- ["SH", "Bool"]
+- ["SH", "Hashable"]
+- ["SH", "SSEquatable"]
+- !private ["SH", "hashValue"]
+- !private ["SH", "isSameProps"]
+- !private ["SH", "isSameType"]
+- !private ["7SSSugar20InsertableCollectionP", "Element"]
+- !private ["7SSSugar20InsertableCollectionP", "Index"]
+- !private ["7SSSugar20InsertableCollectionP", "IndexDistance"]
+- !private ["7SSSugar20InsertableCollectionP", "Indices"]
+- !private ["7SSSugar20InsertableCollectionP", "Iterator"]
+- !private ["7SSSugar20InsertableCollectionP", "SubSequence"]
+- !private ["So8NSCodingP", ""]
+- !private ["So8NSObjectP", ""]
+- ["7SSSugar11SSEquatableP", "Ancestor"]
+- ["7SSSugar11SSEquatableP", "Bool"]
+- ["7SSSugar11SSEquatableP", "Hashable"]
+- ["7SSSugar11SSEquatableP", "SSEquatable"]
+- ["7SSSugar11SSEquatableP", ""]
+- !private ["7SSSugar11SSEquatableP", "hashValue"]
+- ["7SSSugar11SSEquatableP", "isSameProps"]
+- ["7SSSugar11SSEquatableP", "isSameType"]
+- ["7SSSugar20SSInheritedEquatableP", "Ancestor"]
+- ["7SSSugar20SSInheritedEquatableP", "Bool"]
+- ["7SSSugar20SSInheritedEquatableP", "SSEquatable"]
+- ["7SSSugar20SSInheritedEquatableP", ""]
+- ["7SSSugar20SSInheritedEquatableP", "cast"]
+- ["7SSSugar20SSInheritedEquatableP", "isAncestorSameType"]
+- !private ["ST", ""]
+- !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "init"]
+depends-nominal:
+- "Sl"
+- "SQ"
+- !private "s23ExpressibleByNilLiteralP"
+- "SH"
+- !private "7SSSugar20InsertableCollectionP"
+- !private "So8NSCodingP"
+- !private "So8NSObjectP"
+- "7SSSugar11SSEquatableP"
+- "7SSSugar20SSInheritedEquatableP"
+- !private "ST"
+- !private "s35_ExpressibleByBuiltinBooleanLiteralP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/XPC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/ObjectiveC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Dispatch.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/CoreFoundation.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/CoreGraphics.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/IOKit.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/SwiftOnoneSupport.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/mach-o/dyld.modulemap"
+- "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/mach-o/compact_unwind_encoding.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/xpc/XPC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/apinotes/Dispatch.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "b5c752b024dc85f3069a9e83fbf24844"

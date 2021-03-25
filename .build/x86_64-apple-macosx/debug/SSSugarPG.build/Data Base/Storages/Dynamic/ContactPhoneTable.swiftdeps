@@ -1,0 +1,156 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+provides-nominal:
+- "9SSSugarPG14DynamicStorageV7ContactV"
+provides-member:
+- ["9SSSugarPG14DynamicStorageV", ""]
+- ["9SSSugarPG14DynamicStorageV7ContactV", ""]
+- ["9SSSugarPG14DynamicStorageV", "Contact"]
+provides-dynamic-lookup:
+depends-top-level:
+- "BooleanLiteralType"
+- "Date"
+- "DynamicStorage"
+- "Int"
+- "SSDBColumn"
+- "SSDBColumnProtocol"
+- "SSDBTableWithID"
+- "String"
+- "StringLiteralType"
+- !private "birthDay"
+- !private "color"
+- !private "company"
+- !private "firstName"
+- !private "id"
+- !private "initials"
+- !private "lastName"
+- !private "notes"
+depends-member:
+- ["9SSSugarPG14DynamicStorageV7ContactV", "Date"]
+- ["9SSSugarPG14DynamicStorageV7ContactV", "Int"]
+- ["9SSSugarPG14DynamicStorageV7ContactV", "SSDBColumn"]
+- ["9SSSugarPG14DynamicStorageV7ContactV", "SSDBColumnProtocol"]
+- ["9SSSugarPG14DynamicStorageV7ContactV", "String"]
+- ["9SSSugarPG14DynamicStorageV7ContactV", ""]
+- ["9SSSugarPG14DynamicStorageV7ContactV", "birthDay"]
+- ["9SSSugarPG14DynamicStorageV7ContactV", "color"]
+- ["9SSSugarPG14DynamicStorageV7ContactV", "columns"]
+- ["9SSSugarPG14DynamicStorageV7ContactV", "company"]
+- ["9SSSugarPG14DynamicStorageV7ContactV", "createQuery"]
+- ["9SSSugarPG14DynamicStorageV7ContactV", "dropQuery"]
+- ["9SSSugarPG14DynamicStorageV7ContactV", "firstName"]
+- ["9SSSugarPG14DynamicStorageV7ContactV", "id"]
+- ["9SSSugarPG14DynamicStorageV7ContactV", "idColumn"]
+- ["9SSSugarPG14DynamicStorageV7ContactV", "idLessColumns"]
+- ["9SSSugarPG14DynamicStorageV7ContactV", "indexes"]
+- ["9SSSugarPG14DynamicStorageV7ContactV", "init"]
+- ["9SSSugarPG14DynamicStorageV7ContactV", "initials"]
+- ["9SSSugarPG14DynamicStorageV7ContactV", "lastName"]
+- ["9SSSugarPG14DynamicStorageV7ContactV", "notes"]
+- ["9SSSugarPG14DynamicStorageV7ContactV", "tableName"]
+- ["9SSSugarPG14DynamicStorageV", "Contact"]
+- ["9SSSugarPG14DynamicStorageV", "Date"]
+- ["9SSSugarPG14DynamicStorageV", "Int"]
+- ["9SSSugarPG14DynamicStorageV", "SSDBColumn"]
+- ["9SSSugarPG14DynamicStorageV", "SSDBColumnProtocol"]
+- ["9SSSugarPG14DynamicStorageV", "SSDBTableWithID"]
+- ["9SSSugarPG14DynamicStorageV", "String"]
+- ["9SSSugarPG14DynamicStorageV", ""]
+- !private ["9SSSugarPG14DynamicStorageV", "birthDay"]
+- !private ["9SSSugarPG14DynamicStorageV", "color"]
+- !private ["9SSSugarPG14DynamicStorageV", "company"]
+- !private ["9SSSugarPG14DynamicStorageV", "firstName"]
+- !private ["9SSSugarPG14DynamicStorageV", "id"]
+- !private ["9SSSugarPG14DynamicStorageV", "initials"]
+- !private ["9SSSugarPG14DynamicStorageV", "lastName"]
+- !private ["9SSSugarPG14DynamicStorageV", "notes"]
+- !private ["s25ExpressibleByArrayLiteralP", "init"]
+- ["So8NSCodingP", ""]
+- ["7SSSugar10SSDBColumnV", "init"]
+- ["7SSSugar18SSDBColumnProtocolP", "init"]
+- ["7SSSugar18SSDBStorageWrapperP", "SSDBColumn"]
+- ["7SSSugar18SSDBStorageWrapperP", "SSDBTableWithID"]
+- !private ["7SSSugar18SSDBStorageWrapperP", "birthDay"]
+- !private ["7SSSugar18SSDBStorageWrapperP", "color"]
+- !private ["7SSSugar18SSDBStorageWrapperP", "company"]
+- !private ["7SSSugar18SSDBStorageWrapperP", "firstName"]
+- !private ["7SSSugar18SSDBStorageWrapperP", "id"]
+- !private ["7SSSugar18SSDBStorageWrapperP", "initials"]
+- !private ["7SSSugar18SSDBStorageWrapperP", "lastName"]
+- !private ["7SSSugar18SSDBStorageWrapperP", "notes"]
+- ["7SSSugar9SSDBTableP", "SSDBColumn"]
+- ["7SSSugar9SSDBTableP", ""]
+- !private ["7SSSugar9SSDBTableP", "birthDay"]
+- !private ["7SSSugar9SSDBTableP", "color"]
+- ["7SSSugar9SSDBTableP", "columns"]
+- !private ["7SSSugar9SSDBTableP", "company"]
+- ["7SSSugar9SSDBTableP", "createQuery"]
+- ["7SSSugar9SSDBTableP", "dropQuery"]
+- !private ["7SSSugar9SSDBTableP", "firstName"]
+- !private ["7SSSugar9SSDBTableP", "id"]
+- ["7SSSugar9SSDBTableP", "idColumn"]
+- ["7SSSugar9SSDBTableP", "idLessColumns"]
+- ["7SSSugar9SSDBTableP", "indexes"]
+- !private ["7SSSugar9SSDBTableP", "initials"]
+- !private ["7SSSugar9SSDBTableP", "lastName"]
+- !private ["7SSSugar9SSDBTableP", "notes"]
+- ["7SSSugar9SSDBTableP", "tableName"]
+- ["7SSSugar15SSDBTableWithIDP", "SSDBColumn"]
+- ["7SSSugar15SSDBTableWithIDP", ""]
+- !private ["7SSSugar15SSDBTableWithIDP", "birthDay"]
+- !private ["7SSSugar15SSDBTableWithIDP", "color"]
+- ["7SSSugar15SSDBTableWithIDP", "columns"]
+- !private ["7SSSugar15SSDBTableWithIDP", "company"]
+- ["7SSSugar15SSDBTableWithIDP", "createQuery"]
+- ["7SSSugar15SSDBTableWithIDP", "dropQuery"]
+- !private ["7SSSugar15SSDBTableWithIDP", "firstName"]
+- !private ["7SSSugar15SSDBTableWithIDP", "id"]
+- ["7SSSugar15SSDBTableWithIDP", "idColumn"]
+- ["7SSSugar15SSDBTableWithIDP", "idLessColumns"]
+- ["7SSSugar15SSDBTableWithIDP", "indexes"]
+- !private ["7SSSugar15SSDBTableWithIDP", "initials"]
+- !private ["7SSSugar15SSDBTableWithIDP", "lastName"]
+- !private ["7SSSugar15SSDBTableWithIDP", "notes"]
+- ["7SSSugar15SSDBTableWithIDP", "tableName"]
+- ["s35_ExpressibleByBuiltinBooleanLiteralP", "init"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+depends-nominal:
+- "9SSSugarPG14DynamicStorageV7ContactV"
+- "9SSSugarPG14DynamicStorageV"
+- !private "s25ExpressibleByArrayLiteralP"
+- "So8NSCodingP"
+- "7SSSugar10SSDBColumnV"
+- "7SSSugar18SSDBColumnProtocolP"
+- "7SSSugar18SSDBStorageWrapperP"
+- "7SSSugar9SSDBTableP"
+- "7SSSugar15SSDBTableWithIDP"
+- "s35_ExpressibleByBuiltinBooleanLiteralP"
+- "s34_ExpressibleByBuiltinStringLiteralP"
+depends-dynamic-lookup:
+depends-external:
+- "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/XPC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/ObjectiveC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Combine.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Dispatch.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Darwin.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Foundation.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/CoreFoundation.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/CoreGraphics.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Swift.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/IOKit.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/SwiftOnoneSupport.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/mach-o/dyld.modulemap"
+- "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/module.modulemap"
+- "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/ArgumentParser.build/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/mach-o/compact_unwind_encoding.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/xpc/XPC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/apinotes/Dispatch.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "c2514168a1a392ffa7b456f8ddf30970"

@@ -1,0 +1,102 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "SSKeyField"
+- "SSKeyFieldObj"
+provides-nominal:
+- "7SSSugar10SSKeyFieldV"
+- "7SSSugar10SSKeyFieldV7AdapterC"
+provides-member:
+- ["7SSSugar10SSKeyFieldV", ""]
+- ["7SSSugar10SSKeyFieldV7AdapterC", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- !private "!="
+- "=="
+- "Adapter"
+- "AssignmentPrecedence"
+- "CastingPrecedence"
+- "From"
+- "Read"
+- "SSKeyField"
+- "SSKeyFieldObj"
+- "SSKeyFieldStorage"
+- "String"
+- "T"
+- "TernaryPrecedence"
+- "To"
+- "Write"
+- !private "adapter"
+- !private "defaultValue"
+- !private "read"
+- !private "title"
+- !private "write"
+depends-member:
+- ["7SSSugar10SSKeyFieldV7AdapterC", "From"]
+- ["7SSSugar10SSKeyFieldV7AdapterC", "Read"]
+- ["7SSSugar10SSKeyFieldV7AdapterC", "SSKeyFieldStorage"]
+- ["7SSSugar10SSKeyFieldV7AdapterC", "String"]
+- ["7SSSugar10SSKeyFieldV7AdapterC", "T"]
+- ["7SSSugar10SSKeyFieldV7AdapterC", "To"]
+- ["7SSSugar10SSKeyFieldV7AdapterC", "Write"]
+- ["7SSSugar10SSKeyFieldV7AdapterC", "deinit"]
+- ["7SSSugar10SSKeyFieldV7AdapterC", "init"]
+- ["7SSSugar10SSKeyFieldV7AdapterC", "read"]
+- ["7SSSugar10SSKeyFieldV7AdapterC", "write"]
+- ["Sl", ""]
+- ["SQ", ""]
+- !private ["s23ExpressibleByNilLiteralP", "init"]
+- !private ["7SSSugar20InsertableCollectionP", "Element"]
+- !private ["7SSSugar20InsertableCollectionP", "Index"]
+- !private ["7SSSugar20InsertableCollectionP", "IndexDistance"]
+- !private ["7SSSugar20InsertableCollectionP", "Indices"]
+- !private ["7SSSugar20InsertableCollectionP", "Iterator"]
+- !private ["7SSSugar20InsertableCollectionP", "SubSequence"]
+- !private ["So8NSCodingP", ""]
+- !private ["So8NSObjectP", ""]
+- ["7SSSugar10SSKeyFieldV", "Adapter"]
+- ["7SSSugar10SSKeyFieldV", "SSKeyFieldStorage"]
+- ["7SSSugar10SSKeyFieldV", "String"]
+- ["7SSSugar10SSKeyFieldV", "adapter"]
+- ["7SSSugar10SSKeyFieldV", "defaultValue"]
+- ["7SSSugar10SSKeyFieldV", "init"]
+- ["7SSSugar10SSKeyFieldV", "parse"]
+- !private ["7SSSugar10SSKeyFieldV", "read"]
+- ["7SSSugar10SSKeyFieldV", "title"]
+- ["7SSSugar10SSKeyFieldV", "write"]
+- ["7SSSugar10SSKeyFieldV", "writeDefaultIfNeeded"]
+- !private ["7SSSugar17SSKeyFieldStorageP", "subscript"]
+- !private ["ST", ""]
+depends-nominal:
+- "7SSSugar10SSKeyFieldV7AdapterC"
+- "Sl"
+- "SQ"
+- !private "s23ExpressibleByNilLiteralP"
+- !private "7SSSugar20InsertableCollectionP"
+- !private "So8NSCodingP"
+- !private "So8NSObjectP"
+- "7SSSugar10SSKeyFieldV"
+- !private "7SSSugar17SSKeyFieldStorageP"
+- !private "ST"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/XPC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/ObjectiveC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Dispatch.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/CoreFoundation.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/CoreGraphics.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Swift.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/IOKit.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/SwiftOnoneSupport.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/mach-o/dyld.modulemap"
+- "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/mach-o/compact_unwind_encoding.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/xpc/XPC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/apinotes/Dispatch.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "963e1701da6d5ff1b3c854e63bcce4ca"

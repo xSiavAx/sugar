@@ -1,0 +1,113 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "SSMutatingEntitySource"
+- "SSMarkerGenerating"
+- "SSBaseEntityMutating"
+provides-nominal:
+- "7SSSugar22SSMutatingEntitySourceP"
+- "7SSSugar18SSMarkerGeneratingP"
+- "7SSSugar20SSBaseEntityMutatingP"
+provides-member:
+- ["7SSSugar22SSMutatingEntitySourceP", ""]
+- ["7SSSugar18SSMarkerGeneratingP", ""]
+- ["7SSSugar20SSBaseEntityMutatingP", ""]
+- ["7SSSugar18SSMarkerGeneratingP", "newMarker"]
+provides-dynamic-lookup:
+depends-top-level:
+- "AnyObject"
+- "Entity"
+- "SSBaseEntityMutating"
+- "SSMarkerGenerating"
+- "SSMutatingEntitySource"
+- "SSOnMainExecutor"
+- "Source"
+- "String"
+- !private "UUID"
+depends-member:
+- !private ["s28CustomDebugStringConvertibleP", ""]
+- !private ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "uuidString"]
+- !private ["s17CustomReflectableP", "init"]
+- !private ["s17CustomReflectableP", "uuidString"]
+- !private ["s23CustomStringConvertibleP", ""]
+- !private ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "uuidString"]
+- !private ["Se", "init"]
+- !private ["Se", "uuidString"]
+- !private ["SE", "init"]
+- !private ["SE", "uuidString"]
+- !private ["SQ", ""]
+- !private ["SQ", "init"]
+- !private ["SQ", "uuidString"]
+- !private ["SH", ""]
+- !private ["SH", "init"]
+- !private ["SH", "uuidString"]
+- !private ["10Foundation20ReferenceConvertibleP", "init"]
+- !private ["10Foundation20ReferenceConvertibleP", "uuidString"]
+- ["7SSSugar20SSBaseEntityMutatingP", "Entity"]
+- ["7SSSugar20SSBaseEntityMutatingP", "SSMutatingEntitySource"]
+- ["7SSSugar20SSBaseEntityMutatingP", "Source"]
+- ["7SSSugar20SSBaseEntityMutatingP", "source"]
+- ["7SSSugar20SSBaseEntityMutatingP", "start"]
+- ["7SSSugar20SSBaseEntityMutatingP", "stop"]
+- ["7SSSugar18SSMarkerGeneratingP", "SSMutatingEntitySource"]
+- ["7SSSugar18SSMarkerGeneratingP", "Source"]
+- ["7SSSugar18SSMarkerGeneratingP", "String"]
+- !private ["7SSSugar18SSMarkerGeneratingP", "UUID"]
+- ["7SSSugar18SSMarkerGeneratingP", ""]
+- ["7SSSugar18SSMarkerGeneratingP", "newMarker"]
+- ["7SSSugar18SSMarkerGeneratingP", "source"]
+- ["7SSSugar18SSMarkerGeneratingP", "start"]
+- ["7SSSugar18SSMarkerGeneratingP", "stop"]
+- ["7SSSugar22SSMutatingEntitySourceP", "Entity"]
+- ["7SSSugar22SSMutatingEntitySourceP", "SSBaseEntityMutating"]
+- ["7SSSugar22SSMutatingEntitySourceP", "entity"]
+- ["7SSSugar16SSOnMainExecutorP", "SSMutatingEntitySource"]
+- ["7SSSugar16SSOnMainExecutorP", "Source"]
+- ["7SSSugar16SSOnMainExecutorP", ""]
+- ["7SSSugar16SSOnMainExecutorP", "source"]
+- ["7SSSugar16SSOnMainExecutorP", "start"]
+- ["7SSSugar16SSOnMainExecutorP", "stop"]
+- !private ["10Foundation4UUIDV", "init"]
+- !private ["10Foundation4UUIDV", "uuidString"]
+- !private ["s21_ObjectiveCBridgeableP", ""]
+- !private ["s21_ObjectiveCBridgeableP", "init"]
+- !private ["s21_ObjectiveCBridgeableP", "uuidString"]
+depends-nominal:
+- !private "s28CustomDebugStringConvertibleP"
+- !private "s17CustomReflectableP"
+- !private "s23CustomStringConvertibleP"
+- !private "Se"
+- !private "SE"
+- !private "SQ"
+- !private "SH"
+- !private "10Foundation20ReferenceConvertibleP"
+- "7SSSugar20SSBaseEntityMutatingP"
+- "7SSSugar18SSMarkerGeneratingP"
+- "7SSSugar22SSMutatingEntitySourceP"
+- "7SSSugar16SSOnMainExecutorP"
+- !private "10Foundation4UUIDV"
+- !private "s21_ObjectiveCBridgeableP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/XPC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/ObjectiveC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Dispatch.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/CoreFoundation.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/CoreGraphics.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Swift.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/IOKit.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/SwiftOnoneSupport.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/mach-o/dyld.modulemap"
+- "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/mach-o/compact_unwind_encoding.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/xpc/XPC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/apinotes/Dispatch.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "98298c9acb05d948aa0a5f1d331351d9"

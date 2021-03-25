@@ -1,0 +1,92 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "SSDBQueryProxy"
+provides-nominal:
+- "7SSSugar14SSDBQueryProxyV"
+provides-member:
+- ["7SSSugar14SSDBQueryProxyV", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- "AssignmentPrecedence"
+- "Core"
+- "OnBind"
+- "OnGet"
+- "SSDBQueryProxy"
+- "SSDBTypedQueryHandling"
+- "SSDataBaseStatementProxy"
+- "String"
+- !private "core"
+depends-member:
+- ["7SSSugar14SSDBQueryProxyV", "BArgs"]
+- ["7SSSugar14SSDBQueryProxyV", "Core"]
+- ["7SSSugar14SSDBQueryProxyV", "Default_BArgs"]
+- ["7SSSugar14SSDBQueryProxyV", "Default_GArgs"]
+- ["7SSSugar14SSDBQueryProxyV", "GArgs"]
+- ["7SSSugar14SSDBQueryProxyV", "OnBind"]
+- ["7SSSugar14SSDBQueryProxyV", "OnGet"]
+- ["7SSSugar14SSDBQueryProxyV", "SSDataBaseStatementProxy"]
+- ["7SSSugar14SSDBQueryProxyV", "Stmt"]
+- ["7SSSugar14SSDBQueryProxyV", "String"]
+- ["7SSSugar14SSDBQueryProxyV", ""]
+- ["7SSSugar14SSDBQueryProxyV", "_Default_BArgs"]
+- ["7SSSugar14SSDBQueryProxyV", "_Default_GArgs"]
+- ["7SSSugar14SSDBQueryProxyV", "core"]
+- ["7SSSugar14SSDBQueryProxyV", "init"]
+- ["7SSSugar14SSDBQueryProxyV", "transform"]
+- !private ["7SSSugar14SSDBTypedQueryV", "init"]
+- !private ["7SSSugar25SSDBTypedQueryHandlerCoreV", "Query"]
+- !private ["7SSSugar25SSDBTypedQueryHandlerCoreV", "init"]
+- ["7SSSugar22SSDBTypedQueryHandlingP", "BArgs"]
+- ["7SSSugar22SSDBTypedQueryHandlingP", "Core"]
+- ["7SSSugar22SSDBTypedQueryHandlingP", "Default_BArgs"]
+- ["7SSSugar22SSDBTypedQueryHandlingP", "Default_GArgs"]
+- ["7SSSugar22SSDBTypedQueryHandlingP", "GArgs"]
+- ["7SSSugar22SSDBTypedQueryHandlingP", "OnBind"]
+- ["7SSSugar22SSDBTypedQueryHandlingP", "OnGet"]
+- ["7SSSugar22SSDBTypedQueryHandlingP", "Stmt"]
+- ["7SSSugar22SSDBTypedQueryHandlingP", ""]
+- ["7SSSugar22SSDBTypedQueryHandlingP", "_Default_BArgs"]
+- ["7SSSugar22SSDBTypedQueryHandlingP", "_Default_GArgs"]
+- ["7SSSugar22SSDBTypedQueryHandlingP", "core"]
+- ["7SSSugar22SSDBTypedQueryHandlingP", "transform"]
+- ["7SSSugar26SSDataBaseBindingStatementP", ""]
+- ["7SSSugar26SSDataBaseGettingStatementP", ""]
+- ["7SSSugar28SSDataBaseStatementProcessorC", ""]
+- ["7SSSugar24SSDataBaseStatementProxyV", ""]
+- ["7SSSugar12SSReleasableP", ""]
+depends-nominal:
+- "7SSSugar14SSDBQueryProxyV"
+- !private "7SSSugar14SSDBTypedQueryV"
+- !private "7SSSugar25SSDBTypedQueryHandlerCoreV"
+- "7SSSugar22SSDBTypedQueryHandlingP"
+- "7SSSugar26SSDataBaseBindingStatementP"
+- "7SSSugar26SSDataBaseGettingStatementP"
+- "7SSSugar28SSDataBaseStatementProcessorC"
+- "7SSSugar24SSDataBaseStatementProxyV"
+- "7SSSugar12SSReleasableP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/XPC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/ObjectiveC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Combine.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Dispatch.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Darwin.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Foundation.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/CoreFoundation.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/CoreGraphics.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Swift.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/IOKit.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/SwiftOnoneSupport.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/mach-o/dyld.modulemap"
+- "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/mach-o/compact_unwind_encoding.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/xpc/XPC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/apinotes/Dispatch.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "ca9f7478ad2943488bb9a3763ccc613b"

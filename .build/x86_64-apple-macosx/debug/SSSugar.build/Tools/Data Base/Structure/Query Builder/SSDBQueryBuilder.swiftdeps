@@ -1,0 +1,454 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "SSDBQueryError"
+- "SSDBQueryBuilder"
+provides-nominal:
+- "7SSSugar14SSDBQueryErrorO"
+- "7SSSugar16SSDBQueryBuilderC"
+- "7SSSugar16SSDBQueryBuilderC4KindO"
+provides-member:
+- ["7SSSugar14SSDBQueryErrorO", ""]
+- ["7SSSugar16SSDBQueryBuilderC", ""]
+- ["7SSSugar16SSDBQueryBuilderC4KindO", ""]
+provides-dynamic-lookup:
+- "add"
+- "build"
+- "colNamesStrFrom"
+- "columns"
+- "conditionOperation"
+- "conditions"
+- "create"
+- "delete"
+- "drop"
+- "ensureHasColums"
+- "ensureHasUpdateColums"
+- "insert"
+- "kind"
+- "placeHoldersFor"
+- "select"
+- "table"
+- "update"
+- "updateColumns"
+- "whereClause"
+depends-top-level:
+- !private "!"
+- "+"
+- !private "+="
+- !private "..<"
+- "=="
+- "AssignmentPrecedence"
+- "Error"
+- !private "FloatLiteralType"
+- !private "IntegerLiteralType"
+- "Kind"
+- "SSDBColumnCondition"
+- "SSDBColumnProtocol"
+- "SSDBConditionSet"
+- "SSDBQueryBuilder"
+- "SSDBQueryError"
+- !private "Self"
+- "String"
+- !private "StringLiteralType"
+- !private "TError"
+- !private "UnicodeScalarType"
+- !private "columns"
+- !private "conditions"
+- !private "create"
+- !private "delete"
+- !private "drop"
+- !private "ensureHasColums"
+- !private "ensureHasUpdateColums"
+- !private "insert"
+- !private "kind"
+- !private "select"
+- !private "table"
+- !private "update"
+- !private "updateColumns"
+- !private "whereClause"
+- !private "||"
+depends-member:
+- ["Sa", ""]
+- !private ["Sa", "append"]
+- !private ["Sa", "count"]
+- ["Sa", "init"]
+- !private ["Sa", "isEmpty"]
+- !private ["Sa", "joined"]
+- !private ["Sa", "map"]
+- ["SK", ""]
+- !private ["SK", "append"]
+- !private ["SK", "count"]
+- ["SK", "init"]
+- !private ["SK", "isEmpty"]
+- !private ["SK", "joined"]
+- !private ["SK", "map"]
+- !private ["s7CVarArgP", "append"]
+- !private ["s7CVarArgP", "count"]
+- ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "isEmpty"]
+- !private ["s7CVarArgP", "joined"]
+- !private ["s7CVarArgP", "map"]
+- ["Sl", ""]
+- !private ["Sl", "append"]
+- !private ["Sl", "count"]
+- ["Sl", "init"]
+- !private ["Sl", "isEmpty"]
+- !private ["Sl", "joined"]
+- !private ["Sl", "map"]
+- !private ["10Foundation15ContiguousBytesP", "append"]
+- !private ["10Foundation15ContiguousBytesP", "count"]
+- ["10Foundation15ContiguousBytesP", "init"]
+- !private ["10Foundation15ContiguousBytesP", "isEmpty"]
+- !private ["10Foundation15ContiguousBytesP", "joined"]
+- !private ["10Foundation15ContiguousBytesP", "map"]
+- !private ["s28CustomDebugStringConvertibleP", "append"]
+- !private ["s28CustomDebugStringConvertibleP", "count"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "isEmpty"]
+- !private ["s28CustomDebugStringConvertibleP", "joined"]
+- !private ["s28CustomDebugStringConvertibleP", "map"]
+- !private ["s17CustomReflectableP", "append"]
+- !private ["s17CustomReflectableP", "count"]
+- ["s17CustomReflectableP", "init"]
+- !private ["s17CustomReflectableP", "isEmpty"]
+- !private ["s17CustomReflectableP", "joined"]
+- !private ["s17CustomReflectableP", "map"]
+- !private ["s23CustomStringConvertibleP", "append"]
+- !private ["s23CustomStringConvertibleP", "appendInterpolation"]
+- !private ["s23CustomStringConvertibleP", "appendLiteral"]
+- !private ["s23CustomStringConvertibleP", "count"]
+- ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "isEmpty"]
+- !private ["s23CustomStringConvertibleP", "joined"]
+- !private ["s23CustomStringConvertibleP", "map"]
+- ["10Foundation12DataProtocolP", ""]
+- !private ["10Foundation12DataProtocolP", "append"]
+- !private ["10Foundation12DataProtocolP", "count"]
+- ["10Foundation12DataProtocolP", "init"]
+- !private ["10Foundation12DataProtocolP", "isEmpty"]
+- !private ["10Foundation12DataProtocolP", "joined"]
+- !private ["10Foundation12DataProtocolP", "map"]
+- !private ["Se", "append"]
+- !private ["Se", "count"]
+- ["Se", "init"]
+- !private ["Se", "isEmpty"]
+- !private ["Se", "joined"]
+- !private ["Se", "map"]
+- !private ["s26DefaultStringInterpolationV", "appendInterpolation"]
+- !private ["s26DefaultStringInterpolationV", "appendLiteral"]
+- !private ["SE", "append"]
+- !private ["SE", "count"]
+- ["SE", "init"]
+- !private ["SE", "isEmpty"]
+- !private ["SE", "joined"]
+- !private ["SE", "map"]
+- ["SQ", "=="]
+- ["SQ", ""]
+- ["SQ", "_code"]
+- ["SQ", "_domain"]
+- ["SQ", "_getEmbeddedNSError"]
+- ["SQ", "_rawHashValue"]
+- ["SQ", "_userInfo"]
+- !private ["SQ", "append"]
+- ["SQ", "code"]
+- !private ["SQ", "count"]
+- ["SQ", "create"]
+- ["SQ", "delete"]
+- ["SQ", "domain"]
+- ["SQ", "drop"]
+- !private ["SQ", "emptyColums"]
+- !private ["SQ", "equal"]
+- ["SQ", "hash"]
+- ["SQ", "hashValue"]
+- ["SQ", "init"]
+- ["SQ", "insert"]
+- !private ["SQ", "isEmpty"]
+- !private ["SQ", "joined"]
+- !private ["SQ", "map"]
+- ["SQ", "select"]
+- ["SQ", "update"]
+- ["SQ", "userInfo"]
+- ["s5ErrorP", "=="]
+- ["s5ErrorP", ""]
+- ["s5ErrorP", "_code"]
+- ["s5ErrorP", "_domain"]
+- ["s5ErrorP", "_getEmbeddedNSError"]
+- ["s5ErrorP", "_rawHashValue"]
+- ["s5ErrorP", "_userInfo"]
+- ["s5ErrorP", "code"]
+- ["s5ErrorP", "domain"]
+- !private ["s5ErrorP", "emptyColums"]
+- ["s5ErrorP", "hash"]
+- ["s5ErrorP", "hashValue"]
+- ["s5ErrorP", "userInfo"]
+- ["s25ExpressibleByArrayLiteralP", ""]
+- !private ["s25ExpressibleByArrayLiteralP", "append"]
+- !private ["s25ExpressibleByArrayLiteralP", "count"]
+- ["s25ExpressibleByArrayLiteralP", "init"]
+- !private ["s25ExpressibleByArrayLiteralP", "isEmpty"]
+- !private ["s25ExpressibleByArrayLiteralP", "joined"]
+- !private ["s25ExpressibleByArrayLiteralP", "map"]
+- !private ["s32ExpressibleByStringInterpolationP", "StringInterpolation"]
+- !private ["s32ExpressibleByStringInterpolationP", "init"]
+- ["SH", "=="]
+- ["SH", ""]
+- ["SH", "_code"]
+- ["SH", "_domain"]
+- ["SH", "_getEmbeddedNSError"]
+- ["SH", "_rawHashValue"]
+- ["SH", "_userInfo"]
+- !private ["SH", "append"]
+- ["SH", "code"]
+- !private ["SH", "count"]
+- ["SH", "create"]
+- ["SH", "delete"]
+- ["SH", "domain"]
+- ["SH", "drop"]
+- !private ["SH", "emptyColums"]
+- !private ["SH", "equal"]
+- ["SH", "hash"]
+- ["SH", "hashValue"]
+- ["SH", "init"]
+- ["SH", "insert"]
+- !private ["SH", "isEmpty"]
+- !private ["SH", "joined"]
+- !private ["SH", "map"]
+- ["SH", "select"]
+- ["SH", "update"]
+- ["SH", "userInfo"]
+- !private ["s6HasherV", "combine"]
+- ["7SSSugar20InsertableCollectionP", ""]
+- !private ["7SSSugar20InsertableCollectionP", "append"]
+- !private ["7SSSugar20InsertableCollectionP", "count"]
+- ["7SSSugar20InsertableCollectionP", "init"]
+- !private ["7SSSugar20InsertableCollectionP", "isEmpty"]
+- !private ["7SSSugar20InsertableCollectionP", "joined"]
+- !private ["7SSSugar20InsertableCollectionP", "map"]
+- ["7SSSugar16SSDBQueryBuilderC4KindO", "=="]
+- ["7SSSugar16SSDBQueryBuilderC4KindO", ""]
+- ["7SSSugar16SSDBQueryBuilderC4KindO", "__derived_enum_equals"]
+- ["7SSSugar16SSDBQueryBuilderC4KindO", "_rawHashValue"]
+- ["7SSSugar16SSDBQueryBuilderC4KindO", "create"]
+- ["7SSSugar16SSDBQueryBuilderC4KindO", "delete"]
+- ["7SSSugar16SSDBQueryBuilderC4KindO", "drop"]
+- ["7SSSugar16SSDBQueryBuilderC4KindO", "hash"]
+- ["7SSSugar16SSDBQueryBuilderC4KindO", "hashValue"]
+- ["7SSSugar16SSDBQueryBuilderC4KindO", "insert"]
+- ["7SSSugar16SSDBQueryBuilderC4KindO", "select"]
+- ["7SSSugar16SSDBQueryBuilderC4KindO", "update"]
+- ["SM", ""]
+- !private ["SM", "append"]
+- !private ["SM", "count"]
+- ["SM", "init"]
+- !private ["SM", "isEmpty"]
+- !private ["SM", "joined"]
+- !private ["SM", "map"]
+- !private ["10Foundation19MutableDataProtocolP", "append"]
+- !private ["10Foundation19MutableDataProtocolP", "count"]
+- ["10Foundation19MutableDataProtocolP", "init"]
+- !private ["10Foundation19MutableDataProtocolP", "isEmpty"]
+- !private ["10Foundation19MutableDataProtocolP", "joined"]
+- !private ["10Foundation19MutableDataProtocolP", "map"]
+- !private ["So8NSCodingP", ""]
+- !private ["7SSSugar19SSDBColumnConditionV9OperationO", "equal"]
+- ["Sk", ""]
+- !private ["Sk", "append"]
+- !private ["Sk", "count"]
+- ["Sk", "init"]
+- !private ["Sk", "isEmpty"]
+- !private ["Sk", "joined"]
+- !private ["Sk", "map"]
+- !private ["Sn", "map"]
+- !private ["SX", "map"]
+- ["Sm", ""]
+- !private ["Sm", "append"]
+- !private ["Sm", "count"]
+- ["Sm", "init"]
+- !private ["Sm", "isEmpty"]
+- !private ["Sm", "joined"]
+- !private ["Sm", "map"]
+- !private ["SY", "equal"]
+- !private ["7SSSugar21ReplaceableCollectionP", "append"]
+- !private ["7SSSugar21ReplaceableCollectionP", "count"]
+- ["7SSSugar21ReplaceableCollectionP", "init"]
+- !private ["7SSSugar21ReplaceableCollectionP", "isEmpty"]
+- !private ["7SSSugar21ReplaceableCollectionP", "joined"]
+- !private ["7SSSugar21ReplaceableCollectionP", "map"]
+- ["7SSSugar19SSDBColumnConditionV", "Operation"]
+- !private ["7SSSugar19SSDBColumnConditionV", ""]
+- !private ["7SSSugar19SSDBColumnConditionV", "init"]
+- !private ["7SSSugar18SSDBColumnProtocolP", "name"]
+- !private ["7SSSugar18SSDBColumnProtocolP", "toCreateComponent"]
+- ["7SSSugar16SSDBConditionSetV", "Operation"]
+- !private ["7SSSugar16SSDBConditionSetV", ""]
+- !private ["7SSSugar16SSDBConditionSetV", "add"]
+- ["7SSSugar16SSDBConditionSetV", "init"]
+- !private ["7SSSugar16SSDBConditionSetV", "isEmpty"]
+- !private ["7SSSugar16SSDBConditionSetV", "operation"]
+- !private ["7SSSugar16SSDBConditionSetV", "toString"]
+- ["7SSSugar16SSDBQueryBuilderC", "Kind"]
+- ["7SSSugar16SSDBQueryBuilderC", "SSDBColumnCondition"]
+- ["7SSSugar16SSDBQueryBuilderC", "SSDBColumnProtocol"]
+- ["7SSSugar16SSDBQueryBuilderC", "SSDBConditionSet"]
+- ["7SSSugar16SSDBQueryBuilderC", "SSDBQueryBuilder"]
+- ["7SSSugar16SSDBQueryBuilderC", "SSDBQueryError"]
+- !private ["7SSSugar16SSDBQueryBuilderC", "Self"]
+- ["7SSSugar16SSDBQueryBuilderC", "String"]
+- ["7SSSugar16SSDBQueryBuilderC", "TError"]
+- ["7SSSugar16SSDBQueryBuilderC", "add"]
+- ["7SSSugar16SSDBQueryBuilderC", "build"]
+- !private ["7SSSugar16SSDBQueryBuilderC", "colNamesStrFrom"]
+- !private ["7SSSugar16SSDBQueryBuilderC", "columns"]
+- ["7SSSugar16SSDBQueryBuilderC", "conditionOperation"]
+- !private ["7SSSugar16SSDBQueryBuilderC", "conditions"]
+- !private ["7SSSugar16SSDBQueryBuilderC", "create"]
+- ["7SSSugar16SSDBQueryBuilderC", "deinit"]
+- !private ["7SSSugar16SSDBQueryBuilderC", "delete"]
+- !private ["7SSSugar16SSDBQueryBuilderC", "drop"]
+- !private ["7SSSugar16SSDBQueryBuilderC", "ensureHasColums"]
+- !private ["7SSSugar16SSDBQueryBuilderC", "ensureHasUpdateColums"]
+- ["7SSSugar16SSDBQueryBuilderC", "init"]
+- !private ["7SSSugar16SSDBQueryBuilderC", "insert"]
+- !private ["7SSSugar16SSDBQueryBuilderC", "kind"]
+- !private ["7SSSugar16SSDBQueryBuilderC", "placeHoldersFor"]
+- !private ["7SSSugar16SSDBQueryBuilderC", "select"]
+- !private ["7SSSugar16SSDBQueryBuilderC", "table"]
+- ["7SSSugar16SSDBQueryBuilderC", "update"]
+- !private ["7SSSugar16SSDBQueryBuilderC", "updateColumns"]
+- !private ["7SSSugar16SSDBQueryBuilderC", "whereClause"]
+- ["7SSSugar18SSDBQueryConditionP", "Operation"]
+- !private ["7SSSugar18SSDBQueryConditionP", "add"]
+- ["7SSSugar18SSDBQueryConditionP", "init"]
+- !private ["7SSSugar18SSDBQueryConditionP", "isEmpty"]
+- !private ["7SSSugar18SSDBQueryConditionP", "operation"]
+- !private ["7SSSugar18SSDBQueryConditionP", "toString"]
+- ["7SSSugar14SSDBQueryErrorO", "=="]
+- ["7SSSugar14SSDBQueryErrorO", ""]
+- ["7SSSugar14SSDBQueryErrorO", "__derived_enum_equals"]
+- ["7SSSugar14SSDBQueryErrorO", "_code"]
+- ["7SSSugar14SSDBQueryErrorO", "_domain"]
+- ["7SSSugar14SSDBQueryErrorO", "_getEmbeddedNSError"]
+- ["7SSSugar14SSDBQueryErrorO", "_rawHashValue"]
+- ["7SSSugar14SSDBQueryErrorO", "_userInfo"]
+- ["7SSSugar14SSDBQueryErrorO", "code"]
+- ["7SSSugar14SSDBQueryErrorO", "domain"]
+- ["7SSSugar14SSDBQueryErrorO", "emptyColums"]
+- ["7SSSugar14SSDBQueryErrorO", "hash"]
+- ["7SSSugar14SSDBQueryErrorO", "hashValue"]
+- ["7SSSugar14SSDBQueryErrorO", "userInfo"]
+- ["ST", ""]
+- !private ["ST", "append"]
+- !private ["ST", "count"]
+- ["ST", "init"]
+- !private ["ST", "isEmpty"]
+- !private ["ST", "joined"]
+- !private ["ST", "map"]
+- !private ["s27StringInterpolationProtocolP", "appendInterpolation"]
+- !private ["s27StringInterpolationProtocolP", "appendLiteral"]
+- !private ["s27StringInterpolationProtocolP", "init"]
+- !private ["s16TextOutputStreamP", "appendInterpolation"]
+- !private ["s16TextOutputStreamP", "appendLiteral"]
+- !private ["s14_ArrayProtocolP", "append"]
+- !private ["s14_ArrayProtocolP", "count"]
+- ["s14_ArrayProtocolP", "init"]
+- !private ["s14_ArrayProtocolP", "isEmpty"]
+- !private ["s14_ArrayProtocolP", "joined"]
+- !private ["s14_ArrayProtocolP", "map"]
+- !private ["s24_DestructorSafeContainerP", "append"]
+- !private ["s24_DestructorSafeContainerP", "count"]
+- ["s24_DestructorSafeContainerP", "init"]
+- !private ["s24_DestructorSafeContainerP", "isEmpty"]
+- !private ["s24_DestructorSafeContainerP", "joined"]
+- !private ["s24_DestructorSafeContainerP", "map"]
+- !private ["s35_ExpressibleByBuiltinIntegerLiteralP", "init"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- !private ["s19_HasContiguousBytesP", "append"]
+- !private ["s19_HasContiguousBytesP", "count"]
+- ["s19_HasContiguousBytesP", "init"]
+- !private ["s19_HasContiguousBytesP", "isEmpty"]
+- !private ["s19_HasContiguousBytesP", "joined"]
+- !private ["s19_HasContiguousBytesP", "map"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "append"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "count"]
+- ["s35_HasCustomAnyHashableRepresentationP", "init"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "isEmpty"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "joined"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "map"]
+- !private ["s21_ObjectiveCBridgeableP", "append"]
+- !private ["s21_ObjectiveCBridgeableP", "count"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- !private ["s21_ObjectiveCBridgeableP", "isEmpty"]
+- !private ["s21_ObjectiveCBridgeableP", "joined"]
+- !private ["s21_ObjectiveCBridgeableP", "map"]
+depends-nominal:
+- "Sa"
+- "SK"
+- "s7CVarArgP"
+- "Sl"
+- "10Foundation15ContiguousBytesP"
+- "s28CustomDebugStringConvertibleP"
+- "s17CustomReflectableP"
+- "s23CustomStringConvertibleP"
+- "10Foundation12DataProtocolP"
+- "Se"
+- !private "s26DefaultStringInterpolationV"
+- "SE"
+- "SQ"
+- "s5ErrorP"
+- "s25ExpressibleByArrayLiteralP"
+- !private "s32ExpressibleByStringInterpolationP"
+- "SH"
+- !private "s6HasherV"
+- "7SSSugar20InsertableCollectionP"
+- "7SSSugar16SSDBQueryBuilderC4KindO"
+- "SM"
+- "10Foundation19MutableDataProtocolP"
+- !private "So8NSCodingP"
+- !private "7SSSugar19SSDBColumnConditionV9OperationO"
+- "Sk"
+- !private "Sn"
+- !private "SX"
+- "Sm"
+- !private "SY"
+- "7SSSugar21ReplaceableCollectionP"
+- "7SSSugar19SSDBColumnConditionV"
+- !private "7SSSugar18SSDBColumnProtocolP"
+- "7SSSugar16SSDBConditionSetV"
+- "7SSSugar16SSDBQueryBuilderC"
+- "7SSSugar18SSDBQueryConditionP"
+- "7SSSugar14SSDBQueryErrorO"
+- "ST"
+- !private "s27StringInterpolationProtocolP"
+- !private "s16TextOutputStreamP"
+- "s14_ArrayProtocolP"
+- "s24_DestructorSafeContainerP"
+- !private "s35_ExpressibleByBuiltinIntegerLiteralP"
+- !private "s34_ExpressibleByBuiltinStringLiteralP"
+- "s19_HasContiguousBytesP"
+- "s35_HasCustomAnyHashableRepresentationP"
+- "s21_ObjectiveCBridgeableP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/XPC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/ObjectiveC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Combine.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Dispatch.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Darwin.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Foundation.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/CoreFoundation.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/CoreGraphics.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Swift.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/IOKit.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/SwiftOnoneSupport.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/mach-o/dyld.modulemap"
+- "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/mach-o/compact_unwind_encoding.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/xpc/XPC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/apinotes/Dispatch.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "8853b7007d122d369a9b1c0f4fc73fbd"

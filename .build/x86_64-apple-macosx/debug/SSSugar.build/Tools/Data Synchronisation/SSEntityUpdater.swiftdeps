@@ -1,0 +1,241 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "SSUpdaterEntitySource"
+- "SSEntityUpdaterDelegate"
+- "SSBaseEntityUpdating"
+- "SSUpdateApplying"
+provides-nominal:
+- "7SSSugar21SSUpdaterEntitySourceP"
+- "7SSSugar23SSEntityUpdaterDelegateP"
+- "7SSSugar20SSBaseEntityUpdatingP"
+- "7SSSugar16SSUpdateApplyingP"
+provides-member:
+- ["7SSSugar21SSUpdaterEntitySourceP", ""]
+- ["7SSSugar23SSEntityUpdaterDelegateP", ""]
+- ["7SSSugar20SSBaseEntityUpdatingP", ""]
+- ["7SSSugar16SSUpdateApplyingP", ""]
+- ["7SSSugar20SSBaseEntityUpdatingP", "protUpdate"]
+- ["7SSSugar20SSBaseEntityUpdatingP", "start"]
+- ["7SSSugar20SSBaseEntityUpdatingP", "stop"]
+- ["7SSSugar16SSUpdateApplyingP", "collect"]
+- ["7SSSugar16SSUpdateApplyingP", "apply"]
+provides-dynamic-lookup:
+depends-top-level:
+- !private "!="
+- "AnyObject"
+- "CollectableUpdate"
+- "Delegate"
+- "Entity"
+- "SSBaseEntityUpdating"
+- "SSEntityUpdaterDelegate"
+- "SSOnMainExecutor"
+- "SSUpdateApplying"
+- "SSUpdateReceiver"
+- "SSUpdateReceiversManaging"
+- "SSUpdaterEntitySource"
+- "Self"
+- "Source"
+- !private "StringLiteralType"
+- "Void"
+- !private "collectedUpdates"
+- !private "delegate"
+- !private "fatalError"
+- !private "receiversManager"
+- !private "source"
+depends-member:
+- !private ["Sa", "append"]
+- !private ["Sa", "forEach"]
+- !private ["Sa", "removeAll"]
+- !private ["SK", ""]
+- !private ["SK", "append"]
+- !private ["SK", "forEach"]
+- !private ["SK", "removeAll"]
+- !private ["s7CVarArgP", "append"]
+- !private ["s7CVarArgP", "forEach"]
+- !private ["s7CVarArgP", "removeAll"]
+- ["Sl", ""]
+- !private ["Sl", "append"]
+- !private ["Sl", "forEach"]
+- !private ["Sl", "removeAll"]
+- !private ["10Foundation15ContiguousBytesP", "append"]
+- !private ["10Foundation15ContiguousBytesP", "forEach"]
+- !private ["10Foundation15ContiguousBytesP", "removeAll"]
+- !private ["s28CustomDebugStringConvertibleP", "append"]
+- !private ["s28CustomDebugStringConvertibleP", "forEach"]
+- !private ["s28CustomDebugStringConvertibleP", "removeAll"]
+- !private ["s17CustomReflectableP", "append"]
+- !private ["s17CustomReflectableP", "forEach"]
+- !private ["s17CustomReflectableP", "removeAll"]
+- !private ["s23CustomStringConvertibleP", "append"]
+- !private ["s23CustomStringConvertibleP", "forEach"]
+- !private ["s23CustomStringConvertibleP", "removeAll"]
+- !private ["10Foundation12DataProtocolP", ""]
+- !private ["10Foundation12DataProtocolP", "append"]
+- !private ["10Foundation12DataProtocolP", "forEach"]
+- !private ["10Foundation12DataProtocolP", "removeAll"]
+- !private ["Se", "append"]
+- !private ["Se", "forEach"]
+- !private ["Se", "removeAll"]
+- !private ["SE", "append"]
+- !private ["SE", "forEach"]
+- !private ["SE", "removeAll"]
+- !private ["SQ", ""]
+- !private ["SQ", "append"]
+- !private ["SQ", "forEach"]
+- !private ["SQ", "removeAll"]
+- !private ["s25ExpressibleByArrayLiteralP", ""]
+- !private ["s25ExpressibleByArrayLiteralP", "append"]
+- !private ["s25ExpressibleByArrayLiteralP", "forEach"]
+- !private ["s25ExpressibleByArrayLiteralP", "removeAll"]
+- !private ["s23ExpressibleByNilLiteralP", "init"]
+- !private ["SH", "append"]
+- !private ["SH", "forEach"]
+- !private ["SH", "removeAll"]
+- ["7SSSugar20InsertableCollectionP", ""]
+- !private ["7SSSugar20InsertableCollectionP", "append"]
+- !private ["7SSSugar20InsertableCollectionP", "forEach"]
+- !private ["7SSSugar20InsertableCollectionP", "removeAll"]
+- !private ["SM", ""]
+- !private ["SM", "append"]
+- !private ["SM", "forEach"]
+- !private ["SM", "removeAll"]
+- !private ["10Foundation19MutableDataProtocolP", "append"]
+- !private ["10Foundation19MutableDataProtocolP", "forEach"]
+- !private ["10Foundation19MutableDataProtocolP", "removeAll"]
+- !private ["Sk", ""]
+- !private ["Sk", "append"]
+- !private ["Sk", "forEach"]
+- !private ["Sk", "removeAll"]
+- !private ["Sm", ""]
+- !private ["Sm", "append"]
+- !private ["Sm", "forEach"]
+- !private ["Sm", "removeAll"]
+- !private ["7SSSugar21ReplaceableCollectionP", "append"]
+- !private ["7SSSugar21ReplaceableCollectionP", "forEach"]
+- !private ["7SSSugar21ReplaceableCollectionP", "removeAll"]
+- ["7SSSugar20SSBaseEntityUpdatingP", "Delegate"]
+- ["7SSSugar20SSBaseEntityUpdatingP", "SSEntityUpdaterDelegate"]
+- ["7SSSugar20SSBaseEntityUpdatingP", "SSUpdateReceiver"]
+- ["7SSSugar20SSBaseEntityUpdatingP", "SSUpdateReceiversManaging"]
+- ["7SSSugar20SSBaseEntityUpdatingP", "SSUpdaterEntitySource"]
+- ["7SSSugar20SSBaseEntityUpdatingP", "Source"]
+- ["7SSSugar20SSBaseEntityUpdatingP", "Void"]
+- ["7SSSugar20SSBaseEntityUpdatingP", ""]
+- ["7SSSugar20SSBaseEntityUpdatingP", "delegate"]
+- !private ["7SSSugar20SSBaseEntityUpdatingP", "fatalError"]
+- ["7SSSugar20SSBaseEntityUpdatingP", "protUpdate"]
+- ["7SSSugar20SSBaseEntityUpdatingP", "receiversManager"]
+- ["7SSSugar20SSBaseEntityUpdatingP", "source"]
+- ["7SSSugar20SSBaseEntityUpdatingP", "start"]
+- ["7SSSugar20SSBaseEntityUpdatingP", "stop"]
+- ["7SSSugar16SSOnMainExecutorP", "Delegate"]
+- ["7SSSugar16SSOnMainExecutorP", "SSEntityUpdaterDelegate"]
+- ["7SSSugar16SSOnMainExecutorP", "SSUpdateReceiver"]
+- ["7SSSugar16SSOnMainExecutorP", "SSUpdateReceiversManaging"]
+- ["7SSSugar16SSOnMainExecutorP", "SSUpdaterEntitySource"]
+- ["7SSSugar16SSOnMainExecutorP", "Source"]
+- ["7SSSugar16SSOnMainExecutorP", "Void"]
+- ["7SSSugar16SSOnMainExecutorP", ""]
+- ["7SSSugar16SSOnMainExecutorP", "delegate"]
+- !private ["7SSSugar16SSOnMainExecutorP", "fatalError"]
+- ["7SSSugar16SSOnMainExecutorP", "receiversManager"]
+- ["7SSSugar16SSOnMainExecutorP", "source"]
+- ["7SSSugar16SSOnMainExecutorP", "start"]
+- ["7SSSugar16SSOnMainExecutorP", "stop"]
+- ["7SSSugar16SSUpdateApplyingP", "CollectableUpdate"]
+- ["7SSSugar16SSUpdateApplyingP", "Void"]
+- ["7SSSugar16SSUpdateApplyingP", ""]
+- ["7SSSugar16SSUpdateApplyingP", "apply"]
+- ["7SSSugar16SSUpdateApplyingP", "collect"]
+- ["7SSSugar16SSUpdateApplyingP", "collectedUpdates"]
+- !private ["7SSSugar16SSUpdateReceiverP", "Delegate"]
+- ["7SSSugar16SSUpdateReceiverP", "SSUpdateReceiver"]
+- !private ["7SSSugar16SSUpdateReceiverP", "Source"]
+- !private ["7SSSugar16SSUpdateReceiverP", "delegate"]
+- !private ["7SSSugar16SSUpdateReceiverP", "fatalError"]
+- !private ["7SSSugar16SSUpdateReceiverP", "receiversManager"]
+- !private ["7SSSugar16SSUpdateReceiverP", "source"]
+- !private ["7SSSugar25SSUpdateReceiversManagingP", "addReceiver"]
+- !private ["7SSSugar25SSUpdateReceiversManagingP", "removeReceiver"]
+- ["7SSSugar21SSUpdaterEntitySourceP", "Entity"]
+- ["7SSSugar21SSUpdaterEntitySourceP", "SSBaseEntityUpdating"]
+- ["7SSSugar21SSUpdaterEntitySourceP", "Void"]
+- ["7SSSugar21SSUpdaterEntitySourceP", "updateEntity"]
+- !private ["ST", ""]
+- !private ["ST", "append"]
+- !private ["ST", "forEach"]
+- !private ["ST", "removeAll"]
+- !private ["s14_ArrayProtocolP", "append"]
+- !private ["s14_ArrayProtocolP", "forEach"]
+- !private ["s14_ArrayProtocolP", "removeAll"]
+- !private ["s24_DestructorSafeContainerP", "append"]
+- !private ["s24_DestructorSafeContainerP", "forEach"]
+- !private ["s24_DestructorSafeContainerP", "removeAll"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- !private ["s19_HasContiguousBytesP", "append"]
+- !private ["s19_HasContiguousBytesP", "forEach"]
+- !private ["s19_HasContiguousBytesP", "removeAll"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "append"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "forEach"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "removeAll"]
+- !private ["s21_ObjectiveCBridgeableP", "append"]
+- !private ["s21_ObjectiveCBridgeableP", "forEach"]
+- !private ["s21_ObjectiveCBridgeableP", "removeAll"]
+depends-nominal:
+- !private "Sa"
+- !private "SK"
+- !private "s7CVarArgP"
+- "Sl"
+- !private "10Foundation15ContiguousBytesP"
+- !private "s28CustomDebugStringConvertibleP"
+- !private "s17CustomReflectableP"
+- !private "s23CustomStringConvertibleP"
+- !private "10Foundation12DataProtocolP"
+- !private "Se"
+- !private "SE"
+- !private "SQ"
+- !private "s25ExpressibleByArrayLiteralP"
+- !private "s23ExpressibleByNilLiteralP"
+- !private "SH"
+- "7SSSugar20InsertableCollectionP"
+- !private "SM"
+- !private "10Foundation19MutableDataProtocolP"
+- !private "Sk"
+- !private "Sm"
+- !private "7SSSugar21ReplaceableCollectionP"
+- "7SSSugar20SSBaseEntityUpdatingP"
+- "7SSSugar16SSOnMainExecutorP"
+- "7SSSugar16SSUpdateApplyingP"
+- "7SSSugar16SSUpdateReceiverP"
+- !private "7SSSugar25SSUpdateReceiversManagingP"
+- "7SSSugar21SSUpdaterEntitySourceP"
+- !private "ST"
+- !private "s14_ArrayProtocolP"
+- !private "s24_DestructorSafeContainerP"
+- !private "s34_ExpressibleByBuiltinStringLiteralP"
+- !private "s19_HasContiguousBytesP"
+- !private "s35_HasCustomAnyHashableRepresentationP"
+- !private "s21_ObjectiveCBridgeableP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/XPC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/ObjectiveC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Dispatch.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/CoreFoundation.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/CoreGraphics.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Swift.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/IOKit.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/SwiftOnoneSupport.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/mach-o/dyld.modulemap"
+- "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/mach-o/compact_unwind_encoding.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/xpc/XPC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/apinotes/Dispatch.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "cc696268a20ac7fd47f3dd8ef6f93e38"

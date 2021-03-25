@@ -1,0 +1,141 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "SSApiContentType"
+- "SSApiArgsConverting"
+provides-nominal:
+- "7SSSugar16SSApiContentTypeO"
+- "7SSSugar19SSApiArgsConvertingP"
+provides-member:
+- ["7SSSugar16SSApiContentTypeO", ""]
+- ["7SSSugar19SSApiArgsConvertingP", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- "=="
+- "Args"
+- !private "Array"
+- "Data"
+- !private "FloatLiteralType"
+- !private "IntegerLiteralType"
+- "SSApiArgsConverting"
+- "SSApiContentType"
+- "SSRemoteApiModel"
+- "String"
+- "StringLiteralType"
+- !private "_findStringSwitchCase"
+- !private "~="
+depends-member:
+- ["SQ", "=="]
+- ["SQ", "Default_RawValue"]
+- ["SQ", "RawValue"]
+- ["SQ", ""]
+- ["SQ", "_Default_RawValue"]
+- !private ["SQ", "_findStringSwitchCase"]
+- ["SQ", "_rawHashValue"]
+- !private ["SQ", "findStringSwitchCase"]
+- ["SQ", "hash"]
+- ["SQ", "hashValue"]
+- ["SQ", "init"]
+- ["SQ", "rawValue"]
+- !private ["s25ExpressibleByArrayLiteralP", "init"]
+- ["SH", "=="]
+- ["SH", "Default_RawValue"]
+- ["SH", "RawValue"]
+- ["SH", ""]
+- ["SH", "_Default_RawValue"]
+- !private ["SH", "_findStringSwitchCase"]
+- ["SH", "_rawHashValue"]
+- !private ["SH", "findStringSwitchCase"]
+- ["SH", "hash"]
+- ["SH", "hashValue"]
+- ["SH", "init"]
+- ["SH", "rawValue"]
+- ["SY", "=="]
+- ["SY", "Default_RawValue"]
+- ["SY", "RawValue"]
+- ["SY", ""]
+- ["SY", "_Default_RawValue"]
+- !private ["SY", "_findStringSwitchCase"]
+- ["SY", "_rawHashValue"]
+- !private ["SY", "findStringSwitchCase"]
+- ["SY", "hash"]
+- ["SY", "hashValue"]
+- ["SY", "init"]
+- ["SY", "rawValue"]
+- ["7SSSugar19SSApiArgsConvertingP", "Args"]
+- ["7SSSugar19SSApiArgsConvertingP", "Data"]
+- ["7SSSugar19SSApiArgsConvertingP", "SSApiContentType"]
+- ["7SSSugar19SSApiArgsConvertingP", "SSRemoteApiModel"]
+- ["7SSSugar19SSApiArgsConvertingP", "String"]
+- ["7SSSugar19SSApiArgsConvertingP", "args"]
+- ["7SSSugar19SSApiArgsConvertingP", "contentType"]
+- ["7SSSugar19SSApiArgsConvertingP", "data"]
+- ["7SSSugar16SSApiContentTypeO", "=="]
+- ["7SSSugar16SSApiContentTypeO", "Default_RawValue"]
+- ["7SSSugar16SSApiContentTypeO", "RawValue"]
+- ["7SSSugar16SSApiContentTypeO", ""]
+- ["7SSSugar16SSApiContentTypeO", "_Default_RawValue"]
+- !private ["7SSSugar16SSApiContentTypeO", "_findStringSwitchCase"]
+- ["7SSSugar16SSApiContentTypeO", "_rawHashValue"]
+- ["7SSSugar16SSApiContentTypeO", "cmd"]
+- ["7SSSugar16SSApiContentTypeO", "css"]
+- ["7SSSugar16SSApiContentTypeO", "csv"]
+- !private ["7SSSugar16SSApiContentTypeO", "findStringSwitchCase"]
+- ["7SSSugar16SSApiContentTypeO", "form"]
+- ["7SSSugar16SSApiContentTypeO", "gif"]
+- ["7SSSugar16SSApiContentTypeO", "gzip"]
+- ["7SSSugar16SSApiContentTypeO", "hash"]
+- ["7SSSugar16SSApiContentTypeO", "hashValue"]
+- ["7SSSugar16SSApiContentTypeO", "html"]
+- ["7SSSugar16SSApiContentTypeO", "init"]
+- ["7SSSugar16SSApiContentTypeO", "jpeg"]
+- ["7SSSugar16SSApiContentTypeO", "js"]
+- ["7SSSugar16SSApiContentTypeO", "json"]
+- ["7SSSugar16SSApiContentTypeO", "ogg"]
+- ["7SSSugar16SSApiContentTypeO", "pdf"]
+- ["7SSSugar16SSApiContentTypeO", "php"]
+- ["7SSSugar16SSApiContentTypeO", "pjpeg"]
+- ["7SSSugar16SSApiContentTypeO", "plain"]
+- ["7SSSugar16SSApiContentTypeO", "png"]
+- ["7SSSugar16SSApiContentTypeO", "rawValue"]
+- ["7SSSugar16SSApiContentTypeO", "textJS"]
+- ["7SSSugar16SSApiContentTypeO", "textXml"]
+- ["7SSSugar16SSApiContentTypeO", "tiff"]
+- ["7SSSugar16SSApiContentTypeO", "webp"]
+- ["7SSSugar16SSApiContentTypeO", "xml"]
+- ["7SSSugar16SSApiContentTypeO", "zip"]
+- ["7SSSugar16SSRemoteApiModelP", "Args"]
+- !private ["s35_ExpressibleByBuiltinIntegerLiteralP", "init"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+depends-nominal:
+- "SQ"
+- !private "s25ExpressibleByArrayLiteralP"
+- "SH"
+- "SY"
+- "7SSSugar19SSApiArgsConvertingP"
+- "7SSSugar16SSApiContentTypeO"
+- "7SSSugar16SSRemoteApiModelP"
+- !private "s35_ExpressibleByBuiltinIntegerLiteralP"
+- "s34_ExpressibleByBuiltinStringLiteralP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/XPC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/ObjectiveC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Dispatch.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/CoreFoundation.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/CoreGraphics.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Swift.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/IOKit.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/SwiftOnoneSupport.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/mach-o/dyld.modulemap"
+- "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/mach-o/compact_unwind_encoding.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/xpc/XPC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/apinotes/Dispatch.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "99d8638d8057a602920107fb20ab9b5b"

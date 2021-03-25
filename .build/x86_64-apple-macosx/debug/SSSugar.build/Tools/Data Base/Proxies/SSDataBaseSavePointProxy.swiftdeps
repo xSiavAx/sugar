@@ -1,0 +1,60 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "SSDataBaseSavePointProxing"
+- "SSDataBaseSavePointProxy"
+provides-nominal:
+- "7SSSugar26SSDataBaseSavePointProxingP"
+- "7SSSugar24SSDataBaseSavePointProxyV"
+provides-member:
+- ["7SSSugar26SSDataBaseSavePointProxingP", ""]
+- ["7SSSugar24SSDataBaseSavePointProxyV", ""]
+- ["7SSSugar26SSDataBaseSavePointProxingP", "rollBack"]
+- ["7SSSugar26SSDataBaseSavePointProxingP", "release"]
+provides-dynamic-lookup:
+depends-top-level:
+- "SSDataBaseSavePointProtocol"
+- "SSDataBaseSavePointProxing"
+- "SSDataBaseSavePointProxy"
+- !private "savePoint"
+depends-member:
+- ["7SSSugar27SSDataBaseSavePointProtocolP", "SSDataBaseSavePointProtocol"]
+- ["7SSSugar27SSDataBaseSavePointProtocolP", ""]
+- ["7SSSugar27SSDataBaseSavePointProtocolP", "release"]
+- ["7SSSugar27SSDataBaseSavePointProtocolP", "rollBack"]
+- ["7SSSugar27SSDataBaseSavePointProtocolP", "savePoint"]
+- ["7SSSugar26SSDataBaseSavePointProxingP", "SSDataBaseSavePointProtocol"]
+- ["7SSSugar26SSDataBaseSavePointProxingP", ""]
+- ["7SSSugar26SSDataBaseSavePointProxingP", "release"]
+- ["7SSSugar26SSDataBaseSavePointProxingP", "rollBack"]
+- ["7SSSugar26SSDataBaseSavePointProxingP", "savePoint"]
+- ["7SSSugar24SSDataBaseSavePointProxyV", "SSDataBaseSavePointProtocol"]
+- ["7SSSugar24SSDataBaseSavePointProxyV", ""]
+- ["7SSSugar24SSDataBaseSavePointProxyV", "init"]
+- ["7SSSugar24SSDataBaseSavePointProxyV", "release"]
+- ["7SSSugar24SSDataBaseSavePointProxyV", "rollBack"]
+- ["7SSSugar24SSDataBaseSavePointProxyV", "savePoint"]
+- ["7SSSugar12SSReleasableP", "SSDataBaseSavePointProtocol"]
+- ["7SSSugar12SSReleasableP", ""]
+- ["7SSSugar12SSReleasableP", "release"]
+- ["7SSSugar12SSReleasableP", "rollBack"]
+- ["7SSSugar12SSReleasableP", "savePoint"]
+depends-nominal:
+- "7SSSugar27SSDataBaseSavePointProtocolP"
+- "7SSSugar26SSDataBaseSavePointProxingP"
+- "7SSSugar24SSDataBaseSavePointProxyV"
+- "7SSSugar12SSReleasableP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/mach-o/dyld.modulemap"
+- "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/mach-o/compact_unwind_encoding.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/xpc/XPC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/apinotes/Dispatch.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "ec0233822026f5dc5cdb9178af1d45a1"

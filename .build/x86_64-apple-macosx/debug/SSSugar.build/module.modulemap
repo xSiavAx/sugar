@@ -1,0 +1,4 @@
+module SSSugar {
+    header "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/SSSugar-Swift.h"
+    requires objc
+}

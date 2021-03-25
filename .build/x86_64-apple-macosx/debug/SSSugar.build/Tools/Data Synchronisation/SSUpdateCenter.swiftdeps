@@ -1,0 +1,704 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "SSUpdateReceiversManaging"
+- "SSUpdateNotifier"
+- "SSUpdateCenter"
+- "SSUpdater"
+provides-nominal:
+- "7SSSugar25SSUpdateReceiversManagingP"
+- "7SSSugar16SSUpdateNotifierP"
+- "7SSSugar14SSUpdateCenterP"
+- "7SSSugar9SSUpdaterC"
+- "7SSSugar9SSUpdaterC8ObserverC"
+- "7SSSugar9SSUpdaterC16UpdatesConverterC"
+provides-member:
+- ["7SSSugar25SSUpdateReceiversManagingP", ""]
+- ["7SSSugar16SSUpdateNotifierP", ""]
+- ["7SSSugar14SSUpdateCenterP", ""]
+- ["7SSSugar9SSUpdaterC", ""]
+- ["7SSSugar9SSUpdaterC8ObserverC", ""]
+- ["7SSSugar9SSUpdaterC16UpdatesConverterC", ""]
+- ["7SSSugar16SSUpdateNotifierP", "notify"]
+- ["7SSSugar9SSUpdaterC16UpdatesConverterC", "info"]
+- ["7SSSugar9SSUpdaterC16UpdatesConverterC", "notification"]
+- ["7SSSugar9SSUpdaterC16UpdatesConverterC", "notificationName"]
+- ["7SSSugar9SSUpdaterC8ObserverC", "startObserving"]
+- ["7SSSugar9SSUpdaterC8ObserverC", "stopObserving"]
+provides-dynamic-lookup:
+- "addReceiver"
+- "argsKey"
+- "converter"
+- "info"
+- "markerKey"
+- "notification"
+- "notificationName"
+- "notifications"
+- "notify"
+- "observers"
+- "post"
+- "prefix"
+- "receiver"
+- "register"
+- "removeReceiver"
+- "startObserving"
+- "stopObserving"
+- "tokens"
+- "updateName"
+depends-top-level:
+- "+"
+- "==="
+- "AnyHashable"
+- "AnyObject"
+- !private "Array"
+- "AssignmentPrecedence"
+- "BooleanLiteralType"
+- "CastingPrecedence"
+- !private "Dictionary"
+- !private "FloatLiteralType"
+- !private "IntegerLiteralType"
+- "Notification"
+- !private "NotificationCenter"
+- "Observer"
+- "SSOnMainExecutor"
+- "SSUpdate"
+- "SSUpdateCenter"
+- "SSUpdateNotifier"
+- "SSUpdateReceiver"
+- "SSUpdateReceiversManaging"
+- "SSUpdater"
+- !private "Self"
+- "String"
+- "StringLiteralType"
+- !private "UnicodeScalarType"
+- "UpdatesConverter"
+- "Void"
+- "converter"
+- !private "fatalError"
+- !private "notificationName"
+- !private "notifications"
+- !private "notify"
+- !private "observers"
+- !private "onMain"
+- !private "post"
+- !private "prefix"
+- !private "receiver"
+- !private "register"
+- !private "tokens"
+- !private "updateName"
+depends-member:
+- ["Sa", ""]
+- !private ["Sa", "append"]
+- !private ["Sa", "forEach"]
+- ["Sa", "init"]
+- !private ["Sa", "map"]
+- !private ["Sa", "removeAll"]
+- ["SK", ""]
+- !private ["SK", "append"]
+- !private ["SK", "count"]
+- !private ["SK", "dropFirst"]
+- !private ["SK", "forEach"]
+- ["SK", "init"]
+- !private ["SK", "map"]
+- !private ["SK", "removeAll"]
+- !private ["s7CVarArgP", "addObserver"]
+- !private ["s7CVarArgP", "append"]
+- !private ["s7CVarArgP", "count"]
+- !private ["s7CVarArgP", "default"]
+- !private ["s7CVarArgP", "dropFirst"]
+- !private ["s7CVarArgP", "forEach"]
+- ["s7CVarArgP", "init"]
+- !private ["s7CVarArgP", "map"]
+- !private ["s7CVarArgP", "post"]
+- !private ["s7CVarArgP", "removeAll"]
+- !private ["s7CVarArgP", "removeObserver"]
+- !private ["s7CVarArgP", "subscript"]
+- ["Sl", ""]
+- !private ["Sl", "append"]
+- !private ["Sl", "count"]
+- !private ["Sl", "dropFirst"]
+- !private ["Sl", "forEach"]
+- ["Sl", "init"]
+- !private ["Sl", "map"]
+- !private ["Sl", "removeAll"]
+- !private ["Sl", "subscript"]
+- ["SL", ""]
+- !private ["SL", "count"]
+- !private ["SL", "dropFirst"]
+- !private ["SL", "init"]
+- !private ["10Foundation15ContiguousBytesP", "append"]
+- !private ["10Foundation15ContiguousBytesP", "forEach"]
+- ["10Foundation15ContiguousBytesP", "init"]
+- !private ["10Foundation15ContiguousBytesP", "map"]
+- !private ["10Foundation15ContiguousBytesP", "removeAll"]
+- ["s28CustomDebugStringConvertibleP", "Name"]
+- ["s28CustomDebugStringConvertibleP", ""]
+- !private ["s28CustomDebugStringConvertibleP", "addObserver"]
+- !private ["s28CustomDebugStringConvertibleP", "append"]
+- !private ["s28CustomDebugStringConvertibleP", "count"]
+- !private ["s28CustomDebugStringConvertibleP", "default"]
+- !private ["s28CustomDebugStringConvertibleP", "dropFirst"]
+- !private ["s28CustomDebugStringConvertibleP", "forEach"]
+- ["s28CustomDebugStringConvertibleP", "init"]
+- !private ["s28CustomDebugStringConvertibleP", "map"]
+- !private ["s28CustomDebugStringConvertibleP", "name"]
+- !private ["s28CustomDebugStringConvertibleP", "post"]
+- !private ["s28CustomDebugStringConvertibleP", "removeAll"]
+- !private ["s28CustomDebugStringConvertibleP", "removeObserver"]
+- !private ["s28CustomDebugStringConvertibleP", "subscript"]
+- !private ["s28CustomDebugStringConvertibleP", "userInfo"]
+- ["s17CustomReflectableP", "Name"]
+- !private ["s17CustomReflectableP", "append"]
+- !private ["s17CustomReflectableP", "count"]
+- !private ["s17CustomReflectableP", "dropFirst"]
+- !private ["s17CustomReflectableP", "forEach"]
+- ["s17CustomReflectableP", "init"]
+- !private ["s17CustomReflectableP", "map"]
+- !private ["s17CustomReflectableP", "name"]
+- !private ["s17CustomReflectableP", "removeAll"]
+- !private ["s17CustomReflectableP", "subscript"]
+- !private ["s17CustomReflectableP", "userInfo"]
+- !private ["s23CustomStringConvertibleP", "Element"]
+- ["s23CustomStringConvertibleP", "Name"]
+- ["s23CustomStringConvertibleP", ""]
+- !private ["s23CustomStringConvertibleP", "addObserver"]
+- !private ["s23CustomStringConvertibleP", "append"]
+- !private ["s23CustomStringConvertibleP", "appendInterpolation"]
+- !private ["s23CustomStringConvertibleP", "appendLiteral"]
+- !private ["s23CustomStringConvertibleP", "count"]
+- !private ["s23CustomStringConvertibleP", "default"]
+- !private ["s23CustomStringConvertibleP", "dropFirst"]
+- !private ["s23CustomStringConvertibleP", "forEach"]
+- ["s23CustomStringConvertibleP", "init"]
+- !private ["s23CustomStringConvertibleP", "map"]
+- !private ["s23CustomStringConvertibleP", "name"]
+- !private ["s23CustomStringConvertibleP", "post"]
+- !private ["s23CustomStringConvertibleP", "removeAll"]
+- !private ["s23CustomStringConvertibleP", "removeObserver"]
+- !private ["s23CustomStringConvertibleP", "subscript"]
+- !private ["s23CustomStringConvertibleP", "userInfo"]
+- ["10Foundation12DataProtocolP", ""]
+- !private ["10Foundation12DataProtocolP", "append"]
+- !private ["10Foundation12DataProtocolP", "forEach"]
+- ["10Foundation12DataProtocolP", "init"]
+- !private ["10Foundation12DataProtocolP", "map"]
+- !private ["10Foundation12DataProtocolP", "removeAll"]
+- !private ["Se", "append"]
+- !private ["Se", "count"]
+- !private ["Se", "dropFirst"]
+- !private ["Se", "forEach"]
+- ["Se", "init"]
+- !private ["Se", "map"]
+- !private ["Se", "removeAll"]
+- !private ["Se", "subscript"]
+- !private ["s26DefaultStringInterpolationV", "appendInterpolation"]
+- !private ["s26DefaultStringInterpolationV", "appendLiteral"]
+- !private ["SD", ""]
+- !private ["SD", "map"]
+- !private ["SD", "subscript"]
+- !private ["SE", "append"]
+- !private ["SE", "count"]
+- !private ["SE", "dropFirst"]
+- !private ["SE", "forEach"]
+- ["SE", "init"]
+- !private ["SE", "map"]
+- !private ["SE", "removeAll"]
+- !private ["SE", "subscript"]
+- ["SQ", "Name"]
+- !private ["SQ", "RawValue"]
+- ["SQ", ""]
+- !private ["SQ", "addObserver"]
+- !private ["SQ", "append"]
+- !private ["SQ", "count"]
+- !private ["SQ", "default"]
+- !private ["SQ", "dropFirst"]
+- !private ["SQ", "forEach"]
+- ["SQ", "init"]
+- !private ["SQ", "map"]
+- !private ["SQ", "name"]
+- !private ["SQ", "post"]
+- !private ["SQ", "rawValue"]
+- !private ["SQ", "removeAll"]
+- !private ["SQ", "removeObserver"]
+- !private ["SQ", "subscript"]
+- !private ["SQ", "userInfo"]
+- ["s25ExpressibleByArrayLiteralP", ""]
+- !private ["s25ExpressibleByArrayLiteralP", "append"]
+- !private ["s25ExpressibleByArrayLiteralP", "forEach"]
+- ["s25ExpressibleByArrayLiteralP", "init"]
+- !private ["s25ExpressibleByArrayLiteralP", "map"]
+- !private ["s25ExpressibleByArrayLiteralP", "removeAll"]
+- !private ["s30ExpressibleByDictionaryLiteralP", "Key"]
+- !private ["s30ExpressibleByDictionaryLiteralP", "Value"]
+- !private ["s30ExpressibleByDictionaryLiteralP", "init"]
+- !private ["s30ExpressibleByDictionaryLiteralP", "map"]
+- !private ["s30ExpressibleByDictionaryLiteralP", "subscript"]
+- ["s43ExpressibleByExtendedGraphemeClusterLiteralP", ""]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "count"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "dropFirst"]
+- !private ["s43ExpressibleByExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s32ExpressibleByStringInterpolationP", "StringInterpolation"]
+- ["s32ExpressibleByStringInterpolationP", ""]
+- !private ["s32ExpressibleByStringInterpolationP", "count"]
+- !private ["s32ExpressibleByStringInterpolationP", "dropFirst"]
+- !private ["s32ExpressibleByStringInterpolationP", "init"]
+- ["s26ExpressibleByStringLiteralP", ""]
+- !private ["s26ExpressibleByStringLiteralP", "count"]
+- !private ["s26ExpressibleByStringLiteralP", "dropFirst"]
+- !private ["s26ExpressibleByStringLiteralP", "init"]
+- ["s33ExpressibleByUnicodeScalarLiteralP", ""]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "count"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "dropFirst"]
+- !private ["s33ExpressibleByUnicodeScalarLiteralP", "init"]
+- ["SH", "Name"]
+- !private ["SH", "RawValue"]
+- ["SH", ""]
+- !private ["SH", "addObserver"]
+- !private ["SH", "append"]
+- !private ["SH", "count"]
+- !private ["SH", "default"]
+- !private ["SH", "dropFirst"]
+- !private ["SH", "forEach"]
+- ["SH", "init"]
+- !private ["SH", "map"]
+- !private ["SH", "name"]
+- !private ["SH", "post"]
+- !private ["SH", "rawValue"]
+- !private ["SH", "removeAll"]
+- !private ["SH", "removeObserver"]
+- !private ["SH", "subscript"]
+- !private ["SH", "userInfo"]
+- ["7SSSugar20InsertableCollectionP", ""]
+- !private ["7SSSugar20InsertableCollectionP", "append"]
+- !private ["7SSSugar20InsertableCollectionP", "forEach"]
+- ["7SSSugar20InsertableCollectionP", "init"]
+- !private ["7SSSugar20InsertableCollectionP", "map"]
+- !private ["7SSSugar20InsertableCollectionP", "removeAll"]
+- !private ["s25LosslessStringConvertibleP", "Element"]
+- ["s25LosslessStringConvertibleP", ""]
+- !private ["s25LosslessStringConvertibleP", "count"]
+- !private ["s25LosslessStringConvertibleP", "dropFirst"]
+- !private ["s25LosslessStringConvertibleP", "init"]
+- !private ["s10MirrorPathP", "count"]
+- !private ["s10MirrorPathP", "dropFirst"]
+- !private ["s10MirrorPathP", "init"]
+- ["SM", ""]
+- !private ["SM", "append"]
+- !private ["SM", "forEach"]
+- ["SM", "init"]
+- !private ["SM", "map"]
+- !private ["SM", "removeAll"]
+- !private ["10Foundation19MutableDataProtocolP", "append"]
+- !private ["10Foundation19MutableDataProtocolP", "forEach"]
+- ["10Foundation19MutableDataProtocolP", "init"]
+- !private ["10Foundation19MutableDataProtocolP", "map"]
+- !private ["10Foundation19MutableDataProtocolP", "removeAll"]
+- ["So8NSCodingP", ""]
+- !private ["So8NSCodingP", "count"]
+- !private ["So8NSCodingP", "dropFirst"]
+- !private ["So9NSCopyingP", "count"]
+- !private ["So9NSCopyingP", "dropFirst"]
+- !private ["So21NSItemProviderReadingP", "count"]
+- !private ["So21NSItemProviderReadingP", "dropFirst"]
+- !private ["So21NSItemProviderWritingP", "count"]
+- !private ["So21NSItemProviderWritingP", "dropFirst"]
+- !private ["So16NSMutableCopyingP", "count"]
+- !private ["So16NSMutableCopyingP", "dropFirst"]
+- ["So8NSObjectC", ""]
+- !private ["So8NSObjectC", "addObserver"]
+- !private ["So8NSObjectC", "addObserverForName"]
+- !private ["So8NSObjectC", "count"]
+- !private ["So8NSObjectC", "default"]
+- !private ["So8NSObjectC", "dropFirst"]
+- !private ["So8NSObjectC", "post"]
+- !private ["So8NSObjectC", "postNotification"]
+- !private ["So8NSObjectC", "postNotificationName"]
+- !private ["So8NSObjectC", "removeObserver"]
+- !private ["So8NSObjectP", ""]
+- !private ["So8NSObjectP", "addObserver"]
+- !private ["So8NSObjectP", "addObserverForName"]
+- !private ["So8NSObjectP", "count"]
+- !private ["So8NSObjectP", "default"]
+- !private ["So8NSObjectP", "dropFirst"]
+- !private ["So8NSObjectP", "post"]
+- !private ["So8NSObjectP", "postNotification"]
+- !private ["So8NSObjectP", "postNotificationName"]
+- !private ["So8NSObjectP", "removeObserver"]
+- !private ["So14NSSecureCodingP", "count"]
+- !private ["So14NSSecureCodingP", "dropFirst"]
+- !private ["So8NSStringC", "count"]
+- !private ["So8NSStringC", "dropFirst"]
+- !private ["So18NSNotificationNamea", "RawValue"]
+- !private ["So18NSNotificationNamea", "init"]
+- !private ["So18NSNotificationNamea", "rawValue"]
+- ["10Foundation12NotificationV", "Name"]
+- !private ["10Foundation12NotificationV", "init"]
+- !private ["10Foundation12NotificationV", "name"]
+- !private ["10Foundation12NotificationV", "userInfo"]
+- !private ["So20NSNotificationCenterC", "addObserver"]
+- !private ["So20NSNotificationCenterC", "default"]
+- !private ["So20NSNotificationCenterC", "post"]
+- !private ["So20NSNotificationCenterC", "removeObserver"]
+- ["7SSSugar9SSUpdaterC8ObserverC", "AnyObject"]
+- !private ["7SSSugar9SSUpdaterC8ObserverC", "Notification"]
+- !private ["7SSSugar9SSUpdaterC8ObserverC", "NotificationCenter"]
+- ["7SSSugar9SSUpdaterC8ObserverC", "SSUpdate"]
+- ["7SSSugar9SSUpdaterC8ObserverC", "SSUpdateReceiver"]
+- ["7SSSugar9SSUpdaterC8ObserverC", "String"]
+- ["7SSSugar9SSUpdaterC8ObserverC", "UpdatesConverter"]
+- ["7SSSugar9SSUpdaterC8ObserverC", ""]
+- ["7SSSugar9SSUpdaterC8ObserverC", "converter"]
+- ["7SSSugar9SSUpdaterC8ObserverC", "deinit"]
+- !private ["7SSSugar9SSUpdaterC8ObserverC", "fatalError"]
+- ["7SSSugar9SSUpdaterC8ObserverC", "init"]
+- ["7SSSugar9SSUpdaterC8ObserverC", "receiver"]
+- !private ["7SSSugar9SSUpdaterC8ObserverC", "register"]
+- ["7SSSugar9SSUpdaterC8ObserverC", "startObserving"]
+- ["7SSSugar9SSUpdaterC8ObserverC", "stopObserving"]
+- ["7SSSugar9SSUpdaterC8ObserverC", "tokens"]
+- ["Sk", ""]
+- !private ["Sk", "append"]
+- !private ["Sk", "forEach"]
+- ["Sk", "init"]
+- !private ["Sk", "map"]
+- !private ["Sk", "removeAll"]
+- ["Sm", ""]
+- !private ["Sm", "append"]
+- !private ["Sm", "count"]
+- !private ["Sm", "dropFirst"]
+- !private ["Sm", "forEach"]
+- ["Sm", "init"]
+- !private ["Sm", "map"]
+- !private ["Sm", "removeAll"]
+- !private ["SY", "RawValue"]
+- !private ["SY", ""]
+- !private ["SY", "init"]
+- !private ["SY", "rawValue"]
+- ["10Foundation20ReferenceConvertibleP", "Name"]
+- !private ["10Foundation20ReferenceConvertibleP", "init"]
+- !private ["10Foundation20ReferenceConvertibleP", "name"]
+- !private ["10Foundation20ReferenceConvertibleP", "userInfo"]
+- !private ["7SSSugar21ReplaceableCollectionP", "append"]
+- !private ["7SSSugar21ReplaceableCollectionP", "forEach"]
+- ["7SSSugar21ReplaceableCollectionP", "init"]
+- !private ["7SSSugar21ReplaceableCollectionP", "map"]
+- !private ["7SSSugar21ReplaceableCollectionP", "removeAll"]
+- !private ["7SSSugar11SSDBColTypeP", "count"]
+- !private ["7SSSugar11SSDBColTypeP", "dropFirst"]
+- !private ["7SSSugar11SSDBColTypeP", "init"]
+- !private ["7SSSugar18SSDBQueryConditionP", "count"]
+- !private ["7SSSugar18SSDBQueryConditionP", "dropFirst"]
+- !private ["7SSSugar18SSDBQueryConditionP", "init"]
+- !private ["7SSSugar17SSKeyFieldStorageP", "map"]
+- !private ["7SSSugar17SSKeyFieldStorageP", "subscript"]
+- !private ["7SSSugar16SSOnMainExecutorP", "NotificationCenter"]
+- ["7SSSugar16SSOnMainExecutorP", "Observer"]
+- !private ["7SSSugar16SSOnMainExecutorP", "UpdatesConverter"]
+- ["7SSSugar16SSOnMainExecutorP", ""]
+- ["7SSSugar16SSOnMainExecutorP", "addReceiver"]
+- !private ["7SSSugar16SSOnMainExecutorP", "converter"]
+- !private ["7SSSugar16SSOnMainExecutorP", "notifications"]
+- ["7SSSugar16SSOnMainExecutorP", "notify"]
+- !private ["7SSSugar16SSOnMainExecutorP", "observers"]
+- ["7SSSugar16SSOnMainExecutorP", "onMain"]
+- !private ["7SSSugar16SSOnMainExecutorP", "post"]
+- !private ["7SSSugar16SSOnMainExecutorP", "prefix"]
+- !private ["7SSSugar16SSOnMainExecutorP", "receiver"]
+- ["7SSSugar16SSOnMainExecutorP", "removeReceiver"]
+- ["7SSSugar8SSUpdateV", "Reaction"]
+- !private ["7SSSugar8SSUpdateV", "args"]
+- !private ["7SSSugar8SSUpdateV", "init"]
+- !private ["7SSSugar8SSUpdateV", "marker"]
+- !private ["7SSSugar8SSUpdateV", "name"]
+- !private ["7SSSugar14SSUpdateCenterP", "NotificationCenter"]
+- ["7SSSugar14SSUpdateCenterP", "Observer"]
+- !private ["7SSSugar14SSUpdateCenterP", "UpdatesConverter"]
+- ["7SSSugar14SSUpdateCenterP", ""]
+- ["7SSSugar14SSUpdateCenterP", "addReceiver"]
+- !private ["7SSSugar14SSUpdateCenterP", "converter"]
+- !private ["7SSSugar14SSUpdateCenterP", "notifications"]
+- ["7SSSugar14SSUpdateCenterP", "notify"]
+- !private ["7SSSugar14SSUpdateCenterP", "observers"]
+- ["7SSSugar14SSUpdateCenterP", "onMain"]
+- !private ["7SSSugar14SSUpdateCenterP", "post"]
+- !private ["7SSSugar14SSUpdateCenterP", "prefix"]
+- !private ["7SSSugar14SSUpdateCenterP", "receiver"]
+- ["7SSSugar14SSUpdateCenterP", "removeReceiver"]
+- !private ["7SSSugar16SSUpdateNotifierP", "NotificationCenter"]
+- ["7SSSugar16SSUpdateNotifierP", "Observer"]
+- ["7SSSugar16SSUpdateNotifierP", "SSUpdate"]
+- !private ["7SSSugar16SSUpdateNotifierP", "UpdatesConverter"]
+- ["7SSSugar16SSUpdateNotifierP", "Void"]
+- ["7SSSugar16SSUpdateNotifierP", ""]
+- ["7SSSugar16SSUpdateNotifierP", "addReceiver"]
+- !private ["7SSSugar16SSUpdateNotifierP", "converter"]
+- !private ["7SSSugar16SSUpdateNotifierP", "notifications"]
+- ["7SSSugar16SSUpdateNotifierP", "notify"]
+- !private ["7SSSugar16SSUpdateNotifierP", "observers"]
+- ["7SSSugar16SSUpdateNotifierP", "onMain"]
+- !private ["7SSSugar16SSUpdateNotifierP", "post"]
+- !private ["7SSSugar16SSUpdateNotifierP", "prefix"]
+- !private ["7SSSugar16SSUpdateNotifierP", "receiver"]
+- ["7SSSugar16SSUpdateNotifierP", "removeReceiver"]
+- !private ["7SSSugar16SSUpdateReceiverP", "apply"]
+- !private ["7SSSugar16SSUpdateReceiverP", "reactions"]
+- !private ["7SSSugar25SSUpdateReceiversManagingP", "NotificationCenter"]
+- ["7SSSugar25SSUpdateReceiversManagingP", "Observer"]
+- ["7SSSugar25SSUpdateReceiversManagingP", "SSUpdateReceiver"]
+- !private ["7SSSugar25SSUpdateReceiversManagingP", "UpdatesConverter"]
+- ["7SSSugar25SSUpdateReceiversManagingP", ""]
+- ["7SSSugar25SSUpdateReceiversManagingP", "addReceiver"]
+- !private ["7SSSugar25SSUpdateReceiversManagingP", "converter"]
+- !private ["7SSSugar25SSUpdateReceiversManagingP", "notifications"]
+- ["7SSSugar25SSUpdateReceiversManagingP", "notify"]
+- !private ["7SSSugar25SSUpdateReceiversManagingP", "observers"]
+- ["7SSSugar25SSUpdateReceiversManagingP", "onMain"]
+- !private ["7SSSugar25SSUpdateReceiversManagingP", "post"]
+- !private ["7SSSugar25SSUpdateReceiversManagingP", "prefix"]
+- !private ["7SSSugar25SSUpdateReceiversManagingP", "receiver"]
+- ["7SSSugar25SSUpdateReceiversManagingP", "removeReceiver"]
+- ["7SSSugar9SSUpdaterC", "AnyObject"]
+- ["7SSSugar9SSUpdaterC", "Notification"]
+- !private ["7SSSugar9SSUpdaterC", "NotificationCenter"]
+- ["7SSSugar9SSUpdaterC", "Observer"]
+- ["7SSSugar9SSUpdaterC", "SSUpdate"]
+- ["7SSSugar9SSUpdaterC", "SSUpdateReceiver"]
+- ["7SSSugar9SSUpdaterC", "String"]
+- ["7SSSugar9SSUpdaterC", "UpdatesConverter"]
+- ["7SSSugar9SSUpdaterC", "Void"]
+- ["7SSSugar9SSUpdaterC", ""]
+- ["7SSSugar9SSUpdaterC", "addReceiver"]
+- !private ["7SSSugar9SSUpdaterC", "converter"]
+- ["7SSSugar9SSUpdaterC", "deinit"]
+- ["7SSSugar9SSUpdaterC", "init"]
+- !private ["7SSSugar9SSUpdaterC", "notifications"]
+- ["7SSSugar9SSUpdaterC", "notify"]
+- !private ["7SSSugar9SSUpdaterC", "observers"]
+- ["7SSSugar9SSUpdaterC", "onMain"]
+- !private ["7SSSugar9SSUpdaterC", "post"]
+- !private ["7SSSugar9SSUpdaterC", "prefix"]
+- !private ["7SSSugar9SSUpdaterC", "receiver"]
+- ["7SSSugar9SSUpdaterC", "removeReceiver"]
+- !private ["ST", "Element"]
+- !private ["ST", "Iterator"]
+- ["ST", ""]
+- !private ["ST", "append"]
+- !private ["ST", "count"]
+- !private ["ST", "dropFirst"]
+- !private ["ST", "forEach"]
+- ["ST", "init"]
+- !private ["ST", "map"]
+- !private ["ST", "removeAll"]
+- !private ["ST", "subscript"]
+- !private ["SS", "count"]
+- !private ["SS", "dropFirst"]
+- !private ["SS", "init"]
+- !private ["s27StringInterpolationProtocolP", "appendInterpolation"]
+- !private ["s27StringInterpolationProtocolP", "appendLiteral"]
+- !private ["s27StringInterpolationProtocolP", "init"]
+- !private ["Sy", "count"]
+- !private ["Sy", "dropFirst"]
+- !private ["Sy", "init"]
+- ["s16TextOutputStreamP", ""]
+- !private ["s16TextOutputStreamP", "appendInterpolation"]
+- !private ["s16TextOutputStreamP", "appendLiteral"]
+- !private ["s16TextOutputStreamP", "count"]
+- !private ["s16TextOutputStreamP", "dropFirst"]
+- !private ["s16TextOutputStreamP", "init"]
+- ["s20TextOutputStreamableP", ""]
+- !private ["s20TextOutputStreamableP", "count"]
+- !private ["s20TextOutputStreamableP", "dropFirst"]
+- !private ["s20TextOutputStreamableP", "init"]
+- !private ["7SSSugar9SSUpdaterC16UpdatesConverterC", "AnyHashable"]
+- ["7SSSugar9SSUpdaterC16UpdatesConverterC", "Notification"]
+- ["7SSSugar9SSUpdaterC16UpdatesConverterC", "SSUpdate"]
+- !private ["7SSSugar9SSUpdaterC16UpdatesConverterC", "Self"]
+- ["7SSSugar9SSUpdaterC16UpdatesConverterC", "String"]
+- ["7SSSugar9SSUpdaterC16UpdatesConverterC", ""]
+- !private ["7SSSugar9SSUpdaterC16UpdatesConverterC", "argsKey"]
+- ["7SSSugar9SSUpdaterC16UpdatesConverterC", "deinit"]
+- !private ["7SSSugar9SSUpdaterC16UpdatesConverterC", "fatalError"]
+- ["7SSSugar9SSUpdaterC16UpdatesConverterC", "info"]
+- ["7SSSugar9SSUpdaterC16UpdatesConverterC", "init"]
+- !private ["7SSSugar9SSUpdaterC16UpdatesConverterC", "markerKey"]
+- ["7SSSugar9SSUpdaterC16UpdatesConverterC", "notification"]
+- ["7SSSugar9SSUpdaterC16UpdatesConverterC", "notificationName"]
+- ["7SSSugar9SSUpdaterC16UpdatesConverterC", "prefix"]
+- !private ["7SSSugar9SSUpdaterC16UpdatesConverterC", "updateName"]
+- !private ["s14_ArrayProtocolP", "append"]
+- !private ["s14_ArrayProtocolP", "forEach"]
+- ["s14_ArrayProtocolP", "init"]
+- !private ["s14_ArrayProtocolP", "map"]
+- !private ["s14_ArrayProtocolP", "removeAll"]
+- !private ["s30_CustomPlaygroundQuickLookableP", "count"]
+- !private ["s30_CustomPlaygroundQuickLookableP", "dropFirst"]
+- !private ["s30_CustomPlaygroundQuickLookableP", "init"]
+- !private ["s24_DestructorSafeContainerP", "append"]
+- !private ["s24_DestructorSafeContainerP", "forEach"]
+- ["s24_DestructorSafeContainerP", "init"]
+- !private ["s24_DestructorSafeContainerP", "map"]
+- !private ["s24_DestructorSafeContainerP", "removeAll"]
+- !private ["s35_ExpressibleByBuiltinBooleanLiteralP", "init"]
+- ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", ""]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "count"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "dropFirst"]
+- !private ["s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP", "init"]
+- !private ["s35_ExpressibleByBuiltinIntegerLiteralP", "init"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "count"]
+- !private ["s34_ExpressibleByBuiltinStringLiteralP", "dropFirst"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+- ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", ""]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "count"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "dropFirst"]
+- !private ["s41_ExpressibleByBuiltinUnicodeScalarLiteralP", "init"]
+- !private ["s19_HasContiguousBytesP", "append"]
+- !private ["s19_HasContiguousBytesP", "count"]
+- !private ["s19_HasContiguousBytesP", "dropFirst"]
+- !private ["s19_HasContiguousBytesP", "forEach"]
+- ["s19_HasContiguousBytesP", "init"]
+- !private ["s19_HasContiguousBytesP", "map"]
+- !private ["s19_HasContiguousBytesP", "removeAll"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "RawValue"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", ""]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "append"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "count"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "dropFirst"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "forEach"]
+- ["s35_HasCustomAnyHashableRepresentationP", "init"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "map"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "rawValue"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "removeAll"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "subscript"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "addObserver"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "count"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "default"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "dropFirst"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "post"]
+- !private ["10Foundation27_KeyValueCodingAndObservingP", "removeObserver"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "addObserver"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "count"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "default"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "dropFirst"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "post"]
+- !private ["10Foundation37_KeyValueCodingAndObservingPublishingP", "removeObserver"]
+- ["s21_ObjectiveCBridgeableP", "Name"]
+- !private ["s21_ObjectiveCBridgeableP", "RawValue"]
+- ["s21_ObjectiveCBridgeableP", ""]
+- !private ["s21_ObjectiveCBridgeableP", "_ObjectiveCType"]
+- !private ["s21_ObjectiveCBridgeableP", "_bridgeToObjectiveC"]
+- !private ["s21_ObjectiveCBridgeableP", "_conditionallyBridgeFromObjectiveC"]
+- !private ["s21_ObjectiveCBridgeableP", "_forceBridgeFromObjectiveC"]
+- !private ["s21_ObjectiveCBridgeableP", "_unconditionallyBridgeFromObjectiveC"]
+- !private ["s21_ObjectiveCBridgeableP", "append"]
+- !private ["s21_ObjectiveCBridgeableP", "count"]
+- !private ["s21_ObjectiveCBridgeableP", "dropFirst"]
+- !private ["s21_ObjectiveCBridgeableP", "forEach"]
+- ["s21_ObjectiveCBridgeableP", "init"]
+- !private ["s21_ObjectiveCBridgeableP", "map"]
+- !private ["s21_ObjectiveCBridgeableP", "name"]
+- !private ["s21_ObjectiveCBridgeableP", "rawValue"]
+- !private ["s21_ObjectiveCBridgeableP", "removeAll"]
+- !private ["s21_ObjectiveCBridgeableP", "subscript"]
+- !private ["s21_ObjectiveCBridgeableP", "userInfo"]
+- !private ["s20_SwiftNewtypeWrapperP", "RawValue"]
+- !private ["s20_SwiftNewtypeWrapperP", "init"]
+- !private ["s20_SwiftNewtypeWrapperP", "rawValue"]
+depends-nominal:
+- "Sa"
+- "SK"
+- "s7CVarArgP"
+- "Sl"
+- "SL"
+- "10Foundation15ContiguousBytesP"
+- "s28CustomDebugStringConvertibleP"
+- "s17CustomReflectableP"
+- "s23CustomStringConvertibleP"
+- "10Foundation12DataProtocolP"
+- "Se"
+- !private "s26DefaultStringInterpolationV"
+- !private "SD"
+- "SE"
+- "SQ"
+- "s25ExpressibleByArrayLiteralP"
+- !private "s30ExpressibleByDictionaryLiteralP"
+- "s43ExpressibleByExtendedGraphemeClusterLiteralP"
+- "s32ExpressibleByStringInterpolationP"
+- "s26ExpressibleByStringLiteralP"
+- "s33ExpressibleByUnicodeScalarLiteralP"
+- "SH"
+- "7SSSugar20InsertableCollectionP"
+- "s25LosslessStringConvertibleP"
+- !private "s10MirrorPathP"
+- "SM"
+- "10Foundation19MutableDataProtocolP"
+- "So8NSCodingP"
+- !private "So9NSCopyingP"
+- !private "So21NSItemProviderReadingP"
+- !private "So21NSItemProviderWritingP"
+- !private "So16NSMutableCopyingP"
+- "So8NSObjectC"
+- !private "So8NSObjectP"
+- !private "So14NSSecureCodingP"
+- !private "So8NSStringC"
+- !private "So18NSNotificationNamea"
+- "10Foundation12NotificationV"
+- !private "So20NSNotificationCenterC"
+- "7SSSugar9SSUpdaterC8ObserverC"
+- "Sk"
+- "Sm"
+- !private "SY"
+- "10Foundation20ReferenceConvertibleP"
+- "7SSSugar21ReplaceableCollectionP"
+- !private "7SSSugar11SSDBColTypeP"
+- !private "7SSSugar18SSDBQueryConditionP"
+- !private "7SSSugar17SSKeyFieldStorageP"
+- "7SSSugar16SSOnMainExecutorP"
+- "7SSSugar8SSUpdateV"
+- "7SSSugar14SSUpdateCenterP"
+- "7SSSugar16SSUpdateNotifierP"
+- !private "7SSSugar16SSUpdateReceiverP"
+- "7SSSugar25SSUpdateReceiversManagingP"
+- "7SSSugar9SSUpdaterC"
+- "ST"
+- !private "SS"
+- !private "s27StringInterpolationProtocolP"
+- !private "Sy"
+- "s16TextOutputStreamP"
+- "s20TextOutputStreamableP"
+- "7SSSugar9SSUpdaterC16UpdatesConverterC"
+- "s14_ArrayProtocolP"
+- !private "s30_CustomPlaygroundQuickLookableP"
+- "s24_DestructorSafeContainerP"
+- !private "s35_ExpressibleByBuiltinBooleanLiteralP"
+- "s51_ExpressibleByBuiltinExtendedGraphemeClusterLiteralP"
+- !private "s35_ExpressibleByBuiltinIntegerLiteralP"
+- "s34_ExpressibleByBuiltinStringLiteralP"
+- "s41_ExpressibleByBuiltinUnicodeScalarLiteralP"
+- "s19_HasContiguousBytesP"
+- "s35_HasCustomAnyHashableRepresentationP"
+- !private "10Foundation27_KeyValueCodingAndObservingP"
+- !private "10Foundation37_KeyValueCodingAndObservingPublishingP"
+- "s21_ObjectiveCBridgeableP"
+- !private "s20_SwiftNewtypeWrapperP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/XPC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/ObjectiveC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Dispatch.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/CoreFoundation.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/CoreGraphics.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Swift.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/IOKit.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/SwiftOnoneSupport.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/mach-o/dyld.modulemap"
+- "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/mach-o/compact_unwind_encoding.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/xpc/XPC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/apinotes/Dispatch.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "cedcdb3f3008051e7727558edf1571fb"

@@ -1,31 +1,23 @@
 import Foundation
 
 public protocol SSDBTableIndexProtocol {
+    var name: String { get }
+    var tableName: String { get }
     var colNames: [String] { get }
     var isUniqeu: Bool { get }
     var prefix: String { get }
     
-    func nameIn(table: String) -> String
-    
-    func toCreateComponent(table: String) -> String
-    func toDropComponent(table: String) -> String
+    func toCreateComponent() -> String
+    func toDropComponent() -> String
 }
 
 public extension SSDBTableIndexProtocol {
-    func nameIn(table: String) -> String {
-        return "\(prefix)_\(table)_\(nameColSuffix())"
+    func toCreateComponent() -> String {
+        return "create \(uniqueComp())index `\(name)` on `\(tableName)` (\(colNames());"
     }
     
-    func toCreateComponent(table: String) -> String {
-        return "create \(uniqueComp())index `\(nameIn(table: table))` on `\(table)` (\(colNames());"
-    }
-    
-    func toDropComponent(table: String) -> String {
-        return "drop index `\(nameIn(table: table))`;"
-    }
-    
-    private func nameColSuffix() -> String {
-        return colNames.joined(separator: "__")
+    func toDropComponent() -> String {
+        return "drop index `\(name)`;"
     }
     
     private func colNames() -> String {
@@ -37,22 +29,32 @@ public extension SSDBTableIndexProtocol {
     }
 }
 
-public struct SSDBTableIndex: SSDBTableIndexProtocol {
-    public static let defaultPrefix = "index"
+public struct SSDBTableIndex<Table: SSDBTable>: SSDBTableIndexProtocol {
+    public static var defaultPrefix: String { "index" }
     
-    public var colNames: [String]
-    public var isUniqeu: Bool
-    public var prefix: String
+    public var name: String { "\(prefix)_\(tableName)_\(nameColSuffix())" }
+    public var tableName: String { Table.tableName }
+    public let colNames: [String]
+    public let isUniqeu: Bool
+    public let prefix: String
     
-    public init(col: SSDBColumnProtocol, prefix mPrefix: String = defaultPrefix) {
+    public init(prefix mPrefix: String = defaultPrefix, col: (Table.Type) -> SSDBColumnProtocol) {
+        self.init(prefix: mPrefix, col: col(Table.self))
+    }
+    
+    public init(isUnique uniqeu: Bool = true, prefix mPrefix: String = defaultPrefix, cols: (Table.Type) -> [SSDBColumnProtocol]) {
+        colNames = cols(Table.self).map { $0.name }
+        isUniqeu = uniqeu
+        prefix = mPrefix
+    }
+    
+    internal init(prefix mPrefix: String = defaultPrefix, col: SSDBColumnProtocol) {
         colNames = [col.name]
         isUniqeu = col.unique
         prefix = mPrefix
     }
     
-    public init(cols: [SSDBColumnProtocol], isUnique uniqeu: Bool = true, prefix mPrefix: String = defaultPrefix) {
-        colNames = cols.map { $0.name }
-        isUniqeu = uniqeu
-        prefix = mPrefix
+    private func nameColSuffix() -> String {
+        return colNames.joined(separator: "__")
     }
 }

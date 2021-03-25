@@ -1,0 +1,157 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "SSDmRevision"
+provides-nominal:
+- "7SSSugar12SSDmRevisionC"
+provides-member:
+- ["7SSSugar12SSDmRevisionC", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- "AssignmentPrecedence"
+- "Bool"
+- "Change"
+- "Int"
+- "SSCopying"
+- "SSDataModifying"
+- "SSDmRevision"
+- "String"
+- !private "changes"
+- !private "marker"
+- !private "number"
+depends-member:
+- !private ["Sa", "deepCopy"]
+- !private ["Sa", "filter"]
+- !private ["SK", ""]
+- !private ["SK", "deepCopy"]
+- !private ["SK", "filter"]
+- !private ["s7CVarArgP", "deepCopy"]
+- !private ["s7CVarArgP", "filter"]
+- ["Sl", ""]
+- !private ["Sl", "deepCopy"]
+- !private ["Sl", "filter"]
+- !private ["10Foundation15ContiguousBytesP", "deepCopy"]
+- !private ["10Foundation15ContiguousBytesP", "filter"]
+- !private ["s28CustomDebugStringConvertibleP", "deepCopy"]
+- !private ["s28CustomDebugStringConvertibleP", "filter"]
+- !private ["s17CustomReflectableP", "deepCopy"]
+- !private ["s17CustomReflectableP", "filter"]
+- !private ["s23CustomStringConvertibleP", "deepCopy"]
+- !private ["s23CustomStringConvertibleP", "filter"]
+- !private ["10Foundation12DataProtocolP", ""]
+- !private ["10Foundation12DataProtocolP", "deepCopy"]
+- !private ["10Foundation12DataProtocolP", "filter"]
+- !private ["Se", "deepCopy"]
+- !private ["Se", "filter"]
+- !private ["SE", "deepCopy"]
+- !private ["SE", "filter"]
+- !private ["SQ", ""]
+- !private ["SQ", "deepCopy"]
+- !private ["SQ", "filter"]
+- !private ["s25ExpressibleByArrayLiteralP", ""]
+- !private ["s25ExpressibleByArrayLiteralP", "deepCopy"]
+- !private ["s25ExpressibleByArrayLiteralP", "filter"]
+- !private ["SH", "deepCopy"]
+- !private ["SH", "filter"]
+- ["7SSSugar20InsertableCollectionP", ""]
+- !private ["7SSSugar20InsertableCollectionP", "deepCopy"]
+- !private ["7SSSugar20InsertableCollectionP", "filter"]
+- !private ["SM", ""]
+- !private ["SM", "deepCopy"]
+- !private ["SM", "filter"]
+- !private ["10Foundation19MutableDataProtocolP", "deepCopy"]
+- !private ["10Foundation19MutableDataProtocolP", "filter"]
+- !private ["Sk", ""]
+- !private ["Sk", "deepCopy"]
+- !private ["Sk", "filter"]
+- !private ["Sm", ""]
+- !private ["Sm", "deepCopy"]
+- !private ["Sm", "filter"]
+- !private ["7SSSugar21ReplaceableCollectionP", "deepCopy"]
+- !private ["7SSSugar21ReplaceableCollectionP", "filter"]
+- ["7SSSugar9SSCopyingP", ""]
+- !private ["7SSSugar9SSCopyingP", "changes"]
+- ["7SSSugar9SSCopyingP", "copy"]
+- !private ["7SSSugar9SSCopyingP", "filterChanges"]
+- ["7SSSugar9SSCopyingP", "init"]
+- !private ["7SSSugar9SSCopyingP", "marker"]
+- !private ["7SSSugar9SSCopyingP", "number"]
+- ["7SSSugar12SSDmRevisionC", "Bool"]
+- ["7SSSugar12SSDmRevisionC", "Int"]
+- ["7SSSugar12SSDmRevisionC", "SSDmRevision"]
+- ["7SSSugar12SSDmRevisionC", "String"]
+- ["7SSSugar12SSDmRevisionC", ""]
+- ["7SSSugar12SSDmRevisionC", "changes"]
+- ["7SSSugar12SSDmRevisionC", "copy"]
+- ["7SSSugar12SSDmRevisionC", "deinit"]
+- ["7SSSugar12SSDmRevisionC", "filterChanges"]
+- ["7SSSugar12SSDmRevisionC", "init"]
+- ["7SSSugar12SSDmRevisionC", "marker"]
+- ["7SSSugar12SSDmRevisionC", "number"]
+- !private ["ST", ""]
+- !private ["ST", "deepCopy"]
+- !private ["ST", "filter"]
+- !private ["s14_ArrayProtocolP", "deepCopy"]
+- !private ["s14_ArrayProtocolP", "filter"]
+- !private ["s24_DestructorSafeContainerP", "deepCopy"]
+- !private ["s24_DestructorSafeContainerP", "filter"]
+- !private ["s19_HasContiguousBytesP", "deepCopy"]
+- !private ["s19_HasContiguousBytesP", "filter"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "deepCopy"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "filter"]
+- !private ["s21_ObjectiveCBridgeableP", "deepCopy"]
+- !private ["s21_ObjectiveCBridgeableP", "filter"]
+depends-nominal:
+- !private "Sa"
+- !private "SK"
+- !private "s7CVarArgP"
+- "Sl"
+- !private "10Foundation15ContiguousBytesP"
+- !private "s28CustomDebugStringConvertibleP"
+- !private "s17CustomReflectableP"
+- !private "s23CustomStringConvertibleP"
+- !private "10Foundation12DataProtocolP"
+- !private "Se"
+- !private "SE"
+- !private "SQ"
+- !private "s25ExpressibleByArrayLiteralP"
+- !private "SH"
+- "7SSSugar20InsertableCollectionP"
+- !private "SM"
+- !private "10Foundation19MutableDataProtocolP"
+- !private "Sk"
+- !private "Sm"
+- !private "7SSSugar21ReplaceableCollectionP"
+- "7SSSugar9SSCopyingP"
+- "7SSSugar12SSDmRevisionC"
+- !private "ST"
+- !private "s14_ArrayProtocolP"
+- !private "s24_DestructorSafeContainerP"
+- !private "s19_HasContiguousBytesP"
+- !private "s35_HasCustomAnyHashableRepresentationP"
+- !private "s21_ObjectiveCBridgeableP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/XPC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/ObjectiveC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Combine.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Dispatch.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Darwin.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Foundation.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/CoreFoundation.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/CoreGraphics.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Swift.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/IOKit.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/SwiftOnoneSupport.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/mach-o/dyld.modulemap"
+- "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/mach-o/compact_unwind_encoding.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/xpc/XPC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/apinotes/Dispatch.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "88f8b371bcdd2ed5296cf7bbe0495537"

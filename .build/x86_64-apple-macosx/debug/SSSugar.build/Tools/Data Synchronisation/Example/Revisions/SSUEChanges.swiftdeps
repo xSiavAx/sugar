@@ -1,0 +1,186 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "SSUETaskChangeAdapting"
+- "SSUETaskIncrementPagesChange"
+- "SSUETaskRenameChange"
+- "SSUETaskRemoveChange"
+provides-nominal:
+- "7SSSugar22SSUETaskChangeAdaptingP"
+- "7SSSugar28SSUETaskIncrementPagesChangeC"
+- "7SSSugar20SSUETaskRenameChangeC"
+- "7SSSugar20SSUETaskRemoveChangeC"
+provides-member:
+- ["7SSSugar22SSUETaskChangeAdaptingP", ""]
+- ["7SSSugar28SSUETaskIncrementPagesChangeC", ""]
+- ["7SSSugar20SSUETaskRenameChangeC", ""]
+- ["7SSSugar20SSUETaskRemoveChangeC", ""]
+provides-dynamic-lookup:
+- "title"
+depends-top-level:
+- "Int"
+- "SSDmChange"
+- "SSDmToChangeAdaptResult"
+- "SSModify"
+- "SSUEChange"
+- "SSUETaskChangeAdapting"
+- "SSUETaskIncrementPagesChange"
+- "SSUETaskIncrementPagesDmCore"
+- "SSUETaskRemoveChange"
+- "SSUETaskRemoveDmCore"
+- "SSUETaskRenameChange"
+- "SSUETaskRenameDmCore"
+- !private "Self"
+- "String"
+- "StringLiteralType"
+depends-member:
+- ["SQ", ""]
+- !private ["SQ", "init"]
+- !private ["SH", "init"]
+- !private ["7SSSugar9SSCopyingP", "SSUETaskIncrementPagesDmCore"]
+- !private ["7SSSugar9SSCopyingP", "SSUETaskRemoveDmCore"]
+- !private ["7SSSugar9SSCopyingP", "SSUETaskRenameDmCore"]
+- !private ["7SSSugar9SSCopyingP", "Self"]
+- ["7SSSugar9SSCopyingP", ""]
+- !private ["7SSSugar9SSCopyingP", "init"]
+- ["7SSSugar9SSCopyingP", "title"]
+- ["7SSSugar13SSCoredModifyC", "Int"]
+- ["7SSSugar13SSCoredModifyC", "SSModify"]
+- !private ["7SSSugar13SSCoredModifyC", "SSUETaskIncrementPagesDmCore"]
+- !private ["7SSSugar13SSCoredModifyC", "SSUETaskRemoveDmCore"]
+- !private ["7SSSugar13SSCoredModifyC", "SSUETaskRenameDmCore"]
+- !private ["7SSSugar13SSCoredModifyC", "Self"]
+- ["7SSSugar13SSCoredModifyC", "String"]
+- ["7SSSugar13SSCoredModifyC", ""]
+- ["7SSSugar13SSCoredModifyC", "init"]
+- ["7SSSugar13SSCoredModifyC", "title"]
+- !private ["7SSSugar16SSDataModifyCoreP", "init"]
+- !private ["7SSSugar15SSDataModifyingP", "SSUETaskIncrementPagesDmCore"]
+- !private ["7SSSugar15SSDataModifyingP", "SSUETaskRemoveDmCore"]
+- !private ["7SSSugar15SSDataModifyingP", "SSUETaskRenameDmCore"]
+- !private ["7SSSugar15SSDataModifyingP", "Self"]
+- ["7SSSugar15SSDataModifyingP", ""]
+- !private ["7SSSugar15SSDataModifyingP", "init"]
+- ["7SSSugar15SSDataModifyingP", "title"]
+- !private ["7SSSugar10SSDmChangeP", "SSUETaskIncrementPagesDmCore"]
+- !private ["7SSSugar10SSDmChangeP", "SSUETaskRemoveDmCore"]
+- !private ["7SSSugar10SSDmChangeP", "SSUETaskRenameDmCore"]
+- !private ["7SSSugar10SSDmChangeP", "Self"]
+- ["7SSSugar10SSDmChangeP", ""]
+- ["7SSSugar10SSDmChangeP", "title"]
+- ["7SSSugar11SSEquatableP", ""]
+- !private ["7SSSugar11SSEquatableP", "init"]
+- !private ["7SSSugar20SSInheritedEquatableP", "init"]
+- !private ["7SSSugar18SSMarkerGeneratingP", "init"]
+- ["7SSSugar8SSModifyC", "Int"]
+- ["7SSSugar8SSModifyC", "SSModify"]
+- !private ["7SSSugar8SSModifyC", "SSUETaskIncrementPagesDmCore"]
+- !private ["7SSSugar8SSModifyC", "SSUETaskRemoveDmCore"]
+- !private ["7SSSugar8SSModifyC", "SSUETaskRenameDmCore"]
+- !private ["7SSSugar8SSModifyC", "Self"]
+- ["7SSSugar8SSModifyC", "String"]
+- ["7SSSugar8SSModifyC", ""]
+- ["7SSSugar8SSModifyC", "title"]
+- ["7SSSugar10SSUEChangeC", "Int"]
+- ["7SSSugar10SSUEChangeC", "SSModify"]
+- !private ["7SSSugar10SSUEChangeC", "SSUETaskIncrementPagesDmCore"]
+- !private ["7SSSugar10SSUEChangeC", "SSUETaskRemoveDmCore"]
+- !private ["7SSSugar10SSUEChangeC", "SSUETaskRenameDmCore"]
+- !private ["7SSSugar10SSUEChangeC", "Self"]
+- ["7SSSugar10SSUEChangeC", "String"]
+- ["7SSSugar10SSUEChangeC", ""]
+- ["7SSSugar10SSUEChangeC", "init"]
+- ["7SSSugar10SSUEChangeC", "title"]
+- ["7SSSugar22SSUETaskChangeAdaptingP", "SSDmToChangeAdaptResult"]
+- ["7SSSugar22SSUETaskChangeAdaptingP", "SSUETaskIncrementPagesChange"]
+- ["7SSSugar22SSUETaskChangeAdaptingP", "SSUETaskRemoveChange"]
+- ["7SSSugar22SSUETaskChangeAdaptingP", "SSUETaskRenameChange"]
+- ["7SSSugar22SSUETaskChangeAdaptingP", "adaptByIncrementPages"]
+- ["7SSSugar22SSUETaskChangeAdaptingP", "adaptByRemove"]
+- ["7SSSugar22SSUETaskChangeAdaptingP", "adaptByRename"]
+- ["7SSSugar14SSUETaskDMCoreC", ""]
+- !private ["7SSSugar14SSUETaskDMCoreC", "init"]
+- ["7SSSugar28SSUETaskIncrementPagesChangeC", "Int"]
+- ["7SSSugar28SSUETaskIncrementPagesChangeC", "SSModify"]
+- !private ["7SSSugar28SSUETaskIncrementPagesChangeC", "SSUETaskIncrementPagesDmCore"]
+- !private ["7SSSugar28SSUETaskIncrementPagesChangeC", "Self"]
+- ["7SSSugar28SSUETaskIncrementPagesChangeC", "String"]
+- ["7SSSugar28SSUETaskIncrementPagesChangeC", ""]
+- ["7SSSugar28SSUETaskIncrementPagesChangeC", "deinit"]
+- ["7SSSugar28SSUETaskIncrementPagesChangeC", "init"]
+- ["7SSSugar28SSUETaskIncrementPagesChangeC", "title"]
+- ["7SSSugar28SSUETaskIncrementPagesDmCoreC", ""]
+- !private ["7SSSugar28SSUETaskIncrementPagesDmCoreC", "init"]
+- ["7SSSugar20SSUETaskRemoveChangeC", "Int"]
+- ["7SSSugar20SSUETaskRemoveChangeC", "SSModify"]
+- !private ["7SSSugar20SSUETaskRemoveChangeC", "SSUETaskRemoveDmCore"]
+- !private ["7SSSugar20SSUETaskRemoveChangeC", "Self"]
+- ["7SSSugar20SSUETaskRemoveChangeC", "String"]
+- ["7SSSugar20SSUETaskRemoveChangeC", ""]
+- ["7SSSugar20SSUETaskRemoveChangeC", "deinit"]
+- ["7SSSugar20SSUETaskRemoveChangeC", "init"]
+- ["7SSSugar20SSUETaskRemoveChangeC", "title"]
+- ["7SSSugar20SSUETaskRemoveDmCoreC", ""]
+- !private ["7SSSugar20SSUETaskRemoveDmCoreC", "init"]
+- ["7SSSugar20SSUETaskRenameChangeC", "Int"]
+- ["7SSSugar20SSUETaskRenameChangeC", "SSModify"]
+- !private ["7SSSugar20SSUETaskRenameChangeC", "SSUETaskRenameDmCore"]
+- !private ["7SSSugar20SSUETaskRenameChangeC", "Self"]
+- ["7SSSugar20SSUETaskRenameChangeC", "String"]
+- ["7SSSugar20SSUETaskRenameChangeC", ""]
+- ["7SSSugar20SSUETaskRenameChangeC", "deinit"]
+- ["7SSSugar20SSUETaskRenameChangeC", "init"]
+- ["7SSSugar20SSUETaskRenameChangeC", "title"]
+- ["7SSSugar20SSUETaskRenameDmCoreC", ""]
+- !private ["7SSSugar20SSUETaskRenameDmCoreC", "init"]
+- !private ["7SSSugar14SSUETaskUpdateP", "init"]
+- !private ["s35_ExpressibleByBuiltinIntegerLiteralP", "init"]
+- ["s34_ExpressibleByBuiltinStringLiteralP", "init"]
+depends-nominal:
+- "SQ"
+- !private "SH"
+- "7SSSugar9SSCopyingP"
+- "7SSSugar13SSCoredModifyC"
+- !private "7SSSugar16SSDataModifyCoreP"
+- "7SSSugar15SSDataModifyingP"
+- "7SSSugar10SSDmChangeP"
+- "7SSSugar11SSEquatableP"
+- !private "7SSSugar20SSInheritedEquatableP"
+- !private "7SSSugar18SSMarkerGeneratingP"
+- "7SSSugar8SSModifyC"
+- "7SSSugar10SSUEChangeC"
+- "7SSSugar22SSUETaskChangeAdaptingP"
+- "7SSSugar14SSUETaskDMCoreC"
+- "7SSSugar28SSUETaskIncrementPagesChangeC"
+- "7SSSugar28SSUETaskIncrementPagesDmCoreC"
+- "7SSSugar20SSUETaskRemoveChangeC"
+- "7SSSugar20SSUETaskRemoveDmCoreC"
+- "7SSSugar20SSUETaskRenameChangeC"
+- "7SSSugar20SSUETaskRenameDmCoreC"
+- !private "7SSSugar14SSUETaskUpdateP"
+- !private "s35_ExpressibleByBuiltinIntegerLiteralP"
+- "s34_ExpressibleByBuiltinStringLiteralP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/XPC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/ObjectiveC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Combine.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Dispatch.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Foundation.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/CoreFoundation.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/CoreGraphics.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Swift.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/IOKit.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/SwiftOnoneSupport.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/mach-o/dyld.modulemap"
+- "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/mach-o/compact_unwind_encoding.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/xpc/XPC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/apinotes/Dispatch.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "1c979afc5d574235211902008eaa98de"

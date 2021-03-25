@@ -14,8 +14,12 @@ let package = Package(
         .library(
             name: "SSSugar",
             targets: ["SSSugar"]),
+        .executable(
+            name: "SSSugarPG",
+            targets: ["SSSugarPG"]),
     ],
     dependencies: [
+        .package(url: "https://github.com/apple/swift-argument-parser", from: "0.4.0"),
         // Dependencies declare other packages that this package depends on.
         // .package(url: /* package url */, from: "1.0.0"),
     ],
@@ -25,6 +29,10 @@ let package = Package(
         .target(
             name: "SSSugar",
             dependencies: []),
+        .target(
+            name: "SSSugarPG",
+            dependencies: ["SSSugar",
+                           .product(name: "ArgumentParser", package: "swift-argument-parser")]),
         .testTarget(
             name: "SSSugarTests",
             dependencies: ["SSSugar"]),

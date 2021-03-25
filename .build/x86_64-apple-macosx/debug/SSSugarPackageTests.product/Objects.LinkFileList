@@ -1,0 +1,233 @@
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Classes/Animators/ShowAndHide Animators/SSViewShowHideAnimating.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Classes/Animators/ShowAndHide Animators/SSViewShowHideByAlphaAnimator.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Classes/Animators/View Transition Animators/SSScaleAndAlphaTransitionAnimator.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Classes/Animators/View Transition Animators/SSViewTransitionAnimating.swift.o'
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Classes/Containers/AutoMap.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Classes/Decorators/SSReleaseDecorator.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Classes/ViewControllers/Root/SSRootView.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Classes/ViewControllers/Root/SSRootViewController.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Classes/Views/SSActivityProtectionView.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Classes/Views/SSProgressView.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Classes/Views/SSScrollContainerView.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Classes/Views/SSSelectionMarkView.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Classes/Views/SSTextField.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Classes/Views/SSWindow.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Extensions/Bundle.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Extensions/CTCarrier.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Extensions/Containers/Array.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Extensions/Containers/Dictionary.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Extensions/Controllers/UIViewController.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Extensions/DispatchQueue.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Extensions/Protocols/Comparable.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Extensions/Protocols/RandomNumberGenerator.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Extensions/Types/CGPoint.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Extensions/Types/CGRect.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Extensions/Types/CGSize.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Extensions/Types/Data.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Extensions/Types/Date.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Extensions/Types/Range.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Extensions/Types/String.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Extensions/Types/UIColor.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Extensions/UIDevice.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Extensions/Utils/CertificatesPinning/SSCertificatePinner.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Extensions/Utils/CertificatesPinning/SSCertificatesObtainer.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Extensions/Utils/CertificatesPinning/URLSession.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Extensions/Views/UIButton.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Extensions/Views/UILabel.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Extensions/Views/UITableVIew.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Extensions/Views/UIView.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Other/Common.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Protocols/SSCacheContainer.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Protocols/SSCopying.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Protocols/SSEqutable.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Protocols/SSExecutor.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Protocols/SSReleasable.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Protocols/SSStringRepresentableError.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Protocols/SSTransacted.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Protocols/SSViewBlocking.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/SSAtomic.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/SSChainExecutor.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/SSGroupExecutor.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/SSSugar.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/SSSugarPackage.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/SSTry.swift.o
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Base/Proxies/SSDataBaseSavePointProxy.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Base/Proxies/SSDataBaseStatementProxy.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Base/Release Decorator Extensions/SSReleaseDecoratorDBExtensions.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Base/SSDBStatementProcessor.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Base/SSDataBase.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Base/SSDataBaseConnection.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Base/SSDataBaseProtocols.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Base/SSDataBaseSavePoint.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Base/SSDataBaseStatement.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Base/SSDataBaseStatementCacheHolder.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Base/SSDataBaseStatemntCache.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Base/SSDataBaseTransaction.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Base/SSDataBaseTransactionController.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Base/Structure/Query Builder/Concreate Query Handlers/SSDBQueryProcessor.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Base/Structure/Query Builder/Concreate Query Handlers/SSDBQueryProxy.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Base/Structure/Query Builder/Concreate Query Handlers/SSDataBaseQueryHandleCore.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Base/Structure/Query Builder/Query Condition/SSDBColumnCondition.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Base/Structure/Query Builder/Query Condition/SSDBConditionSet.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Base/Structure/Query Builder/Query Condition/SSDBQueryCondition.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Base/Structure/Query Builder/SSDBQueryBuilder.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Base/Structure/Query Builder/SSDBTypedQuery.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Base/Structure/Query Builder/SSDBTypedQueryHandling.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Base/Structure/SSDBColType.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Base/Structure/SSDBColumn.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Base/Structure/SSDBStoraging.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Base/Structure/SSDBTable.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Base/Structure/SSDBTableIndex.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Synchronisation/Example/Revisions/Base.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Synchronisation/Example/Revisions/SSUEBatchAdpater.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Synchronisation/Example/Revisions/SSUEChanges.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Synchronisation/Example/Revisions/SSUERequests.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Synchronisation/Example/Revisions/SSUETaskDmMutator.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Synchronisation/Example/Revisions/SSUETaskDmProcessor.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Synchronisation/Example/Revisions/SSUETaskModifyCores.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Synchronisation/Example/SSTaskProcessorExample.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Synchronisation/Example/SSUETask.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Synchronisation/Example/SSUETaskDBMutator.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Synchronisation/Example/SSUETaskMutator.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Synchronisation/Example/SSUETaskProcessor.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Synchronisation/Example/SSUETaskRemoteMutator.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Synchronisation/Example/SSUETaskUpdate.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Synchronisation/Example/SSUETaskUpdater.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Synchronisation/Revisions/SSDataModifyCenter.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Synchronisation/Revisions/SSDataModifying.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Synchronisation/Revisions/SSDmBatch.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Synchronisation/Revisions/SSDmBatchAdapting.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Synchronisation/Revisions/SSDmRevision.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Synchronisation/SSEntityDmMutator.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Synchronisation/SSEntityMutator.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Synchronisation/SSEntityProcessor.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Synchronisation/SSEntityRemoteMutator.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Synchronisation/SSEntityStorageMutator.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Synchronisation/SSEntityUpdater.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Synchronisation/SSUpdate.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Synchronisation/SSUpdateCenter.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Data Synchronisation/SSUpdateReceiver.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Network Communication/Api/SSApiArgsConverting.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Network Communication/Api/SSApiCallOptions.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Network Communication/Api/SSApiError.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Network Communication/Api/SSApiNoError.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Network Communication/Api/SSRemoteApiModel.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Network Communication/SSCommunicating.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Network Communication/SSCommunicationError.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Network Communication/SSNetworkCommunicator.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Tools/Network Communication/URLSessionConfiguration.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Utils/Collections Custom Select/SSCollectionViewCellMarkable.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Utils/Collections Custom Select/SSCollectionViewMarkable.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Utils/Collections Custom Select/SSCollectionViewMarkableController.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Utils/Collections Custom Select/SSMarkbaleCollectionCellHelper.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Utils/Key Coding/Adapters/RawRepresentable.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Utils/Key Coding/Adapters/SSApiErrorConverter.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Utils/Key Coding/Adapters/SSErrorConverter.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Utils/Key Coding/Adapters/SSKeyFieldConverter.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Utils/Key Coding/SSKeyField.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Utils/Key Coding/SSKeyFieldStorage.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Utils/Key Coding/SSKeyStoringProp.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Utils/Key Coding/SSStorageCoder.swift.o'
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Utils/SSLinearCongruentialRandomizer.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Utils/SSProtectionViewHelper.swift.o
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/Utils/View Styles/SSViewStyles.swift.o'
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Classes/Containers/AutoMap/AutoMapAddContainerTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Classes/Containers/AutoMap/AutoMapAddTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Classes/Containers/AutoMap/AutoMapContainsTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Classes/Containers/AutoMap/AutoMapCountTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Classes/Containers/AutoMap/AutoMapEqualityOperatorTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Classes/Containers/AutoMap/AutoMapInitTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Classes/Containers/AutoMap/AutoMapInsertTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Classes/Containers/AutoMap/AutoMapIsEmptyTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Classes/Containers/AutoMap/AutoMapMakeIteratorTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Classes/Containers/AutoMap/AutoMapRemoveAllTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Classes/Containers/AutoMap/AutoMapRemoveForAtTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Classes/Containers/AutoMap/AutoMapRemoveForKeyAndIndexes.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Classes/Containers/AutoMap/AutoMapRemoveForTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Classes/Containers/AutoMap/AutoMapRemoveTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Classes/Containers/AutoMap/AutoMapReplaceTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Classes/Containers/AutoMap/AutoMapSubscriptKeyIndexTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Classes/Containers/AutoMap/AutoMapSubscriptKeyTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Classes/Containers/AutoMap/AutoMapTestHelper.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Classes/Containers/AutoMap/AutoMapUpdateTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Classes/Containers/AutoMap/Iterator/AutoMapIteratorInitMapTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Classes/Containers/AutoMap/Iterator/AutoMapIteratorNextTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Executors/SSChainExecutorTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Executors/SSGroupExecutorTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Extensions/Containers/Array/ArrayBinarySearchTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Extensions/Containers/Array/ArrayForEachTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Extensions/Containers/Array/ArrayInitBuildBlockTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Extensions/Containers/Array/ArrayInsertTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Extensions/Containers/Array/ArrayPickAtTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Extensions/Containers/Array/ArrayRemoveTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Extensions/Containers/Array/ArrayShuffleUsingTypeTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Extensions/Containers/Dictionary/DictionaryPickForTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Extensions/Containers/Dictionary/DictionaryPickingForTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Extensions/Containers/Dictionary/DictionaryTestKey.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Extensions/Containers/IndexSetInsertableCollection.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Extensions/Containers/SetInsertableCollection.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Extensions/Controllers/UIViewControllerDismissPresentedAnimatedOnFinishTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Extensions/Controllers/UIViewControllerKBNotificationsTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Extensions/Controllers/UIViewControllerShowAlertTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Extensions/Controllers/UIViewControllerShowErrorAlertTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Extensions/Controllers/UIViewControllerShowWarningAlertTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Extensions/Controllers/UIViewControllerTestHelper.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Extensions/Protocols/ComparableCompareTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Extensions/Types/CGPoint/CGPointSubtractionOperatorTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Extensions/Types/CGPoint/CGPointSumOperatorTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Extensions/Types/CGPoint/CGPointTestItems.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Extensions/Types/CGPoint/CGPointUnaryMinusTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Extensions/Types/CGRect/CGRectCenterTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Extensions/Types/CGRect/CGRectCuttedTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Extensions/Types/CGRect/CGRectDividedCountVerticallyTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Extensions/Types/CGRect/CGRectInitCenterSize.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Extensions/Types/CGRect/CGRectInsetToSizeTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Extensions/Types/CGRect/CGRectInsetToWHTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Extensions/Types/CGSize/CGSizeAddedTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Extensions/Types/CGSize/CGSizeExtendedTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Extensions/Types/CGSize/CGSizeSubtractionOperatorTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Extensions/Types/CGSize/CGSizeSumOperatorTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Extensions/Types/CGSize/CGSizeTestItems.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Extensions/Types/CGSize/CGSizeUnaryMinusOperatorTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Extensions/Types/CGSize/CGSizeUnitedIntersectedTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Extensions/Types/RangeMiddleTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Extensions/Types/UIColorInitTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Extensions/Views/UILabelTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/SSSugarPlayground/SSSugarPlaygroundTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/SSSugarTests.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/SSSugarTests_AutoGenerated.swift.o
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Tools/Data Synchronisation/SSDataModifyCenterTests.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Tools/Data Synchronisation/SSDmBatchAdapterTests.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Tools/Data Synchronisation/SSEntityDmMutatorTests.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Tools/Data Synchronisation/SSEntityRemoteMutatorTests.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Tools/Data Synchronisation/SSEntityStorageMutatorTests.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Tools/Data Synchronisation/SSEntityUpdaterTests.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Tools/Data Synchronisation/SSSingleEntityProcessingTest.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Tools/Data Synchronisation/SSUpdateCenterTests.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Tools/Data Synchronisation/SSUpdateReceiverTests.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Tools/Data Synchronisation/SSUpdatesHelpers.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Tools/Network Communication/Api/SSApiCallOptionstTests.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Tools/Network Communication/Api/SSRemoteApiTests.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Utils/Key Coding/Adapters/ApiErrorConverterTests.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Utils/Key Coding/Adapters/ErrorConverterTests.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Utils/Key Coding/Adapters/KeyFieldConverterTests.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Utils/Key Coding/KeyFieldTest.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Utils/Key Coding/KeyStoringPropTests.swift.o'
+'/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Utils/Key Coding/StorageCoderTests.swift.o'
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Utils/SSCustomSelection/SSCollectionViewMarkableController/SSCollectionViewMarkableControllerActivateTC.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Utils/SSCustomSelection/SSCollectionViewMarkableController/SSCollectionViewMarkableControllerConfigCellTC.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Utils/SSCustomSelection/SSCollectionViewMarkableController/SSCollectionViewMarkableControllerDeactivateTC.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Utils/SSCustomSelection/SSCollectionViewMarkableController/SSCollectionViewMarkableControllerMarkTC.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Utils/SSCustomSelection/SSCollectionViewMarkableController/SSCollectionViewMarkableControllerTestHelper.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Utils/SSCustomSelection/SSCollectionViewMarkableController/SSCollectionViewMarkableControllerUnmarkTC.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Utils/SSCustomSelection/SSMarkbaleCollectionCellHelper/SSMarkbaleCollectionCellHelperActivateActivatedTC.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Utils/SSCustomSelection/SSMarkbaleCollectionCellHelper/SSMarkbaleCollectionCellHelperActivateTC.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Utils/SSCustomSelection/SSMarkbaleCollectionCellHelper/SSMarkbaleCollectionCellHelperDeactivateDeactivatedTC.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Utils/SSCustomSelection/SSMarkbaleCollectionCellHelper/SSMarkbaleCollectionCellHelperDeactivateTC.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Utils/SSCustomSelection/SSMarkbaleCollectionCellHelper/SSMarkbaleCollectionCellHelperMarkMarkedTC.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Utils/SSCustomSelection/SSMarkbaleCollectionCellHelper/SSMarkbaleCollectionCellHelperMarkNonActiveTC.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Utils/SSCustomSelection/SSMarkbaleCollectionCellHelper/SSMarkbaleCollectionCellHelperMarkTC.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Utils/SSCustomSelection/SSMarkbaleCollectionCellHelper/SSMarkbaleCollectionCellHelperTestHelper.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Utils/SSCustomSelection/SSMarkbaleCollectionCellHelper/SSMarkbaleCollectionCellHelperUnmarkNonMarkedTC.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/Utils/SSCustomSelection/SSMarkbaleCollectionCellHelper/SSMarkbaleCollectionCellHelperUnmarkTC.swift.o
+/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugarTests.build/XCTestManifests.swift.o

@@ -1,0 +1,183 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "SSDataBaseStatementProxing"
+- "SSDataBaseStatementProxy"
+provides-nominal:
+- "7SSSugar26SSDataBaseStatementProxingP"
+- "7SSSugar24SSDataBaseStatementProxyV"
+provides-member:
+- ["7SSSugar26SSDataBaseStatementProxingP", ""]
+- ["7SSSugar24SSDataBaseStatementProxyV", ""]
+- ["7SSSugar26SSDataBaseStatementProxingP", "bind"]
+- ["7SSSugar26SSDataBaseStatementProxingP", "bind"]
+- ["7SSSugar26SSDataBaseStatementProxingP", "bind"]
+- ["7SSSugar26SSDataBaseStatementProxingP", "bind"]
+- ["7SSSugar26SSDataBaseStatementProxingP", "bind"]
+- ["7SSSugar26SSDataBaseStatementProxingP", "bindNull"]
+- ["7SSSugar26SSDataBaseStatementProxingP", "getInt"]
+- ["7SSSugar26SSDataBaseStatementProxingP", "getInt64"]
+- ["7SSSugar26SSDataBaseStatementProxingP", "getDouble"]
+- ["7SSSugar26SSDataBaseStatementProxingP", "getString"]
+- ["7SSSugar26SSDataBaseStatementProxingP", "getData"]
+- ["7SSSugar26SSDataBaseStatementProxingP", "isNull"]
+- ["7SSSugar26SSDataBaseStatementProxingP", "select"]
+- ["7SSSugar26SSDataBaseStatementProxingP", "commit"]
+- ["7SSSugar26SSDataBaseStatementProxingP", "clear"]
+- ["7SSSugar26SSDataBaseStatementProxingP", "release"]
+provides-dynamic-lookup:
+depends-top-level:
+- "AssignmentPrecedence"
+- "Bool"
+- "Data"
+- "Double"
+- "Int"
+- "Int64"
+- "SSDataBaseStatementProtocol"
+- "SSDataBaseStatementProxing"
+- "SSDataBaseStatementProxy"
+- "String"
+- !private "statement"
+depends-member:
+- ["7SSSugar26SSDataBaseBindingStatementP", "Bool"]
+- ["7SSSugar26SSDataBaseBindingStatementP", "Data"]
+- ["7SSSugar26SSDataBaseBindingStatementP", "Double"]
+- ["7SSSugar26SSDataBaseBindingStatementP", "Int"]
+- ["7SSSugar26SSDataBaseBindingStatementP", "Int64"]
+- ["7SSSugar26SSDataBaseBindingStatementP", "SSDataBaseStatementProtocol"]
+- ["7SSSugar26SSDataBaseBindingStatementP", "String"]
+- ["7SSSugar26SSDataBaseBindingStatementP", ""]
+- ["7SSSugar26SSDataBaseBindingStatementP", "bind"]
+- ["7SSSugar26SSDataBaseBindingStatementP", "bindNull"]
+- ["7SSSugar26SSDataBaseBindingStatementP", "clear"]
+- ["7SSSugar26SSDataBaseBindingStatementP", "commit"]
+- ["7SSSugar26SSDataBaseBindingStatementP", "getData"]
+- ["7SSSugar26SSDataBaseBindingStatementP", "getDouble"]
+- ["7SSSugar26SSDataBaseBindingStatementP", "getInt"]
+- ["7SSSugar26SSDataBaseBindingStatementP", "getInt64"]
+- ["7SSSugar26SSDataBaseBindingStatementP", "getString"]
+- ["7SSSugar26SSDataBaseBindingStatementP", "isNull"]
+- ["7SSSugar26SSDataBaseBindingStatementP", "release"]
+- ["7SSSugar26SSDataBaseBindingStatementP", "select"]
+- ["7SSSugar26SSDataBaseBindingStatementP", "statement"]
+- ["7SSSugar26SSDataBaseGettingStatementP", "Bool"]
+- ["7SSSugar26SSDataBaseGettingStatementP", "Data"]
+- ["7SSSugar26SSDataBaseGettingStatementP", "Double"]
+- ["7SSSugar26SSDataBaseGettingStatementP", "Int"]
+- ["7SSSugar26SSDataBaseGettingStatementP", "Int64"]
+- ["7SSSugar26SSDataBaseGettingStatementP", "SSDataBaseStatementProtocol"]
+- ["7SSSugar26SSDataBaseGettingStatementP", "String"]
+- ["7SSSugar26SSDataBaseGettingStatementP", ""]
+- ["7SSSugar26SSDataBaseGettingStatementP", "bind"]
+- ["7SSSugar26SSDataBaseGettingStatementP", "bindNull"]
+- ["7SSSugar26SSDataBaseGettingStatementP", "clear"]
+- ["7SSSugar26SSDataBaseGettingStatementP", "commit"]
+- ["7SSSugar26SSDataBaseGettingStatementP", "getData"]
+- ["7SSSugar26SSDataBaseGettingStatementP", "getDouble"]
+- ["7SSSugar26SSDataBaseGettingStatementP", "getInt"]
+- ["7SSSugar26SSDataBaseGettingStatementP", "getInt64"]
+- ["7SSSugar26SSDataBaseGettingStatementP", "getString"]
+- ["7SSSugar26SSDataBaseGettingStatementP", "isNull"]
+- ["7SSSugar26SSDataBaseGettingStatementP", "release"]
+- ["7SSSugar26SSDataBaseGettingStatementP", "select"]
+- ["7SSSugar26SSDataBaseGettingStatementP", "statement"]
+- ["7SSSugar27SSDataBaseStatementProtocolP", "Bool"]
+- ["7SSSugar27SSDataBaseStatementProtocolP", "Data"]
+- ["7SSSugar27SSDataBaseStatementProtocolP", "Double"]
+- ["7SSSugar27SSDataBaseStatementProtocolP", "Int"]
+- ["7SSSugar27SSDataBaseStatementProtocolP", "Int64"]
+- ["7SSSugar27SSDataBaseStatementProtocolP", "SSDataBaseStatementProtocol"]
+- ["7SSSugar27SSDataBaseStatementProtocolP", "String"]
+- ["7SSSugar27SSDataBaseStatementProtocolP", ""]
+- ["7SSSugar27SSDataBaseStatementProtocolP", "bind"]
+- ["7SSSugar27SSDataBaseStatementProtocolP", "bindNull"]
+- ["7SSSugar27SSDataBaseStatementProtocolP", "clear"]
+- ["7SSSugar27SSDataBaseStatementProtocolP", "commit"]
+- ["7SSSugar27SSDataBaseStatementProtocolP", "getData"]
+- ["7SSSugar27SSDataBaseStatementProtocolP", "getDouble"]
+- ["7SSSugar27SSDataBaseStatementProtocolP", "getInt"]
+- ["7SSSugar27SSDataBaseStatementProtocolP", "getInt64"]
+- ["7SSSugar27SSDataBaseStatementProtocolP", "getString"]
+- ["7SSSugar27SSDataBaseStatementProtocolP", "isNull"]
+- ["7SSSugar27SSDataBaseStatementProtocolP", "release"]
+- ["7SSSugar27SSDataBaseStatementProtocolP", "select"]
+- ["7SSSugar27SSDataBaseStatementProtocolP", "statement"]
+- ["7SSSugar26SSDataBaseStatementProxingP", "Bool"]
+- ["7SSSugar26SSDataBaseStatementProxingP", "Data"]
+- ["7SSSugar26SSDataBaseStatementProxingP", "Double"]
+- ["7SSSugar26SSDataBaseStatementProxingP", "Int"]
+- ["7SSSugar26SSDataBaseStatementProxingP", "Int64"]
+- ["7SSSugar26SSDataBaseStatementProxingP", "SSDataBaseStatementProtocol"]
+- ["7SSSugar26SSDataBaseStatementProxingP", "String"]
+- ["7SSSugar26SSDataBaseStatementProxingP", ""]
+- ["7SSSugar26SSDataBaseStatementProxingP", "bind"]
+- ["7SSSugar26SSDataBaseStatementProxingP", "bindNull"]
+- ["7SSSugar26SSDataBaseStatementProxingP", "clear"]
+- ["7SSSugar26SSDataBaseStatementProxingP", "commit"]
+- ["7SSSugar26SSDataBaseStatementProxingP", "getData"]
+- ["7SSSugar26SSDataBaseStatementProxingP", "getDouble"]
+- ["7SSSugar26SSDataBaseStatementProxingP", "getInt"]
+- ["7SSSugar26SSDataBaseStatementProxingP", "getInt64"]
+- ["7SSSugar26SSDataBaseStatementProxingP", "getString"]
+- ["7SSSugar26SSDataBaseStatementProxingP", "isNull"]
+- ["7SSSugar26SSDataBaseStatementProxingP", "release"]
+- ["7SSSugar26SSDataBaseStatementProxingP", "select"]
+- ["7SSSugar26SSDataBaseStatementProxingP", "statement"]
+- ["7SSSugar24SSDataBaseStatementProxyV", "SSDataBaseStatementProtocol"]
+- ["7SSSugar24SSDataBaseStatementProxyV", ""]
+- ["7SSSugar24SSDataBaseStatementProxyV", "bind"]
+- ["7SSSugar24SSDataBaseStatementProxyV", "bindNull"]
+- ["7SSSugar24SSDataBaseStatementProxyV", "clear"]
+- ["7SSSugar24SSDataBaseStatementProxyV", "commit"]
+- ["7SSSugar24SSDataBaseStatementProxyV", "getData"]
+- ["7SSSugar24SSDataBaseStatementProxyV", "getDouble"]
+- ["7SSSugar24SSDataBaseStatementProxyV", "getInt"]
+- ["7SSSugar24SSDataBaseStatementProxyV", "getInt64"]
+- ["7SSSugar24SSDataBaseStatementProxyV", "getString"]
+- ["7SSSugar24SSDataBaseStatementProxyV", "init"]
+- ["7SSSugar24SSDataBaseStatementProxyV", "isNull"]
+- ["7SSSugar24SSDataBaseStatementProxyV", "release"]
+- ["7SSSugar24SSDataBaseStatementProxyV", "select"]
+- ["7SSSugar24SSDataBaseStatementProxyV", "statement"]
+- ["7SSSugar12SSReleasableP", "Bool"]
+- ["7SSSugar12SSReleasableP", "Data"]
+- ["7SSSugar12SSReleasableP", "Double"]
+- ["7SSSugar12SSReleasableP", "Int"]
+- ["7SSSugar12SSReleasableP", "Int64"]
+- ["7SSSugar12SSReleasableP", "SSDataBaseStatementProtocol"]
+- ["7SSSugar12SSReleasableP", "String"]
+- ["7SSSugar12SSReleasableP", ""]
+- ["7SSSugar12SSReleasableP", "bind"]
+- ["7SSSugar12SSReleasableP", "bindNull"]
+- ["7SSSugar12SSReleasableP", "clear"]
+- ["7SSSugar12SSReleasableP", "commit"]
+- ["7SSSugar12SSReleasableP", "getData"]
+- ["7SSSugar12SSReleasableP", "getDouble"]
+- ["7SSSugar12SSReleasableP", "getInt"]
+- ["7SSSugar12SSReleasableP", "getInt64"]
+- ["7SSSugar12SSReleasableP", "getString"]
+- ["7SSSugar12SSReleasableP", "isNull"]
+- ["7SSSugar12SSReleasableP", "release"]
+- ["7SSSugar12SSReleasableP", "select"]
+- ["7SSSugar12SSReleasableP", "statement"]
+depends-nominal:
+- "7SSSugar26SSDataBaseBindingStatementP"
+- "7SSSugar26SSDataBaseGettingStatementP"
+- "7SSSugar27SSDataBaseStatementProtocolP"
+- "7SSSugar26SSDataBaseStatementProxingP"
+- "7SSSugar24SSDataBaseStatementProxyV"
+- "7SSSugar12SSReleasableP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/mach-o/dyld.modulemap"
+- "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/mach-o/compact_unwind_encoding.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/xpc/XPC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/apinotes/Dispatch.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "fe0cd7b510f1d9a282e2d5d5211d77dd"

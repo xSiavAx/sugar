@@ -1,0 +1,322 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "SSUETaskDmProcessor"
+provides-nominal:
+- "7SSSugar19SSUETaskDmProcessorC"
+provides-member:
+- ["7SSSugar19SSUETaskDmProcessorC", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- "AssignmentPrecedence"
+- "Dispatcher"
+- "Int"
+- "SSDmRequestDispatcher"
+- "SSExecutor"
+- "SSModify"
+- "SSSingleEntityProcessing"
+- "SSUETask"
+- "SSUETaskApi"
+- "SSUETaskDmMutator"
+- "SSUETaskDmProcessor"
+- "SSUETaskObtainer"
+- "SSUETaskSource"
+- "SSUETaskUpdater"
+- "SSUETaskUpdaterDelegate"
+- "SSUpdateCenter"
+- "UpdateDelegate"
+- !private "dispatcher"
+- !private "executor"
+- !private "mutator"
+- !private "obtainer"
+- !private "updateCenter"
+- !private "updateDelegate"
+- !private "updater"
+depends-member:
+- ["7SSSugar20SSBaseEntityMutatingP", "Entity"]
+- ["7SSSugar20SSBaseEntityMutatingP", "Source"]
+- !private ["7SSSugar20SSBaseEntityMutatingP", "init"]
+- ["7SSSugar20SSBaseEntityUpdatingP", "Delegate"]
+- ["7SSSugar20SSBaseEntityUpdatingP", "Source"]
+- !private ["7SSSugar20SSBaseEntityUpdatingP", "init"]
+- ["7SSSugar21SSDmRequestDispatcherP", "Request"]
+- ["7SSSugar17SSEntityDmMutatorC", ""]
+- !private ["7SSSugar17SSEntityDmMutatorC", "init"]
+- ["7SSSugar16SSEntityObtainerP", "Entity"]
+- !private ["7SSSugar16SSEntityObtainerP", "init"]
+- ["7SSSugar18SSEntityProcessingP", "Default_Mutator"]
+- ["7SSSugar18SSEntityProcessingP", "Default_Obtainer"]
+- ["7SSSugar18SSEntityProcessingP", "Default_Updater"]
+- ["7SSSugar18SSEntityProcessingP", "Entity"]
+- ["7SSSugar18SSEntityProcessingP", "Mutator"]
+- ["7SSSugar18SSEntityProcessingP", "Obtainer"]
+- !private ["7SSSugar18SSEntityProcessingP", "SSUETaskDmMutator"]
+- !private ["7SSSugar18SSEntityProcessingP", "SSUETaskObtainer"]
+- !private ["7SSSugar18SSEntityProcessingP", "SSUETaskUpdater"]
+- ["7SSSugar18SSEntityProcessingP", "Updater"]
+- ["7SSSugar18SSEntityProcessingP", ""]
+- ["7SSSugar18SSEntityProcessingP", "_Default_Mutator"]
+- ["7SSSugar18SSEntityProcessingP", "_Default_Obtainer"]
+- ["7SSSugar18SSEntityProcessingP", "_Default_Updater"]
+- ["7SSSugar18SSEntityProcessingP", "createUpdaterAndMutator"]
+- !private ["7SSSugar18SSEntityProcessingP", "dispatcher"]
+- ["7SSSugar18SSEntityProcessingP", "entity"]
+- ["7SSSugar18SSEntityProcessingP", "executor"]
+- ["7SSSugar18SSEntityProcessingP", "mutator"]
+- ["7SSSugar18SSEntityProcessingP", "obtainer"]
+- ["7SSSugar18SSEntityProcessingP", "onMain"]
+- ["7SSSugar18SSEntityProcessingP", "start"]
+- ["7SSSugar18SSEntityProcessingP", "startOnEmptyEntity"]
+- ["7SSSugar18SSEntityProcessingP", "stop"]
+- !private ["7SSSugar18SSEntityProcessingP", "updateCenter"]
+- ["7SSSugar18SSEntityProcessingP", "updateDelegate"]
+- ["7SSSugar18SSEntityProcessingP", "updateEntity"]
+- ["7SSSugar18SSEntityProcessingP", "updater"]
+- ["7SSSugar23SSEntityUpdaterDelegateP", ""]
+- ["7SSSugar18SSMarkerGeneratingP", "Entity"]
+- ["7SSSugar18SSMarkerGeneratingP", "Source"]
+- ["7SSSugar18SSMarkerGeneratingP", ""]
+- !private ["7SSSugar18SSMarkerGeneratingP", "init"]
+- ["7SSSugar8SSModifyC", ""]
+- ["7SSSugar22SSMutatingEntitySourceP", "Default_Mutator"]
+- ["7SSSugar22SSMutatingEntitySourceP", "Default_Obtainer"]
+- ["7SSSugar22SSMutatingEntitySourceP", "Default_Updater"]
+- ["7SSSugar22SSMutatingEntitySourceP", "Entity"]
+- ["7SSSugar22SSMutatingEntitySourceP", "Mutator"]
+- ["7SSSugar22SSMutatingEntitySourceP", "Obtainer"]
+- !private ["7SSSugar22SSMutatingEntitySourceP", "SSUETaskDmMutator"]
+- !private ["7SSSugar22SSMutatingEntitySourceP", "SSUETaskObtainer"]
+- !private ["7SSSugar22SSMutatingEntitySourceP", "SSUETaskUpdater"]
+- ["7SSSugar22SSMutatingEntitySourceP", "Updater"]
+- ["7SSSugar22SSMutatingEntitySourceP", ""]
+- ["7SSSugar22SSMutatingEntitySourceP", "_Default_Mutator"]
+- ["7SSSugar22SSMutatingEntitySourceP", "_Default_Obtainer"]
+- ["7SSSugar22SSMutatingEntitySourceP", "_Default_Updater"]
+- ["7SSSugar22SSMutatingEntitySourceP", "createUpdaterAndMutator"]
+- !private ["7SSSugar22SSMutatingEntitySourceP", "dispatcher"]
+- ["7SSSugar22SSMutatingEntitySourceP", "entity"]
+- ["7SSSugar22SSMutatingEntitySourceP", "executor"]
+- ["7SSSugar22SSMutatingEntitySourceP", "mutator"]
+- ["7SSSugar22SSMutatingEntitySourceP", "obtainer"]
+- ["7SSSugar22SSMutatingEntitySourceP", "onMain"]
+- ["7SSSugar22SSMutatingEntitySourceP", "start"]
+- ["7SSSugar22SSMutatingEntitySourceP", "startOnEmptyEntity"]
+- ["7SSSugar22SSMutatingEntitySourceP", "stop"]
+- !private ["7SSSugar22SSMutatingEntitySourceP", "updateCenter"]
+- ["7SSSugar22SSMutatingEntitySourceP", "updateDelegate"]
+- ["7SSSugar22SSMutatingEntitySourceP", "updateEntity"]
+- ["7SSSugar22SSMutatingEntitySourceP", "updater"]
+- ["7SSSugar16SSOnMainExecutorP", "Default_Mutator"]
+- ["7SSSugar16SSOnMainExecutorP", "Default_Obtainer"]
+- ["7SSSugar16SSOnMainExecutorP", "Default_Updater"]
+- ["7SSSugar16SSOnMainExecutorP", "Delegate"]
+- ["7SSSugar16SSOnMainExecutorP", "Entity"]
+- ["7SSSugar16SSOnMainExecutorP", "Mutator"]
+- ["7SSSugar16SSOnMainExecutorP", "Obtainer"]
+- !private ["7SSSugar16SSOnMainExecutorP", "SSUETaskDmMutator"]
+- !private ["7SSSugar16SSOnMainExecutorP", "SSUETaskObtainer"]
+- !private ["7SSSugar16SSOnMainExecutorP", "SSUETaskUpdater"]
+- ["7SSSugar16SSOnMainExecutorP", "Source"]
+- ["7SSSugar16SSOnMainExecutorP", "Updater"]
+- ["7SSSugar16SSOnMainExecutorP", ""]
+- ["7SSSugar16SSOnMainExecutorP", "_Default_Mutator"]
+- ["7SSSugar16SSOnMainExecutorP", "_Default_Obtainer"]
+- ["7SSSugar16SSOnMainExecutorP", "_Default_Updater"]
+- ["7SSSugar16SSOnMainExecutorP", "createUpdaterAndMutator"]
+- !private ["7SSSugar16SSOnMainExecutorP", "dispatcher"]
+- ["7SSSugar16SSOnMainExecutorP", "entity"]
+- ["7SSSugar16SSOnMainExecutorP", "executor"]
+- !private ["7SSSugar16SSOnMainExecutorP", "init"]
+- ["7SSSugar16SSOnMainExecutorP", "mutator"]
+- ["7SSSugar16SSOnMainExecutorP", "obtainer"]
+- ["7SSSugar16SSOnMainExecutorP", "onMain"]
+- ["7SSSugar16SSOnMainExecutorP", "start"]
+- ["7SSSugar16SSOnMainExecutorP", "startOnEmptyEntity"]
+- ["7SSSugar16SSOnMainExecutorP", "stop"]
+- !private ["7SSSugar16SSOnMainExecutorP", "updateCenter"]
+- ["7SSSugar16SSOnMainExecutorP", "updateDelegate"]
+- ["7SSSugar16SSOnMainExecutorP", "updateEntity"]
+- ["7SSSugar16SSOnMainExecutorP", "updater"]
+- ["7SSSugar24SSSingleEntityProcessingP", "Default_Mutator"]
+- ["7SSSugar24SSSingleEntityProcessingP", "Default_Obtainer"]
+- ["7SSSugar24SSSingleEntityProcessingP", "Default_Updater"]
+- ["7SSSugar24SSSingleEntityProcessingP", "Entity"]
+- ["7SSSugar24SSSingleEntityProcessingP", "Mutator"]
+- ["7SSSugar24SSSingleEntityProcessingP", "Obtainer"]
+- !private ["7SSSugar24SSSingleEntityProcessingP", "SSUETaskDmMutator"]
+- !private ["7SSSugar24SSSingleEntityProcessingP", "SSUETaskObtainer"]
+- !private ["7SSSugar24SSSingleEntityProcessingP", "SSUETaskUpdater"]
+- ["7SSSugar24SSSingleEntityProcessingP", "Source"]
+- ["7SSSugar24SSSingleEntityProcessingP", "Updater"]
+- ["7SSSugar24SSSingleEntityProcessingP", ""]
+- ["7SSSugar24SSSingleEntityProcessingP", "_Default_Mutator"]
+- ["7SSSugar24SSSingleEntityProcessingP", "_Default_Obtainer"]
+- ["7SSSugar24SSSingleEntityProcessingP", "_Default_Updater"]
+- ["7SSSugar24SSSingleEntityProcessingP", "createUpdaterAndMutator"]
+- !private ["7SSSugar24SSSingleEntityProcessingP", "dispatcher"]
+- ["7SSSugar24SSSingleEntityProcessingP", "entity"]
+- ["7SSSugar24SSSingleEntityProcessingP", "executor"]
+- ["7SSSugar24SSSingleEntityProcessingP", "mutator"]
+- ["7SSSugar24SSSingleEntityProcessingP", "obtainer"]
+- ["7SSSugar24SSSingleEntityProcessingP", "onMain"]
+- ["7SSSugar24SSSingleEntityProcessingP", "start"]
+- ["7SSSugar24SSSingleEntityProcessingP", "startOnEmptyEntity"]
+- ["7SSSugar24SSSingleEntityProcessingP", "stop"]
+- !private ["7SSSugar24SSSingleEntityProcessingP", "updateCenter"]
+- ["7SSSugar24SSSingleEntityProcessingP", "updateDelegate"]
+- ["7SSSugar24SSSingleEntityProcessingP", "updateEntity"]
+- ["7SSSugar24SSSingleEntityProcessingP", "updater"]
+- ["7SSSugar17SSUETaskDmMutatorC", ""]
+- !private ["7SSSugar17SSUETaskDmMutatorC", "init"]
+- ["7SSSugar19SSUETaskDmProcessorC", "Default_Mutator"]
+- ["7SSSugar19SSUETaskDmProcessorC", "Default_Obtainer"]
+- ["7SSSugar19SSUETaskDmProcessorC", "Default_Updater"]
+- ["7SSSugar19SSUETaskDmProcessorC", "Entity"]
+- ["7SSSugar19SSUETaskDmProcessorC", "Int"]
+- ["7SSSugar19SSUETaskDmProcessorC", "Mutator"]
+- ["7SSSugar19SSUETaskDmProcessorC", "Obtainer"]
+- ["7SSSugar19SSUETaskDmProcessorC", "SSExecutor"]
+- ["7SSSugar19SSUETaskDmProcessorC", "SSUETask"]
+- ["7SSSugar19SSUETaskDmProcessorC", "SSUETaskApi"]
+- ["7SSSugar19SSUETaskDmProcessorC", "SSUETaskDmMutator"]
+- ["7SSSugar19SSUETaskDmProcessorC", "SSUETaskDmProcessor"]
+- ["7SSSugar19SSUETaskDmProcessorC", "SSUETaskObtainer"]
+- ["7SSSugar19SSUETaskDmProcessorC", "SSUETaskUpdater"]
+- ["7SSSugar19SSUETaskDmProcessorC", "SSUpdateCenter"]
+- ["7SSSugar19SSUETaskDmProcessorC", "Updater"]
+- ["7SSSugar19SSUETaskDmProcessorC", ""]
+- ["7SSSugar19SSUETaskDmProcessorC", "_Default_Mutator"]
+- ["7SSSugar19SSUETaskDmProcessorC", "_Default_Obtainer"]
+- ["7SSSugar19SSUETaskDmProcessorC", "_Default_Updater"]
+- ["7SSSugar19SSUETaskDmProcessorC", "createUpdaterAndMutator"]
+- ["7SSSugar19SSUETaskDmProcessorC", "deinit"]
+- ["7SSSugar19SSUETaskDmProcessorC", "dispatcher"]
+- ["7SSSugar19SSUETaskDmProcessorC", "entity"]
+- ["7SSSugar19SSUETaskDmProcessorC", "executor"]
+- ["7SSSugar19SSUETaskDmProcessorC", "init"]
+- ["7SSSugar19SSUETaskDmProcessorC", "mutator"]
+- ["7SSSugar19SSUETaskDmProcessorC", "obtainer"]
+- ["7SSSugar19SSUETaskDmProcessorC", "onMain"]
+- ["7SSSugar19SSUETaskDmProcessorC", "start"]
+- ["7SSSugar19SSUETaskDmProcessorC", "startOnEmptyEntity"]
+- ["7SSSugar19SSUETaskDmProcessorC", "stop"]
+- ["7SSSugar19SSUETaskDmProcessorC", "updateCenter"]
+- ["7SSSugar19SSUETaskDmProcessorC", "updateDelegate"]
+- ["7SSSugar19SSUETaskDmProcessorC", "updateEntity"]
+- ["7SSSugar19SSUETaskDmProcessorC", "updater"]
+- !private ["7SSSugar15SSUETaskMutatorP", "init"]
+- ["7SSSugar16SSUETaskObtainerC", ""]
+- !private ["7SSSugar16SSUETaskObtainerC", "init"]
+- ["7SSSugar14SSUETaskSourceP", "Default_Mutator"]
+- ["7SSSugar14SSUETaskSourceP", "Default_Obtainer"]
+- ["7SSSugar14SSUETaskSourceP", "Default_Updater"]
+- ["7SSSugar14SSUETaskSourceP", "Entity"]
+- ["7SSSugar14SSUETaskSourceP", "Mutator"]
+- ["7SSSugar14SSUETaskSourceP", "Obtainer"]
+- !private ["7SSSugar14SSUETaskSourceP", "SSUETaskDmMutator"]
+- !private ["7SSSugar14SSUETaskSourceP", "SSUETaskObtainer"]
+- !private ["7SSSugar14SSUETaskSourceP", "SSUETaskUpdater"]
+- ["7SSSugar14SSUETaskSourceP", "Updater"]
+- ["7SSSugar14SSUETaskSourceP", ""]
+- ["7SSSugar14SSUETaskSourceP", "_Default_Mutator"]
+- ["7SSSugar14SSUETaskSourceP", "_Default_Obtainer"]
+- ["7SSSugar14SSUETaskSourceP", "_Default_Updater"]
+- ["7SSSugar14SSUETaskSourceP", "createUpdaterAndMutator"]
+- !private ["7SSSugar14SSUETaskSourceP", "dispatcher"]
+- ["7SSSugar14SSUETaskSourceP", "entity"]
+- ["7SSSugar14SSUETaskSourceP", "executor"]
+- ["7SSSugar14SSUETaskSourceP", "mutator"]
+- ["7SSSugar14SSUETaskSourceP", "obtainer"]
+- ["7SSSugar14SSUETaskSourceP", "onMain"]
+- ["7SSSugar14SSUETaskSourceP", "start"]
+- ["7SSSugar14SSUETaskSourceP", "startOnEmptyEntity"]
+- ["7SSSugar14SSUETaskSourceP", "stop"]
+- !private ["7SSSugar14SSUETaskSourceP", "updateCenter"]
+- ["7SSSugar14SSUETaskSourceP", "updateDelegate"]
+- ["7SSSugar14SSUETaskSourceP", "updateEntity"]
+- ["7SSSugar14SSUETaskSourceP", "updater"]
+- !private ["7SSSugar22SSUETaskUpdateReceiverP", "init"]
+- ["7SSSugar15SSUETaskUpdaterC", ""]
+- !private ["7SSSugar15SSUETaskUpdaterC", "init"]
+- !private ["7SSSugar16SSUpdateApplyingP", "init"]
+- ["7SSSugar16SSUpdateNotifierP", ""]
+- ["7SSSugar16SSUpdateReceiverP", ""]
+- !private ["7SSSugar16SSUpdateReceiverP", "init"]
+- ["7SSSugar25SSUpdateReceiversManagingP", ""]
+- ["7SSSugar21SSUpdaterEntitySourceP", "Default_Mutator"]
+- ["7SSSugar21SSUpdaterEntitySourceP", "Default_Obtainer"]
+- ["7SSSugar21SSUpdaterEntitySourceP", "Default_Updater"]
+- ["7SSSugar21SSUpdaterEntitySourceP", "Entity"]
+- ["7SSSugar21SSUpdaterEntitySourceP", "Mutator"]
+- ["7SSSugar21SSUpdaterEntitySourceP", "Obtainer"]
+- !private ["7SSSugar21SSUpdaterEntitySourceP", "SSUETaskDmMutator"]
+- !private ["7SSSugar21SSUpdaterEntitySourceP", "SSUETaskObtainer"]
+- !private ["7SSSugar21SSUpdaterEntitySourceP", "SSUETaskUpdater"]
+- ["7SSSugar21SSUpdaterEntitySourceP", "Updater"]
+- ["7SSSugar21SSUpdaterEntitySourceP", ""]
+- ["7SSSugar21SSUpdaterEntitySourceP", "_Default_Mutator"]
+- ["7SSSugar21SSUpdaterEntitySourceP", "_Default_Obtainer"]
+- ["7SSSugar21SSUpdaterEntitySourceP", "_Default_Updater"]
+- ["7SSSugar21SSUpdaterEntitySourceP", "createUpdaterAndMutator"]
+- !private ["7SSSugar21SSUpdaterEntitySourceP", "dispatcher"]
+- ["7SSSugar21SSUpdaterEntitySourceP", "entity"]
+- ["7SSSugar21SSUpdaterEntitySourceP", "executor"]
+- ["7SSSugar21SSUpdaterEntitySourceP", "mutator"]
+- ["7SSSugar21SSUpdaterEntitySourceP", "obtainer"]
+- ["7SSSugar21SSUpdaterEntitySourceP", "onMain"]
+- ["7SSSugar21SSUpdaterEntitySourceP", "start"]
+- ["7SSSugar21SSUpdaterEntitySourceP", "startOnEmptyEntity"]
+- ["7SSSugar21SSUpdaterEntitySourceP", "stop"]
+- !private ["7SSSugar21SSUpdaterEntitySourceP", "updateCenter"]
+- ["7SSSugar21SSUpdaterEntitySourceP", "updateDelegate"]
+- ["7SSSugar21SSUpdaterEntitySourceP", "updateEntity"]
+- ["7SSSugar21SSUpdaterEntitySourceP", "updater"]
+depends-nominal:
+- "7SSSugar20SSBaseEntityMutatingP"
+- "7SSSugar20SSBaseEntityUpdatingP"
+- "7SSSugar21SSDmRequestDispatcherP"
+- "7SSSugar17SSEntityDmMutatorC"
+- "7SSSugar16SSEntityObtainerP"
+- "7SSSugar18SSEntityProcessingP"
+- "7SSSugar23SSEntityUpdaterDelegateP"
+- "7SSSugar18SSMarkerGeneratingP"
+- "7SSSugar8SSModifyC"
+- "7SSSugar22SSMutatingEntitySourceP"
+- "7SSSugar16SSOnMainExecutorP"
+- "7SSSugar24SSSingleEntityProcessingP"
+- "7SSSugar17SSUETaskDmMutatorC"
+- "7SSSugar19SSUETaskDmProcessorC"
+- !private "7SSSugar15SSUETaskMutatorP"
+- "7SSSugar16SSUETaskObtainerC"
+- "7SSSugar14SSUETaskSourceP"
+- !private "7SSSugar22SSUETaskUpdateReceiverP"
+- "7SSSugar15SSUETaskUpdaterC"
+- !private "7SSSugar16SSUpdateApplyingP"
+- "7SSSugar16SSUpdateNotifierP"
+- "7SSSugar16SSUpdateReceiverP"
+- "7SSSugar25SSUpdateReceiversManagingP"
+- "7SSSugar21SSUpdaterEntitySourceP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/XPC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/ObjectiveC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Combine.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Dispatch.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Foundation.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/CoreFoundation.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/CoreGraphics.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Swift.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/IOKit.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/SwiftOnoneSupport.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/mach-o/dyld.modulemap"
+- "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/mach-o/compact_unwind_encoding.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/xpc/XPC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/apinotes/Dispatch.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "b43facd290eb90057e4a642a585299fc"

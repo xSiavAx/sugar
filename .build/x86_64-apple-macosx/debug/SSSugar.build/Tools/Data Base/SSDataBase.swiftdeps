@@ -1,0 +1,385 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "SSDataBase"
+provides-nominal:
+- "7SSSugar10SSDataBaseC"
+provides-member:
+- ["7SSSugar10SSDataBaseC", ""]
+provides-dynamic-lookup:
+- "beginTransaction"
+- "cancelTransaction"
+- "clearCache"
+- "commitTransaction"
+- "connection"
+- "createTransaction"
+- "exec"
+- "fitCache"
+- "isTransactionStarted"
+- "lastInsrtedRowID"
+- "savePoint"
+- "statement"
+- "statementsCache"
+- "stmtProcessor"
+- "transactionController"
+depends-top-level:
+- !private "!"
+- "AssignmentPrecedence"
+- "Bool"
+- "Int64"
+- "SSCacheContainer"
+- "SSDataBase"
+- !private "SSDataBaseConnection"
+- "SSDataBaseConnectionProtocol"
+- "SSDataBaseProtocol"
+- "SSDataBaseQueryExecutor"
+- !private "SSDataBaseSavePoint"
+- "SSDataBaseSavePointProtocol"
+- "SSDataBaseStatementCache"
+- "SSDataBaseStatementCreator"
+- "SSDataBaseStatementProcessor"
+- "SSDataBaseStatementProtocol"
+- "SSDataBaseTransaction"
+- "SSDataBaseTransactionController"
+- "SSDataBaseTransactionCreator"
+- "SSTransacted"
+- "String"
+- "URL"
+- !private "beginTransaction"
+- !private "cancelTransaction"
+- !private "commitTransaction"
+- !private "connection"
+- !private "exec"
+- !private "statement"
+- !private "statementsCache"
+- !private "transactionController"
+depends-member:
+- !private ["Sa", "forEach"]
+- !private ["SK", ""]
+- !private ["SK", "forEach"]
+- !private ["s7CVarArgP", "forEach"]
+- ["Sl", ""]
+- !private ["Sl", "forEach"]
+- !private ["10Foundation15ContiguousBytesP", "forEach"]
+- !private ["s28CustomDebugStringConvertibleP", "forEach"]
+- !private ["s17CustomReflectableP", "forEach"]
+- !private ["s23CustomStringConvertibleP", "forEach"]
+- !private ["10Foundation12DataProtocolP", ""]
+- !private ["10Foundation12DataProtocolP", "forEach"]
+- !private ["Se", "forEach"]
+- !private ["SE", "forEach"]
+- !private ["SQ", ""]
+- !private ["SQ", "forEach"]
+- !private ["s25ExpressibleByArrayLiteralP", ""]
+- !private ["s25ExpressibleByArrayLiteralP", "forEach"]
+- !private ["SH", "forEach"]
+- ["7SSSugar20InsertableCollectionP", ""]
+- !private ["7SSSugar20InsertableCollectionP", "forEach"]
+- !private ["SM", ""]
+- !private ["SM", "forEach"]
+- !private ["10Foundation19MutableDataProtocolP", "forEach"]
+- !private ["Sk", ""]
+- !private ["Sk", "forEach"]
+- !private ["Sm", ""]
+- !private ["Sm", "forEach"]
+- !private ["7SSSugar21ReplaceableCollectionP", "forEach"]
+- !private ["7SSSugar16SSCacheContainerP", "SSDataBaseConnection"]
+- !private ["7SSSugar16SSCacheContainerP", "SSDataBaseSavePoint"]
+- !private ["7SSSugar16SSCacheContainerP", "SSDataBaseStatementCache"]
+- !private ["7SSSugar16SSCacheContainerP", "SSDataBaseStatementProcessor"]
+- !private ["7SSSugar16SSCacheContainerP", "SSDataBaseTransaction"]
+- !private ["7SSSugar16SSCacheContainerP", "SSDataBaseTransactionController"]
+- ["7SSSugar16SSCacheContainerP", ""]
+- ["7SSSugar16SSCacheContainerP", "beginTransaction"]
+- ["7SSSugar16SSCacheContainerP", "cancelTransaction"]
+- ["7SSSugar16SSCacheContainerP", "clearCache"]
+- ["7SSSugar16SSCacheContainerP", "commitTransaction"]
+- !private ["7SSSugar16SSCacheContainerP", "connection"]
+- ["7SSSugar16SSCacheContainerP", "createTransaction"]
+- ["7SSSugar16SSCacheContainerP", "exec"]
+- ["7SSSugar16SSCacheContainerP", "fitCache"]
+- ["7SSSugar16SSCacheContainerP", "isTransactionStarted"]
+- ["7SSSugar16SSCacheContainerP", "lastInsrtedRowID"]
+- ["7SSSugar16SSCacheContainerP", "savePoint"]
+- ["7SSSugar16SSCacheContainerP", "statement"]
+- !private ["7SSSugar16SSCacheContainerP", "statementsCache"]
+- !private ["7SSSugar16SSCacheContainerP", "transactionController"]
+- ["7SSSugar10SSDataBaseC", "Bool"]
+- ["7SSSugar10SSDataBaseC", "Int64"]
+- !private ["7SSSugar10SSDataBaseC", "SSDataBaseConnection"]
+- ["7SSSugar10SSDataBaseC", "SSDataBaseConnectionProtocol"]
+- !private ["7SSSugar10SSDataBaseC", "SSDataBaseSavePoint"]
+- ["7SSSugar10SSDataBaseC", "SSDataBaseSavePointProtocol"]
+- ["7SSSugar10SSDataBaseC", "SSDataBaseStatementCache"]
+- ["7SSSugar10SSDataBaseC", "SSDataBaseStatementProcessor"]
+- ["7SSSugar10SSDataBaseC", "SSDataBaseStatementProtocol"]
+- ["7SSSugar10SSDataBaseC", "SSDataBaseTransaction"]
+- ["7SSSugar10SSDataBaseC", "SSDataBaseTransactionController"]
+- ["7SSSugar10SSDataBaseC", "String"]
+- ["7SSSugar10SSDataBaseC", "URL"]
+- ["7SSSugar10SSDataBaseC", ""]
+- ["7SSSugar10SSDataBaseC", "beginTransaction"]
+- ["7SSSugar10SSDataBaseC", "cancelTransaction"]
+- ["7SSSugar10SSDataBaseC", "clearCache"]
+- ["7SSSugar10SSDataBaseC", "commitTransaction"]
+- ["7SSSugar10SSDataBaseC", "connection"]
+- ["7SSSugar10SSDataBaseC", "createTransaction"]
+- ["7SSSugar10SSDataBaseC", "deinit"]
+- ["7SSSugar10SSDataBaseC", "exec"]
+- ["7SSSugar10SSDataBaseC", "fitCache"]
+- ["7SSSugar10SSDataBaseC", "init"]
+- ["7SSSugar10SSDataBaseC", "isTransactionStarted"]
+- ["7SSSugar10SSDataBaseC", "lastInsrtedRowID"]
+- ["7SSSugar10SSDataBaseC", "savePoint"]
+- ["7SSSugar10SSDataBaseC", "statement"]
+- ["7SSSugar10SSDataBaseC", "statementsCache"]
+- ["7SSSugar10SSDataBaseC", "stmtProcessor"]
+- ["7SSSugar10SSDataBaseC", "transactionController"]
+- ["7SSSugar26SSDataBaseBindingStatementP", ""]
+- !private ["7SSSugar26SSDataBaseBindingStatementP", "commit"]
+- !private ["7SSSugar26SSDataBaseBindingStatementP", "init"]
+- !private ["7SSSugar26SSDataBaseBindingStatementP", "release"]
+- !private ["7SSSugar20SSDataBaseConnectionC", ""]
+- !private ["7SSSugar20SSDataBaseConnectionC", "init"]
+- !private ["7SSSugar28SSDataBaseConnectionProtocolP", "close"]
+- !private ["7SSSugar28SSDataBaseConnectionProtocolP", "init"]
+- !private ["7SSSugar28SSDataBaseConnectionProtocolP", "isOpen"]
+- !private ["7SSSugar28SSDataBaseConnectionProtocolP", "lastInsertedRowID"]
+- !private ["7SSSugar28SSDataBaseConnectionProtocolP", "open"]
+- ["7SSSugar26SSDataBaseGettingStatementP", ""]
+- !private ["7SSSugar26SSDataBaseGettingStatementP", "commit"]
+- !private ["7SSSugar26SSDataBaseGettingStatementP", "init"]
+- !private ["7SSSugar26SSDataBaseGettingStatementP", "release"]
+- !private ["7SSSugar18SSDataBaseProtocolP", "SSDataBaseConnection"]
+- !private ["7SSSugar18SSDataBaseProtocolP", "SSDataBaseSavePoint"]
+- !private ["7SSSugar18SSDataBaseProtocolP", "SSDataBaseStatementCache"]
+- !private ["7SSSugar18SSDataBaseProtocolP", "SSDataBaseStatementProcessor"]
+- !private ["7SSSugar18SSDataBaseProtocolP", "SSDataBaseTransaction"]
+- !private ["7SSSugar18SSDataBaseProtocolP", "SSDataBaseTransactionController"]
+- ["7SSSugar18SSDataBaseProtocolP", ""]
+- ["7SSSugar18SSDataBaseProtocolP", "beginTransaction"]
+- ["7SSSugar18SSDataBaseProtocolP", "cancelTransaction"]
+- ["7SSSugar18SSDataBaseProtocolP", "clearCache"]
+- ["7SSSugar18SSDataBaseProtocolP", "commitTransaction"]
+- !private ["7SSSugar18SSDataBaseProtocolP", "connection"]
+- ["7SSSugar18SSDataBaseProtocolP", "createTransaction"]
+- ["7SSSugar18SSDataBaseProtocolP", "exec"]
+- ["7SSSugar18SSDataBaseProtocolP", "fitCache"]
+- ["7SSSugar18SSDataBaseProtocolP", "isTransactionStarted"]
+- ["7SSSugar18SSDataBaseProtocolP", "lastInsrtedRowID"]
+- ["7SSSugar18SSDataBaseProtocolP", "savePoint"]
+- ["7SSSugar18SSDataBaseProtocolP", "statement"]
+- !private ["7SSSugar18SSDataBaseProtocolP", "statementsCache"]
+- !private ["7SSSugar18SSDataBaseProtocolP", "transactionController"]
+- !private ["7SSSugar23SSDataBaseQueryExecutorP", "SSDataBaseConnection"]
+- !private ["7SSSugar23SSDataBaseQueryExecutorP", "SSDataBaseSavePoint"]
+- !private ["7SSSugar23SSDataBaseQueryExecutorP", "SSDataBaseStatementCache"]
+- !private ["7SSSugar23SSDataBaseQueryExecutorP", "SSDataBaseStatementProcessor"]
+- !private ["7SSSugar23SSDataBaseQueryExecutorP", "SSDataBaseTransaction"]
+- !private ["7SSSugar23SSDataBaseQueryExecutorP", "SSDataBaseTransactionController"]
+- ["7SSSugar23SSDataBaseQueryExecutorP", ""]
+- ["7SSSugar23SSDataBaseQueryExecutorP", "beginTransaction"]
+- ["7SSSugar23SSDataBaseQueryExecutorP", "cancelTransaction"]
+- ["7SSSugar23SSDataBaseQueryExecutorP", "clearCache"]
+- ["7SSSugar23SSDataBaseQueryExecutorP", "commitTransaction"]
+- !private ["7SSSugar23SSDataBaseQueryExecutorP", "connection"]
+- ["7SSSugar23SSDataBaseQueryExecutorP", "createTransaction"]
+- ["7SSSugar23SSDataBaseQueryExecutorP", "exec"]
+- ["7SSSugar23SSDataBaseQueryExecutorP", "fitCache"]
+- ["7SSSugar23SSDataBaseQueryExecutorP", "isTransactionStarted"]
+- ["7SSSugar23SSDataBaseQueryExecutorP", "lastInsrtedRowID"]
+- ["7SSSugar23SSDataBaseQueryExecutorP", "savePoint"]
+- ["7SSSugar23SSDataBaseQueryExecutorP", "statement"]
+- !private ["7SSSugar23SSDataBaseQueryExecutorP", "statementsCache"]
+- !private ["7SSSugar23SSDataBaseQueryExecutorP", "transactionController"]
+- !private ["7SSSugar19SSDataBaseSavePointC", ""]
+- !private ["7SSSugar19SSDataBaseSavePointC", "init"]
+- !private ["7SSSugar27SSDataBaseSavePointProtocolP", "init"]
+- !private ["7SSSugar24SSDataBaseStatementCacheC", ""]
+- !private ["7SSSugar24SSDataBaseStatementCacheC", "clearAll"]
+- !private ["7SSSugar24SSDataBaseStatementCacheC", "clearOld"]
+- !private ["7SSSugar24SSDataBaseStatementCacheC", "init"]
+- !private ["7SSSugar24SSDataBaseStatementCacheC", "statement"]
+- !private ["7SSSugar32SSDataBaseStatementCacheProtocolP", "clearAll"]
+- !private ["7SSSugar32SSDataBaseStatementCacheProtocolP", "clearOld"]
+- !private ["7SSSugar32SSDataBaseStatementCacheProtocolP", "init"]
+- !private ["7SSSugar32SSDataBaseStatementCacheProtocolP", "statement"]
+- !private ["7SSSugar26SSDataBaseStatementCreatorP", "SSDataBaseConnection"]
+- !private ["7SSSugar26SSDataBaseStatementCreatorP", "SSDataBaseSavePoint"]
+- !private ["7SSSugar26SSDataBaseStatementCreatorP", "SSDataBaseStatementCache"]
+- !private ["7SSSugar26SSDataBaseStatementCreatorP", "SSDataBaseStatementProcessor"]
+- !private ["7SSSugar26SSDataBaseStatementCreatorP", "SSDataBaseTransaction"]
+- !private ["7SSSugar26SSDataBaseStatementCreatorP", "SSDataBaseTransactionController"]
+- ["7SSSugar26SSDataBaseStatementCreatorP", ""]
+- ["7SSSugar26SSDataBaseStatementCreatorP", "beginTransaction"]
+- ["7SSSugar26SSDataBaseStatementCreatorP", "cancelTransaction"]
+- ["7SSSugar26SSDataBaseStatementCreatorP", "clearCache"]
+- !private ["7SSSugar26SSDataBaseStatementCreatorP", "close"]
+- ["7SSSugar26SSDataBaseStatementCreatorP", "commitTransaction"]
+- !private ["7SSSugar26SSDataBaseStatementCreatorP", "connection"]
+- ["7SSSugar26SSDataBaseStatementCreatorP", "createTransaction"]
+- ["7SSSugar26SSDataBaseStatementCreatorP", "exec"]
+- ["7SSSugar26SSDataBaseStatementCreatorP", "fitCache"]
+- !private ["7SSSugar26SSDataBaseStatementCreatorP", "init"]
+- !private ["7SSSugar26SSDataBaseStatementCreatorP", "isOpen"]
+- ["7SSSugar26SSDataBaseStatementCreatorP", "isTransactionStarted"]
+- !private ["7SSSugar26SSDataBaseStatementCreatorP", "lastInsertedRowID"]
+- ["7SSSugar26SSDataBaseStatementCreatorP", "lastInsrtedRowID"]
+- !private ["7SSSugar26SSDataBaseStatementCreatorP", "open"]
+- ["7SSSugar26SSDataBaseStatementCreatorP", "savePoint"]
+- ["7SSSugar26SSDataBaseStatementCreatorP", "statement"]
+- !private ["7SSSugar26SSDataBaseStatementCreatorP", "statementsCache"]
+- !private ["7SSSugar26SSDataBaseStatementCreatorP", "transactionController"]
+- !private ["7SSSugar28SSDataBaseStatementProcessorC", "init"]
+- ["7SSSugar27SSDataBaseStatementProtocolP", ""]
+- !private ["7SSSugar27SSDataBaseStatementProtocolP", "commit"]
+- !private ["7SSSugar27SSDataBaseStatementProtocolP", "init"]
+- !private ["7SSSugar27SSDataBaseStatementProtocolP", "release"]
+- !private ["7SSSugar26SSDataBaseStatementProxingP", "init"]
+- !private ["7SSSugar21SSDataBaseTransactionC", "init"]
+- !private ["7SSSugar31SSDataBaseTransactionControllerC", ""]
+- !private ["7SSSugar31SSDataBaseTransactionControllerC", "beginTransaction"]
+- !private ["7SSSugar31SSDataBaseTransactionControllerC", "cancelTransaction"]
+- !private ["7SSSugar31SSDataBaseTransactionControllerC", "commitTransaction"]
+- !private ["7SSSugar31SSDataBaseTransactionControllerC", "init"]
+- !private ["7SSSugar31SSDataBaseTransactionControllerC", "isTransactionStarted"]
+- !private ["7SSSugar31SSDataBaseTransactionControllerC", "registerSavePoint"]
+- !private ["7SSSugar31SSDataBaseTransactionControllerC", "registerStatement"]
+- !private ["7SSSugar31SSDataBaseTransactionControllerC", "transactionCreator"]
+- !private ["7SSSugar39SSDataBaseTransactionControllerProtocolP", "beginTransaction"]
+- !private ["7SSSugar39SSDataBaseTransactionControllerProtocolP", "cancelTransaction"]
+- !private ["7SSSugar39SSDataBaseTransactionControllerProtocolP", "commitTransaction"]
+- !private ["7SSSugar39SSDataBaseTransactionControllerProtocolP", "init"]
+- !private ["7SSSugar39SSDataBaseTransactionControllerProtocolP", "isTransactionStarted"]
+- !private ["7SSSugar39SSDataBaseTransactionControllerProtocolP", "registerSavePoint"]
+- !private ["7SSSugar39SSDataBaseTransactionControllerProtocolP", "registerStatement"]
+- !private ["7SSSugar39SSDataBaseTransactionControllerProtocolP", "transactionCreator"]
+- !private ["7SSSugar28SSDataBaseTransactionCreatorP", "SSDataBaseConnection"]
+- !private ["7SSSugar28SSDataBaseTransactionCreatorP", "SSDataBaseSavePoint"]
+- !private ["7SSSugar28SSDataBaseTransactionCreatorP", "SSDataBaseStatementCache"]
+- !private ["7SSSugar28SSDataBaseTransactionCreatorP", "SSDataBaseStatementProcessor"]
+- !private ["7SSSugar28SSDataBaseTransactionCreatorP", "SSDataBaseTransaction"]
+- !private ["7SSSugar28SSDataBaseTransactionCreatorP", "SSDataBaseTransactionController"]
+- ["7SSSugar28SSDataBaseTransactionCreatorP", ""]
+- ["7SSSugar28SSDataBaseTransactionCreatorP", "beginTransaction"]
+- ["7SSSugar28SSDataBaseTransactionCreatorP", "cancelTransaction"]
+- ["7SSSugar28SSDataBaseTransactionCreatorP", "clearCache"]
+- ["7SSSugar28SSDataBaseTransactionCreatorP", "commitTransaction"]
+- !private ["7SSSugar28SSDataBaseTransactionCreatorP", "connection"]
+- ["7SSSugar28SSDataBaseTransactionCreatorP", "createTransaction"]
+- ["7SSSugar28SSDataBaseTransactionCreatorP", "exec"]
+- ["7SSSugar28SSDataBaseTransactionCreatorP", "fitCache"]
+- ["7SSSugar28SSDataBaseTransactionCreatorP", "isTransactionStarted"]
+- ["7SSSugar28SSDataBaseTransactionCreatorP", "lastInsrtedRowID"]
+- ["7SSSugar28SSDataBaseTransactionCreatorP", "savePoint"]
+- ["7SSSugar28SSDataBaseTransactionCreatorP", "statement"]
+- !private ["7SSSugar28SSDataBaseTransactionCreatorP", "statementsCache"]
+- !private ["7SSSugar28SSDataBaseTransactionCreatorP", "transactionController"]
+- ["7SSSugar12SSReleasableP", ""]
+- !private ["7SSSugar12SSReleasableP", "commit"]
+- !private ["7SSSugar12SSReleasableP", "init"]
+- !private ["7SSSugar12SSReleasableP", "release"]
+- !private ["7SSSugar12SSTransactedP", "SSDataBaseConnection"]
+- !private ["7SSSugar12SSTransactedP", "SSDataBaseSavePoint"]
+- !private ["7SSSugar12SSTransactedP", "SSDataBaseStatementCache"]
+- !private ["7SSSugar12SSTransactedP", "SSDataBaseStatementProcessor"]
+- !private ["7SSSugar12SSTransactedP", "SSDataBaseTransaction"]
+- !private ["7SSSugar12SSTransactedP", "SSDataBaseTransactionController"]
+- ["7SSSugar12SSTransactedP", ""]
+- ["7SSSugar12SSTransactedP", "beginTransaction"]
+- ["7SSSugar12SSTransactedP", "cancelTransaction"]
+- ["7SSSugar12SSTransactedP", "clearCache"]
+- ["7SSSugar12SSTransactedP", "commitTransaction"]
+- !private ["7SSSugar12SSTransactedP", "connection"]
+- ["7SSSugar12SSTransactedP", "createTransaction"]
+- ["7SSSugar12SSTransactedP", "exec"]
+- ["7SSSugar12SSTransactedP", "fitCache"]
+- !private ["7SSSugar12SSTransactedP", "init"]
+- ["7SSSugar12SSTransactedP", "isTransactionStarted"]
+- ["7SSSugar12SSTransactedP", "lastInsrtedRowID"]
+- !private ["7SSSugar12SSTransactedP", "registerSavePoint"]
+- !private ["7SSSugar12SSTransactedP", "registerStatement"]
+- ["7SSSugar12SSTransactedP", "savePoint"]
+- ["7SSSugar12SSTransactedP", "statement"]
+- !private ["7SSSugar12SSTransactedP", "statementsCache"]
+- !private ["7SSSugar12SSTransactedP", "transactionController"]
+- !private ["7SSSugar12SSTransactedP", "transactionCreator"]
+- !private ["ST", ""]
+- !private ["ST", "forEach"]
+- !private ["s14_ArrayProtocolP", "forEach"]
+- !private ["s24_DestructorSafeContainerP", "forEach"]
+- !private ["s19_HasContiguousBytesP", "forEach"]
+- !private ["s35_HasCustomAnyHashableRepresentationP", "forEach"]
+- !private ["s21_ObjectiveCBridgeableP", "forEach"]
+depends-nominal:
+- !private "Sa"
+- !private "SK"
+- !private "s7CVarArgP"
+- "Sl"
+- !private "10Foundation15ContiguousBytesP"
+- !private "s28CustomDebugStringConvertibleP"
+- !private "s17CustomReflectableP"
+- !private "s23CustomStringConvertibleP"
+- !private "10Foundation12DataProtocolP"
+- !private "Se"
+- !private "SE"
+- !private "SQ"
+- !private "s25ExpressibleByArrayLiteralP"
+- !private "SH"
+- "7SSSugar20InsertableCollectionP"
+- !private "SM"
+- !private "10Foundation19MutableDataProtocolP"
+- !private "Sk"
+- !private "Sm"
+- !private "7SSSugar21ReplaceableCollectionP"
+- "7SSSugar16SSCacheContainerP"
+- "7SSSugar10SSDataBaseC"
+- "7SSSugar26SSDataBaseBindingStatementP"
+- !private "7SSSugar20SSDataBaseConnectionC"
+- !private "7SSSugar28SSDataBaseConnectionProtocolP"
+- "7SSSugar26SSDataBaseGettingStatementP"
+- "7SSSugar18SSDataBaseProtocolP"
+- "7SSSugar23SSDataBaseQueryExecutorP"
+- !private "7SSSugar19SSDataBaseSavePointC"
+- !private "7SSSugar27SSDataBaseSavePointProtocolP"
+- !private "7SSSugar24SSDataBaseStatementCacheC"
+- !private "7SSSugar32SSDataBaseStatementCacheProtocolP"
+- "7SSSugar26SSDataBaseStatementCreatorP"
+- !private "7SSSugar28SSDataBaseStatementProcessorC"
+- "7SSSugar27SSDataBaseStatementProtocolP"
+- !private "7SSSugar26SSDataBaseStatementProxingP"
+- !private "7SSSugar21SSDataBaseTransactionC"
+- !private "7SSSugar31SSDataBaseTransactionControllerC"
+- !private "7SSSugar39SSDataBaseTransactionControllerProtocolP"
+- "7SSSugar28SSDataBaseTransactionCreatorP"
+- "7SSSugar12SSReleasableP"
+- "7SSSugar12SSTransactedP"
+- !private "ST"
+- !private "s14_ArrayProtocolP"
+- !private "s24_DestructorSafeContainerP"
+- !private "s19_HasContiguousBytesP"
+- !private "s35_HasCustomAnyHashableRepresentationP"
+- !private "s21_ObjectiveCBridgeableP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/XPC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/ObjectiveC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Combine.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Dispatch.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Foundation.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/CoreFoundation.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/CoreGraphics.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/IOKit.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/SwiftOnoneSupport.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/mach-o/dyld.modulemap"
+- "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/mach-o/compact_unwind_encoding.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/xpc/XPC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/apinotes/Dispatch.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "d9f3939eb2afe384f3d772bf807590be"

@@ -1,0 +1,205 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "SSUETaskRemoteMutator"
+provides-nominal:
+- "7SSSugar21SSUETaskRemoteMutatorC"
+provides-member:
+- ["7SSSugar21SSUETaskRemoteMutatorC", ""]
+provides-dynamic-lookup:
+depends-top-level:
+- "AssignmentPrecedence"
+- "Handler"
+- "Int"
+- "SSEntityRemoteMutator"
+- "SSMutatingEntitySource"
+- "SSUETask"
+- "SSUETaskEditAsyncApi"
+- "SSUETaskMutator"
+- "SSUETaskRemoteMutator"
+- "SSUETaskUpdateReceiver"
+- "SSUpdate"
+- "SSUpdateReceiversManaging"
+- "String"
+- "TaskAsyncJob"
+- "TaskSource"
+- "Void"
+- !private "api"
+- !private "handleUpdate"
+- !private "mutate"
+- !private "source"
+- !private "taskReactions"
+depends-member:
+- !private ["s23CustomStringConvertibleP", "taskID"]
+- !private ["SQ", ""]
+- !private ["SQ", "taskID"]
+- !private ["SH", "taskID"]
+- ["7SSSugar20SSBaseEntityMutatingP", ""]
+- !private ["7SSSugar20SSBaseEntityMutatingP", "api"]
+- !private ["7SSSugar20SSBaseEntityMutatingP", "handleUpdate"]
+- ["7SSSugar20SSBaseEntityMutatingP", "increment"]
+- !private ["7SSSugar20SSBaseEntityMutatingP", "init"]
+- !private ["7SSSugar20SSBaseEntityMutatingP", "mutate"]
+- ["7SSSugar20SSBaseEntityMutatingP", "remove"]
+- ["7SSSugar20SSBaseEntityMutatingP", "rename"]
+- !private ["7SSSugar20SSBaseEntityMutatingP", "source"]
+- ["7SSSugar20SSBaseEntityMutatingP", "taskDidIncrementPages"]
+- ["7SSSugar20SSBaseEntityMutatingP", "taskDidRemove"]
+- ["7SSSugar20SSBaseEntityMutatingP", "taskDidRename"]
+- !private ["7SSSugar20SSBaseEntityMutatingP", "taskReactions"]
+- ["7SSSugar21SSEntityRemoteMutatorC", "Handler"]
+- ["7SSSugar21SSEntityRemoteMutatorC", "Int"]
+- ["7SSSugar21SSEntityRemoteMutatorC", "SSUETaskEditAsyncApi"]
+- ["7SSSugar21SSEntityRemoteMutatorC", "SSUpdate"]
+- ["7SSSugar21SSEntityRemoteMutatorC", "SSUpdateReceiversManaging"]
+- ["7SSSugar21SSEntityRemoteMutatorC", "String"]
+- ["7SSSugar21SSEntityRemoteMutatorC", "TaskAsyncJob"]
+- ["7SSSugar21SSEntityRemoteMutatorC", "Void"]
+- ["7SSSugar21SSEntityRemoteMutatorC", ""]
+- ["7SSSugar21SSEntityRemoteMutatorC", "api"]
+- !private ["7SSSugar21SSEntityRemoteMutatorC", "handleUpdate"]
+- ["7SSSugar21SSEntityRemoteMutatorC", "increment"]
+- ["7SSSugar21SSEntityRemoteMutatorC", "init"]
+- ["7SSSugar21SSEntityRemoteMutatorC", "mutate"]
+- ["7SSSugar21SSEntityRemoteMutatorC", "reactions"]
+- ["7SSSugar21SSEntityRemoteMutatorC", "remove"]
+- ["7SSSugar21SSEntityRemoteMutatorC", "rename"]
+- !private ["7SSSugar21SSEntityRemoteMutatorC", "source"]
+- ["7SSSugar21SSEntityRemoteMutatorC", "taskDidIncrementPages"]
+- ["7SSSugar21SSEntityRemoteMutatorC", "taskDidRemove"]
+- ["7SSSugar21SSEntityRemoteMutatorC", "taskDidRename"]
+- !private ["7SSSugar21SSEntityRemoteMutatorC", "taskReactions"]
+- ["7SSSugar18SSMarkerGeneratingP", ""]
+- !private ["7SSSugar18SSMarkerGeneratingP", "api"]
+- !private ["7SSSugar18SSMarkerGeneratingP", "handleUpdate"]
+- ["7SSSugar18SSMarkerGeneratingP", "increment"]
+- !private ["7SSSugar18SSMarkerGeneratingP", "init"]
+- !private ["7SSSugar18SSMarkerGeneratingP", "mutate"]
+- ["7SSSugar18SSMarkerGeneratingP", "remove"]
+- ["7SSSugar18SSMarkerGeneratingP", "rename"]
+- !private ["7SSSugar18SSMarkerGeneratingP", "source"]
+- ["7SSSugar18SSMarkerGeneratingP", "taskDidIncrementPages"]
+- ["7SSSugar18SSMarkerGeneratingP", "taskDidRemove"]
+- ["7SSSugar18SSMarkerGeneratingP", "taskDidRename"]
+- !private ["7SSSugar18SSMarkerGeneratingP", "taskReactions"]
+- ["7SSSugar22SSMutatingEntitySourceP", "Entity"]
+- !private ["7SSSugar22SSMutatingEntitySourceP", "entity"]
+- ["7SSSugar16SSOnMainExecutorP", ""]
+- !private ["7SSSugar16SSOnMainExecutorP", "api"]
+- !private ["7SSSugar16SSOnMainExecutorP", "handleUpdate"]
+- ["7SSSugar16SSOnMainExecutorP", "increment"]
+- !private ["7SSSugar16SSOnMainExecutorP", "init"]
+- !private ["7SSSugar16SSOnMainExecutorP", "mutate"]
+- ["7SSSugar16SSOnMainExecutorP", "remove"]
+- ["7SSSugar16SSOnMainExecutorP", "rename"]
+- !private ["7SSSugar16SSOnMainExecutorP", "source"]
+- ["7SSSugar16SSOnMainExecutorP", "taskDidIncrementPages"]
+- ["7SSSugar16SSOnMainExecutorP", "taskDidRemove"]
+- ["7SSSugar16SSOnMainExecutorP", "taskDidRename"]
+- !private ["7SSSugar16SSOnMainExecutorP", "taskReactions"]
+- !private ["7SSSugar8SSUETaskV", "taskID"]
+- !private ["7SSSugar20SSUETaskEditAsyncApiP", "incrementPages"]
+- !private ["7SSSugar20SSUETaskEditAsyncApiP", "removeTask"]
+- !private ["7SSSugar20SSUETaskEditAsyncApiP", "renameTask"]
+- ["7SSSugar15SSUETaskMutatorP", ""]
+- !private ["7SSSugar15SSUETaskMutatorP", "api"]
+- !private ["7SSSugar15SSUETaskMutatorP", "handleUpdate"]
+- ["7SSSugar15SSUETaskMutatorP", "increment"]
+- !private ["7SSSugar15SSUETaskMutatorP", "mutate"]
+- ["7SSSugar15SSUETaskMutatorP", "remove"]
+- ["7SSSugar15SSUETaskMutatorP", "rename"]
+- !private ["7SSSugar15SSUETaskMutatorP", "source"]
+- ["7SSSugar15SSUETaskMutatorP", "taskDidIncrementPages"]
+- ["7SSSugar15SSUETaskMutatorP", "taskDidRemove"]
+- ["7SSSugar15SSUETaskMutatorP", "taskDidRename"]
+- !private ["7SSSugar15SSUETaskMutatorP", "taskReactions"]
+- ["7SSSugar21SSUETaskRemoteMutatorC", "Handler"]
+- ["7SSSugar21SSUETaskRemoteMutatorC", "Int"]
+- ["7SSSugar21SSUETaskRemoteMutatorC", "SSUETaskEditAsyncApi"]
+- ["7SSSugar21SSUETaskRemoteMutatorC", "SSUpdate"]
+- ["7SSSugar21SSUETaskRemoteMutatorC", "SSUpdateReceiversManaging"]
+- ["7SSSugar21SSUETaskRemoteMutatorC", "String"]
+- ["7SSSugar21SSUETaskRemoteMutatorC", "TaskAsyncJob"]
+- ["7SSSugar21SSUETaskRemoteMutatorC", "Void"]
+- ["7SSSugar21SSUETaskRemoteMutatorC", ""]
+- ["7SSSugar21SSUETaskRemoteMutatorC", "api"]
+- ["7SSSugar21SSUETaskRemoteMutatorC", "deinit"]
+- !private ["7SSSugar21SSUETaskRemoteMutatorC", "handleUpdate"]
+- ["7SSSugar21SSUETaskRemoteMutatorC", "increment"]
+- ["7SSSugar21SSUETaskRemoteMutatorC", "init"]
+- !private ["7SSSugar21SSUETaskRemoteMutatorC", "mutate"]
+- ["7SSSugar21SSUETaskRemoteMutatorC", "reactions"]
+- ["7SSSugar21SSUETaskRemoteMutatorC", "remove"]
+- ["7SSSugar21SSUETaskRemoteMutatorC", "rename"]
+- !private ["7SSSugar21SSUETaskRemoteMutatorC", "source"]
+- ["7SSSugar21SSUETaskRemoteMutatorC", "taskDidIncrementPages"]
+- ["7SSSugar21SSUETaskRemoteMutatorC", "taskDidRemove"]
+- ["7SSSugar21SSUETaskRemoteMutatorC", "taskDidRename"]
+- !private ["7SSSugar21SSUETaskRemoteMutatorC", "taskReactions"]
+- ["7SSSugar22SSUETaskUpdateReceiverP", ""]
+- !private ["7SSSugar22SSUETaskUpdateReceiverP", "api"]
+- !private ["7SSSugar22SSUETaskUpdateReceiverP", "handleUpdate"]
+- ["7SSSugar22SSUETaskUpdateReceiverP", "increment"]
+- !private ["7SSSugar22SSUETaskUpdateReceiverP", "mutate"]
+- ["7SSSugar22SSUETaskUpdateReceiverP", "remove"]
+- ["7SSSugar22SSUETaskUpdateReceiverP", "rename"]
+- !private ["7SSSugar22SSUETaskUpdateReceiverP", "source"]
+- ["7SSSugar22SSUETaskUpdateReceiverP", "taskDidIncrementPages"]
+- ["7SSSugar22SSUETaskUpdateReceiverP", "taskDidRemove"]
+- ["7SSSugar22SSUETaskUpdateReceiverP", "taskDidRename"]
+- !private ["7SSSugar22SSUETaskUpdateReceiverP", "taskReactions"]
+- ["7SSSugar8SSUpdateV", "ReactionMap"]
+- ["7SSSugar16SSUpdateReceiverP", ""]
+- !private ["7SSSugar16SSUpdateReceiverP", "api"]
+- !private ["7SSSugar16SSUpdateReceiverP", "handleUpdate"]
+- ["7SSSugar16SSUpdateReceiverP", "increment"]
+- !private ["7SSSugar16SSUpdateReceiverP", "init"]
+- !private ["7SSSugar16SSUpdateReceiverP", "mutate"]
+- ["7SSSugar16SSUpdateReceiverP", "remove"]
+- ["7SSSugar16SSUpdateReceiverP", "rename"]
+- !private ["7SSSugar16SSUpdateReceiverP", "source"]
+- ["7SSSugar16SSUpdateReceiverP", "taskDidIncrementPages"]
+- ["7SSSugar16SSUpdateReceiverP", "taskDidRemove"]
+- ["7SSSugar16SSUpdateReceiverP", "taskDidRename"]
+- !private ["7SSSugar16SSUpdateReceiverP", "taskReactions"]
+depends-nominal:
+- !private "s23CustomStringConvertibleP"
+- !private "SQ"
+- !private "SH"
+- "7SSSugar20SSBaseEntityMutatingP"
+- "7SSSugar21SSEntityRemoteMutatorC"
+- "7SSSugar18SSMarkerGeneratingP"
+- "7SSSugar22SSMutatingEntitySourceP"
+- "7SSSugar16SSOnMainExecutorP"
+- !private "7SSSugar8SSUETaskV"
+- !private "7SSSugar20SSUETaskEditAsyncApiP"
+- "7SSSugar15SSUETaskMutatorP"
+- "7SSSugar21SSUETaskRemoteMutatorC"
+- "7SSSugar22SSUETaskUpdateReceiverP"
+- "7SSSugar8SSUpdateV"
+- "7SSSugar16SSUpdateReceiverP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/XPC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/ObjectiveC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Combine.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Dispatch.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Darwin.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Foundation.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/CoreFoundation.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/CoreGraphics.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Swift.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/IOKit.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/SwiftOnoneSupport.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/mach-o/dyld.modulemap"
+- "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/mach-o/compact_unwind_encoding.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/xpc/XPC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/apinotes/Dispatch.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "ce4d57d23f58ed2464520e8bd526e84d"

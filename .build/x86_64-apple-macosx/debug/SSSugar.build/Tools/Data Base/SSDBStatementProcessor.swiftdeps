@@ -1,0 +1,174 @@
+### Swift dependencies file v0 ###
+provides-top-level:
+- "SSDataBaseStatementProcessor"
+provides-nominal:
+- "7SSSugar28SSDataBaseStatementProcessorC"
+provides-member:
+- ["7SSSugar28SSDataBaseStatementProcessorC", ""]
+provides-dynamic-lookup:
+- "bind"
+- "bindIndex"
+- "clear"
+- "commit"
+- "get"
+- "getIndex"
+- "select"
+- "statement"
+depends-top-level:
+- !private "+="
+- "AssignmentPrecedence"
+- "Bool"
+- "FloatLiteralType"
+- "IntegerLiteralType"
+- "SSDBColType"
+- "SSDataBaseStatementProcessor"
+- "SSDataBaseStatementProtocol"
+- "SSDataBaseStatementProxing"
+- !private "bind"
+- !private "bindIndex"
+- !private "get"
+- !private "getIndex"
+- !private "statement"
+depends-member:
+- !private ["So8NSObjectP", ""]
+- ["7SSSugar26SSDataBaseBindingStatementP", ""]
+- ["7SSSugar26SSDataBaseBindingStatementP", "bind"]
+- !private ["7SSSugar26SSDataBaseBindingStatementP", "bindIndex"]
+- ["7SSSugar26SSDataBaseBindingStatementP", "bindNull"]
+- ["7SSSugar26SSDataBaseBindingStatementP", "clear"]
+- ["7SSSugar26SSDataBaseBindingStatementP", "commit"]
+- !private ["7SSSugar26SSDataBaseBindingStatementP", "get"]
+- ["7SSSugar26SSDataBaseBindingStatementP", "getData"]
+- ["7SSSugar26SSDataBaseBindingStatementP", "getDouble"]
+- !private ["7SSSugar26SSDataBaseBindingStatementP", "getIndex"]
+- ["7SSSugar26SSDataBaseBindingStatementP", "getInt"]
+- ["7SSSugar26SSDataBaseBindingStatementP", "getInt64"]
+- ["7SSSugar26SSDataBaseBindingStatementP", "getString"]
+- ["7SSSugar26SSDataBaseBindingStatementP", "isNull"]
+- ["7SSSugar26SSDataBaseBindingStatementP", "release"]
+- ["7SSSugar26SSDataBaseBindingStatementP", "select"]
+- ["7SSSugar26SSDataBaseBindingStatementP", "statement"]
+- ["7SSSugar26SSDataBaseGettingStatementP", ""]
+- ["7SSSugar26SSDataBaseGettingStatementP", "bind"]
+- !private ["7SSSugar26SSDataBaseGettingStatementP", "bindIndex"]
+- ["7SSSugar26SSDataBaseGettingStatementP", "bindNull"]
+- ["7SSSugar26SSDataBaseGettingStatementP", "clear"]
+- ["7SSSugar26SSDataBaseGettingStatementP", "commit"]
+- !private ["7SSSugar26SSDataBaseGettingStatementP", "get"]
+- ["7SSSugar26SSDataBaseGettingStatementP", "getData"]
+- ["7SSSugar26SSDataBaseGettingStatementP", "getDouble"]
+- !private ["7SSSugar26SSDataBaseGettingStatementP", "getIndex"]
+- ["7SSSugar26SSDataBaseGettingStatementP", "getInt"]
+- ["7SSSugar26SSDataBaseGettingStatementP", "getInt64"]
+- ["7SSSugar26SSDataBaseGettingStatementP", "getString"]
+- ["7SSSugar26SSDataBaseGettingStatementP", "isNull"]
+- ["7SSSugar26SSDataBaseGettingStatementP", "release"]
+- ["7SSSugar26SSDataBaseGettingStatementP", "select"]
+- ["7SSSugar26SSDataBaseGettingStatementP", "statement"]
+- ["7SSSugar28SSDataBaseStatementProcessorC", "Bool"]
+- ["7SSSugar28SSDataBaseStatementProcessorC", "SSDBColType"]
+- ["7SSSugar28SSDataBaseStatementProcessorC", "SSDataBaseStatementProtocol"]
+- ["7SSSugar28SSDataBaseStatementProcessorC", ""]
+- ["7SSSugar28SSDataBaseStatementProcessorC", "bind"]
+- ["7SSSugar28SSDataBaseStatementProcessorC", "bindIndex"]
+- ["7SSSugar28SSDataBaseStatementProcessorC", "bindNull"]
+- ["7SSSugar28SSDataBaseStatementProcessorC", "clear"]
+- ["7SSSugar28SSDataBaseStatementProcessorC", "commit"]
+- ["7SSSugar28SSDataBaseStatementProcessorC", "deinit"]
+- ["7SSSugar28SSDataBaseStatementProcessorC", "get"]
+- ["7SSSugar28SSDataBaseStatementProcessorC", "getData"]
+- ["7SSSugar28SSDataBaseStatementProcessorC", "getDouble"]
+- ["7SSSugar28SSDataBaseStatementProcessorC", "getIndex"]
+- ["7SSSugar28SSDataBaseStatementProcessorC", "getInt"]
+- ["7SSSugar28SSDataBaseStatementProcessorC", "getInt64"]
+- ["7SSSugar28SSDataBaseStatementProcessorC", "getString"]
+- ["7SSSugar28SSDataBaseStatementProcessorC", "init"]
+- ["7SSSugar28SSDataBaseStatementProcessorC", "isNull"]
+- ["7SSSugar28SSDataBaseStatementProcessorC", "release"]
+- ["7SSSugar28SSDataBaseStatementProcessorC", "select"]
+- ["7SSSugar28SSDataBaseStatementProcessorC", "statement"]
+- ["7SSSugar27SSDataBaseStatementProtocolP", ""]
+- ["7SSSugar27SSDataBaseStatementProtocolP", "bind"]
+- !private ["7SSSugar27SSDataBaseStatementProtocolP", "bindIndex"]
+- ["7SSSugar27SSDataBaseStatementProtocolP", "bindNull"]
+- ["7SSSugar27SSDataBaseStatementProtocolP", "clear"]
+- ["7SSSugar27SSDataBaseStatementProtocolP", "commit"]
+- !private ["7SSSugar27SSDataBaseStatementProtocolP", "get"]
+- ["7SSSugar27SSDataBaseStatementProtocolP", "getData"]
+- ["7SSSugar27SSDataBaseStatementProtocolP", "getDouble"]
+- !private ["7SSSugar27SSDataBaseStatementProtocolP", "getIndex"]
+- ["7SSSugar27SSDataBaseStatementProtocolP", "getInt"]
+- ["7SSSugar27SSDataBaseStatementProtocolP", "getInt64"]
+- ["7SSSugar27SSDataBaseStatementProtocolP", "getString"]
+- ["7SSSugar27SSDataBaseStatementProtocolP", "isNull"]
+- ["7SSSugar27SSDataBaseStatementProtocolP", "release"]
+- ["7SSSugar27SSDataBaseStatementProtocolP", "select"]
+- ["7SSSugar27SSDataBaseStatementProtocolP", "statement"]
+- ["7SSSugar26SSDataBaseStatementProxingP", ""]
+- ["7SSSugar26SSDataBaseStatementProxingP", "bind"]
+- !private ["7SSSugar26SSDataBaseStatementProxingP", "bindIndex"]
+- ["7SSSugar26SSDataBaseStatementProxingP", "bindNull"]
+- ["7SSSugar26SSDataBaseStatementProxingP", "clear"]
+- ["7SSSugar26SSDataBaseStatementProxingP", "commit"]
+- !private ["7SSSugar26SSDataBaseStatementProxingP", "get"]
+- ["7SSSugar26SSDataBaseStatementProxingP", "getData"]
+- ["7SSSugar26SSDataBaseStatementProxingP", "getDouble"]
+- !private ["7SSSugar26SSDataBaseStatementProxingP", "getIndex"]
+- ["7SSSugar26SSDataBaseStatementProxingP", "getInt"]
+- ["7SSSugar26SSDataBaseStatementProxingP", "getInt64"]
+- ["7SSSugar26SSDataBaseStatementProxingP", "getString"]
+- ["7SSSugar26SSDataBaseStatementProxingP", "isNull"]
+- ["7SSSugar26SSDataBaseStatementProxingP", "release"]
+- ["7SSSugar26SSDataBaseStatementProxingP", "select"]
+- ["7SSSugar26SSDataBaseStatementProxingP", "statement"]
+- ["7SSSugar12SSReleasableP", ""]
+- ["7SSSugar12SSReleasableP", "bind"]
+- !private ["7SSSugar12SSReleasableP", "bindIndex"]
+- ["7SSSugar12SSReleasableP", "bindNull"]
+- ["7SSSugar12SSReleasableP", "clear"]
+- ["7SSSugar12SSReleasableP", "commit"]
+- !private ["7SSSugar12SSReleasableP", "get"]
+- ["7SSSugar12SSReleasableP", "getData"]
+- ["7SSSugar12SSReleasableP", "getDouble"]
+- !private ["7SSSugar12SSReleasableP", "getIndex"]
+- ["7SSSugar12SSReleasableP", "getInt"]
+- ["7SSSugar12SSReleasableP", "getInt64"]
+- ["7SSSugar12SSReleasableP", "getString"]
+- ["7SSSugar12SSReleasableP", "isNull"]
+- ["7SSSugar12SSReleasableP", "release"]
+- ["7SSSugar12SSReleasableP", "select"]
+- ["7SSSugar12SSReleasableP", "statement"]
+- ["s35_ExpressibleByBuiltinIntegerLiteralP", "init"]
+depends-nominal:
+- !private "So8NSObjectP"
+- "7SSSugar26SSDataBaseBindingStatementP"
+- "7SSSugar26SSDataBaseGettingStatementP"
+- "7SSSugar28SSDataBaseStatementProcessorC"
+- "7SSSugar27SSDataBaseStatementProtocolP"
+- "7SSSugar26SSDataBaseStatementProxingP"
+- "7SSSugar12SSReleasableP"
+- "s35_ExpressibleByBuiltinIntegerLiteralP"
+depends-dynamic-lookup:
+depends-external:
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/XPC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/ObjectiveC.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Combine.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Dispatch.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/Foundation.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/CoreFoundation.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/CoreGraphics.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/IOKit.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/macosx/prebuilt-modules/SwiftOnoneSupport.swiftmodule/x86_64-apple-macos.swiftmodule"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/mach-o/dyld.modulemap"
+- "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/SSSugar.build/module.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/mach-o/compact_unwind_encoding.modulemap"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/xpc/XPC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/objc/ObjectiveC.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/lib/swift/apinotes/Dispatch.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/usr/include/Darwin.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/Foundation.framework/Headers/Foundation.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/CoreGraphics.framework/Headers/CoreGraphics.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/ApplicationServices.framework/Headers/ApplicationServices.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/CoreText.framework/Headers/CoreText.apinotes"
+- "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk/System/Library/Frameworks/Security.framework/Headers/Security.apinotes"
+interface-hash: "71baca00c3f98db4c8976dd0b0d03e82"
