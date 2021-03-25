@@ -21,3 +21,9 @@ public protocol SSDBColumnRefProtocol: SSDBColumnProtocol {
     var name: String { get }
     var refname: String { get }
 }
+
+public typealias SSDBTypedTableColumnRef = SSDBTypedTableComponent & SSDBColumnRefProtocol
+
+public protocol SSDBTypedTableComponent {
+    associatedtype OtherTable: SSDBTable
+}

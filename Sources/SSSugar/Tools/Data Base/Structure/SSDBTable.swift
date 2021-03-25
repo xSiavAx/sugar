@@ -26,18 +26,6 @@ public extension SSDBTable {
     }
 }
 
-//MARK - Foreign Key creating
-
-public extension SSDBTable {
-    static func fk(_ get: (Self.Type) -> SSDBColumnRefProtocol) -> SSDBForeignKey<Self> {
-        return SSDBForeignKey(col: get)
-    }
-    
-    static func fks(_ getters: ((Self.Type) -> SSDBColumnRefProtocol)...) -> [SSDBForeignKey<Self>] {
-        return getters.map() { fk($0) }
-    }
-}
-
 //MARK - Index creating
 
 public extension SSDBTable {

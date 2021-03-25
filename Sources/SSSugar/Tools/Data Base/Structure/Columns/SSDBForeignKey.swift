@@ -1,21 +1,21 @@
 import Foundation
 
-public struct SSDBForeignKey<Table: SSDBTable>: SSDBTableComponent {
+public struct SSDBForeignKey<OtherTable: SSDBTable>: SSDBTableComponent, SSDBTypedTableComponent {
     private let refCols: [SSDBColumnRefProtocol]
     
     public func toCreate() -> String {
         let names = namesUsing() { $0.name }
         let refNmes = namesUsing() { $0.refname }
         
-        return "foreign key(\(names)) references `\(Table.tableName)`(\(refNmes))"
+        return "foreign key(\(names)) references `\(OtherTable.tableName)`(\(refNmes))"
     }
     
-    public init(cols: (Table.Type) -> [SSDBColumnRefProtocol]) {
-        refCols = cols(Table.self)
+    public init(cols: [SSDBColumnRefProtocol], on: OtherTable.Type) {
+        refCols = cols
     }
     
-    public init(col: (Table.Type) -> SSDBColumnRefProtocol) {
-        self.init(cols: { [col($0)] } )
+    public init<Col: SSDBTypedTableColumnRef>(col: Col) where Col.OtherTable == OtherTable {
+        self.init(cols: [col], on: OtherTable.self)
     }
     
     private func namesUsing(_ block: (SSDBColumnRefProtocol) -> String) -> String {

@@ -1,6 +1,6 @@
 import Foundation
 
-public struct SSDBColumnRef<Table: SSDBTable, Column: SSDBTypedColumnProtocol>: SSDBColumnRefProtocol {
+public struct SSDBColumnRef<OtherTable: SSDBTable, Column: SSDBTypedColumnProtocol>: SSDBColumnRefProtocol, SSDBTypedTableComponent {
     typealias ColType = Column.ColType
     
     public let name: String
@@ -12,8 +12,12 @@ public struct SSDBColumnRef<Table: SSDBTable, Column: SSDBTypedColumnProtocol>: 
         return "`\(name)` \(ColType.colName)"
     }
     
-    public init(table: Table.Type, col: (Table.Type)->Column) {
-        column = col(Table.self)
-        name = "\(Table.tableName)_\(column.name)"
+    public init(table: OtherTable.Type, col: (OtherTable.Type)->Column) {
+        column = col(OtherTable.self)
+        name = "\(OtherTable.tableName)_\(column.name)"
+    }
+    
+    public func fk() -> SSDBForeignKey<OtherTable> {
+        return SSDBForeignKey(col: self)
     }
 }

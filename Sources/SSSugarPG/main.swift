@@ -16,19 +16,41 @@ struct Contact: SSDBIDTable {
     static let company = SSDBColumn<String?>(name: "company")
 }
 
-struct ContactEmail: SSDBTable {
-    static let tableName = "contact_email"
-    static var colums: [SSDBColumnProtocol] = [value, contact]
+struct ContactGroup: SSDBIDTable {
+    static let tableName: String = "contact_group"
     
-    static var indexes: [SSDBTableIndexProtocol]? = idxs { $0.value }
-    static var foreignKeys: [SSDBTableComponent] = fks() { $0.contact }
+    static var idColumn = id
+    static var idLessColumns: [SSDBColumnProtocol] = [title]
+    static var indexes: [SSDBTableIndexProtocol]? = idxs() { $0.title }
     
-    static let value = SSDBColumn<String>(name: "value")
-    static let contact = Contact.idRef()
+    static let id = SSDBColumn<Int>(name: "id", primaryKey: true)
+    static let title = SSDBColumn<String>(name: "title", unique: true)
+    
+    static func save() -> SSDBQueryProcessor<String, Void> {
+        return SSDBQueryProcessor(saveQuery(), onBind: { try $0.bind($1) })
+    }
+}
+
+struct ContactGroupRel: SSDBTable {
+    static var tableName: String = "contact_group_contact_relation"
+    
+    static var colums: [SSDBColumnProtocol] = [group, contact]
+    static var foreignKeys: [SSDBTableComponent] = [group.fk(), contact.fk()]
+    
+    static var group = ContactGroup.idRef()
+    static var contact = Contact.idRef()
+}
+
+struct TestTable: SSDBTable {
+    static var tableName: String = "test"
+    static var colums: [SSDBColumnProtocol] = [contactID, contactFN]
+    
+    static var contactID = Contact.idRef()
+    static var contactFN = SSDBColumnRef(table: Contact.self) { $0.firstName }
 }
 
 func main() {
-    print(ContactEmail.createQuery())
+    print(ContactGroupRel.createQuery())
 }
 
 main()
