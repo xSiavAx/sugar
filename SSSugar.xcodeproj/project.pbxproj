@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		99355AE5260CC9FD004E0150 /* SSDBColumnRef.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99355AE4260CC9FD004E0150 /* SSDBColumnRef.swift */; };
 		99782069260C9B7500D646E7 /* SSDBColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99782068260C9B7500D646E7 /* SSDBColumn.swift */; };
 		99782079260C9B7F00D646E7 /* SSDBForeignKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99782078260C9B7F00D646E7 /* SSDBForeignKey.swift */; };
 		99782089260C9C9E00D646E7 /* SSDBTypedStatement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99782088260C9C9E00D646E7 /* SSDBTypedStatement.swift */; };
@@ -135,7 +136,7 @@
 		OBJ_495 /* SSDBTypedQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_110 /* SSDBTypedQuery.swift */; };
 		OBJ_496 /* SSDBTypedQueryHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_111 /* SSDBTypedQueryHandling.swift */; };
 		OBJ_497 /* SSDBColType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_112 /* SSDBColType.swift */; };
-		OBJ_498 /* SSDBColumnProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_113 /* SSDBColumnProtocol.swift */; };
+		OBJ_498 /* SSColumnProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_113 /* SSColumnProtocols.swift */; };
 		OBJ_499 /* SSDBStoraging.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_114 /* SSDBStoraging.swift */; };
 		OBJ_500 /* SSDBTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_115 /* SSDBTable.swift */; };
 		OBJ_501 /* SSDBTableIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_116 /* SSDBTableIndex.swift */; };
@@ -192,13 +193,6 @@
 		OBJ_552 /* SSLinearCongruentialRandomizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_177 /* SSLinearCongruentialRandomizer.swift */; };
 		OBJ_553 /* SSProtectionViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_178 /* SSProtectionViewHelper.swift */; };
 		OBJ_554 /* SSViewStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_180 /* SSViewStyles.swift */; };
-		OBJ_562 /* ContactEmailTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_186 /* ContactEmailTable.swift */; };
-		OBJ_563 /* ContactGroupTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_187 /* ContactGroupTable.swift */; };
-		OBJ_564 /* ContactPhoneTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_188 /* ContactPhoneTable.swift */; };
-		OBJ_565 /* ContactTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_189 /* ContactTable.swift */; };
-		OBJ_566 /* DynamicStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_190 /* DynamicStorage.swift */; };
-		OBJ_567 /* IdentityTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_191 /* IdentityTable.swift */; };
-		OBJ_568 /* VariableTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_192 /* VariableTable.swift */; };
 		OBJ_569 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_193 /* main.swift */; };
 		OBJ_571 /* ArgumentParser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "swift-argument-parser::ArgumentParser::Product" /* ArgumentParser.framework */; };
 		OBJ_572 /* SSSugar.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SSSugar::SSSugar::Product" /* SSSugar.framework */; };
@@ -339,6 +333,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		99355AE4260CC9FD004E0150 /* SSDBColumnRef.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDBColumnRef.swift; sourceTree = "<group>"; };
 		99782068260C9B7500D646E7 /* SSDBColumn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDBColumn.swift; sourceTree = "<group>"; };
 		99782078260C9B7F00D646E7 /* SSDBForeignKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDBForeignKey.swift; sourceTree = "<group>"; };
 		99782088260C9C9E00D646E7 /* SSDBTypedStatement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDBTypedStatement.swift; sourceTree = "<group>"; };
@@ -352,7 +347,7 @@
 		OBJ_110 /* SSDBTypedQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDBTypedQuery.swift; sourceTree = "<group>"; };
 		OBJ_111 /* SSDBTypedQueryHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDBTypedQueryHandling.swift; sourceTree = "<group>"; };
 		OBJ_112 /* SSDBColType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDBColType.swift; sourceTree = "<group>"; };
-		OBJ_113 /* SSDBColumnProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDBColumnProtocol.swift; sourceTree = "<group>"; };
+		OBJ_113 /* SSColumnProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSColumnProtocols.swift; sourceTree = "<group>"; };
 		OBJ_114 /* SSDBStoraging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDBStoraging.swift; sourceTree = "<group>"; };
 		OBJ_115 /* SSDBTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDBTable.swift; sourceTree = "<group>"; };
 		OBJ_116 /* SSDBTableIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDBTableIndex.swift; sourceTree = "<group>"; };
@@ -413,14 +408,7 @@
 		OBJ_177 /* SSLinearCongruentialRandomizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLinearCongruentialRandomizer.swift; sourceTree = "<group>"; };
 		OBJ_178 /* SSProtectionViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSProtectionViewHelper.swift; sourceTree = "<group>"; };
 		OBJ_180 /* SSViewStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSViewStyles.swift; sourceTree = "<group>"; };
-		OBJ_186 /* ContactEmailTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactEmailTable.swift; sourceTree = "<group>"; };
-		OBJ_187 /* ContactGroupTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactGroupTable.swift; sourceTree = "<group>"; };
-		OBJ_188 /* ContactPhoneTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactPhoneTable.swift; sourceTree = "<group>"; };
-		OBJ_189 /* ContactTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactTable.swift; sourceTree = "<group>"; };
 		OBJ_19 /* AutoMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMap.swift; sourceTree = "<group>"; };
-		OBJ_190 /* DynamicStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DynamicStorage.swift; sourceTree = "<group>"; };
-		OBJ_191 /* IdentityTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IdentityTable.swift; sourceTree = "<group>"; };
-		OBJ_192 /* VariableTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VariableTable.swift; sourceTree = "<group>"; };
 		OBJ_193 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		OBJ_199 /* AutoMapAddContainerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapAddContainerTests.swift; sourceTree = "<group>"; };
 		OBJ_200 /* AutoMapAddTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapAddTests.swift; sourceTree = "<group>"; };
@@ -668,9 +656,11 @@
 		99782067260C9B6100D646E7 /* Columns */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_113 /* SSDBColumnProtocol.swift */,
-				99782078260C9B7F00D646E7 /* SSDBForeignKey.swift */,
+				OBJ_113 /* SSColumnProtocols.swift */,
 				99782068260C9B7500D646E7 /* SSDBColumn.swift */,
+				99355AE4260CC9FD004E0150 /* SSDBColumnRef.swift */,
+				99782078260C9B7F00D646E7 /* SSDBForeignKey.swift */,
+				OBJ_112 /* SSDBColType.swift */,
 			);
 			path = Columns;
 			sourceTree = "<group>";
@@ -896,42 +886,11 @@
 		OBJ_181 /* SSSugarPG */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_182 /* Data Base */,
 				OBJ_193 /* main.swift */,
 			);
 			name = SSSugarPG;
 			path = Sources/SSSugarPG;
 			sourceTree = SOURCE_ROOT;
-		};
-		OBJ_182 /* Data Base */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_184 /* Storages */,
-			);
-			path = "Data Base";
-			sourceTree = "<group>";
-		};
-		OBJ_184 /* Storages */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_185 /* Dynamic */,
-			);
-			path = Storages;
-			sourceTree = "<group>";
-		};
-		OBJ_185 /* Dynamic */ = {
-			isa = PBXGroup;
-			children = (
-				OBJ_190 /* DynamicStorage.swift */,
-				OBJ_186 /* ContactEmailTable.swift */,
-				OBJ_187 /* ContactGroupTable.swift */,
-				OBJ_188 /* ContactPhoneTable.swift */,
-				OBJ_189 /* ContactTable.swift */,
-				OBJ_191 /* IdentityTable.swift */,
-				OBJ_192 /* VariableTable.swift */,
-			);
-			path = Dynamic;
-			sourceTree = "<group>";
 		};
 		OBJ_194 /* Tests */ = {
 			isa = PBXGroup;
@@ -1628,7 +1587,6 @@
 			children = (
 				OBJ_100 /* Query */,
 				99782067260C9B6100D646E7 /* Columns */,
-				OBJ_112 /* SSDBColType.swift */,
 				OBJ_114 /* SSDBStoraging.swift */,
 				OBJ_115 /* SSDBTable.swift */,
 				OBJ_116 /* SSDBTableIndex.swift */,
@@ -1890,7 +1848,7 @@
 				OBJ_495 /* SSDBTypedQuery.swift in Sources */,
 				OBJ_496 /* SSDBTypedQueryHandling.swift in Sources */,
 				OBJ_497 /* SSDBColType.swift in Sources */,
-				OBJ_498 /* SSDBColumnProtocol.swift in Sources */,
+				OBJ_498 /* SSColumnProtocols.swift in Sources */,
 				99782069260C9B7500D646E7 /* SSDBColumn.swift in Sources */,
 				OBJ_499 /* SSDBStoraging.swift in Sources */,
 				OBJ_500 /* SSDBTable.swift in Sources */,
@@ -1918,6 +1876,7 @@
 				OBJ_522 /* SSEntityDmMutator.swift in Sources */,
 				OBJ_523 /* SSEntityMutator.swift in Sources */,
 				OBJ_524 /* SSEntityProcessor.swift in Sources */,
+				99355AE5260CC9FD004E0150 /* SSDBColumnRef.swift in Sources */,
 				OBJ_525 /* SSEntityRemoteMutator.swift in Sources */,
 				99782089260C9C9E00D646E7 /* SSDBTypedStatement.swift in Sources */,
 				OBJ_526 /* SSEntityStorageMutator.swift in Sources */,
@@ -1956,13 +1915,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_562 /* ContactEmailTable.swift in Sources */,
-				OBJ_563 /* ContactGroupTable.swift in Sources */,
-				OBJ_564 /* ContactPhoneTable.swift in Sources */,
-				OBJ_565 /* ContactTable.swift in Sources */,
-				OBJ_566 /* DynamicStorage.swift in Sources */,
-				OBJ_567 /* IdentityTable.swift in Sources */,
-				OBJ_568 /* VariableTable.swift in Sources */,
 				OBJ_569 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

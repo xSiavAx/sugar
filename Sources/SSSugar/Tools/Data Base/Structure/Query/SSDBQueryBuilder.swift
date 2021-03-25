@@ -12,8 +12,6 @@ public class SSDBQueryBuilder {
         case insert
         case update
         case delete
-        case create
-        case drop
     }
     private var kind: Kind
     private var table: String
@@ -32,8 +30,6 @@ public class SSDBQueryBuilder {
         case .insert: return try insert()
         case .update: return try update()
         case .delete: return delete()
-        case .create: return try create()
-        case .drop: return drop()
         }
     }
     
@@ -87,21 +83,6 @@ public class SSDBQueryBuilder {
     
     private func delete() -> String {
         return "delete from `\(table)`\(whereClause())"
-    }
-    
-    private func create() throws -> String {
-        try ensureHasColums()
-        let rowComponents = columns.map { $0.toCreateComponent() }
-        
-        return """
-        create table `\(table)` (
-            \(rowComponents.joined(separator: ",\n    "))
-        );
-        """
-    }
-    
-    private func drop() -> String {
-        return "drop table `\(table)`;"
     }
     
     private func whereClause() -> String {

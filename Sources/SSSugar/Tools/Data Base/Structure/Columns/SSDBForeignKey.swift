@@ -1,22 +1,24 @@
 import Foundation
 
-public struct SSDBForeignKey<Table: SSDBTable>: SSDBColumnProtocol {
-    public let name: String
-    public let optional: Bool
+public struct SSDBForeignKey<Table: SSDBTable>: SSDBTableComponent {
+    private let refCols: [SSDBColumnRefProtocol]
     
-    public var unique: Bool { true }
-    
-    private let refColName: String
-    
-    public func toCreateComponent() -> String {
-        return "foreign key(`\(name)`) references `\(Table.tableName)`(`\(refColName)`)"
+    public func toCreate() -> String {
+        let names = namesUsing() { $0.name }
+        let refNmes = namesUsing() { $0.refname }
+        
+        return "foreign key(\(names)) references `\(Table.tableName)`(\(refNmes))"
     }
     
-    public init(optional mOptional: Bool? = nil, col: (Table.Type) -> SSDBColumnProtocol) {
-        let column = col(Table.self)
-        
-        name = "\(Table.tableName)_\(column.name)"
-        optional = mOptional ?? column.optional
-        refColName = column.name
+    public init(cols: (Table.Type) -> [SSDBColumnRefProtocol]) {
+        refCols = cols(Table.self)
+    }
+    
+    public init(col: (Table.Type) -> SSDBColumnRefProtocol) {
+        self.init(cols: { [col($0)] } )
+    }
+    
+    private func namesUsing(_ block: (SSDBColumnRefProtocol) -> String) -> String {
+        return refCols.map { "`\(block($0))`" }.joined(separator: ", ")
     }
 }

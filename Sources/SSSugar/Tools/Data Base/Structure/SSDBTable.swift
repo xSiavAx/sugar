@@ -2,8 +2,11 @@ import Foundation
 
 public protocol SSDBTable {
     static var tableName: String { get }
-    static var columns: [SSDBColumnProtocol] { get }
-    static var indexCols: [SSDBColumnProtocol]? {get}
+    static var regularColumns: [SSDBRegualColumnProtocol] { get }
+    static var refCoulmns: [SSDBColumnRefProtocol] { get }
+    static var foreignKeys: [SSDBTableComponent] { get }
+    
+    static var indexCols: [SSDBRegualColumnProtocol]? {get}
     static var customIndexes: [SSDBTableIndexProtocol]? {get}
     
     static func createQuery() -> String
@@ -11,13 +14,18 @@ public protocol SSDBTable {
 }
 
 public protocol SSDBTableWithID: SSDBTable {
-    static var idColumn: SSDBColumnProtocol { get }
+    associatedtype IDColumn: SSDBTypedColumnProtocol
     
-    static var idLessColumns: [SSDBColumnProtocol] { get }
+    static var idColumn: IDColumn { get }
+    
+    static var idLessColumns: [SSDBRegualColumnProtocol] { get }
 }
 
 public extension SSDBTable {
-    static var indexCols: [SSDBColumnProtocol]? { nil }
+    static var colums: [SSDBColumnProtocol] { regularColumns + refCoulmns }
+    static var refCoulmns: [SSDBColumnRefProtocol] { [] }
+    static var foreignKeys: [SSDBTableComponent] { [] }
+    static var indexCols: [SSDBRegualColumnProtocol]? { nil }
     static var customIndexes: [SSDBTableIndexProtocol]? { nil }
     
     static func createQuery() -> String {
@@ -29,18 +37,24 @@ public extension SSDBTable {
     }
     
     static func baseCreateQuery() -> String {
-        let tableQuery = try! query(.create).add(cols: columns).build()
-        return ([tableQuery] + createIndexesQueries()).joined(separator: "\n")
+        let components = colums + foreignKeys
+        let colComponents = components.map { $0.toCreate() }.joined(separator: ",\n    ")
+        let base = """
+        create table `\(tableName)` (
+            \(colComponents)
+        );
+        """
+        return ([base] + createIndexesQueries()).joined(separator: "\n")
     }
     
     static func baseDropQuery() -> String {
-        let tableQuery = try! query(.drop).build()
-        return ([tableQuery] + dropIndexesQueries()).joined(separator: "\n")
+        let base = "drop table \(tableName)"
+        return ([base] + dropIndexesQueries()).joined(separator: "\n")
     }
     
     //Query for inserting row with every table colum (including id)
     static func insertQuery() -> String {
-        return insertQuery(cols: columns)
+        return insertQuery(cols: colums)
     }
     
     static func insertQuery(cols: [SSDBColumnProtocol]) -> String {
@@ -56,7 +70,7 @@ public extension SSDBTable {
     }
     
     static func selectAllQueryBuilder() -> SSDBQueryBuilder {
-        return query(.select).add(cols: columns)
+        return query(.select).add(cols: colums)
     }
     
     private static func createIndexesQueries() -> [String] {
@@ -76,14 +90,18 @@ public extension SSDBTable {
 }
 
 public extension SSDBTableWithID {
-    static var columns: [SSDBColumnProtocol] { [idColumn] + idLessColumns }
+    static var regularColumns: [SSDBRegualColumnProtocol] { [idColumn] + idLessColumns }
+    
+    static func idRef() -> SSDBColumnRef<Self, Self.IDColumn> {
+        return SSDBColumnRef(table: Self.self) { $0.idColumn }
+    }
     
     // Query for inserting row with every table colums except id
     static func saveQuery() -> String {
         insertQuery(cols: idLessColumns)
     }
     
-    static func updateQuery(cols: [SSDBColumnProtocol]) -> String {
+    static func updateQuery(cols: [SSDBRegualColumnProtocol]) -> String {
         return try! whereQuery(.update).add(cols: idLessColumns).build()
     }
     

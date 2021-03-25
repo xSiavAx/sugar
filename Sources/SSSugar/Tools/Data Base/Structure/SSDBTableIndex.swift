@@ -38,17 +38,17 @@ public struct SSDBTableIndex<Table: SSDBTable>: SSDBTableIndexProtocol {
     public let isUniqeu: Bool
     public let prefix: String
     
-    public init(prefix mPrefix: String = defaultPrefix, col: (Table.Type) -> SSDBColumnProtocol) {
+    public init(prefix mPrefix: String = defaultPrefix, col: (Table.Type) -> SSDBRegualColumnProtocol) {
         self.init(prefix: mPrefix, col: col(Table.self))
     }
     
-    public init(isUnique uniqeu: Bool = true, prefix mPrefix: String = defaultPrefix, cols: (Table.Type) -> [SSDBColumnProtocol]) {
+    public init(isUnique uniqeu: Bool = true, prefix mPrefix: String = defaultPrefix, cols: (Table.Type) -> [SSDBRegualColumnProtocol]) {
         colNames = cols(Table.self).map { $0.name }
         isUniqeu = uniqeu
         prefix = mPrefix
     }
     
-    internal init(prefix mPrefix: String = defaultPrefix, col: SSDBColumnProtocol) {
+    internal init(prefix mPrefix: String = defaultPrefix, col: SSDBRegualColumnProtocol) {
         colNames = [col.name]
         isUniqeu = col.unique
         prefix = mPrefix

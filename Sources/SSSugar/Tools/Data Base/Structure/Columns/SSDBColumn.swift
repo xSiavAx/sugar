@@ -1,21 +1,21 @@
 import Foundation
 
-public struct SSDBColumn<Type: SSDBColType>: SSDBColumnProtocol {
+public struct SSDBColumn<ColType: SSDBColType>: SSDBTypedColumnProtocol {
     public let name: String
     public let unique: Bool
     public let primaryKey: Bool
-    public let defaultVal: Type?
-    public var optional: Bool { Type.isOptionalCol }
+    public let defaultVal: ColType?
+    public var optional: Bool { ColType.isOptionalCol }
     
-    public init(name mName: String, unique mUnique: Bool = false, primaryKey pk: Bool = false, defaultVal val: Type? = nil) {
+    public init(name mName: String, unique mUnique: Bool = false, primaryKey pk: Bool = false, defaultVal val: ColType? = nil) {
         name = mName
         unique = mUnique
         primaryKey = pk
         defaultVal = val
     }
     
-    public func toCreateComponent() -> String {
-        return "`\(name)` \(Type.colName)\(createAdditions())"
+    public func toCreate() -> String {
+        return "`\(name)` \(ColType.colName)\(createAdditions())"
     }
     
     private func createAdditions() -> String {
