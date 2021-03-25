@@ -1,7 +1,7 @@
 import Foundation
 import SSSugar
 
-struct Contact: SSDBTableWithID {
+struct Contact: SSDBIDTable {
     static var tableName: String { "contact" }
     static var idColumn: SSDBColumn<Int> { id }
     static var idLessColumns: [SSDBRegualColumnProtocol] = [firstName, lastName, birthDay, color, initials, notes, company]
@@ -22,7 +22,7 @@ struct ContactEmail: SSDBTable {
     static var refCoulmns: [SSDBColumnRefProtocol] = [contact]
     
     static var indexCols: [SSDBRegualColumnProtocol]? = [value]
-    static var foreignKeys: [SSDBTableComponent] = [ SSDBForeignKey<Self>() { $0.contact } ]
+    static var foreignKeys: [SSDBTableComponent] = fks() { $0.contact }
     
     static let value = SSDBColumn<String>(name: "value")
     static let contact = Contact.idRef()

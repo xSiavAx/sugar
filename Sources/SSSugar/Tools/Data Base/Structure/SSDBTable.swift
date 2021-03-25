@@ -13,13 +13,7 @@ public protocol SSDBTable {
     static func dropQuery() -> String
 }
 
-public protocol SSDBTableWithID: SSDBTable {
-    associatedtype IDColumn: SSDBTypedColumnProtocol
-    
-    static var idColumn: IDColumn { get }
-    
-    static var idLessColumns: [SSDBRegualColumnProtocol] { get }
-}
+//MARK: - Default implementation
 
 public extension SSDBTable {
     static var colums: [SSDBColumnProtocol] { regularColumns + refCoulmns }
@@ -35,7 +29,43 @@ public extension SSDBTable {
     static func dropQuery() -> String {
         return baseDropQuery()
     }
+}
+
+//MARK - Foreign Key creating
+
+public extension SSDBTable {
+    static func fk(_ get: (Self.Type) -> SSDBColumnRefProtocol) -> SSDBForeignKey<Self> {
+        return SSDBForeignKey(col: get)
+    }
     
+    static func fks(_ getters: ((Self.Type) -> SSDBColumnRefProtocol)...) -> [SSDBForeignKey<Self>] {
+        return getters.map() { fk($0) }
+    }
+}
+
+//MARK - Index creating
+
+public extension SSDBTable {
+    static func index(_ get: (Self.Type) -> SSDBRegualColumnProtocol) -> SSDBTableIndex<Self> {
+        return SSDBTableIndex<Self>(col: get)
+    }
+    
+    static func index(unique: Bool = true, _ get: (Self.Type) -> [SSDBRegualColumnProtocol]) -> SSDBTableIndex<Self> {
+        return SSDBTableIndex<Self>(isUnique: unique, cols: get)
+    }
+    
+    static func indexes(_ getters: ((Self.Type) -> SSDBRegualColumnProtocol)... ) -> [SSDBTableIndex<Self>] {
+        return getters.map() { index($0) }
+    }
+    
+    static func indexes(unique: Bool = true, _ getters: ((Self.Type) -> [SSDBRegualColumnProtocol])... ) -> [SSDBTableIndex<Self>] {
+        return getters.map() { index(unique:unique, $0) }
+    }
+}
+
+//MARK: - Queries
+
+public extension SSDBTable {
     static func baseCreateQuery() -> String {
         let components = colums + foreignKeys
         let colComponents = components.map { $0.toCreate() }.joined(separator: ",\n    ")
@@ -86,38 +116,5 @@ public extension SSDBTable {
         let custom = customIndexes ?? []
         
         return base + custom
-    }
-}
-
-public extension SSDBTableWithID {
-    static var regularColumns: [SSDBRegualColumnProtocol] { [idColumn] + idLessColumns }
-    
-    static func idRef() -> SSDBColumnRef<Self, Self.IDColumn> {
-        return SSDBColumnRef(table: Self.self) { $0.idColumn }
-    }
-    
-    // Query for inserting row with every table colums except id
-    static func saveQuery() -> String {
-        insertQuery(cols: idLessColumns)
-    }
-    
-    static func updateQuery(cols: [SSDBRegualColumnProtocol]) -> String {
-        return try! whereQuery(.update).add(cols: idLessColumns).build()
-    }
-    
-    static func updateQuery() -> String {
-        return updateQuery(cols: idLessColumns)
-    }
-    
-    static func selectQuery() -> String {
-        return try! selectAllQueryBuilder().add(colCondition: idColumn).build()
-    }
-    
-    static func removeQuery() -> String {
-        return try! whereQuery(.delete).build()
-    }
-    
-    static func whereQuery(_ kind: SSDBQueryBuilder.Kind) -> SSDBQueryBuilder {
-        return query(kind).add(colCondition: idColumn)
     }
 }
