@@ -13,7 +13,7 @@ public protocol SSDBTableIndexProtocol {
 
 public extension SSDBTableIndexProtocol {
     func toCreateComponent() -> String {
-        return "create \(uniqueComp())index `\(name)` on `\(tableName)` (\(colNames());"
+        return "create \(uniqueComp())index `\(name)` on `\(tableName)` (\(colNames()));"
     }
     
     func toDropComponent() -> String {
