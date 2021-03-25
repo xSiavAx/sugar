@@ -3,8 +3,8 @@ import SSSugar
 
 struct Contact: SSDBIDTable {
     static var tableName: String { "contact" }
-    static var idColumn: SSDBColumn<Int> { id }
-    static var idLessColumns: [SSDBRegualColumnProtocol] = [firstName, lastName, birthDay, color, initials, notes, company]
+    static var idColumn = id
+    static var idLessColumns: [SSDBColumnProtocol] = [firstName, lastName, birthDay, color, initials, notes, company]
     
     static let id = SSDBColumn<Int>(name: "id", primaryKey: true)
     static let firstName = SSDBColumn<String?>(name: "first_name")
@@ -18,10 +18,9 @@ struct Contact: SSDBIDTable {
 
 struct ContactEmail: SSDBTable {
     static let tableName = "contact_email"
-    static var regularColumns: [SSDBRegualColumnProtocol] = [value]
-    static var refCoulmns: [SSDBColumnRefProtocol] = [contact]
+    static var colums: [SSDBColumnProtocol] = [value, contact]
     
-    static var indexCols: [SSDBRegualColumnProtocol]? = [value]
+    static var indexes: [SSDBTableIndexProtocol]? = idxs { $0.value }
     static var foreignKeys: [SSDBTableComponent] = fks() { $0.contact }
     
     static let value = SSDBColumn<String>(name: "value")

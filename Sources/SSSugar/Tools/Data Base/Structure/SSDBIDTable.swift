@@ -5,13 +5,13 @@ public protocol SSDBIDTable: SSDBTable {
     
     static var idColumn: IDColumn { get }
     
-    static var idLessColumns: [SSDBRegualColumnProtocol] { get }
+    static var idLessColumns: [SSDBColumnProtocol] { get }
 }
 
 //MARK: - SSDBTable
 
 public extension SSDBIDTable {
-    static var regularColumns: [SSDBRegualColumnProtocol] { [idColumn] + idLessColumns }
+    static var colums: [SSDBColumnProtocol] { [idColumn] + idLessColumns }
 }
 
 //MARK: - Reference Creating
@@ -30,7 +30,7 @@ public extension SSDBIDTable {
         insertQuery(cols: idLessColumns)
     }
     
-    static func updateQuery(cols: [SSDBRegualColumnProtocol]) -> String {
+    static func updateQuery(cols: [SSDBColumnProtocol]) -> String {
         return try! whereQuery(.update).add(cols: idLessColumns).build()
     }
     

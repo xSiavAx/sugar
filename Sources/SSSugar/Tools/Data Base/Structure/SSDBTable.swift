@@ -2,12 +2,10 @@ import Foundation
 
 public protocol SSDBTable {
     static var tableName: String { get }
-    static var regularColumns: [SSDBRegualColumnProtocol] { get }
-    static var refCoulmns: [SSDBColumnRefProtocol] { get }
+    static var colums: [SSDBColumnProtocol] {get}
     static var foreignKeys: [SSDBTableComponent] { get }
     
-    static var indexCols: [SSDBRegualColumnProtocol]? {get}
-    static var customIndexes: [SSDBTableIndexProtocol]? {get}
+    static var indexes: [SSDBTableIndexProtocol]? {get}
     
     static func createQuery() -> String
     static func dropQuery() -> String
@@ -16,11 +14,8 @@ public protocol SSDBTable {
 //MARK: - Default implementation
 
 public extension SSDBTable {
-    static var colums: [SSDBColumnProtocol] { regularColumns + refCoulmns }
-    static var refCoulmns: [SSDBColumnRefProtocol] { [] }
     static var foreignKeys: [SSDBTableComponent] { [] }
-    static var indexCols: [SSDBRegualColumnProtocol]? { nil }
-    static var customIndexes: [SSDBTableIndexProtocol]? { nil }
+    static var indexes: [SSDBTableIndexProtocol]? { nil }
     
     static func createQuery() -> String {
         return baseCreateQuery()
@@ -46,20 +41,20 @@ public extension SSDBTable {
 //MARK - Index creating
 
 public extension SSDBTable {
-    static func index(_ get: (Self.Type) -> SSDBRegualColumnProtocol) -> SSDBTableIndex<Self> {
+    static func idx(_ get: (Self.Type) -> SSDBRegualColumnProtocol) -> SSDBTableIndex<Self> {
         return SSDBTableIndex<Self>(col: get)
     }
     
-    static func index(unique: Bool = true, _ get: (Self.Type) -> [SSDBRegualColumnProtocol]) -> SSDBTableIndex<Self> {
+    static func idx(unique: Bool = true, _ get: (Self.Type) -> [SSDBRegualColumnProtocol]) -> SSDBTableIndex<Self> {
         return SSDBTableIndex<Self>(isUnique: unique, cols: get)
     }
     
-    static func indexes(_ getters: ((Self.Type) -> SSDBRegualColumnProtocol)... ) -> [SSDBTableIndex<Self>] {
-        return getters.map() { index($0) }
+    static func idxs(_ getters: ((Self.Type) -> SSDBRegualColumnProtocol)... ) -> [SSDBTableIndex<Self>] {
+        return getters.map() { idx($0) }
     }
     
-    static func indexes(unique: Bool = true, _ getters: ((Self.Type) -> [SSDBRegualColumnProtocol])... ) -> [SSDBTableIndex<Self>] {
-        return getters.map() { index(unique:unique, $0) }
+    static func idxs(unique: Bool = true, _ getters: ((Self.Type) -> [SSDBRegualColumnProtocol])... ) -> [SSDBTableIndex<Self>] {
+        return getters.map() { idx(unique:unique, $0) }
     }
 }
 
@@ -104,17 +99,10 @@ public extension SSDBTable {
     }
     
     private static func createIndexesQueries() -> [String] {
-        return allIndexes().map { $0.toCreateComponent() }
+        return indexes?.map { $0.toCreateComponent() } ?? []
     }
     
     private static func dropIndexesQueries() -> [String] {
-        return allIndexes().map { $0.toDropComponent() }
-    }
-    
-    private static func allIndexes() -> [SSDBTableIndexProtocol] {
-        let base = indexCols?.map { SSDBTableIndex<Self>(col: $0) } ?? []
-        let custom = customIndexes ?? []
-        
-        return base + custom
+        return indexes?.map { $0.toDropComponent() } ?? []
     }
 }
