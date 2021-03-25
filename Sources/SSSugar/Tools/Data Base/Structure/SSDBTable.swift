@@ -31,15 +31,7 @@ public extension SSDBTable {
 //MARK - Primary key creating
 
 public extension SSDBTable {
-    static func pk(_ col: SSDBColumnProtocol) -> SSDBPrimaryKey {
-        return pk(cols: [col])
-    }
-    
     static func pk(_ cols: SSDBColumnProtocol...) -> SSDBPrimaryKey {
-        return pk(cols: cols)
-    }
-    
-    static func pk(cols: [SSDBColumnProtocol]) -> SSDBPrimaryKey {
         return SSDBPrimaryKey(cols: cols)
     }
 }
