@@ -13,11 +13,30 @@ public class SSDBQueryBuilder {
         case update
         case delete
     }
+    public struct OrderByComp {
+        public enum Order: String {
+            case asc = "asc"
+            case desc = "desc"
+        }
+        let col: SSDBColumnProtocol
+        let order: Order
+        
+        func toString() -> String {
+            return "`\(col.name)` \(order.rawValue)"
+        }
+    }
+    public struct LimitComp {
+        let val: Int
+        let offset: Int?
+    }
     private var kind: Kind
     private var table: String
     private var columns = [SSDBColumnProtocol]()
     private var updateColumns = [String]()
     private var conditions = SSDBConditionSet()
+    private var orderBys = [OrderByComp]()
+    private var limitComp: LimitComp?
+    private var groupBys = [SSDBColumnProtocol]()
     
     public init(_ mKind: Kind, table name: String) {
         kind = mKind
@@ -57,13 +76,50 @@ public class SSDBQueryBuilder {
         return self
     }
     
+    @discardableResult
+    public func addOrder(_ order: OrderByComp.Order = .asc, by col: SSDBColumnProtocol) -> SSDBQueryBuilder {
+        orderBys.append(OrderByComp(col: col, order: order))
+        return self
+    }
+    
+    @discardableResult
+    public func setLimit(_ limit: Int, offset: Int? = nil) -> SSDBQueryBuilder {
+        limitComp = LimitComp(val: limit, offset: offset)
+        return self
+    }
+    
+    @discardableResult
+    public func addGroupBy(col: SSDBColumnProtocol) -> SSDBQueryBuilder {
+        groupBys.append(col)
+        return self
+    }
+    
     //MARK: - private
     
     private func select() throws -> String {
         try ensureHasColums()
         let names = Self.colNamesStrFrom(cols: columns)
         
-        return "select \(names) from `\(table)`\(whereClause());"
+        return "select \(names) from `\(table)`\(selectClausesStr());"
+    }
+    
+    private func clausesStr(with components: [String?]) -> String {
+        let newComps = components.compactMap() { $0 }
+        
+        guard !newComps.isEmpty else { return "" }
+        return " " + newComps.joined(separator: " ")
+    }
+    
+    private func selectClausesStr() -> String {
+        return clausesStr(with: [whereClause(), orderByClause(), limitClause(), groupByClause()])
+    }
+    
+    private func updateClausesStr() -> String {
+        return clausesStr(with: [whereClause()])
+    }
+    
+    private func deleteClausesStr() -> String {
+        return clausesStr(with: [whereClause()])
     }
     
     private func insert() throws -> String {
@@ -78,18 +134,40 @@ public class SSDBQueryBuilder {
         try ensureHasUpdateColums()
         let placeHolders = (Self.placeHoldersFor(cols: columns) + updateColumns).joined(separator: ", ")
         
-        return "update `\(table)` set \(placeHolders)\(whereClause());"
+        return "update `\(table)` set \(placeHolders)\(updateClausesStr());"
     }
     
     private func delete() -> String {
-        return "delete from `\(table)`\(whereClause())"
+        return "delete from `\(table)`\(deleteClausesStr())"
     }
     
-    private func whereClause() -> String {
-        if (conditions.isEmpty) {
-            return "";
+    private func whereClause() -> String? {
+        guard !conditions.isEmpty else { return nil }
+        return "where \(conditions.toString())";
+    }
+    
+    private func orderByClause() -> String? {
+        guard !orderBys.isEmpty else { return nil }
+        let comps = orderBys.map() { $0.toString() }
+        
+        return "order by \(comps.joined(separator: ", "))";
+    }
+    
+    private func limitClause() -> String? {
+        guard let limit = limitComp else { return nil }
+        
+        var str = "limit \(limit.val)"
+        if let offset = limit.offset {
+            str += " offset \(offset)"
         }
-        return " where \(conditions.toString())";
+        return str
+    }
+    
+    private func groupByClause() -> String? {
+        guard !groupBys.isEmpty else { return nil }
+        let names = groupBys.map() { $0.name }
+        
+        return "group by \(names.joined(separator: ", "))";
     }
     
     private func ensureHasColums() throws {
