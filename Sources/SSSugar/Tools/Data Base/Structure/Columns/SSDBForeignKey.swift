@@ -21,4 +21,8 @@ public struct SSDBForeignKey<OtherTable: SSDBTable>: SSDBTableComponent, SSDBTyp
     private func namesUsing(_ block: (SSDBColumnRefProtocol) -> String) -> String {
         return refCols.map { "`\(block($0))`" }.joined(separator: ", ")
     }
+    
+    public static func +(left: Self, right: Self) -> Self {
+        return Self(cols: left.refCols + right.refCols, on: OtherTable.self)
+    }
 }

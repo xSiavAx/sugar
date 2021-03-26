@@ -663,9 +663,9 @@
 				OBJ_113 /* SSColumnProtocols.swift */,
 				99782068260C9B7500D646E7 /* SSDBColumn.swift */,
 				99355AE4260CC9FD004E0150 /* SSDBColumnRef.swift */,
+				99355B08260CFFD2004E0150 /* SSDBPrimaryKey.swift */,
 				99782078260C9B7F00D646E7 /* SSDBForeignKey.swift */,
 				OBJ_112 /* SSDBColType.swift */,
-				99355B08260CFFD2004E0150 /* SSDBPrimaryKey.swift */,
 			);
 			path = Columns;
 			sourceTree = "<group>";

@@ -36,6 +36,14 @@ public extension SSDBTable {
     }
 }
 
+//MARK - Foreign key creating
+
+public extension SSDBTable {
+    static func fks(_ producers: ForeignKeyProducer...) -> [SSDBTableComponent] {
+        return producers.map { $0.foreignKey() }
+    }
+}
+
 //MARK - Index creating
 
 public extension SSDBTable {

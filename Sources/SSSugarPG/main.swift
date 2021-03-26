@@ -32,7 +32,7 @@ struct ContactGroupRel: SSDBTable {
     
     static var primaryKey: SSDBPrimaryKeyProtocol? = pk(contact, group)
     static var colums: [SSDBColumnProtocol] = [group, contact]
-    static var foreignKeys: [SSDBTableComponent] = [group.fk(), contact.fk()]
+    static var foreignKeys: [SSDBTableComponent] = fks(group, contact)
     
     static var group = ContactGroup.idRef()
     static var contact = Contact.idRef()

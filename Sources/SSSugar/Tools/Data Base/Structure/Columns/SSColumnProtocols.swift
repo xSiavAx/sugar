@@ -39,3 +39,7 @@ extension SSDBPrimaryKeyProtocol {
         return "primary key(\(colNames.joined(separator: ", ")))"
     }
 }
+
+public protocol ForeignKeyProducer {
+    func foreignKey() -> SSDBTableComponent
+}
