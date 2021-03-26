@@ -119,6 +119,10 @@ public extension SSDBTable {
         return builder
     }
     
+    static func selectAllQueryBuilder() -> SSDBQueryBuilder {
+        return query(.select).add(cols: colums)
+    }
+    
     //MARK: - private
     
     private static func allComponents() -> [SSDBTableComponent] {
@@ -128,10 +132,6 @@ public extension SSDBTable {
             components.append(pk)
         }
         return components
-    }
-    
-    private static func selectAllQueryBuilder() -> SSDBQueryBuilder {
-        return query(.select).add(cols: colums)
     }
     
     private static func createIndexesQueries() -> [String] {
