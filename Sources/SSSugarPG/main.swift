@@ -39,9 +39,10 @@ struct ContactGroupRel: SSDBTable {
 }
 
 func main() {
-    print(Contact.createQuery())
-    print(ContactGroup.createQuery())
-    print(ContactGroupRel.createQuery())
+    let prints = [Contact.selectAllQuery(), Contact.selectQuery(),
+                  ContactGroup.selectAllQuery(), ContactGroup.selectQuery(),
+                  ContactGroupRel.selectAllQuery(), ContactGroupRel.selectQuery()]
+    print(prints.joined(separator: "\n"))
 }
 
 main()

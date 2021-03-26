@@ -33,22 +33,10 @@ public extension SSDBIDTable {
     }
     
     static func updateQuery(cols: [SSDBColumnProtocol]) -> String {
-        return try! whereQuery(.update).add(cols: idLessColumns).build()
+        return try! wherePKQuery(.update).add(cols: idLessColumns).build()
     }
     
     static func updateQuery() -> String {
         return updateQuery(cols: idLessColumns)
-    }
-    
-    static func selectQuery() -> String {
-        return try! selectAllQueryBuilder().add(colCondition: idColumn).build()
-    }
-    
-    static func removeQuery() -> String {
-        return try! whereQuery(.delete).build()
-    }
-    
-    static func whereQuery(_ kind: SSDBQueryBuilder.Kind) -> SSDBQueryBuilder {
-        return query(kind).add(colCondition: idColumn)
     }
 }

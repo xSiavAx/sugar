@@ -95,13 +95,31 @@ public extension SSDBTable {
         return try! selectAllQueryBuilder().build()
     }
     
+    static func selectQuery() -> String {
+        return try! addWherePKTo(builder: selectAllQueryBuilder()).build()
+    }
+    
+    static func removeQuery() -> String {
+        return try! wherePKQuery(.delete).build()
+    }
+    
     static func query(_ kind: SSDBQueryBuilder.Kind) -> SSDBQueryBuilder {
         return SSDBQueryBuilder(kind, table: tableName)
     }
     
-    static func selectAllQueryBuilder() -> SSDBQueryBuilder {
-        return query(.select).add(cols: colums)
+    static func wherePKQuery(_ kind: SSDBQueryBuilder.Kind) -> SSDBQueryBuilder {
+        return addWherePKTo(builder: query(kind))
     }
+    
+    @discardableResult
+    static func addWherePKTo(builder: SSDBQueryBuilder) -> SSDBQueryBuilder {
+        if let primaryKey = primaryKey {
+            primaryKey.cols.forEach() { builder.add(colCondition: $0) }
+        }
+        return builder
+    }
+    
+    //MARK: - private
     
     private static func allComponents() -> [SSDBTableComponent] {
         var components = colums + foreignKeys
@@ -110,6 +128,10 @@ public extension SSDBTable {
             components.append(pk)
         }
         return components
+    }
+    
+    private static func selectAllQueryBuilder() -> SSDBQueryBuilder {
+        return query(.select).add(cols: colums)
     }
     
     private static func createIndexesQueries() -> [String] {
