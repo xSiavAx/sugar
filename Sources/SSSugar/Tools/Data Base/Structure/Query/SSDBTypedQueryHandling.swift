@@ -23,11 +23,10 @@ public extension SSDBTypedQueryHandling {
     
     func withStmt<T>(db: SSDataBaseProtocol, exec: (TypedStmt) throws -> T ) throws -> T {
         let stmt = try statment(db: db)
-        let result = try exec(stmt)
         
-        try stmt.release()
+        defer { try! stmt.release() }
         
-        return result
+        return try exec(stmt)
     }
     
     func commit(db: SSDataBaseProtocol, args: BArgs) throws {
