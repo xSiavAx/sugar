@@ -1,4 +1,0 @@
-module ArgumentParser {
-    header "/Users/siava/dev/SSSugar/.build/x86_64-apple-macosx/debug/ArgumentParser.build/ArgumentParser-Swift.h"
-    requires objc
-}
