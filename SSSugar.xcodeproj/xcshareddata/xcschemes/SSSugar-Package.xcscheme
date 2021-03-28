@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "SSSugar::SSSugar"
-               BuildableName = "SSSugar.framework"
-               BlueprintName = "SSSugar"
+               BlueprintIdentifier = "SSSugar::SSSugarPG"
+               BuildableName = "SSSugarPG"
+               BlueprintName = "SSSugarPG"
                ReferencedContainer = "container:SSSugar.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -28,9 +28,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "SSSugar::SSSugarPG"
-               BuildableName = "SSSugarPG"
-               BlueprintName = "SSSugarPG"
+               BlueprintIdentifier = "SSSugar::SSSugar"
+               BuildableName = "SSSugar.framework"
+               BlueprintName = "SSSugar"
                ReferencedContainer = "container:SSSugar.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
