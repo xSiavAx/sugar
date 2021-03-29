@@ -1,4 +1,4 @@
-#if !os(macOS)
+#if canImport(UIKit)
 import UIKit
 
 /// Methods that helps provide show/hide animation

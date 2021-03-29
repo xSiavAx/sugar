@@ -1,4 +1,4 @@
-#if !os(macOS)
+#if canImport(UIKit)
 import UIKit
 
 /// Class implements `SSViewShowHideAnimating`. It purpose alpha change animation with show/hide view on show start and hide finish. Method `prepareToShow` shows view and change it alpha equals to passed one (`prepareAlpha`).

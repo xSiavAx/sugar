@@ -1,4 +1,4 @@
-#if !os(macOS)
+#if canImport(UIKit)
 import UIKit
 
 /// Class that incapsulate cell marking logic. It creates mark view, add it to cell subviews. Can animate mark view.
