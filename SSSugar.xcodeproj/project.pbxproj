@@ -1436,7 +1436,7 @@
 			path = Types;
 			sourceTree = "<group>";
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -1447,7 +1447,6 @@
 				OBJ_369 /* README.md */,
 				OBJ_370 /* build_fm.shell */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_55 /* Utils */ = {
@@ -1584,9 +1583,9 @@
 			children = (
 				OBJ_100 /* Columns */,
 				OBJ_107 /* Query */,
+				OBJ_122 /* SSDBTable.swift */,
 				OBJ_120 /* SSDBIDTable.swift */,
 				OBJ_121 /* SSDBStoraging.swift */,
-				OBJ_122 /* SSDBTable.swift */,
 				OBJ_123 /* SSDBTableIndex.swift */,
 			);
 			path = Structure;
@@ -1706,7 +1705,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_364 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";

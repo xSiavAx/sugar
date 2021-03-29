@@ -12,11 +12,6 @@ public protocol SSDBColumnProtocol: SSDBTableComponent {
     var name: String { get }
 }
 
-public protocol SSDBRegualColumnProtocol: SSDBColumnProtocol {
-    var unique: Bool { get }
-    var optional: Bool { get }
-}
-
 public protocol SSDBTypedColumnProtocol: SSDBColumnProtocol {
     associatedtype ColType: SSDBColType
 }

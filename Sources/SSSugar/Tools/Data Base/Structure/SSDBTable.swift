@@ -47,19 +47,22 @@ public extension SSDBTable {
 //MARK - Index creating
 
 public extension SSDBTable {
-    static func idx(_ get: (Self.Type) -> SSDBRegualColumnProtocol) -> SSDBTableIndex<Self> {
-        return SSDBTableIndex<Self>(col: get)
-    }
+    typealias SingleColGetter = (Self.Type) -> SSDBColumnProtocol
+    typealias MultipleColGetter = (Self.Type) -> [SSDBColumnProtocol]
     
-    static func idx(unique: Bool = true, _ get: (Self.Type) -> [SSDBRegualColumnProtocol]) -> SSDBTableIndex<Self> {
+    static func idx(unique: Bool, _ get: MultipleColGetter) -> SSDBTableIndex<Self> {
         return SSDBTableIndex<Self>(isUnique: unique, cols: get)
     }
     
-    static func idxs(_ getters: ((Self.Type) -> SSDBRegualColumnProtocol)... ) -> [SSDBTableIndex<Self>] {
-        return getters.map() { idx($0) }
+    static func idx(unique: Bool, _ get: SingleColGetter) -> SSDBTableIndex<Self> {
+        return idx(unique: unique, { [get($0)] })
     }
     
-    static func idxs(unique: Bool = true, _ getters: ((Self.Type) -> [SSDBRegualColumnProtocol])... ) -> [SSDBTableIndex<Self>] {
+    static func idxs(unique: Bool, _ getters: SingleColGetter... ) -> [SSDBTableIndex<Self>] {
+        return getters.map() { idx(unique:unique, $0) }
+    }
+    
+    static func idxs(unique: Bool, _ getters: MultipleColGetter... ) -> [SSDBTableIndex<Self>] {
         return getters.map() { idx(unique:unique, $0) }
     }
 }
