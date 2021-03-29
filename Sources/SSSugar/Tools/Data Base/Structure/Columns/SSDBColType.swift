@@ -50,6 +50,18 @@ extension Int: SSDBColType {
     }
 }
 
+extension Int64: SSDBColType {
+    public static var colName: String { "integer" }
+    
+    public static func onGetNonNil(stmt: Statement, pos: Int) throws -> Int64 {
+        return try stmt.getInt64(pos: pos)
+    }
+    
+    public func bindTo(stmt: Statement, pos: Int) throws {
+        try stmt.bind(int64: self, pos: pos)
+    }
+}
+
 extension Bool: SSDBColType {
     public static var colName: String { Int.colName }
     
