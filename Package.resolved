@@ -5,9 +5,9 @@
         "package": "PerfectCSQLite3",
         "repositoryURL": "https://github.com/PerfectlySoft/Perfect-sqlite3-support.git",
         "state": {
-          "branch": "master",
+          "branch": null,
           "revision": "64c2bd87e1fd3a41cdeeba073bab794db7e97e42",
-          "version": null
+          "version": "3.1.1"
         }
       },
       {

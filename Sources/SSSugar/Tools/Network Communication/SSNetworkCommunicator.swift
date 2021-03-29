@@ -1,3 +1,5 @@
+#if !os(Linux)
+
 import Foundation
 
 /// Tool provides communication with network over HTTP requests.
@@ -233,3 +235,5 @@ extension SSNetworkCommunicator: SSCommunicating {
         onLog?(components.joined(separator: "\n"))
     }
 }
+
+#endif
