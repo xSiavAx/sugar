@@ -34,12 +34,10 @@ public extension SSDBColType {
     }
 }
 
-public extension SSDBColType where Self: CustomStringConvertible {
-    func asColDefault() -> String { return "\(self)" }
-}
-
 extension Int: SSDBColType {
     public static var colName: String { "integer" }
+    
+    public func asColDefault() -> String { "\(self)" }
     
     public static func onGetNonNil(stmt: Statement, pos: Int) throws -> Int {
         return try stmt.getInt(pos: pos)
@@ -53,6 +51,8 @@ extension Int: SSDBColType {
 extension Int64: SSDBColType {
     public static var colName: String { "integer" }
     
+    public func asColDefault() -> String { "\(self)" }
+    
     public static func onGetNonNil(stmt: Statement, pos: Int) throws -> Int64 {
         return try stmt.getInt64(pos: pos)
     }
@@ -64,6 +64,8 @@ extension Int64: SSDBColType {
 
 extension Bool: SSDBColType {
     public static var colName: String { Int.colName }
+    
+    public func asColDefault() -> String { "\(self ? 1 : 0)" }
     
     public static func onGetNonNil(stmt: Statement, pos: Int) throws -> Bool {
         return try stmt.getInt(pos: pos) != 0
@@ -77,6 +79,8 @@ extension Bool: SSDBColType {
 extension Date: SSDBColType {
     public static var colName: String { Int.colName }
     
+    public func asColDefault() -> String { "\(self.timeIntervalSince1970)" }
+    
     public static func onGetNonNil(stmt: Statement, pos: Int) throws -> Date {
         return Date(timeIntervalSince1970: try stmt.getDouble(pos: pos))
     }
@@ -89,6 +93,8 @@ extension Date: SSDBColType {
 extension String: SSDBColType {
     public static var colName: String { "text" }
     
+    public func asColDefault() -> String { "\(self)" }
+    
     public static func onGetNonNil(stmt: Statement, pos: Int) throws -> String {
         return try stmt.getString(pos: pos)
     }
@@ -100,6 +106,8 @@ extension String: SSDBColType {
 
 extension Data: SSDBColType {
     public static var colName: String { "blob" }
+    
+    public func asColDefault() -> String { fatalError("Not implemented") }
     
     public static func onGetNonNil(stmt: Statement, pos: Int) throws -> Data {
         return try stmt.getData(pos: pos)
