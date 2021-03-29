@@ -20,6 +20,7 @@ public protocol SSDBTypedColumnProtocol: SSDBRegualColumnProtocol {
 public protocol SSDBColumnRefProtocol: SSDBColumnProtocol {
     var name: String { get }
     var refname: String { get }
+    var optional: Bool { get }
 }
 
 public typealias SSDBTypedTableColumnRef = SSDBTypedTableComponent & SSDBColumnRefProtocol
