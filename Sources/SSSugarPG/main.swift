@@ -24,7 +24,7 @@ struct ContactGroup: SSDBIDTable {
     static var indexes: [SSDBTableIndexProtocol]? = idxs(unique: true) { $0.title }
     
     static let id = SSDBColumn<Int>(name: "id")
-    static let title = SSDBColumn<String>(name: "title", unique: true)
+    static let title = SSDBColumn<String>(name: "title")
 }
 
 struct ContactGroupRel: SSDBTable {
