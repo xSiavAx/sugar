@@ -1,3 +1,4 @@
+#if canImport(CoreGraphics)
 import Foundation
 import CoreGraphics
 
@@ -109,3 +110,5 @@ public extension CGRect {
         return insetBy(dx: dx, dy: dy)
     }
 }
+
+#endif
