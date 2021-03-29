@@ -4,6 +4,10 @@ public protocol SSDBTableComponent {
     func toCreate() -> String
 }
 
+public protocol SSDBTypedTableComponent {
+    associatedtype OtherTable: SSDBTable
+}
+
 public protocol SSDBColumnProtocol: SSDBTableComponent {
     var name: String { get }
 }
@@ -13,21 +17,16 @@ public protocol SSDBRegualColumnProtocol: SSDBColumnProtocol {
     var optional: Bool { get }
 }
 
-public protocol SSDBTypedColumnProtocol: SSDBRegualColumnProtocol {
+public protocol SSDBTypedColumnProtocol: SSDBColumnProtocol {
     associatedtype ColType: SSDBColType
 }
 
 public protocol SSDBColumnRefProtocol: SSDBColumnProtocol {
-    var name: String { get }
     var refname: String { get }
     var optional: Bool { get }
 }
 
 public typealias SSDBTypedTableColumnRef = SSDBTypedTableComponent & SSDBColumnRefProtocol
-
-public protocol SSDBTypedTableComponent {
-    associatedtype OtherTable: SSDBTable
-}
 
 public protocol SSDBPrimaryKeyProtocol: SSDBTableComponent {
     var cols: [SSDBColumnProtocol] { get }

@@ -1,47 +1,31 @@
 import Foundation
 import SSSugar
 
-struct Contact: SSDBIDTable {
-    static var tableName: String { "contact" }
-    static var idColumn = id
-    static var idLessColumns: [SSDBColumnProtocol] = [firstName, lastName, birthDay, color, initials, notes, company]
-    
-    static let id = SSDBColumn<Int>(name: "id")
-    static let firstName = SSDBColumn<String?>(name: "first_name")
-    static let lastName = SSDBColumn<String?>(name: "last_name")
-    static let birthDay = SSDBColumn<Date?>(name: "birth_day")
-    static let color = SSDBColumn<Int?>(name: "color")
-    static let initials = SSDBColumn<String?>(name: "initials")
-    static let notes = SSDBColumn<String?>(name: "notes")
-    static let company = SSDBColumn<String?>(name: "company")
-}
-
-struct ContactGroup: SSDBIDTable {
-    static let tableName: String = "contact_group"
+struct Message: SSDBIDTable {
+    static var tableName = "message"
     
     static var idColumn = id
-    static var idLessColumns: [SSDBColumnProtocol] = [title]
-    static var indexes: [SSDBTableIndexProtocol]? = idxs() { $0.title }
+    static var idLessColumns: [SSDBColumnProtocol] = [updateTime, relatedMessage]
+    static var foreignKeys: [SSDBTableComponent] = fks(relatedMessage)
     
-    static let id = SSDBColumn<Int>(name: "id")
-    static let title = SSDBColumn<String>(name: "title", unique: true)
+    static let id = SSDBColumn<Int64>(name: "id")
+    static let updateTime = SSDBColumn<Date?>(name: "update_time")
+    static let relatedMessage = Message.idRef(optional: true)
 }
 
-struct ContactGroupRel: SSDBTable {
-    static var tableName: String = "contact_group_contact_relation"
+struct MessageIndex: SSDBIDTable {
+    typealias IDColumn = SSDBColumnRef<Message, SSDBColumn<Int64>>
     
-    static var primaryKey: SSDBPrimaryKeyProtocol? = pk(contact, group)
-    static var colums: [SSDBColumnProtocol] = [group, contact]
-    static var foreignKeys: [SSDBTableComponent] = fks(group, contact)
+    static var tableName = "message_index"
     
-    static var group = ContactGroup.idRef()
-    static var contact = Contact.idRef()
+    static var idColumn: IDColumn = messageID
+    static var idLessColumns: [SSDBColumnProtocol] = []
+    
+    static let messageID = Message.idRef()
 }
 
 func main() {
-    let prints = [Contact.selectAllQuery(), Contact.selectQuery(),
-                  ContactGroup.selectAllQuery(), ContactGroup.selectQuery(),
-                  ContactGroupRel.selectAllQuery(), ContactGroupRel.selectQuery()]
+    let prints = [MessageIndex.createQuery()]
     print(prints.joined(separator: "\n"))
 }
 

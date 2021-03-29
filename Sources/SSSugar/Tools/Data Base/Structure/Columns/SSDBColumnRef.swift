@@ -1,7 +1,7 @@
 import Foundation
 
-public struct SSDBColumnRef<OtherTable: SSDBTable, Column: SSDBTypedColumnProtocol>: SSDBColumnRefProtocol, SSDBTypedTableComponent, ForeignKeyProducer {
-    typealias ColType = Column.ColType
+public struct SSDBColumnRef<OtherTable: SSDBTable, Column: SSDBTypedColumnProtocol>: SSDBColumnRefProtocol, SSDBTypedTableComponent, SSDBTypedColumnProtocol, ForeignKeyProducer {
+    public typealias ColType = Column.ColType
     
     public let name: String
     public let column: Column
@@ -19,7 +19,7 @@ public struct SSDBColumnRef<OtherTable: SSDBTable, Column: SSDBTypedColumnProtoc
         if let mOptional = mOptional {
             optional = mOptional
         } else {
-            optional = column.optional
+            optional = ColType.isOptionalCol
         }
     }
     
