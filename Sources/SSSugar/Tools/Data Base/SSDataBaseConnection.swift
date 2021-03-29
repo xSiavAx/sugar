@@ -1,5 +1,10 @@
 import Foundation
+
+#if canImport(SQLite3)
 import SQLite3
+#else
+import PerfectCSQLite3
+#endif
 
 public protocol SSDataBaseConnectionProtocol: SSDataBaseStatementCreator {
     var isOpen : Bool {get}
