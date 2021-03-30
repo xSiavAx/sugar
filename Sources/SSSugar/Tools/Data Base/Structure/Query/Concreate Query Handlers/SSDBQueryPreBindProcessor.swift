@@ -2,7 +2,7 @@ import Foundation
 
 public struct SSDBQueryPreBindProcessor<PBArgs, BArgs, GArgs> {
     public typealias OnPreBind = (Base.Stmt, PBArgs) throws -> Void
-    public typealias Base = SSDBQueryProcessor<BArgs, GArgs>
+    public typealias Base = SSDBQueryProxy<BArgs, GArgs>
     
     public let base: Base
     public let preBind: OnPreBind

@@ -9,3 +9,20 @@ public struct SSDBQueryProxy<BArgs, GArgs>: SSDBTypedQueryHandling {
         core = Core(query: Core.Query(raw: query), onBind: onBind, onGet: onGet)
     }
 }
+
+public struct SSDBQueryPreBinder<PBArgs, BArgs, GArgs>: SSDBTypedQueryHandling {
+    public typealias Stmt = SSDataBaseStatementProxy
+    public typealias OnPreBind = (Stmt, PBArgs) throws -> Void
+    
+    public let core: Core
+    public let preBind: OnPreBind
+    
+    public init(_ query: String, onPreBind: @escaping OnPreBind, onBind: OnBind? = nil, onGet: OnGet? = nil) {
+        core = Core(query: Core.Query(raw: query), onBind: onBind, onGet: onGet)
+        preBind = onPreBind
+    }
+    
+    func commit(db: SSDataBaseProtocol, preArgs: PBArgs, args: [BArgs]) throws {
+        try commit(db: db, args: args) { try preBind($0.stmt, preArgs) }
+    }
+}
