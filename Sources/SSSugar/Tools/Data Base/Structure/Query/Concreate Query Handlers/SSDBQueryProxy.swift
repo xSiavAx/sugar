@@ -22,7 +22,7 @@ public struct SSDBQueryPreBinder<PBArgs, BArgs, GArgs>: SSDBTypedQueryHandling {
         preBind = onPreBind
     }
     
-    func commit(db: SSDataBaseProtocol, preArgs: PBArgs, args: [BArgs]) throws {
+    public func commit(db: SSDataBaseProtocol, preArgs: PBArgs, args: [BArgs]) throws {
         try commit(db: db, args: args) { try preBind($0.stmt, preArgs) }
     }
 }
