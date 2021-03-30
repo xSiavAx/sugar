@@ -19,13 +19,8 @@ public struct SSLinearCongruentialRandomizer {
             additional = mAdditional
         }
     }
-    #if os(Linux)
-    private static let maxSeed = Double.greatestFiniteMagnitude
-    #else
-    private static let maxSeed = Double.max
-    #endif
     /// Default seed value (equals to current TS)
-    static public var defaultSeed: Double { Double.random(in: 0..<maxSeed) }
+    static public var defaultSeed: Double { Double.random(in: 0..<Double.greatestFiniteMagnitude) }
     /// Algorithm parameter default value
     static public let defaultParams = Params(divisor: 139968.0, multiplier: 3877.0, additional: 29573.0)
     

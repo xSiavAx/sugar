@@ -16,8 +16,11 @@ public protocol SSDBTypedQueryHandling {
 }
 
 public extension SSDBTypedQueryHandling {
+    typealias PreBind = (TypedStmt) throws -> Void
+    
     func statment(db: SSDataBaseProtocol) throws -> TypedStmt {
         let stmt = try db.statement(forQuery: core.query.raw)
+        
         return TypedStmt(stmt: transform(stmt: stmt), onBind: core.onBind, onGet: core.onGet)
     }
     
@@ -33,8 +36,9 @@ public extension SSDBTypedQueryHandling {
         try commit(db: db, args: [args])
     }
     
-    func commit(db: SSDataBaseProtocol, args: [BArgs]) throws {
+    func commit(db: SSDataBaseProtocol, args: [BArgs], preBind: PreBind? = nil) throws {
         try withStmt(db: db) {(stmt) in
+            try preBind?(stmt)
             try args.forEach {
                 try stmt.bind(args: $0)
                 try stmt.commit()
