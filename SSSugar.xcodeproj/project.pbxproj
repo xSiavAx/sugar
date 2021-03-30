@@ -21,7 +21,6 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		9982214E261382E900F18A28 /* SSDBQueryPreBindProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9982214D261382E900F18A28 /* SSDBQueryPreBindProcessor.swift */; };
 		OBJ_376 /* BashCompletionsGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_323 /* BashCompletionsGenerator.swift */; };
 		OBJ_377 /* CompletionsGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_324 /* CompletionsGenerator.swift */; };
 		OBJ_378 /* FishCompletionsGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_325 /* FishCompletionsGenerator.swift */; };
@@ -336,7 +335,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		9982214D261382E900F18A28 /* SSDBQueryPreBindProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDBQueryPreBindProcessor.swift; sourceTree = "<group>"; };
 		OBJ_101 /* SSColumnProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSColumnProtocols.swift; sourceTree = "<group>"; };
 		OBJ_102 /* SSDBColType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDBColType.swift; sourceTree = "<group>"; };
 		OBJ_103 /* SSDBColumn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDBColumn.swift; sourceTree = "<group>"; };
@@ -702,7 +700,6 @@
 				OBJ_111 /* SSDataBaseQueryHandleCore.swift */,
 				OBJ_109 /* SSDBQueryProcessor.swift */,
 				OBJ_110 /* SSDBQueryProxy.swift */,
-				9982214D261382E900F18A28 /* SSDBQueryPreBindProcessor.swift */,
 			);
 			path = "Concreate Query Handlers";
 			sourceTree = "<group>";
@@ -1854,7 +1851,6 @@
 				OBJ_490 /* SSDBQueryProxy.swift in Sources */,
 				OBJ_491 /* SSDataBaseQueryHandleCore.swift in Sources */,
 				OBJ_492 /* SSDBColumnCondition.swift in Sources */,
-				9982214E261382E900F18A28 /* SSDBQueryPreBindProcessor.swift in Sources */,
 				OBJ_493 /* SSDBConditionSet.swift in Sources */,
 				OBJ_494 /* SSDBQueryCondition.swift in Sources */,
 				OBJ_495 /* SSDBQueryBuilder.swift in Sources */,
