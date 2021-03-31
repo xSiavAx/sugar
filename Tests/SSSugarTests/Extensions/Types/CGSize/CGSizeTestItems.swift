@@ -1,3 +1,5 @@
+#if canImport(CoreGraphics)
+
 import Foundation
 import CoreGraphics
 
@@ -15,3 +17,5 @@ struct CGSizeTestItems {
         expected = CGSize(width: eW, height: eH)
     }
 }
+
+#endif

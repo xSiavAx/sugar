@@ -1,3 +1,4 @@
+#if !os(Linux)
 import Foundation
 
 /// Class incapsulate certificate pinning logic.
@@ -60,3 +61,4 @@ extension SSCertificatePinner: URLSessionDelegate {
         return false
     }
 }
+#endif

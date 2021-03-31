@@ -56,6 +56,7 @@ public protocol SSDataBaseStatementCreator: AnyObject {
 
 public protocol SSDataBaseProtocol: SSTransacted, SSDataBaseStatementCreator, SSDataBaseQueryExecutor, SSCacheContainer {
     func savePoint(withTitle: String) throws -> SSDataBaseSavePointProtocol
+    func lastInsrtedRowID() -> Int64
 }
 
 public extension SSDataBaseStatementProtocol {

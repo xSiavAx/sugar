@@ -1,4 +1,4 @@
-#if !os(macOS)
+#if canImport(UIKit)
 import UIKit
 
 /// Alias for style closure

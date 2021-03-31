@@ -1,5 +1,17 @@
 import Foundation
 
+#if canImport(SQLite3)
+import SQLite3
+#else
+import PerfectCSQLite3
+#endif
+
+#warning("DB: Test")
+//TODO: Add tests for every DB component
+
+#warning("DB: DOCS")
+//TODO: Add docs for every file from DB Structure
+
 #warning("DB: Error msg")
 //TODO: Add error messages to all DB exceptions (like cantCompile inside stmt)
 
@@ -48,11 +60,69 @@ public class SSDataBase {
     }
 }
 
+//MARK: - Creating
+extension SSDataBase {
+    public enum BaseDir {
+        case documents
+        case current
+        case custom(URL)
+        
+        var url: URL {
+            switch self {
+            case .documents:
+                let dirPath = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)[0]
+                let base = URL(fileURLWithPath: dirPath)
+                
+                return base.appendingPathComponent("data_base")
+            case .current:
+                let base = URL(fileURLWithPath: FileManager.default.currentDirectoryPath)
+                
+                return base.appendingPathComponent("data_base")
+            case .custom(let url):
+                return url
+            }
+        }
+    }
+    
+    public static func dbWith(baseDir: BaseDir, name: String, prefix: String? = nil) throws -> SSDataBase {
+        var path = baseDir.url
+        
+        if let prefix = prefix {
+            path.appendPathComponent(prefix)
+        }
+        if (!FileManager.default.fileExists(atPath: path.path)) {
+            try FileManager.default.createDirectory(atPath: path.path, withIntermediateDirectories: true, attributes: nil)
+        }
+        path.appendPathComponent("\(name).sqlite3")
+        
+        return SSDataBase(path: path)
+    }
+    
+    #if os(iOS)
+    public static func dbWith(name: String, prefix: String? = nil) throws -> SSDataBase {
+        return try dbWith(baseDir: .documents, name: name, prefix: prefix)
+    }
+    #else
+    public static func dbWith(name: String, prefix: String? = nil) throws -> SSDataBase {
+        return try dbWith(baseDir: .current, name: name, prefix: prefix)
+    }
+    #endif
+    
+    public static func dbWith(baseDir: URL, name: String, prefix: String? = nil) throws -> SSDataBase {
+        return try dbWith(baseDir: .custom(baseDir), name: name, prefix: prefix)
+    }
+}
+
+
 //MARK: - SSDataBaseProtocol
 extension SSDataBase: SSDataBaseProtocol {
     public func savePoint(withTitle: String) throws -> SSDataBaseSavePointProtocol {
         let sp = try SSDataBaseSavePoint(executor: self, title: withTitle)
         return try transactionController.registerSavePoint(sp)
+    }
+    
+    public func lastInsrtedRowID() -> Int64 {
+        connection.lastInsertedRowID()
     }
 }
 

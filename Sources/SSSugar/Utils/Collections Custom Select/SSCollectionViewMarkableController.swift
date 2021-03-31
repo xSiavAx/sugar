@@ -1,4 +1,4 @@
-#if !os(macOS)
+#if canImport(UIKit)
 import UIKit
 
 /// Controller for custom selection realisation on any Collection thats implements `SSCollectionViewMarkable` and whose cells implements `SSCollectionViewCellMarkable`
