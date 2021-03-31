@@ -6,6 +6,8 @@ public protocol SSKeyFieldStorage {
 
 extension Dictionary: SSKeyFieldStorage where Key == String, Value == Any {}
 
+#if !os(Linux)
+
 extension UserDefaults: SSKeyFieldStorage {
     public subscript(key: String) -> Any? {
         get { value(forKey: key) }
@@ -18,3 +20,5 @@ extension UserDefaults: SSKeyFieldStorage {
         }
     }
 }
+
+#endif

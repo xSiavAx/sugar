@@ -1,3 +1,5 @@
+#if canImport(CoreGraphics)
+
 import Foundation
 import CoreGraphics
 
@@ -12,3 +14,5 @@ struct CGPointTestItems {
         expected = CGPoint(x: eX, y: eY)
     }
 }
+
+#endif

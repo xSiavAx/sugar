@@ -1,3 +1,5 @@
+#if !os(Linux)
+
 import Foundation
 
 extension URLSessionConfiguration {
@@ -22,3 +24,5 @@ extension URLSessionConfiguration {
         return config
     }
 }
+
+#endif

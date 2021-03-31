@@ -1,3 +1,5 @@
+#if canImport(CoreGraphics)
+
 import Foundation
 import CoreGraphics
 
@@ -70,3 +72,5 @@ public func +(lSize: CGSize, rSize: CGSize) -> CGSize {
 public func -(lSize: CGSize, rSize: CGSize) -> CGSize {
     return lSize + (-rSize)
 }
+
+#endif

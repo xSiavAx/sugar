@@ -1,5 +1,7 @@
 import Foundation
 
+#if canImport(UIKit)
+
 import CoreTelephony
 
 /// Requirement for Carrirer info model
@@ -28,3 +30,5 @@ public extension CTCarrier {
         return nil
     }
 }
+
+#endif

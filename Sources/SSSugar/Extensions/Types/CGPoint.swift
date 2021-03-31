@@ -1,4 +1,4 @@
-import Foundation
+#if canImport(CoreGraphics)
 import CoreGraphics
 
 //TODO: Add docs
@@ -14,3 +14,5 @@ public func +(lPoint: CGPoint, rPoint: CGPoint) -> CGPoint {
 public func -(lPoint: CGPoint, rPoint: CGPoint) -> CGPoint {
     return lPoint + (-rPoint)
 }
+
+#endif
