@@ -32,10 +32,6 @@ public extension SSDBIDTable {
         insertQuery(cols: idLessColumns)
     }
     
-    static func updateQuery(cols: [SSDBColumnProtocol]) -> String {
-        return try! wherePKQuery(.update).add(cols: idLessColumns).build()
-    }
-    
     static func updateQuery() -> String {
         return updateQuery(cols: idLessColumns)
     }

@@ -85,6 +85,10 @@ public extension SSDBTable {
         return ([base] + dropIndexesQueries()).joined(separator: "\n")
     }
     
+    static func query(_ kind: SSDBQueryBuilder.Kind) -> SSDBQueryBuilder {
+        return SSDBQueryBuilder(kind, table: tableName)
+    }
+    
     //Query for inserting row with every table colum (including id)
     static func insertQuery() -> String {
         return insertQuery(cols: colums)
@@ -99,23 +103,23 @@ public extension SSDBTable {
     }
     
     static func selectQuery() -> String {
-        return try! addWherePKTo(builder: selectAllQueryBuilder()).build()
+        return try! wherePK(selectAllQueryBuilder()).build()
     }
     
     static func removeQuery() -> String {
-        return try! wherePKQuery(.delete).build()
+        return try! wherePK(.delete).build()
     }
     
-    static func query(_ kind: SSDBQueryBuilder.Kind) -> SSDBQueryBuilder {
-        return SSDBQueryBuilder(kind, table: tableName)
+    static func updateQuery(cols: [SSDBColumnProtocol]) -> String {
+        return try! wherePK(.update).add(cols: cols).build()
     }
     
-    static func wherePKQuery(_ kind: SSDBQueryBuilder.Kind) -> SSDBQueryBuilder {
-        return addWherePKTo(builder: query(kind))
+    static func wherePK(_ kind: SSDBQueryBuilder.Kind) -> SSDBQueryBuilder {
+        return wherePK(query(kind))
     }
     
     @discardableResult
-    static func addWherePKTo(builder: SSDBQueryBuilder) -> SSDBQueryBuilder {
+    static func wherePK(_ builder: SSDBQueryBuilder) -> SSDBQueryBuilder {
         if let primaryKey = primaryKey {
             primaryKey.cols.forEach() { builder.add(colCondition: $0) }
         }
