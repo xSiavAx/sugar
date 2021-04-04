@@ -81,7 +81,7 @@ public extension SSDBTable {
     }
     
     static func baseDropQuery() -> String {
-        let base = "drop table \(tableName)"
+        let base = "drop table \(tableName);"
         return ([base] + dropIndexesQueries()).joined(separator: "\n")
     }
     
