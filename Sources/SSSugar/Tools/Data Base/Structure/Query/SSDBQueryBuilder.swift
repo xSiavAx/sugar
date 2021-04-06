@@ -138,7 +138,7 @@ public class SSDBQueryBuilder {
     }
     
     private func delete() -> String {
-        return "delete from `\(table)`\(deleteClausesStr())"
+        return "delete from `\(table)`\(deleteClausesStr());"
     }
     
     private func whereClause() -> String? {
