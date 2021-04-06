@@ -94,6 +94,7 @@ extension SSDataBase {
             try FileManager.default.createDirectory(atPath: path.path, withIntermediateDirectories: true, attributes: nil)
         }
         path.appendPathComponent("\(name).sqlite3")
+        NSLog("Data Base path:\n\(path)")
         
         return SSDataBase(path: path)
     }
