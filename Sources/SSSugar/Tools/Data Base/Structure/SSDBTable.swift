@@ -74,7 +74,7 @@ public extension SSDBTable {
     static func baseCreateQuery(strictExist: Bool) -> String {
         let colComponents = allComponents().map { $0.toCreate() }
         let table = """
-        \(baseCreate(component: Self.component, name: tableName)) (
+        \(baseCreate(component: component, name: tableName, strictExist: strictExist)) (
             \(colComponents.joined(separator: ",\n    "))
         );
         """
@@ -84,7 +84,7 @@ public extension SSDBTable {
     }
     
     static func baseDropQuery(strictExist: Bool) -> String {
-        let table = baseDrop(component: Self.component, name: tableName) + ";"
+        let table = "\(baseDrop(component: component, name: tableName, strictExist: strictExist));"
         let indexQueries = dropQueriesFor(components: indexes, strictExist: strictExist)
         let triggerQueries = dropQueriesFor(components: triggers, strictExist: strictExist)
         return (triggerQueries + indexQueries + [table]).joined(separator: "\n")
