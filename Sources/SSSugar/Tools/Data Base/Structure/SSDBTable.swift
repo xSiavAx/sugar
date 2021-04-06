@@ -3,10 +3,11 @@ import Foundation
 public protocol SSDBTable: SSDBStaticComponent {
     static var tableName: String { get }
     static var primaryKey: SSDBPrimaryKeyProtocol? { get }
-    static var colums: [SSDBColumnProtocol] {get}
+    static var colums: [SSDBColumnProtocol] { get }
     static var foreignKeys: [SSDBTableComponent] { get }
     
-    static var indexes: [SSDBTableIndexProtocol] {get}
+    static var indexes: [SSDBTableIndexProtocol] { get }
+    static var triggers: [SSDBComponent] {get}
 }
 
 //MARK: - Default implementation
@@ -15,6 +16,7 @@ public extension SSDBTable {
     static var primaryKey: SSDBPrimaryKeyProtocol? { nil }
     static var foreignKeys: [SSDBTableComponent] { [] }
     static var indexes: [SSDBTableIndexProtocol] { [] }
+    static var triggers: [SSDBTableIndexProtocol] { [] }
     
     static func createQuery(strictExist: Bool) -> String {
         return baseCreateQuery(strictExist: strictExist)
@@ -71,17 +73,21 @@ public extension SSDBTable {
     
     static func baseCreateQuery(strictExist: Bool) -> String {
         let colComponents = allComponents().map { $0.toCreate() }
-        let base = """
+        let table = """
         \(baseCreate(component: Self.component, name: tableName)) (
             \(colComponents.joined(separator: ",\n    "))
         );
         """
-        return ([base] + createIndexesQueries(strictExist: strictExist)).joined(separator: "\n")
+        let indexQueries = createQueriesFor(components: indexes, strictExist: strictExist)
+        let triggerQueries = createQueriesFor(components: triggers, strictExist: strictExist)
+        return ([table] + indexQueries + triggerQueries).joined(separator: "\n")
     }
     
     static func baseDropQuery(strictExist: Bool) -> String {
-        let base = baseDrop(component: Self.component, name: tableName) + ";"
-        return ([base] + dropIndexesQueries(strictExist: strictExist)).joined(separator: "\n")
+        let table = baseDrop(component: Self.component, name: tableName) + ";"
+        let indexQueries = dropQueriesFor(components: indexes, strictExist: strictExist)
+        let triggerQueries = dropQueriesFor(components: triggers, strictExist: strictExist)
+        return ([table] + indexQueries + triggerQueries).joined(separator: "\n")
     }
     
     static func query(_ kind: SSDBQueryBuilder.Kind) -> SSDBQueryBuilder {
@@ -140,11 +146,11 @@ public extension SSDBTable {
         return components
     }
     
-    private static func createIndexesQueries(strictExist: Bool) -> [String] {
-        return indexes.map { $0.createQuery(strictExist: strictExist) }
+    private static func createQueriesFor(components: [SSDBComponent], strictExist: Bool) -> [String] {
+        return components.map { $0.createQuery(strictExist: strictExist) }
     }
     
-    private static func dropIndexesQueries(strictExist: Bool) -> [String] {
-        return indexes.map { $0.dropQuery(strictExist: strictExist) }
+    private static func dropQueriesFor(components: [SSDBComponent], strictExist: Bool) -> [String] {
+        return components.map { $0.dropQuery(strictExist: strictExist) }
     }
 }
