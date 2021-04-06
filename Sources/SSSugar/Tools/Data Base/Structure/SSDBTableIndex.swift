@@ -1,31 +1,34 @@
 import Foundation
 
-public protocol SSDBTableIndexProtocol {
+public protocol SSDBTableIndexProtocol: SSDBComponent {
     var name: String { get }
     var tableName: String { get }
     var colNames: [String] { get }
     var isUniqeu: Bool { get }
     var prefix: String { get }
-    
-    func toCreateComponent() -> String
-    func toDropComponent() -> String
 }
 
 public extension SSDBTableIndexProtocol {
-    func toCreateComponent() -> String {
-        return "create \(uniqueComp())index `\(name)` on `\(tableName)` (\(colNames()));"
+    static var component: String { "index" }
+    
+    func createQuery(strictExist: Bool) -> String {
+        let base = Self.baseCreate(prefixComps: uniqueComps(), component: Self.component, name: name, strictExist: strictExist)
+        return "\(base) on `\(tableName)` (\(colNames()));"
     }
     
-    func toDropComponent() -> String {
-        return "drop index `\(name)`;"
+    func dropQuery(strictExist: Bool) -> String {
+        return Self.baseDrop(component: Self.component, name: name, strictExist: strictExist)
     }
     
     private func colNames() -> String {
         return colNames.map { "`\($0)`" }.joined(separator: ", ")
     }
     
-    private func uniqueComp() -> String {
-        return isUniqeu ? "unique " : ""
+    private func uniqueComps() -> [String]? {
+        if (isUniqeu) {
+            return ["unique"]
+        }
+        return nil
     }
 }
 

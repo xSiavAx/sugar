@@ -1,15 +1,12 @@
 import Foundation
 
-public protocol SSDBTable {
+public protocol SSDBTable: SSDBStaticComponent {
     static var tableName: String { get }
     static var primaryKey: SSDBPrimaryKeyProtocol? { get }
     static var colums: [SSDBColumnProtocol] {get}
     static var foreignKeys: [SSDBTableComponent] { get }
     
     static var indexes: [SSDBTableIndexProtocol] {get}
-    
-    static func createQuery() -> String
-    static func dropQuery() -> String
 }
 
 //MARK: - Default implementation
@@ -19,12 +16,12 @@ public extension SSDBTable {
     static var foreignKeys: [SSDBTableComponent] { [] }
     static var indexes: [SSDBTableIndexProtocol] { [] }
     
-    static func createQuery() -> String {
-        return baseCreateQuery()
+    static func createQuery(strictExist: Bool) -> String {
+        return baseCreateQuery(strictExist: strictExist)
     }
     
-    static func dropQuery() -> String {
-        return baseDropQuery()
+    static func dropQuery(strictExist: Bool) -> String {
+        return baseDropQuery(strictExist: strictExist)
     }
 }
 
@@ -70,19 +67,21 @@ public extension SSDBTable {
 //MARK: - Queries
 
 public extension SSDBTable {
-    static func baseCreateQuery() -> String {
-        let colComponents = allComponents().map { $0.toCreate() }.joined(separator: ",\n    ")
+    private static var component: String { "table" }
+    
+    static func baseCreateQuery(strictExist: Bool) -> String {
+        let colComponents = allComponents().map { $0.toCreate() }
         let base = """
-        create table `\(tableName)` (
-            \(colComponents)
+        \(baseCreate(component: Self.component, name: tableName)) (
+            \(colComponents.joined(separator: ",\n    "))
         );
         """
-        return ([base] + createIndexesQueries()).joined(separator: "\n")
+        return ([base] + createIndexesQueries(strictExist: strictExist)).joined(separator: "\n")
     }
     
-    static func baseDropQuery() -> String {
-        let base = "drop table \(tableName)"
-        return ([base] + dropIndexesQueries()).joined(separator: "\n")
+    static func baseDropQuery(strictExist: Bool) -> String {
+        let base = baseDrop(component: Self.component, name: tableName) + ";"
+        return ([base] + dropIndexesQueries(strictExist: strictExist)).joined(separator: "\n")
     }
     
     static func query(_ kind: SSDBQueryBuilder.Kind) -> SSDBQueryBuilder {
@@ -141,11 +140,11 @@ public extension SSDBTable {
         return components
     }
     
-    private static func createIndexesQueries() -> [String] {
-        return indexes.map { $0.toCreateComponent() }
+    private static func createIndexesQueries(strictExist: Bool) -> [String] {
+        return indexes.map { $0.createQuery(strictExist: strictExist) }
     }
     
-    private static func dropIndexesQueries() -> [String] {
-        return indexes.map { $0.toDropComponent() }
+    private static func dropIndexesQueries(strictExist: Bool) -> [String] {
+        return indexes.map { $0.dropQuery(strictExist: strictExist) }
     }
 }
