@@ -17,7 +17,7 @@ public extension SSDBTableIndexProtocol {
     }
     
     func dropQuery(strictExist: Bool) -> String {
-        return Self.baseDrop(component: Self.component, name: name, strictExist: strictExist)
+        return "\(Self.baseDrop(component: Self.component, name: name, strictExist: strictExist));"
     }
     
     private func colNames() -> String {
