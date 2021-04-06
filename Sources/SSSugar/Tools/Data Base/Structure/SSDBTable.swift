@@ -16,7 +16,7 @@ public extension SSDBTable {
     static var primaryKey: SSDBPrimaryKeyProtocol? { nil }
     static var foreignKeys: [SSDBTableComponent] { [] }
     static var indexes: [SSDBTableIndexProtocol] { [] }
-    static var triggers: [SSDBTableIndexProtocol] { [] }
+    static var triggers: [SSDBComponent] { [] }
     
     static func createQuery(strictExist: Bool) -> String {
         return baseCreateQuery(strictExist: strictExist)
