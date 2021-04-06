@@ -7,14 +7,14 @@ public protocol SSDBStoraging {
 }
 
 public extension SSDBStoraging {
-    func initializeStructure() throws {
-        let queries = Self.tables.map { $0.createQuery() }
+    func initializeStructure(strictExist: Bool = true) throws {
+        let queries = Self.tables.map { $0.createQuery(strictExist: strictExist) }
         
         try db.exec(queries: queries)
     }
     
-    func deinitializeStructure() throws {
-        let queries = Self.tables.map { $0.dropQuery() }
+    func deinitializeStructure(strictExist: Bool = true) throws {
+        let queries = Self.tables.map { $0.dropQuery(strictExist: strictExist) }
         
         try db.exec(queries: queries)
     }
