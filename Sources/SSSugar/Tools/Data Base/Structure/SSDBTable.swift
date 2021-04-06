@@ -87,7 +87,7 @@ public extension SSDBTable {
         let table = baseDrop(component: Self.component, name: tableName) + ";"
         let indexQueries = dropQueriesFor(components: indexes, strictExist: strictExist)
         let triggerQueries = dropQueriesFor(components: triggers, strictExist: strictExist)
-        return ([table] + indexQueries + triggerQueries).joined(separator: "\n")
+        return (triggerQueries + indexQueries + [table]).joined(separator: "\n")
     }
     
     static func query(_ kind: SSDBQueryBuilder.Kind) -> SSDBQueryBuilder {
