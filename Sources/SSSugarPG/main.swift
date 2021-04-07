@@ -64,7 +64,7 @@ struct DynamicStorage: SSDBStoraging {
         static let hasAttach = SSDBColumn<Bool>(name: "has_attach")
         
         static let updateTime = SSDBColumn<Date?>(name: "update_time")
-        static let relatedMessage = Message.idRef(optional: true)
+        static let relatedMessage = Message.idRef(prefix: "related", optional: true)
         static let relationType = SSDBColumn<Int?>(name: "relation_type")
     }
 }
