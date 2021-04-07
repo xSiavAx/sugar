@@ -1,5 +1,5 @@
 import Foundation
-import SSSugar
+import SSSugarCore
 
 struct Contact: SSDBIDTable {
     static var tableName: String { "contact" }
