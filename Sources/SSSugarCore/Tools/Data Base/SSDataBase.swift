@@ -30,6 +30,7 @@ public class SSDataBase {
     }
     
     deinit {
+        try? statementsCache.clearAll()
         if (connection.isOpen) {
             connection.close()
         }
