@@ -22,43 +22,29 @@
          </BuildActionEntry>
          <BuildActionEntry
             buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "SSSugarPG"
-               BuildableName = "SSSugarPG"
-               BlueprintName = "SSSugarPG"
+               BlueprintIdentifier = "SSSugarCoreTests"
+               BuildableName = "SSSugarCoreTests"
+               BlueprintName = "SSSugarCoreTests"
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
             buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
+            buildForRunning = "NO"
+            buildForProfiling = "NO"
+            buildForArchiving = "NO"
+            buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "SSSugarCore"
-               BuildableName = "SSSugarCore"
-               BlueprintName = "SSSugarCore"
-               ReferencedContainer = "container:">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "SSSugarUIKit"
-               BuildableName = "SSSugarUIKit"
-               BlueprintName = "SSSugarUIKit"
+               BlueprintIdentifier = "SSSugarUIKitTests"
+               BuildableName = "SSSugarUIKitTests"
+               BlueprintName = "SSSugarUIKitTests"
                ReferencedContainer = "container:">
             </BuildableReference>
          </BuildActionEntry>
@@ -74,9 +60,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "SSSugarCoreTests"
-               BuildableName = "SSSugarCoreTests"
-               BlueprintName = "SSSugarCoreTests"
+               BlueprintIdentifier = "SSSugarUIKitTests"
+               BuildableName = "SSSugarUIKitTests"
+               BlueprintName = "SSSugarUIKitTests"
                ReferencedContainer = "container:">
             </BuildableReference>
          </TestableReference>
@@ -84,9 +70,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "SSSugarUIKitTests"
-               BuildableName = "SSSugarUIKitTests"
-               BlueprintName = "SSSugarUIKitTests"
+               BlueprintIdentifier = "SSSugarCoreTests"
+               BuildableName = "SSSugarCoreTests"
+               BlueprintName = "SSSugarCoreTests"
                ReferencedContainer = "container:">
             </BuildableReference>
          </TestableReference>
@@ -102,15 +88,6 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "SSSugarPG"
-            BuildableName = "SSSugarPG"
-            BlueprintName = "SSSugarPG"
-            ReferencedContainer = "container:">
-         </BuildableReference>
-      </MacroExpansion>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -121,9 +98,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "SSSugarPG"
-            BuildableName = "SSSugarPG"
-            BlueprintName = "SSSugarPG"
+            BlueprintIdentifier = "SSSugar"
+            BuildableName = "SSSugar"
+            BlueprintName = "SSSugar"
             ReferencedContainer = "container:">
          </BuildableReference>
       </MacroExpansion>

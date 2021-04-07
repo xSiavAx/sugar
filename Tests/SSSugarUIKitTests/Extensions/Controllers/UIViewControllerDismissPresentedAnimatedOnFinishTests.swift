@@ -9,7 +9,7 @@
  */
 
 import XCTest
-@testable import SSSugarUIKIt
+@testable import SSSugarUIKit
 
 class UIViewControllerDismissPresentedAnimatedOnFinishTests: XCTestCase {
     let testHelper = UIViewControllerTestHelper()

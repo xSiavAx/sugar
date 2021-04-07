@@ -1,7 +1,7 @@
 import XCTest
 import Foundation
 
-@testable import SSSugarUIKIt
+@testable import SSSugarUIKit
 
 class SSSugarPlaygroundTests: XCTestCase {
     func testMain() {

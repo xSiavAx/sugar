@@ -14,7 +14,7 @@
  */
 
 import XCTest
-@testable import SSSugarUIKIt
+@testable import SSSugarUIKit
 
 class UIColorInitTests: XCTestCase {
     func testDefaultRedGreenBlue() {

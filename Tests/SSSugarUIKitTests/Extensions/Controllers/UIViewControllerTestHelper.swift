@@ -17,7 +17,7 @@
  */
 
 import XCTest
-@testable import SSSugarUIKIt
+@testable import SSSugarUIKit
 
 struct UIViewControllerTestHelper {
     let window = UIWindow()

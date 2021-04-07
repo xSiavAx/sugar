@@ -1,5 +1,5 @@
 import XCTest
-@testable import SSSugarUIKIt
+@testable import SSSugarUIKit
 
 struct SSCollectionViewMarkableControllerTestHelper {
     func makeSUT(setupClosure: (inout SSCollectionViewMarkableControllerTestsSUT) -> Void) -> SSCollectionViewMarkableControllerTestsSUT {

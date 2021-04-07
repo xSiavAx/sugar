@@ -43,7 +43,7 @@
  */
 
 import XCTest
-@testable import SSSugarUIKIt
+@testable import SSSugarUIKit
 
 class UIViewControllerKBNotificationsTests: XCTestCase {
     let testHelper = UIViewControllerTestHelper()

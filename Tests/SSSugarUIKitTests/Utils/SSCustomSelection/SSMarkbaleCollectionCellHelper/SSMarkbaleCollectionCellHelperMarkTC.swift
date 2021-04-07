@@ -1,5 +1,5 @@
 import XCTest
-@testable import SSSugar
+@testable import SSSugarUIKit
 
 class SSMarkbaleCollectionCellHelperMarkingTC: XCTestCase {
     let testHelper = SSMarkbaleCollectionCellHelperTestHelper()

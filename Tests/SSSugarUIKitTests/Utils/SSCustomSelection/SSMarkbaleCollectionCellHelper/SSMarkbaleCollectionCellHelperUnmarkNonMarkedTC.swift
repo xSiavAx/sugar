@@ -1,5 +1,5 @@
 import XCTest
-@testable import SSSugarUIKIt
+@testable import SSSugarUIKit
 
 class SSMarkbaleCollectionCellHelperUnmarkNonMarkedTC: XCTestCase {
     let testHelper = SSMarkbaleCollectionCellHelperTestHelper()

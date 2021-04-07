@@ -1,5 +1,5 @@
 import XCTest
-@testable import SSSugarUIKIt
+@testable import SSSugarUIKit
 
 class SSCollectionViewMarkableControllerMarkTC: XCTestCase {
     typealias TestDataContainer = (sut: SSCollectionViewMarkableControllerTestsSUT, expected: SSCollectionViewMarkableControllerMarkExpectedResult)

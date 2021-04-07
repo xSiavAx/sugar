@@ -1,5 +1,5 @@
 import XCTest
-@testable import SSSugar
+@testable import SSSugarUIKit
 
 struct SSMarkbaleCollectionCellHelperTestHelper {
     func makeCellHelper() -> SSMarkbaleCollectionCellHelper {

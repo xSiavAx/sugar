@@ -36,7 +36,7 @@
  */
 
 import XCTest
-@testable import SSSugarUIKIt
+@testable import SSSugarUIKit
 
 class UIViewControllerShowAlertTests: XCTestCase {
     let testHelper = UIViewControllerTestHelper()
