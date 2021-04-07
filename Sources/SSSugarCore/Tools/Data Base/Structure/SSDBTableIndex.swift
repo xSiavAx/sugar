@@ -11,13 +11,13 @@ public protocol SSDBTableIndexProtocol: SSDBComponent {
 public extension SSDBTableIndexProtocol {
     static var component: String { "index" }
     
-    func createQuery(strictExist: Bool) -> String {
+    func createQueries(strictExist: Bool) -> [String] {
         let base = Self.baseCreate(prefixComps: uniqueComps(), component: Self.component, name: name, strictExist: strictExist)
-        return "\(base) on `\(tableName)` (\(colNames()));"
+        return ["\(base) on `\(tableName)` (\(colNames()));"]
     }
     
-    func dropQuery(strictExist: Bool) -> String {
-        return "\(Self.baseDrop(component: Self.component, name: name, strictExist: strictExist));"
+    func dropQueries(strictExist: Bool) -> [String] {
+        return ["\(Self.baseDrop(component: Self.component, name: name, strictExist: strictExist));"]
     }
     
     private func colNames() -> String {

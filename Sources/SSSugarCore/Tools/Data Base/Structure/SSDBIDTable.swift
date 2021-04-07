@@ -20,7 +20,7 @@ public extension SSDBIDTable {
 
 public extension SSDBIDTable {
     static func idRef(optional: Bool? = nil) -> SSDBColumnRef<Self, Self.IDColumn> {
-        return SSDBColumnRef(table: Self.self) { $0.idColumn }
+        return SSDBColumnRef(table: Self.self, optional: optional) { $0.idColumn }
     }
 }
 

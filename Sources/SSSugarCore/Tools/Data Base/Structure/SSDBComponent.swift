@@ -1,32 +1,32 @@
 import Foundation
 
 public protocol SSDBComponent: SSDBComponentHelp {
-    func createQuery(strictExist: Bool) -> String
-    func dropQuery(strictExist: Bool) -> String
+    func createQueries(strictExist: Bool) -> [String]
+    func dropQueries(strictExist: Bool) -> [String]
 }
 
 public extension SSDBComponent {
-    func createQuery() -> String {
-        return createQuery(strictExist: true)
+    func createQueries() -> [String] {
+        return createQueries(strictExist: true)
     }
     
-    func dropQuery() -> String {
-        return dropQuery(strictExist: true)
+    func dropQueries() -> [String] {
+        return dropQueries(strictExist: true)
     }
 }
 
 public protocol SSDBStaticComponent: SSDBComponentHelp {
-    static func createQuery(strictExist: Bool) -> String
-    static func dropQuery(strictExist: Bool) -> String
+    static func createQueries(strictExist: Bool) -> [String]
+    static func dropQueries(strictExist: Bool) -> [String]
 }
 
 public extension SSDBStaticComponent {
-    static func createQuery() -> String {
-        return createQuery(strictExist: true)
+    static func createQueries() -> [String] {
+        return createQueries(strictExist: true)
     }
     
-    static func dropQuery() -> String {
-        return dropQuery(strictExist: true)
+    static func dropQueries() -> [String] {
+        return dropQueries(strictExist: true)
     }
 }
 

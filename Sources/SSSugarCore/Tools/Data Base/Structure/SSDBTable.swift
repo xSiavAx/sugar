@@ -18,12 +18,12 @@ public extension SSDBTable {
     static var indexes: [SSDBTableIndexProtocol] { [] }
     static var triggers: [SSDBComponent] { [] }
     
-    static func createQuery(strictExist: Bool) -> String {
-        return baseCreateQuery(strictExist: strictExist)
+    static func createQueries(strictExist: Bool) -> [String] {
+        return baseCreateQueries(strictExist: strictExist)
     }
     
-    static func dropQuery(strictExist: Bool) -> String {
-        return baseDropQuery(strictExist: strictExist)
+    static func dropQueries(strictExist: Bool) -> [String] {
+        return baseDropQueries(strictExist: strictExist)
     }
 }
 
@@ -71,7 +71,7 @@ public extension SSDBTable {
 public extension SSDBTable {
     private static var component: String { "table" }
     
-    static func baseCreateQuery(strictExist: Bool) -> String {
+    static func baseCreateQueries(strictExist: Bool) -> [String] {
         let colComponents = allComponents().map { $0.toCreate() }
         let table = """
         \(baseCreate(component: component, name: tableName, strictExist: strictExist)) (
@@ -80,14 +80,14 @@ public extension SSDBTable {
         """
         let indexQueries = createQueriesFor(components: indexes, strictExist: strictExist)
         let triggerQueries = createQueriesFor(components: triggers, strictExist: strictExist)
-        return ([table] + indexQueries + triggerQueries).joined(separator: "\n")
+        return [table] + indexQueries + triggerQueries
     }
     
-    static func baseDropQuery(strictExist: Bool) -> String {
+    static func baseDropQueries(strictExist: Bool) -> [String] {
         let table = "\(baseDrop(component: component, name: tableName, strictExist: strictExist));"
         let indexQueries = dropQueriesFor(components: indexes, strictExist: strictExist)
         let triggerQueries = dropQueriesFor(components: triggers, strictExist: strictExist)
-        return (triggerQueries + indexQueries + [table]).joined(separator: "\n")
+        return triggerQueries + indexQueries + [table]
     }
     
     static func query(_ kind: SSDBQueryBuilder.Kind) -> SSDBQueryBuilder {
@@ -147,10 +147,10 @@ public extension SSDBTable {
     }
     
     private static func createQueriesFor(components: [SSDBComponent], strictExist: Bool) -> [String] {
-        return components.map { $0.createQuery(strictExist: strictExist) }
+        return components.reduce([], { $0 + $1.createQueries(strictExist: strictExist) })
     }
     
     private static func dropQueriesFor(components: [SSDBComponent], strictExist: Bool) -> [String] {
-        return components.map { $0.dropQuery(strictExist: strictExist) }
+        return components.reduce([], { $0 + $1.dropQueries(strictExist: strictExist) })
     }
 }
