@@ -33,7 +33,7 @@ public extension SSDBStaticComponent {
 public protocol SSDBComponentHelp {}
 
 public extension SSDBComponentHelp {
-    static func baseCreate(prefixComps: [String]? = nil, component: String, name: String, strictExist: Bool = true) -> String {
+    static func baseCreate(prefixComps: [String]? = nil, component: String, name: String, strictExist: Bool) -> String {
         func prefix() -> String {
             if let prefixComps = prefixComps, !prefixComps.isEmpty {
                 return " " + prefixComps.joined(separator: " ")
@@ -43,7 +43,7 @@ public extension SSDBComponentHelp {
         return "create\(prefix()) \(component)\(createComponent(strictExist: strictExist)) `\(name)`"
     }
     
-    static func baseDrop(component: String, name: String, strictExist: Bool = true) -> String {
+    static func baseDrop(component: String, name: String, strictExist: Bool) -> String {
         return "drop \(component)\(dropComponent(strictExist: strictExist)) `\(name)`"
     }
     

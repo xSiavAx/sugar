@@ -57,7 +57,7 @@ public struct SSDBTrigger<Table: SSDBTable>: SSDBComponent {
             components.append("when \(condition)")
         }
         let query = """
-            \(Self.baseCreate(component: Self.component, name: componentName))
+            \(Self.baseCreate(component: Self.component, name: componentName, strictExist: strictExist))
                 \(components.joined(separator: "\n    "))
             BEGIN
                 \(statements.joined(separator: "\n    "))
@@ -68,6 +68,6 @@ public struct SSDBTrigger<Table: SSDBTable>: SSDBComponent {
     }
     
     public func dropQueries(strictExist: Bool) -> [String] {
-        return ["\(Self.baseDrop(component: Self.component, name: componentName));"]
+        return ["\(Self.baseDrop(component: Self.component, name: componentName, strictExist: strictExist));"]
     }
 }
