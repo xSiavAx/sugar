@@ -7,7 +7,7 @@ struct Additions {
     struct ForPackage {
         static func dependecies() -> [Package.Dependency] {
             #if os(Linux)
-            return [.package(path: "/Users/siava/dev/CSQLite")]
+            return [.package(name: "CSQLite", url: "https://SiavA@bitbucket.org/SiavA/csqlite.git", .branch("master"))]
             #else
             return []
             #endif
