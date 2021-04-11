@@ -1,4 +1,7 @@
 import Foundation
+#if os(Linux)
+import FoundationNetworking
+#endif
 
 /// Class incapsulate certificate pinning logic.
 /// Use it as URLSession delegate.

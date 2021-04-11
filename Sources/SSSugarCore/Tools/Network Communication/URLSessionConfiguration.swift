@@ -1,4 +1,7 @@
 import Foundation
+#if os(Linux)
+import FoundationNetworking
+#endif
 
 extension URLSessionConfiguration {
     /// Session configuratuon to use within the app.
@@ -9,6 +12,7 @@ extension URLSessionConfiguration {
         return URLSessionConfiguration.ephemeral
     }
     
+    #if !os(Linux)
     /// Session configuratuon to use within the app for requests prefroms in background.
     ///
     /// Based on `background` session configuration that doesn't cancel request on app go to background and allows run start app (in background mode) on response arrives. Extended by adding app specific `User-Agent` value to headers of requests.
@@ -21,4 +25,5 @@ extension URLSessionConfiguration {
         
         return config
     }
+    #endif
 }

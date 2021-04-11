@@ -1,4 +1,7 @@
 import Foundation
+#if os(Linux)
+import FoundationNetworking
+#endif
 
 /// Tool provides communication with network over HTTP requests.
 ///
@@ -85,15 +88,35 @@ public class SSNetworkCommunicator {
     ///   - backgroundSessionIdentifier: Identifier for background session. Pass `nil` to create communicator for foreground tasks. Default is `nil`.
     ///   - certificatePinner: Certificate pinner if one is needed. See `SSCertificatePinner` for more details. To create pinner based on names of certificates that stores in assets use `init(backgroundSessionIdentifier: certificatePinner: onConfigSetup:)`
     ///   - onConfigSetup: Additional session configuration (`URLSessionConfiguration`) setup. Any Framework user could make extension with it's own `onConfigSetup` closure (including `nil`). `onConfigSetup` has no default value to avoid ambiguity of default constructor with one that user will define.
-    public init(backgroundSessionIdentifier: String? = nil, certificatePinner: SSCertificatePinner? = nil, onConfigSetup: URLSessionConfigSetup?) {
+    #if !os(Linux)
+    public convenience init(backgroundSessionIdentifier: String? = nil, certificatePinner: SSCertificatePinner? = nil, onConfigSetup: URLSessionConfigSetup?) {
         func createConfig() -> URLSessionConfiguration {
             if let identifier = backgroundSessionIdentifier {
-                return .background(withIdentifier: identifier)
+                return .appBackground(withIdentifier: identifier)
             }
             return .appDefault()
         }
-        let config = createConfig()
+        self.init(config: createConfig(), certificatePinner: certificatePinner, onConfigSetup: onConfigSetup)
+    }
+    
+    public convenience init(backgroundSessionIdentifier: String? = nil, certificateTitles: [String], onConfigSetup: URLSessionConfigSetup?) {
+        let pinner = SSCertificatePinner(obtainer: SSAssetCertificateObtainer(certTitles: certificateTitles))
         
+        self.init(backgroundSessionIdentifier: backgroundSessionIdentifier, certificatePinner: pinner, onConfigSetup: onConfigSetup)
+    }
+    #else
+    public convenience init(certificatePinner: SSCertificatePinner? = nil, onConfigSetup: URLSessionConfigSetup?) {
+        self.init(config: .appDefault(), certificatePinner: certificatePinner, onConfigSetup: onConfigSetup)
+    }
+    
+    public convenience init(backgroundSessionIdentifier: String? = nil, certificateTitles: [String], onConfigSetup: URLSessionConfigSetup?) {
+        let pinner = SSCertificatePinner(obtainer: SSAssetCertificateObtainer(certTitles: certificateTitles))
+        
+        self.init(certificatePinner: pinner, onConfigSetup: onConfigSetup)
+    }
+    #endif
+    
+    private init(config: URLSessionConfiguration, certificatePinner: SSCertificatePinner?, onConfigSetup: URLSessionConfigSetup?) {
         onConfigSetup?(config)
         
         pinner = certificatePinner
@@ -103,12 +126,6 @@ public class SSNetworkCommunicator {
         } else {
             session = URLSession(configuration: config)
         }
-    }
-    
-    public convenience init(backgroundSessionIdentifier: String? = nil, certificateTitles: [String], onConfigSetup: URLSessionConfigSetup?) {
-        let pinner = SSCertificatePinner(obtainer: SSAssetCertificateObtainer(certTitles: certificateTitles))
-        
-        self.init(backgroundSessionIdentifier: backgroundSessionIdentifier, certificatePinner: pinner, onConfigSetup: onConfigSetup)
     }
     
     public func setupLogs(request: LoggingOptions, response: LoggingOptions, onLog mOnLog: ((String)->Void)?) {
