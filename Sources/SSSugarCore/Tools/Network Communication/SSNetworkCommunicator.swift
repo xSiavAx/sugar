@@ -16,7 +16,6 @@ import FoundationNetworking
 public class SSNetworkCommunicator {
     public typealias URLSessionConfigSetup = (URLSessionConfiguration)->Void
     
-    
     //TODO: Move log logic to separated tool
     
     /// Logging options Type. Only for debug purposes.
@@ -67,8 +66,10 @@ public class SSNetworkCommunicator {
             wrapedTask.cancel()
         }
     }
+    #if !os(Linux)
     /// Certificate pinner used for `URLSession`
     public let pinner: SSCertificatePinner?
+    #endif
     
     /// Wrapped session
     public let session: URLSession
@@ -89,34 +90,15 @@ public class SSNetworkCommunicator {
     ///   - certificatePinner: Certificate pinner if one is needed. See `SSCertificatePinner` for more details. To create pinner based on names of certificates that stores in assets use `init(backgroundSessionIdentifier: certificatePinner: onConfigSetup:)`
     ///   - onConfigSetup: Additional session configuration (`URLSessionConfiguration`) setup. Any Framework user could make extension with it's own `onConfigSetup` closure (including `nil`). `onConfigSetup` has no default value to avoid ambiguity of default constructor with one that user will define.
     #if !os(Linux)
-    public convenience init(backgroundSessionIdentifier: String? = nil, certificatePinner: SSCertificatePinner? = nil, onConfigSetup: URLSessionConfigSetup?) {
+    public init(backgroundSessionIdentifier: String? = nil, certificatePinner: SSCertificatePinner? = nil, onConfigSetup: URLSessionConfigSetup?) {
         func createConfig() -> URLSessionConfiguration {
             if let identifier = backgroundSessionIdentifier {
                 return .appBackground(withIdentifier: identifier)
             }
             return .appDefault()
         }
-        self.init(config: createConfig(), certificatePinner: certificatePinner, onConfigSetup: onConfigSetup)
-    }
-    
-    public convenience init(backgroundSessionIdentifier: String? = nil, certificateTitles: [String], onConfigSetup: URLSessionConfigSetup?) {
-        let pinner = SSCertificatePinner(obtainer: SSAssetCertificateObtainer(certTitles: certificateTitles))
+        let config = createConfig()
         
-        self.init(backgroundSessionIdentifier: backgroundSessionIdentifier, certificatePinner: pinner, onConfigSetup: onConfigSetup)
-    }
-    #else
-    public convenience init(certificatePinner: SSCertificatePinner? = nil, onConfigSetup: URLSessionConfigSetup?) {
-        self.init(config: .appDefault(), certificatePinner: certificatePinner, onConfigSetup: onConfigSetup)
-    }
-    
-    public convenience init(backgroundSessionIdentifier: String? = nil, certificateTitles: [String], onConfigSetup: URLSessionConfigSetup?) {
-        let pinner = SSCertificatePinner(obtainer: SSAssetCertificateObtainer(certTitles: certificateTitles))
-        
-        self.init(certificatePinner: pinner, onConfigSetup: onConfigSetup)
-    }
-    #endif
-    
-    private init(config: URLSessionConfiguration, certificatePinner: SSCertificatePinner?, onConfigSetup: URLSessionConfigSetup?) {
         onConfigSetup?(config)
         
         pinner = certificatePinner
@@ -127,6 +109,23 @@ public class SSNetworkCommunicator {
             session = URLSession(configuration: config)
         }
     }
+    
+    public convenience init(backgroundSessionIdentifier: String? = nil, certificateTitles: [String], onConfigSetup: URLSessionConfigSetup?) {
+        let pinner = SSCertificatePinner(obtainer: SSAssetCertificateObtainer(certTitles: certificateTitles))
+        
+        self.init(backgroundSessionIdentifier: backgroundSessionIdentifier, certificatePinner: pinner, onConfigSetup: onConfigSetup)
+    }
+    #else
+    
+    public init(onConfigSetup: URLSessionConfigSetup?) {
+        let config = URLSessionConfiguration.appDefault()
+        
+        onConfigSetup?(config)
+        
+        session = URLSession(configuration: config)
+    }
+    
+    #endif
     
     public func setupLogs(request: LoggingOptions, response: LoggingOptions, onLog mOnLog: ((String)->Void)?) {
         logOptions = (request, response)

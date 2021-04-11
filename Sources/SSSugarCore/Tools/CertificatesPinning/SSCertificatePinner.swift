@@ -1,7 +1,5 @@
+#if !os(Linux)
 import Foundation
-#if os(Linux)
-import FoundationNetworking
-#endif
 
 /// Class incapsulate certificate pinning logic.
 /// Use it as URLSession delegate.
@@ -63,3 +61,5 @@ extension SSCertificatePinner: URLSessionDelegate {
         return false
     }
 }
+
+#endif
