@@ -65,6 +65,18 @@ public class SSDBQueryBuilder {
     }
     
     @discardableResult
+    public func update(col: SSDBColumnProtocol) -> SSDBQueryBuilder {
+        updateColumns.append("`\(col.name)` = ?")
+        return self
+    }
+    
+    @discardableResult
+    public func increment(col: SSDBColumnProtocol) -> SSDBQueryBuilder {
+        updateColumns.append("`\(col.name)` = `\(col.name)` + ?")
+        return self
+    }
+    
+    @discardableResult
     public func update(col: SSDBColumnProtocol, build: (String) -> String) -> SSDBQueryBuilder {
         updateColumns.append("`\(col.name)` = \(build(col.name))")
         return self

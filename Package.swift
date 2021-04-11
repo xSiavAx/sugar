@@ -3,6 +3,27 @@
 
 import PackageDescription
 
+struct Additions {
+    struct ForPackage {
+        static func dependecies() -> [Package.Dependency] {
+            #if os(Linux)
+            return [.package(name: "CSQLite", url: "https://SiavA@bitbucket.org/SiavA/csqlite.git", .branch("master"))]
+            #else
+            return []
+            #endif
+        }
+    }
+    struct ForTarget {
+        static func dependecies() -> [Target.Dependency] {
+            #if os(Linux)
+            return ["CSQLite"]
+            #else
+            return []
+            #endif
+        }
+    }
+}
+
 let package = Package(
     name: "SSSugar",
     platforms: [
@@ -10,7 +31,6 @@ let package = Package(
         .iOS(.v11)
     ],
     products: [
-        // Products define the executables and libraries a package produces, and make them visible to other packages.
         .library(
             name: "SSSugar",
             targets: ["SSSugarUIKit", "SSSugarCore"]),
@@ -23,15 +43,11 @@ let package = Package(
     ],
     dependencies: [
         .package(url: "https://github.com/apple/swift-argument-parser", from: "0.4.0"),
-        .package(url: "https://github.com/PerfectlySoft/Perfect-sqlite3-support.git", from: "3.0.0")
-        // Dependencies declare other packages that this package depends on.
-        // .package(url: /* package url */, from: "1.0.0"),
-    ],
+    ]
+    + Additions.ForPackage.dependecies(),
     targets: [
-        // Targets are the basic building blocks of a package. A target can define a module or a test suite.
-        // Targets can depend on other targets in this package, and on products in packages this package depends on.
         .target(
-            name: "SSSugarCore", dependencies: []),
+            name: "SSSugarCore", dependencies: [] + Additions.ForTarget.dependecies() ),
         .target(
             name: "SSSugarUIKit", dependencies: ["SSSugarCore"]),
         .target(

@@ -1,3 +1,4 @@
+#if !os(Linux)
 import Foundation
 
 /// Requirements to object that able to obtain certificates
@@ -39,3 +40,4 @@ public class SSAssetCertificateObtainer: SSCertificatesObtainer {
         }
     }
 }
+#endif

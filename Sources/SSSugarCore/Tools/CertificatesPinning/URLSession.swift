@@ -1,3 +1,4 @@
+#if !os(Linux)
 import Foundation
 
 extension URLSession {
@@ -5,3 +6,5 @@ extension URLSession {
         self.init(configuration: configuration, delegate: pinner, delegateQueue: delegateQueue)
     }
 }
+
+#endif

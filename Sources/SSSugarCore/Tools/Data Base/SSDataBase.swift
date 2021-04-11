@@ -3,7 +3,7 @@ import Foundation
 #if canImport(SQLite3)
 import SQLite3
 #else
-import PerfectCSQLite3
+import CSQLite
 #endif
 
 #warning("DB: Test")
@@ -30,6 +30,7 @@ public class SSDataBase {
     }
     
     deinit {
+        try? statementsCache.clearAll()
         if (connection.isOpen) {
             connection.close()
         }
