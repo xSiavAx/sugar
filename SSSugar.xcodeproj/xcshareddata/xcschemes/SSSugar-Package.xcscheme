@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1240"
+   LastUpgradeVersion = "9999"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "SSSugar"
-               BuildableName = "SSSugar"
-               BlueprintName = "SSSugar"
-               ReferencedContainer = "container:">
+               BlueprintIdentifier = "SSSugar::SSSugarCore"
+               BuildableName = "SSSugarCore.framework"
+               BlueprintName = "SSSugarCore"
+               ReferencedContainer = "container:SSSugar.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -28,52 +28,24 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "SSSugarPG"
+               BlueprintIdentifier = "SSSugar::SSSugarUIKit"
+               BuildableName = "SSSugarUIKit.framework"
+               BlueprintName = "SSSugarUIKit"
+               ReferencedContainer = "container:SSSugar.xcodeproj">
+            </BuildableReference>
+         </BuildActionEntry>
+         <BuildActionEntry
+            buildForTesting = "YES"
+            buildForRunning = "YES"
+            buildForProfiling = "YES"
+            buildForArchiving = "YES"
+            buildForAnalyzing = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "SSSugar::SSSugarPG"
                BuildableName = "SSSugarPG"
                BlueprintName = "SSSugarPG"
-               ReferencedContainer = "container:">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "SSSugarCore"
-               BuildableName = "SSSugarCore"
-               BlueprintName = "SSSugarCore"
-               ReferencedContainer = "container:">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "SSSugarUIKit"
-               BuildableName = "SSSugarUIKit"
-               BlueprintName = "SSSugarUIKit"
-               ReferencedContainer = "container:">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "YES"
-            buildForArchiving = "YES"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "SSSugarDynamic"
-               BuildableName = "SSSugarDynamic"
-               BlueprintName = "SSSugarDynamic"
-               ReferencedContainer = "container:">
+               ReferencedContainer = "container:SSSugar.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -88,20 +60,20 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "SSSugarCoreTests"
-               BuildableName = "SSSugarCoreTests"
-               BlueprintName = "SSSugarCoreTests"
-               ReferencedContainer = "container:">
+               BlueprintIdentifier = "SSSugar::SSSugarUIKitTests"
+               BuildableName = "SSSugarUIKitTests.xctest"
+               BlueprintName = "SSSugarUIKitTests"
+               ReferencedContainer = "container:SSSugar.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "SSSugarUIKitTests"
-               BuildableName = "SSSugarUIKitTests"
-               BlueprintName = "SSSugarUIKitTests"
-               ReferencedContainer = "container:">
+               BlueprintIdentifier = "SSSugar::SSSugarCoreTests"
+               BuildableName = "SSSugarCoreTests.xctest"
+               BlueprintName = "SSSugarCoreTests"
+               ReferencedContainer = "container:SSSugar.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -116,15 +88,6 @@
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "SSSugarPG"
-            BuildableName = "SSSugarPG"
-            BlueprintName = "SSSugarPG"
-            ReferencedContainer = "container:">
-         </BuildableReference>
-      </MacroExpansion>
    </LaunchAction>
    <ProfileAction
       buildConfiguration = "Release"
@@ -132,15 +95,6 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
-      <MacroExpansion>
-         <BuildableReference
-            BuildableIdentifier = "primary"
-            BlueprintIdentifier = "SSSugarPG"
-            BuildableName = "SSSugarPG"
-            BlueprintName = "SSSugarPG"
-            ReferencedContainer = "container:">
-         </BuildableReference>
-      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

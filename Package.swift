@@ -37,6 +37,10 @@ let package = Package(
         .library(
             name: "SSSugarCore",
             targets: ["SSSugarCore"]),
+        .library(
+            name: "SSSugarDynamic",
+            type: .dynamic,
+            targets: ["SSSugarUIKit", "SSSugarCore"]),
         .executable(
             name: "SSSugarPG",
             targets: ["SSSugarPG"]),
