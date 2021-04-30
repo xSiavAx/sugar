@@ -27,7 +27,7 @@ struct Additions {
 let package = Package(
     name: "SSSugar",
     platforms: [
-        .macOS(.v11),
+        .macOS(.v10_15),
         .iOS(.v11)
     ],
     products: [

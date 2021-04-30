@@ -21,7 +21,9 @@ extension URLSessionConfiguration {
         let config = URLSessionConfiguration.background(withIdentifier: withIdentifier)
         
         config.shouldUseExtendedBackgroundIdleMode = true
-        config.sessionSendsLaunchEvents = true
+        if #available(macOS 11, *) {
+            config.sessionSendsLaunchEvents = true
+        }
         
         return config
     }
