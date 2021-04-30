@@ -3,7 +3,7 @@ import Foundation
 #if canImport(SQLite3)
 import SQLite3
 #else
-import CSQLite
+import CSQLiteSS
 #endif
 
 #warning("DB: Test")

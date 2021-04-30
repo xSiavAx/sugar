@@ -16,7 +16,7 @@ struct Additions {
     struct ForTarget {
         static func dependecies() -> [Target.Dependency] {
             #if os(Linux)
-            return ["CSQLite"]
+            return [.product(name: "CSQLiteSS", package: "CSQLite")]
             #else
             return []
             #endif
