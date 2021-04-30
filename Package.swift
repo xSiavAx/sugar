@@ -7,7 +7,7 @@ struct Additions {
     struct ForPackage {
         static func dependecies() -> [Package.Dependency] {
             #if os(Linux)
-            return [.package(name: "CSQLite", url: "git@bitbucket.org:SiavA/csqlite.git", .branch("master"))]
+            return [.package(name: "CSQLiteSS", url: "git@bitbucket.org:SiavA/csqlite.git", .branch("master"))]
             #else
             return []
             #endif
@@ -16,7 +16,7 @@ struct Additions {
     struct ForTarget {
         static func dependecies() -> [Target.Dependency] {
             #if os(Linux)
-            return [.product(name: "CSQLiteSS", package: "CSQLite")]
+            return ["CSQLiteSS"]
             #else
             return []
             #endif
