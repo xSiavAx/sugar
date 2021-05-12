@@ -3,7 +3,7 @@ import Foundation
 #if canImport(SQLite3)
 import SQLite3
 #else
-import PerfectCSQLite3
+import CSQLiteSS
 #endif
 
 /// SQLITE3 statemnet wrapper

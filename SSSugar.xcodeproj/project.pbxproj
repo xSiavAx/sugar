@@ -1,0 +1,2853 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		"SSSugar::SSSugar::ProductTarget" /* SSSugar */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = OBJ_425 /* Build configuration list for PBXAggregateTarget "SSSugar" */;
+			buildPhases = (
+			);
+			dependencies = (
+				OBJ_428 /* PBXTargetDependency */,
+				OBJ_430 /* PBXTargetDependency */,
+			);
+			name = SSSugar;
+			productName = SSSugar;
+		};
+		"SSSugar::SSSugarPackageTests::ProductTarget" /* SSSugarPackageTests */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = OBJ_649 /* Build configuration list for PBXAggregateTarget "SSSugarPackageTests" */;
+			buildPhases = (
+			);
+			dependencies = (
+				OBJ_652 /* PBXTargetDependency */,
+				OBJ_653 /* PBXTargetDependency */,
+			);
+			name = SSSugarPackageTests;
+			productName = SSSugarPackageTests;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		OBJ_388 /* BashCompletionsGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_332 /* BashCompletionsGenerator.swift */; };
+		OBJ_389 /* CompletionsGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_333 /* CompletionsGenerator.swift */; };
+		OBJ_390 /* FishCompletionsGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_334 /* FishCompletionsGenerator.swift */; };
+		OBJ_391 /* ZshCompletionsGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_335 /* ZshCompletionsGenerator.swift */; };
+		OBJ_392 /* Argument.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_337 /* Argument.swift */; };
+		OBJ_393 /* ArgumentHelp.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_338 /* ArgumentHelp.swift */; };
+		OBJ_394 /* CompletionKind.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_339 /* CompletionKind.swift */; };
+		OBJ_395 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_340 /* Errors.swift */; };
+		OBJ_396 /* Flag.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_341 /* Flag.swift */; };
+		OBJ_397 /* NameSpecification.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_342 /* NameSpecification.swift */; };
+		OBJ_398 /* Option.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_343 /* Option.swift */; };
+		OBJ_399 /* OptionGroup.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_344 /* OptionGroup.swift */; };
+		OBJ_400 /* CommandConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_346 /* CommandConfiguration.swift */; };
+		OBJ_401 /* EnumerableFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_347 /* EnumerableFlag.swift */; };
+		OBJ_402 /* ExpressibleByArgument.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_348 /* ExpressibleByArgument.swift */; };
+		OBJ_403 /* ParsableArguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_349 /* ParsableArguments.swift */; };
+		OBJ_404 /* ParsableArgumentsValidation.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_350 /* ParsableArgumentsValidation.swift */; };
+		OBJ_405 /* ParsableCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_351 /* ParsableCommand.swift */; };
+		OBJ_406 /* ArgumentDecoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_353 /* ArgumentDecoder.swift */; };
+		OBJ_407 /* ArgumentDefinition.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_354 /* ArgumentDefinition.swift */; };
+		OBJ_408 /* ArgumentSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_355 /* ArgumentSet.swift */; };
+		OBJ_409 /* CommandParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_356 /* CommandParser.swift */; };
+		OBJ_410 /* InputOrigin.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_357 /* InputOrigin.swift */; };
+		OBJ_411 /* Name.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_358 /* Name.swift */; };
+		OBJ_412 /* Parsed.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_359 /* Parsed.swift */; };
+		OBJ_413 /* ParsedValues.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_360 /* ParsedValues.swift */; };
+		OBJ_414 /* ParserError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_361 /* ParserError.swift */; };
+		OBJ_415 /* SplitArguments.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_362 /* SplitArguments.swift */; };
+		OBJ_416 /* HelpCommand.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_364 /* HelpCommand.swift */; };
+		OBJ_417 /* HelpGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_365 /* HelpGenerator.swift */; };
+		OBJ_418 /* MessageInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_366 /* MessageInfo.swift */; };
+		OBJ_419 /* UsageGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_367 /* UsageGenerator.swift */; };
+		OBJ_420 /* SequenceExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_369 /* SequenceExtensions.swift */; };
+		OBJ_421 /* StringExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_370 /* StringExtensions.swift */; };
+		OBJ_422 /* Tree.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_371 /* Tree.swift */; };
+		OBJ_436 /* AutoMap.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* AutoMap.swift */; };
+		OBJ_437 /* SSReleaseDecorator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* SSReleaseDecorator.swift */; };
+		OBJ_438 /* SSAtomic.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* SSAtomic.swift */; };
+		OBJ_439 /* SSChainExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* SSChainExecutor.swift */; };
+		OBJ_440 /* SSGroupExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_16 /* SSGroupExecutor.swift */; };
+		OBJ_441 /* SSTry.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* SSTry.swift */; };
+		OBJ_442 /* Bundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* Bundle.swift */; };
+		OBJ_443 /* Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* Array.swift */; };
+		OBJ_444 /* Dictionary.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* Dictionary.swift */; };
+		OBJ_445 /* DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* DispatchQueue.swift */; };
+		OBJ_446 /* Comparable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_25 /* Comparable.swift */; };
+		OBJ_447 /* RandomNumberGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_26 /* RandomNumberGenerator.swift */; };
+		OBJ_448 /* CGPoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_28 /* CGPoint.swift */; };
+		OBJ_449 /* CGRect.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_29 /* CGRect.swift */; };
+		OBJ_450 /* CGSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_30 /* CGSize.swift */; };
+		OBJ_451 /* Data.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_31 /* Data.swift */; };
+		OBJ_452 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_32 /* Date.swift */; };
+		OBJ_453 /* Range.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_33 /* Range.swift */; };
+		OBJ_454 /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_34 /* String.swift */; };
+		OBJ_455 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_36 /* Functions.swift */; };
+		OBJ_456 /* SSCacheContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_38 /* SSCacheContainer.swift */; };
+		OBJ_457 /* SSCopying.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_39 /* SSCopying.swift */; };
+		OBJ_458 /* SSEqutable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_40 /* SSEqutable.swift */; };
+		OBJ_459 /* SSExecutor.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_41 /* SSExecutor.swift */; };
+		OBJ_460 /* SSReleasable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_42 /* SSReleasable.swift */; };
+		OBJ_461 /* SSStringRepresentableError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_43 /* SSStringRepresentableError.swift */; };
+		OBJ_462 /* SSTransacted.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_44 /* SSTransacted.swift */; };
+		OBJ_463 /* SSCertificatePinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_47 /* SSCertificatePinner.swift */; };
+		OBJ_464 /* SSCertificatesObtainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_48 /* SSCertificatesObtainer.swift */; };
+		OBJ_465 /* URLSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_49 /* URLSession.swift */; };
+		OBJ_466 /* SSDataBaseSavePointProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_52 /* SSDataBaseSavePointProxy.swift */; };
+		OBJ_467 /* SSDataBaseStatementProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_53 /* SSDataBaseStatementProxy.swift */; };
+		OBJ_468 /* SSReleaseDecoratorDBExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_55 /* SSReleaseDecoratorDBExtensions.swift */; };
+		OBJ_469 /* SSDBStatementProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_56 /* SSDBStatementProcessor.swift */; };
+		OBJ_470 /* SSDataBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_57 /* SSDataBase.swift */; };
+		OBJ_471 /* SSDataBaseConnection.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_58 /* SSDataBaseConnection.swift */; };
+		OBJ_472 /* SSDataBaseProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_59 /* SSDataBaseProtocols.swift */; };
+		OBJ_473 /* SSDataBaseSavePoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_60 /* SSDataBaseSavePoint.swift */; };
+		OBJ_474 /* SSDataBaseStatement.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_61 /* SSDataBaseStatement.swift */; };
+		OBJ_475 /* SSDataBaseStatementCacheHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_62 /* SSDataBaseStatementCacheHolder.swift */; };
+		OBJ_476 /* SSDataBaseStatemntCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_63 /* SSDataBaseStatemntCache.swift */; };
+		OBJ_477 /* SSDataBaseTransaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_64 /* SSDataBaseTransaction.swift */; };
+		OBJ_478 /* SSDataBaseTransactionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_65 /* SSDataBaseTransactionController.swift */; };
+		OBJ_479 /* SSColumnProtocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_68 /* SSColumnProtocols.swift */; };
+		OBJ_480 /* SSDBColType.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_69 /* SSDBColType.swift */; };
+		OBJ_481 /* SSDBColumn.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_70 /* SSDBColumn.swift */; };
+		OBJ_482 /* SSDBColumnRef.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_71 /* SSDBColumnRef.swift */; };
+		OBJ_483 /* SSDBForeignKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_72 /* SSDBForeignKey.swift */; };
+		OBJ_484 /* SSDBPrimaryKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_73 /* SSDBPrimaryKey.swift */; };
+		OBJ_485 /* SSDBQueryProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_76 /* SSDBQueryProcessor.swift */; };
+		OBJ_486 /* SSDBQueryProxy.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_77 /* SSDBQueryProxy.swift */; };
+		OBJ_487 /* SSDataBaseQueryHandleCore.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_78 /* SSDataBaseQueryHandleCore.swift */; };
+		OBJ_488 /* SSDBColumnCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_80 /* SSDBColumnCondition.swift */; };
+		OBJ_489 /* SSDBConditionSet.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_81 /* SSDBConditionSet.swift */; };
+		OBJ_490 /* SSDBQueryCondition.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_82 /* SSDBQueryCondition.swift */; };
+		OBJ_491 /* SSDBQueryBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_83 /* SSDBQueryBuilder.swift */; };
+		OBJ_492 /* SSDBTypedQuery.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_84 /* SSDBTypedQuery.swift */; };
+		OBJ_493 /* SSDBTypedQueryHandling.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_85 /* SSDBTypedQueryHandling.swift */; };
+		OBJ_494 /* SSDBTypedStatement.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_86 /* SSDBTypedStatement.swift */; };
+		OBJ_495 /* SSDBComponent.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_87 /* SSDBComponent.swift */; };
+		OBJ_496 /* SSDBIDTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_88 /* SSDBIDTable.swift */; };
+		OBJ_497 /* SSDBRefCountTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_89 /* SSDBRefCountTable.swift */; };
+		OBJ_498 /* SSDBStoraging.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_90 /* SSDBStoraging.swift */; };
+		OBJ_499 /* SSDBTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_91 /* SSDBTable.swift */; };
+		OBJ_500 /* SSDBTableIndex.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_92 /* SSDBTableIndex.swift */; };
+		OBJ_501 /* SSDBTrigger.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_93 /* SSDBTrigger.swift */; };
+		OBJ_502 /* Base.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_97 /* Base.swift */; };
+		OBJ_503 /* SSUEBatchAdpater.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_98 /* SSUEBatchAdpater.swift */; };
+		OBJ_504 /* SSUEChanges.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_99 /* SSUEChanges.swift */; };
+		OBJ_505 /* SSUERequests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_100 /* SSUERequests.swift */; };
+		OBJ_506 /* SSUETaskDmMutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_101 /* SSUETaskDmMutator.swift */; };
+		OBJ_507 /* SSUETaskDmProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_102 /* SSUETaskDmProcessor.swift */; };
+		OBJ_508 /* SSUETaskModifyCores.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_103 /* SSUETaskModifyCores.swift */; };
+		OBJ_509 /* SSTaskProcessorExample.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_104 /* SSTaskProcessorExample.swift */; };
+		OBJ_510 /* SSUETask.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_105 /* SSUETask.swift */; };
+		OBJ_511 /* SSUETaskDBMutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_106 /* SSUETaskDBMutator.swift */; };
+		OBJ_512 /* SSUETaskMutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_107 /* SSUETaskMutator.swift */; };
+		OBJ_513 /* SSUETaskProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_108 /* SSUETaskProcessor.swift */; };
+		OBJ_514 /* SSUETaskRemoteMutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_109 /* SSUETaskRemoteMutator.swift */; };
+		OBJ_515 /* SSUETaskUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_110 /* SSUETaskUpdate.swift */; };
+		OBJ_516 /* SSUETaskUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_111 /* SSUETaskUpdater.swift */; };
+		OBJ_517 /* SSDataModifyCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_113 /* SSDataModifyCenter.swift */; };
+		OBJ_518 /* SSDataModifying.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_114 /* SSDataModifying.swift */; };
+		OBJ_519 /* SSDmBatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_115 /* SSDmBatch.swift */; };
+		OBJ_520 /* SSDmBatchAdapting.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_116 /* SSDmBatchAdapting.swift */; };
+		OBJ_521 /* SSDmRevision.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_117 /* SSDmRevision.swift */; };
+		OBJ_522 /* SSEntityDmMutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_118 /* SSEntityDmMutator.swift */; };
+		OBJ_523 /* SSEntityMutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_119 /* SSEntityMutator.swift */; };
+		OBJ_524 /* SSEntityProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_120 /* SSEntityProcessor.swift */; };
+		OBJ_525 /* SSEntityRemoteMutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_121 /* SSEntityRemoteMutator.swift */; };
+		OBJ_526 /* SSEntityStorageMutator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_122 /* SSEntityStorageMutator.swift */; };
+		OBJ_527 /* SSEntityUpdater.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_123 /* SSEntityUpdater.swift */; };
+		OBJ_528 /* SSUpdate.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_124 /* SSUpdate.swift */; };
+		OBJ_529 /* SSUpdateCenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_125 /* SSUpdateCenter.swift */; };
+		OBJ_530 /* SSUpdateReceiver.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_126 /* SSUpdateReceiver.swift */; };
+		OBJ_531 /* SSApiArgsConverting.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_129 /* SSApiArgsConverting.swift */; };
+		OBJ_532 /* SSApiCallOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_130 /* SSApiCallOptions.swift */; };
+		OBJ_533 /* SSApiError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_131 /* SSApiError.swift */; };
+		OBJ_534 /* SSApiNoError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_132 /* SSApiNoError.swift */; };
+		OBJ_535 /* SSRemoteApiModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_133 /* SSRemoteApiModel.swift */; };
+		OBJ_536 /* SSCommunicating.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_134 /* SSCommunicating.swift */; };
+		OBJ_537 /* SSCommunicationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_135 /* SSCommunicationError.swift */; };
+		OBJ_538 /* SSNetworkCommunicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_136 /* SSNetworkCommunicator.swift */; };
+		OBJ_539 /* URLSessionConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_137 /* URLSessionConfiguration.swift */; };
+		OBJ_540 /* RawRepresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_141 /* RawRepresentable.swift */; };
+		OBJ_541 /* SSApiErrorConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_142 /* SSApiErrorConverter.swift */; };
+		OBJ_542 /* SSErrorConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_143 /* SSErrorConverter.swift */; };
+		OBJ_543 /* SSKeyFieldConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_144 /* SSKeyFieldConverter.swift */; };
+		OBJ_544 /* SSKeyField.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_145 /* SSKeyField.swift */; };
+		OBJ_545 /* SSKeyFieldStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_146 /* SSKeyFieldStorage.swift */; };
+		OBJ_546 /* SSKeyStoringProp.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_147 /* SSKeyStoringProp.swift */; };
+		OBJ_547 /* SSStorageCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_148 /* SSStorageCoder.swift */; };
+		OBJ_548 /* SSLinearCongruentialRandomizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_149 /* SSLinearCongruentialRandomizer.swift */; };
+		OBJ_555 /* AutoMapAddContainerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_202 /* AutoMapAddContainerTests.swift */; };
+		OBJ_556 /* AutoMapAddTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_203 /* AutoMapAddTests.swift */; };
+		OBJ_557 /* AutoMapContainsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_204 /* AutoMapContainsTests.swift */; };
+		OBJ_558 /* AutoMapCountTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_205 /* AutoMapCountTests.swift */; };
+		OBJ_559 /* AutoMapEqualityOperatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_206 /* AutoMapEqualityOperatorTests.swift */; };
+		OBJ_560 /* AutoMapInitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_207 /* AutoMapInitTests.swift */; };
+		OBJ_561 /* AutoMapInsertTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_208 /* AutoMapInsertTests.swift */; };
+		OBJ_562 /* AutoMapIsEmptyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_209 /* AutoMapIsEmptyTests.swift */; };
+		OBJ_563 /* AutoMapMakeIteratorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_210 /* AutoMapMakeIteratorTests.swift */; };
+		OBJ_564 /* AutoMapRemoveAllTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_211 /* AutoMapRemoveAllTests.swift */; };
+		OBJ_565 /* AutoMapRemoveForAtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_212 /* AutoMapRemoveForAtTests.swift */; };
+		OBJ_566 /* AutoMapRemoveForKeyAndIndexes.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_213 /* AutoMapRemoveForKeyAndIndexes.swift */; };
+		OBJ_567 /* AutoMapRemoveForTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_214 /* AutoMapRemoveForTests.swift */; };
+		OBJ_568 /* AutoMapRemoveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_215 /* AutoMapRemoveTests.swift */; };
+		OBJ_569 /* AutoMapReplaceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_216 /* AutoMapReplaceTests.swift */; };
+		OBJ_570 /* AutoMapSubscriptKeyIndexTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_217 /* AutoMapSubscriptKeyIndexTests.swift */; };
+		OBJ_571 /* AutoMapSubscriptKeyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_218 /* AutoMapSubscriptKeyTests.swift */; };
+		OBJ_572 /* AutoMapTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_219 /* AutoMapTestHelper.swift */; };
+		OBJ_573 /* AutoMapUpdateTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_220 /* AutoMapUpdateTests.swift */; };
+		OBJ_574 /* AutoMapIteratorInitMapTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_222 /* AutoMapIteratorInitMapTests.swift */; };
+		OBJ_575 /* AutoMapIteratorNextTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_223 /* AutoMapIteratorNextTests.swift */; };
+		OBJ_576 /* SSChainExecutorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_224 /* SSChainExecutorTests.swift */; };
+		OBJ_577 /* SSGroupExecutorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_225 /* SSGroupExecutorTests.swift */; };
+		OBJ_578 /* ArrayBinarySearchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_229 /* ArrayBinarySearchTests.swift */; };
+		OBJ_579 /* ArrayForEachTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_230 /* ArrayForEachTests.swift */; };
+		OBJ_580 /* ArrayInitBuildBlockTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_231 /* ArrayInitBuildBlockTests.swift */; };
+		OBJ_581 /* ArrayInsertTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_232 /* ArrayInsertTests.swift */; };
+		OBJ_582 /* ArrayPickAtTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_233 /* ArrayPickAtTests.swift */; };
+		OBJ_583 /* ArrayRemoveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_234 /* ArrayRemoveTests.swift */; };
+		OBJ_584 /* ArrayShuffleUsingTypeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_235 /* ArrayShuffleUsingTypeTests.swift */; };
+		OBJ_585 /* DictionaryPickForTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_237 /* DictionaryPickForTests.swift */; };
+		OBJ_586 /* DictionaryPickingForTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_238 /* DictionaryPickingForTests.swift */; };
+		OBJ_587 /* DictionaryTestKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_239 /* DictionaryTestKey.swift */; };
+		OBJ_588 /* IndexSetInsertableCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_240 /* IndexSetInsertableCollection.swift */; };
+		OBJ_589 /* SetInsertableCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_241 /* SetInsertableCollection.swift */; };
+		OBJ_590 /* ComparableCompareTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_243 /* ComparableCompareTests.swift */; };
+		OBJ_591 /* CGPointSubtractionOperatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_246 /* CGPointSubtractionOperatorTests.swift */; };
+		OBJ_592 /* CGPointSumOperatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_247 /* CGPointSumOperatorTests.swift */; };
+		OBJ_593 /* CGPointTestItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_248 /* CGPointTestItems.swift */; };
+		OBJ_594 /* CGPointUnaryMinusTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_249 /* CGPointUnaryMinusTests.swift */; };
+		OBJ_595 /* CGRectCenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_251 /* CGRectCenterTests.swift */; };
+		OBJ_596 /* CGRectCuttedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_252 /* CGRectCuttedTests.swift */; };
+		OBJ_597 /* CGRectDividedCountVerticallyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_253 /* CGRectDividedCountVerticallyTests.swift */; };
+		OBJ_598 /* CGRectInitCenterSize.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_254 /* CGRectInitCenterSize.swift */; };
+		OBJ_599 /* CGRectInsetToSizeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_255 /* CGRectInsetToSizeTests.swift */; };
+		OBJ_600 /* CGRectInsetToWHTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_256 /* CGRectInsetToWHTests.swift */; };
+		OBJ_601 /* CGSizeAddedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_258 /* CGSizeAddedTests.swift */; };
+		OBJ_602 /* CGSizeExtendedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_259 /* CGSizeExtendedTests.swift */; };
+		OBJ_603 /* CGSizeSubtractionOperatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_260 /* CGSizeSubtractionOperatorTests.swift */; };
+		OBJ_604 /* CGSizeSumOperatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_261 /* CGSizeSumOperatorTests.swift */; };
+		OBJ_605 /* CGSizeTestItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_262 /* CGSizeTestItems.swift */; };
+		OBJ_606 /* CGSizeUnaryMinusOperatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_263 /* CGSizeUnaryMinusOperatorTests.swift */; };
+		OBJ_607 /* CGSizeUnitedIntersectedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_264 /* CGSizeUnitedIntersectedTests.swift */; };
+		OBJ_608 /* RangeMiddleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_265 /* RangeMiddleTests.swift */; };
+		OBJ_609 /* SSSugarTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_266 /* SSSugarTests.swift */; };
+		OBJ_610 /* SSDataModifyCenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_269 /* SSDataModifyCenterTests.swift */; };
+		OBJ_611 /* SSDmBatchAdapterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_270 /* SSDmBatchAdapterTests.swift */; };
+		OBJ_612 /* SSEntityDmMutatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_271 /* SSEntityDmMutatorTests.swift */; };
+		OBJ_613 /* SSEntityRemoteMutatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_272 /* SSEntityRemoteMutatorTests.swift */; };
+		OBJ_614 /* SSEntityStorageMutatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_273 /* SSEntityStorageMutatorTests.swift */; };
+		OBJ_615 /* SSEntityUpdaterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_274 /* SSEntityUpdaterTests.swift */; };
+		OBJ_616 /* SSSingleEntityProcessingTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_275 /* SSSingleEntityProcessingTest.swift */; };
+		OBJ_617 /* SSUpdateCenterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_276 /* SSUpdateCenterTests.swift */; };
+		OBJ_618 /* SSUpdateReceiverTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_277 /* SSUpdateReceiverTests.swift */; };
+		OBJ_619 /* SSUpdatesHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_278 /* SSUpdatesHelpers.swift */; };
+		OBJ_620 /* SSApiCallOptionstTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_281 /* SSApiCallOptionstTests.swift */; };
+		OBJ_621 /* SSRemoteApiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_282 /* SSRemoteApiTests.swift */; };
+		OBJ_622 /* ApiErrorConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_286 /* ApiErrorConverterTests.swift */; };
+		OBJ_623 /* ErrorConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_287 /* ErrorConverterTests.swift */; };
+		OBJ_624 /* KeyFieldConverterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_288 /* KeyFieldConverterTests.swift */; };
+		OBJ_625 /* KeyFieldTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_289 /* KeyFieldTest.swift */; };
+		OBJ_626 /* KeyStoringPropTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_290 /* KeyStoringPropTests.swift */; };
+		OBJ_627 /* StorageCoderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_291 /* StorageCoderTests.swift */; };
+		OBJ_629 /* SSSugarCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SSSugar::SSSugarCore::Product" /* SSSugarCore.framework */; };
+		OBJ_636 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_151 /* main.swift */; };
+		OBJ_638 /* ArgumentParser.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "swift-argument-parser::ArgumentParser::Product" /* ArgumentParser.framework */; };
+		OBJ_639 /* SSSugarCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SSSugar::SSSugarCore::Product" /* SSSugarCore.framework */; };
+		OBJ_647 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
+		OBJ_659 /* SSViewShowHideAnimating.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_156 /* SSViewShowHideAnimating.swift */; };
+		OBJ_660 /* SSViewShowHideByAlphaAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_157 /* SSViewShowHideByAlphaAnimator.swift */; };
+		OBJ_661 /* SSScaleAndAlphaTransitionAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_159 /* SSScaleAndAlphaTransitionAnimator.swift */; };
+		OBJ_662 /* SSViewTransitionAnimating.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_160 /* SSViewTransitionAnimating.swift */; };
+		OBJ_663 /* SSRootView.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_163 /* SSRootView.swift */; };
+		OBJ_664 /* SSRootViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_164 /* SSRootViewController.swift */; };
+		OBJ_665 /* SSActivityProtectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_166 /* SSActivityProtectionView.swift */; };
+		OBJ_666 /* SSProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_167 /* SSProgressView.swift */; };
+		OBJ_667 /* SSScrollContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_168 /* SSScrollContainerView.swift */; };
+		OBJ_668 /* SSSelectionMarkView.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_169 /* SSSelectionMarkView.swift */; };
+		OBJ_669 /* SSTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_170 /* SSTextField.swift */; };
+		OBJ_670 /* SSWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_171 /* SSWindow.swift */; };
+		OBJ_671 /* CTCarrier.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_173 /* CTCarrier.swift */; };
+		OBJ_672 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_175 /* UIViewController.swift */; };
+		OBJ_673 /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_177 /* UIColor.swift */; };
+		OBJ_674 /* UIDevice.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_178 /* UIDevice.swift */; };
+		OBJ_675 /* UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_180 /* UIButton.swift */; };
+		OBJ_676 /* UILabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_181 /* UILabel.swift */; };
+		OBJ_677 /* UITableVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_182 /* UITableVIew.swift */; };
+		OBJ_678 /* UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_183 /* UIView.swift */; };
+		OBJ_679 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_185 /* Functions.swift */; };
+		OBJ_680 /* SSViewBlocking.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_187 /* SSViewBlocking.swift */; };
+		OBJ_681 /* SSCollectionViewCellMarkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_190 /* SSCollectionViewCellMarkable.swift */; };
+		OBJ_682 /* SSCollectionViewMarkable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_191 /* SSCollectionViewMarkable.swift */; };
+		OBJ_683 /* SSCollectionViewMarkableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_192 /* SSCollectionViewMarkableController.swift */; };
+		OBJ_684 /* SSMarkbaleCollectionCellHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_193 /* SSMarkbaleCollectionCellHelper.swift */; };
+		OBJ_685 /* SSProtectionViewHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_194 /* SSProtectionViewHelper.swift */; };
+		OBJ_686 /* SSViewStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_196 /* SSViewStyles.swift */; };
+		OBJ_688 /* SSSugarCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SSSugar::SSSugarCore::Product" /* SSSugarCore.framework */; };
+		OBJ_694 /* UIViewControllerDismissPresentedAnimatedOnFinishTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_295 /* UIViewControllerDismissPresentedAnimatedOnFinishTests.swift */; };
+		OBJ_695 /* UIViewControllerKBNotificationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_296 /* UIViewControllerKBNotificationsTests.swift */; };
+		OBJ_696 /* UIViewControllerShowAlertTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_297 /* UIViewControllerShowAlertTests.swift */; };
+		OBJ_697 /* UIViewControllerShowErrorAlertTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_298 /* UIViewControllerShowErrorAlertTests.swift */; };
+		OBJ_698 /* UIViewControllerShowWarningAlertTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_299 /* UIViewControllerShowWarningAlertTests.swift */; };
+		OBJ_699 /* UIViewControllerTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_300 /* UIViewControllerTestHelper.swift */; };
+		OBJ_700 /* UIColorInitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_302 /* UIColorInitTests.swift */; };
+		OBJ_701 /* UILabelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_304 /* UILabelTests.swift */; };
+		OBJ_702 /* SSSugarPlaygroundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_306 /* SSSugarPlaygroundTests.swift */; };
+		OBJ_703 /* SSCollectionViewMarkableControllerActivateTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_310 /* SSCollectionViewMarkableControllerActivateTC.swift */; };
+		OBJ_704 /* SSCollectionViewMarkableControllerConfigCellTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_311 /* SSCollectionViewMarkableControllerConfigCellTC.swift */; };
+		OBJ_705 /* SSCollectionViewMarkableControllerDeactivateTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_312 /* SSCollectionViewMarkableControllerDeactivateTC.swift */; };
+		OBJ_706 /* SSCollectionViewMarkableControllerMarkTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_313 /* SSCollectionViewMarkableControllerMarkTC.swift */; };
+		OBJ_707 /* SSCollectionViewMarkableControllerTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_314 /* SSCollectionViewMarkableControllerTestHelper.swift */; };
+		OBJ_708 /* SSCollectionViewMarkableControllerUnmarkTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_315 /* SSCollectionViewMarkableControllerUnmarkTC.swift */; };
+		OBJ_709 /* SSMarkbaleCollectionCellHelperActivateActivatedTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_317 /* SSMarkbaleCollectionCellHelperActivateActivatedTC.swift */; };
+		OBJ_710 /* SSMarkbaleCollectionCellHelperActivateTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_318 /* SSMarkbaleCollectionCellHelperActivateTC.swift */; };
+		OBJ_711 /* SSMarkbaleCollectionCellHelperDeactivateDeactivatedTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_319 /* SSMarkbaleCollectionCellHelperDeactivateDeactivatedTC.swift */; };
+		OBJ_712 /* SSMarkbaleCollectionCellHelperDeactivateTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_320 /* SSMarkbaleCollectionCellHelperDeactivateTC.swift */; };
+		OBJ_713 /* SSMarkbaleCollectionCellHelperMarkMarkedTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_321 /* SSMarkbaleCollectionCellHelperMarkMarkedTC.swift */; };
+		OBJ_714 /* SSMarkbaleCollectionCellHelperMarkNonActiveTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_322 /* SSMarkbaleCollectionCellHelperMarkNonActiveTC.swift */; };
+		OBJ_715 /* SSMarkbaleCollectionCellHelperMarkTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_323 /* SSMarkbaleCollectionCellHelperMarkTC.swift */; };
+		OBJ_716 /* SSMarkbaleCollectionCellHelperTestHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_324 /* SSMarkbaleCollectionCellHelperTestHelper.swift */; };
+		OBJ_717 /* SSMarkbaleCollectionCellHelperUnmarkNonMarkedTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_325 /* SSMarkbaleCollectionCellHelperUnmarkNonMarkedTC.swift */; };
+		OBJ_718 /* SSMarkbaleCollectionCellHelperUnmarkTC.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_326 /* SSMarkbaleCollectionCellHelperUnmarkTC.swift */; };
+		OBJ_719 /* XCTestManifests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_327 /* XCTestManifests.swift */; };
+		OBJ_721 /* SSSugarUIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SSSugar::SSSugarUIKit::Product" /* SSSugarUIKit.framework */; };
+		OBJ_722 /* SSSugarCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "SSSugar::SSSugarCore::Product" /* SSSugarCore.framework */; };
+		OBJ_730 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_372 /* Package.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		998ABA1D262888BA00877127 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "swift-argument-parser::ArgumentParser";
+			remoteInfo = ArgumentParser;
+		};
+		998ABA1E262888BA00877127 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "SSSugar::SSSugarCore";
+			remoteInfo = SSSugarCore;
+		};
+		998ABA1F262888BA00877127 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "SSSugar::SSSugarCore";
+			remoteInfo = SSSugarCore;
+		};
+		998ABA20262888BA00877127 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "SSSugar::SSSugarUIKit";
+			remoteInfo = SSSugarUIKit;
+		};
+		998ABA21262888BA00877127 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "SSSugar::SSSugarCore";
+			remoteInfo = SSSugarCore;
+		};
+		998ABA22262888BA00877127 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "SSSugar::SSSugarCore";
+			remoteInfo = SSSugarCore;
+		};
+		998ABA24262888BC00877127 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "SSSugar::SSSugarUIKit";
+			remoteInfo = SSSugarUIKit;
+		};
+		998ABA25262888BC00877127 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "SSSugar::SSSugarCore";
+			remoteInfo = SSSugarCore;
+		};
+		998ABA2B262888BC00877127 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "SSSugar::SSSugarCoreTests";
+			remoteInfo = SSSugarCoreTests;
+		};
+		998ABA2C262888BC00877127 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = OBJ_1 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = "SSSugar::SSSugarUIKitTests";
+			remoteInfo = SSSugarUIKitTests;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		OBJ_100 /* SSUERequests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUERequests.swift; sourceTree = "<group>"; };
+		OBJ_101 /* SSUETaskDmMutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUETaskDmMutator.swift; sourceTree = "<group>"; };
+		OBJ_102 /* SSUETaskDmProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUETaskDmProcessor.swift; sourceTree = "<group>"; };
+		OBJ_103 /* SSUETaskModifyCores.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUETaskModifyCores.swift; sourceTree = "<group>"; };
+		OBJ_104 /* SSTaskProcessorExample.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSTaskProcessorExample.swift; sourceTree = "<group>"; };
+		OBJ_105 /* SSUETask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUETask.swift; sourceTree = "<group>"; };
+		OBJ_106 /* SSUETaskDBMutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUETaskDBMutator.swift; sourceTree = "<group>"; };
+		OBJ_107 /* SSUETaskMutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUETaskMutator.swift; sourceTree = "<group>"; };
+		OBJ_108 /* SSUETaskProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUETaskProcessor.swift; sourceTree = "<group>"; };
+		OBJ_109 /* SSUETaskRemoteMutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUETaskRemoteMutator.swift; sourceTree = "<group>"; };
+		OBJ_11 /* AutoMap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMap.swift; sourceTree = "<group>"; };
+		OBJ_110 /* SSUETaskUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUETaskUpdate.swift; sourceTree = "<group>"; };
+		OBJ_111 /* SSUETaskUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUETaskUpdater.swift; sourceTree = "<group>"; };
+		OBJ_113 /* SSDataModifyCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDataModifyCenter.swift; sourceTree = "<group>"; };
+		OBJ_114 /* SSDataModifying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDataModifying.swift; sourceTree = "<group>"; };
+		OBJ_115 /* SSDmBatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDmBatch.swift; sourceTree = "<group>"; };
+		OBJ_116 /* SSDmBatchAdapting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDmBatchAdapting.swift; sourceTree = "<group>"; };
+		OBJ_117 /* SSDmRevision.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDmRevision.swift; sourceTree = "<group>"; };
+		OBJ_118 /* SSEntityDmMutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSEntityDmMutator.swift; sourceTree = "<group>"; };
+		OBJ_119 /* SSEntityMutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSEntityMutator.swift; sourceTree = "<group>"; };
+		OBJ_120 /* SSEntityProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSEntityProcessor.swift; sourceTree = "<group>"; };
+		OBJ_121 /* SSEntityRemoteMutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSEntityRemoteMutator.swift; sourceTree = "<group>"; };
+		OBJ_122 /* SSEntityStorageMutator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSEntityStorageMutator.swift; sourceTree = "<group>"; };
+		OBJ_123 /* SSEntityUpdater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSEntityUpdater.swift; sourceTree = "<group>"; };
+		OBJ_124 /* SSUpdate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUpdate.swift; sourceTree = "<group>"; };
+		OBJ_125 /* SSUpdateCenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUpdateCenter.swift; sourceTree = "<group>"; };
+		OBJ_126 /* SSUpdateReceiver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUpdateReceiver.swift; sourceTree = "<group>"; };
+		OBJ_129 /* SSApiArgsConverting.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSApiArgsConverting.swift; sourceTree = "<group>"; };
+		OBJ_13 /* SSReleaseDecorator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSReleaseDecorator.swift; sourceTree = "<group>"; };
+		OBJ_130 /* SSApiCallOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSApiCallOptions.swift; sourceTree = "<group>"; };
+		OBJ_131 /* SSApiError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSApiError.swift; sourceTree = "<group>"; };
+		OBJ_132 /* SSApiNoError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSApiNoError.swift; sourceTree = "<group>"; };
+		OBJ_133 /* SSRemoteApiModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSRemoteApiModel.swift; sourceTree = "<group>"; };
+		OBJ_134 /* SSCommunicating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCommunicating.swift; sourceTree = "<group>"; };
+		OBJ_135 /* SSCommunicationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCommunicationError.swift; sourceTree = "<group>"; };
+		OBJ_136 /* SSNetworkCommunicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSNetworkCommunicator.swift; sourceTree = "<group>"; };
+		OBJ_137 /* URLSessionConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSessionConfiguration.swift; sourceTree = "<group>"; };
+		OBJ_14 /* SSAtomic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSAtomic.swift; sourceTree = "<group>"; };
+		OBJ_141 /* RawRepresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawRepresentable.swift; sourceTree = "<group>"; };
+		OBJ_142 /* SSApiErrorConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSApiErrorConverter.swift; sourceTree = "<group>"; };
+		OBJ_143 /* SSErrorConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSErrorConverter.swift; sourceTree = "<group>"; };
+		OBJ_144 /* SSKeyFieldConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSKeyFieldConverter.swift; sourceTree = "<group>"; };
+		OBJ_145 /* SSKeyField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSKeyField.swift; sourceTree = "<group>"; };
+		OBJ_146 /* SSKeyFieldStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSKeyFieldStorage.swift; sourceTree = "<group>"; };
+		OBJ_147 /* SSKeyStoringProp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSKeyStoringProp.swift; sourceTree = "<group>"; };
+		OBJ_148 /* SSStorageCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSStorageCoder.swift; sourceTree = "<group>"; };
+		OBJ_149 /* SSLinearCongruentialRandomizer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSLinearCongruentialRandomizer.swift; sourceTree = "<group>"; };
+		OBJ_15 /* SSChainExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSChainExecutor.swift; sourceTree = "<group>"; };
+		OBJ_151 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		OBJ_156 /* SSViewShowHideAnimating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSViewShowHideAnimating.swift; sourceTree = "<group>"; };
+		OBJ_157 /* SSViewShowHideByAlphaAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSViewShowHideByAlphaAnimator.swift; sourceTree = "<group>"; };
+		OBJ_159 /* SSScaleAndAlphaTransitionAnimator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSScaleAndAlphaTransitionAnimator.swift; sourceTree = "<group>"; };
+		OBJ_16 /* SSGroupExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSGroupExecutor.swift; sourceTree = "<group>"; };
+		OBJ_160 /* SSViewTransitionAnimating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSViewTransitionAnimating.swift; sourceTree = "<group>"; };
+		OBJ_163 /* SSRootView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSRootView.swift; sourceTree = "<group>"; };
+		OBJ_164 /* SSRootViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSRootViewController.swift; sourceTree = "<group>"; };
+		OBJ_166 /* SSActivityProtectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSActivityProtectionView.swift; sourceTree = "<group>"; };
+		OBJ_167 /* SSProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSProgressView.swift; sourceTree = "<group>"; };
+		OBJ_168 /* SSScrollContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSScrollContainerView.swift; sourceTree = "<group>"; };
+		OBJ_169 /* SSSelectionMarkView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSelectionMarkView.swift; sourceTree = "<group>"; };
+		OBJ_17 /* SSTry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSTry.swift; sourceTree = "<group>"; };
+		OBJ_170 /* SSTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSTextField.swift; sourceTree = "<group>"; };
+		OBJ_171 /* SSWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSWindow.swift; sourceTree = "<group>"; };
+		OBJ_173 /* CTCarrier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CTCarrier.swift; sourceTree = "<group>"; };
+		OBJ_175 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		OBJ_177 /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColor.swift; sourceTree = "<group>"; };
+		OBJ_178 /* UIDevice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIDevice.swift; sourceTree = "<group>"; };
+		OBJ_180 /* UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIButton.swift; sourceTree = "<group>"; };
+		OBJ_181 /* UILabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabel.swift; sourceTree = "<group>"; };
+		OBJ_182 /* UITableVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableVIew.swift; sourceTree = "<group>"; };
+		OBJ_183 /* UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIView.swift; sourceTree = "<group>"; };
+		OBJ_185 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		OBJ_187 /* SSViewBlocking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSViewBlocking.swift; sourceTree = "<group>"; };
+		OBJ_19 /* Bundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bundle.swift; sourceTree = "<group>"; };
+		OBJ_190 /* SSCollectionViewCellMarkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewCellMarkable.swift; sourceTree = "<group>"; };
+		OBJ_191 /* SSCollectionViewMarkable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkable.swift; sourceTree = "<group>"; };
+		OBJ_192 /* SSCollectionViewMarkableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableController.swift; sourceTree = "<group>"; };
+		OBJ_193 /* SSMarkbaleCollectionCellHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSMarkbaleCollectionCellHelper.swift; sourceTree = "<group>"; };
+		OBJ_194 /* SSProtectionViewHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSProtectionViewHelper.swift; sourceTree = "<group>"; };
+		OBJ_196 /* SSViewStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSViewStyles.swift; sourceTree = "<group>"; };
+		OBJ_202 /* AutoMapAddContainerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapAddContainerTests.swift; sourceTree = "<group>"; };
+		OBJ_203 /* AutoMapAddTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapAddTests.swift; sourceTree = "<group>"; };
+		OBJ_204 /* AutoMapContainsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapContainsTests.swift; sourceTree = "<group>"; };
+		OBJ_205 /* AutoMapCountTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapCountTests.swift; sourceTree = "<group>"; };
+		OBJ_206 /* AutoMapEqualityOperatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapEqualityOperatorTests.swift; sourceTree = "<group>"; };
+		OBJ_207 /* AutoMapInitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapInitTests.swift; sourceTree = "<group>"; };
+		OBJ_208 /* AutoMapInsertTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapInsertTests.swift; sourceTree = "<group>"; };
+		OBJ_209 /* AutoMapIsEmptyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapIsEmptyTests.swift; sourceTree = "<group>"; };
+		OBJ_21 /* Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Array.swift; sourceTree = "<group>"; };
+		OBJ_210 /* AutoMapMakeIteratorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapMakeIteratorTests.swift; sourceTree = "<group>"; };
+		OBJ_211 /* AutoMapRemoveAllTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapRemoveAllTests.swift; sourceTree = "<group>"; };
+		OBJ_212 /* AutoMapRemoveForAtTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapRemoveForAtTests.swift; sourceTree = "<group>"; };
+		OBJ_213 /* AutoMapRemoveForKeyAndIndexes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapRemoveForKeyAndIndexes.swift; sourceTree = "<group>"; };
+		OBJ_214 /* AutoMapRemoveForTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapRemoveForTests.swift; sourceTree = "<group>"; };
+		OBJ_215 /* AutoMapRemoveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapRemoveTests.swift; sourceTree = "<group>"; };
+		OBJ_216 /* AutoMapReplaceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapReplaceTests.swift; sourceTree = "<group>"; };
+		OBJ_217 /* AutoMapSubscriptKeyIndexTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapSubscriptKeyIndexTests.swift; sourceTree = "<group>"; };
+		OBJ_218 /* AutoMapSubscriptKeyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapSubscriptKeyTests.swift; sourceTree = "<group>"; };
+		OBJ_219 /* AutoMapTestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapTestHelper.swift; sourceTree = "<group>"; };
+		OBJ_22 /* Dictionary.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dictionary.swift; sourceTree = "<group>"; };
+		OBJ_220 /* AutoMapUpdateTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapUpdateTests.swift; sourceTree = "<group>"; };
+		OBJ_222 /* AutoMapIteratorInitMapTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapIteratorInitMapTests.swift; sourceTree = "<group>"; };
+		OBJ_223 /* AutoMapIteratorNextTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoMapIteratorNextTests.swift; sourceTree = "<group>"; };
+		OBJ_224 /* SSChainExecutorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSChainExecutorTests.swift; sourceTree = "<group>"; };
+		OBJ_225 /* SSGroupExecutorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSGroupExecutorTests.swift; sourceTree = "<group>"; };
+		OBJ_229 /* ArrayBinarySearchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayBinarySearchTests.swift; sourceTree = "<group>"; };
+		OBJ_23 /* DispatchQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueue.swift; sourceTree = "<group>"; };
+		OBJ_230 /* ArrayForEachTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayForEachTests.swift; sourceTree = "<group>"; };
+		OBJ_231 /* ArrayInitBuildBlockTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayInitBuildBlockTests.swift; sourceTree = "<group>"; };
+		OBJ_232 /* ArrayInsertTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayInsertTests.swift; sourceTree = "<group>"; };
+		OBJ_233 /* ArrayPickAtTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayPickAtTests.swift; sourceTree = "<group>"; };
+		OBJ_234 /* ArrayRemoveTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayRemoveTests.swift; sourceTree = "<group>"; };
+		OBJ_235 /* ArrayShuffleUsingTypeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArrayShuffleUsingTypeTests.swift; sourceTree = "<group>"; };
+		OBJ_237 /* DictionaryPickForTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryPickForTests.swift; sourceTree = "<group>"; };
+		OBJ_238 /* DictionaryPickingForTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryPickingForTests.swift; sourceTree = "<group>"; };
+		OBJ_239 /* DictionaryTestKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DictionaryTestKey.swift; sourceTree = "<group>"; };
+		OBJ_240 /* IndexSetInsertableCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexSetInsertableCollection.swift; sourceTree = "<group>"; };
+		OBJ_241 /* SetInsertableCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetInsertableCollection.swift; sourceTree = "<group>"; };
+		OBJ_243 /* ComparableCompareTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparableCompareTests.swift; sourceTree = "<group>"; };
+		OBJ_246 /* CGPointSubtractionOperatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPointSubtractionOperatorTests.swift; sourceTree = "<group>"; };
+		OBJ_247 /* CGPointSumOperatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPointSumOperatorTests.swift; sourceTree = "<group>"; };
+		OBJ_248 /* CGPointTestItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPointTestItems.swift; sourceTree = "<group>"; };
+		OBJ_249 /* CGPointUnaryMinusTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPointUnaryMinusTests.swift; sourceTree = "<group>"; };
+		OBJ_25 /* Comparable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comparable.swift; sourceTree = "<group>"; };
+		OBJ_251 /* CGRectCenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGRectCenterTests.swift; sourceTree = "<group>"; };
+		OBJ_252 /* CGRectCuttedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGRectCuttedTests.swift; sourceTree = "<group>"; };
+		OBJ_253 /* CGRectDividedCountVerticallyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGRectDividedCountVerticallyTests.swift; sourceTree = "<group>"; };
+		OBJ_254 /* CGRectInitCenterSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGRectInitCenterSize.swift; sourceTree = "<group>"; };
+		OBJ_255 /* CGRectInsetToSizeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGRectInsetToSizeTests.swift; sourceTree = "<group>"; };
+		OBJ_256 /* CGRectInsetToWHTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGRectInsetToWHTests.swift; sourceTree = "<group>"; };
+		OBJ_258 /* CGSizeAddedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeAddedTests.swift; sourceTree = "<group>"; };
+		OBJ_259 /* CGSizeExtendedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeExtendedTests.swift; sourceTree = "<group>"; };
+		OBJ_26 /* RandomNumberGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomNumberGenerator.swift; sourceTree = "<group>"; };
+		OBJ_260 /* CGSizeSubtractionOperatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeSubtractionOperatorTests.swift; sourceTree = "<group>"; };
+		OBJ_261 /* CGSizeSumOperatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeSumOperatorTests.swift; sourceTree = "<group>"; };
+		OBJ_262 /* CGSizeTestItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeTestItems.swift; sourceTree = "<group>"; };
+		OBJ_263 /* CGSizeUnaryMinusOperatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeUnaryMinusOperatorTests.swift; sourceTree = "<group>"; };
+		OBJ_264 /* CGSizeUnitedIntersectedTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSizeUnitedIntersectedTests.swift; sourceTree = "<group>"; };
+		OBJ_265 /* RangeMiddleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RangeMiddleTests.swift; sourceTree = "<group>"; };
+		OBJ_266 /* SSSugarTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarTests.swift; sourceTree = "<group>"; };
+		OBJ_269 /* SSDataModifyCenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDataModifyCenterTests.swift; sourceTree = "<group>"; };
+		OBJ_270 /* SSDmBatchAdapterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDmBatchAdapterTests.swift; sourceTree = "<group>"; };
+		OBJ_271 /* SSEntityDmMutatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSEntityDmMutatorTests.swift; sourceTree = "<group>"; };
+		OBJ_272 /* SSEntityRemoteMutatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSEntityRemoteMutatorTests.swift; sourceTree = "<group>"; };
+		OBJ_273 /* SSEntityStorageMutatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSEntityStorageMutatorTests.swift; sourceTree = "<group>"; };
+		OBJ_274 /* SSEntityUpdaterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSEntityUpdaterTests.swift; sourceTree = "<group>"; };
+		OBJ_275 /* SSSingleEntityProcessingTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSingleEntityProcessingTest.swift; sourceTree = "<group>"; };
+		OBJ_276 /* SSUpdateCenterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUpdateCenterTests.swift; sourceTree = "<group>"; };
+		OBJ_277 /* SSUpdateReceiverTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUpdateReceiverTests.swift; sourceTree = "<group>"; };
+		OBJ_278 /* SSUpdatesHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUpdatesHelpers.swift; sourceTree = "<group>"; };
+		OBJ_28 /* CGPoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPoint.swift; sourceTree = "<group>"; };
+		OBJ_281 /* SSApiCallOptionstTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSApiCallOptionstTests.swift; sourceTree = "<group>"; };
+		OBJ_282 /* SSRemoteApiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSRemoteApiTests.swift; sourceTree = "<group>"; };
+		OBJ_286 /* ApiErrorConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiErrorConverterTests.swift; sourceTree = "<group>"; };
+		OBJ_287 /* ErrorConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorConverterTests.swift; sourceTree = "<group>"; };
+		OBJ_288 /* KeyFieldConverterTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyFieldConverterTests.swift; sourceTree = "<group>"; };
+		OBJ_289 /* KeyFieldTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyFieldTest.swift; sourceTree = "<group>"; };
+		OBJ_29 /* CGRect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGRect.swift; sourceTree = "<group>"; };
+		OBJ_290 /* KeyStoringPropTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeyStoringPropTests.swift; sourceTree = "<group>"; };
+		OBJ_291 /* StorageCoderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageCoderTests.swift; sourceTree = "<group>"; };
+		OBJ_295 /* UIViewControllerDismissPresentedAnimatedOnFinishTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerDismissPresentedAnimatedOnFinishTests.swift; sourceTree = "<group>"; };
+		OBJ_296 /* UIViewControllerKBNotificationsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerKBNotificationsTests.swift; sourceTree = "<group>"; };
+		OBJ_297 /* UIViewControllerShowAlertTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerShowAlertTests.swift; sourceTree = "<group>"; };
+		OBJ_298 /* UIViewControllerShowErrorAlertTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerShowErrorAlertTests.swift; sourceTree = "<group>"; };
+		OBJ_299 /* UIViewControllerShowWarningAlertTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerShowWarningAlertTests.swift; sourceTree = "<group>"; };
+		OBJ_30 /* CGSize.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGSize.swift; sourceTree = "<group>"; };
+		OBJ_300 /* UIViewControllerTestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerTestHelper.swift; sourceTree = "<group>"; };
+		OBJ_302 /* UIColorInitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorInitTests.swift; sourceTree = "<group>"; };
+		OBJ_304 /* UILabelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UILabelTests.swift; sourceTree = "<group>"; };
+		OBJ_306 /* SSSugarPlaygroundTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSSugarPlaygroundTests.swift; sourceTree = "<group>"; };
+		OBJ_31 /* Data.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Data.swift; sourceTree = "<group>"; };
+		OBJ_310 /* SSCollectionViewMarkableControllerActivateTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerActivateTC.swift; sourceTree = "<group>"; };
+		OBJ_311 /* SSCollectionViewMarkableControllerConfigCellTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerConfigCellTC.swift; sourceTree = "<group>"; };
+		OBJ_312 /* SSCollectionViewMarkableControllerDeactivateTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerDeactivateTC.swift; sourceTree = "<group>"; };
+		OBJ_313 /* SSCollectionViewMarkableControllerMarkTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerMarkTC.swift; sourceTree = "<group>"; };
+		OBJ_314 /* SSCollectionViewMarkableControllerTestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerTestHelper.swift; sourceTree = "<group>"; };
+		OBJ_315 /* SSCollectionViewMarkableControllerUnmarkTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCollectionViewMarkableControllerUnmarkTC.swift; sourceTree = "<group>"; };
+		OBJ_317 /* SSMarkbaleCollectionCellHelperActivateActivatedTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSMarkbaleCollectionCellHelperActivateActivatedTC.swift; sourceTree = "<group>"; };
+		OBJ_318 /* SSMarkbaleCollectionCellHelperActivateTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSMarkbaleCollectionCellHelperActivateTC.swift; sourceTree = "<group>"; };
+		OBJ_319 /* SSMarkbaleCollectionCellHelperDeactivateDeactivatedTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSMarkbaleCollectionCellHelperDeactivateDeactivatedTC.swift; sourceTree = "<group>"; };
+		OBJ_32 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		OBJ_320 /* SSMarkbaleCollectionCellHelperDeactivateTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSMarkbaleCollectionCellHelperDeactivateTC.swift; sourceTree = "<group>"; };
+		OBJ_321 /* SSMarkbaleCollectionCellHelperMarkMarkedTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSMarkbaleCollectionCellHelperMarkMarkedTC.swift; sourceTree = "<group>"; };
+		OBJ_322 /* SSMarkbaleCollectionCellHelperMarkNonActiveTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSMarkbaleCollectionCellHelperMarkNonActiveTC.swift; sourceTree = "<group>"; };
+		OBJ_323 /* SSMarkbaleCollectionCellHelperMarkTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSMarkbaleCollectionCellHelperMarkTC.swift; sourceTree = "<group>"; };
+		OBJ_324 /* SSMarkbaleCollectionCellHelperTestHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSMarkbaleCollectionCellHelperTestHelper.swift; sourceTree = "<group>"; };
+		OBJ_325 /* SSMarkbaleCollectionCellHelperUnmarkNonMarkedTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSMarkbaleCollectionCellHelperUnmarkNonMarkedTC.swift; sourceTree = "<group>"; };
+		OBJ_326 /* SSMarkbaleCollectionCellHelperUnmarkTC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSMarkbaleCollectionCellHelperUnmarkTC.swift; sourceTree = "<group>"; };
+		OBJ_327 /* XCTestManifests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XCTestManifests.swift; sourceTree = "<group>"; };
+		OBJ_33 /* Range.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Range.swift; sourceTree = "<group>"; };
+		OBJ_332 /* BashCompletionsGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BashCompletionsGenerator.swift; sourceTree = "<group>"; };
+		OBJ_333 /* CompletionsGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionsGenerator.swift; sourceTree = "<group>"; };
+		OBJ_334 /* FishCompletionsGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FishCompletionsGenerator.swift; sourceTree = "<group>"; };
+		OBJ_335 /* ZshCompletionsGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZshCompletionsGenerator.swift; sourceTree = "<group>"; };
+		OBJ_337 /* Argument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Argument.swift; sourceTree = "<group>"; };
+		OBJ_338 /* ArgumentHelp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArgumentHelp.swift; sourceTree = "<group>"; };
+		OBJ_339 /* CompletionKind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompletionKind.swift; sourceTree = "<group>"; };
+		OBJ_34 /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = String.swift; sourceTree = "<group>"; };
+		OBJ_340 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		OBJ_341 /* Flag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flag.swift; sourceTree = "<group>"; };
+		OBJ_342 /* NameSpecification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NameSpecification.swift; sourceTree = "<group>"; };
+		OBJ_343 /* Option.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Option.swift; sourceTree = "<group>"; };
+		OBJ_344 /* OptionGroup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OptionGroup.swift; sourceTree = "<group>"; };
+		OBJ_346 /* CommandConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandConfiguration.swift; sourceTree = "<group>"; };
+		OBJ_347 /* EnumerableFlag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnumerableFlag.swift; sourceTree = "<group>"; };
+		OBJ_348 /* ExpressibleByArgument.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpressibleByArgument.swift; sourceTree = "<group>"; };
+		OBJ_349 /* ParsableArguments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsableArguments.swift; sourceTree = "<group>"; };
+		OBJ_350 /* ParsableArgumentsValidation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsableArgumentsValidation.swift; sourceTree = "<group>"; };
+		OBJ_351 /* ParsableCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsableCommand.swift; sourceTree = "<group>"; };
+		OBJ_353 /* ArgumentDecoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArgumentDecoder.swift; sourceTree = "<group>"; };
+		OBJ_354 /* ArgumentDefinition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArgumentDefinition.swift; sourceTree = "<group>"; };
+		OBJ_355 /* ArgumentSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ArgumentSet.swift; sourceTree = "<group>"; };
+		OBJ_356 /* CommandParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommandParser.swift; sourceTree = "<group>"; };
+		OBJ_357 /* InputOrigin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputOrigin.swift; sourceTree = "<group>"; };
+		OBJ_358 /* Name.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Name.swift; sourceTree = "<group>"; };
+		OBJ_359 /* Parsed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Parsed.swift; sourceTree = "<group>"; };
+		OBJ_36 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
+		OBJ_360 /* ParsedValues.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParsedValues.swift; sourceTree = "<group>"; };
+		OBJ_361 /* ParserError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParserError.swift; sourceTree = "<group>"; };
+		OBJ_362 /* SplitArguments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplitArguments.swift; sourceTree = "<group>"; };
+		OBJ_364 /* HelpCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpCommand.swift; sourceTree = "<group>"; };
+		OBJ_365 /* HelpGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HelpGenerator.swift; sourceTree = "<group>"; };
+		OBJ_366 /* MessageInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageInfo.swift; sourceTree = "<group>"; };
+		OBJ_367 /* UsageGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsageGenerator.swift; sourceTree = "<group>"; };
+		OBJ_369 /* SequenceExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SequenceExtensions.swift; sourceTree = "<group>"; };
+		OBJ_370 /* StringExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtensions.swift; sourceTree = "<group>"; };
+		OBJ_371 /* Tree.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tree.swift; sourceTree = "<group>"; };
+		OBJ_372 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; name = Package.swift; path = "/Users/siava/dev/SSSugar/.build/checkouts/swift-argument-parser/Package.swift"; sourceTree = "<group>"; };
+		OBJ_38 /* SSCacheContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCacheContainer.swift; sourceTree = "<group>"; };
+		OBJ_380 /* docs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = docs; sourceTree = SOURCE_ROOT; };
+		OBJ_381 /* build_binary.bash */ = {isa = PBXFileReference; lastKnownFileType = text; path = build_binary.bash; sourceTree = "<group>"; };
+		OBJ_382 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		OBJ_39 /* SSCopying.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCopying.swift; sourceTree = "<group>"; };
+		OBJ_40 /* SSEqutable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSEqutable.swift; sourceTree = "<group>"; };
+		OBJ_41 /* SSExecutor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSExecutor.swift; sourceTree = "<group>"; };
+		OBJ_42 /* SSReleasable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSReleasable.swift; sourceTree = "<group>"; };
+		OBJ_43 /* SSStringRepresentableError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSStringRepresentableError.swift; sourceTree = "<group>"; };
+		OBJ_44 /* SSTransacted.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSTransacted.swift; sourceTree = "<group>"; };
+		OBJ_47 /* SSCertificatePinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCertificatePinner.swift; sourceTree = "<group>"; };
+		OBJ_48 /* SSCertificatesObtainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSCertificatesObtainer.swift; sourceTree = "<group>"; };
+		OBJ_49 /* URLSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLSession.swift; sourceTree = "<group>"; };
+		OBJ_52 /* SSDataBaseSavePointProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDataBaseSavePointProxy.swift; sourceTree = "<group>"; };
+		OBJ_53 /* SSDataBaseStatementProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDataBaseStatementProxy.swift; sourceTree = "<group>"; };
+		OBJ_55 /* SSReleaseDecoratorDBExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSReleaseDecoratorDBExtensions.swift; sourceTree = "<group>"; };
+		OBJ_56 /* SSDBStatementProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDBStatementProcessor.swift; sourceTree = "<group>"; };
+		OBJ_57 /* SSDataBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDataBase.swift; sourceTree = "<group>"; };
+		OBJ_58 /* SSDataBaseConnection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDataBaseConnection.swift; sourceTree = "<group>"; };
+		OBJ_59 /* SSDataBaseProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDataBaseProtocols.swift; sourceTree = "<group>"; };
+		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
+		OBJ_60 /* SSDataBaseSavePoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDataBaseSavePoint.swift; sourceTree = "<group>"; };
+		OBJ_61 /* SSDataBaseStatement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDataBaseStatement.swift; sourceTree = "<group>"; };
+		OBJ_62 /* SSDataBaseStatementCacheHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDataBaseStatementCacheHolder.swift; sourceTree = "<group>"; };
+		OBJ_63 /* SSDataBaseStatemntCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDataBaseStatemntCache.swift; sourceTree = "<group>"; };
+		OBJ_64 /* SSDataBaseTransaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDataBaseTransaction.swift; sourceTree = "<group>"; };
+		OBJ_65 /* SSDataBaseTransactionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDataBaseTransactionController.swift; sourceTree = "<group>"; };
+		OBJ_68 /* SSColumnProtocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSColumnProtocols.swift; sourceTree = "<group>"; };
+		OBJ_69 /* SSDBColType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDBColType.swift; sourceTree = "<group>"; };
+		OBJ_70 /* SSDBColumn.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDBColumn.swift; sourceTree = "<group>"; };
+		OBJ_71 /* SSDBColumnRef.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDBColumnRef.swift; sourceTree = "<group>"; };
+		OBJ_72 /* SSDBForeignKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDBForeignKey.swift; sourceTree = "<group>"; };
+		OBJ_73 /* SSDBPrimaryKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDBPrimaryKey.swift; sourceTree = "<group>"; };
+		OBJ_76 /* SSDBQueryProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDBQueryProcessor.swift; sourceTree = "<group>"; };
+		OBJ_77 /* SSDBQueryProxy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDBQueryProxy.swift; sourceTree = "<group>"; };
+		OBJ_78 /* SSDataBaseQueryHandleCore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDataBaseQueryHandleCore.swift; sourceTree = "<group>"; };
+		OBJ_80 /* SSDBColumnCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDBColumnCondition.swift; sourceTree = "<group>"; };
+		OBJ_81 /* SSDBConditionSet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDBConditionSet.swift; sourceTree = "<group>"; };
+		OBJ_82 /* SSDBQueryCondition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDBQueryCondition.swift; sourceTree = "<group>"; };
+		OBJ_83 /* SSDBQueryBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDBQueryBuilder.swift; sourceTree = "<group>"; };
+		OBJ_84 /* SSDBTypedQuery.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDBTypedQuery.swift; sourceTree = "<group>"; };
+		OBJ_85 /* SSDBTypedQueryHandling.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDBTypedQueryHandling.swift; sourceTree = "<group>"; };
+		OBJ_86 /* SSDBTypedStatement.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDBTypedStatement.swift; sourceTree = "<group>"; };
+		OBJ_87 /* SSDBComponent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDBComponent.swift; sourceTree = "<group>"; };
+		OBJ_88 /* SSDBIDTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDBIDTable.swift; sourceTree = "<group>"; };
+		OBJ_89 /* SSDBRefCountTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDBRefCountTable.swift; sourceTree = "<group>"; };
+		OBJ_90 /* SSDBStoraging.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDBStoraging.swift; sourceTree = "<group>"; };
+		OBJ_91 /* SSDBTable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDBTable.swift; sourceTree = "<group>"; };
+		OBJ_92 /* SSDBTableIndex.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDBTableIndex.swift; sourceTree = "<group>"; };
+		OBJ_93 /* SSDBTrigger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSDBTrigger.swift; sourceTree = "<group>"; };
+		OBJ_97 /* Base.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Base.swift; sourceTree = "<group>"; };
+		OBJ_98 /* SSUEBatchAdpater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUEBatchAdpater.swift; sourceTree = "<group>"; };
+		OBJ_99 /* SSUEChanges.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SSUEChanges.swift; sourceTree = "<group>"; };
+		"SSSugar::SSSugarCore::Product" /* SSSugarCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SSSugarCore.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"SSSugar::SSSugarCoreTests::Product" /* SSSugarCoreTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = SSSugarCoreTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		"SSSugar::SSSugarPG::Product" /* SSSugarPG */ = {isa = PBXFileReference; lastKnownFileType = text; path = SSSugarPG; sourceTree = BUILT_PRODUCTS_DIR; };
+		"SSSugar::SSSugarUIKit::Product" /* SSSugarUIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SSSugarUIKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"SSSugar::SSSugarUIKitTests::Product" /* SSSugarUIKitTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = SSSugarUIKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		"swift-argument-parser::ArgumentParser::Product" /* ArgumentParser.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ArgumentParser.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		OBJ_423 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_549 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_628 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_629 /* SSSugarCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_637 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_638 /* ArgumentParser.framework in Frameworks */,
+				OBJ_639 /* SSSugarCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_687 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_688 /* SSSugarCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_720 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_721 /* SSSugarUIKit.framework in Frameworks */,
+				OBJ_722 /* SSSugarCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		OBJ_10 /* Containers */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_11 /* AutoMap.swift */,
+			);
+			path = Containers;
+			sourceTree = "<group>";
+		};
+		OBJ_112 /* Revisions */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_113 /* SSDataModifyCenter.swift */,
+				OBJ_114 /* SSDataModifying.swift */,
+				OBJ_115 /* SSDmBatch.swift */,
+				OBJ_116 /* SSDmBatchAdapting.swift */,
+				OBJ_117 /* SSDmRevision.swift */,
+			);
+			path = Revisions;
+			sourceTree = "<group>";
+		};
+		OBJ_12 /* Decorators */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_13 /* SSReleaseDecorator.swift */,
+			);
+			path = Decorators;
+			sourceTree = "<group>";
+		};
+		OBJ_127 /* Network Communication */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_128 /* Api */,
+				OBJ_134 /* SSCommunicating.swift */,
+				OBJ_135 /* SSCommunicationError.swift */,
+				OBJ_136 /* SSNetworkCommunicator.swift */,
+				OBJ_137 /* URLSessionConfiguration.swift */,
+			);
+			path = "Network Communication";
+			sourceTree = "<group>";
+		};
+		OBJ_128 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_129 /* SSApiArgsConverting.swift */,
+				OBJ_130 /* SSApiCallOptions.swift */,
+				OBJ_131 /* SSApiError.swift */,
+				OBJ_132 /* SSApiNoError.swift */,
+				OBJ_133 /* SSRemoteApiModel.swift */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		OBJ_138 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_139 /* Key Coding */,
+				OBJ_149 /* SSLinearCongruentialRandomizer.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		OBJ_139 /* Key Coding */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_140 /* Adapters */,
+				OBJ_145 /* SSKeyField.swift */,
+				OBJ_146 /* SSKeyFieldStorage.swift */,
+				OBJ_147 /* SSKeyStoringProp.swift */,
+				OBJ_148 /* SSStorageCoder.swift */,
+			);
+			path = "Key Coding";
+			sourceTree = "<group>";
+		};
+		OBJ_140 /* Adapters */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_141 /* RawRepresentable.swift */,
+				OBJ_142 /* SSApiErrorConverter.swift */,
+				OBJ_143 /* SSErrorConverter.swift */,
+				OBJ_144 /* SSKeyFieldConverter.swift */,
+			);
+			path = Adapters;
+			sourceTree = "<group>";
+		};
+		OBJ_150 /* SSSugarPG */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_151 /* main.swift */,
+			);
+			name = SSSugarPG;
+			path = Sources/SSSugarPG;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_152 /* SSSugarUIKit */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_153 /* Classes */,
+				OBJ_172 /* Extensions */,
+				OBJ_184 /* Other */,
+				OBJ_186 /* Protocols */,
+				OBJ_188 /* Utils */,
+			);
+			name = SSSugarUIKit;
+			path = Sources/SSSugarUIKit;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_153 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_154 /* Animators */,
+				OBJ_161 /* ViewControllers */,
+				OBJ_165 /* Views */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		OBJ_154 /* Animators */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_155 /* ShowAndHide Animators */,
+				OBJ_158 /* View Transition Animators */,
+			);
+			path = Animators;
+			sourceTree = "<group>";
+		};
+		OBJ_155 /* ShowAndHide Animators */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_156 /* SSViewShowHideAnimating.swift */,
+				OBJ_157 /* SSViewShowHideByAlphaAnimator.swift */,
+			);
+			path = "ShowAndHide Animators";
+			sourceTree = "<group>";
+		};
+		OBJ_158 /* View Transition Animators */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_159 /* SSScaleAndAlphaTransitionAnimator.swift */,
+				OBJ_160 /* SSViewTransitionAnimating.swift */,
+			);
+			path = "View Transition Animators";
+			sourceTree = "<group>";
+		};
+		OBJ_161 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_162 /* Root */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		OBJ_162 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_163 /* SSRootView.swift */,
+				OBJ_164 /* SSRootViewController.swift */,
+			);
+			path = Root;
+			sourceTree = "<group>";
+		};
+		OBJ_165 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_166 /* SSActivityProtectionView.swift */,
+				OBJ_167 /* SSProgressView.swift */,
+				OBJ_168 /* SSScrollContainerView.swift */,
+				OBJ_169 /* SSSelectionMarkView.swift */,
+				OBJ_170 /* SSTextField.swift */,
+				OBJ_171 /* SSWindow.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		OBJ_172 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_173 /* CTCarrier.swift */,
+				OBJ_174 /* Controllers */,
+				OBJ_176 /* Types */,
+				OBJ_178 /* UIDevice.swift */,
+				OBJ_179 /* Views */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		OBJ_174 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_175 /* UIViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		OBJ_176 /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_177 /* UIColor.swift */,
+			);
+			path = Types;
+			sourceTree = "<group>";
+		};
+		OBJ_179 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_180 /* UIButton.swift */,
+				OBJ_181 /* UILabel.swift */,
+				OBJ_182 /* UITableVIew.swift */,
+				OBJ_183 /* UIView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		OBJ_18 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_19 /* Bundle.swift */,
+				OBJ_20 /* Containers */,
+				OBJ_23 /* DispatchQueue.swift */,
+				OBJ_24 /* Protocols */,
+				OBJ_27 /* Types */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		OBJ_184 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_185 /* Functions.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		OBJ_186 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_187 /* SSViewBlocking.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		OBJ_188 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_189 /* Collections Custom Select */,
+				OBJ_194 /* SSProtectionViewHelper.swift */,
+				OBJ_195 /* View Styles */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		OBJ_189 /* Collections Custom Select */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_190 /* SSCollectionViewCellMarkable.swift */,
+				OBJ_191 /* SSCollectionViewMarkable.swift */,
+				OBJ_192 /* SSCollectionViewMarkableController.swift */,
+				OBJ_193 /* SSMarkbaleCollectionCellHelper.swift */,
+			);
+			path = "Collections Custom Select";
+			sourceTree = "<group>";
+		};
+		OBJ_195 /* View Styles */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_196 /* SSViewStyles.swift */,
+			);
+			path = "View Styles";
+			sourceTree = "<group>";
+		};
+		OBJ_197 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_198 /* SSSugarCoreTests */,
+				OBJ_292 /* SSSugarUIKitTests */,
+			);
+			name = Tests;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_198 /* SSSugarCoreTests */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_199 /* Classes */,
+				OBJ_226 /* Extensions */,
+				OBJ_266 /* SSSugarTests.swift */,
+				OBJ_267 /* Tools */,
+				OBJ_283 /* Utils */,
+			);
+			name = SSSugarCoreTests;
+			path = Tests/SSSugarCoreTests;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_199 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_200 /* Containers */,
+				OBJ_224 /* SSChainExecutorTests.swift */,
+				OBJ_225 /* SSGroupExecutorTests.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		OBJ_20 /* Containers */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_21 /* Array.swift */,
+				OBJ_22 /* Dictionary.swift */,
+			);
+			path = Containers;
+			sourceTree = "<group>";
+		};
+		OBJ_200 /* Containers */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_201 /* AutoMap */,
+			);
+			path = Containers;
+			sourceTree = "<group>";
+		};
+		OBJ_201 /* AutoMap */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_202 /* AutoMapAddContainerTests.swift */,
+				OBJ_203 /* AutoMapAddTests.swift */,
+				OBJ_204 /* AutoMapContainsTests.swift */,
+				OBJ_205 /* AutoMapCountTests.swift */,
+				OBJ_206 /* AutoMapEqualityOperatorTests.swift */,
+				OBJ_207 /* AutoMapInitTests.swift */,
+				OBJ_208 /* AutoMapInsertTests.swift */,
+				OBJ_209 /* AutoMapIsEmptyTests.swift */,
+				OBJ_210 /* AutoMapMakeIteratorTests.swift */,
+				OBJ_211 /* AutoMapRemoveAllTests.swift */,
+				OBJ_212 /* AutoMapRemoveForAtTests.swift */,
+				OBJ_213 /* AutoMapRemoveForKeyAndIndexes.swift */,
+				OBJ_214 /* AutoMapRemoveForTests.swift */,
+				OBJ_215 /* AutoMapRemoveTests.swift */,
+				OBJ_216 /* AutoMapReplaceTests.swift */,
+				OBJ_217 /* AutoMapSubscriptKeyIndexTests.swift */,
+				OBJ_218 /* AutoMapSubscriptKeyTests.swift */,
+				OBJ_219 /* AutoMapTestHelper.swift */,
+				OBJ_220 /* AutoMapUpdateTests.swift */,
+				OBJ_221 /* Iterator */,
+			);
+			path = AutoMap;
+			sourceTree = "<group>";
+		};
+		OBJ_221 /* Iterator */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_222 /* AutoMapIteratorInitMapTests.swift */,
+				OBJ_223 /* AutoMapIteratorNextTests.swift */,
+			);
+			path = Iterator;
+			sourceTree = "<group>";
+		};
+		OBJ_226 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_227 /* Containers */,
+				OBJ_242 /* Protocols */,
+				OBJ_244 /* Types */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		OBJ_227 /* Containers */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_228 /* Array */,
+				OBJ_236 /* Dictionary */,
+				OBJ_240 /* IndexSetInsertableCollection.swift */,
+				OBJ_241 /* SetInsertableCollection.swift */,
+			);
+			path = Containers;
+			sourceTree = "<group>";
+		};
+		OBJ_228 /* Array */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_229 /* ArrayBinarySearchTests.swift */,
+				OBJ_230 /* ArrayForEachTests.swift */,
+				OBJ_231 /* ArrayInitBuildBlockTests.swift */,
+				OBJ_232 /* ArrayInsertTests.swift */,
+				OBJ_233 /* ArrayPickAtTests.swift */,
+				OBJ_234 /* ArrayRemoveTests.swift */,
+				OBJ_235 /* ArrayShuffleUsingTypeTests.swift */,
+			);
+			path = Array;
+			sourceTree = "<group>";
+		};
+		OBJ_236 /* Dictionary */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_237 /* DictionaryPickForTests.swift */,
+				OBJ_238 /* DictionaryPickingForTests.swift */,
+				OBJ_239 /* DictionaryTestKey.swift */,
+			);
+			path = Dictionary;
+			sourceTree = "<group>";
+		};
+		OBJ_24 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_25 /* Comparable.swift */,
+				OBJ_26 /* RandomNumberGenerator.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		OBJ_242 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_243 /* ComparableCompareTests.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		OBJ_244 /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_245 /* CGPoint */,
+				OBJ_250 /* CGRect */,
+				OBJ_257 /* CGSize */,
+				OBJ_265 /* RangeMiddleTests.swift */,
+			);
+			path = Types;
+			sourceTree = "<group>";
+		};
+		OBJ_245 /* CGPoint */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_246 /* CGPointSubtractionOperatorTests.swift */,
+				OBJ_247 /* CGPointSumOperatorTests.swift */,
+				OBJ_248 /* CGPointTestItems.swift */,
+				OBJ_249 /* CGPointUnaryMinusTests.swift */,
+			);
+			path = CGPoint;
+			sourceTree = "<group>";
+		};
+		OBJ_250 /* CGRect */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_251 /* CGRectCenterTests.swift */,
+				OBJ_252 /* CGRectCuttedTests.swift */,
+				OBJ_253 /* CGRectDividedCountVerticallyTests.swift */,
+				OBJ_254 /* CGRectInitCenterSize.swift */,
+				OBJ_255 /* CGRectInsetToSizeTests.swift */,
+				OBJ_256 /* CGRectInsetToWHTests.swift */,
+			);
+			path = CGRect;
+			sourceTree = "<group>";
+		};
+		OBJ_257 /* CGSize */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_258 /* CGSizeAddedTests.swift */,
+				OBJ_259 /* CGSizeExtendedTests.swift */,
+				OBJ_260 /* CGSizeSubtractionOperatorTests.swift */,
+				OBJ_261 /* CGSizeSumOperatorTests.swift */,
+				OBJ_262 /* CGSizeTestItems.swift */,
+				OBJ_263 /* CGSizeUnaryMinusOperatorTests.swift */,
+				OBJ_264 /* CGSizeUnitedIntersectedTests.swift */,
+			);
+			path = CGSize;
+			sourceTree = "<group>";
+		};
+		OBJ_267 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_268 /* Data Synchronisation */,
+				OBJ_279 /* Network Communication */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		OBJ_268 /* Data Synchronisation */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_269 /* SSDataModifyCenterTests.swift */,
+				OBJ_270 /* SSDmBatchAdapterTests.swift */,
+				OBJ_271 /* SSEntityDmMutatorTests.swift */,
+				OBJ_272 /* SSEntityRemoteMutatorTests.swift */,
+				OBJ_273 /* SSEntityStorageMutatorTests.swift */,
+				OBJ_274 /* SSEntityUpdaterTests.swift */,
+				OBJ_275 /* SSSingleEntityProcessingTest.swift */,
+				OBJ_276 /* SSUpdateCenterTests.swift */,
+				OBJ_277 /* SSUpdateReceiverTests.swift */,
+				OBJ_278 /* SSUpdatesHelpers.swift */,
+			);
+			path = "Data Synchronisation";
+			sourceTree = "<group>";
+		};
+		OBJ_27 /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_28 /* CGPoint.swift */,
+				OBJ_29 /* CGRect.swift */,
+				OBJ_30 /* CGSize.swift */,
+				OBJ_31 /* Data.swift */,
+				OBJ_32 /* Date.swift */,
+				OBJ_33 /* Range.swift */,
+				OBJ_34 /* String.swift */,
+			);
+			path = Types;
+			sourceTree = "<group>";
+		};
+		OBJ_279 /* Network Communication */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_280 /* Api */,
+			);
+			path = "Network Communication";
+			sourceTree = "<group>";
+		};
+		OBJ_280 /* Api */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_281 /* SSApiCallOptionstTests.swift */,
+				OBJ_282 /* SSRemoteApiTests.swift */,
+			);
+			path = Api;
+			sourceTree = "<group>";
+		};
+		OBJ_283 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_284 /* Key Coding */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		OBJ_284 /* Key Coding */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_285 /* Adapters */,
+				OBJ_289 /* KeyFieldTest.swift */,
+				OBJ_290 /* KeyStoringPropTests.swift */,
+				OBJ_291 /* StorageCoderTests.swift */,
+			);
+			path = "Key Coding";
+			sourceTree = "<group>";
+		};
+		OBJ_285 /* Adapters */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_286 /* ApiErrorConverterTests.swift */,
+				OBJ_287 /* ErrorConverterTests.swift */,
+				OBJ_288 /* KeyFieldConverterTests.swift */,
+			);
+			path = Adapters;
+			sourceTree = "<group>";
+		};
+		OBJ_292 /* SSSugarUIKitTests */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_293 /* Extensions */,
+				OBJ_305 /* SSSugarPlayground */,
+				OBJ_307 /* Utils */,
+				OBJ_327 /* XCTestManifests.swift */,
+			);
+			name = SSSugarUIKitTests;
+			path = Tests/SSSugarUIKitTests;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_293 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_294 /* Controllers */,
+				OBJ_301 /* Types */,
+				OBJ_303 /* Views */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		OBJ_294 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_295 /* UIViewControllerDismissPresentedAnimatedOnFinishTests.swift */,
+				OBJ_296 /* UIViewControllerKBNotificationsTests.swift */,
+				OBJ_297 /* UIViewControllerShowAlertTests.swift */,
+				OBJ_298 /* UIViewControllerShowErrorAlertTests.swift */,
+				OBJ_299 /* UIViewControllerShowWarningAlertTests.swift */,
+				OBJ_300 /* UIViewControllerTestHelper.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		OBJ_301 /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_302 /* UIColorInitTests.swift */,
+			);
+			path = Types;
+			sourceTree = "<group>";
+		};
+		OBJ_303 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_304 /* UILabelTests.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		OBJ_305 /* SSSugarPlayground */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_306 /* SSSugarPlaygroundTests.swift */,
+			);
+			path = SSSugarPlayground;
+			sourceTree = "<group>";
+		};
+		OBJ_307 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_308 /* SSCustomSelection */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		OBJ_308 /* SSCustomSelection */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_309 /* SSCollectionViewMarkableController */,
+				OBJ_316 /* SSMarkbaleCollectionCellHelper */,
+			);
+			path = SSCustomSelection;
+			sourceTree = "<group>";
+		};
+		OBJ_309 /* SSCollectionViewMarkableController */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_310 /* SSCollectionViewMarkableControllerActivateTC.swift */,
+				OBJ_311 /* SSCollectionViewMarkableControllerConfigCellTC.swift */,
+				OBJ_312 /* SSCollectionViewMarkableControllerDeactivateTC.swift */,
+				OBJ_313 /* SSCollectionViewMarkableControllerMarkTC.swift */,
+				OBJ_314 /* SSCollectionViewMarkableControllerTestHelper.swift */,
+				OBJ_315 /* SSCollectionViewMarkableControllerUnmarkTC.swift */,
+			);
+			path = SSCollectionViewMarkableController;
+			sourceTree = "<group>";
+		};
+		OBJ_316 /* SSMarkbaleCollectionCellHelper */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_317 /* SSMarkbaleCollectionCellHelperActivateActivatedTC.swift */,
+				OBJ_318 /* SSMarkbaleCollectionCellHelperActivateTC.swift */,
+				OBJ_319 /* SSMarkbaleCollectionCellHelperDeactivateDeactivatedTC.swift */,
+				OBJ_320 /* SSMarkbaleCollectionCellHelperDeactivateTC.swift */,
+				OBJ_321 /* SSMarkbaleCollectionCellHelperMarkMarkedTC.swift */,
+				OBJ_322 /* SSMarkbaleCollectionCellHelperMarkNonActiveTC.swift */,
+				OBJ_323 /* SSMarkbaleCollectionCellHelperMarkTC.swift */,
+				OBJ_324 /* SSMarkbaleCollectionCellHelperTestHelper.swift */,
+				OBJ_325 /* SSMarkbaleCollectionCellHelperUnmarkNonMarkedTC.swift */,
+				OBJ_326 /* SSMarkbaleCollectionCellHelperUnmarkTC.swift */,
+			);
+			path = SSMarkbaleCollectionCellHelper;
+			sourceTree = "<group>";
+		};
+		OBJ_328 /* Dependencies */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_329 /* swift-argument-parser 0.4.1 */,
+			);
+			name = Dependencies;
+			sourceTree = "<group>";
+		};
+		OBJ_329 /* swift-argument-parser 0.4.1 */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_330 /* ArgumentParser */,
+				OBJ_372 /* Package.swift */,
+			);
+			name = "swift-argument-parser 0.4.1";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_330 /* ArgumentParser */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_331 /* Completions */,
+				OBJ_336 /* Parsable Properties */,
+				OBJ_345 /* Parsable Types */,
+				OBJ_352 /* Parsing */,
+				OBJ_363 /* Usage */,
+				OBJ_368 /* Utilities */,
+			);
+			name = ArgumentParser;
+			path = ".build/checkouts/swift-argument-parser/Sources/ArgumentParser";
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_331 /* Completions */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_332 /* BashCompletionsGenerator.swift */,
+				OBJ_333 /* CompletionsGenerator.swift */,
+				OBJ_334 /* FishCompletionsGenerator.swift */,
+				OBJ_335 /* ZshCompletionsGenerator.swift */,
+			);
+			path = Completions;
+			sourceTree = "<group>";
+		};
+		OBJ_336 /* Parsable Properties */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_337 /* Argument.swift */,
+				OBJ_338 /* ArgumentHelp.swift */,
+				OBJ_339 /* CompletionKind.swift */,
+				OBJ_340 /* Errors.swift */,
+				OBJ_341 /* Flag.swift */,
+				OBJ_342 /* NameSpecification.swift */,
+				OBJ_343 /* Option.swift */,
+				OBJ_344 /* OptionGroup.swift */,
+			);
+			path = "Parsable Properties";
+			sourceTree = "<group>";
+		};
+		OBJ_345 /* Parsable Types */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_346 /* CommandConfiguration.swift */,
+				OBJ_347 /* EnumerableFlag.swift */,
+				OBJ_348 /* ExpressibleByArgument.swift */,
+				OBJ_349 /* ParsableArguments.swift */,
+				OBJ_350 /* ParsableArgumentsValidation.swift */,
+				OBJ_351 /* ParsableCommand.swift */,
+			);
+			path = "Parsable Types";
+			sourceTree = "<group>";
+		};
+		OBJ_35 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_36 /* Functions.swift */,
+			);
+			path = Other;
+			sourceTree = "<group>";
+		};
+		OBJ_352 /* Parsing */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_353 /* ArgumentDecoder.swift */,
+				OBJ_354 /* ArgumentDefinition.swift */,
+				OBJ_355 /* ArgumentSet.swift */,
+				OBJ_356 /* CommandParser.swift */,
+				OBJ_357 /* InputOrigin.swift */,
+				OBJ_358 /* Name.swift */,
+				OBJ_359 /* Parsed.swift */,
+				OBJ_360 /* ParsedValues.swift */,
+				OBJ_361 /* ParserError.swift */,
+				OBJ_362 /* SplitArguments.swift */,
+			);
+			path = Parsing;
+			sourceTree = "<group>";
+		};
+		OBJ_363 /* Usage */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_364 /* HelpCommand.swift */,
+				OBJ_365 /* HelpGenerator.swift */,
+				OBJ_366 /* MessageInfo.swift */,
+				OBJ_367 /* UsageGenerator.swift */,
+			);
+			path = Usage;
+			sourceTree = "<group>";
+		};
+		OBJ_368 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_369 /* SequenceExtensions.swift */,
+				OBJ_370 /* StringExtensions.swift */,
+				OBJ_371 /* Tree.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		OBJ_37 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_38 /* SSCacheContainer.swift */,
+				OBJ_39 /* SSCopying.swift */,
+				OBJ_40 /* SSEqutable.swift */,
+				OBJ_41 /* SSExecutor.swift */,
+				OBJ_42 /* SSReleasable.swift */,
+				OBJ_43 /* SSStringRepresentableError.swift */,
+				OBJ_44 /* SSTransacted.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		OBJ_373 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				"SSSugar::SSSugarUIKitTests::Product" /* SSSugarUIKitTests.xctest */,
+				"SSSugar::SSSugarCoreTests::Product" /* SSSugarCoreTests.xctest */,
+				"SSSugar::SSSugarUIKit::Product" /* SSSugarUIKit.framework */,
+				"swift-argument-parser::ArgumentParser::Product" /* ArgumentParser.framework */,
+				"SSSugar::SSSugarPG::Product" /* SSSugarPG */,
+				"SSSugar::SSSugarCore::Product" /* SSSugarCore.framework */,
+			);
+			name = Products;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		OBJ_45 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_46 /* CertificatesPinning */,
+				OBJ_50 /* Data Base */,
+				OBJ_94 /* Data Synchronisation */,
+				OBJ_127 /* Network Communication */,
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		OBJ_46 /* CertificatesPinning */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_47 /* SSCertificatePinner.swift */,
+				OBJ_48 /* SSCertificatesObtainer.swift */,
+				OBJ_49 /* URLSession.swift */,
+			);
+			path = CertificatesPinning;
+			sourceTree = "<group>";
+		};
+		OBJ_5 /*  */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_6 /* Package.swift */,
+				OBJ_7 /* Sources */,
+				OBJ_197 /* Tests */,
+				OBJ_328 /* Dependencies */,
+				OBJ_373 /* Products */,
+				OBJ_380 /* docs */,
+				OBJ_381 /* build_binary.bash */,
+				OBJ_382 /* README.md */,
+			);
+			name = "";
+			sourceTree = "<group>";
+		};
+		OBJ_50 /* Data Base */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_51 /* Proxies */,
+				OBJ_54 /* Release Decorator Extensions */,
+				OBJ_56 /* SSDBStatementProcessor.swift */,
+				OBJ_57 /* SSDataBase.swift */,
+				OBJ_58 /* SSDataBaseConnection.swift */,
+				OBJ_59 /* SSDataBaseProtocols.swift */,
+				OBJ_60 /* SSDataBaseSavePoint.swift */,
+				OBJ_61 /* SSDataBaseStatement.swift */,
+				OBJ_62 /* SSDataBaseStatementCacheHolder.swift */,
+				OBJ_63 /* SSDataBaseStatemntCache.swift */,
+				OBJ_64 /* SSDataBaseTransaction.swift */,
+				OBJ_65 /* SSDataBaseTransactionController.swift */,
+				OBJ_66 /* Structure */,
+			);
+			path = "Data Base";
+			sourceTree = "<group>";
+		};
+		OBJ_51 /* Proxies */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_52 /* SSDataBaseSavePointProxy.swift */,
+				OBJ_53 /* SSDataBaseStatementProxy.swift */,
+			);
+			path = Proxies;
+			sourceTree = "<group>";
+		};
+		OBJ_54 /* Release Decorator Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_55 /* SSReleaseDecoratorDBExtensions.swift */,
+			);
+			path = "Release Decorator Extensions";
+			sourceTree = "<group>";
+		};
+		OBJ_66 /* Structure */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_67 /* Columns */,
+				OBJ_74 /* Query */,
+				OBJ_87 /* SSDBComponent.swift */,
+				OBJ_88 /* SSDBIDTable.swift */,
+				OBJ_89 /* SSDBRefCountTable.swift */,
+				OBJ_90 /* SSDBStoraging.swift */,
+				OBJ_91 /* SSDBTable.swift */,
+				OBJ_92 /* SSDBTableIndex.swift */,
+				OBJ_93 /* SSDBTrigger.swift */,
+			);
+			path = Structure;
+			sourceTree = "<group>";
+		};
+		OBJ_67 /* Columns */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_68 /* SSColumnProtocols.swift */,
+				OBJ_69 /* SSDBColType.swift */,
+				OBJ_70 /* SSDBColumn.swift */,
+				OBJ_71 /* SSDBColumnRef.swift */,
+				OBJ_72 /* SSDBForeignKey.swift */,
+				OBJ_73 /* SSDBPrimaryKey.swift */,
+			);
+			path = Columns;
+			sourceTree = "<group>";
+		};
+		OBJ_7 /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_8 /* SSSugarCore */,
+				OBJ_150 /* SSSugarPG */,
+				OBJ_152 /* SSSugarUIKit */,
+			);
+			name = Sources;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_74 /* Query */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_75 /* Concreate Query Handlers */,
+				OBJ_79 /* Query Condition */,
+				OBJ_83 /* SSDBQueryBuilder.swift */,
+				OBJ_84 /* SSDBTypedQuery.swift */,
+				OBJ_85 /* SSDBTypedQueryHandling.swift */,
+				OBJ_86 /* SSDBTypedStatement.swift */,
+			);
+			path = Query;
+			sourceTree = "<group>";
+		};
+		OBJ_75 /* Concreate Query Handlers */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_76 /* SSDBQueryProcessor.swift */,
+				OBJ_77 /* SSDBQueryProxy.swift */,
+				OBJ_78 /* SSDataBaseQueryHandleCore.swift */,
+			);
+			path = "Concreate Query Handlers";
+			sourceTree = "<group>";
+		};
+		OBJ_79 /* Query Condition */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_80 /* SSDBColumnCondition.swift */,
+				OBJ_81 /* SSDBConditionSet.swift */,
+				OBJ_82 /* SSDBQueryCondition.swift */,
+			);
+			path = "Query Condition";
+			sourceTree = "<group>";
+		};
+		OBJ_8 /* SSSugarCore */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_9 /* Classes */,
+				OBJ_18 /* Extensions */,
+				OBJ_35 /* Other */,
+				OBJ_37 /* Protocols */,
+				OBJ_45 /* Tools */,
+				OBJ_138 /* Utils */,
+			);
+			name = SSSugarCore;
+			path = Sources/SSSugarCore;
+			sourceTree = SOURCE_ROOT;
+		};
+		OBJ_9 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_10 /* Containers */,
+				OBJ_12 /* Decorators */,
+				OBJ_14 /* SSAtomic.swift */,
+				OBJ_15 /* SSChainExecutor.swift */,
+				OBJ_16 /* SSGroupExecutor.swift */,
+				OBJ_17 /* SSTry.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		OBJ_94 /* Data Synchronisation */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_95 /* Example */,
+				OBJ_112 /* Revisions */,
+				OBJ_118 /* SSEntityDmMutator.swift */,
+				OBJ_119 /* SSEntityMutator.swift */,
+				OBJ_120 /* SSEntityProcessor.swift */,
+				OBJ_121 /* SSEntityRemoteMutator.swift */,
+				OBJ_122 /* SSEntityStorageMutator.swift */,
+				OBJ_123 /* SSEntityUpdater.swift */,
+				OBJ_124 /* SSUpdate.swift */,
+				OBJ_125 /* SSUpdateCenter.swift */,
+				OBJ_126 /* SSUpdateReceiver.swift */,
+			);
+			path = "Data Synchronisation";
+			sourceTree = "<group>";
+		};
+		OBJ_95 /* Example */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_96 /* Revisions */,
+				OBJ_104 /* SSTaskProcessorExample.swift */,
+				OBJ_105 /* SSUETask.swift */,
+				OBJ_106 /* SSUETaskDBMutator.swift */,
+				OBJ_107 /* SSUETaskMutator.swift */,
+				OBJ_108 /* SSUETaskProcessor.swift */,
+				OBJ_109 /* SSUETaskRemoteMutator.swift */,
+				OBJ_110 /* SSUETaskUpdate.swift */,
+				OBJ_111 /* SSUETaskUpdater.swift */,
+			);
+			path = Example;
+			sourceTree = "<group>";
+		};
+		OBJ_96 /* Revisions */ = {
+			isa = PBXGroup;
+			children = (
+				OBJ_97 /* Base.swift */,
+				OBJ_98 /* SSUEBatchAdpater.swift */,
+				OBJ_99 /* SSUEChanges.swift */,
+				OBJ_100 /* SSUERequests.swift */,
+				OBJ_101 /* SSUETaskDmMutator.swift */,
+				OBJ_102 /* SSUETaskDmProcessor.swift */,
+				OBJ_103 /* SSUETaskModifyCores.swift */,
+			);
+			path = Revisions;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		"SSSugar::SSSugarCore" /* SSSugarCore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_432 /* Build configuration list for PBXNativeTarget "SSSugarCore" */;
+			buildPhases = (
+				OBJ_435 /* Sources */,
+				OBJ_549 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SSSugarCore;
+			productName = SSSugarCore;
+			productReference = "SSSugar::SSSugarCore::Product" /* SSSugarCore.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		"SSSugar::SSSugarCoreTests" /* SSSugarCoreTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_551 /* Build configuration list for PBXNativeTarget "SSSugarCoreTests" */;
+			buildPhases = (
+				OBJ_554 /* Sources */,
+				OBJ_628 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				OBJ_630 /* PBXTargetDependency */,
+			);
+			name = SSSugarCoreTests;
+			productName = SSSugarCoreTests;
+			productReference = "SSSugar::SSSugarCoreTests::Product" /* SSSugarCoreTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		"SSSugar::SSSugarPG" /* SSSugarPG */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_632 /* Build configuration list for PBXNativeTarget "SSSugarPG" */;
+			buildPhases = (
+				OBJ_635 /* Sources */,
+				OBJ_637 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				OBJ_640 /* PBXTargetDependency */,
+				OBJ_641 /* PBXTargetDependency */,
+			);
+			name = SSSugarPG;
+			productName = SSSugarPG;
+			productReference = "SSSugar::SSSugarPG::Product" /* SSSugarPG */;
+			productType = "com.apple.product-type.tool";
+		};
+		"SSSugar::SSSugarUIKit" /* SSSugarUIKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_655 /* Build configuration list for PBXNativeTarget "SSSugarUIKit" */;
+			buildPhases = (
+				OBJ_658 /* Sources */,
+				OBJ_687 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				OBJ_689 /* PBXTargetDependency */,
+			);
+			name = SSSugarUIKit;
+			productName = SSSugarUIKit;
+			productReference = "SSSugar::SSSugarUIKit::Product" /* SSSugarUIKit.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		"SSSugar::SSSugarUIKitTests" /* SSSugarUIKitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_690 /* Build configuration list for PBXNativeTarget "SSSugarUIKitTests" */;
+			buildPhases = (
+				OBJ_693 /* Sources */,
+				OBJ_720 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				OBJ_723 /* PBXTargetDependency */,
+				OBJ_724 /* PBXTargetDependency */,
+			);
+			name = SSSugarUIKitTests;
+			productName = SSSugarUIKitTests;
+			productReference = "SSSugar::SSSugarUIKitTests::Product" /* SSSugarUIKitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		"SSSugar::SwiftPMPackageDescription" /* SSSugarPackageDescription */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_643 /* Build configuration list for PBXNativeTarget "SSSugarPackageDescription" */;
+			buildPhases = (
+				OBJ_646 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SSSugarPackageDescription;
+			productName = SSSugarPackageDescription;
+			productType = "com.apple.product-type.framework";
+		};
+		"swift-argument-parser::ArgumentParser" /* ArgumentParser */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_384 /* Build configuration list for PBXNativeTarget "ArgumentParser" */;
+			buildPhases = (
+				OBJ_387 /* Sources */,
+				OBJ_423 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ArgumentParser;
+			productName = ArgumentParser;
+			productReference = "swift-argument-parser::ArgumentParser::Product" /* ArgumentParser.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		"swift-argument-parser::SwiftPMPackageDescription" /* swift-argument-parserPackageDescription */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = OBJ_726 /* Build configuration list for PBXNativeTarget "swift-argument-parserPackageDescription" */;
+			buildPhases = (
+				OBJ_729 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "swift-argument-parserPackageDescription";
+			productName = "swift-argument-parserPackageDescription";
+			productType = "com.apple.product-type.framework";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		OBJ_1 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftMigration = 9999;
+				LastUpgradeCheck = 9999;
+			};
+			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "SSSugar" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = OBJ_5 /*  */;
+			productRefGroup = OBJ_373 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				"swift-argument-parser::ArgumentParser" /* ArgumentParser */,
+				"SSSugar::SSSugar::ProductTarget" /* SSSugar */,
+				"SSSugar::SSSugarCore" /* SSSugarCore */,
+				"SSSugar::SSSugarCoreTests" /* SSSugarCoreTests */,
+				"SSSugar::SSSugarPG" /* SSSugarPG */,
+				"SSSugar::SwiftPMPackageDescription" /* SSSugarPackageDescription */,
+				"SSSugar::SSSugarPackageTests::ProductTarget" /* SSSugarPackageTests */,
+				"SSSugar::SSSugarUIKit" /* SSSugarUIKit */,
+				"SSSugar::SSSugarUIKitTests" /* SSSugarUIKitTests */,
+				"swift-argument-parser::SwiftPMPackageDescription" /* swift-argument-parserPackageDescription */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		OBJ_387 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_388 /* BashCompletionsGenerator.swift in Sources */,
+				OBJ_389 /* CompletionsGenerator.swift in Sources */,
+				OBJ_390 /* FishCompletionsGenerator.swift in Sources */,
+				OBJ_391 /* ZshCompletionsGenerator.swift in Sources */,
+				OBJ_392 /* Argument.swift in Sources */,
+				OBJ_393 /* ArgumentHelp.swift in Sources */,
+				OBJ_394 /* CompletionKind.swift in Sources */,
+				OBJ_395 /* Errors.swift in Sources */,
+				OBJ_396 /* Flag.swift in Sources */,
+				OBJ_397 /* NameSpecification.swift in Sources */,
+				OBJ_398 /* Option.swift in Sources */,
+				OBJ_399 /* OptionGroup.swift in Sources */,
+				OBJ_400 /* CommandConfiguration.swift in Sources */,
+				OBJ_401 /* EnumerableFlag.swift in Sources */,
+				OBJ_402 /* ExpressibleByArgument.swift in Sources */,
+				OBJ_403 /* ParsableArguments.swift in Sources */,
+				OBJ_404 /* ParsableArgumentsValidation.swift in Sources */,
+				OBJ_405 /* ParsableCommand.swift in Sources */,
+				OBJ_406 /* ArgumentDecoder.swift in Sources */,
+				OBJ_407 /* ArgumentDefinition.swift in Sources */,
+				OBJ_408 /* ArgumentSet.swift in Sources */,
+				OBJ_409 /* CommandParser.swift in Sources */,
+				OBJ_410 /* InputOrigin.swift in Sources */,
+				OBJ_411 /* Name.swift in Sources */,
+				OBJ_412 /* Parsed.swift in Sources */,
+				OBJ_413 /* ParsedValues.swift in Sources */,
+				OBJ_414 /* ParserError.swift in Sources */,
+				OBJ_415 /* SplitArguments.swift in Sources */,
+				OBJ_416 /* HelpCommand.swift in Sources */,
+				OBJ_417 /* HelpGenerator.swift in Sources */,
+				OBJ_418 /* MessageInfo.swift in Sources */,
+				OBJ_419 /* UsageGenerator.swift in Sources */,
+				OBJ_420 /* SequenceExtensions.swift in Sources */,
+				OBJ_421 /* StringExtensions.swift in Sources */,
+				OBJ_422 /* Tree.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_435 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_436 /* AutoMap.swift in Sources */,
+				OBJ_437 /* SSReleaseDecorator.swift in Sources */,
+				OBJ_438 /* SSAtomic.swift in Sources */,
+				OBJ_439 /* SSChainExecutor.swift in Sources */,
+				OBJ_440 /* SSGroupExecutor.swift in Sources */,
+				OBJ_441 /* SSTry.swift in Sources */,
+				OBJ_442 /* Bundle.swift in Sources */,
+				OBJ_443 /* Array.swift in Sources */,
+				OBJ_444 /* Dictionary.swift in Sources */,
+				OBJ_445 /* DispatchQueue.swift in Sources */,
+				OBJ_446 /* Comparable.swift in Sources */,
+				OBJ_447 /* RandomNumberGenerator.swift in Sources */,
+				OBJ_448 /* CGPoint.swift in Sources */,
+				OBJ_449 /* CGRect.swift in Sources */,
+				OBJ_450 /* CGSize.swift in Sources */,
+				OBJ_451 /* Data.swift in Sources */,
+				OBJ_452 /* Date.swift in Sources */,
+				OBJ_453 /* Range.swift in Sources */,
+				OBJ_454 /* String.swift in Sources */,
+				OBJ_455 /* Functions.swift in Sources */,
+				OBJ_456 /* SSCacheContainer.swift in Sources */,
+				OBJ_457 /* SSCopying.swift in Sources */,
+				OBJ_458 /* SSEqutable.swift in Sources */,
+				OBJ_459 /* SSExecutor.swift in Sources */,
+				OBJ_460 /* SSReleasable.swift in Sources */,
+				OBJ_461 /* SSStringRepresentableError.swift in Sources */,
+				OBJ_462 /* SSTransacted.swift in Sources */,
+				OBJ_463 /* SSCertificatePinner.swift in Sources */,
+				OBJ_464 /* SSCertificatesObtainer.swift in Sources */,
+				OBJ_465 /* URLSession.swift in Sources */,
+				OBJ_466 /* SSDataBaseSavePointProxy.swift in Sources */,
+				OBJ_467 /* SSDataBaseStatementProxy.swift in Sources */,
+				OBJ_468 /* SSReleaseDecoratorDBExtensions.swift in Sources */,
+				OBJ_469 /* SSDBStatementProcessor.swift in Sources */,
+				OBJ_470 /* SSDataBase.swift in Sources */,
+				OBJ_471 /* SSDataBaseConnection.swift in Sources */,
+				OBJ_472 /* SSDataBaseProtocols.swift in Sources */,
+				OBJ_473 /* SSDataBaseSavePoint.swift in Sources */,
+				OBJ_474 /* SSDataBaseStatement.swift in Sources */,
+				OBJ_475 /* SSDataBaseStatementCacheHolder.swift in Sources */,
+				OBJ_476 /* SSDataBaseStatemntCache.swift in Sources */,
+				OBJ_477 /* SSDataBaseTransaction.swift in Sources */,
+				OBJ_478 /* SSDataBaseTransactionController.swift in Sources */,
+				OBJ_479 /* SSColumnProtocols.swift in Sources */,
+				OBJ_480 /* SSDBColType.swift in Sources */,
+				OBJ_481 /* SSDBColumn.swift in Sources */,
+				OBJ_482 /* SSDBColumnRef.swift in Sources */,
+				OBJ_483 /* SSDBForeignKey.swift in Sources */,
+				OBJ_484 /* SSDBPrimaryKey.swift in Sources */,
+				OBJ_485 /* SSDBQueryProcessor.swift in Sources */,
+				OBJ_486 /* SSDBQueryProxy.swift in Sources */,
+				OBJ_487 /* SSDataBaseQueryHandleCore.swift in Sources */,
+				OBJ_488 /* SSDBColumnCondition.swift in Sources */,
+				OBJ_489 /* SSDBConditionSet.swift in Sources */,
+				OBJ_490 /* SSDBQueryCondition.swift in Sources */,
+				OBJ_491 /* SSDBQueryBuilder.swift in Sources */,
+				OBJ_492 /* SSDBTypedQuery.swift in Sources */,
+				OBJ_493 /* SSDBTypedQueryHandling.swift in Sources */,
+				OBJ_494 /* SSDBTypedStatement.swift in Sources */,
+				OBJ_495 /* SSDBComponent.swift in Sources */,
+				OBJ_496 /* SSDBIDTable.swift in Sources */,
+				OBJ_497 /* SSDBRefCountTable.swift in Sources */,
+				OBJ_498 /* SSDBStoraging.swift in Sources */,
+				OBJ_499 /* SSDBTable.swift in Sources */,
+				OBJ_500 /* SSDBTableIndex.swift in Sources */,
+				OBJ_501 /* SSDBTrigger.swift in Sources */,
+				OBJ_502 /* Base.swift in Sources */,
+				OBJ_503 /* SSUEBatchAdpater.swift in Sources */,
+				OBJ_504 /* SSUEChanges.swift in Sources */,
+				OBJ_505 /* SSUERequests.swift in Sources */,
+				OBJ_506 /* SSUETaskDmMutator.swift in Sources */,
+				OBJ_507 /* SSUETaskDmProcessor.swift in Sources */,
+				OBJ_508 /* SSUETaskModifyCores.swift in Sources */,
+				OBJ_509 /* SSTaskProcessorExample.swift in Sources */,
+				OBJ_510 /* SSUETask.swift in Sources */,
+				OBJ_511 /* SSUETaskDBMutator.swift in Sources */,
+				OBJ_512 /* SSUETaskMutator.swift in Sources */,
+				OBJ_513 /* SSUETaskProcessor.swift in Sources */,
+				OBJ_514 /* SSUETaskRemoteMutator.swift in Sources */,
+				OBJ_515 /* SSUETaskUpdate.swift in Sources */,
+				OBJ_516 /* SSUETaskUpdater.swift in Sources */,
+				OBJ_517 /* SSDataModifyCenter.swift in Sources */,
+				OBJ_518 /* SSDataModifying.swift in Sources */,
+				OBJ_519 /* SSDmBatch.swift in Sources */,
+				OBJ_520 /* SSDmBatchAdapting.swift in Sources */,
+				OBJ_521 /* SSDmRevision.swift in Sources */,
+				OBJ_522 /* SSEntityDmMutator.swift in Sources */,
+				OBJ_523 /* SSEntityMutator.swift in Sources */,
+				OBJ_524 /* SSEntityProcessor.swift in Sources */,
+				OBJ_525 /* SSEntityRemoteMutator.swift in Sources */,
+				OBJ_526 /* SSEntityStorageMutator.swift in Sources */,
+				OBJ_527 /* SSEntityUpdater.swift in Sources */,
+				OBJ_528 /* SSUpdate.swift in Sources */,
+				OBJ_529 /* SSUpdateCenter.swift in Sources */,
+				OBJ_530 /* SSUpdateReceiver.swift in Sources */,
+				OBJ_531 /* SSApiArgsConverting.swift in Sources */,
+				OBJ_532 /* SSApiCallOptions.swift in Sources */,
+				OBJ_533 /* SSApiError.swift in Sources */,
+				OBJ_534 /* SSApiNoError.swift in Sources */,
+				OBJ_535 /* SSRemoteApiModel.swift in Sources */,
+				OBJ_536 /* SSCommunicating.swift in Sources */,
+				OBJ_537 /* SSCommunicationError.swift in Sources */,
+				OBJ_538 /* SSNetworkCommunicator.swift in Sources */,
+				OBJ_539 /* URLSessionConfiguration.swift in Sources */,
+				OBJ_540 /* RawRepresentable.swift in Sources */,
+				OBJ_541 /* SSApiErrorConverter.swift in Sources */,
+				OBJ_542 /* SSErrorConverter.swift in Sources */,
+				OBJ_543 /* SSKeyFieldConverter.swift in Sources */,
+				OBJ_544 /* SSKeyField.swift in Sources */,
+				OBJ_545 /* SSKeyFieldStorage.swift in Sources */,
+				OBJ_546 /* SSKeyStoringProp.swift in Sources */,
+				OBJ_547 /* SSStorageCoder.swift in Sources */,
+				OBJ_548 /* SSLinearCongruentialRandomizer.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_554 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_555 /* AutoMapAddContainerTests.swift in Sources */,
+				OBJ_556 /* AutoMapAddTests.swift in Sources */,
+				OBJ_557 /* AutoMapContainsTests.swift in Sources */,
+				OBJ_558 /* AutoMapCountTests.swift in Sources */,
+				OBJ_559 /* AutoMapEqualityOperatorTests.swift in Sources */,
+				OBJ_560 /* AutoMapInitTests.swift in Sources */,
+				OBJ_561 /* AutoMapInsertTests.swift in Sources */,
+				OBJ_562 /* AutoMapIsEmptyTests.swift in Sources */,
+				OBJ_563 /* AutoMapMakeIteratorTests.swift in Sources */,
+				OBJ_564 /* AutoMapRemoveAllTests.swift in Sources */,
+				OBJ_565 /* AutoMapRemoveForAtTests.swift in Sources */,
+				OBJ_566 /* AutoMapRemoveForKeyAndIndexes.swift in Sources */,
+				OBJ_567 /* AutoMapRemoveForTests.swift in Sources */,
+				OBJ_568 /* AutoMapRemoveTests.swift in Sources */,
+				OBJ_569 /* AutoMapReplaceTests.swift in Sources */,
+				OBJ_570 /* AutoMapSubscriptKeyIndexTests.swift in Sources */,
+				OBJ_571 /* AutoMapSubscriptKeyTests.swift in Sources */,
+				OBJ_572 /* AutoMapTestHelper.swift in Sources */,
+				OBJ_573 /* AutoMapUpdateTests.swift in Sources */,
+				OBJ_574 /* AutoMapIteratorInitMapTests.swift in Sources */,
+				OBJ_575 /* AutoMapIteratorNextTests.swift in Sources */,
+				OBJ_576 /* SSChainExecutorTests.swift in Sources */,
+				OBJ_577 /* SSGroupExecutorTests.swift in Sources */,
+				OBJ_578 /* ArrayBinarySearchTests.swift in Sources */,
+				OBJ_579 /* ArrayForEachTests.swift in Sources */,
+				OBJ_580 /* ArrayInitBuildBlockTests.swift in Sources */,
+				OBJ_581 /* ArrayInsertTests.swift in Sources */,
+				OBJ_582 /* ArrayPickAtTests.swift in Sources */,
+				OBJ_583 /* ArrayRemoveTests.swift in Sources */,
+				OBJ_584 /* ArrayShuffleUsingTypeTests.swift in Sources */,
+				OBJ_585 /* DictionaryPickForTests.swift in Sources */,
+				OBJ_586 /* DictionaryPickingForTests.swift in Sources */,
+				OBJ_587 /* DictionaryTestKey.swift in Sources */,
+				OBJ_588 /* IndexSetInsertableCollection.swift in Sources */,
+				OBJ_589 /* SetInsertableCollection.swift in Sources */,
+				OBJ_590 /* ComparableCompareTests.swift in Sources */,
+				OBJ_591 /* CGPointSubtractionOperatorTests.swift in Sources */,
+				OBJ_592 /* CGPointSumOperatorTests.swift in Sources */,
+				OBJ_593 /* CGPointTestItems.swift in Sources */,
+				OBJ_594 /* CGPointUnaryMinusTests.swift in Sources */,
+				OBJ_595 /* CGRectCenterTests.swift in Sources */,
+				OBJ_596 /* CGRectCuttedTests.swift in Sources */,
+				OBJ_597 /* CGRectDividedCountVerticallyTests.swift in Sources */,
+				OBJ_598 /* CGRectInitCenterSize.swift in Sources */,
+				OBJ_599 /* CGRectInsetToSizeTests.swift in Sources */,
+				OBJ_600 /* CGRectInsetToWHTests.swift in Sources */,
+				OBJ_601 /* CGSizeAddedTests.swift in Sources */,
+				OBJ_602 /* CGSizeExtendedTests.swift in Sources */,
+				OBJ_603 /* CGSizeSubtractionOperatorTests.swift in Sources */,
+				OBJ_604 /* CGSizeSumOperatorTests.swift in Sources */,
+				OBJ_605 /* CGSizeTestItems.swift in Sources */,
+				OBJ_606 /* CGSizeUnaryMinusOperatorTests.swift in Sources */,
+				OBJ_607 /* CGSizeUnitedIntersectedTests.swift in Sources */,
+				OBJ_608 /* RangeMiddleTests.swift in Sources */,
+				OBJ_609 /* SSSugarTests.swift in Sources */,
+				OBJ_610 /* SSDataModifyCenterTests.swift in Sources */,
+				OBJ_611 /* SSDmBatchAdapterTests.swift in Sources */,
+				OBJ_612 /* SSEntityDmMutatorTests.swift in Sources */,
+				OBJ_613 /* SSEntityRemoteMutatorTests.swift in Sources */,
+				OBJ_614 /* SSEntityStorageMutatorTests.swift in Sources */,
+				OBJ_615 /* SSEntityUpdaterTests.swift in Sources */,
+				OBJ_616 /* SSSingleEntityProcessingTest.swift in Sources */,
+				OBJ_617 /* SSUpdateCenterTests.swift in Sources */,
+				OBJ_618 /* SSUpdateReceiverTests.swift in Sources */,
+				OBJ_619 /* SSUpdatesHelpers.swift in Sources */,
+				OBJ_620 /* SSApiCallOptionstTests.swift in Sources */,
+				OBJ_621 /* SSRemoteApiTests.swift in Sources */,
+				OBJ_622 /* ApiErrorConverterTests.swift in Sources */,
+				OBJ_623 /* ErrorConverterTests.swift in Sources */,
+				OBJ_624 /* KeyFieldConverterTests.swift in Sources */,
+				OBJ_625 /* KeyFieldTest.swift in Sources */,
+				OBJ_626 /* KeyStoringPropTests.swift in Sources */,
+				OBJ_627 /* StorageCoderTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_635 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_636 /* main.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_646 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_647 /* Package.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_658 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_659 /* SSViewShowHideAnimating.swift in Sources */,
+				OBJ_660 /* SSViewShowHideByAlphaAnimator.swift in Sources */,
+				OBJ_661 /* SSScaleAndAlphaTransitionAnimator.swift in Sources */,
+				OBJ_662 /* SSViewTransitionAnimating.swift in Sources */,
+				OBJ_663 /* SSRootView.swift in Sources */,
+				OBJ_664 /* SSRootViewController.swift in Sources */,
+				OBJ_665 /* SSActivityProtectionView.swift in Sources */,
+				OBJ_666 /* SSProgressView.swift in Sources */,
+				OBJ_667 /* SSScrollContainerView.swift in Sources */,
+				OBJ_668 /* SSSelectionMarkView.swift in Sources */,
+				OBJ_669 /* SSTextField.swift in Sources */,
+				OBJ_670 /* SSWindow.swift in Sources */,
+				OBJ_671 /* CTCarrier.swift in Sources */,
+				OBJ_672 /* UIViewController.swift in Sources */,
+				OBJ_673 /* UIColor.swift in Sources */,
+				OBJ_674 /* UIDevice.swift in Sources */,
+				OBJ_675 /* UIButton.swift in Sources */,
+				OBJ_676 /* UILabel.swift in Sources */,
+				OBJ_677 /* UITableVIew.swift in Sources */,
+				OBJ_678 /* UIView.swift in Sources */,
+				OBJ_679 /* Functions.swift in Sources */,
+				OBJ_680 /* SSViewBlocking.swift in Sources */,
+				OBJ_681 /* SSCollectionViewCellMarkable.swift in Sources */,
+				OBJ_682 /* SSCollectionViewMarkable.swift in Sources */,
+				OBJ_683 /* SSCollectionViewMarkableController.swift in Sources */,
+				OBJ_684 /* SSMarkbaleCollectionCellHelper.swift in Sources */,
+				OBJ_685 /* SSProtectionViewHelper.swift in Sources */,
+				OBJ_686 /* SSViewStyles.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_693 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_694 /* UIViewControllerDismissPresentedAnimatedOnFinishTests.swift in Sources */,
+				OBJ_695 /* UIViewControllerKBNotificationsTests.swift in Sources */,
+				OBJ_696 /* UIViewControllerShowAlertTests.swift in Sources */,
+				OBJ_697 /* UIViewControllerShowErrorAlertTests.swift in Sources */,
+				OBJ_698 /* UIViewControllerShowWarningAlertTests.swift in Sources */,
+				OBJ_699 /* UIViewControllerTestHelper.swift in Sources */,
+				OBJ_700 /* UIColorInitTests.swift in Sources */,
+				OBJ_701 /* UILabelTests.swift in Sources */,
+				OBJ_702 /* SSSugarPlaygroundTests.swift in Sources */,
+				OBJ_703 /* SSCollectionViewMarkableControllerActivateTC.swift in Sources */,
+				OBJ_704 /* SSCollectionViewMarkableControllerConfigCellTC.swift in Sources */,
+				OBJ_705 /* SSCollectionViewMarkableControllerDeactivateTC.swift in Sources */,
+				OBJ_706 /* SSCollectionViewMarkableControllerMarkTC.swift in Sources */,
+				OBJ_707 /* SSCollectionViewMarkableControllerTestHelper.swift in Sources */,
+				OBJ_708 /* SSCollectionViewMarkableControllerUnmarkTC.swift in Sources */,
+				OBJ_709 /* SSMarkbaleCollectionCellHelperActivateActivatedTC.swift in Sources */,
+				OBJ_710 /* SSMarkbaleCollectionCellHelperActivateTC.swift in Sources */,
+				OBJ_711 /* SSMarkbaleCollectionCellHelperDeactivateDeactivatedTC.swift in Sources */,
+				OBJ_712 /* SSMarkbaleCollectionCellHelperDeactivateTC.swift in Sources */,
+				OBJ_713 /* SSMarkbaleCollectionCellHelperMarkMarkedTC.swift in Sources */,
+				OBJ_714 /* SSMarkbaleCollectionCellHelperMarkNonActiveTC.swift in Sources */,
+				OBJ_715 /* SSMarkbaleCollectionCellHelperMarkTC.swift in Sources */,
+				OBJ_716 /* SSMarkbaleCollectionCellHelperTestHelper.swift in Sources */,
+				OBJ_717 /* SSMarkbaleCollectionCellHelperUnmarkNonMarkedTC.swift in Sources */,
+				OBJ_718 /* SSMarkbaleCollectionCellHelperUnmarkTC.swift in Sources */,
+				OBJ_719 /* XCTestManifests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		OBJ_729 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 0;
+			files = (
+				OBJ_730 /* Package.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		OBJ_428 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "SSSugar::SSSugarUIKit" /* SSSugarUIKit */;
+			targetProxy = 998ABA24262888BC00877127 /* PBXContainerItemProxy */;
+		};
+		OBJ_430 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "SSSugar::SSSugarCore" /* SSSugarCore */;
+			targetProxy = 998ABA25262888BC00877127 /* PBXContainerItemProxy */;
+		};
+		OBJ_630 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "SSSugar::SSSugarCore" /* SSSugarCore */;
+			targetProxy = 998ABA22262888BA00877127 /* PBXContainerItemProxy */;
+		};
+		OBJ_640 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "swift-argument-parser::ArgumentParser" /* ArgumentParser */;
+			targetProxy = 998ABA1D262888BA00877127 /* PBXContainerItemProxy */;
+		};
+		OBJ_641 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "SSSugar::SSSugarCore" /* SSSugarCore */;
+			targetProxy = 998ABA1E262888BA00877127 /* PBXContainerItemProxy */;
+		};
+		OBJ_652 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "SSSugar::SSSugarCoreTests" /* SSSugarCoreTests */;
+			targetProxy = 998ABA2B262888BC00877127 /* PBXContainerItemProxy */;
+		};
+		OBJ_653 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "SSSugar::SSSugarUIKitTests" /* SSSugarUIKitTests */;
+			targetProxy = 998ABA2C262888BC00877127 /* PBXContainerItemProxy */;
+		};
+		OBJ_689 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "SSSugar::SSSugarCore" /* SSSugarCore */;
+			targetProxy = 998ABA1F262888BA00877127 /* PBXContainerItemProxy */;
+		};
+		OBJ_723 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "SSSugar::SSSugarUIKit" /* SSSugarUIKit */;
+			targetProxy = 998ABA20262888BA00877127 /* PBXContainerItemProxy */;
+		};
+		OBJ_724 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = "SSSugar::SSSugarCore" /* SSSugarCore */;
+			targetProxy = 998ABA21262888BA00877127 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		OBJ_3 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_NS_ASSERTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"SWIFT_PACKAGE=1",
+					"DEBUG=1",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_SWIFT_FLAGS = "$(inherited) -DXcode";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) SWIFT_PACKAGE DEBUG";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				USE_HEADERMAP = NO;
+			};
+			name = Debug;
+		};
+		OBJ_385 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = SSSugar.xcodeproj/ArgumentParser_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = ArgumentParser;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = ArgumentParser;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		OBJ_386 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = SSSugar.xcodeproj/ArgumentParser_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = ArgumentParser;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = ArgumentParser;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		OBJ_4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"SWIFT_PACKAGE=1",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 10.10;
+				OTHER_SWIFT_FLAGS = "$(inherited) -DXcode";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SUPPORTED_PLATFORMS = "macosx iphoneos iphonesimulator appletvos appletvsimulator watchos watchsimulator";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) SWIFT_PACKAGE";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				USE_HEADERMAP = NO;
+			};
+			name = Release;
+		};
+		OBJ_426 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		OBJ_427 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		OBJ_433 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = SSSugar.xcodeproj/SSSugarCore_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = SSSugarCore;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = SSSugarCore;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		OBJ_434 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = SSSugar.xcodeproj/SSSugarCore_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = SSSugarCore;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = SSSugarCore;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		OBJ_552 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = SSSugar.xcodeproj/SSSugarCoreTests_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = SSSugarCoreTests;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		OBJ_553 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = SSSugar.xcodeproj/SSSugarCoreTests_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = SSSugarCoreTests;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		OBJ_633 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = SSSugar.xcodeproj/SSSugarPG_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx @executable_path";
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_FORCE_DYNAMIC_LINK_STDLIB = YES;
+				SWIFT_FORCE_STATIC_LINK_STDLIB = NO;
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = SSSugarPG;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		OBJ_634 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = SSSugar.xcodeproj/SSSugarPG_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx @executable_path";
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_FORCE_DYNAMIC_LINK_STDLIB = YES;
+				SWIFT_FORCE_STATIC_LINK_STDLIB = NO;
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = SSSugarPG;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		OBJ_644 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk -package-description-version 5.3.0";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		OBJ_645 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk -package-description-version 5.3.0";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		OBJ_650 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Debug;
+		};
+		OBJ_651 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+			};
+			name = Release;
+		};
+		OBJ_656 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = SSSugar.xcodeproj/SSSugarUIKit_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = SSSugarUIKit;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = SSSugarUIKit;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		OBJ_657 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = SSSugar.xcodeproj/SSSugarUIKit_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = SSSugarUIKit;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = SSSugarUIKit;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		OBJ_691 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = SSSugar.xcodeproj/SSSugarUIKitTests_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = SSSugarUIKitTests;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Debug;
+		};
+		OBJ_692 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = SSSugar.xcodeproj/SSSugarUIKitTests_Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
+				MACOSX_DEPLOYMENT_TARGET = 11.0;
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
+				SWIFT_VERSION = 5.0;
+				TARGET_NAME = SSSugarUIKitTests;
+				TVOS_DEPLOYMENT_TARGET = 9.0;
+				WATCHOS_DEPLOYMENT_TARGET = 2.0;
+			};
+			name = Release;
+		};
+		OBJ_727 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk -package-description-version 5.2.0";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		OBJ_728 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 5 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4_2 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk -package-description-version 5.2.0";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		OBJ_2 /* Build configuration list for PBXProject "SSSugar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_3 /* Debug */,
+				OBJ_4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_384 /* Build configuration list for PBXNativeTarget "ArgumentParser" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_385 /* Debug */,
+				OBJ_386 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_425 /* Build configuration list for PBXAggregateTarget "SSSugar" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_426 /* Debug */,
+				OBJ_427 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_432 /* Build configuration list for PBXNativeTarget "SSSugarCore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_433 /* Debug */,
+				OBJ_434 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_551 /* Build configuration list for PBXNativeTarget "SSSugarCoreTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_552 /* Debug */,
+				OBJ_553 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_632 /* Build configuration list for PBXNativeTarget "SSSugarPG" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_633 /* Debug */,
+				OBJ_634 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_643 /* Build configuration list for PBXNativeTarget "SSSugarPackageDescription" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_644 /* Debug */,
+				OBJ_645 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_649 /* Build configuration list for PBXAggregateTarget "SSSugarPackageTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_650 /* Debug */,
+				OBJ_651 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_655 /* Build configuration list for PBXNativeTarget "SSSugarUIKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_656 /* Debug */,
+				OBJ_657 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_690 /* Build configuration list for PBXNativeTarget "SSSugarUIKitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_691 /* Debug */,
+				OBJ_692 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		OBJ_726 /* Build configuration list for PBXNativeTarget "swift-argument-parserPackageDescription" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				OBJ_727 /* Debug */,
+				OBJ_728 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = OBJ_1 /* Project object */;
+}

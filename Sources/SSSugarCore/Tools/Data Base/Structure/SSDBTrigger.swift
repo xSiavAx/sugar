@@ -50,23 +50,24 @@ public struct SSDBTrigger<Table: SSDBTable>: SSDBComponent {
         self.statements = statements
     }
     
-    public func createQuery(strictExist: Bool) -> String {
+    public func createQueries(strictExist: Bool) -> [String] {
         var components = ["\(actionCondition.toQueryComp()) \(action.toQueryComp()) on \(Table.tableName)"]
         
         if let condition = condition {
             components.append("when \(condition)")
         }
-        
-        return """
-            \(Self.baseCreate(component: Self.component, name: componentName))
+        let query = """
+            \(Self.baseCreate(component: Self.component, name: componentName, strictExist: strictExist))
                 \(components.joined(separator: "\n    "))
             BEGIN
                 \(statements.joined(separator: "\n    "))
             END;
             """
+        
+        return [query]
     }
     
-    public func dropQuery(strictExist: Bool) -> String {
-        return "\(Self.baseDrop(component: Self.component, name: componentName));"
+    public func dropQueries(strictExist: Bool) -> [String] {
+        return ["\(Self.baseDrop(component: Self.component, name: componentName, strictExist: strictExist));"]
     }
 }

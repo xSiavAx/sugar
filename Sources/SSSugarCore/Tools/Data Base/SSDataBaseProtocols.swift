@@ -60,11 +60,19 @@ public protocol SSDataBaseProtocol: SSTransacted, SSDataBaseStatementCreator, SS
 }
 
 public extension SSDataBaseStatementProtocol {
-    func bind<T: SSDBColType>(val: T, pos: Int) throws {
+    func bind<T: SSDBColType>(_ val: T, pos: Int) throws {
         try val.bindTo(stmt: self, pos: pos)
     }
     
     func get<T: SSDBColType>(pos: Int) throws -> T {
         return try T.from(stmt: self, pos: pos)
+    }
+    
+    //MARK: - deprecated
+    
+    /// - Warning: **Deprecated**. Use `init(size:buildBlock:)` instead.
+    @available(*, deprecated, message: "Use `bind<T: SSDBColType>(_ val: T, pos: Int)` instead")
+    func bind<T: SSDBColType>(val: T, pos: Int) throws {
+        try bind(val, pos: pos)
     }
 }

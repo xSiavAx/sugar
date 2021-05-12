@@ -1,4 +1,7 @@
 import Foundation
+#if canImport(FoundationNetworking)
+import FoundationNetworking
+#endif
 
 /// Tool provides communication with network over HTTP requests.
 ///
@@ -12,7 +15,6 @@ import Foundation
 /// `Communicating`
 public class SSNetworkCommunicator {
     public typealias URLSessionConfigSetup = (URLSessionConfiguration)->Void
-    
     
     //TODO: Move log logic to separated tool
     
@@ -64,8 +66,10 @@ public class SSNetworkCommunicator {
             wrapedTask.cancel()
         }
     }
+    #if !os(Linux)
     /// Certificate pinner used for `URLSession`
     public let pinner: SSCertificatePinner?
+    #endif
     
     /// Wrapped session
     public let session: URLSession
@@ -85,10 +89,11 @@ public class SSNetworkCommunicator {
     ///   - backgroundSessionIdentifier: Identifier for background session. Pass `nil` to create communicator for foreground tasks. Default is `nil`.
     ///   - certificatePinner: Certificate pinner if one is needed. See `SSCertificatePinner` for more details. To create pinner based on names of certificates that stores in assets use `init(backgroundSessionIdentifier: certificatePinner: onConfigSetup:)`
     ///   - onConfigSetup: Additional session configuration (`URLSessionConfiguration`) setup. Any Framework user could make extension with it's own `onConfigSetup` closure (including `nil`). `onConfigSetup` has no default value to avoid ambiguity of default constructor with one that user will define.
+    #if !os(Linux)
     public init(backgroundSessionIdentifier: String? = nil, certificatePinner: SSCertificatePinner? = nil, onConfigSetup: URLSessionConfigSetup?) {
         func createConfig() -> URLSessionConfiguration {
             if let identifier = backgroundSessionIdentifier {
-                return .background(withIdentifier: identifier)
+                return .appBackground(withIdentifier: identifier)
             }
             return .appDefault()
         }
@@ -110,6 +115,17 @@ public class SSNetworkCommunicator {
         
         self.init(backgroundSessionIdentifier: backgroundSessionIdentifier, certificatePinner: pinner, onConfigSetup: onConfigSetup)
     }
+    #else
+    
+    public init(onConfigSetup: URLSessionConfigSetup?) {
+        let config = URLSessionConfiguration.appDefault()
+        
+        onConfigSetup?(config)
+        
+        session = URLSession(configuration: config)
+    }
+    
+    #endif
     
     public func setupLogs(request: LoggingOptions, response: LoggingOptions, onLog mOnLog: ((String)->Void)?) {
         logOptions = (request, response)

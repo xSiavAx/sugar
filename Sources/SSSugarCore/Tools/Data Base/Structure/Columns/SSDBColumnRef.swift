@@ -12,10 +12,16 @@ public struct SSDBColumnRef<OtherTable: SSDBTable, Column: SSDBTypedColumnProtoc
     public func toCreate() -> String {
         return "`\(name)` \(ColType.colName)\(nullComponent())"
     }
-    
-    public init(table: OtherTable.Type, optional mOptional: Bool? = nil, col: (OtherTable.Type)->Column) {
+
+    public init(table: OtherTable.Type, prefix: String? = nil, optional mOptional: Bool? = nil, col: (OtherTable.Type)->Column) {
+        func prefixComp() -> String {
+            if let prefix = prefix {
+                return "\(prefix)_"
+            }
+            return ""
+        }
         column = col(OtherTable.self)
-        name = "\(OtherTable.tableName)_\(column.name)"
+        name = "\(prefixComp())\(OtherTable.tableName)_\(column.name)"
         if let mOptional = mOptional {
             optional = mOptional
         } else {

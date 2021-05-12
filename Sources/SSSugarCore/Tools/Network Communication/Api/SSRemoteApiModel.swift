@@ -1,5 +1,9 @@
 import Foundation
 
+#warning("TODO: Api Model")
+//Try to improove using Codable
+//https://habr.com/ru/post/414221/
+
 /// Api callback response that represents `success` or `fail` options.
 ///
 /// # Generics:
