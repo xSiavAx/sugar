@@ -43,6 +43,10 @@ public class SSDBQueryBuilder {
         table = name
     }
     
+    public convenience init<Table: SSDBTable>(_ kind: Kind, table: Table.Type) {
+        self.init(kind, table: table.tableName)
+    }
+    
     public func build() throws -> String {
         switch kind {
         case .select: return try select()
