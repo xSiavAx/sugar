@@ -7,6 +7,10 @@ public enum SSDBQueryError: Error {
 
 public class SSDBQueryBuilder {
     typealias TError = SSDBQueryError
+    public typealias Column = SSDBColumnProtocol
+    public typealias TalbeT = SSDBTable.Type
+    public typealias Builder = SSDBQueryBuilder
+    public typealias ColCondition = SSDBColumnCondition
     
     public enum Kind {
         case select
@@ -32,30 +36,32 @@ public class SSDBQueryBuilder {
             case full = "full outer"
         }
         public struct Constraint {
-            let left: SSDBColumnProtocol
-            let right: SSDBColumnProtocol
+            let left: Column
+            let right: Column
             
-            func toQuery(leftTable: SSDBTable.Type, rightTable: SSDBTable.Type) -> String {
+            func toQuery(leftTable: TalbeT, rightTable: TalbeT) -> String {
                 return "\(leftTable.colName(left)) == \(rightTable.colName(right))"
             }
         }
         public let operation: Operation
-        public let table: SSDBTable.Type
+        public let lTable: TalbeT
+        public let rTable: TalbeT
         public let constraints: [Constraint]
         
-        public init(operation: Operation, table: SSDBTable.Type, constraints: [Constraint]) {
+        public init(operation: Operation = .inner, lTable: TalbeT, rTable: TalbeT, constraints: [Constraint]) {
             self.operation = operation
-            self.table = table
+            self.lTable = lTable
+            self.rTable = rTable
             self.constraints = constraints
         }
         
-        public init(operation: Operation, table: SSDBTable.Type, left: SSDBColumnProtocol, right: SSDBColumnProtocol) {
-            self.init(operation: operation, table: table, constraints: [Constraint(left: left, right: right)])
+        public init(operation: Operation = .inner, lTable: TalbeT, lCol: Column, rTable: TalbeT, rCol: Column) {
+            self.init(operation: operation, lTable: lTable, rTable: rTable, constraints: [Constraint(left: lCol, right: rCol)])
         }
         
-        public func toQuery(on right: SSDBTable.Type) -> String {
-            let constraintsStr = constraints.map() { $0.toQuery(leftTable: table, rightTable: right) }.joined(separator: " and ")
-            return "\(operation) join \(right.tableName) on \(constraintsStr)"
+        public func toQuery() -> String {
+            let constraintsStr = constraints.map() { $0.toQuery(leftTable: lTable, rightTable: rTable) }.joined(separator: " and ")
+            return "\(operation) join \(rTable.tableName) on \(constraintsStr)"
         }
     }
     public struct OrderByComp {
@@ -65,11 +71,11 @@ public class SSDBQueryBuilder {
             /// 2, 1, 0
             case desc = "desc"
         }
-        public let col: SSDBColumnProtocol
-        public let table: SSDBTable.Type?
+        public let col: Column
+        public let table: TalbeT?
         public let order: Order
         
-        public init(col: SSDBColumnProtocol, table: SSDBTable.Type? = nil, order: Order = .asc) {
+        public init(col: Column, table: TalbeT? = nil, order: Order = .asc) {
             self.col = col
             self.table = table
             self.order = order
@@ -84,14 +90,15 @@ public class SSDBQueryBuilder {
         let offset: Int?
     }
     private var kind: Kind
-    private var table: SSDBTable.Type
+    private var table: TalbeT
+    private var joins = [Join]()
     private var columns = [String]()
     private var conditions = SSDBConditionSet()
     private var orderBys = [OrderByComp]()
     private var limitComp: LimitComp?
     private var groupBys = [String]()
     
-    public init(_ kind: Kind, table: SSDBTable.Type) {
+    public init(_ kind: Kind, table: TalbeT) {
         self.kind = kind
         self.table = table
     }
@@ -106,12 +113,29 @@ public class SSDBQueryBuilder {
     }
     
     @discardableResult
-    public func add(cols: [SSDBColumnProtocol]) throws -> SSDBQueryBuilder {
+    func join(_ join: Join) throws -> Builder {
+        try ensureKind(.select)
+        return self
+    }
+    
+    
+    @discardableResult
+    func join(_ kind: Join.Operation = .inner, table: TalbeT, with oTable: TalbeT, left: Column, right: Column) throws -> Builder {
+        return try join(.init(operation: kind, lTable: table, lCol: left, rTable: oTable, rCol: right))
+    }
+    
+    @discardableResult
+    func join(_ kind: Join.Operation = .inner, with oTable: TalbeT, left: Column, right: Column) throws -> Builder {
+        return try join(kind, table: table, with: oTable, left: left, right: right)
+    }
+    
+    @discardableResult
+    public func add(cols: [Column]) throws -> Builder {
         return try add(cols: cols, from: table)
     }
     
     @discardableResult
-    public func add(cols: [SSDBColumnProtocol], from table: SSDBTable.Type) throws -> SSDBQueryBuilder {
+    public func add(cols: [Column], from table: TalbeT) throws -> Builder {
         try ensureKind(not: .delete)
         switch kind {
         case .update:
@@ -123,76 +147,76 @@ public class SSDBQueryBuilder {
     }
     
     @discardableResult
-    public func add(col: SSDBColumnProtocol) throws -> SSDBQueryBuilder {
+    public func add(col: Column) throws -> Builder {
         return try add(col: col, from: table)
     }
     
     @discardableResult
-    public func add(col: SSDBColumnProtocol, from table: SSDBTable.Type) throws -> SSDBQueryBuilder {
+    public func add(col: Column, from table: TalbeT) throws -> Builder {
         return try add(cols: [col])
     }
     
     @discardableResult
-    public func add(customCol: String) throws -> SSDBQueryBuilder {
+    public func add(customCol: String) throws -> Builder {
         try ensureKind(not: .insert, .delete)
         columns += [customCol]
         return self
     }
     
     @discardableResult
-    public func increment(col: SSDBColumnProtocol) throws -> SSDBQueryBuilder {
+    public func increment(col: Column) throws -> Builder {
         try ensureKind(.update)
         columns.append("`\(col.name)` = `\(col.name)` + ?")
         return self
     }
     
     @discardableResult
-    public func update(col: SSDBColumnProtocol, build: (String) -> String) throws -> SSDBQueryBuilder {
+    public func update(col: Column, build: (String) -> String) throws -> Builder {
         try ensureKind(.update)
         columns.append("`\(col.name)` = \(build(col.name))")
         return self
     }
     
     @discardableResult
-    public func add(colCondition: SSDBColumnProtocol, _ operation: SSDBColumnCondition.Operation = .equal, value: String? = nil) throws -> SSDBQueryBuilder {
+    public func add(colCondition: Column, _ operation: ColCondition.Operation = .equal, value: String? = nil) throws -> Builder {
         return try add(colCondition: colCondition, from: table, operation, value: value)
     }
     
     @discardableResult
-    public func add(colCondition col: SSDBColumnProtocol, from table: SSDBTable.Type, _ operation: SSDBColumnCondition.Operation = .equal, value: String? = nil) throws -> SSDBQueryBuilder {
+    public func add(colCondition col: Column, from table: TalbeT, _ operation: ColCondition.Operation = .equal, value: String? = nil) throws -> Builder {
         try ensureKind(not: .insert)
-        conditions.add(SSDBColumnCondition(col, from: table, operation, value: value))
+        conditions.add(ColCondition(col, from: table, operation, value: value))
         return self
     }
     
     @discardableResult
-    public func conditionOperation(_ operation: SSDBConditionSet.Operation) throws -> SSDBQueryBuilder {
+    public func conditionOperation(_ operation: SSDBConditionSet.Operation) throws -> Builder {
         try ensureKind(not: .insert)
         conditions.operation = operation
         return self
     }
     
     @discardableResult
-    public func addOrder(_ order: OrderByComp.Order = .asc, by col: SSDBColumnProtocol, from table: SSDBTable.Type) throws -> SSDBQueryBuilder {
+    public func addOrder(_ order: OrderByComp.Order = .asc, by col: Column, from table: TalbeT) throws -> Builder {
         try ensureKind(.select)
         orderBys.append(OrderByComp(col: col, table: table, order: order))
         return self
     }
     
     @discardableResult
-    public func setLimit(_ limit: Int, offset: Int? = nil) throws -> SSDBQueryBuilder {
+    public func setLimit(_ limit: Int, offset: Int? = nil) throws -> Builder {
         try ensureKind(.select)
         limitComp = LimitComp(val: limit, offset: offset)
         return self
     }
     
     @discardableResult
-    public func addGroupBy(col: SSDBColumnProtocol) throws -> SSDBQueryBuilder {
+    public func addGroupBy(col: Column) throws -> Builder {
         return try addGroupBy(col: col, table: table)
     }
     
     @discardableResult
-    public func addGroupBy(col: SSDBColumnProtocol, table: SSDBTable.Type) throws -> SSDBQueryBuilder {
+    public func addGroupBy(col: Column, table: TalbeT) throws -> Builder {
         try ensureKind(.select)
         groupBys.append(table.colName(col))
         return self
@@ -212,7 +236,7 @@ public class SSDBQueryBuilder {
         try ensureHasColums()
         let columsStr = columns.joined(separator: ", ")
 
-        return "select \(columsStr) from `\(table)`\(selectClausesStr());"
+        return "select \(columsStr) from `\(table)`\(joinClausesStr())\(selectClausesStr());"
     }
     
     private func insert() throws -> String {
@@ -239,6 +263,10 @@ public class SSDBQueryBuilder {
         
         guard !newComps.isEmpty else { return "" }
         return " " + newComps.joined(separator: " ")
+    }
+    
+    private func joinClausesStr() -> String {
+        return clausesStr(with: joins.map() { $0.toQuery() } )
     }
     
     private func selectClausesStr() -> String {
@@ -285,7 +313,7 @@ public class SSDBQueryBuilder {
         guard !columns.isEmpty else { throw TError.emptyColums }
     }
     
-    private static func placeHoldersFor(cols: [SSDBColumnProtocol]) -> [String] {
+    private static func placeHoldersFor(cols: [Column]) -> [String] {
         return cols.map { "`\($0.name)` = ?" }
     }
 }
