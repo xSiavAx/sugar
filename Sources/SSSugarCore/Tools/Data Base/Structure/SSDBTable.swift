@@ -127,20 +127,20 @@ public extension SSDBTable {
         return try! wherePK(.update).add(cols: cols).build()
     }
     
-    static func wherePK(_ kind: SSDBQueryBuilder.Kind) -> SSDBQueryBuilder {
-        return wherePK(query(kind))
+    static func wherePK(_ kind: SSDBQueryBuilder.Kind) throws -> SSDBQueryBuilder {
+        return try wherePK(query(kind))
     }
     
     @discardableResult
-    static func wherePK(_ builder: SSDBQueryBuilder) -> SSDBQueryBuilder {
+    static func wherePK(_ builder: SSDBQueryBuilder) throws -> SSDBQueryBuilder {
         if let primaryKey = primaryKey {
-            primaryKey.cols.forEach() { builder.add(colCondition: $0) }
+            try primaryKey.cols.forEach() { try builder.add(colCondition: $0) }
         }
         return builder
     }
     
     static func selectAllQueryBuilder() -> SSDBQueryBuilder {
-        return query(.select).add(cols: colums)
+        return try! query(.select).add(cols: colums)
     }
     
     //MARK: - private

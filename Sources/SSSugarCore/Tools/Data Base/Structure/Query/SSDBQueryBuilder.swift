@@ -1,6 +1,7 @@
 import Foundation
 
 public enum SSDBQueryError: Error {
+    case invalidQueryKind
     case emptyColums
 }
 
@@ -31,8 +32,7 @@ public class SSDBQueryBuilder {
     }
     private var kind: Kind
     private var table: String
-    private var columns = [SSDBColumnProtocol]()
-    private var updateColumns = [String]()
+    private var columns = [String]()
     private var conditions = SSDBConditionSet()
     private var orderBys = [OrderByComp]()
     private var limitComp: LimitComp?
@@ -57,66 +57,105 @@ public class SSDBQueryBuilder {
     }
     
     @discardableResult
-    public func add(cols: [SSDBColumnProtocol]) -> SSDBQueryBuilder {
-        columns += cols
+    public func add(cols: [SSDBColumnProtocol]) throws -> SSDBQueryBuilder {
+        try ensureKind(not: .delete)
+        switch kind {
+        case .update:
+            columns += Self.placeHoldersFor(cols: cols)
+        default:
+            columns += cols.map() { $0.name }
+        }
         return self
     }
     
     @discardableResult
-    public func add(colCondition col: SSDBColumnProtocol, _ operation: SSDBColumnCondition.Operation = .equal, value: String? = nil) -> SSDBQueryBuilder {
+    public func add(col: SSDBColumnProtocol) throws -> SSDBQueryBuilder {
+        return try add(cols: [col])
+    }
+    
+    @discardableResult
+    public func increment(col: SSDBColumnProtocol) throws -> SSDBQueryBuilder {
+        try ensureKind(.update)
+        columns.append("`\(col.name)` = `\(col.name)` + ?")
+        return self
+    }
+    
+    @discardableResult
+    public func update(col: SSDBColumnProtocol, build: (String) -> String) throws -> SSDBQueryBuilder {
+        try ensureKind(.update)
+        columns.append("`\(col.name)` = \(build(col.name))")
+        return self
+    }
+    
+    @discardableResult
+    public func add(colCondition col: SSDBColumnProtocol, _ operation: SSDBColumnCondition.Operation = .equal, value: String? = nil) throws -> SSDBQueryBuilder {
+        try ensureKind(not: .insert)
         conditions.add(SSDBColumnCondition(col, operation, value: value))
         return self
     }
     
     @discardableResult
-    public func update(col: SSDBColumnProtocol) -> SSDBQueryBuilder {
-        updateColumns.append("`\(col.name)` = ?")
-        return self
-    }
-    
-    @discardableResult
-    public func increment(col: SSDBColumnProtocol) -> SSDBQueryBuilder {
-        updateColumns.append("`\(col.name)` = `\(col.name)` + ?")
-        return self
-    }
-    
-    @discardableResult
-    public func update(col: SSDBColumnProtocol, build: (String) -> String) -> SSDBQueryBuilder {
-        updateColumns.append("`\(col.name)` = \(build(col.name))")
-        return self
-    }
-    
-    @discardableResult
-    public func conditionOperation(_ operation: SSDBConditionSet.Operation) -> SSDBQueryBuilder {
+    public func conditionOperation(_ operation: SSDBConditionSet.Operation) throws -> SSDBQueryBuilder {
+        try ensureKind(not: .insert)
         conditions.operation = operation
         return self
     }
     
     @discardableResult
-    public func addOrder(_ order: OrderByComp.Order = .asc, by col: SSDBColumnProtocol) -> SSDBQueryBuilder {
+    public func addOrder(_ order: OrderByComp.Order = .asc, by col: SSDBColumnProtocol) throws -> SSDBQueryBuilder {
+        try ensureKind(.select)
         orderBys.append(OrderByComp(col: col, order: order))
         return self
     }
     
     @discardableResult
-    public func setLimit(_ limit: Int, offset: Int? = nil) -> SSDBQueryBuilder {
+    public func setLimit(_ limit: Int, offset: Int? = nil) throws -> SSDBQueryBuilder {
+        try ensureKind(.select)
         limitComp = LimitComp(val: limit, offset: offset)
         return self
     }
     
     @discardableResult
-    public func addGroupBy(col: SSDBColumnProtocol) -> SSDBQueryBuilder {
+    public func addGroupBy(col: SSDBColumnProtocol) throws -> SSDBQueryBuilder {
+        try ensureKind(.select)
         groupBys.append(col)
         return self
     }
     
     //MARK: - private
+
+    private func ensureKind(_ mKind: Kind) throws {
+        guard kind == mKind else { throw TError.invalidQueryKind }
+    }
+    
+    private func ensureKind(not kinds: Kind...) throws {
+        guard !kinds.contains(kind) else { throw TError.invalidQueryKind }
+    }
     
     private func select() throws -> String {
         try ensureHasColums()
-        let names = Self.colNamesStrFrom(cols: columns)
+        let columsStr = columns.joined(separator: ", ")
+
+        return "select \(columsStr) from `\(table)`\(selectClausesStr());"
+    }
+    
+    private func insert() throws -> String {
+        try ensureHasColums()
+        let columsStr = columns.joined(separator: ", ")
+        let placeHolders = (0..<columns.count).map {_ in "?" }.joined(separator: ", ")
         
-        return "select \(names) from `\(table)`\(selectClausesStr());"
+        return "insert into `\(table)` (\(columsStr)) values (\(placeHolders));"
+    }
+    
+    private func update() throws -> String {
+        try ensureHasColums()
+        let columsStr = columns.joined(separator: ", ")
+        
+        return "update `\(table)` set \(columsStr)\(updateClausesStr());"
+    }
+    
+    private func delete() -> String {
+        return "delete from `\(table)`\(deleteClausesStr());"
     }
     
     private func clausesStr(with components: [String?]) -> String {
@@ -136,25 +175,6 @@ public class SSDBQueryBuilder {
     
     private func deleteClausesStr() -> String {
         return clausesStr(with: [whereClause()])
-    }
-    
-    private func insert() throws -> String {
-        try ensureHasColums()
-        let placeHolders = (0..<columns.count).map {_ in "?" }.joined(separator: ", ")
-        let names = Self.colNamesStrFrom(cols: columns)
-        
-        return "insert into `\(table)` (\(names)) values (\(placeHolders));"
-    }
-    
-    private func update() throws -> String {
-        try ensureHasUpdateColums()
-        let placeHolders = (Self.placeHoldersFor(cols: columns) + updateColumns).joined(separator: ", ")
-        
-        return "update `\(table)` set \(placeHolders)\(updateClausesStr());"
-    }
-    
-    private func delete() -> String {
-        return "delete from `\(table)`\(deleteClausesStr());"
     }
     
     private func whereClause() -> String? {
@@ -190,15 +210,7 @@ public class SSDBQueryBuilder {
         guard !columns.isEmpty else { throw TError.emptyColums }
     }
     
-    private func ensureHasUpdateColums() throws {
-        guard !columns.isEmpty || !updateColumns.isEmpty else { throw TError.emptyColums }
-    }
-    
     private static func placeHoldersFor(cols: [SSDBColumnProtocol]) -> [String] {
         return cols.map { "`\($0.name)` = ?" }
-    }
-    
-    private static func colNamesStrFrom(cols: [SSDBColumnProtocol]) -> String {
-        return cols.map { $0.name }.joined(separator: ", ")
     }
 }
