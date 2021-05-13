@@ -14,16 +14,69 @@ public class SSDBQueryBuilder {
         case update
         case delete
     }
+    public struct Join {
+        public enum Operation: String {
+            /// intersection
+            case inner = "inner"
+            /// Union left and intersection
+            ///
+            /// left, left outer
+            case left = "left outer"
+            /// Union right and intersection
+            ///
+            /// right, right outer
+            case right = "right outer"
+            /// Union
+            ///
+            /// full, full outer
+            case full = "full outer"
+        }
+        public struct Constraint {
+            let left: SSDBColumnProtocol
+            let right: SSDBColumnProtocol
+            
+            func toQuery(leftTable: SSDBTable.Type, rightTable: SSDBTable.Type) -> String {
+                return "\(leftTable.colName(left)) == \(rightTable.colName(right))"
+            }
+        }
+        public let operation: Operation
+        public let table: SSDBTable.Type
+        public let constraints: [Constraint]
+        
+        public init(operation: Operation, table: SSDBTable.Type, constraints: [Constraint]) {
+            self.operation = operation
+            self.table = table
+            self.constraints = constraints
+        }
+        
+        public init(operation: Operation, table: SSDBTable.Type, left: SSDBColumnProtocol, right: SSDBColumnProtocol) {
+            self.init(operation: operation, table: table, constraints: [Constraint(left: left, right: right)])
+        }
+        
+        public func toQuery(on right: SSDBTable.Type) -> String {
+            let constraintsStr = constraints.map() { $0.toQuery(leftTable: table, rightTable: right) }.joined(separator: " and ")
+            return "\(operation) join \(right.tableName) on \(constraintsStr)"
+        }
+    }
     public struct OrderByComp {
         public enum Order: String {
+            /// 0, 1, 2
             case asc = "asc"
+            /// 2, 1, 0
             case desc = "desc"
         }
-        let col: SSDBColumnProtocol
-        let order: Order
+        public let col: SSDBColumnProtocol
+        public let table: SSDBTable.Type?
+        public let order: Order
         
-        func toString() -> String {
-            return "`\(col.name)` \(order.rawValue)"
+        public init(col: SSDBColumnProtocol, table: SSDBTable.Type? = nil, order: Order = .asc) {
+            self.col = col
+            self.table = table
+            self.order = order
+        }
+
+        public func toString() -> String {
+            return "`\(table.colName(col))` \(order.rawValue)"
         }
     }
     public struct LimitComp {
@@ -31,20 +84,16 @@ public class SSDBQueryBuilder {
         let offset: Int?
     }
     private var kind: Kind
-    private var table: String
+    private var table: SSDBTable.Type
     private var columns = [String]()
     private var conditions = SSDBConditionSet()
     private var orderBys = [OrderByComp]()
     private var limitComp: LimitComp?
-    private var groupBys = [SSDBColumnProtocol]()
+    private var groupBys = [String]()
     
-    public init(_ mKind: Kind, table name: String) {
-        kind = mKind
-        table = name
-    }
-    
-    public convenience init<Table: SSDBTable>(_ kind: Kind, table: Table.Type) {
-        self.init(kind, table: table.tableName)
+    public init(_ kind: Kind, table: SSDBTable.Type) {
+        self.kind = kind
+        self.table = table
     }
     
     public func build() throws -> String {
@@ -58,18 +107,28 @@ public class SSDBQueryBuilder {
     
     @discardableResult
     public func add(cols: [SSDBColumnProtocol]) throws -> SSDBQueryBuilder {
+        return try add(cols: cols, from: table)
+    }
+    
+    @discardableResult
+    public func add(cols: [SSDBColumnProtocol], from table: SSDBTable.Type) throws -> SSDBQueryBuilder {
         try ensureKind(not: .delete)
         switch kind {
         case .update:
             columns += Self.placeHoldersFor(cols: cols)
         default:
-            columns += cols.map() { $0.name }
+            columns += cols.map() { table.colName($0) }
         }
         return self
     }
     
     @discardableResult
     public func add(col: SSDBColumnProtocol) throws -> SSDBQueryBuilder {
+        return try add(col: col, from: table)
+    }
+    
+    @discardableResult
+    public func add(col: SSDBColumnProtocol, from table: SSDBTable.Type) throws -> SSDBQueryBuilder {
         return try add(cols: [col])
     }
     
@@ -95,9 +154,14 @@ public class SSDBQueryBuilder {
     }
     
     @discardableResult
-    public func add(colCondition col: SSDBColumnProtocol, _ operation: SSDBColumnCondition.Operation = .equal, value: String? = nil) throws -> SSDBQueryBuilder {
+    public func add(colCondition: SSDBColumnProtocol, _ operation: SSDBColumnCondition.Operation = .equal, value: String? = nil) throws -> SSDBQueryBuilder {
+        return try add(colCondition: colCondition, from: table, operation, value: value)
+    }
+    
+    @discardableResult
+    public func add(colCondition col: SSDBColumnProtocol, from table: SSDBTable.Type, _ operation: SSDBColumnCondition.Operation = .equal, value: String? = nil) throws -> SSDBQueryBuilder {
         try ensureKind(not: .insert)
-        conditions.add(SSDBColumnCondition(col, operation, value: value))
+        conditions.add(SSDBColumnCondition(col, from: table, operation, value: value))
         return self
     }
     
@@ -109,9 +173,9 @@ public class SSDBQueryBuilder {
     }
     
     @discardableResult
-    public func addOrder(_ order: OrderByComp.Order = .asc, by col: SSDBColumnProtocol) throws -> SSDBQueryBuilder {
+    public func addOrder(_ order: OrderByComp.Order = .asc, by col: SSDBColumnProtocol, from table: SSDBTable.Type) throws -> SSDBQueryBuilder {
         try ensureKind(.select)
-        orderBys.append(OrderByComp(col: col, order: order))
+        orderBys.append(OrderByComp(col: col, table: table, order: order))
         return self
     }
     
@@ -124,8 +188,13 @@ public class SSDBQueryBuilder {
     
     @discardableResult
     public func addGroupBy(col: SSDBColumnProtocol) throws -> SSDBQueryBuilder {
+        return try addGroupBy(col: col, table: table)
+    }
+    
+    @discardableResult
+    public func addGroupBy(col: SSDBColumnProtocol, table: SSDBTable.Type) throws -> SSDBQueryBuilder {
         try ensureKind(.select)
-        groupBys.append(col)
+        groupBys.append(table.colName(col))
         return self
     }
     
@@ -208,9 +277,8 @@ public class SSDBQueryBuilder {
     
     private func groupByClause() -> String? {
         guard !groupBys.isEmpty else { return nil }
-        let names = groupBys.map() { $0.name }
-        
-        return "group by \(names.joined(separator: ", "))";
+
+        return "group by \(groupBys.joined(separator: ", "))";
     }
     
     private func ensureHasColums() throws {

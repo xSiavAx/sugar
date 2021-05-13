@@ -10,6 +10,7 @@ public protocol SSDBTable: SSDBStaticComponent {
     static var triggers: [SSDBComponent] {get}
 }
 
+
 //MARK: - Default implementation
 
 public extension SSDBTable {
@@ -24,6 +25,19 @@ public extension SSDBTable {
     
     static func dropQueries(strictExist: Bool) -> [String] {
         return baseDropQueries(strictExist: strictExist)
+    }
+    
+    static func colName(_ col: SSDBColumnProtocol) -> String {
+        return "\(tableName).\(col.name)"
+    }
+}
+
+extension Optional where Wrapped == SSDBTable.Type {
+    func colName(_ col: SSDBColumnProtocol) -> String {
+        if let wrapped = self {
+            return wrapped.colName(col)
+        }
+        return col.name
     }
 }
 
@@ -99,7 +113,7 @@ public extension SSDBTable {
     }
     
     static func query(_ kind: SSDBQueryBuilder.Kind) -> SSDBQueryBuilder {
-        return SSDBQueryBuilder(kind, table: tableName)
+        return SSDBQueryBuilder(kind, table: self)
     }
     
     //Query for inserting row with every table colum (including id)
