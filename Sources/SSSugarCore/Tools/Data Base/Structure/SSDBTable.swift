@@ -10,6 +10,7 @@ public protocol SSDBTable: SSDBStaticComponent {
     static var triggers: [SSDBComponent] {get}
 }
 
+
 //MARK: - Default implementation
 
 public extension SSDBTable {
@@ -24,6 +25,19 @@ public extension SSDBTable {
     
     static func dropQueries(strictExist: Bool) -> [String] {
         return baseDropQueries(strictExist: strictExist)
+    }
+    
+    static func colName(_ col: SSDBColumnProtocol) -> String {
+        return "\(tableName).\(col.name)"
+    }
+}
+
+extension Optional where Wrapped == SSDBTable.Type {
+    func colName(_ col: SSDBColumnProtocol) -> String {
+        if let wrapped = self {
+            return wrapped.colName(col)
+        }
+        return col.name
     }
 }
 
@@ -99,7 +113,7 @@ public extension SSDBTable {
     }
     
     static func query(_ kind: SSDBQueryBuilder.Kind) -> SSDBQueryBuilder {
-        return SSDBQueryBuilder(kind, table: tableName)
+        return SSDBQueryBuilder(kind, table: self)
     }
     
     //Query for inserting row with every table colum (including id)
@@ -127,20 +141,20 @@ public extension SSDBTable {
         return try! wherePK(.update).add(cols: cols).build()
     }
     
-    static func wherePK(_ kind: SSDBQueryBuilder.Kind) -> SSDBQueryBuilder {
-        return wherePK(query(kind))
+    static func wherePK(_ kind: SSDBQueryBuilder.Kind) throws -> SSDBQueryBuilder {
+        return try wherePK(query(kind))
     }
     
     @discardableResult
-    static func wherePK(_ builder: SSDBQueryBuilder) -> SSDBQueryBuilder {
+    static func wherePK(_ builder: SSDBQueryBuilder) throws -> SSDBQueryBuilder {
         if let primaryKey = primaryKey {
-            primaryKey.cols.forEach() { builder.add(colCondition: $0) }
+            try primaryKey.cols.forEach() { try builder.add(colCondition: $0) }
         }
         return builder
     }
     
     static func selectAllQueryBuilder() -> SSDBQueryBuilder {
-        return query(.select).add(cols: colums)
+        return try! query(.select).add(cols: colums)
     }
     
     //MARK: - private

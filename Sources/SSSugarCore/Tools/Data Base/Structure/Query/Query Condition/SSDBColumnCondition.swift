@@ -9,19 +9,19 @@ public struct SSDBColumnCondition: SSDBQueryCondition {
         case lower = "<"
         case lowerOrEqual = "<="
     }
-    public let column: SSDBColumnProtocol
+    public let column: String
     public let operation: Operation
     public let value: String?
     
-    public init(_ col: SSDBColumnProtocol, _ op: Operation = .equal, value mValue: String? = nil) {
-        column = col
+    public init(_ col: SSDBColumnProtocol, from table: SSDBTable.Type? = nil, _ op: Operation = .equal, value mValue: String? = nil) {
+        column = table.colName(col)
         operation = op
         value = mValue
     }
     
     public func toString() -> String {
         let placeHolder = value ?? "?"
-        return "`\(column.name)` \(operation.rawValue) \(placeHolder)"
+        return "`\(column)` \(operation.rawValue) \(placeHolder)"
     }
 }
 

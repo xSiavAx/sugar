@@ -14,7 +14,7 @@ public extension SSDBRefCountTable {
     static func releaseTrigger(whereCols cols: [SSDBColumnProtocol]) -> SSDBTrigger<Self> {
         let queryBuilder = query(.delete)
         
-        cols.forEach { queryBuilder.add(colCondition: $0, .equal, value: "new.`\($0.name)`") }
+        cols.forEach { try! queryBuilder.add(colCondition: $0, .equal, value: "new.`\($0.name)`") }
         
         return SSDBTrigger(name: "ref_count_release",
                            actionCondition: .after,
@@ -45,7 +45,7 @@ enum RefCountUpdate: String {
 }
 
 public extension SSDBRefCountTable {
-    typealias OnWhereBuild = (_ builder: SSDBQueryBuilder, _ colPrefix: String) -> SSDBQueryBuilder
+    typealias OnWhereBuild = (_ builder: SSDBQueryBuilder, _ colPrefix: String) throws -> SSDBQueryBuilder
     
     static func updateTriggers<OtherTable: SSDBTable>(match: OnWhereBuild) -> [SSDBTrigger<OtherTable>] {
         return [increaseTrigger(whereBuild: match), decreaseTrigger(whereBuild: match)]
@@ -55,7 +55,7 @@ public extension SSDBRefCountTable {
         return updateTriggers() {
             let reference = colReference(TriggerTable.self)
             
-            return addConditionTo(builder: $0, refTableCol: reference.column, prefix: $1, triggerTableCol: reference)
+            return try addConditionTo(builder: $0, refTableCol: reference.column, prefix: $1, triggerTableCol: reference)
         }
     }
     
@@ -63,7 +63,7 @@ public extension SSDBRefCountTable {
         return updateTriggers() {
             let cols = matchCols(Self.self, TriggerTable.self)
             
-            return addConditionTo(builder: $0, refTableCol: cols.0, prefix: $1, triggerTableCol: cols.1)
+            return try addConditionTo(builder: $0, refTableCol: cols.0, prefix: $1, triggerTableCol: cols.1)
         }
     }
     
@@ -90,8 +90,8 @@ public extension SSDBRefCountTable {
     private static func addConditionTo(builder: SSDBQueryBuilder,
                                        refTableCol: SSDBColumnProtocol,
                                        prefix: String,
-                                       triggerTableCol: SSDBColumnProtocol) -> SSDBQueryBuilder {
-        return builder.add(colCondition: refTableCol, .equal, value: "\(prefix).`\(triggerTableCol.name)`")
+                                       triggerTableCol: SSDBColumnProtocol) throws -> SSDBQueryBuilder {
+        return try builder.add(colCondition: refTableCol, .equal, value: "\(prefix).`\(triggerTableCol.name)`")
     }
 }
 
