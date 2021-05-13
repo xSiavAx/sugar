@@ -74,6 +74,13 @@ public class SSDBQueryBuilder {
     }
     
     @discardableResult
+    public func add(customCol: String) throws -> SSDBQueryBuilder {
+        try ensureKind(not: .insert, .delete)
+        columns += [customCol]
+        return self
+    }
+    
+    @discardableResult
     public func increment(col: SSDBColumnProtocol) throws -> SSDBQueryBuilder {
         try ensureKind(.update)
         columns.append("`\(col.name)` = `\(col.name)` + ?")
