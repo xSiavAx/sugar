@@ -113,19 +113,19 @@ public class SSDBQueryBuilder {
     }
     
     @discardableResult
-    func join(_ join: Join) throws -> Builder {
+    public func join(_ join: Join) throws -> Builder {
         try ensureKind(.select)
         return self
     }
     
     
     @discardableResult
-    func join(_ kind: Join.Operation = .inner, table: TalbeT, with oTable: TalbeT, left: Column, right: Column) throws -> Builder {
+    public func join(_ kind: Join.Operation = .inner, table: TalbeT, with oTable: TalbeT, left: Column, right: Column) throws -> Builder {
         return try join(.init(operation: kind, lTable: table, lCol: left, rTable: oTable, rCol: right))
     }
     
     @discardableResult
-    func join(_ kind: Join.Operation = .inner, with oTable: TalbeT, left: Column, right: Column) throws -> Builder {
+    public func join(_ kind: Join.Operation = .inner, with oTable: TalbeT, left: Column, right: Column) throws -> Builder {
         return try join(kind, table: table, with: oTable, left: left, right: right)
     }
     
