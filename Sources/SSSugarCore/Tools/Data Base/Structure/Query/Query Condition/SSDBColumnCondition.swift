@@ -8,6 +8,10 @@ public struct SSDBColumnCondition: SSDBQueryCondition {
         case greaterOrEqual = ">="
         case lower = "<"
         case lowerOrEqual = "<="
+        /// `is`
+        case same = "is"
+        /// `is not`
+        case notSame = "is no"
     }
     public let column: String
     public let operation: Operation
