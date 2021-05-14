@@ -27,7 +27,7 @@ public struct SSDBColumnCondition: SSDBQueryCondition {
     
     public func toString() -> String {
         let placeHolder = value ?? "?"
-        return "`\(table.colName(column))` \(operation.rawValue) \(placeHolder)"
+        return "\(table.colName(column)) \(operation.rawValue) \(placeHolder)"
     }
 }
 
