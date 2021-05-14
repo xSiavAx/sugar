@@ -140,8 +140,10 @@ public class SSDBQueryBuilder {
         switch kind {
         case .update:
             columns += Self.placeHoldersFor(cols: cols)
-        default:
+        case .select:
             columns += cols.map() { table.colName($0) }
+        default:
+            columns += cols.map() { $0.name }
         }
         return self
     }
@@ -236,7 +238,7 @@ public class SSDBQueryBuilder {
         try ensureHasColums()
         let columsStr = columns.joined(separator: ", ")
 
-        return "select \(columsStr) from `\(table)`\(joinClausesStr())\(selectClausesStr());"
+        return "select \(columsStr) from `\(table.tableName)`\(joinClausesStr())\(selectClausesStr());"
     }
     
     private func insert() throws -> String {
@@ -244,18 +246,18 @@ public class SSDBQueryBuilder {
         let columsStr = columns.joined(separator: ", ")
         let placeHolders = (0..<columns.count).map {_ in "?" }.joined(separator: ", ")
         
-        return "insert into `\(table)` (\(columsStr)) values (\(placeHolders));"
+        return "insert into `\(table.tableName)` (\(columsStr)) values (\(placeHolders));"
     }
     
     private func update() throws -> String {
         try ensureHasColums()
         let columsStr = columns.joined(separator: ", ")
         
-        return "update `\(table)` set \(columsStr)\(updateClausesStr());"
+        return "update `\(table.tableName)` set \(columsStr)\(updateClausesStr());"
     }
     
     private func delete() -> String {
-        return "delete from `\(table)`\(deleteClausesStr());"
+        return "delete from `\(table.tableName)`\(deleteClausesStr());"
     }
     
     private func clausesStr(with components: [String?]) -> String {
