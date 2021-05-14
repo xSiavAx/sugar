@@ -14,6 +14,10 @@ public extension SSDBIDTable {
     static var primaryKey: SSDBPrimaryKeyProtocol? { pk(idColumn) }
     
     static var colums: [SSDBColumnProtocol] { [idColumn] + idLessColumns }
+    
+    static func remove() -> SSDBQueryProcessor<IDColumn.ColType, Void> {
+        return SSDBQueryProcessor(removeQuery(), onBind: { try $0.bind($1) })
+    }
 }
 
 //MARK: - Reference Creating
