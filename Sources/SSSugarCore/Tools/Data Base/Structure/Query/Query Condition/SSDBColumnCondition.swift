@@ -11,7 +11,7 @@ public struct SSDBColumnCondition: SSDBQueryCondition {
         /// `is`
         case same = "is"
         /// `is not`
-        case notSame = "is no"
+        case notSame = "is not"
     }
     public let column: String
     public let operation: Operation
