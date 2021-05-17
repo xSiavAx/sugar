@@ -9,7 +9,12 @@ public struct SSDBColumnRef<Column: SSDBTypedColumnProtocol>: SSDBColumnRefProto
     public let optional: Bool
     
     private let prefix: String?
-    private var prefixComp: String { prefix ?? "" + "_" }
+    private var prefixComp: String {
+        if let prefix = prefix {
+            return prefix + "_"
+        }
+        return ""
+    }
     
     public func toCreate() -> String {
         return "`\(nameFor(select: false))` \(ColType.colName)\(nullComponent())"
