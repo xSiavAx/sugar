@@ -1,8 +1,6 @@
 import Foundation
 
 public protocol SSDBTable: SSDBStaticComponent {
-    typealias TError = SSDBTableError
-    
     static var tableName: String { get }
     static var primaryKey: SSDBPrimaryKeyProtocol? { get }
     static var colums: [SSDBColumnProtocol] { get }
