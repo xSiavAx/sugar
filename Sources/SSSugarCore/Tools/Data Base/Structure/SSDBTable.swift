@@ -121,6 +121,11 @@ public extension SSDBTable {
         return try! wherePK(selectAllQueryBuilder()).build()
     }
     
+    static func selectQuery(cols: [SSDBColumnProtocol]) -> String {
+        let select = try! query(.select).add(cols: cols)
+        return try! wherePK(select).build()
+    }
+    
     static func removeQuery() -> String {
         return try! wherePK(.delete).build()
     }
