@@ -7,7 +7,7 @@ public protocol SSDBRefCountTable: SSDBTable {
 //MARK: - Release Trigger creating
 
 public extension SSDBRefCountTable {
-    static func createRefCount(name: String = "ref_count") throws -> SSDBColumn<Int> {
+    static func createRefCount(name: String = "ref_count") -> SSDBColumn<Int> {
         return col(name, defaultVal: 0)
     }
     
@@ -24,8 +24,8 @@ public extension SSDBRefCountTable {
                            statements: [try! queryBuilder.build()])!
     }
     
-    static func releaseTrigger() throws -> SSDBTrigger {
-        guard let pk = primaryKey else { throw TError.primaryKeyIsNotDefined }
+    static func releaseTrigger() -> SSDBTrigger {
+        guard let pk = primaryKey else { fatalError("Primary key ins't defined") }
         return releaseTrigger(whereCols: pk.cols)
     }
 }
