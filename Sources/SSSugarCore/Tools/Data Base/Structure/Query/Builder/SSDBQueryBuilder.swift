@@ -57,6 +57,10 @@ public class SSDBQueryBuilder {
         return try join(.init(operation: kind, col: left, otherCol: right))
     }
     
+    @discardableResult
+    public func join(_ kind: Join.Operation = .inner, ref: SSDBColumnRefProtocol) throws -> Builder {
+        return try join(.init(operation: kind, col: ref, otherCol: ref.reference))
+    }
 
     @discardableResult
     public func add(cols: [Column]) throws -> Builder {
