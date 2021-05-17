@@ -1,9 +1,8 @@
 import Foundation
 
 public protocol SSDBTableIndexProtocol: SSDBComponent {
-    var name: String { get }
-    var tableName: String { get }
-    var colNames: [String] { get }
+    var table: SSDBTable.Type { get }
+    var cols: [SSDBColumnProtocol] { get }
     var isUniqeu: Bool { get }
     var prefix: String { get }
 }
@@ -11,18 +10,18 @@ public protocol SSDBTableIndexProtocol: SSDBComponent {
 public extension SSDBTableIndexProtocol {
     static var component: String { "index" }
     
+    var name: String { "\(prefix)_\(table.tableName)_\(colNames.joined(separator: "__"))" }
+    var colNames: [String] { cols.map { $0.nameFor(select: false) } }
+    
     func createQueries(strictExist: Bool) -> [String] {
         let base = Self.baseCreate(prefixComps: uniqueComps(), component: Self.component, name: name, strictExist: strictExist)
-        return ["\(base) on `\(tableName)` (\(colNames()));"]
+        return ["\(base) on \(table.tableName) (\(colNames.joined(separator: ", ")));"]
     }
     
     func dropQueries(strictExist: Bool) -> [String] {
         return ["\(Self.baseDrop(component: Self.component, name: name, strictExist: strictExist));"]
     }
     
-    private func colNames() -> String {
-        return colNames.map { "`\($0)`" }.joined(separator: ", ")
-    }
     
     private func uniqueComps() -> [String]? {
         if (isUniqeu) {
@@ -32,22 +31,24 @@ public extension SSDBTableIndexProtocol {
     }
 }
 
-public struct SSDBTableIndex<Table: SSDBTable>: SSDBTableIndexProtocol {
+enum SSDBTableIndexError: Error {
+    case columsFromDifferentTables
+}
+
+public struct SSDBTableIndex: SSDBTableIndexProtocol {
+    typealias TError = SSDBTableIndexError
     public static var defaultPrefix: String { "index" }
     
-    public var name: String { "\(prefix)_\(tableName)_\(nameColSuffix())" }
-    public var tableName: String { Table.tableName }
-    public let colNames: [String]
+    public var table: SSDBTable.Type
+    public var cols: [SSDBColumnProtocol]
     public let isUniqeu: Bool
     public let prefix: String
     
-    public init(isUnique uniqeu: Bool, prefix mPrefix: String = defaultPrefix, cols: (Table.Type) -> [SSDBColumnProtocol]) {
-        colNames = cols(Table.self).map { $0.name }
-        isUniqeu = uniqeu
-        prefix = mPrefix
-    }
-    
-    private func nameColSuffix() -> String {
-        return colNames.joined(separator: "__")
+    public init(isUnique unique: Bool, prefix mPrefix: String = defaultPrefix, cols: [SSDBColumnProtocol]) throws {
+        guard let table = SSDBTableComponentHelp.commonTable(cols) else { throw TError.columsFromDifferentTables }
+        self.cols = cols
+        self.table = table
+        self.isUniqeu = unique
+        self.prefix = mPrefix
     }
 }

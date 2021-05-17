@@ -1,27 +1,37 @@
 import Foundation
 
 public protocol SSDBTableComponent {
+    var table: SSDBTable.Type { get }
+    
     func toCreate() -> String
 }
 
-public protocol SSDBTypedTableComponent {
-    associatedtype OtherTable: SSDBTable
+public enum SSDBTableComponentHelp {
+    static func commonTable(_ comps: [SSDBTableComponent]) -> SSDBTable.Type? {
+        let table = comps.first?.table
+        
+        for comp in comps {
+            if (comp.table != table) {
+                return nil
+            }
+        }
+        return table
+    }
 }
 
 public protocol SSDBColumnProtocol: SSDBTableComponent {
-    var name: String { get }
     var optional: Bool { get }
+    
+    func nameFor(select: Bool) -> String
 }
 
 public protocol SSDBTypedColumnProtocol: SSDBColumnProtocol {
     associatedtype ColType: SSDBColType
 }
 
-public protocol SSDBColumnRefProtocol: SSDBColumnProtocol {
-    var refname: String { get }
+public protocol SSDBColumnRefProtocol: SSDBColumnProtocol, ForeignKeyProducer {
+    var reference: SSDBColumnProtocol { get }
 }
-
-public typealias SSDBTypedTableColumnRef = SSDBTypedTableComponent & SSDBColumnRefProtocol
 
 public protocol SSDBPrimaryKeyProtocol: SSDBTableComponent {
     var cols: [SSDBColumnProtocol] { get }
@@ -29,7 +39,7 @@ public protocol SSDBPrimaryKeyProtocol: SSDBTableComponent {
 
 extension SSDBPrimaryKeyProtocol {
     public func toCreate() -> String {
-        let colNames = cols.map { "`\($0.name)`" }
+        let colNames = cols.map { "`\($0.nameFor(select: false))`" }
         
         return "primary key(\(colNames.joined(separator: ", ")))"
     }
