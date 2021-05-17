@@ -1,9 +1,5 @@
 import Foundation
 
-public enum SSDBTableError: Error {
-    case primaryKeyIsNotDefined
-}
-
 public protocol SSDBTable: SSDBStaticComponent {
     typealias TError = SSDBTableError
     
@@ -15,7 +11,6 @@ public protocol SSDBTable: SSDBStaticComponent {
     static var indexes: [SSDBTableIndexProtocol] { get }
     static var triggers: [SSDBComponent] {get}
 }
-
 
 //MARK: - Default implementation
 
