@@ -68,14 +68,6 @@ public extension SSDBTable {
     }
 }
 
-//MARK: - Reference Count Update Triggers creating
-
-public extension SSDBTable {
-    static func refCountUpdateTriggers(refCountTable: SSDBRefCountTable.Type, col: SSDBColumnRefProtocol) -> [SSDBTrigger] {
-        return refCountTable.updateTriggers(ref: col)
-    }
-}
-
 //MARK: - Queries
 
 public extension SSDBTable {
