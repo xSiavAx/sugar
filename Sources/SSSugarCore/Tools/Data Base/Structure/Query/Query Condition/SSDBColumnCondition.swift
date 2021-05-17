@@ -13,21 +13,27 @@ public struct SSDBColumnCondition: SSDBQueryCondition {
         /// `is not`
         case notSame = "is not"
     }
-    public let column: SSDBColumnProtocol
-    public let table: SSDBTable.Type?
+    public let left: String
+    public let right: String?
     public let operation: Operation
-    public let value: String?
     
-    public init(_ col: SSDBColumnProtocol, from table: SSDBTable.Type? = nil, _ op: Operation = .equal, value mValue: String? = nil) {
-        self.column = col
-        self.table = table
-        self.operation = op
-        self.value = mValue
+    public init(left: String, operation: Operation, right: String?) {
+        self.left = left
+        self.right = right
+        self.operation = operation
+    }
+    
+    public init(_ col: SSDBColumnProtocol, _ op: Operation = .equal, _ value: String? = nil, select: Bool) {
+        self.init(left: col.nameFor(select: select), operation: op, right: value)
+    }
+    
+    public init(_ left: SSDBColumnProtocol, _ op: Operation = .equal, _ right: SSDBColumnProtocol) {
+        self.init(left: left.nameFor(select: true), operation: op, right: right.nameFor(select: true))
     }
     
     public func toString() -> String {
-        let placeHolder = value ?? "?"
-        return "\(table.colName(column)) \(operation.rawValue) \(placeHolder)"
+        let right = right ?? "?"
+        return "\(left) \(operation.rawValue) \(right)"
     }
 }
 

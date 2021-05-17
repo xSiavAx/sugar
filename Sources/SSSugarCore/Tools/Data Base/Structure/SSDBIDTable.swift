@@ -23,8 +23,8 @@ public extension SSDBIDTable {
 //MARK: - Reference Creating
 
 public extension SSDBIDTable {
-    static func idRef(prefix: String? = nil, optional: Bool? = nil) -> SSDBColumnRef<Self, Self.IDColumn> {
-        return SSDBColumnRef(table: Self.self, prefix: prefix, optional: optional) { $0.idColumn }
+    static func idRef(for table: SSDBTable.Type, prefix: String? = nil, optional: Bool? = nil) -> SSDBColumnRefProtocol {
+        return SSDBColumnRef(table, prefix: prefix, optional: optional, col: idColumn)
     }
 }
 

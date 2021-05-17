@@ -3,6 +3,7 @@ import Foundation
 public enum SSDBQueryError: Error {
     case invalidQueryKind
     case emptyColums
+    case invalidJoinColums
 }
 
 public class SSDBQueryBuilder {
@@ -17,91 +18,24 @@ public class SSDBQueryBuilder {
         case insert
         case update
         case delete
-    }
-    public struct Join {
-        public enum Operation: String {
-            /// intersection
-            case inner = "inner"
-            /// Union left and intersection
-            ///
-            /// left, left outer
-            case left = "left outer"
-            /// Union right and intersection
-            ///
-            /// right, right outer
-            case right = "right outer"
-            /// Union
-            ///
-            /// full, full outer
-            case full = "full outer"
-        }
-        public struct Constraint {
-            let left: Column
-            let right: Column
-            
-            func toQuery(leftTable: TalbeT, rightTable: TalbeT) -> String {
-                return "\(leftTable.colName(left)) == \(rightTable.colName(right))"
-            }
-        }
-        public let operation: Operation
-        public let lTable: TalbeT
-        public let rTable: TalbeT
-        public let constraints: [Constraint]
         
-        public init(operation: Operation = .inner, lTable: TalbeT, rTable: TalbeT, constraints: [Constraint]) {
-            self.operation = operation
-            self.lTable = lTable
-            self.rTable = rTable
-            self.constraints = constraints
-        }
-        
-        public init(operation: Operation = .inner, lTable: TalbeT, lCol: Column, rTable: TalbeT, rCol: Column) {
-            self.init(operation: operation, lTable: lTable, rTable: rTable, constraints: [Constraint(left: lCol, right: rCol)])
-        }
-        
-        public func toQuery() -> String {
-            let constraintsStr = constraints.map() { $0.toQuery(leftTable: lTable, rightTable: rTable) }.joined(separator: " and ")
-            return "\(operation) join \(rTable.tableName) on \(constraintsStr)"
-        }
-    }
-    public struct OrderByComp {
-        public enum Order: String {
-            /// 0, 1, 2
-            case asc = "asc"
-            /// 2, 1, 0
-            case desc = "desc"
-        }
-        public let col: Column
-        public let table: TalbeT?
-        public let order: Order
-        
-        public init(col: Column, table: TalbeT? = nil, order: Order = .asc) {
-            self.col = col
-            self.table = table
-            self.order = order
-        }
-
-        public func toString() -> String {
-            return "`\(table.colName(col))` \(order.rawValue)"
-        }
-    }
-    public struct LimitComp {
-        let val: Int
-        let offset: Int?
+        var isSelect: Bool { self == .select }
     }
     private var kind: Kind
     private var table: TalbeT
     private var joins = [Join]()
-    private var columns = [String]()
+    private var columns = [ColComp]()
     private var conditions = SSDBConditionSet()
     private var orderBys = [OrderByComp]()
     private var limitComp: LimitComp?
-    private var groupBys = [String]()
+    private var groupBys = [Column]()
     
     public init(_ kind: Kind, table: TalbeT) {
         self.kind = kind
         self.table = table
     }
+    
+    //MARK: - Build
     
     public func build() throws -> String {
         switch kind {
@@ -118,76 +52,60 @@ public class SSDBQueryBuilder {
         return self
     }
     
-    
     @discardableResult
-    public func join(_ kind: Join.Operation = .inner, table: TalbeT, with oTable: TalbeT, left: Column, right: Column) throws -> Builder {
-        return try join(.init(operation: kind, lTable: table, lCol: left, rTable: oTable, rCol: right))
+    public func join(_ kind: Join.Operation = .inner, left: Column, right: Column) throws -> Builder {
+        return try join(.init(operation: kind, col: left, otherCol: right))
     }
     
-    @discardableResult
-    public func join(_ kind: Join.Operation = .inner, with oTable: TalbeT, left: Column, right: Column) throws -> Builder {
-        return try join(kind, table: table, with: oTable, left: left, right: right)
-    }
-    
+
     @discardableResult
     public func add(cols: [Column]) throws -> Builder {
-        return try add(cols: cols, from: table)
-    }
-    
-    @discardableResult
-    public func add(cols: [Column], from table: TalbeT) throws -> Builder {
         try ensureKind(not: .delete)
         switch kind {
         case .update:
-            columns += Self.placeHoldersFor(cols: cols)
+            columns += cols.map() { .update($0) }
         case .select:
-            columns += cols.map() { table.colName($0) }
+            columns += cols.map() { .select($0) }
         default:
-            columns += cols.map() { $0.name }
+            columns += cols.map() { .regular($0) }
         }
         return self
     }
     
     @discardableResult
     public func add(col: Column) throws -> Builder {
-        return try add(col: col, from: table)
-    }
-    
-    @discardableResult
-    public func add(col: Column, from table: TalbeT) throws -> Builder {
         return try add(cols: [col])
     }
     
     @discardableResult
     public func add(customCol: String) throws -> Builder {
         try ensureKind(not: .insert, .delete)
-        columns += [customCol]
+        columns.append(.custom(customCol))
         return self
     }
     
     @discardableResult
     public func increment(col: Column) throws -> Builder {
         try ensureKind(.update)
-        columns.append("`\(col.name)` = `\(col.name)` + ?")
+        let name = col.nameFor(select: false)
+        columns.append(.custom("\(name) = \(name) + ?"))
         return self
     }
     
     @discardableResult
     public func update(col: Column, build: (String) -> String) throws -> Builder {
         try ensureKind(.update)
-        columns.append("`\(col.name)` = \(build(col.name))")
+        let name = col.nameFor(select: false)
+        
+        columns.append(.custom("\(name) = \(build(name))"))
+
         return self
     }
     
     @discardableResult
-    public func add(colCondition: Column, _ operation: ColCondition.Operation = .equal, value: String? = nil) throws -> Builder {
-        return try add(colCondition: colCondition, from: table, operation, value: value)
-    }
-    
-    @discardableResult
-    public func add(colCondition col: Column, from table: TalbeT, _ operation: ColCondition.Operation = .equal, value: String? = nil) throws -> Builder {
+    public func add(colCondition col: Column, _ operation: ColCondition.Operation = .equal, value: String? = nil) throws -> Builder {
         try ensureKind(not: .insert)
-        conditions.add(ColCondition(col, from: table, operation, value: value))
+        conditions.add(ColCondition(col, operation, value, select: kind.isSelect))
         return self
     }
     
@@ -214,13 +132,8 @@ public class SSDBQueryBuilder {
     
     @discardableResult
     public func addGroupBy(col: Column) throws -> Builder {
-        return try addGroupBy(col: col, table: table)
-    }
-    
-    @discardableResult
-    public func addGroupBy(col: Column, table: TalbeT) throws -> Builder {
         try ensureKind(.select)
-        groupBys.append(table.colName(col))
+        groupBys.append(col)
         return self
     }
     
@@ -234,30 +147,29 @@ public class SSDBQueryBuilder {
         guard !kinds.contains(kind) else { throw TError.invalidQueryKind }
     }
     
+    //MARK: Build
+    
     private func select() throws -> String {
-        try ensureHasColums()
-        let columsStr = columns.joined(separator: ", ")
-
-        return "select \(columsStr) from `\(table.tableName)`\(joinClausesStr())\(selectClausesStr());"
+        return "select \(try colNamesStr()) from `\(table.tableName)`\(joinClausesStr())\(selectClausesStr());"
     }
     
     private func insert() throws -> String {
-        try ensureHasColums()
-        let columsStr = columns.joined(separator: ", ")
         let placeHolders = (0..<columns.count).map {_ in "?" }.joined(separator: ", ")
         
-        return "insert into `\(table.tableName)` (\(columsStr)) values (\(placeHolders));"
+        return "insert into \(table.tableName) (\(try colNamesStr())) values (\(placeHolders));"
     }
     
     private func update() throws -> String {
-        try ensureHasColums()
-        let columsStr = columns.joined(separator: ", ")
-        
-        return "update `\(table.tableName)` set \(columsStr)\(updateClausesStr());"
+        return "update `\(table.tableName)` set \(try colNamesStr())\(updateClausesStr());"
     }
     
     private func delete() -> String {
         return "delete from `\(table.tableName)`\(deleteClausesStr());"
+    }
+    
+    private func colNamesStr() throws -> String {
+        try ensureHasColums()
+        return columns.map { $0.toQueryComp() }.joined(separator: ", ")
     }
     
     private func clausesStr(with components: [String?]) -> String {
@@ -308,14 +220,10 @@ public class SSDBQueryBuilder {
     private func groupByClause() -> String? {
         guard !groupBys.isEmpty else { return nil }
 
-        return "group by \(groupBys.joined(separator: ", "))";
+        return "group by \(groupBys.map { $0.nameFor(select: true) }.joined(separator: ", "))";
     }
     
     private func ensureHasColums() throws {
         guard !columns.isEmpty else { throw TError.emptyColums }
-    }
-    
-    private static func placeHoldersFor(cols: [Column]) -> [String] {
-        return cols.map { "`\($0.name)` = ?" }
     }
 }
