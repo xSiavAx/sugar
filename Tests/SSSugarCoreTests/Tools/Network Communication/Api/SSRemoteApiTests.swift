@@ -221,7 +221,7 @@ class SSRemoteApiTests: XCTestCase {
     
     func configApiExpectation() {
         let args = converter.argsIgnoringError(from: communicator.response)
-        api.expected = (communicator.responseHeaders as? [String : String], args as? [String : String])
+        api.expected = (communicator.addon, args as? [String : String])
     }
     
     //MARK: - Helpers
@@ -239,9 +239,17 @@ class SSRemoteApiTests: XCTestCase {
     }
     
     class Communicator: SSCommunicating {
+        struct Addon: SSResponseAdditionData, Equatable {
+            var headers: [String : String]
+            
+            func headerValue(for key: String) -> String? {
+                return headers[key]
+            }
+            
+        }
         var expected: (url: URL, body: Data, headers: [String : String])?
         var response: Data!
-        var responseHeaders: [AnyHashable : Any]!
+        var addon: Addon!
         var error: SSCommunicatorError?
         var check: (Bool)->Void
         
@@ -273,7 +281,7 @@ class SSRemoteApiTests: XCTestCase {
             check(headers == expected?.headers)
             
             func onBg() {
-                handler(response, responseHeaders, error)
+                handler(response, addon, error)
             }
             
             DispatchQueue.bg.async(execute: onBg)
@@ -288,9 +296,9 @@ class SSRemoteApiTests: XCTestCase {
         static let specificError = "specific_error"
         
         var contentType: SSApiContentType { .json }
-        var response: (headers: Headers?, args: Args?)
+        var response: (addon: SSResponseAdditionData?, args: Args?)
         var arguments: Args
-        var expected: (headers: [String : String]?, args: [String : String]?)
+        var expected: (addon: Communicator.Addon?, args: [String : String]?)
         
         var path: String
         var check: (Bool)->Void
@@ -320,7 +328,7 @@ class SSRemoteApiTests: XCTestCase {
         }
         
         func checkArgsAndHeaders() {
-            check(expected.headers == response.headers as? [String : String])
+            check(expected.addon == response.addon as? Communicator.Addon)
             check(expected.args == response.args as? [String : String])
         }
     }

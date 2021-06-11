@@ -139,7 +139,7 @@ extension SSNetworkCommunicator: SSCommunicating {
             let httpResponse = response as? HTTPURLResponse
             
             logResponseIfNeeded(body: data, response: httpResponse, error: error)
-            handler(data, httpResponse?.allHeaderFields, errorWith(libError: error, response: httpResponse))
+            handler(data, httpResponse, errorWith(libError: error, response: httpResponse))
         }
         let request = newRequest(withURL: url, headers: headers, body: body)
         let task = session.dataTask(with: request, completionHandler: onFinish)
