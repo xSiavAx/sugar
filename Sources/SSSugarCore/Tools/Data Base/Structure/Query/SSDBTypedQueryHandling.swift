@@ -83,3 +83,9 @@ public extension SSDBTypedQueryHandling where Stmt == SSDataBaseStatementProcess
         return SSDataBaseStatementProcessor(stmt)
     }
 }
+
+extension SSDBTypedQueryHandling where BArgs == Void {
+    func commit(db: SSDataBaseProtocol) throws {
+        try commit(db: db, args: ())
+    }
+}
