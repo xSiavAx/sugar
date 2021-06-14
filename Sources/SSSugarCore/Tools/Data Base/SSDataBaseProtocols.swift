@@ -42,6 +42,7 @@ public protocol SSDataBaseStatementProtocol: SSDataBaseBindingStatement, SSDataB
     func select() throws -> Bool
     func commit() throws
     func clear() throws
+    func reset() throws
 }
 
 public protocol SSDataBaseSavePointProtocol: SSReleasable {

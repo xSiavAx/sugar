@@ -65,6 +65,10 @@ extension SSDataBaseStatementProxing {
         try statement.clear()
     }
     
+    public func reset() throws {
+        try statement.reset()
+    }
+    
     public func release() throws {
         try statement.release()
     }

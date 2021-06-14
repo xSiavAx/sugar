@@ -92,6 +92,11 @@ extension SSDataBaseStatement: SSDataBaseStatementProtocol {
         try ensureNotReleased()
         sqlite3_clear_bindings(stmt)
     }
+    
+    public func reset() throws {
+        try ensureNotReleased()
+        sqlite3_reset(stmt)
+    }
 }
 
 //MARK: - SSReleasable
