@@ -82,7 +82,7 @@ extension SSDataBaseStatement: SSDataBaseStatementProtocol {
         try ensureNotReleased()
         
         switch sqlite3_step(stmt) {
-        case SQLITE_DONE: sqlite3_reset(stmt)
+        case SQLITE_DONE: break
         case SQLITE_FULL: throw StatementError.outOfMemory
         case let code: throw commitError(code: code)
         }
