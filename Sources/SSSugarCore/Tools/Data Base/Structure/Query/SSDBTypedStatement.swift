@@ -15,7 +15,6 @@ public struct DBTypedStatemnt<Stmt: SSDataBaseStatementProtocol, BArgs, GArgs>: 
         self.onGet = onGet
     }
     
-    
     public func bind(args: BArgs) throws {
         try onBind(stmt, args)
     }
@@ -38,16 +37,3 @@ public struct DBTypedStatemnt<Stmt: SSDataBaseStatementProtocol, BArgs, GArgs>: 
         return result
     }
 }
-
-extension DBTypedStatemnt where BArgs == Void {
-    public func bind(args: BArgs) throws {
-        //Do nothing
-    }
-}
-
-extension DBTypedStatemnt where GArgs == Void {
-    public func get() throws -> GArgs {
-        //Do nothing
-    }
-}
-
