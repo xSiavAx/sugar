@@ -81,6 +81,8 @@ extension SSDataBaseStatement: SSDataBaseStatementProtocol {
     public func commit() throws {
         try ensureNotReleased()
         
+        defer { sqlite3_reset(stmt) }
+        
         switch sqlite3_step(stmt) {
         case SQLITE_DONE: break
         case SQLITE_FULL: throw StatementError.outOfMemory
