@@ -1,8 +1,8 @@
 import Foundation
 
 public protocol SSDataBaseTransactionControllerProtocol : SSTransacted {
-    func registerStatement(_ stmt: SSDataBaseStatementProtocol) throws -> SSDataBaseStatementProtocol
-    func registerSavePoint(_ stmt: SSDataBaseSavePointProtocol) throws -> SSDataBaseSavePointProtocol
+    func registerStatement(_ stmt: () throws -> SSDataBaseStatementProtocol) throws -> SSDataBaseStatementProtocol
+    func registerSavePoint(_ sp: () throws -> SSDataBaseSavePointProtocol) throws -> SSDataBaseSavePointProtocol
 }
 
 public protocol SSDataBaseTransactionCreator: AnyObject {
@@ -45,16 +45,20 @@ public class SSDataBaseTransactionController {
 
 //MARK: - SSDataBaseTransactionControllerProtocol
 extension SSDataBaseTransactionController: SSDataBaseTransactionControllerProtocol {
-    public func registerStatement(_ stmt: SSDataBaseStatementProtocol) throws -> SSDataBaseStatementProtocol {
+    public func registerStatement(_ stmt: () throws -> SSDataBaseStatementProtocol) throws -> SSDataBaseStatementProtocol {
         try ensureStarted()
-        return SSReleaseDecorator(decorated: SSDataBaseStatementProxy(stmt),
+        let statement = try stmt() //We accepts closure (instead of just stmt) to do check before statemnt does actually create
+        
+        return SSReleaseDecorator(decorated: SSDataBaseStatementProxy(statement),
                                   onCreate: {[weak self] in self?.didRegister(stmt: $0)},
                                   onRelease: {[weak self] in self?.didRelease(stmt: $0) ?? true})
     }
     
-    public func registerSavePoint(_ sp: SSDataBaseSavePointProtocol) throws -> SSDataBaseSavePointProtocol {
+    public func registerSavePoint(_ sp: () throws -> SSDataBaseSavePointProtocol) throws -> SSDataBaseSavePointProtocol {
         try ensureStarted()
-        return SSReleaseDecorator(decorated: SSDataBaseSavePointProxy(savePoint: sp),
+        let savePoint = try sp() //We accepts closure (instead of just savepoint) to do check before savepoint does actually create
+        
+        return SSReleaseDecorator(decorated: SSDataBaseSavePointProxy(savePoint: savePoint),
                                   onCreate: {[weak self] in self?.didRegister(sp: $0)},
                                   onRelease: {[weak self] in self?.didRelease(sp: $0) ?? true})
     }
