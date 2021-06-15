@@ -6,7 +6,7 @@ public protocol SSDataBaseQueryExecutor : AnyObject {
 
 public class SSDataBaseTransaction {
     public unowned let executor : SSDataBaseQueryExecutor
-    private var closed = false
+    private var closed: Bool
     
     public enum mError: Error {
         case alreadyClosed
@@ -15,6 +15,7 @@ public class SSDataBaseTransaction {
     public init(executor mExecutor: SSDataBaseQueryExecutor) throws {
         executor = mExecutor
         try executor.exec(query: "begin transaction;")
+        closed = false
     }
     
     deinit {

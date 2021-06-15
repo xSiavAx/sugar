@@ -119,8 +119,9 @@ extension SSDataBase {
 //MARK: - SSDataBaseProtocol
 extension SSDataBase: SSDataBaseProtocol {
     public func savePoint(withTitle: String) throws -> SSDataBaseSavePointProtocol {
-        let sp = try SSDataBaseSavePoint(executor: self, title: withTitle)
-        return try transactionController.registerSavePoint(sp)
+        return try transactionController.registerSavePoint() {
+            try SSDataBaseSavePoint(executor: self, title: withTitle)
+        }
     }
     
     public func lastInsrtedRowID() -> Int64 {
@@ -152,8 +153,9 @@ extension SSDataBase: SSTransacted {
 
 extension SSDataBase: SSDataBaseStatementCreator {
     public func statement(forQuery: String) throws -> SSDataBaseStatementProtocol {
-        let statement = try statementsCache.statement(query: forQuery)
-        return try transactionController.registerStatement(statement)
+        return try transactionController.registerStatement() {
+            try statementsCache.statement(query: forQuery)
+        }
     }
 }
 
