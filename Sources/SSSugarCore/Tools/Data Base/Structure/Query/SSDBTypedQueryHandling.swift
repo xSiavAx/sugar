@@ -41,13 +41,11 @@ public extension SSDBTypedQueryHandling {
     }
     
     func select(db: SSDataBaseProtocol, args: BArgs) throws -> GArgs? {
-        return try selectAll(db: db, args: args).first
+        return selectAll(db: db, optArgs: args).first
     }
 
-    func selectAll(db: SSDataBaseProtocol, args: BArgs? = nil) throws -> [GArgs] {
-        return try withStmt(db: db) {(stmt) in
-            try stmt.allFor(args: args)
-        }
+    func selectAll(db: SSDataBaseProtocol, args: BArgs) throws -> [GArgs] {
+        return try selectAll(db: db, optArgs: args)
     }
     
     func selectAll(db: SSDataBaseProtocol, forEach args: [BArgs]) throws -> [(BArgs, [GArgs])] {
@@ -62,6 +60,12 @@ public extension SSDBTypedQueryHandling {
             
             try args.forEach { result += try stmt.allFor(args: $0) }
             return result
+        }
+    }
+    
+    private func selectAll(db: SSDataBaseProtocol, optArgs: BArgs? = nil) throws -> [GArgs] {
+        return try withStmt(db: db) {(stmt) in
+            try stmt.allFor(args: args)
         }
     }
     
@@ -91,5 +95,13 @@ public extension SSDBTypedQueryHandling where Stmt == SSDataBaseStatementProcess
 public extension SSDBTypedQueryHandling where BArgs == Void {
     func commit(db: SSDataBaseProtocol, preBind: PreBind? = nil) throws {
         try commit(db: db, args: [()], preBind: preBind, bind: nil)
+    }
+    
+    func select(db: SSDataBaseProtocol) throws -> GArgs? {
+        return selectAll(db: db, optArgs: nil).first
+    }
+
+    func selectAll(db: SSDataBaseProtocol) throws -> [GArgs] {
+        return try selectAll(db: db, optArgs: nil)
     }
 }

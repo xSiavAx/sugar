@@ -10,8 +10,13 @@ public class SSDataBaseStatementProcessor {
     }
     
     public func bind<T: SSDBColType>(_ val: T) throws {
-        try bind(val: val, pos: bindIndex)
-        bindIndex += 1
+        defer { bindIndex += 1 }
+        try bind(val, pos: bindIndex)
+    }
+    
+    public func bindNull() throws {
+        defer { bindIndex += 1 }
+        try bindNull(pos: bindIndex)
     }
     
     public func get<T: SSDBColType>() throws -> T {

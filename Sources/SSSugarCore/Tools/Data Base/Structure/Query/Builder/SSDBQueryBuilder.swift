@@ -106,6 +106,17 @@ public class SSDBQueryBuilder {
         return self
     }
     
+    public func nullify(col: Column) throws -> Builder {
+        try update(col: col) { _ in return "null" }
+    }
+    
+    public func nullify(cols: [Column]) throws -> Builder {
+        try cols.forEach() { col in
+            try update(col: col) { _ in return "null" }
+        }
+        return self
+    }
+    
     @discardableResult
     public func add(colCondition col: Column, _ operation: ColCondition.Operation = .equal, value: String? = nil) throws -> Builder {
         try ensureKind(not: .insert)
@@ -125,6 +136,11 @@ public class SSDBQueryBuilder {
         try ensureKind(.select)
         orderBys.append(OrderByComp(col: col, table: table, order: order))
         return self
+    }
+    
+    @discardableResult
+    public func addOrder(_ order: OrderByComp.Order = .asc, by col: Column) throws -> Builder {
+        try addOrder(order, by: col, from: col.table)
     }
     
     @discardableResult
