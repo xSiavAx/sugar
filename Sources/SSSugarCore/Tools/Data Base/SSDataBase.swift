@@ -20,20 +20,20 @@ public class SSDataBase {
     public let transactionController : SSDataBaseTransactionController
     public let statementsCache : SSDataBaseStatementCache
     
+    private var path: URL
+    
     public init(path: URL) {
-        connection = SSDataBaseConnection(path: path)
-        transactionController = SSDataBaseTransactionController()
-        statementsCache = SSDataBaseStatementCache(statementsCreator: connection)
+        self.path = path
+        self.connection = SSDataBaseConnection(path: path)
+        self.transactionController = SSDataBaseTransactionController()
+        self.statementsCache = SSDataBaseStatementCache(statementsCreator: connection)
         
         transactionController.transactionCreator = self
         connection.open()
     }
     
     deinit {
-        try? statementsCache.clearAll()
-        if (connection.isOpen) {
-            connection.close()
-        }
+        finish()
     }
     
     public func stmtProcessor(query: String) throws -> SSDataBaseStatementProcessor {
@@ -57,6 +57,26 @@ public class SSDataBase {
         }
         if (doTransaction) {
             try commitTransaction()
+        }
+    }
+    
+    public func finish() {
+        try? statementsCache.clearAll()
+        if (connection.isOpen) {
+            connection.close()
+        }
+    }
+    
+    /// Close connection and removes DB file.
+    ///
+    /// It's not necessary to call`finish()` before call this method. It will be called within.
+    ///
+    /// - Warning: U can't use `SSDataBase` once this method has been called.
+    /// - Throws: Rethrows errors from `FileManager.default.removeItem`
+    public func removeDB() throws {
+        finish()
+        if (FileManager.default.fileExists(atPath: self.path.path)) {
+            try FileManager.default.removeItem(at: self.path)
         }
     }
 }
