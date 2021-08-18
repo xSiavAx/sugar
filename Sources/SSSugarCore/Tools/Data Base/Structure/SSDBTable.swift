@@ -122,6 +122,10 @@ public extension SSDBTable {
         return try! wherePK(.delete).build()
     }
     
+    static func removeAll() -> SSDBQueryProcessor<Void, Void> {
+        return SSDBQueryProcessor(try! query(.delete).build())
+    }
+    
     static func updateQuery(cols: [SSDBColumnProtocol]) -> String {
         return try! wherePK(.update).add(cols: cols).build()
     }
