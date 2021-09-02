@@ -121,8 +121,10 @@ extension SSSingleEntityProcessing {
 }
 
 extension SSSingleEntityProcessing where Entity == Updater.Source.Entity {
-    public func updateEntity<Updater>(by updater: Updater, job: (inout Entity?) -> Void) where Updater : SSBaseEntityUpdating {
-        job(&entity)
+    public func updateEntity<Updater: SSBaseEntityUpdating>(by updater: Updater, job: (inout Entity?)->(()->Void)?) {
+        if let postJob = job(&entity) {
+            postJob()
+        }
     }
 }
 

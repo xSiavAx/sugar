@@ -54,15 +54,13 @@ internal class SSUETaskUpdater<TaskSource: SSUETaskSource, TaskDelegate: SSUETas
         delegate = mDelegate
     }
 
-    private func checkedUpdate(_ taskID: Int, job: (inout SSUETask) -> () -> Void) {
-        var onDone: (()->Void)? = nil
-        
+    private func checkedUpdate(_ taskID: Int, job: (inout SSUETask) -> (() -> Void)?) {
         protUpdate() {
-            if let task = $0, task.taskID == taskID {
-                onDone = job(&($0!))
+            guard let task = $0, task.taskID == taskID else {
+                return nil
             }
+            return job(&($0!))
         }
-        onDone?()
     }
 }
 
@@ -108,16 +106,12 @@ extension SSUETaskUpdater: SSUETaskUpdateReceiver {
     }
     
     private func remove(taskID: Int) {
-        var removed = false
-        
         protUpdate() {(task) in
             if (task?.taskID == taskID) {
                 task = nil
-                removed = true
+                return { self.delegate?.updaterDidRemoveTask(self) }
             }
-        }
-        if (removed) {
-            delegate?.updaterDidRemoveTask(self)
+            return nil
         }
     }
 }

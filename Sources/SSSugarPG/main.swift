@@ -70,15 +70,17 @@ struct DynamicStorage: SSDBStoraging {
 }
 
 func main() {
-    let prints = [Contact.selectAllQuery(), Contact.selectQuery(),
-                  ContactGroup.selectAllQuery(), ContactGroup.selectQuery(),
-                  ContactGroupRel.selectAllQuery(), ContactGroupRel.selectQuery()]
-    print(prints.joined(separator: "\n"))
-    let dynamic = try! DynamicStorage(identifier: "test@ukr.net")
+//    let prints = [Contact.selectAllQuery(), Contact.selectQuery(),
+//                  ContactGroup.selectAllQuery(), ContactGroup.selectQuery(),
+//                  ContactGroupRel.selectAllQuery(), ContactGroupRel.selectQuery()]
+//    print(prints.joined(separator: "\n"))
+//    let dynamic = try! DynamicStorage(identifier: "test@ukr.net")
+//
+//    try! dynamic.deinitializeStructure(strictExist: false)
+//    try! dynamic.initializeStructure()
+//    try! dynamic.deinitializeStructure()
     
-    try! dynamic.deinitializeStructure(strictExist: false)
-    try! dynamic.initializeStructure()
-    try! dynamic.deinitializeStructure()
+//    RunLoop.current.run()
 }
 
 main()

@@ -1,5 +1,6 @@
 import Foundation
 
+/// Note: - SSChainExecutor willn't produce memory leak, even if some of adding tasks willn't call handler or somewhat else, cuz logic in finish method doesn't captures `self` at all.
 public class SSChainExecutor {
     public typealias Handler = ()->Void
     public typealias Task = (@escaping Handler)->Void
