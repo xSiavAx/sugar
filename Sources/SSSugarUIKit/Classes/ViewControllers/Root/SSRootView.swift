@@ -8,7 +8,7 @@ open class SSRootView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
-    public init(withContentView: UIView, animator mAnimator: SSViewTransitionAnimating = SSScaleAndAlphaTransitionAnimator()) {
+    public init(withContentView: UIView, animator mAnimator: SSViewTransitionAnimating) {
         contentView = withContentView
         animator = mAnimator
         super.init(frame: .zero)
@@ -17,16 +17,19 @@ open class SSRootView: UIView {
     }
     
     public func replaceContentView(_ newView: UIView, animated : Bool = false) {
-        let oldView = contentView;
+        replaceContentView(newView, animator: animated ? animator : nil)
+    }
+    
+    public func replaceContentView(_ newView: UIView, animator: SSViewTransitionAnimating?) {
+        let oldView = contentView
         
-        contentView = newView;
+        contentView = newView
         insertSubview(contentView, at: 0)
         
-        if (animated) {
+        if let animator = animator {
             animator.transition(from: oldView, to: contentView, by: self) { (position) in
                 oldView.removeFromSuperview()
             }
-            
         } else {
             contentView.frame = bounds
             oldView.removeFromSuperview()
@@ -40,8 +43,6 @@ open class SSRootView: UIView {
 }
 
 extension SSRootView: SSViewTransitionContaining {
-    public func frameForContent() -> CGRect {
-        return bounds
-    }
+    public func frameForContent() -> CGRect { bounds }
 }
 
