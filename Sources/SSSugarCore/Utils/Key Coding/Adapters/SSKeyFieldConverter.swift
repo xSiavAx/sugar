@@ -21,7 +21,7 @@ public class SSKeyFieldConverter {
 
 extension SSKeyField.Adapter where T == Date {
     public static func intAdapter() -> SSKeyField<T>.Adapter {
-        return .init(to: { .init(ts: val as! Int) }, from: { date.ts })
+        return .init(to: { .init(ts: $0 as! Int) }, from: { $0.ts })
     }
 }
 
@@ -36,7 +36,8 @@ extension SSKeyField.Adapter where T == Date? {
         
         func toDate(parsed: Any?) -> Date? {
             guard parsed != nil else { return nil }
-            return SSKeyField.Adapter<Date>.
+            
+            return formatter.date(from: parsed as! String)
         }
         func fromDate(val: Date?) -> Any? {
             guard let mVal = val else { return nil }
@@ -50,7 +51,7 @@ extension SSKeyField.Adapter where T == Date? {
         func toDate(parsed: Any?) -> Date? {
             guard parsed != nil else { return nil }
             
-            return .init(ts: val as! Int)
+            return .init(ts: parsed as! Int)
         }
         func fromDate(_ date: Date?) -> Any? {
             guard let date = date else { return nil }
@@ -72,3 +73,43 @@ extension SSKeyField.Adapter where T == URL {
         return .init(to: { URL(string: $0 as! String)! }, from: { $0.absoluteURL })
     }
 }
+
+public extension SSKeyField.Adapter where T: RawRepresentable {
+    static func rawAdapter() -> SSKeyField<T>.Adapter {
+        return T.keyFieldAdapter()
+    }
+}
+
+public extension SSKeyField.Adapter {
+    static func rawAdapter<Wrapped>() -> SSKeyField<Wrapped?>.Adapter
+    where T == Optional<Wrapped>, Wrapped: RawRepresentable {
+        return T.keyFieldAdapter()
+    }
+}
+//TODO: See how we could upgrade SSErrorConverter and SSApiErrorConverter using RawRepresentable.
+// For that purpouses we could add `to`, `from`, `read` and `write` to RawRepresentable.
+public extension RawRepresentable {
+    static func keyFieldAdapter() -> SSKeyField<Self>.Adapter {
+        func to(val: Any?) -> Self {
+            return Self(rawValue: val as! RawValue)!
+        }
+        func from(val: Self) -> Any? {
+            return val.rawValue
+        }
+        return .init(to: to, from: from)
+    }
+}
+
+public extension Optional where Wrapped: RawRepresentable {
+    static func keyFieldAdapter() -> SSKeyField<Self>.Adapter {
+        func to(val: Any?) -> Self {
+            guard let raw = val as? Wrapped.RawValue else { return nil }
+            return Wrapped(rawValue: raw)
+        }
+        func from(val: Self) -> Any? {
+            return val?.rawValue
+        }
+        return .init(to: to, from: from)
+    }
+}
+

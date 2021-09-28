@@ -1,7 +1,5 @@
 import Foundation
 
-//TODO: Move This and Related classed classes to SSSugar.
-
 /// Requirements for Coding Dict owner.
 public protocol SSKeyStoringOwner: AnyObject {
     var storage: SSKeyFieldStorage {get set}
@@ -55,5 +53,25 @@ public struct SSKeyStoring<T> {
     public init(_ name: String, adapter: Field.Adapter? = nil) {
         field = SSKeyField(name, adapter: adapter)
         writeDefault = false
+    }
+}
+
+public extension SSKeyStoring where T: RawRepresentable {
+    init(raw name: String, _ defaultValue: T, writeOnStart: Bool = false) {
+        self.init(name, defaultValue, writeOnStart: writeOnStart, adapter: .rawAdapter())
+    }
+    
+    init(raw name: String) {
+        self.init(name, adapter: .rawAdapter())
+    }
+}
+
+public extension SSKeyStoring {
+    init<OptionalWrapped>(raw name: String, _ defaultValue: T, writeOnStart: Bool = false) where T == Optional<OptionalWrapped>, OptionalWrapped: RawRepresentable {
+        self.init(name, defaultValue, writeOnStart: writeOnStart, adapter: .rawAdapter())
+    }
+    
+    init<OptionalWrapped>(raw name: String) where T == Optional<OptionalWrapped>, OptionalWrapped: RawRepresentable {
+        self.init(name, adapter: .rawAdapter())
     }
 }
