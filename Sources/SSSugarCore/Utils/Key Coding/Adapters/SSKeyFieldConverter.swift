@@ -30,3 +30,9 @@ extension SSKeyField.Adapter where T == UUID {
         return .init(to:{ UUID(uuidString: $0 as! String)! }, from: { $0.uuidString })
     }
 }
+
+extension SSKeyField.Adapter where T == URL {
+    static func strAdapter() -> SSKeyField<T>.Adapter {
+        return SSKeyField<T>.Adapter(to: { URL(string: $0 as! String)! }, from: { $0.absoluteURL })
+    }
+}
