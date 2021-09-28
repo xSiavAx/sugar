@@ -20,19 +20,43 @@ public class SSKeyFieldConverter {
 }
 
 extension SSKeyField.Adapter where T == Date {
-    static func intAdapter() -> SSKeyField<T>.Adapter {
+    public static func intAdapter() -> SSKeyField<T>.Adapter {
         return .init(to: { Date(timeIntervalSince1970: Double($0 as! Int)) }, from: { Int($0.timeIntervalSince1970) })
     }
 }
 
+extension SSKeyField.Adapter where T == Date? {
+    /// Creates adapter for `KeyField<Date?>` field to convert with string.
+    ///
+    /// - Returns: Created adapter
+    public static func strAdapter(format: String) -> SSKeyField<Date?>.Adapter {
+        let formatter = DateFormatter()
+        
+        formatter.dateFormat = format
+        
+        func toDate(parsed: Any?) -> Date? {
+            guard parsed != nil else { return nil }
+            guard let val = parsed as? String else { fatalError() }
+            
+            return formatter.date(from: val)
+        }
+        func fromDate(val: Date?) -> Any? {
+            guard let mVal = val else { return nil }
+            
+            return formatter.string(from: mVal)
+        }
+        return .init(to:toDate, from: fromDate)
+    }
+}
+
 extension SSKeyField.Adapter where T == UUID {
-    static func strAdapter() -> SSKeyField<T>.Adapter {
+    public static func strAdapter() -> SSKeyField<T>.Adapter {
         return .init(to:{ UUID(uuidString: $0 as! String)! }, from: { $0.uuidString })
     }
 }
 
 extension SSKeyField.Adapter where T == URL {
-    static func strAdapter() -> SSKeyField<T>.Adapter {
+    public static func strAdapter() -> SSKeyField<T>.Adapter {
         return SSKeyField<T>.Adapter(to: { URL(string: $0 as! String)! }, from: { $0.absoluteURL })
     }
 }
