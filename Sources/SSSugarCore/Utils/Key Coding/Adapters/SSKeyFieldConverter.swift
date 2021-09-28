@@ -86,6 +86,7 @@ public extension SSKeyField.Adapter {
         return T.keyFieldAdapter()
     }
 }
+
 //TODO: See how we could upgrade SSErrorConverter and SSApiErrorConverter using RawRepresentable.
 // For that purpouses we could add `to`, `from`, `read` and `write` to RawRepresentable.
 public extension RawRepresentable {
