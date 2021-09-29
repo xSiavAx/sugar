@@ -5,7 +5,11 @@ public protocol SSDBStoraging {
     
     static var tables: [SSDBTable.Type] {get}
     
+    func initializeStructure() throws
+    
     func initializeStructure(strictExist: Bool) throws
+    
+    func deinitializeStructure() throws
     
     func deinitializeStructure(strictExist: Bool) throws
     
@@ -20,13 +24,21 @@ public protocol SSDBStoraging {
 }
 
 public extension SSDBStoraging {
-    func initializeStructure(strictExist: Bool = true) throws {
+    func initializeStructure() throws {
+        try initializeStructure(strictExist: true)
+    }
+    
+    func initializeStructure(strictExist: Bool) throws {
         let queries = Self.tables.reduce([]) { $0 + $1.createQueries(strictExist: strictExist) }
         
         try db.exec(queries: queries)
     }
     
-    func deinitializeStructure(strictExist: Bool = true) throws {
+    func deinitializeStructure() throws {
+        try deinitializeStructure(strictExist: true)
+    }
+    
+    func deinitializeStructure(strictExist: Bool) throws {
         let queries = Self.tables.reduce([]) { $0 + $1.dropQueries(strictExist: strictExist) }
         
         try db.exec(queries: queries)
