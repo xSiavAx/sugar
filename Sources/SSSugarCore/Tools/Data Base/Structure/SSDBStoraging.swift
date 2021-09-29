@@ -4,6 +4,19 @@ public protocol SSDBStoraging {
     var db: SSDataBase { get }
     
     static var tables: [SSDBTable.Type] {get}
+    
+    func initializeStructure(strictExist: Bool) throws
+    
+    func deinitializeStructure(strictExist: Bool) throws
+    
+    func withinTransaction<T>(job: () throws -> T ) throws -> T
+    
+    func withinSavePoint<T>(_ label: String, job: () throws -> T) throws -> T
+    
+    func within<T, Transaction>(create: () throws -> Transaction,
+                                cancel: (Transaction) throws -> Void,
+                                commit: (Transaction) throws -> Void,
+                                job: () throws -> T) throws -> T
 }
 
 public extension SSDBStoraging {
