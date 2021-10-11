@@ -1,7 +1,7 @@
 import Foundation
 
 public protocol SSDBStoraging {
-    var db: SSDataBase { get }
+    var db: SSDataBaseStorage { get }
     
     static var tables: [SSDBTable.Type] {get}
 }
@@ -50,4 +50,3 @@ public extension SSDBStoraging {
         return result
     }
 }
-

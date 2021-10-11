@@ -77,3 +77,19 @@ public extension SSDataBaseStatementProtocol {
         try bind(val, pos: pos)
     }
 }
+
+public protocol SSDataBaseStorage: SSDataBaseProtocol & SSTransacted & SSDataBaseStatementCreator & SSDataBaseTransactionCreator & SSDataBaseQueryExecutor & SSCacheContainer {
+    static func dbWith(baseDir: SSDataBase.BaseDir, name: String, prefix: String?) throws -> SSDataBaseStorage
+
+    #if os(iOS)
+    static func dbWith(name: String, prefix: String?) throws -> SSDataBaseStorage
+    #else
+    static func dbWith(name: String, prefix: String?) throws -> SSDataBaseStorage
+    #endif
+    static func dbWith(baseDir: URL, name: String, prefix: String?) throws -> SSDataBaseStorage
+
+    func stmtProcessor(query: String) throws -> SSDataBaseStatementProcessor
+    func exec(queries: [String]) throws
+    func finish()
+    func removeDB() throws
+}

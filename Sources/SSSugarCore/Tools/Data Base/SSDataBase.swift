@@ -15,7 +15,7 @@ import CSQLiteSS
 #warning("DB: Error msg")
 //TODO: Add error messages to all DB exceptions (like cantCompile inside stmt)
 
-public class SSDataBase {
+public class SSDataBase: SSDataBaseStorage {
     public let connection: SSDataBaseConnectionProtocol
     public let transactionController : SSDataBaseTransactionController
     public let statementsCache : SSDataBaseStatementCache
@@ -105,7 +105,7 @@ extension SSDataBase {
         }
     }
     
-    public static func dbWith(baseDir: BaseDir, name: String, prefix: String? = nil) throws -> SSDataBase {
+    public static func dbWith(baseDir: BaseDir, name: String, prefix: String? = nil) throws -> SSDataBaseStorage {
         var path = baseDir.url
         
         if let prefix = prefix {
@@ -121,16 +121,16 @@ extension SSDataBase {
     }
     
     #if os(iOS)
-    public static func dbWith(name: String, prefix: String? = nil) throws -> SSDataBase {
+    public static func dbWith(name: String, prefix: String? = nil) throws -> SSDataBaseStorage {
         return try dbWith(baseDir: .documents, name: name, prefix: prefix)
     }
     #else
-    public static func dbWith(name: String, prefix: String? = nil) throws -> SSDataBase {
+    public static func dbWith(name: String, prefix: String? = nil) throws -> SSDataBaseStorage {
         return try dbWith(baseDir: .current, name: name, prefix: prefix)
     }
     #endif
     
-    public static func dbWith(baseDir: URL, name: String, prefix: String? = nil) throws -> SSDataBase {
+    public static func dbWith(baseDir: URL, name: String, prefix: String? = nil) throws -> SSDataBaseStorage {
         return try dbWith(baseDir: .custom(baseDir), name: name, prefix: prefix)
     }
 }
