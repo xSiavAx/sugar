@@ -1,8 +1,6 @@
 import Foundation
 
-#warning("Rename me")
-
-public class StepBasedTimeCaculatorBuilder {
+public class SSStepBasedLimitedTimeCaculatorBuilder {
     public var ignoreLevel: Int
     public var baseTimeout: TimeInterval
     public var maxTimeout: TimeInterval
@@ -15,18 +13,18 @@ public class StepBasedTimeCaculatorBuilder {
         self.ignoreLevel = ignoreLevel
     }
     
-    public func linear(timePerStep: TimeInterval = 0) -> StepBasedTimeCalculator {
-        return StepBasedTimeCalculator(baseTimeout: baseTimeout,
+    public func linear(timePerStep: TimeInterval = 0) -> SSChildBasedLimitedTimeCalculator {
+        return SSChildBasedLimitedTimeCalculator(baseTimeout: baseTimeout,
                                        maxTimeout: maxTimeout,
                                        ignoreLevel: ignoreLevel,
-                                       subCaculator: LinearStepBasedTimeSubCalculator(timePerStep: timePerStep))
+                                       subCaculator: SSLinearStepBasedTimeCalculator(timePerStep: timePerStep))
     }
     
-    public func exponential() -> StepBasedTimeCalculator {
-        return StepBasedTimeCalculator(baseTimeout: baseTimeout,
+    public func exponential() -> SSChildBasedLimitedTimeCalculator {
+        return SSChildBasedLimitedTimeCalculator(baseTimeout: baseTimeout,
                                        maxTimeout: maxTimeout,
                                        ignoreLevel: ignoreLevel,
-                                       subCaculator: ExponentialStepBasedSubTimeCalculator())
+                                       subCaculator: SSExponentialStepBasedTimeCalculator())
     }
     
     //MARK: - Mutators

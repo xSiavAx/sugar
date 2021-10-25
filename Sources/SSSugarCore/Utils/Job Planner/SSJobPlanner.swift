@@ -25,7 +25,7 @@ class SSJobPlanner: SSJobPlanning {
             canceled = true
         }
     }
-    let timeCalculator: LimitedStepBasedTimeCalculating
+    let timeCalculator: SSLimitedStepBasedTimeCalculating
     let executor: SSTimeoutExecutor
     private var task: Task?
     private var step = 0
@@ -33,7 +33,7 @@ class SSJobPlanner: SSJobPlanning {
     
     var scheduled: Bool { task != nil }
     
-    init(timeCalculator: LimitedStepBasedTimeCalculating, executor: SSTimeoutExecutor) {
+    init(timeCalculator: SSLimitedStepBasedTimeCalculating, executor: SSTimeoutExecutor) {
         self.timeCalculator = timeCalculator
         self.executor = executor
         self.timeout = timeCalculator.timeBasedOn(step: step)

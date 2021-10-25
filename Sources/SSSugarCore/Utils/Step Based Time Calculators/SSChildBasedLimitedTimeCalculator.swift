@@ -1,17 +1,15 @@
 import Foundation
 
-#warning("Rename me")
-
-public class StepBasedTimeCalculator: LimitedStepBasedTimeCalculating {
+public class SSChildBasedLimitedTimeCalculator: SSLimitedStepBasedTimeCalculating {
     public let ignoreLevel: Int
     public let baseTimeout: TimeInterval
     public let maxTimeout: TimeInterval
-    public let subCalculator: StepBasedTimeCalculating
+    public let subCalculator: SSStepBasedTimeCalculating
     
     public init(baseTimeout: TimeInterval = 0,
          maxTimeout: TimeInterval = .infinity,
          ignoreLevel: Int = 0,
-         subCaculator: StepBasedTimeCalculating) {
+         subCaculator: SSStepBasedTimeCalculating) {
         self.baseTimeout = baseTimeout
         self.maxTimeout = maxTimeout
         self.ignoreLevel = ignoreLevel

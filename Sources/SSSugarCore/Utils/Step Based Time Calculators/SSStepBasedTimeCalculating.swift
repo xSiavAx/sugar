@@ -1,11 +1,9 @@
 import Foundation
 
-#warning("Rename me")
-
-public protocol StepBasedTimeCalculating {
+public protocol SSStepBasedTimeCalculating {
     func timeBasedOn(step: Int) -> TimeInterval
 }
 
-public protocol LimitedStepBasedTimeCalculating: StepBasedTimeCalculating {
+public protocol SSLimitedStepBasedTimeCalculating: SSStepBasedTimeCalculating {
     var maxTimeout: TimeInterval { get }
 }

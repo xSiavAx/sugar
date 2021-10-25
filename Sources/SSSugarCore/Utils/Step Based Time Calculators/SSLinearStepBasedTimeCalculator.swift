@@ -1,8 +1,6 @@
 import Foundation
 
-#warning("Rename me")
-
-public class LinearStepBasedTimeSubCalculator: StepBasedTimeCalculating {
+public class SSLinearStepBasedTimeCalculator: SSStepBasedTimeCalculating {
     public let timePerStep: TimeInterval
     
     public init(timePerStep: TimeInterval = 1) {
