@@ -2,8 +2,8 @@ import Foundation
 
 public extension DispatchQueue {
     static private(set) var bg = DispatchQueue(label: "background_serial")
-    static private(set) var serialAtomicVars = DispatchQueue(label: "ss_queue_for_synced_atomic_vars")
-    static private(set) var concurrentAtomicVars = DispatchQueue(label: "ss_queue_for_concurrent_atomic_vars")
+    static private(set) var serialAtomicVars = DispatchQueue(label: "ss_queue_for_synced_atomic_vars", qos: .userInteractive)
+    static private(set) var concurrentAtomicVars = DispatchQueue(label: "ss_queue_for_concurrent_atomic_vars", qos: .userInteractive, attributes: .concurrent, autoreleaseFrequency: .workItem)
     
     /// Submits a work item to a dispatch queue for asynchronous execution after spicified time interval.
     ///

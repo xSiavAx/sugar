@@ -25,3 +25,20 @@ public class SSAtomic<T> {
         queue.sync { block(&val) }
     }
 }
+
+@propertyWrapper
+public class SSMultiReadAtomic<T> {
+    private let queue: DispatchQueue
+    private var val: T
+    public var wrappedValue: T { get { queue.sync { val } } }
+    
+    public init(_ mVal: T, queue mQueue: DispatchQueue = .concurrentAtomicVars) {
+        val = mVal
+        queue = mQueue
+    }
+    
+    public func mutate(_ block: (inout T) -> ()) {
+        queue.sync(flags: .barrier, execute: { block(&val) })
+    }
+}
+
