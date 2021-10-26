@@ -2,7 +2,7 @@ import Foundation
 
 /// Isn't thread safe. Provided executors using only for delayed task executing.
 /// Provided executor should be the same, as public method called within.
-class SSJobPlanner: SSJobPlanning {
+public class SSJobPlanner: SSJobPlanning {
     class Task {
         var executor: SSTimeoutExecutor
         var canceled = false
@@ -25,21 +25,23 @@ class SSJobPlanner: SSJobPlanning {
             canceled = true
         }
     }
-    let timeCalculator: SSLimitedStepBasedTimeCalculating
-    let executor: SSTimeoutExecutor
+    public let timeCalculator: SSLimitedStepBasedTimeCalculating
+    public let executor: SSTimeoutExecutor
     private var task: Task?
     private var step = 0
     private var timeout: TimeInterval
     
-    var scheduled: Bool { task != nil }
+    public var scheduled: Bool { task != nil }
     
-    init(timeCalculator: SSLimitedStepBasedTimeCalculating, executor: SSTimeoutExecutor) {
+    public init(timeCalculator: SSLimitedStepBasedTimeCalculating, executor: SSTimeoutExecutor) {
         self.timeCalculator = timeCalculator
         self.executor = executor
         self.timeout = timeCalculator.timeBasedOn(step: step)
     }
     
-    func scheduleNew(job: @escaping ( @escaping (SSJobPlannerTOStrategy) -> Void ) -> Void) {
+    //MARK: - SSJobPlanning
+    
+    public func scheduleNew(job: @escaping ( @escaping (SSJobPlannerTOStrategy) -> Void ) -> Void) {
         task?.cancel()
         task = Task(executor: executor) {[weak self] in
             job() { result in
@@ -51,6 +53,8 @@ class SSJobPlanner: SSJobPlanning {
         }
         task?.run(timeout: timeout)
     }
+    
+    //MARK: - private
     
     private func process(result: SSJobPlannerTOStrategy) {
         switch result {
