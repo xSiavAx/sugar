@@ -1,5 +1,9 @@
 import Foundation
 
+public protocol SSGroupExecutorBuilding {
+    func executor() -> SSGroupExecuting
+}
+
 public protocol SSGroupExecuting {
     typealias Handler = () -> Void
     typealias Task = (@escaping Handler) -> Void
@@ -50,5 +54,11 @@ public class SSGroupExecutor: SSGroupExecuting {
     @available(*, deprecated, message: "Use `finish(executor:handler:)` instead")
     public func finish(queue: DispatchQueue, _ handler: @escaping () -> Void) {
         finish(executor: queue, handler)
+    }
+}
+
+class SSGroupExecutorBuilder: SSGroupExecutorBuilding {
+    func executor() -> SSGroupExecuting {
+        return SSGroupExecutor()
     }
 }
