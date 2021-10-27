@@ -15,7 +15,7 @@ public protocol SSGroupExecuting {
 }
 
 extension SSGroupExecuting {
-    func finish(_ handler: @escaping () -> Void) {
+    public func finish(_ handler: @escaping () -> Void) {
         finish(executor: DispatchQueue.bg, handler)
     }
 }
@@ -58,6 +58,8 @@ public class SSGroupExecutor: SSGroupExecuting {
 }
 
 public class SSGroupExecutorBuilder: SSGroupExecutorBuilding {
+    public init() {}
+    
     public func executor() -> SSGroupExecuting {
         return SSGroupExecutor()
     }
