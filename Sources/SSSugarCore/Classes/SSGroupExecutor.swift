@@ -5,7 +5,7 @@ public protocol SSGroupExecuting {
     typealias Task = (@escaping Handler) -> Void
     
     @discardableResult
-    func add(_ task: @escaping Task) -> SSGroupExecutor
+    func add(_ task: @escaping Task) -> Self
     
     func finish(executor: SSExecutor, _ handler: @escaping () -> Void)
 }
@@ -23,7 +23,7 @@ public class SSGroupExecutor: SSGroupExecuting {
     
     public init() {}
 
-    @discardableResult public func add(_ task: @escaping Task) -> SSGroupExecutor {
+    @discardableResult public func add(_ task: @escaping Task) -> Self {
         tasks.append(task)
         return self
     }
