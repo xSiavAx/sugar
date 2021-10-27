@@ -5,6 +5,54 @@ import Accelerate
 @testable import SSSugarCore
 
 class SSSugarCorePlaygroundTests: XCTestCase {
+    var groupExecutor: SSGroupExecutor!
+    
+    override func setUp() {
+        groupExecutor = SSGroupExecutor()
+    }
+    
+    override func tearDown() {
+        groupExecutor = nil
+    }
+    
+    func testMain() {
+        let hiddenBG = DispatchQueue.bg
+        
+        check(hidden: hiddenBG)
+    }
+    
+    private func check(hidden: SSExecutor) {
+        wait(count: 5) { exp in
+            groupExecutor.finish(executor: SSExecutorMock()) {
+                exp.fulfill()
+            }
+            
+            groupExecutor.finish(executor: DispatchQueue.main) {
+                exp.fulfill()
+            }
+            
+            groupExecutor.finish(executor: DispatchQueue.bg) {
+                exp.fulfill()
+            }
+            
+            groupExecutor.finish(executor: hidden) {
+                exp.fulfill()
+            }
+            
+            groupExecutor.finish() {
+                exp.fulfill()
+            }
+        }
+    }
+}
+
+class SSExecutorMock: SSExecutor {
+    func execute(_ work: @escaping () -> Void) {
+        DispatchQueue.bg.execute(work)
+    }
+}
+
+class SSSugarMultiReadAtomicTests: XCTestCase {
     @SSAtomic(nil)
     var atomic: Data!
     
@@ -28,10 +76,10 @@ class SSSugarCorePlaygroundTests: XCTestCase {
         print("Started")
         let start = Date()
 //        check(label: "MR Atomic", mutate: { self._mrAtomic.mutate() { $0 += 1 }  }, access: { self.mrAtomic })
-        check(label: "MR Atomic", iteration: { let _ = self.mrAtomic  }, access: { self.mrAtomic })
+        check(label: "MR Atomic", iteration: { let _ = self.mrAtomic  })
         let mrAtomicF = Date()
 //  check(label: "Atomic", mutate: { self._atomic.mutate() { $0 += 1 }  }, access: { self.atomic })
-        check(label: "Atomic", iteration: { let _ = self.atomic  }, access: { self.atomic })
+        check(label: "Atomic", iteration: { let _ = self.atomic  })
         let atomicF = Date()
         
         let mrDonIn = mrAtomicF.timeIntervalSince(start)
@@ -44,7 +92,7 @@ class SSSugarCorePlaygroundTests: XCTestCase {
         return ratio
     }
     
-    func check<T>(label: String, iteration: @escaping () -> Void) {
+    func check(label: String, iteration: @escaping () -> Void) {
         wait(timeout: 100.0) { exp in
             let group = SSGroupExecutor()
             
@@ -61,8 +109,5 @@ class SSSugarCorePlaygroundTests: XCTestCase {
                 exp.fulfill()
             }
         }
-    }
-    
-    func testSecond() {
     }
 }
