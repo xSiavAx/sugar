@@ -58,7 +58,7 @@ public class SSGroupExecutor: SSGroupExecuting {
 }
 
 public class SSGroupExecutorBuilder: SSGroupExecutorBuilding {
-    func executor() -> SSGroupExecuting {
+    public func executor() -> SSGroupExecuting {
         return SSGroupExecutor()
     }
 }
