@@ -5,14 +5,14 @@ import XCTest
 
 /// Test Cases for `DateProvider`
 ///
-/// Will  be tested only `DateBuilding` methods, since `DateProviding` methods obviously can't be tested relably.
+/// Will  be tested only `SSDateBuilding` methods, since `SSDateProviding` methods obviously can't be tested relably.
 ///
 /// # Cases:
 /// * _dateTsBased_ – creates date based on passed ts
 /// * _dateIntervalBased_ – creates date based on passed ts
 /// * _dateIntervalAndSinceBased_ – creates date based on passed ts and date
-class DateProviderTests: XCTestCase {
-    var sut: DateProvider!
+class SSDateProviderTests: XCTestCase {
+    var sut: SSDateProvider!
     
     func testDateTsBased() {
         let tses = [100500, 1, 1637065202, Int.max, 0]
@@ -56,7 +56,7 @@ class DateProviderTests: XCTestCase {
     }
     
     override func setUp() {
-        sut = DateProvider()
+        sut = SSDateProvider()
     }
     
     override func tearDown() {

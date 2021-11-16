@@ -1,7 +1,7 @@
 import Foundation
 import CoreVideo
 
-public protocol DateBuilding {
+public protocol SSDateBuilding {
     /// Returns date based on passed ts (offset from epoch start)
     func date(ts: Int) -> Date
     /// Returns date based on passed interval (offset from epoch start)
@@ -10,14 +10,17 @@ public protocol DateBuilding {
     func date(interval: TimeInterval, since: Date) -> Date
 }
 
-public protocol DateProviding {
+public protocol SSDateProviding {
     /// Returns current time
     func current() -> Date
     /// Returns current with passed interval as offset
     func currentWith(interval: TimeInterval) -> Date
 }
 
-public class DateProvider: DateProviding, DateBuilding {
+/// Default implementations for `SSDateBuilding` and `SSDateProviding`
+///
+/// Tool uses regular `Date` initializers to build and provide dates 
+public class SSDateProvider: SSDateProviding, SSDateBuilding {
     public func current() -> Date {
         return .init()
     }
