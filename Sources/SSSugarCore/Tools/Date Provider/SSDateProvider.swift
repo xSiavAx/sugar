@@ -21,6 +21,8 @@ public protocol SSDateProviding {
 ///
 /// Tool uses regular `Date` initializers to build and provide dates 
 public class SSDateProvider: SSDateProviding, SSDateBuilding {
+    public init() {}
+    
     public func current() -> Date {
         return .init()
     }
