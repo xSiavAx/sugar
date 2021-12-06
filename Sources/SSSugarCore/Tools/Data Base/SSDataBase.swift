@@ -83,7 +83,7 @@ public class SSDataBase: SSDataBaseStorage {
 
 //MARK: - Creating
 extension SSDataBase {
-    public enum BaseDir {
+    public enum BaseDir: Equatable {
         case documents
         case current
         case custom(URL)
