@@ -1,5 +1,9 @@
 import Foundation
 
+#warning("TODO: Api Model")
+//Try to improove using Codable
+//https://habr.com/ru/post/414221/
+
 /// Api callback response that represents `success` or `fail` options.
 ///
 /// # Generics:
@@ -29,8 +33,6 @@ public protocol SSRemoteApiModel: AnyObject {
     
     /// Request and Response arguments Type shortcut
     typealias Args = [String : Any]
-    /// Response headers Type shortcut
-    typealias Headers = [AnyHashable : Any]
     /// Api error Type shortcut
     typealias IError = SSApiError<CommonError, SpecificError>
     /// Response Type shortcut
@@ -41,7 +43,7 @@ public protocol SSRemoteApiModel: AnyObject {
     /// Response data aquired from Communictaor.
     ///
     /// Property fills in extension method `processWith(communicator:options:handler:)` to store data. Also should be used within `entity()` to get data from.
-    var response: (headers: Headers?, args: Args?) {get set}
+    var response: (addon: SSResponseAdditionData?, args: Args?) {get set}
     
     /// Creates arguments to convert to body data of building Request's
     func args() -> Args
@@ -69,8 +71,8 @@ public extension SSRemoteApiModel {
         let body = try options.bodyFromArgs(args())
         var headers = options.headers
 
-        func onFinish(data: Data?, headers: [AnyHashable : Any]?, error: SSCommunicatorError?) {
-            response = (headers, nil)
+        func onFinish(data: Data?, addon: SSResponseAdditionData?, error: SSCommunicatorError?) {
+            response = (addon, nil)
             defer { response = (nil, nil) }
             
             if let apiError = apiNonParseErrorFrom(commError: error) ?? parseArgs(options: options, data: data, parsedError: error) {

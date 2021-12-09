@@ -34,7 +34,7 @@ extension SSScaleAndAlphaTransitionAnimator: SSViewTransitionAnimating {
         func animation() {
             oldView.transform = scaleTransfrom
             oldView.alpha = 0
-            newView.transform = CGAffineTransform(scaleX:1, y:1)
+            newView.transform = CGAffineTransform(scaleX: 1, y: 1)
             newView.alpha = 1
         }
         newView.frame = container.frameForContent()

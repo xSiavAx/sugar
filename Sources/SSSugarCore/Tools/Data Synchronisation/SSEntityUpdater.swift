@@ -8,8 +8,11 @@ public protocol SSUpdaterEntitySource: AnyObject {
     /// Updates entity by passed `updater` using passed `closure`.
     /// - Parameters:
     ///   - updater: Updater which will modify entity.
-    ///   - job: Closure that makes entity updates.
-    func updateEntity<Updater: SSBaseEntityUpdating>(by updater: Updater, job: (inout Entity?)->Void)
+    ///   - job: Closure that mutates entity. It may return other closure that will be called outside of entity modification scope. It's helpfull, when updater notifies it's delegate and delegate could safety read entity via it's own getter without running into `Simultaneous access` error.
+    ///
+    /// - Note: `Simultaneous access` error has been occuring cuz: 1) Updater calls `updateEntity` of it's source, that calls `job` closure within entity modification scope (cuz entity passed to job as `inout`). 2) There is call to Updater's delegate inside job closure (to notify that entity has just changed) 3) Delegate implementator may want to access entity within that method (to obtain some additional data, `isListEmpty` for example) 4) Since delegates method has called withing `job` closure, that has called within `updateEntity` that opens modifications entity scope (and doesn't close it untill `job` finished) we run's into `Simultaneous access` – `updateEntity` writes and Delegate implementator reads. Thats why we add closure as return of `job`, vars got within job may be applied within that closure (like pos of item in list, etc) and closure are called without modification scope.
+    ///
+    func updateEntity<Updater: SSBaseEntityUpdating>(by updater: Updater, job: (inout Entity?)->(()->Void)?)
 }
 
 /// Base protocol for Updater's delegate
@@ -55,7 +58,7 @@ extension SSBaseEntityUpdating {
     /// Updates entity using passed closure.
     ///
     /// - Inportnat: Protected means it's for internal usage only. Don't use this method whenever except inheritors.
-    public func protUpdate(_ job: (inout Source.Entity?)->Void ) -> Void {
+    public func protUpdate(_ job: (inout Source.Entity?) -> (() -> Void)?) -> Void {
         source?.updateEntity(by: self, job: job)
     }
 }

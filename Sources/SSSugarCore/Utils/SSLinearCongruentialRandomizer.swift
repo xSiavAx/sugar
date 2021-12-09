@@ -56,6 +56,11 @@ public struct SSLinearCongruentialRandomizer {
 }
 
 extension SSLinearCongruentialRandomizer: RandomNumberGenerator {
+    public mutating func next() -> UInt64 {
+        return UInt64(nextNormilized() * Double(UInt64.max))
+    }
+
+    @available(swift, deprecated: 5.5, message: "RandomNumberGenerator protocol requirements changes from generic to UInt64 for return type.")
     public mutating func next<T>() -> T where T : FixedWidthInteger, T : UnsignedInteger {
         return T(nextNormilized() * Double(T.max))
     }

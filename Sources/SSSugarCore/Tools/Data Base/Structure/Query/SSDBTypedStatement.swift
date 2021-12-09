@@ -9,6 +9,12 @@ public struct DBTypedStatemnt<Stmt: SSDataBaseStatementProtocol, BArgs, GArgs>: 
     public var onBind: ((Stmt, BArgs) throws -> Void)!
     public var onGet: ((Stmt) throws -> GArgs)!
     
+    public init(stmt: Stmt, onBind: ((Stmt, BArgs) throws -> Void)? = nil, onGet: ((Stmt) throws -> GArgs)? = nil) {
+        self.stmt = stmt
+        self.onBind = onBind
+        self.onGet = onGet
+    }
+    
     public func bind(args: BArgs) throws {
         try onBind(stmt, args)
     }

@@ -27,11 +27,23 @@ public extension SSDBTable {
     }
 }
 
+//MARK - Cols creating
+
+public extension SSDBTable {
+    static func col<T: SSDBColType>(_ name: String, type: T.Type, defaultVal: T? = nil) -> SSDBColumn<T> {
+        return col(name, defaultVal: defaultVal)
+    }
+    
+    static func col<T: SSDBColType>(_ name: String, defaultVal: T? = nil) -> SSDBColumn<T> {
+        return SSDBColumn(self, name: name, defaultVal: defaultVal)
+    }
+}
+
 //MARK - Primary key creating
 
 public extension SSDBTable {
     static func pk(_ cols: SSDBColumnProtocol...) -> SSDBPrimaryKey {
-        return SSDBPrimaryKey(cols: cols)
+        return try! SSDBPrimaryKey(cols: cols)
     }
 }
 
@@ -46,31 +58,13 @@ public extension SSDBTable {
 //MARK - Index creating
 
 public extension SSDBTable {
-    typealias SingleColGetter = (Self.Type) -> SSDBColumnProtocol
-    typealias MultipleColGetter = (Self.Type) -> [SSDBColumnProtocol]
-    
-    static func idx(unique: Bool, _ get: MultipleColGetter) -> SSDBTableIndex<Self> {
-        return SSDBTableIndex<Self>(isUnique: unique, cols: get)
+    static func idx(unique: Bool, _ col: SSDBColumnProtocol) -> SSDBTableIndex {
+        return idx(unique: unique, cols: [col])
     }
     
-    static func idx(unique: Bool, _ get: SingleColGetter) -> SSDBTableIndex<Self> {
-        return idx(unique: unique, { [get($0)] })
-    }
-    
-    static func idxs(unique: Bool, _ getters: SingleColGetter... ) -> [SSDBTableIndex<Self>] {
-        return getters.map() { idx(unique:unique, $0) }
-    }
-    
-    static func idxs(unique: Bool, _ getters: MultipleColGetter... ) -> [SSDBTableIndex<Self>] {
-        return getters.map() { idx(unique:unique, $0) }
-    }
-}
-
-//MARK: - Reference Count Update Triggers creating
-
-public extension SSDBTable {
-    static func refCountUpdateTriggers<RefCountTable: SSDBRefCountTable, Column: SSDBTypedColumnProtocol>(colReference: (Self.Type) -> SSDBColumnRef<RefCountTable, Column>) -> [SSDBTrigger<Self>] {
-        return RefCountTable.updateTriggers(colReference: colReference)
+    static func idx(unique: Bool, cols: [SSDBColumnProtocol]) -> SSDBTableIndex {
+        guard self == SSDBTableComponentHelp.commonTable(cols) else { fatalError("Index col isn't defined") }
+        return try! SSDBTableIndex(isUnique: unique, cols: cols)
     }
 }
 
@@ -99,7 +93,7 @@ public extension SSDBTable {
     }
     
     static func query(_ kind: SSDBQueryBuilder.Kind) -> SSDBQueryBuilder {
-        return SSDBQueryBuilder(kind, table: tableName)
+        return SSDBQueryBuilder(kind, table: self)
     }
     
     //Query for inserting row with every table colum (including id)
@@ -119,28 +113,37 @@ public extension SSDBTable {
         return try! wherePK(selectAllQueryBuilder()).build()
     }
     
+    static func selectQuery(cols: [SSDBColumnProtocol]) -> String {
+        let select = try! query(.select).add(cols: cols)
+        return try! wherePK(select).build()
+    }
+    
     static func removeQuery() -> String {
         return try! wherePK(.delete).build()
+    }
+    
+    static func removeAll() -> SSDBQueryProcessor<Void, Void> {
+        return SSDBQueryProcessor(try! query(.delete).build())
     }
     
     static func updateQuery(cols: [SSDBColumnProtocol]) -> String {
         return try! wherePK(.update).add(cols: cols).build()
     }
     
-    static func wherePK(_ kind: SSDBQueryBuilder.Kind) -> SSDBQueryBuilder {
-        return wherePK(query(kind))
+    static func wherePK(_ kind: SSDBQueryBuilder.Kind) throws -> SSDBQueryBuilder {
+        return try wherePK(query(kind))
     }
     
     @discardableResult
-    static func wherePK(_ builder: SSDBQueryBuilder) -> SSDBQueryBuilder {
+    static func wherePK(_ builder: SSDBQueryBuilder) throws -> SSDBQueryBuilder {
         if let primaryKey = primaryKey {
-            primaryKey.cols.forEach() { builder.add(colCondition: $0) }
+            try primaryKey.cols.forEach() { try builder.add(colCondition: $0) }
         }
         return builder
     }
     
     static func selectAllQueryBuilder() -> SSDBQueryBuilder {
-        return query(.select).add(cols: colums)
+        return try! query(.select).add(cols: colums)
     }
     
     //MARK: - private

@@ -1,13 +1,5 @@
 import Foundation
 
-/// Requirements for any Storage Coding that know's it's root Field.
-///
-/// #Extension:
-/// For `DictCoder` declared initialization and writing.
-public protocol SSRootedStorageCoding {
-    static var root: SSKeyFieldObj {get}
-}
-
 /// Holder for some Storage. Useless as is and should be used within inheritance as Ancestor. Such inheritors represents some Entity that parses/writes from/to storage.
 ///
 /// Usually inheritors declares some `SSKeyStoring` fields and setup em via `setup` method (that assigns `self` as filed's `owner`) inside overriden `bindPropOwner` method (that automatically calls at end of init of Ancestor).
@@ -44,19 +36,5 @@ open class SSStorageCoder: SSKeyStoringOwner {
     /// - Returns: Storage representing dictionary.
     public func dict() -> [String : Any] {
         return storage as! [String : Any]
-    }
-}
-
-extension SSRootedStorageCoding where Self: SSStorageCoder {
-    /// Creates new Coder with dict parsed from passed one.
-    /// - Parameter dict: Dict to parse initialization dict.
-    public init(parse dict: [String : Any]) {
-        self.init(dict: Self.root.parse(dict))
-    }
-    
-    /// Writes dict (representing storage) to passed one.
-    /// - Parameter other: Dict to write to.
-    public func wtite(to other: inout SSKeyFieldStorage) {
-        Self.root.write(to: &other, val: dict())
     }
 }

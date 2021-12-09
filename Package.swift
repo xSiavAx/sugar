@@ -7,7 +7,7 @@ struct Additions {
     struct ForPackage {
         static func dependecies() -> [Package.Dependency] {
             #if os(Linux)
-            return [.package(name: "CSQLite", url: "https://SiavA@bitbucket.org/SiavA/csqlite.git", .branch("master"))]
+            return [.package(name: "CSQLiteSS", url: "git@bitbucket.org:SiavA/csqlitess.git", from: "1.0.0")]
             #else
             return []
             #endif
@@ -16,7 +16,7 @@ struct Additions {
     struct ForTarget {
         static func dependecies() -> [Target.Dependency] {
             #if os(Linux)
-            return ["CSQLite"]
+            return ["CSQLiteSS"]
             #else
             return []
             #endif
@@ -27,7 +27,7 @@ struct Additions {
 let package = Package(
     name: "SSSugar",
     platforms: [
-        .macOS(.v11),
+        .macOS(.v10_15),
         .iOS(.v11)
     ],
     products: [
@@ -37,6 +37,10 @@ let package = Package(
         .library(
             name: "SSSugarCore",
             targets: ["SSSugarCore"]),
+        .library(
+            name: "SSSugarDynamic",
+            type: .dynamic,
+            targets: ["SSSugarUIKit", "SSSugarCore"]),
         .executable(
             name: "SSSugarPG",
             targets: ["SSSugarPG"]),

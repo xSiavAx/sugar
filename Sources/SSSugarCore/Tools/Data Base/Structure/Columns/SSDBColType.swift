@@ -161,3 +161,20 @@ public extension RawRepresentable where RawValue: SSDBColType {
         return rawValue.asColDefault()
     }
 }
+
+extension URL: SSDBColType {
+    public static var colName: String { String.colName }
+    
+    public static func onGetNonNil(stmt: Statement, pos: Int) throws -> URL {
+        return URL(string: try String.onGetNonNil(stmt: stmt, pos: pos))!
+    }
+    
+    public func bindTo(stmt: Statement, pos: Int) throws {
+        try path.bindTo(stmt: stmt, pos: pos)
+    }
+    
+    public func asColDefault() -> String {
+        return path
+    }
+}
+

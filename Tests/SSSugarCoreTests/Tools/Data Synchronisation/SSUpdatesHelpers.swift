@@ -163,8 +163,8 @@ class TestEnityObtainer: SSEntityObtainer {
 class TestSomeEntitySource: TestEntitySource {
     var entity: TestEntity? = TestEntity()
     
-    func updateEntity<Updater>(by updater: Updater, job: (inout TestEntity?) -> Void) where Updater : SSBaseEntityUpdating {
-        job(&entity)
+    func updateEntity<Updater>(by updater: Updater, job: (inout TestEntity?) -> (() -> Void)?) where Updater : SSBaseEntityUpdating {
+        job(&entity)?()
     }
     
     func entity<Mutating>(for mutator: Mutating) -> TestEntity? where Mutating : SSBaseEntityMutating {
