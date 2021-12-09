@@ -33,14 +33,17 @@ let package = Package(
     products: [
         .library(
             name: "SSSugar",
-            targets: ["SSSugarUIKit", "SSSugarCore"]),
+            targets: ["SSSugarUIKit", "SSSugarCore", "SSSugarTesting"]),
         .library(
             name: "SSSugarCore",
             targets: ["SSSugarCore"]),
         .library(
+            name: "SSSugarTesting",
+            targets: ["SSSugarTesting"]),
+        .library(
             name: "SSSugarDynamic",
             type: .dynamic,
-            targets: ["SSSugarUIKit", "SSSugarCore"]),
+            targets: ["SSSugarUIKit", "SSSugarCore", "SSSugarTesting"]),
         .executable(
             name: "SSSugarPG",
             targets: ["SSSugarPG"]),
@@ -54,6 +57,8 @@ let package = Package(
             name: "SSSugarCore", dependencies: [] + Additions.ForTarget.dependecies() ),
         .target(
             name: "SSSugarUIKit", dependencies: ["SSSugarCore"]),
+        .target(
+            name: "SSSugarTesting", dependencies: ["SSSugarCore"]),
         .target(
             name: "SSSugarPG",
             dependencies: ["SSSugarCore",

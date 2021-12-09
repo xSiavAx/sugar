@@ -101,11 +101,11 @@ public extension SSRemoteApiModel {
     private func apiNonParseErrorFrom(commError: SSCommunicatorError?) -> IError? {
         switch commError {
         case .noConnection:
-            return .call(cause:.noConnection)
+            return .call(cause: .noConnection)
         case .badCertificates:
-            return .call(cause:.badCertificates)
+            return .call(cause: .badCertificates)
         case .libError(let sdkError):
-            return .call(cause:.libError(libError: sdkError))
+            return .call(cause: .libError(libError: sdkError))
         case .unexpectedStatus, nil:
             return nil
         }
