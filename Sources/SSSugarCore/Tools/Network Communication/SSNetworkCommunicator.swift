@@ -172,7 +172,7 @@ extension SSNetworkCommunicator: SSCommunicating {
     
     private static func errorFrom(urlDomainError error: NSError) -> SSCommunicatorError? {
         switch error.code {
-        case NSURLErrorNotConnectedToInternet:
+        case NSURLErrorNotConnectedToInternet, NSURLErrorDataNotAllowed, NSURLErrorTimedOut:
             return .noConnection
         case NSURLErrorCancelled:
             return .badCertificates
