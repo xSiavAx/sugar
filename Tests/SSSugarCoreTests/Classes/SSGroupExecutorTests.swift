@@ -43,20 +43,20 @@ class SSGroupExecutorTests: XCTestCase {
         sut.finish {
             expectation.fulfill()
 
-            XCTAssert(Thread.isMainThread)
+            XCTAssert(!Thread.isMainThread)
         }
         wait(for: [expectation], timeout: 1)
     }
-    
+
     func testOneTask() {
         let expectationTask = XCTestExpectation()
         let expectationFinish = XCTestExpectation()
 
         sut.add(fulfillTask(expectationTask, in: .main) { XCTAssert(Thread.isMainThread) })
-        sut.finish {
+        sut.finish() {
             expectationFinish.fulfill()
 
-            XCTAssert(Thread.isMainThread)
+            XCTAssert(!Thread.isMainThread)
         }
         wait(for: [expectationTask, expectationFinish], timeout: 1, enforceOrder: true)
     }
@@ -71,7 +71,7 @@ class SSGroupExecutorTests: XCTestCase {
         sut.finish {
             expectationFinish.fulfill()
 
-            XCTAssert(Thread.isMainThread)
+            XCTAssert(!Thread.isMainThread)
         }
         wait(for: [expectationTasks, expectationFinish], timeout: 1, enforceOrder: true)
     }
@@ -85,7 +85,7 @@ class SSGroupExecutorTests: XCTestCase {
         sut.finish {
             expectationFinish.fulfill()
 
-            XCTAssert(Thread.isMainThread)
+            XCTAssert(!Thread.isMainThread)
         }
         wait(for: [expectationTask, expectationFinish], timeout: 1, enforceOrder: true)
     }
@@ -101,7 +101,7 @@ class SSGroupExecutorTests: XCTestCase {
         sut.finish {
             expectationFinish.fulfill()
 
-            XCTAssert(Thread.isMainThread)
+            XCTAssert(!Thread.isMainThread)
         }
         wait(for: [expectationTasks, expectationFinish], timeout: 1, enforceOrder: true)
     }
@@ -117,7 +117,7 @@ class SSGroupExecutorTests: XCTestCase {
         sut.finish {
             expectationFinish.fulfill()
 
-            XCTAssert(Thread.isMainThread)
+            XCTAssert(!Thread.isMainThread)
         }
         wait(for: [expectationTasks, expectationFinish], timeout: 1, enforceOrder: true)
     }
