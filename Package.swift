@@ -65,9 +65,9 @@ let package = Package(
                            .product(name: "ArgumentParser", package: "swift-argument-parser")]),
         .testTarget(
             name: "SSSugarCoreTests",
-            dependencies: ["SSSugarCore"]),
+            dependencies: ["SSSugarCore", "SSSugarTesting"]),
         .testTarget(
             name: "SSSugarUIKitTests",
-            dependencies: ["SSSugarUIKit", "SSSugarCore"]),
+            dependencies: ["SSSugarUIKit", "SSSugarCore", "SSSugarTesting"]),
     ]
 )

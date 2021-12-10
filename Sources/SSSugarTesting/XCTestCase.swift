@@ -2,19 +2,33 @@ import Foundation
 import XCTest
 
 public extension XCTestCase {
-    func wait(count: Int = 1, timeout: TimeInterval = 1.0, on block: (XCTestExpectation)->Void) {
-        let expectation = XCTestExpectation()
+    func wait<T>(count: Int = 1, description: String? = nil, timeout: TimeInterval = 1.0, on block: (XCTestExpectation) -> T) -> T {
+        let expectation = Self.expectationWith(descr: description)
         
         expectation.expectedFulfillmentCount = count
-        block(expectation)
+        let result = block(expectation)
+        
         wait(for: [expectation], timeout: timeout)
+        return result
+    }
+    
+    /// - Warning: **Deprecated**. Use `init(size:buildBlock:)` instead.
+    @available(*, deprecated, message: "Use `wait(count: description: timeout: on block:` instead")
+    func wait<T>(fullFillCount: Int, description: String? = nil, timeout: Double = 1.0, on block: (XCTestExpectation) -> T) -> T {
+        wait(count: fullFillCount, description: description, timeout: timeout, on: block)
     }
     
     func wait(time: Double) {
-        let waitExpectation = XCTestExpectation(description:"Waiting")
-        
-        DispatchQueue.main.asyncAfter(intervalSec: time) { waitExpectation.fulfill() }
-        wait(for: [waitExpectation], timeout: time + 0.1)
+        wait(description: "Waiting for \(time) secconds", timeout: time) {
+            $0.fulfill()
+        }
+    }
+    
+    private static func expectationWith(descr: String?) -> XCTestExpectation {
+        if let desc = descr {
+            return XCTestExpectation(description: desc)
+        }
+        return XCTestExpectation()
     }
     
     func assertError(job: () throws -> Void, checkError: (Error)->Bool) {

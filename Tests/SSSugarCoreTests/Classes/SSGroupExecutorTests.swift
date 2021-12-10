@@ -18,6 +18,8 @@
  */
 
 import XCTest
+import SSSugarTesting
+
 @testable import SSSugarCore
 
 class SSGroupExecutorTests: XCTestCase {
