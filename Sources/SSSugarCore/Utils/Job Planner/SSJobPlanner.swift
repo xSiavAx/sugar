@@ -1,7 +1,13 @@
 import Foundation
 
-/// Isn't thread safe. Provided executors using only for delayed task executing.
-/// Provided executor should be the same, as public method called within.
+/// Tool that incapsulates planning repeating job.
+///
+/// Use `scheduleNew(job:)` to schedule passed job after current Time Out. Initial TO calculated by passing 0 as steps to `timeCalculator`. Call `handler` that passed to `job` closure to affect timeout for next scheduled task. Scheduling new job, just after handler call - right way to plan next task. If next job schedulee erlier then `handler`'s call – it will be scheduled after previous timeout ignoring strategy that will be passed to handler. If next job schedules some times later after `handler`'s call, it will be scheduled after newly calculated TO, ignoring some time already passed since `handler`'s call.
+///
+/// - Warning: Tool isn't thread safe. Provided executor used only for delayed task executing and not for synchronising internal state. That why:
+/// * Handler passed to job, should be called withing same queue as `scheduleNew` do.
+/// * User may be sure, that passed job will be executed within executor passed to init.
+///
 public class SSJobPlanner: SSJobPlanning {
     class Task {
         var executor: SSTimeoutExecutor
@@ -45,27 +51,24 @@ public class SSJobPlanner: SSJobPlanning {
         task?.cancel()
         task = Task(executor: executor) {[weak self] in
             job() { result in
-                self?.executor.execute {
-                    self?.task = nil
-                    self?.process(result: result)
-                }
+                self?.task = nil
+                self?.process(result: result)
             }
         }
         task?.run(timeout: timeout)
     }
     
     //MARK: - private
-    
+
     private func process(result: SSJobPlannerTOStrategy) {
         switch result {
         case .reset:
             step = 0
-            timeout = 0
+            timeout = timeCalculator.timeBasedOn(step: step)
         case .increase:
             step += 1
             timeout = timeCalculator.timeBasedOn(step: step)
         case .maximize:
-            step = 0
             timeout = timeCalculator.maxTimeout
         case .ignore:
             break
