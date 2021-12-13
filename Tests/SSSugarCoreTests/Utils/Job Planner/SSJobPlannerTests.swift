@@ -15,7 +15,8 @@ import SSSugarTesting
 /// * _resultReset_ - several regulars with increase result, then one with reset
 /// * _resultIgnore_ - several regulars with increase result, then one with ignore, then increase again (ensure iggnore doesn't affect step)
 /// * _resultMaximize_ - several regulars with increase result, then one with maximize (ensure time is max), then increase again (ensure maximize doesn't affect step)
-/// * _reschedule_ - First scheduled task canceled (not finished) by scheduling new one, that executes as regular
+/// * _scheduleIfNotScheduledRegular_ - as regular
+/// * _scheduleIfNotScheduledScheduled_ - nothing happens
 ///
 class SSJobPlannerTests: XCTestCase {
     static let initalTO = 12.0
@@ -105,6 +106,36 @@ class SSJobPlannerTests: XCTestCase {
         }
     }
     
+    func testScheduleIfNotScheduledRegular() {
+        let call = configSchedule(delayed: true)
+        wait() { exp in
+            DispatchQueue.bg.async {
+                self.sut.scheduleIfNotScheduled() { handler in
+                    self.onFinish.handle() as Void
+                    handler(.ignore)
+                    exp.fulfill()
+                }
+                DispatchQueue.bg.async {
+                    call.doFutures()
+                }
+            }
+        }
+    }
+    
+    func testScheduleIfNotScheduledScheduled() {
+        let call = configSchedule(delayed: true)
+        
+        wait() { exp in
+            runSchedule(strategy: .ignore, exp: exp)
+            DispatchQueue.bg.async {
+                self.sut.scheduleIfNotScheduled() { _ in XCTFail() }
+            }
+            DispatchQueue.bg.async {
+                call.doFutures()
+            }
+        }
+    }
+    
     //MARK: - private
     
     private func checkSchedule(strategy: SSJobPlannerTOStrategy = .ignore) {
@@ -149,8 +180,8 @@ class SSJobPlannerTests: XCTestCase {
     //MARK: Expectation config
     
     @discardableResult
-    private func configSchedule(to: TimeInterval = initalTO, calcConfig: CalculatorConfig? = nil) -> SSMockCallExpectation {
-        let call = executor.expectAfter(interval: to, strategy: .async)
+    private func configSchedule(to: TimeInterval = initalTO, calcConfig: CalculatorConfig? = nil, delayed: Bool = false) -> SSMockCallExpectation {
+        let call = executor.expectAfter(interval: to, delay: delayed)
         onFinish.expectCall()
         
         switch calcConfig {
