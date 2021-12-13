@@ -37,6 +37,8 @@ public class SSExecutorMock: SSMock, SSExecutor, SSTimeoutExecutor {
 }
 
 public extension SSMocking where Self: SSExecutor {
+    //MARK: SSExecutor
+    
     static func captor() -> SSValueShortCaptor<()->Void> {
         return .forClosure()
     }
@@ -80,5 +82,34 @@ public extension SSMocking where Self: SSExecutor {
     @discardableResult
     func expectAndAsync(times: Int) -> [SSMockCallExpectation] {
         (0..<times).map() { _ in expectAndAsync() }
+    }
+}
+
+public extension SSMocking where Self: SSTimeoutExecutor {
+    @discardableResult
+    func expectAfter(interval: Int, captor: SSValueShortCaptor<() -> Void>) -> SSMockCallExpectation {
+        return expectAfter(interval: Double(interval), captor: captor)
+    }
+    
+    @discardableResult
+    func expectAfter(interval: Double, captor: SSValueShortCaptor<() -> Void>) -> SSMockCallExpectation {
+        return expect() { $0.executeAfter(sec: $1.eq(interval), $1.capture(captor)) }
+    }
+    
+    @discardableResult
+    func expectAfter(interval: Double, delay: Bool = false) -> SSMockCallExpectation {
+        return expectAfter(interval: interval, strategy: delay ? .future : .async)
+    }
+    
+    @discardableResult
+    func expectAfter(interval: Double, strategy: SSExecutorMock.ExpectCaptorStrategy = .async) -> SSMockCallExpectation {
+        let captor = captor()
+        let exp = expectAfter(interval: interval, captor: captor)
+        
+        strategy.addTo(exp: exp) {
+            captor.released()
+        }
+        
+        return exp
     }
 }
