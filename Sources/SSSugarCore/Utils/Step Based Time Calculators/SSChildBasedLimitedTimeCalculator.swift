@@ -18,7 +18,7 @@ public class SSChildBasedLimitedTimeCalculator: SSLimitedStepBasedTimeCalculatin
     
     public func timeBasedOn(step: Int) -> TimeInterval {
         if (step < ignoreLevel) { return 0 }
-        let time = baseTimeout + subCalculator.timeBasedOn(step: step)
+        let time = baseTimeout + subCalculator.timeBasedOn(step: step - ignoreLevel)
         
         if (time >= maxTimeout) {
             return maxTimeout
