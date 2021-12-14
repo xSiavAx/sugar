@@ -33,7 +33,7 @@ let package = Package(
     products: [
         .library(
             name: "SSSugar",
-            targets: ["SSSugarUIKit", "SSSugarCore", "SSSugarTesting"]),
+            targets: ["SSSugarUIKit", "SSSugarCore"]),
         .library(
             name: "SSSugarCore",
             targets: ["SSSugarCore"]),
