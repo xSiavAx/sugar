@@ -173,6 +173,7 @@ extension SSDataModifyCenter: SSDmRevisionDispatcher where
         guard !revisions.isEmpty else { return SSDmRevisionDispatcherError.emptyRevisions }
         
         notify(revisions: revisions, onApply: onApply)
+        
         return nil
     }
     
@@ -192,7 +193,7 @@ extension SSDataModifyCenter: SSDmRevisionDispatcher where
             }
         }
         notify(revision: revisions.last!) {[weak self] in
-            self?.onLastNotify(revision: revisions.last!)
+            self?.onLastNotify(revision: revisions.last!, onApply: onApply)
         }
     }
     
@@ -204,7 +205,7 @@ extension SSDataModifyCenter: SSDmRevisionDispatcher where
         adaptBatches(to: revision)
     }
     
-    private func onLastNotify(revision: SSDmRevision<Change>, onApply: (() -> Void)? = nil) {
+    private func onLastNotify(revision: SSDmRevision<Change>, onApply: (() -> Void)?) {
         onNotify(revision: revision)
         reaplySchedules()
         onApply?()

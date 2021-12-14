@@ -34,8 +34,21 @@ public extension DispatchQueue {
     }
 }
 
-extension DispatchQueue: SSExecutor {
+extension DispatchQueue: SSGCDExecutor {
     public func execute(_ work: @escaping () -> Void) {
         async(execute: work)
     }
+    
+    public func executeAfter(sec: Double, _ work: @escaping () -> Void) {
+        asyncAfter(intervalSec: sec, execute: work)
+    }
+    
+    public func executeAfter(sec: Int, _ work: @escaping () -> Void) {
+        asyncAfter(intervalSec: sec, execute: work)
+    }
+    
+    public func underliedQueue() -> DispatchQueue {
+        return self
+    }
 }
+

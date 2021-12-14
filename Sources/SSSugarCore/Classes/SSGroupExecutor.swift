@@ -1,24 +1,66 @@
 import Foundation
 
-public class SSGroupExecutor {
-    public typealias Handler = ()->Void
-    public typealias Task = (@escaping Handler)->Void
+public protocol SSGroupExecutorBuilding {
+    func executor() -> SSGroupExecuting
+}
+
+public protocol SSGroupExecuting {
+    typealias Handler = () -> Void
+    typealias Task = (@escaping Handler) -> Void
+    
+    @discardableResult
+    func add(_ task: @escaping Task) -> Self
+    
+    func finish(executor: SSExecutor, _ handler: @escaping () -> Void)
+}
+
+extension SSGroupExecuting {
+    public func finish(_ handler: @escaping () -> Void) {
+        finish(executor: DispatchQueue.bg, handler)
+    }
+}
+
+public class SSGroupExecutor: SSGroupExecuting {
+    public typealias Task = (@escaping Handler) -> Void
+    
     public var tasks = [Task]()
     
     public init() {}
 
-    @discardableResult public func add(_ task: @escaping Task) -> SSGroupExecutor {
+    @discardableResult public func add(_ task: @escaping Task) -> Self {
         tasks.append(task)
         return self
     }
     
-    public func finish(queue: DispatchQueue = DispatchQueue.main, _ handler: @escaping ()->Void) {
+    public func finish(executor: SSExecutor, _ handler: @escaping () -> Void) {
         let group = DispatchGroup()
         
         tasks.forEach { (task, _) in
             group.enter()
             task { group.leave() }
         }
-        group.notify(queue: queue, execute: handler)
+        if let executor = executor as? SSGCDExecutor {
+            group.notify(queue: executor.underliedQueue(), execute: handler)
+        } else {
+            group.notify(queue: DispatchQueue.bg) {
+                executor.execute {
+                    handler()
+                }
+            }
+        }
+    }
+
+    /// - Warning: **Deprecated**. Use `init(size:buildBlock:)` instead.
+    @available(*, deprecated, message: "Use `finish(executor:handler:)` instead")
+    public func finish(queue: DispatchQueue, _ handler: @escaping () -> Void) {
+        finish(executor: queue, handler)
+    }
+}
+
+public class SSGroupExecutorBuilder: SSGroupExecutorBuilding {
+    public init() {}
+    
+    public func executor() -> SSGroupExecuting {
+        return SSGroupExecutor()
     }
 }

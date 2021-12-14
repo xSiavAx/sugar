@@ -1,10 +1,10 @@
 import Foundation
 
-protocol SSSignInvertible {
+public protocol SSSignInvertible {
     static prefix func - (val: Self) -> Self
 }
 
-extension AdditiveArithmetic where Self: SSSignInvertible {
+public extension AdditiveArithmetic where Self: SSSignInvertible {
     static func - (lhs: Self, rhs: Self) -> Self {
         return lhs + (-rhs)
     }

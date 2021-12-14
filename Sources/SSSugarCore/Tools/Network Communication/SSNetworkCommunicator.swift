@@ -134,12 +134,12 @@ public class SSNetworkCommunicator {
 }
 
 extension SSNetworkCommunicator: SSCommunicating {
-    public func runTask(url: URL, headers:[String:String]?, body: Data?, handler: @escaping Handler) -> SSCommunicatingTask {
+    public func runTask(url: URL, headers:[String:String]?, body: Data?, acceptableStatuses: [Int], handler: @escaping Handler) -> SSCommunicatingTask {
         func onFinish(data: Data?, response: URLResponse?, error: Error?) {
             let httpResponse = response as? HTTPURLResponse
             
             logResponseIfNeeded(body: data, response: httpResponse, error: error)
-            handler(data, httpResponse, errorWith(libError: error, response: httpResponse))
+            handler(data, httpResponse, errorWith(libError: error, response: httpResponse, acceptableStatuses: acceptableStatuses))
         }
         let request = newRequest(withURL: url, headers: headers, body: body)
         let task = session.dataTask(with: request, completionHandler: onFinish)
@@ -153,11 +153,11 @@ extension SSNetworkCommunicator: SSCommunicating {
     
     //MARK: private
     
-    private func errorWith(libError: Error?, response: HTTPURLResponse?) -> SSCommunicatorError? {
+    private func errorWith(libError: Error?, response: HTTPURLResponse?, acceptableStatuses: [Int]) -> SSCommunicatorError? {
         if let error = libError {
             return Self.errorFrom(libError: error)
         }
-        if let code = response?.statusCode, code != 200 {
+        if let code = response?.statusCode, !acceptableStatuses.contains(code) {
             return .unexpectedStatus(status: code)
         }
         return nil
