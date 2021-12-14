@@ -43,7 +43,7 @@ let package = Package(
         .library(
             name: "SSSugarDynamic",
             type: .dynamic,
-            targets: ["SSSugarUIKit", "SSSugarCore", "SSSugarTesting"]),
+            targets: ["SSSugarUIKit", "SSSugarCore"]),
         .executable(
             name: "SSSugarPG",
             targets: ["SSSugarPG"]),
