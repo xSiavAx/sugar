@@ -38,6 +38,9 @@ let package = Package(
             name: "SSSugarCore",
             targets: ["SSSugarCore"]),
         .library(
+            name: "SSSugarTesting",
+            targets: ["SSSugarTesting"]),
+        .library(
             name: "SSSugarDynamic",
             type: .dynamic,
             targets: ["SSSugarUIKit", "SSSugarCore"]),
@@ -55,14 +58,16 @@ let package = Package(
         .target(
             name: "SSSugarUIKit", dependencies: ["SSSugarCore"]),
         .target(
+            name: "SSSugarTesting", dependencies: ["SSSugarCore"]),
+        .target(
             name: "SSSugarPG",
             dependencies: ["SSSugarCore",
                            .product(name: "ArgumentParser", package: "swift-argument-parser")]),
         .testTarget(
             name: "SSSugarCoreTests",
-            dependencies: ["SSSugarCore"]),
+            dependencies: ["SSSugarCore", "SSSugarTesting"]),
         .testTarget(
             name: "SSSugarUIKitTests",
-            dependencies: ["SSSugarUIKit", "SSSugarCore"]),
+            dependencies: ["SSSugarUIKit", "SSSugarCore", "SSSugarTesting"]),
     ]
 )

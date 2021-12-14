@@ -37,23 +37,15 @@ public extension SSDBTypedQueryHandling {
     }
     
     func commit(db: SSDataBaseProtocol, args: [BArgs], preBind: PreBind? = nil) throws {
-        try withStmt(db: db) {(stmt) in
-            try preBind?(stmt)
-            try args.forEach {
-                try stmt.bind(args: $0)
-                try stmt.commit()
-            }
-        }
+        try commit(db: db, args: args, preBind: preBind) { try $0.bind(args: $1) }
     }
     
     func select(db: SSDataBaseProtocol, args: BArgs) throws -> GArgs? {
-        return try selectAll(db: db, args: args).first
+        return try selectAll(db: db, optArgs: args).first
     }
 
-    func selectAll(db: SSDataBaseProtocol, args: BArgs? = nil) throws -> [GArgs] {
-        return try withStmt(db: db) {(stmt) in
-            try stmt.allFor(args: args)
-        }
+    func selectAll(db: SSDataBaseProtocol, args: BArgs) throws -> [GArgs] {
+        return try selectAll(db: db, optArgs: args)
     }
     
     func selectAll(db: SSDataBaseProtocol, forEach args: [BArgs]) throws -> [(BArgs, [GArgs])] {
@@ -70,6 +62,22 @@ public extension SSDBTypedQueryHandling {
             return result
         }
     }
+    
+    private func selectAll(db: SSDataBaseProtocol, optArgs: BArgs? = nil) throws -> [GArgs] {
+        return try withStmt(db: db) {(stmt) in
+            try stmt.allFor(args: optArgs)
+        }
+    }
+    
+    private func commit(db: SSDataBaseProtocol, args: [BArgs], preBind: PreBind? = nil, bind: ((TypedStmt, BArgs) throws -> Void)?) throws {
+        try withStmt(db: db) {(stmt) in
+            try preBind?(stmt)
+            try args.forEach {
+                try bind?(stmt, $0)
+                try stmt.commit()
+            }
+        }
+    }
 }
 
 public extension SSDBTypedQueryHandling where Stmt == SSDataBaseStatementProxy {
@@ -81,5 +89,19 @@ public extension SSDBTypedQueryHandling where Stmt == SSDataBaseStatementProxy {
 public extension SSDBTypedQueryHandling where Stmt == SSDataBaseStatementProcessor {
     func transform(stmt: SSDataBaseStatementProtocol) -> Stmt {
         return SSDataBaseStatementProcessor(stmt)
+    }
+}
+
+public extension SSDBTypedQueryHandling where BArgs == Void {
+    func commit(db: SSDataBaseProtocol, preBind: PreBind? = nil) throws {
+        try commit(db: db, args: [()], preBind: preBind, bind: nil)
+    }
+    
+    func select(db: SSDataBaseProtocol) throws -> GArgs? {
+        return try selectAll(db: db, optArgs: nil).first
+    }
+
+    func selectAll(db: SSDataBaseProtocol) throws -> [GArgs] {
+        return try selectAll(db: db, optArgs: nil)
     }
 }

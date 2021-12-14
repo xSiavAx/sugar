@@ -1,6 +1,6 @@
 import Foundation
 
-public struct SSDBTrigger<Table: SSDBTable>: SSDBComponent {
+public struct SSDBTrigger: SSDBComponent {
     public enum ActionCondition: String {
         case before = "before"
         case after = "after"
@@ -25,7 +25,7 @@ public struct SSDBTrigger<Table: SSDBTable>: SSDBComponent {
                 var query = "update"
                 
                 if let cols = cols {
-                    query += " of " + cols.map { "`\($0.name)`" }.joined(separator: ", ")
+                    query += " of " + cols.map { "`\($0.nameFor(select: false))`" }.joined(separator: ", ")
                 }
                 return "update"
             }
@@ -34,16 +34,18 @@ public struct SSDBTrigger<Table: SSDBTable>: SSDBComponent {
     private static var component: String { "trigger" }
     
     public let name: String
+    public let table: SSDBTable.Type
     public let actionCondition: ActionCondition
     public let action: Action
     public let condition: String?
     public let statements: [String]
     
-    private var componentName: String { "\(Table.tableName)__\(name)" }
+    private var componentName: String { "\(table.tableName)__\(name)" }
     
-    public init?(name: String, actionCondition: ActionCondition, action: Action, condition: String? = nil, statements: [String]) {
+    public init?(name: String, table: SSDBTable.Type, actionCondition: ActionCondition, action: Action, condition: String? = nil, statements: [String]) {
         guard !statements.isEmpty else { return nil }
         self.name = name
+        self.table = table
         self.actionCondition = actionCondition
         self.action = action
         self.condition = condition
@@ -51,7 +53,7 @@ public struct SSDBTrigger<Table: SSDBTable>: SSDBComponent {
     }
     
     public func createQueries(strictExist: Bool) -> [String] {
-        var components = ["\(actionCondition.toQueryComp()) \(action.toQueryComp()) on \(Table.tableName)"]
+        var components = ["\(actionCondition.toQueryComp()) \(action.toQueryComp()) on \(table.tableName)"]
         
         if let condition = condition {
             components.append("when \(condition)")

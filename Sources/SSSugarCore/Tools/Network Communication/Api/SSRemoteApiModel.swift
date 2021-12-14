@@ -15,6 +15,9 @@ public enum SSApiResponse<Entity, CommonError: Error, SpecificError: Error> {
     case fail(error: SSApiError<CommonError, SpecificError>)
 }
 
+#warning("TODO Communicator")
+//TODO: Add `throw` to `func entity() -> Entity` (or optional return) to process `cantParse` case insteaf of fatal error. Cuz unexpected server behaviour when it returns accepable status, no error that may be parsed via `func error() -> IError?` but arguments that don't allow to build Entity.
+
 /// Requirements for Remote Api Model tool.
 ///
 /// Usually ApiModel takes care of some Api call – prepares data for request building (`contentType`, `path`, `args()`) and parses data from response (`response`, `error()`, `entity()`).
@@ -33,8 +36,6 @@ public protocol SSRemoteApiModel: AnyObject {
     
     /// Request and Response arguments Type shortcut
     typealias Args = [String : Any]
-    /// Response headers Type shortcut
-    typealias Headers = [AnyHashable : Any]
     /// Api error Type shortcut
     typealias IError = SSApiError<CommonError, SpecificError>
     /// Response Type shortcut
@@ -45,7 +46,7 @@ public protocol SSRemoteApiModel: AnyObject {
     /// Response data aquired from Communictaor.
     ///
     /// Property fills in extension method `processWith(communicator:options:handler:)` to store data. Also should be used within `entity()` to get data from.
-    var response: (headers: Headers?, args: Args?) {get set}
+    var response: (addon: SSResponseAdditionData?, args: Args?) {get set}
     
     /// Creates arguments to convert to body data of building Request's
     func args() -> Args
@@ -73,11 +74,11 @@ public extension SSRemoteApiModel {
         let body = try options.bodyFromArgs(args())
         var headers = options.headers
 
-        func onFinish(data: Data?, headers: [AnyHashable : Any]?, error: SSCommunicatorError?) {
-            response = (headers, nil)
+        func onFinish(data: Data?, addon: SSResponseAdditionData?, error: SSCommunicatorError?) {
+            response = (addon, nil)
             defer { response = (nil, nil) }
             
-            if let apiError = apiNonParseErrorFrom(commError: error) ?? parseArgs(options: options, data: data, parsedError: error) {
+            if let apiError = apiNonParseErrorFrom(commError: error) ?? parseArgs(options: options, data: data, communicationError: error) {
                 handler(.fail(error: apiError))
             } else {
                 handler(.success(entity: entity()))
@@ -85,7 +86,7 @@ public extension SSRemoteApiModel {
         }
         headers[Self.contentTypeKey] = options.contentType.rawValue
         
-        return communicator.runTask(url: url, headers:headers, body: body, handler: onFinish)
+        return communicator.runTask(url: url, headers:headers, body: body, acceptableStatuses: options.acceptableStatuses, handler: onFinish)
     }
     
     //MARK: private
@@ -100,17 +101,17 @@ public extension SSRemoteApiModel {
     private func apiNonParseErrorFrom(commError: SSCommunicatorError?) -> IError? {
         switch commError {
         case .noConnection:
-            return .call(cause:.noConnection)
+            return .call(cause: .noConnection)
         case .badCertificates:
-            return .call(cause:.badCertificates)
+            return .call(cause: .badCertificates)
         case .libError(let sdkError):
-            return .call(cause:.libError(libError: sdkError))
+            return .call(cause: .libError(libError: sdkError))
         case .unexpectedStatus, nil:
             return nil
         }
     }
     
-    private func parseArgs(options: SSApiCallOptions, data: Data?, parsedError: SSCommunicatorError?) -> IError? {
+    private func parseArgs(options: SSApiCallOptions, data: Data?, communicationError: SSCommunicatorError?) -> IError? {
         do {
             response.args = try options.argsConverter.args(from: data)
             
@@ -118,14 +119,14 @@ public extension SSRemoteApiModel {
                 //That logic may not works if server returns `200 OK` and invalid error in arguments (unexpected type, or value that doesn't match any error).
                 return error
             }
-            switch parsedError {
+            switch communicationError {
             case .unexpectedStatus:
-                return .call(cause: .unexpected(data: data, args: response.args, commError: parsedError))
+                return .call(cause: .unexpected(data: data, args: response.args, commError: communicationError))
             case .noConnection, .badCertificates, .libError, nil:
                 return nil
             }
         } catch {
-            return .call(cause: .unexpected(data: data, args: nil, commError: parsedError))
+            return .call(cause: .unexpected(data: data, args: nil, commError: communicationError))
         }
     }
 }

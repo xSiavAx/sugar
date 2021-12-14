@@ -11,6 +11,14 @@ public protocol SSCommunicatingTask {
     mutating func cancel()
 }
 
+/// Additional data that may be provided with response
+///
+/// - Note: Since `URLSession` doesn't allow get headers dict, we will use this addon protocol to provide headers data (and probably some other data in future) to user.
+///
+public protocol SSResponseAdditionData {
+    func headerValue(for key: String) -> String?
+}
+
 /// Requirements for tool for communication
 ///
 /// - Note: Network Communicator conforms to this protocol and should be used as `Communicating` by default. Protocol helps test tools that do communication.
@@ -21,7 +29,7 @@ public protocol SSCommunicating {
     ///   - body: Response body (if exist)
     ///   - headers: Response headers (if exist)
     ///   - error: Error occured during request preforming (if exist)
-    typealias Handler = (_ body: Data?, _ headers: [AnyHashable : Any]?, _ error: SSCommunicatorError?)->Void
+    typealias Handler = (_ body: Data?, _ addon: SSResponseAdditionData?, _ error: SSCommunicatorError?)->Void
     
     /// Creates and run communicating task (`CommunicatingTask`) – creates newtwork request, performs it, handle response and pass it arguments to callback.
     /// - Parameters:
@@ -31,7 +39,7 @@ public protocol SSCommunicating {
     ///   - handler: Callback. See `Handler` for more info.
     /// - Returns: Created communicating task.
     @discardableResult
-    func runTask(url: URL, headers:[String:String]?, body: Data?, handler: @escaping Handler) -> SSCommunicatingTask
+    func runTask(url: URL, headers:[String:String]?, body: Data?, acceptableStatuses: [Int], handler: @escaping Handler) -> SSCommunicatingTask
 }
 
 extension SSCommunicating {
@@ -43,7 +51,7 @@ extension SSCommunicating {
     ///   - handler: Callback. See `Handler` for more info.
     /// - Returns: Created communicating task.
     @discardableResult
-    func runTask(url: URL, body: Data? = nil, handler: @escaping Handler) -> SSCommunicatingTask {
-        runTask(url: url, headers: nil, body: body, handler: handler)
+    func runTask(url: URL, body: Data? = nil, acceptableStatuses: [Int] = [200], handler: @escaping Handler) -> SSCommunicatingTask {
+        runTask(url: url, headers: nil, body: body, acceptableStatuses: acceptableStatuses, handler: handler)
     }
 }

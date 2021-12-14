@@ -6,14 +6,14 @@ struct Contact: SSDBIDTable {
     static var idColumn = id
     static var idLessColumns: [SSDBColumnProtocol] = [firstName, lastName, birthDay, color, initials, notes, company]
     
-    static let id = SSDBColumn<Int>(name: "id")
-    static let firstName = SSDBColumn<String?>(name: "first_name")
-    static let lastName = SSDBColumn<String?>(name: "last_name")
-    static let birthDay = SSDBColumn<Date?>(name: "birth_day")
-    static let color = SSDBColumn<Int?>(name: "color")
-    static let initials = SSDBColumn<String?>(name: "initials")
-    static let notes = SSDBColumn<String?>(name: "notes")
-    static let company = SSDBColumn<String?>(name: "company")
+    static let id = col("id", type: Int.self)
+    static let firstName = col("first_name", type: String?.self)
+    static let lastName = col("last_name", type: String?.self)
+    static let birthDay = col("birth_day", type: Date?.self)
+    static let color = col("color", type: Int?.self)
+    static let initials = col("initials", type: String?.self)
+    static let notes = col("notes", type: String?.self)
+    static let company = col("company", type: String?.self)
 }
 
 struct ContactGroup: SSDBIDTable {
@@ -21,10 +21,10 @@ struct ContactGroup: SSDBIDTable {
     
     static var idColumn = id
     static var idLessColumns: [SSDBColumnProtocol] = [title]
-    static var indexes: [SSDBTableIndexProtocol]? = idxs(unique: true) { $0.title }
+    static var indexes: [SSDBTableIndexProtocol]? = [idx(unique: true, title)]
     
-    static let id = SSDBColumn<Int>(name: "id")
-    static let title = SSDBColumn<String>(name: "title")
+    static let id = col("id", type: Int.self)
+    static let title = col("title", type: String.self)
 }
 
 struct ContactGroupRel: SSDBTable {
@@ -34,8 +34,8 @@ struct ContactGroupRel: SSDBTable {
     static var colums: [SSDBColumnProtocol] = [group, contact]
     static var foreignKeys: [SSDBTableComponent] = fks(group, contact)
     
-    static var group = ContactGroup.idRef()
-    static var contact = Contact.idRef()
+    static var group = ContactGroup.idRef(for: Self.self)
+    static var contact = Contact.idRef(for: Self.self)
 }
 
 struct DynamicStorage: SSDBStoraging {
@@ -54,31 +54,33 @@ struct DynamicStorage: SSDBStoraging {
         
         static var idColumn = id
         static var idLessColumns: [SSDBColumnProtocol] = [flags, icon, hasAttach, updateTime, relatedMessage, relationType]
-        static var indexes: [SSDBTableIndexProtocol] = idxs(unique: true, { $0.flags }, { $0.icon }, { $0.hasAttach })
+        static var indexes: [SSDBTableIndexProtocol] = [idx(unique: false, flags), idx(unique: false, icon), idx(unique: false, hasAttach)]
         static var foreignKeys: [SSDBTableComponent] = fks(relatedMessage)
         
-        static let id = SSDBColumn<Int64>(name: "id")
-        
-        static let flags = SSDBColumn<Int>(name: "flags")
-        static let icon = SSDBColumn<Int>(name: "icon")
-        static let hasAttach = SSDBColumn<Bool>(name: "has_attach")
-        
-        static let updateTime = SSDBColumn<Date?>(name: "update_time")
-        static let relatedMessage = Message.idRef(prefix: "related", optional: true)
-        static let relationType = SSDBColumn<Int?>(name: "relation_type")
+        static let id = col("id", type: Int64.self)
+
+        static let flags = col("flags", type: Int.self)
+        static let icon = col("icon", type: Int.self)
+        static let hasAttach = col("has_attach", type: Bool.self)
+
+        static let updateTime = col("update_time", type: Date?.self)
+        static let relatedMessage = Message.idRef(for: Self.self, prefix: "related", optional: true)
+        static let relationType = col("relation_type", type: Int?.self)
     }
 }
 
 func main() {
-    let prints = [Contact.selectAllQuery(), Contact.selectQuery(),
-                  ContactGroup.selectAllQuery(), ContactGroup.selectQuery(),
-                  ContactGroupRel.selectAllQuery(), ContactGroupRel.selectQuery()]
-    print(prints.joined(separator: "\n"))
-    let dynamic = try! DynamicStorage(identifier: "test@ukr.net")
+//    let prints = [Contact.selectAllQuery(), Contact.selectQuery(),
+//                  ContactGroup.selectAllQuery(), ContactGroup.selectQuery(),
+//                  ContactGroupRel.selectAllQuery(), ContactGroupRel.selectQuery()]
+//    print(prints.joined(separator: "\n"))
+//    let dynamic = try! DynamicStorage(identifier: "test@ukr.net")
+//
+//    try! dynamic.deinitializeStructure(strictExist: false)
+//    try! dynamic.initializeStructure()
+//    try! dynamic.deinitializeStructure()
     
-    try! dynamic.deinitializeStructure(strictExist: false)
-    try! dynamic.initializeStructure()
-    try! dynamic.deinitializeStructure()
+//    RunLoop.current.run()
 }
 
 main()

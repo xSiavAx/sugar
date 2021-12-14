@@ -81,8 +81,10 @@ extension SSDataBaseStatement: SSDataBaseStatementProtocol {
     public func commit() throws {
         try ensureNotReleased()
         
+        defer { sqlite3_reset(stmt) }
+        
         switch sqlite3_step(stmt) {
-        case SQLITE_DONE: sqlite3_reset(stmt)
+        case SQLITE_DONE: break
         case SQLITE_FULL: throw StatementError.outOfMemory
         case let code: throw commitError(code: code)
         }
@@ -91,6 +93,11 @@ extension SSDataBaseStatement: SSDataBaseStatementProtocol {
     public func clear() throws {
         try ensureNotReleased()
         sqlite3_clear_bindings(stmt)
+    }
+    
+    public func reset() throws {
+        try ensureNotReleased()
+        sqlite3_reset(stmt)
     }
 }
 

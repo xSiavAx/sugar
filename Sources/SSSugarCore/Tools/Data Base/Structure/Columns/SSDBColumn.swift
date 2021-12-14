@@ -1,17 +1,26 @@
 import Foundation
 
 public struct SSDBColumn<ColType: SSDBColType>: SSDBTypedColumnProtocol {
-    public let name: String
+    public var table: SSDBTable.Type
+    private let name: String
     public let defaultVal: ColType?
     public var optional: Bool { ColType.isOptionalCol }
     
-    public init(name mName: String, defaultVal val: ColType? = nil) {
-        name = mName
-        defaultVal = val
+    public init(_ table: SSDBTable.Type, name: String, defaultVal: ColType? = nil) {
+        self.table = table
+        self.defaultVal = defaultVal
+        self.name = name
+    }
+    
+    public func nameFor(select: Bool) -> String {
+        if (select) {
+            return "\(table.tableName).\(name)"
+        }
+        return "\(name)"
     }
     
     public func toCreate() -> String {
-        return "`\(name)` \(ColType.colName)\(createAdditions())"
+        return "\(nameFor(select: false)) \(ColType.colName)\(createAdditions())"
     }
     
     private func createAdditions() -> String {

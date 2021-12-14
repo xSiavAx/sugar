@@ -9,17 +9,36 @@ import Foundation
 ///
 /// `````
 /// - Warning:
-/// There is no sense to override setter and make it synchronised, cuz a lot of mutating operations use both getter and setter ( += 1 for example) and this operations will not be thread safe.
+/// There is no sense to override setter and make it synchronised, cuz a lot of mutating operations use both getter and setter ( += 1 for example) and this operations will not be thread safe (that is non obvious).
+@propertyWrapper
 public class SSAtomic<T> {
-    private let queue = DispatchQueue(label: "ss_queue_for_synced_vars")
+    private let queue: DispatchQueue
     private var val: T
-    public var value: T { get { return queue.sync {val} } }
+    public var wrappedValue: T { get { queue.sync { val } } }
     
-    public init(_ mVal: T) {
+    public init(_ mVal: T, queue mQueue: DispatchQueue = .serialAtomicVars) {
         val = mVal
+        queue = mQueue
     }
     
     public func mutate(_ block: (inout T) -> ()) {
         queue.sync { block(&val) }
     }
 }
+
+@propertyWrapper
+public class SSMultiReadAtomic<T> {
+    private let queue: DispatchQueue
+    private var val: T
+    public var wrappedValue: T { get { queue.sync { val } } }
+    
+    public init(_ mVal: T, queue mQueue: DispatchQueue = .concurrentAtomicVars) {
+        val = mVal
+        queue = mQueue
+    }
+    
+    public func mutate(_ block: (inout T) -> ()) {
+        queue.sync(flags: .barrier, execute: { block(&val) })
+    }
+}
+

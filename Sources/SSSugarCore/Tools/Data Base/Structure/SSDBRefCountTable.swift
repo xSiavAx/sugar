@@ -8,25 +8,25 @@ public protocol SSDBRefCountTable: SSDBTable {
 
 public extension SSDBRefCountTable {
     static func createRefCount(name: String = "ref_count") -> SSDBColumn<Int> {
-        return SSDBColumn<Int>(name: name, defaultVal: 0)
+        return col(name, defaultVal: 0)
     }
     
-    static func releaseTrigger(whereCols cols: [SSDBColumnProtocol]) -> SSDBTrigger<Self> {
+    static func releaseTrigger(whereCols cols: [SSDBColumnProtocol]) -> SSDBTrigger {
         let queryBuilder = query(.delete)
         
-        cols.forEach { queryBuilder.add(colCondition: $0, .equal, value: "new.`\($0.name)`") }
+        cols.forEach { try! queryBuilder.add(colCondition: $0, .equal, value: "new.\($0.nameFor(select: false))") }
         
         return SSDBTrigger(name: "ref_count_release",
+                           table: self,
                            actionCondition: .after,
                            action: .update(of: [refCount]),
-                           condition: "new.`\(refCount.name)` == 0",
+                           condition: "new.`\(refCount.nameFor(select: false))` == 0",
                            statements: [try! queryBuilder.build()])!
     }
-}
-
-public extension SSDBRefCountTable where Self: SSDBIDTable {
-    static func releaseTrigger() -> SSDBTrigger<Self> {
-        return releaseTrigger(whereCols: [idColumn])
+    
+    static func releaseTrigger() -> SSDBTrigger {
+        guard let pk = primaryKey else { fatalError("Primary key ins't defined") }
+        return releaseTrigger(whereCols: pk.cols)
     }
 }
 
@@ -45,38 +45,37 @@ enum RefCountUpdate: String {
 }
 
 public extension SSDBRefCountTable {
-    typealias OnWhereBuild = (_ builder: SSDBQueryBuilder, _ colPrefix: String) -> SSDBQueryBuilder
+    typealias OnWhereBuild = (_ builder: SSDBQueryBuilder, _ colPrefix: String) throws -> SSDBQueryBuilder
     
-    static func updateTriggers<OtherTable: SSDBTable>(match: OnWhereBuild) -> [SSDBTrigger<OtherTable>] {
-        return [increaseTrigger(whereBuild: match), decreaseTrigger(whereBuild: match)]
+    static func updateTriggers(for otherTable: SSDBTable.Type, match: OnWhereBuild) -> [SSDBTrigger] {
+        return [increaseTrigger(for: otherTable, whereBuild: match),
+                decreaseTrigger(for: otherTable, whereBuild: match)]
     }
     
-    static func updateTriggers<TriggerTable: SSDBTable, Column: SSDBTypedColumnProtocol>(colReference: (TriggerTable.Type) -> SSDBColumnRef<Self, Column>) -> [SSDBTrigger<TriggerTable>] {
-        return updateTriggers() {
-            let reference = colReference(TriggerTable.self)
-            
-            return addConditionTo(builder: $0, refTableCol: reference.column, prefix: $1, triggerTableCol: reference)
+    static func updateTriggers(ref: SSDBColumnRefProtocol) -> [SSDBTrigger] {
+        return updateTriggers(for: ref.table) {
+            return try addConditionTo(builder: $0, refTableCol: ref.reference, prefix: $1, triggerTableCol: ref)
         }
     }
     
-    static func updateTriggersWithCols<TriggerTable: SSDBTable>(_ matchCols: (Self.Type, TriggerTable.Type) -> (SSDBColumnProtocol, SSDBColumnProtocol)) -> [SSDBTrigger<TriggerTable>] {
-        return updateTriggers() {
-            let cols = matchCols(Self.self, TriggerTable.self)
-            
-            return addConditionTo(builder: $0, refTableCol: cols.0, prefix: $1, triggerTableCol: cols.1)
+    static func updateTriggersWithCols(col: SSDBColumnProtocol, otherTCol: SSDBColumnProtocol) -> [SSDBTrigger] {
+        return updateTriggers(for: otherTCol.table) {
+            return try addConditionTo(builder: $0, refTableCol: col, prefix: $1, triggerTableCol: otherTCol)
         }
     }
     
-    static func increaseTrigger<OtherTable: SSDBTable>(whereBuild: OnWhereBuild) -> SSDBTrigger<OtherTable> {
+    static func increaseTrigger(for otherTable: SSDBTable.Type, whereBuild: OnWhereBuild) -> SSDBTrigger {
         return SSDBTrigger(name: "content_ref_count_increase",
+                           table: otherTable,
                            actionCondition: .after,
                            action: .insert,
                            statements: [updateRefCountQuery(.increase, whereBuild: whereBuild)])!
         
     }
     
-    static func decreaseTrigger<OtherTable: SSDBTable>(whereBuild: OnWhereBuild) -> SSDBTrigger<OtherTable> {
+    static func decreaseTrigger(for otherTable: SSDBTable.Type, whereBuild: OnWhereBuild) -> SSDBTrigger {
         return SSDBTrigger(name: "content_ref_count_decrease",
+                           table: otherTable,
                            actionCondition: .after,
                            action: .delete,
                            statements: [updateRefCountQuery(.decrease, whereBuild: whereBuild)])!
@@ -90,8 +89,8 @@ public extension SSDBRefCountTable {
     private static func addConditionTo(builder: SSDBQueryBuilder,
                                        refTableCol: SSDBColumnProtocol,
                                        prefix: String,
-                                       triggerTableCol: SSDBColumnProtocol) -> SSDBQueryBuilder {
-        return builder.add(colCondition: refTableCol, .equal, value: "\(prefix).`\(triggerTableCol.name)`")
+                                       triggerTableCol: SSDBColumnProtocol) throws -> SSDBQueryBuilder {
+        return try builder.add(colCondition: refTableCol, .equal, value: "\(prefix).`\(triggerTableCol.nameFor(select: false))`")
     }
 }
 

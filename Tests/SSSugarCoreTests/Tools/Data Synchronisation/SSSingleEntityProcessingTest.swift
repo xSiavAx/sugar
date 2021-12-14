@@ -1,5 +1,6 @@
 import Foundation
 import XCTest
+import SSSugarTesting
 
 @testable import SSSugarCore
 

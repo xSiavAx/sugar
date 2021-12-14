@@ -5,6 +5,7 @@ public struct SSApiCallOptions {
     public var baseURL: URL
     public var headers: [String : String]
     public var argsConverter: SSApiArgsConverting
+    public var acceptableStatuses = [200]
     
     /// Content type of arguments sent to server
     public var contentType: SSApiContentType { argsConverter.contentType }

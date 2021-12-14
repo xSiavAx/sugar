@@ -12,9 +12,6 @@ extension RandomNumberGenerator {
             return next(upperBound: upperBound)
         case .remainder:
             return next() % upperBound
-        @unknown default:
-            assert(false, "Unknown Generator Type")
-            return next(upperBound: upperBound)
         }
     }
 }

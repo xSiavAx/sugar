@@ -23,6 +23,7 @@ public class SSDataBaseStatementCacheHolder {
     public func release() throws {
         try ensureOccupied()
         try statement.clear()
+        try statement.reset()
         occupied = false
     }
     

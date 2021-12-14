@@ -14,13 +14,17 @@ public extension SSDBIDTable {
     static var primaryKey: SSDBPrimaryKeyProtocol? { pk(idColumn) }
     
     static var colums: [SSDBColumnProtocol] { [idColumn] + idLessColumns }
+    
+    static func remove() -> SSDBQueryProcessor<IDColumn.ColType, Void> {
+        return SSDBQueryProcessor(removeQuery(), onBind: { try $0.bind($1) })
+    }
 }
 
 //MARK: - Reference Creating
 
 public extension SSDBIDTable {
-    static func idRef(prefix: String? = nil, optional: Bool? = nil) -> SSDBColumnRef<Self, Self.IDColumn> {
-        return SSDBColumnRef(table: Self.self, prefix: prefix, optional: optional) { $0.idColumn }
+    static func idRef(for table: SSDBTable.Type, prefix: String? = nil, optional: Bool? = nil) -> SSDBColumnRef<IDColumn> {
+        return SSDBColumnRef(table, prefix: prefix, optional: optional, col: idColumn)
     }
 }
 

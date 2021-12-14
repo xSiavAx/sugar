@@ -80,3 +80,13 @@ extension SSApiErrorConverter where SpecificError: SSStringRepresentableApiError
         return SpecificError(rawValue: input)
     }
 }
+
+extension SSApiErrorConverter where CommonError: SSStringRepresentableApiErrorComponent, SpecificError: SSStringRepresentableApiErrorComponent {
+    /// Creates read-only `Adapter` for `SSKeyField<ApiError<CommonError, SpecificError>>`, that returns `nil` on input is `nil`.
+    /// - Returns: Created adapter.
+    ///
+    /// Use `ApiErrorCause.from(string:)` to build `Specific` error
+    public static func parser() -> Adapter {
+        return parser(buildCommon: buildCommon, buildSpecific: buildSpecific)
+    }
+}

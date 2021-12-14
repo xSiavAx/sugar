@@ -221,7 +221,7 @@ class SSRemoteApiTests: XCTestCase {
     
     func configApiExpectation() {
         let args = converter.argsIgnoringError(from: communicator.response)
-        api.expected = (communicator.responseHeaders as? [String : String], args as? [String : String])
+        api.expected = (communicator.addon, args as? [String : String])
     }
     
     //MARK: - Helpers
@@ -239,9 +239,17 @@ class SSRemoteApiTests: XCTestCase {
     }
     
     class Communicator: SSCommunicating {
-        var expected: (url: URL, body: Data, headers: [String : String])?
+        struct Addon: SSResponseAdditionData, Equatable {
+            var headers: [String : String]
+            
+            func headerValue(for key: String) -> String? {
+                return headers[key]
+            }
+            
+        }
+        var expected: (url: URL, body: Data, acceptedStatuses: [Int], headers: [String : String])?
         var response: Data!
-        var responseHeaders: [AnyHashable : Any]!
+        var addon: Addon!
         var error: SSCommunicatorError?
         var check: (Bool)->Void
         
@@ -259,26 +267,29 @@ class SSRemoteApiTests: XCTestCase {
         func configExpectingWith(options: SSApiCallOptions, path: String, args: [String : Any]) -> Communicator {
             if let body = try? options.bodyFromArgs(args) {
                 let url = options.baseURL.appendingPathComponent(path)
+                let acceptedHeaders = [200]
                 let headers = options.headers.merging([TestApi.contentTypeKey : SSApiContentType.json.rawValue])
                 
-                expected = (url, body, headers)
+                expected = (url, body, acceptedHeaders, headers)
             }
             
             return self
         }
         
-        func runTask(url: URL, headers: [String : String]?, body: Data?, handler: @escaping Handler) -> SSCommunicatingTask {
+        func runTask(url: URL, headers: [String : String]?, body: Data?, acceptableStatuses: [Int], handler: @escaping Handler) -> SSCommunicatingTask {
             check(url == expected?.url)
             check(body == expected?.body)
+            check(acceptableStatuses.testContainsAs(other: expected!.acceptedStatuses))
             check(headers == expected?.headers)
             
             func onBg() {
-                handler(response, responseHeaders, error)
+                handler(response, addon, error)
             }
             
             DispatchQueue.bg.async(execute: onBg)
             return DummyTask()
         }
+        
     }
     
     class TestApi: SSRemoteApiModel {
@@ -288,9 +299,9 @@ class SSRemoteApiTests: XCTestCase {
         static let specificError = "specific_error"
         
         var contentType: SSApiContentType { .json }
-        var response: (headers: Headers?, args: Args?)
+        var response: (addon: SSResponseAdditionData?, args: Args?)
         var arguments: Args
-        var expected: (headers: [String : String]?, args: [String : String]?)
+        var expected: (addon: Communicator.Addon?, args: [String : String]?)
         
         var path: String
         var check: (Bool)->Void
@@ -320,7 +331,7 @@ class SSRemoteApiTests: XCTestCase {
         }
         
         func checkArgsAndHeaders() {
-            check(expected.headers == response.headers as? [String : String])
+            check(expected.addon == response.addon as? Communicator.Addon)
             check(expected.args == response.args as? [String : String])
         }
     }
