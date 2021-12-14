@@ -1,6 +1,6 @@
 import Foundation
 
-public class SSMock: SSMocking {
+open class SSMock: SSMocking {
     public var calls = [SSMockCallExpectation]()
     public var registration: SSExpectRegistration!
     public var onFail: (String?) -> Void
