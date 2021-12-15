@@ -4,11 +4,6 @@ public typealias SSDBStoragingContainer = SSDBStoraging & SSDBStoragingTabled & 
 
 public protocol SSDBStoraging {
     var db: SSDataBaseStorage { get }
-    
-    func within<T, Transaction>(create: () throws -> Transaction,
-                                cancel: (Transaction) throws -> Void,
-                                commit: (Transaction) throws -> Void,
-                                job: () throws -> T) throws -> T
 }
 
 public protocol SSDBStoragingTabled: SSDBStoraging {
