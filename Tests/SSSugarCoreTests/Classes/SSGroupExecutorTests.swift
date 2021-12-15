@@ -18,6 +18,8 @@
  */
 
 import XCTest
+import SSSugarTesting
+
 @testable import SSSugarCore
 
 class SSGroupExecutorTests: XCTestCase {
@@ -41,20 +43,20 @@ class SSGroupExecutorTests: XCTestCase {
         sut.finish {
             expectation.fulfill()
 
-            XCTAssert(Thread.isMainThread)
+            XCTAssert(!Thread.isMainThread)
         }
         wait(for: [expectation], timeout: 1)
     }
-    
+
     func testOneTask() {
         let expectationTask = XCTestExpectation()
         let expectationFinish = XCTestExpectation()
 
         sut.add(fulfillTask(expectationTask, in: .main) { XCTAssert(Thread.isMainThread) })
-        sut.finish {
+        sut.finish() {
             expectationFinish.fulfill()
 
-            XCTAssert(Thread.isMainThread)
+            XCTAssert(!Thread.isMainThread)
         }
         wait(for: [expectationTask, expectationFinish], timeout: 1, enforceOrder: true)
     }
@@ -69,7 +71,7 @@ class SSGroupExecutorTests: XCTestCase {
         sut.finish {
             expectationFinish.fulfill()
 
-            XCTAssert(Thread.isMainThread)
+            XCTAssert(!Thread.isMainThread)
         }
         wait(for: [expectationTasks, expectationFinish], timeout: 1, enforceOrder: true)
     }
@@ -83,7 +85,7 @@ class SSGroupExecutorTests: XCTestCase {
         sut.finish {
             expectationFinish.fulfill()
 
-            XCTAssert(Thread.isMainThread)
+            XCTAssert(!Thread.isMainThread)
         }
         wait(for: [expectationTask, expectationFinish], timeout: 1, enforceOrder: true)
     }
@@ -99,7 +101,7 @@ class SSGroupExecutorTests: XCTestCase {
         sut.finish {
             expectationFinish.fulfill()
 
-            XCTAssert(Thread.isMainThread)
+            XCTAssert(!Thread.isMainThread)
         }
         wait(for: [expectationTasks, expectationFinish], timeout: 1, enforceOrder: true)
     }
@@ -115,7 +117,7 @@ class SSGroupExecutorTests: XCTestCase {
         sut.finish {
             expectationFinish.fulfill()
 
-            XCTAssert(Thread.isMainThread)
+            XCTAssert(!Thread.isMainThread)
         }
         wait(for: [expectationTasks, expectationFinish], timeout: 1, enforceOrder: true)
     }
@@ -124,7 +126,7 @@ class SSGroupExecutorTests: XCTestCase {
         let expectation = XCTestExpectation()
         let testQueue = TestQueue()
         
-        sut.finish(queue: testQueue.queue) {
+        sut.finish(executor: testQueue.queue) {
             expectation.fulfill()
 
             XCTAssert(testQueue.isCurrent())
@@ -138,7 +140,7 @@ class SSGroupExecutorTests: XCTestCase {
         let testQueue = TestQueue()
         
         sut.add(fulfillTask(expectationTask, in: .main))
-        sut.finish(queue: testQueue.queue) {
+        sut.finish(executor: testQueue.queue) {
             expectationFinish.fulfill()
 
             XCTAssert(testQueue.isCurrent())
@@ -154,7 +156,7 @@ class SSGroupExecutorTests: XCTestCase {
         for _ in 0..<3 {
             sut.add(fulfillTask(expectationTasks, in: .main) { XCTAssert(Thread.isMainThread) })
         }
-        sut.finish(queue: testQueue.queue) {
+        sut.finish(executor: testQueue.queue) {
             expectationFinish.fulfill()
 
             XCTAssert(testQueue.isCurrent())
@@ -169,7 +171,7 @@ class SSGroupExecutorTests: XCTestCase {
         let finishTestQueue = TestQueue(label: "finishTestQueue", value: "finishTestQueue")
         
         sut.add(fulfillTask(expectationTask, in: taskTestQueue.queue) { XCTAssert(taskTestQueue.isCurrent()) })
-        sut.finish(queue: finishTestQueue.queue) {
+        sut.finish(executor: finishTestQueue.queue) {
             expectationFinish.fulfill()
 
             XCTAssert(finishTestQueue.isCurrent())
@@ -186,7 +188,7 @@ class SSGroupExecutorTests: XCTestCase {
         for _ in 0..<3 {
             sut.add(fulfillTask(expectationTasks, in: taskTestQueue.queue) { XCTAssert(taskTestQueue.isCurrent()) })
         }
-        sut.finish(queue: finishTestQueue.queue) {
+        sut.finish(executor: finishTestQueue.queue) {
             expectationFinish.fulfill()
 
             XCTAssert(finishTestQueue.isCurrent())
@@ -203,7 +205,7 @@ class SSGroupExecutorTests: XCTestCase {
         sut.add(fulfillTask(expectationTasks, in: taskTestQueue.queue) { XCTAssert(taskTestQueue.isCurrent()) })
         sut.add(fulfillTask(expectationTasks, in: .main) { XCTAssert(Thread.isMainThread) })
         sut.add(fulfillTask(expectationTasks, in: taskTestQueue.queue) { XCTAssert(taskTestQueue.isCurrent()) })
-        sut.finish(queue: finishTestQueue.queue) {
+        sut.finish(executor: finishTestQueue.queue) {
             expectationFinish.fulfill()
 
             XCTAssert(finishTestQueue.isCurrent())
