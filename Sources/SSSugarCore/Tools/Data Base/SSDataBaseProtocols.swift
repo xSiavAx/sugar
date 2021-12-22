@@ -117,7 +117,7 @@ public typealias SSFileBasedDataBaseProtocol = SSDataBaseProtocol & SSFileBasedD
 
 // MARK: - SSFileBasedDataBaseCreator
 
-public protocol SSFileBasedDataBaseCreator {
+public protocol SSFileBasedDataBaseStaticCreator {
     static func dbWith(baseDir: SSDataBase.BaseDir, name: String, prefix: String?) throws -> SSFileBasedDataBaseProtocol
     #if os(iOS)
     static func dbWith(name: String, prefix: String?) throws -> SSFileBasedDataBaseProtocol

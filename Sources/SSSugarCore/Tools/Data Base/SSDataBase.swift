@@ -173,35 +173,6 @@ extension SSDataBase: SSCacheContainer {
 // MARK: - SSFileBasedDataBase
 
 extension SSDataBase: SSFileBasedDataBase {
-    public static func dbWith(baseDir: BaseDir, name: String, prefix: String? = nil) throws -> Self {
-        var path = baseDir.url
-
-        if let prefix = prefix {
-            path.appendPathComponent(prefix)
-        }
-        if (!FileManager.default.fileExists(atPath: path.path)) {
-            try FileManager.default.createDirectory(atPath: path.path, withIntermediateDirectories: true, attributes: nil)
-        }
-        path.appendPathComponent("\(name).sqlite3")
-        NSLog("Data Base path:\n\(path)")
-
-        return SSDataBase(path: path) as! Self
-    }
-
-    #if os(iOS)
-    public static func dbWith(name: String, prefix: String? = nil) throws -> Self {
-        return try dbWith(baseDir: .documents, name: name, prefix: prefix)
-    }
-    #else
-    public static func dbWith(name: String, prefix: String? = nil) throws -> Self {
-        return try dbWith(baseDir: .current, name: name, prefix: prefix)
-    }
-    #endif
-    public static func dbWith(baseDir: URL, name: String, prefix: String? = nil) throws -> Self {
-        return try dbWith(baseDir: .custom(baseDir), name: name, prefix: prefix)
-    }
-
-
     public func close() {
         try? statementsCache.clearAll()
         if (connection.isOpen) {
@@ -234,5 +205,37 @@ extension SSDataBase: SSFileBasedDataBase {
     @available(*, deprecated, renamed: "close()")
     public func finish() {
         close()
+    }
+}
+
+// MARK: - SSFileBasedDataBaseStaticCreator
+
+extension SSDataBase: SSFileBasedDataBaseStaticCreator {
+    public static func dbWith(baseDir: BaseDir, name: String, prefix: String? = nil) throws -> SSFileBasedDataBaseProtocol {
+        var path = baseDir.url
+
+        if let prefix = prefix {
+            path.appendPathComponent(prefix)
+        }
+        if (!FileManager.default.fileExists(atPath: path.path)) {
+            try FileManager.default.createDirectory(atPath: path.path, withIntermediateDirectories: true, attributes: nil)
+        }
+        path.appendPathComponent("\(name).sqlite3")
+        NSLog("Data Base path:\n\(path)")
+
+        return SSDataBase(path: path) as! Self
+    }
+
+    #if os(iOS)
+    public static func dbWith(name: String, prefix: String? = nil) throws -> SSFileBasedDataBaseProtocol {
+        return try dbWith(baseDir: .documents, name: name, prefix: prefix)
+    }
+    #else
+    public static func dbWith(name: String, prefix: String? = nil) throws -> SSFileBasedDataBaseProtocol {
+        return try dbWith(baseDir: .current, name: name, prefix: prefix)
+    }
+    #endif
+    public static func dbWith(baseDir: URL, name: String, prefix: String? = nil) throws -> SSFileBasedDataBaseProtocol {
+        return try dbWith(baseDir: .custom(baseDir), name: name, prefix: prefix)
     }
 }
