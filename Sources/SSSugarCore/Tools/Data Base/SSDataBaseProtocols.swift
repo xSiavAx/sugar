@@ -113,7 +113,7 @@ public protocol SSFileBasedDataBase: SSDataBaseProtocol {
     func finish()
 }
 
-typealias SSFileBasedDataBaseProtocol = SSDataBaseProtocol & SSFileBasedDataBase
+public typealias SSFileBasedDataBaseProtocol = SSDataBaseProtocol & SSFileBasedDataBase
 
 // MARK: - SSFileBasedDataBaseCreator
 
