@@ -113,14 +113,16 @@ public protocol SSFileBasedDataBase: SSDataBaseProtocol {
     func finish()
 }
 
+typealias SSFileBasedDataBaseProtocol = SSDataBaseProtocol & SSFileBasedDataBase
+
 // MARK: - SSFileBasedDataBaseCreator
 
 public protocol SSFileBasedDataBaseCreator {
-    static func dbWith(baseDir: SSDataBase.BaseDir, name: String, prefix: String?) throws -> Self
+    static func dbWith(baseDir: SSDataBase.BaseDir, name: String, prefix: String?) throws -> SSFileBasedDataBaseProtocol
     #if os(iOS)
-    static func dbWith(name: String, prefix: String?) throws -> Self
+    static func dbWith(name: String, prefix: String?) throws -> SSFileBasedDataBaseProtocol
     #else
-    static func dbWith(name: String, prefix: String?) throws -> Self
+    static func dbWith(name: String, prefix: String?) throws -> SSFileBasedDataBaseProtocol
     #endif
-    static func dbWith(baseDir: URL, name: String, prefix: String?) throws -> Self
+    static func dbWith(baseDir: URL, name: String, prefix: String?) throws -> SSFileBasedDataBaseProtocol
 }

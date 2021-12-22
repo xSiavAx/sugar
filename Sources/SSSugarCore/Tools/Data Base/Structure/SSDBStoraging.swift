@@ -3,7 +3,7 @@ import Foundation
 public typealias SSDBStoraging = SSBaseDBStoraging & SSDBStoragingTabled & SSDBInitializableStoraging & SSDBDeinitializableStoraging & SSTransactedStoraging
 
 public protocol SSBaseDBStoraging {
-    var db: SSDataBaseProtocol & SSFileBasedDataBase { get }
+    var db: SSFileBasedDataBaseProtocol { get }
 }
 
 // MARK: - SSDBStoragingTabled
