@@ -99,14 +99,6 @@ public protocol SSDataBaseProtocol: SSTransacted, SSDataBaseStatementCreator, SS
 // MARK: - SSFileBasedDataBase
 
 public protocol SSFileBasedDataBase: SSDataBaseProtocol {
-    static func dbWith(baseDir: SSDataBase.BaseDir, name: String, prefix: String?) throws -> Self
-    #if os(iOS)
-    static func dbWith(name: String, prefix: String?) throws -> Self
-    #else
-    static func dbWith(name: String, prefix: String?) throws -> Self
-    #endif
-    static func dbWith(baseDir: URL, name: String, prefix: String?) throws -> Self
-
     func close()
     func remove() throws
 
@@ -119,4 +111,16 @@ public protocol SSFileBasedDataBase: SSDataBaseProtocol {
     /// - Warning: **Deprecated**. Use `close()` instead.
     @available(*, deprecated, renamed: "close()")
     func finish()
+}
+
+// MARK: - SSFileBasedDataBaseCreator
+
+public protocol SSFileBasedDataBaseCreator {
+    static func dbWith(baseDir: SSDataBase.BaseDir, name: String, prefix: String?) throws -> Self
+    #if os(iOS)
+    static func dbWith(name: String, prefix: String?) throws -> Self
+    #else
+    static func dbWith(name: String, prefix: String?) throws -> Self
+    #endif
+    static func dbWith(baseDir: URL, name: String, prefix: String?) throws -> Self
 }
