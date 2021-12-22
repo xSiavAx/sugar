@@ -1,21 +1,27 @@
 import Foundation
 
-public typealias SSDBStoragingContainer = SSDBStoraging & SSDBStoragingTabled & SSDBStoragingInitialize & SSDBStoragingDeinitialize & SSDBStoragingTransacted
+public typealias SSDBStoraging = SSBaseDBStoraging & SSDBStoragingTabled & SSDBInitializableStoraging & SSDBDeinitializableStoraging & SSTransactedStoraging
 
-public protocol SSDBStoraging {
-    var db: SSDataBaseStorage { get }
+public protocol SSBaseDBStoraging {
+    var db: SSDataBaseProtocol { get }
 }
 
-public protocol SSDBStoragingTabled: SSDBStoraging {
+// MARK: - SSDBStoragingTabled
+
+public protocol SSDBStoragingTabled: SSBaseDBStoraging {
     static var tables: [SSDBTable.Type] { get }
 }
 
-public protocol SSDBStoragingInitialize: SSDBStoragingTabled {
+// MARK: - SSDBInitializableStoraging
+
+public protocol SSDBInitializableStoraging {
     func initializeStructure() throws
     func initializeStructure(strictExist: Bool) throws
 }
 
-public extension SSDBStoragingInitialize {
+// MARK: Self: SSDBStoragingTabled
+
+public extension SSDBInitializableStoraging where Self: SSDBStoragingTabled {
     func initializeStructure() throws {
         try initializeStructure(strictExist: true)
     }
@@ -23,16 +29,20 @@ public extension SSDBStoragingInitialize {
     func initializeStructure(strictExist: Bool) throws {
         let queries = Self.tables.reduce([]) { $0 + $1.createQueries(strictExist: strictExist) }
 
-        try db.exec(queries: queries)
+        try db.transacted(queries: queries)
     }
 }
 
-public protocol SSDBStoragingDeinitialize: SSDBStoragingTabled {
+// MARK: - SSDBDeinitializableStoraging
+
+public protocol SSDBDeinitializableStoraging {
     func deinitializeStructure() throws
     func deinitializeStructure(strictExist: Bool) throws
 }
 
-public extension SSDBStoragingDeinitialize {
+// MARK: Self: SSDBStoragingTabled
+
+public extension SSDBDeinitializableStoraging where Self: SSDBStoragingTabled {
     func deinitializeStructure() throws {
         try deinitializeStructure(strictExist: true)
     }
@@ -40,16 +50,20 @@ public extension SSDBStoragingDeinitialize {
     func deinitializeStructure(strictExist: Bool) throws {
         let queries = Self.tables.reduce([]) { $0 + $1.dropQueries(strictExist: strictExist) }
 
-        try db.exec(queries: queries)
+        try db.transacted(queries: queries)
     }
 }
 
-public protocol SSDBStoragingTransacted: SSDBStoraging {
+// MARK: - SSDBStoragingTransacted
+
+public protocol SSTransactedStoraging {
     func withinTransaction<T>(job: () throws -> T ) throws -> T
     func withinSavePoint<T>(_ label: String, job: () throws -> T) throws -> T
 }
 
-public extension SSDBStoragingTransacted {
+// MARK: Self: SSBaseDBStoraging
+
+public extension SSTransactedStoraging where Self: SSBaseDBStoraging {
     func withinTransaction<T>(job: () throws -> T ) throws -> T {
         try within(create: { try db.beginTransaction() },
                    cancel: { try db.cancelTransaction() },
