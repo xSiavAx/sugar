@@ -28,6 +28,8 @@ public protocol SSDataBaseBindingStatement {
     func bindNull(pos: Int) throws
 }
 
+// MARK: - SSDataBaseGettingStatement
+
 public protocol SSDataBaseGettingStatement {
     func getInt(pos: Int) throws -> Int
     func getInt64(pos: Int) throws -> Int64
@@ -38,6 +40,8 @@ public protocol SSDataBaseGettingStatement {
     func isNull(pos: Int) throws -> Bool
 }
 
+// MARK: - SSDataBaseStatementProtocol
+
 public protocol SSDataBaseStatementProtocol: SSDataBaseBindingStatement, SSDataBaseGettingStatement, SSReleasable {
     func select() throws -> Bool
     func commit() throws
@@ -45,32 +49,17 @@ public protocol SSDataBaseStatementProtocol: SSDataBaseBindingStatement, SSDataB
     func reset() throws
 }
 
-public protocol SSDataBaseSavePointProtocol: SSReleasable {
-    /// Revert all changes withing save point.
-    /// - Importnat: Doesnt cause releasing. U should call release() on your own, nevermind did `rollBack` called or not.
-    func rollBack() throws
-}
-
-public protocol SSDataBaseStatementCreator: AnyObject {
-    func statement(forQuery : String) throws -> SSDataBaseStatementProtocol
-}
-
-public protocol SSDataBaseProtocol: SSTransacted, SSDataBaseStatementCreator, SSDataBaseQueryExecutor, SSCacheContainer {
-    func savePoint(withTitle: String) throws -> SSDataBaseSavePointProtocol
-    func lastInsrtedRowID() -> Int64
-}
-
 public extension SSDataBaseStatementProtocol {
     func bind<T: SSDBColType>(_ val: T, pos: Int) throws {
         try val.bindTo(stmt: self, pos: pos)
     }
-    
+
     func get<T: SSDBColType>(pos: Int) throws -> T {
         return try T.from(stmt: self, pos: pos)
     }
-    
-    //MARK: - deprecated
-    
+
+    // MARK: Deprecated
+
     /// - Warning: **Deprecated**. Use `init(size:buildBlock:)` instead.
     @available(*, deprecated, message: "Use `bind<T: SSDBColType>(_ val: T, pos: Int)` instead")
     func bind<T: SSDBColType>(val: T, pos: Int) throws {
@@ -78,18 +67,56 @@ public extension SSDataBaseStatementProtocol {
     }
 }
 
-public protocol SSDataBaseStorage: SSDataBaseProtocol & SSTransacted & SSDataBaseStatementCreator & SSDataBaseTransactionCreator & SSDataBaseQueryExecutor & SSCacheContainer {
-    static func dbWith(baseDir: SSDataBase.BaseDir, name: String, prefix: String?) throws -> SSDataBaseStorage
+// MARK: - SSDataBaseSavePointProtocol
 
-    #if os(iOS)
-    static func dbWith(name: String, prefix: String?) throws -> SSDataBaseStorage
-    #else
-    static func dbWith(name: String, prefix: String?) throws -> SSDataBaseStorage
-    #endif
-    static func dbWith(baseDir: URL, name: String, prefix: String?) throws -> SSDataBaseStorage
+public protocol SSDataBaseSavePointProtocol: SSReleasable {
+    /// Revert all changes withing save point.
+    /// - Importnat: Doesnt cause releasing. U should call release() on your own, nevermind did `rollBack` called or not.
+    func rollBack() throws
+}
 
+// MARK: - SSDataBaseStatementCreator
+
+public protocol SSDataBaseStatementCreator: AnyObject {
+    func statement(forQuery : String) throws -> SSDataBaseStatementProtocol
+}
+
+// MARK: - SSDataBaseProtocol
+
+public protocol SSDataBaseProtocol: SSTransacted, SSDataBaseStatementCreator, SSDataBaseQueryExecutor, SSCacheContainer {
     func stmtProcessor(query: String) throws -> SSDataBaseStatementProcessor
+    func savePoint(withTitle: String) throws -> SSDataBaseSavePointProtocol
+    func lastInsrtedRowID() -> Int64
+    func transacted(queries: [String]) throws
+
+    // MARK: Deprecated
+
+    /// - Warning: **Deprecated**. Use `transacted(queries:)` insted.
+    @available(*, deprecated, renamed: "transacted(queries:)")
     func exec(queries: [String]) throws
-    func finish()
+}
+
+// MARK: - SSFileBasedDataBase
+
+public protocol SSFileBasedDataBase: SSDataBaseProtocol {
+    static func dbWith(baseDir: SSDataBase.BaseDir, name: String, prefix: String?) throws -> Self
+    #if os(iOS)
+    static func dbWith(name: String, prefix: String?) throws -> Self
+    #else
+    static func dbWith(name: String, prefix: String?) throws -> Self
+    #endif
+    static func dbWith(baseDir: URL, name: String, prefix: String?) throws -> Self
+
+    func close()
+    func remove() throws
+
+    // MARK: Deprecated
+
+    /// - Warning: **Deprecated**. Use `remove()` instead.
+    @available(*, deprecated, renamed: "remove()")
     func removeDB() throws
+
+    /// - Warning: **Deprecated**. Use `close()` instead.
+    @available(*, deprecated, renamed: "close()")
+    func finish()
 }
