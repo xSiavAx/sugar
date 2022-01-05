@@ -98,7 +98,7 @@ public protocol SSDataBaseProtocol: SSTransacted, SSDataBaseStatementCreator, SS
 
 // MARK: - SSFileBasedDataBase
 
-public protocol SSFileBasedDataBase: SSDataBaseProtocol {
+public protocol SSFileBasedDataBase {
     func close()
     func remove() throws
 
