@@ -1,7 +1,7 @@
 import Foundation
 
 enum SSDBColError: Error {
-    case unexpectedNull
+    case unimplemented
 }
 
 public protocol SSDBColType {
@@ -30,7 +30,7 @@ public extension SSDBColType {
     }
     
     static func onGetNil() throws -> Self {
-        throw SSDBColError.unexpectedNull
+        throw SSDBColError.unimplemented
     }
 }
 
