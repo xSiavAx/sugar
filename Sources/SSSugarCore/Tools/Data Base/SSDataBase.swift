@@ -211,7 +211,7 @@ extension SSDataBase: SSFileBasedDataBase {
 // MARK: - SSFileBasedDataBaseStaticCreator
 
 extension SSDataBase: SSFileBasedDataBaseStaticCreator {
-    public static func dbWith(baseDir: BaseDir, name: String, prefix: String? = nil) throws -> SSFileBasedDataBaseProtocol {
+    public static func dbWith(baseDir: BaseDir, name: String, prefix: String? = nil) throws -> SSDataBaseProtocol & SSFileBasedDataBase {
         var path = baseDir.url
 
         if let prefix = prefix {
@@ -226,16 +226,17 @@ extension SSDataBase: SSFileBasedDataBaseStaticCreator {
         return SSDataBase(path: path) as! Self
     }
 
+    public static func dbWith(baseDir: URL, name: String, prefix: String? = nil) throws -> SSDataBaseProtocol & SSFileBasedDataBase {
+        return try dbWith(baseDir: .custom(baseDir), name: name, prefix: prefix)
+    }
+
     #if os(iOS)
-    public static func dbWith(name: String, prefix: String? = nil) throws -> SSFileBasedDataBaseProtocol {
+    public static func dbWith(name: String, prefix: String? = nil) throws -> SSDataBaseProtocol & SSFileBasedDataBase {
         return try dbWith(baseDir: .documents, name: name, prefix: prefix)
     }
     #else
-    public static func dbWith(name: String, prefix: String? = nil) throws -> SSFileBasedDataBaseProtocol {
+    public static func dbWith(name: String, prefix: String? = nil) throws -> SSDataBaseProtocol & SSFileBasedDataBase {
         return try dbWith(baseDir: .current, name: name, prefix: prefix)
     }
     #endif
-    public static func dbWith(baseDir: URL, name: String, prefix: String? = nil) throws -> SSFileBasedDataBaseProtocol {
-        return try dbWith(baseDir: .custom(baseDir), name: name, prefix: prefix)
-    }
 }
