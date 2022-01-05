@@ -1,6 +1,6 @@
 import Foundation
 
-public typealias SSDBStoraging = SSBaseDBStoraging & SSDBStoragingTabled & SSDBInitializableStoraging & SSDBDeinitializableStoraging & SSTransactedStoraging
+public typealias SSDBStoraging = SSBaseDBStoraging & SSDBTabledStoraging & SSDBInitializableStoraging & SSDBDeinitializableStoraging & SSTransactedStoraging
 
 public protocol SSBaseDBStoraging {
     var db: SSDataBaseProtocol { get }
@@ -8,7 +8,7 @@ public protocol SSBaseDBStoraging {
 
 // MARK: - SSDBStoragingTabled
 
-public protocol SSDBStoragingTabled: SSBaseDBStoraging {
+public protocol SSDBTabledStoraging: SSBaseDBStoraging {
     static var tables: [SSDBTable.Type] { get }
 }
 
@@ -21,7 +21,7 @@ public protocol SSDBInitializableStoraging {
 
 // MARK: Self: SSDBStoragingTabled
 
-public extension SSDBInitializableStoraging where Self: SSDBStoragingTabled {
+public extension SSDBInitializableStoraging where Self: SSDBTabledStoraging {
     func initializeStructure() throws {
         try initializeStructure(strictExist: true)
     }
@@ -42,7 +42,7 @@ public protocol SSDBDeinitializableStoraging {
 
 // MARK: Self: SSDBStoragingTabled
 
-public extension SSDBDeinitializableStoraging where Self: SSDBStoragingTabled {
+public extension SSDBDeinitializableStoraging where Self: SSDBTabledStoraging {
     func deinitializeStructure() throws {
         try deinitializeStructure(strictExist: true)
     }
