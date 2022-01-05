@@ -23,7 +23,7 @@ public extension SSDBColType {
     static var isOptionalCol: Bool { false }
     
     static func from(stmt: Statement, pos: Int) throws -> Self {
-        if (try stmt.isNull(pos: pos)) {
+        if (isOptionalCol && try stmt.isNull(pos: pos)) {
             return try onGetNil()
         }
         return try onGetNonNil(stmt: stmt, pos: pos)
