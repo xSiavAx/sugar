@@ -230,13 +230,11 @@ extension SSDataBase: SSFileBasedDataBaseStaticCreator {
         return try dbWith(baseDir: .custom(baseDir), name: name, prefix: prefix)
     }
 
-    #if os(iOS)
     public static func dbWith(name: String, prefix: String? = nil) throws -> SSDataBaseProtocol & SSFileBasedDataBase {
+#if os(iOS)
         return try dbWith(baseDir: .documents, name: name, prefix: prefix)
-    }
-    #else
-    public static func dbWith(name: String, prefix: String? = nil) throws -> SSDataBaseProtocol & SSFileBasedDataBase {
+#else
         return try dbWith(baseDir: .current, name: name, prefix: prefix)
+#endif
     }
-    #endif
 }
