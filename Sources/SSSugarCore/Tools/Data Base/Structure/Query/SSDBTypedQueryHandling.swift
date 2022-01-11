@@ -40,8 +40,8 @@ public extension SSDBTypedQueryHandling {
         try commit(db: db, args: args, preBind: preBind) { try $0.bind(args: $1) }
     }
     
-    func select(db: SSDataBaseProtocol, args: BArgs) throws -> GArgs? {
-        return try selectAll(db: db, optArgs: args).first
+    func selectFirst(db: SSDataBaseProtocol, args: BArgs) throws -> GArgs? {
+        return try withStmt(db: db) { try $0.firstFor(args:args) }
     }
 
     func selectAll(db: SSDataBaseProtocol, args: BArgs) throws -> [GArgs] {
@@ -56,10 +56,7 @@ public extension SSDBTypedQueryHandling {
     
     func selectUnion(db: SSDataBaseProtocol, forEach args: [BArgs]) throws -> [GArgs] {
         return try withStmt(db: db) {(stmt) in
-            var result = [GArgs]()
-            
-            try args.forEach { result += try stmt.allFor(args: $0) }
-            return result
+            try args.reduce(into: []) { $0 += try stmt.allFor(args: $1) }
         }
     }
     
@@ -77,6 +74,12 @@ public extension SSDBTypedQueryHandling {
                 try stmt.commit()
             }
         }
+    }
+    
+    /// - Warning: **Deprecated**. Use `init(size:buildBlock:)` instead.
+    @available(*, deprecated, message: "Use `selectFirst(db:args:)` instead")
+    func select(db: SSDataBaseProtocol, args: BArgs) throws -> GArgs? {
+        return try selectFirst(db: db, args: args)
     }
 }
 
