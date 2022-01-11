@@ -100,11 +100,17 @@ public extension SSDBTypedQueryHandling where BArgs == Void {
         try commit(db: db, args: [()], preBind: preBind, bind: nil)
     }
     
-    func select(db: SSDataBaseProtocol) throws -> GArgs? {
-        return try selectAll(db: db, optArgs: nil).first
+    func selectFirst(db: SSDataBaseProtocol) throws -> GArgs? {
+        return try selectFirst(db: db, args: nil)
     }
 
     func selectAll(db: SSDataBaseProtocol) throws -> [GArgs] {
         return try selectAll(db: db, optArgs: nil)
+    }
+    
+    /// - Warning: **Deprecated**. Use `init(size:buildBlock:)` instead.
+    @available(*, deprecated, message: "Use `selectFirst(db:args:)` instead")
+    func select(db: SSDataBaseProtocol) throws -> GArgs? {
+        return try selectAll(db: db, optArgs: nil).first
     }
 }
