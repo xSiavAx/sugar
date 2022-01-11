@@ -184,10 +184,10 @@ extension Bool: SSDBColTypeBased {
 }
 
 extension Date: SSDBColTypeBased {
-    public var baseCol: Double { self.timeIntervalSince1970 }
+    public var baseCol: Double { self.timeIntervalSinceReferenceDate }
     
     public init(baseCol: Double) {
-        self.init(timeIntervalSince1970: baseCol)
+        self.init(timeIntervalSinceReferenceDate: baseCol)
     }
 }
 
