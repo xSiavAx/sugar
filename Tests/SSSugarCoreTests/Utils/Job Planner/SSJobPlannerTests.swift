@@ -19,6 +19,7 @@ import SSSugarTesting
 /// * _scheduleIfNotScheduledScheduled_ - nothing happens
 ///
 class SSJobPlannerTests: XCTestCase {
+    //TODO: There are some bugs, fix me (particullary in `testReschedule`, ...)
     static let initalTO = 12.0
     static let maxTO = 100500.0
     
