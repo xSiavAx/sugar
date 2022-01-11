@@ -44,6 +44,13 @@ public extension Array {
         return lastIDx
     }
     
+    mutating func pick(at index: Index) -> Element {
+        let element = self[index]
+        
+        remove(at: index)
+        return element
+    }
+    
     //MARK: - deprecated
     
     /// - Warning: **Deprecated**. Use `init(size:buildBlock:)` instead.
@@ -52,10 +59,8 @@ public extension Array {
         return (0..<size).map(buildBlock)
     }
     
-    //MARK: - deprecated
-    
     /// - Warning: **Deprecated**. Use `foreach(size:buildBlock:)` instead.
-    @available(*, deprecated, message: "Use `forEach(_ body: ((idx: element:)) throws -> Void)` instead")
+    @available(*, deprecated, message: "Use `forEach(_ body: (_ idx: _ element:) throws -> Void)` instead")
     func forEach(_ body: (_ cElement:Element, _ cIdx:Int) throws -> Void) rethrows {
         try forEach() { idx, element in
             try body(element, idx)
@@ -82,15 +87,6 @@ public extension Array {
             }
         }
         return (nil, lastIDx)
-    }
-}
-
-public extension Array {
-    mutating func pick(at index: Index) -> Element {
-        let element = self[index]
-        
-        remove(at: index)
-        return element
     }
 }
 

@@ -4,7 +4,7 @@ import Foundation
 /// * `bultin` – Swift standrart library algorithm
 /// * `durstenfeld` – Richard's Durstenfeld algorithm (Fisher-Yates algorithm modification)
 /// - Note: Bult-in algorithm realization may be various from version to version, that why custom realisation of Richard's Durstenfeld algorithm may be usefull.
-enum SequenceShuffleType {
+public enum SequenceShuffleType {
     case bultin
     case durstenfeld
 }
@@ -18,7 +18,7 @@ public extension Sequence {
     ///   - element: current iteration element
     ///
     /// - Note: Method do the same as `forEach(_ body: (Element) throws -> Void)` but additionally pass index of object to given closure. See it's documentation for more details.
-    func forEach(_ body: ((idx: Int, element: Element)) throws -> Void) rethrows {
+    func forEach(_ body: (_ idx: Int, _ element: Element) throws -> Void) rethrows {
         var idx = 0
         
         try self.forEach { (element) in
