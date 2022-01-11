@@ -35,7 +35,7 @@ public class SSGroupExecutor: SSGroupExecuting {
     public func finish(executor: SSExecutor, _ handler: @escaping () -> Void) {
         let group = DispatchGroup()
         
-        tasks.forEach { (task, _) in
+        tasks.forEach { task in
             group.enter()
             task { group.leave() }
         }

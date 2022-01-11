@@ -280,11 +280,11 @@ extension SSDataModifyCenter: SSDmRequestDispatcher where Request == Applier.Req
         case .revisionMissmatch:
             break //New dispatch already scheduled on Request adapting
         case .invalidData(let indexes):
-            schedules.forEach {
-                if (indexes.contains($1)) {
-                    $0.error = .invalidData
+            schedules.forEach { idx, schedule in
+                if (indexes.contains(idx)) {
+                    schedule.error = .invalidData
                 }
-                finish(scheduled: $0)
+                finish(scheduled: schedule)
             }
         case .none:
             schedules.forEach {

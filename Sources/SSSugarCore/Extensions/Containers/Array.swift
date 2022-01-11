@@ -5,6 +5,25 @@ public extension Array {
         self.init((0..<size).map(buildBlock))
     }
     
+    mutating func pick(at index: Index) -> Element {
+        let element = self[index]
+        
+        remove(at: index)
+        return element
+    }
+    
+    //MARK: deprecated
+    
+    /// - Warning: **Deprecated**. Use `init(size:buildBlock:)` instead.
+    @available(*, deprecated, message: "Use `init(size:buildBlock:)` instead")
+    static func array(size: Int, buildBlock:(Int)->(Element)) -> Array<Element> {
+        return (0..<size).map(buildBlock)
+    }
+}
+
+//MARK: - Binary Search
+
+public extension Array {
     /// Returns any index whose corresponding array value is equal to a given object using Binary Search algorithm.
     ///
     /// - Important:
@@ -44,31 +63,7 @@ public extension Array {
         return lastIDx
     }
     
-    mutating func pick(at index: Index) -> Element {
-        let element = self[index]
-        
-        remove(at: index)
-        return element
-    }
-    
-    //MARK: - deprecated
-    
-    /// - Warning: **Deprecated**. Use `init(size:buildBlock:)` instead.
-    @available(*, deprecated, message: "Use `init(size:buildBlock:)` instead")
-    static func array(size: Int, buildBlock:(Int)->(Element)) -> Array<Element> {
-        return (0..<size).map(buildBlock)
-    }
-    
-    /// - Warning: **Deprecated**. Use `foreach(size:buildBlock:)` instead.
-    @available(*, deprecated, message: "Use `forEach(_ body: (_ idx: _ element:) throws -> Void)` instead")
-    func forEach(_ body: (_ cElement:Element, _ cIdx:Int) throws -> Void) rethrows {
-        try forEach() { idx, element in
-            try body(element, idx)
-        }
-    }
-
-    
-    //MARK: - private
+    //MARK: private
 
     private func bSearchIdxAndLastIdx(_ needle: Element, comparator: (Element, Element)->ComparisonResult) -> (Int?, Int) {
         var range = 0..<count
@@ -87,6 +82,67 @@ public extension Array {
             }
         }
         return (nil, lastIDx)
+    }
+}
+
+//MARK: - Shuffle
+
+public extension Array {
+    /// Array shuffle algorithm type
+    /// * `bultin` – Swift standrart library algorithm
+    /// * `durstenfeld` – Richard's Durstenfeld algorithm (Fisher-Yates algorithm modification)
+    /// - Note: Bult-in algorithm realization may be various from version to version, that why custom realisation of Richard's Durstenfeld algorithm may be usefull.
+    enum ShuffleType {
+        case bultin
+        case durstenfeld
+    }
+    
+    /// Shuffles the collection in place, using the given generator as a source for randomness.
+    ///
+    /// You use this method with `.durstenfeld` if bultin algorithm doesn't meet your requirements. For example, u need stable shuffle algorithm realization from version to version.
+    /// - Complexity: O(N) for `.durstenfeld`. For `.bultin` see `func shuffle<T>(using:)` doc. Usually it's O(N).
+    /// - SeeAlso: `func shuffle<T>(using:)`
+    /// - Parameters:
+    ///   - generator: The random number generator to use when shuffling the collection.
+    ///   - type: Type of shuffle algorithm
+    mutating func shuffle<T: RandomNumberGenerator>(using generator: inout T, type: ShuffleType) {
+        switch type {
+        case .bultin:
+            shuffle(using: &generator)
+        case .durstenfeld:
+            shuffleDurstenfeld(using: &generator)
+        }
+    }
+    
+    /// Returns the elements of the sequence, shuffled using the given generator as a source for randomness.
+    ///
+    /// You use this method with `.durstenfeld` if bultin algorithm doesn't meet your requirements. For example, u need stable shuffle algorithm realization from version to version.
+    /// - Complexity: O(N) for `.durstenfeld`. For `.bultin` see `func shuffled<T>(using:)` doc. Usually it's O(N).
+    /// - SeeAlso: `func shuffled<T>(using:)` and `func shuffle<T>(using: type:)`
+    /// - Parameters:
+    ///   - generator: The random number generator to use when shuffling the sequence.
+    ///   - type: Type of shuffle algorithm
+    /// - Returns: An array of this sequence’s elements in a shuffled order.
+    func shuffled<T: RandomNumberGenerator>(using generator: inout T, type: ShuffleType) -> Self {
+        switch type {
+        case .bultin:
+            return shuffled(using: &generator)
+        case .durstenfeld:
+            var new = self
+            
+            new.shuffle(using: &generator, type: .durstenfeld)
+            return new
+        }
+    }
+    
+    //MARK: - private
+    /// Richard's Durstenfeld shuffle algorithm (Fisher-Yates algorithm modification)
+    /// - Parameter generator: The random number generator to use when shuffling the sequence.
+    private mutating func shuffleDurstenfeld<T>(using generator: inout T) where T : RandomNumberGenerator {
+        (0..<count).reversed().forEach {
+            let rand = generator.next(upperBound: UInt($0+1), type: .remainder)
+            swapAt($0, Int(rand))
+        }
     }
 }
 
