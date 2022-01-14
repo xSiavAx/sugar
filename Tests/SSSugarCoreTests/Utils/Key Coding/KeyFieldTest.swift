@@ -59,7 +59,7 @@ class SSKeyFieldTest: XCTestCase {
     }
     
     func testAdapter() {
-        let field = SSKeyField<Date>("date", adapter: SSKeyFieldConverter.dateIntAdapter())
+        let field = SSKeyField<Date>("date", adapter: .intAdapter())
         let time = dummyDate()
         var storage: SSKeyFieldStorage = [field.title : Int(time.timeIntervalSince1970)]
 
@@ -87,7 +87,7 @@ class SSKeyFieldTest: XCTestCase {
     
     func testWriteDefaultAdapter() {
         let time = dummyDate()
-        let field = SSKeyField<Date>("date", time, adapter: SSKeyFieldConverter.dateIntAdapter())
+        let field = SSKeyField<Date>("date", time, adapter: .intAdapter())
         var storage: SSKeyFieldStorage = [String: Any]()
 
         field.writeDefaultIfNeeded(to: &storage)

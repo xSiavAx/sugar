@@ -40,8 +40,8 @@ public extension SSDBTypedQueryHandling {
         try commit(db: db, args: args, preBind: preBind) { try $0.bind(args: $1) }
     }
     
-    func select(db: SSDataBaseProtocol, args: BArgs) throws -> GArgs? {
-        return try selectAll(db: db, optArgs: args).first
+    func selectFirst(db: SSDataBaseProtocol, args: BArgs) throws -> GArgs? {
+        return try selectFirst(db: db, optArgs: args)
     }
 
     func selectAll(db: SSDataBaseProtocol, args: BArgs) throws -> [GArgs] {
@@ -56,11 +56,14 @@ public extension SSDBTypedQueryHandling {
     
     func selectUnion(db: SSDataBaseProtocol, forEach args: [BArgs]) throws -> [GArgs] {
         return try withStmt(db: db) {(stmt) in
-            var result = [GArgs]()
-            
-            try args.forEach { result += try stmt.allFor(args: $0) }
-            return result
+            try args.reduce(into: []) { $0 += try stmt.allFor(args: $1) }
         }
+    }
+    
+    //MARK: - private
+    
+    private func selectFirst(db: SSDataBaseProtocol, optArgs: BArgs?) throws -> GArgs? {
+        return try withStmt(db: db) { try $0.firstFor(args: optArgs) }
     }
     
     private func selectAll(db: SSDataBaseProtocol, optArgs: BArgs? = nil) throws -> [GArgs] {
@@ -77,6 +80,14 @@ public extension SSDBTypedQueryHandling {
                 try stmt.commit()
             }
         }
+    }
+    
+    //MARK: - deprecated
+    
+    /// - Warning: **Deprecated**. Use `init(size:buildBlock:)` instead.
+    @available(*, deprecated, message: "Use `selectFirst(db:args:)` instead")
+    func select(db: SSDataBaseProtocol, args: BArgs) throws -> GArgs? {
+        return try selectFirst(db: db, args: args)
     }
 }
 
@@ -97,11 +108,17 @@ public extension SSDBTypedQueryHandling where BArgs == Void {
         try commit(db: db, args: [()], preBind: preBind, bind: nil)
     }
     
-    func select(db: SSDataBaseProtocol) throws -> GArgs? {
-        return try selectAll(db: db, optArgs: nil).first
+    func selectFirst(db: SSDataBaseProtocol) throws -> GArgs? {
+        return try selectFirst(db: db, optArgs: nil)
     }
 
     func selectAll(db: SSDataBaseProtocol) throws -> [GArgs] {
         return try selectAll(db: db, optArgs: nil)
+    }
+    
+    /// - Warning: **Deprecated**. Use `init(size:buildBlock:)` instead.
+    @available(*, deprecated, message: "Use `selectFirst(db:args:)` instead")
+    func select(db: SSDataBaseProtocol) throws -> GArgs? {
+        return try selectAll(db: db, optArgs: nil).first
     }
 }

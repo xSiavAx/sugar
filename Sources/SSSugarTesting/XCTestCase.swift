@@ -24,13 +24,15 @@ public extension XCTestCase {
         }
     }
     
-    private static func expectationWith(descr: String?) -> XCTestExpectation {
-        if let desc = descr {
-            return XCTestExpectation(description: desc)
+    func nonThrow<T>(_ job: () throws -> T) -> T {
+        do {
+            return try job()
+        } catch {
+            XCTFail("Unexpected error has thrown \(error)/")
+            fatalError()
         }
-        return XCTestExpectation()
     }
-    
+
     func assertError(job: () throws -> Void, checkError: (Error)->Bool) {
         do {
             try job()
@@ -38,6 +40,13 @@ public extension XCTestCase {
         } catch {
             XCTAssert(checkError(error), "Unexpected error \(error)")
         }
+    }
+    
+    private static func expectationWith(descr: String?) -> XCTestExpectation {
+        if let desc = descr {
+            return XCTestExpectation(description: desc)
+        }
+        return XCTestExpectation()
     }
 }
 

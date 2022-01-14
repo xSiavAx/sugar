@@ -83,7 +83,7 @@ open class SSEntityRemoteMutator<Source: SSMutatingEntitySource>: SSUpdateReceiv
     ///   - marker: Notification marker.
     ///   - error: Error.
     public func handleUpdate(with marker: String, error: Error? = nil) {
-        if let handler = handlers.pick(for: marker) {
+        if let handler = handlers.removeValue(forKey: marker) {
             onMain() {[weak self] in
                 self?.handlersToApply.append((handler:handler, error: error))
             }
@@ -93,7 +93,7 @@ open class SSEntityRemoteMutator<Source: SSMutatingEntitySource>: SSUpdateReceiv
     //MARK: private
     
     private func handleError(_ error: Error, marker: String) {
-        guard let handler = handlers.pick(for: marker) else { fatalError("No handler for \(marker)") }
+        guard let handler = handlers.removeValue(forKey: marker) else { fatalError("No handler for \(marker)") }
         onMain { handler(error) }
     }
 }

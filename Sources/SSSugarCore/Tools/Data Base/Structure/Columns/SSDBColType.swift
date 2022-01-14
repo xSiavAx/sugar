@@ -1,7 +1,8 @@
 import Foundation
 
 enum SSDBColError: Error {
-    case unexpectedNull
+    case unimplemented
+    case cantCreateFromBase(SSDBColType)
 }
 
 public protocol SSDBColType {
@@ -23,16 +24,48 @@ public extension SSDBColType {
     static var isOptionalCol: Bool { false }
     
     static func from(stmt: Statement, pos: Int) throws -> Self {
-        if (try stmt.isNull(pos: pos)) {
+        if (try isOptionalCol && stmt.isNull(pos: pos)) {
             return try onGetNil()
         }
         return try onGetNonNil(stmt: stmt, pos: pos)
     }
     
     static func onGetNil() throws -> Self {
-        throw SSDBColError.unexpectedNull
+        throw SSDBColError.unimplemented
     }
 }
+
+/// Protocol for types, which value may be represented via other type that conforms to `DBColType`.
+///
+/// Provides default implementation for `DBColType` via proxing calls to `BaseCol` type and `baseCol` property.
+public protocol SSDBColTypeBased: SSDBColType {
+    associatedtype BaseCol: SSDBColType
+    
+    var baseCol: BaseCol { get }
+    
+    init?(baseCol: BaseCol)
+}
+
+public extension SSDBColTypeBased {
+    static var colName: String { BaseCol.colName }
+    
+    func asColDefault() -> String { baseCol.asColDefault() }
+    
+    static func onGetNonNil(stmt: SSDataBaseStatementProtocol, pos: Int) throws -> Self {
+        let base = try BaseCol.onGetNonNil(stmt: stmt, pos: pos)
+        
+        guard let result = Self(baseCol: base) else {
+            throw SSDBColError.cantCreateFromBase(base)
+        }
+        return result
+    }
+    
+    func bindTo(stmt: SSDataBaseStatementProtocol, pos: Int) throws {
+        try baseCol.bindTo(stmt: stmt, pos: pos)
+    }
+}
+
+//MARK: - Base Types
 
 extension Int: SSDBColType {
     public static var colName: String { "integer" }
@@ -62,31 +95,17 @@ extension Int64: SSDBColType {
     }
 }
 
-extension Bool: SSDBColType {
-    public static var colName: String { Int.colName }
+extension Double: SSDBColType {
+    public static var colName: String { "real" }
     
-    public func asColDefault() -> String { "\(self ? 1 : 0)" }
+    public func asColDefault() -> String { "\(self)" }
     
-    public static func onGetNonNil(stmt: Statement, pos: Int) throws -> Bool {
-        return try stmt.getInt(pos: pos) != 0
+    public static func onGetNonNil(stmt: Statement, pos: Int) throws -> Double {
+        return try stmt.getDouble(pos: pos)
     }
     
     public func bindTo(stmt: Statement, pos: Int) throws {
-        try stmt.bind(int: self ? 1 : 0, pos: pos)
-    }
-}
-
-extension Date: SSDBColType {
-    public static var colName: String { Int.colName }
-    
-    public func asColDefault() -> String { "\(self.timeIntervalSince1970)" }
-    
-    public static func onGetNonNil(stmt: Statement, pos: Int) throws -> Date {
-        return Date(timeIntervalSince1970: try stmt.getDouble(pos: pos))
-    }
-    
-    public func bindTo(stmt: Statement, pos: Int) throws {
-        try stmt.bind(double: timeIntervalSince1970, pos: pos)
+        try stmt.bind(double: self, pos: pos)
     }
 }
 
@@ -146,35 +165,36 @@ extension Optional: SSDBColType where Wrapped: SSDBColType {
     }
 }
 
-public extension RawRepresentable where RawValue: SSDBColType {
-    static var colName: String { RawValue.colName }
+//MARK: - DBColType based Types
 
-    static func onGetNonNil(stmt: SSDataBaseStatementProtocol, pos: Int) throws -> Self {
-        return Self(rawValue: try RawValue.onGetNonNil(stmt: stmt, pos: pos))!
-    }
+extension RawRepresentable where RawValue: SSDBColType {
+    public var baseCol: RawValue { rawValue }
     
-    func bindTo(stmt: SSDataBaseStatementProtocol, pos: Int) throws {
-        try rawValue.bindTo(stmt: stmt, pos: pos)
-    }
-    
-    func asColDefault() -> String {
-        return rawValue.asColDefault()
+    public init?(baseCol: RawValue) {
+        self.init(rawValue: baseCol)
     }
 }
 
-extension URL: SSDBColType {
-    public static var colName: String { String.colName }
+extension Bool: SSDBColTypeBased {
+    public var baseCol: Int { self ? 1 : 0 }
     
-    public static func onGetNonNil(stmt: Statement, pos: Int) throws -> URL {
-        return URL(string: try String.onGetNonNil(stmt: stmt, pos: pos))!
-    }
-    
-    public func bindTo(stmt: Statement, pos: Int) throws {
-        try path.bindTo(stmt: stmt, pos: pos)
-    }
-    
-    public func asColDefault() -> String {
-        return path
+    public init(baseCol: Int) {
+        self = baseCol != 0
     }
 }
 
+extension Date: SSDBColTypeBased {
+    public var baseCol: Double { self.timeIntervalSinceReferenceDate }
+    
+    public init(baseCol: Double) {
+        self.init(timeIntervalSinceReferenceDate: baseCol)
+    }
+}
+
+extension URL: SSDBColTypeBased {
+    public var baseCol: String { self.path }
+    
+    public init?(baseCol: String) {
+        self.init(string: baseCol)
+    }
+}
