@@ -19,6 +19,7 @@ import SSSugarTesting
 /// * _scheduleIfNotScheduledScheduled_ - nothing happens
 ///
 class SSJobPlannerTests: XCTestCase {
+    //TODO: There are some bugs, fix me (particullary in `testReschedule`, ...)
     static let initalTO = 12.0
     static let maxTO = 100500.0
     
@@ -96,12 +97,12 @@ class SSJobPlannerTests: XCTestCase {
     func testReschedule() {
         let call = executor.expectAfter(interval: Self.initalTO, strategy: .future)
         
-        DispatchQueue.bg.execute {
-            self.sut.scheduleNew() { _ in XCTFail() }
-        }
-        
-        configSchedule().andAsync { call.doFutures() }
-        wait() { exp in
+        wait(count: 2) { exp in
+            configSchedule().andAsync {
+                call.doFutures()
+                exp.fulfill()
+            }
+            sut.scheduleNew() { _ in XCTFail() }
             runSchedule(strategy: .ignore, exp: exp)
         }
     }

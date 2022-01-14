@@ -13,6 +13,7 @@ public class SSMockCallExpectation: CustomStringConvertible {
     public var result: Any?
     public var error: Error?
     public var onReturn: (() -> Any?)?
+    public var preJobs = [()->Void]()
     public var jobs = [()->Void]()
     public var asyncJobs = [()->Void]()
     public var futures = [()->Void]()
@@ -29,10 +30,10 @@ public class SSMockCallExpectation: CustomStringConvertible {
     //MARK: - public
     
     public func process<T>(function mFunction: String, args: [Any?]) throws -> Result<T, FailCause> {
+        doPreJobs()
         if let cause = check(function: mFunction) ?? check(args:args) {
             return .failure(cause)
         }
-        
         doJobs()
         doAsyncJobs()
         try throwErrorIfNeeded()
@@ -52,6 +53,12 @@ public class SSMockCallExpectation: CustomStringConvertible {
     @discardableResult
     public func andDo(_ job: @escaping () -> Void) -> SSMockCallExpectation {
         jobs.append(job)
+        return self
+    }
+    
+    @discardableResult
+    public func andPre(_ job: @escaping () -> Void) -> SSMockCallExpectation {
+        preJobs.append(job)
         return self
     }
     
@@ -102,6 +109,10 @@ public class SSMockCallExpectation: CustomStringConvertible {
     
     private func doJobs() {
         jobs.forEach() { $0() }
+    }
+    
+    private func doPreJobs() {
+        preJobs.forEach() { $0() }
     }
     
     private func doAsyncJobs() {
