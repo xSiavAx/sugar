@@ -33,57 +33,14 @@ public class SSDataBase {
     }
     
     deinit {
-        finish()
-    }
-    
-    public func stmtProcessor(query: String) throws -> SSDataBaseStatementProcessor {
-        let stmt = try statement(forQuery: query)
-        return SSDataBaseStatementProcessor(stmt)
-    }
-    
-    public func exec(queries: [String]) throws {
-        let doTransaction = !self.isTransactionStarted
-        
-        if (doTransaction) {
-            try beginTransaction()
-        }
-        do {
-            try queries.forEach(exec(query:))
-        } catch {
-            if (doTransaction) {
-                try cancelTransaction()
-            }
-            throw error
-        }
-        if (doTransaction) {
-            try commitTransaction()
-        }
-    }
-    
-    public func finish() {
-        try? statementsCache.clearAll()
-        if (connection.isOpen) {
-            connection.close()
-        }
-    }
-    
-    /// Close connection and removes DB file.
-    ///
-    /// It's not necessary to call`finish()` before call this method. It will be called within.
-    ///
-    /// - Warning: U can't use `SSDataBase` once this method has been called.
-    /// - Throws: Rethrows errors from `FileManager.default.removeItem`
-    public func removeDB() throws {
-        finish()
-        if (FileManager.default.fileExists(atPath: self.path.path)) {
-            try FileManager.default.removeItem(at: self.path)
-        }
+        close()
     }
 }
 
-//MARK: - Creating
+// MARK: - Creating
+
 extension SSDataBase {
-    public enum BaseDir {
+    public enum BaseDir: Equatable {
         case documents
         case current
         case custom(URL)
@@ -104,40 +61,16 @@ extension SSDataBase {
             }
         }
     }
-    
-    public static func dbWith(baseDir: BaseDir, name: String, prefix: String? = nil) throws -> SSDataBase {
-        var path = baseDir.url
-        
-        if let prefix = prefix {
-            path.appendPathComponent(prefix)
-        }
-        if (!FileManager.default.fileExists(atPath: path.path)) {
-            try FileManager.default.createDirectory(atPath: path.path, withIntermediateDirectories: true, attributes: nil)
-        }
-        path.appendPathComponent("\(name).sqlite3")
-        NSLog("Data Base path:\n\(path)")
-        
-        return SSDataBase(path: path)
-    }
-    
-    #if os(iOS)
-    public static func dbWith(name: String, prefix: String? = nil) throws -> SSDataBase {
-        return try dbWith(baseDir: .documents, name: name, prefix: prefix)
-    }
-    #else
-    public static func dbWith(name: String, prefix: String? = nil) throws -> SSDataBase {
-        return try dbWith(baseDir: .current, name: name, prefix: prefix)
-    }
-    #endif
-    
-    public static func dbWith(baseDir: URL, name: String, prefix: String? = nil) throws -> SSDataBase {
-        return try dbWith(baseDir: .custom(baseDir), name: name, prefix: prefix)
-    }
 }
 
+// MARK: - SSDataBaseProtocol
 
-//MARK: - SSDataBaseProtocol
 extension SSDataBase: SSDataBaseProtocol {
+    public func stmtProcessor(query: String) throws -> SSDataBaseStatementProcessor {
+        let stmt = try statement(forQuery: query)
+        return SSDataBaseStatementProcessor(stmt)
+    }
+
     public func savePoint(withTitle: String) throws -> SSDataBaseSavePointProtocol {
         return try transactionController.registerSavePoint() {
             try SSDataBaseSavePoint(executor: self, title: withTitle)
@@ -147,9 +80,36 @@ extension SSDataBase: SSDataBaseProtocol {
     public func lastInsrtedRowID() -> Int64 {
         connection.lastInsertedRowID()
     }
+
+    public func transacted(queries: [String]) throws {
+        let doTransaction = !self.isTransactionStarted
+
+        if (doTransaction) {
+            try beginTransaction()
+        }
+        do {
+            try queries.forEach(exec(query:))
+        } catch {
+            if (doTransaction) {
+                try cancelTransaction()
+            }
+            throw error
+        }
+        if (doTransaction) {
+            try commitTransaction()
+        }
+    }
+
+    // MARK: Deprecated
+
+    /// - Warning: **Deprecated**. Use `transacted(queries:)` instead.
+    @available(*, deprecated, renamed: "transacted(queries:)")
+    public func exec(queries: [String]) throws {
+        try transacted(queries: queries)
+    }
 }
 
-//MARK: SSTransacted
+// MARK: SSTransacted
 
 extension SSDataBase: SSTransacted {
     public var isTransactionStarted: Bool {
@@ -169,7 +129,7 @@ extension SSDataBase: SSTransacted {
     }
 }
 
-//MARK: SSDataBaseStatementCreator
+// MARK: SSDataBaseStatementCreator
 
 extension SSDataBase: SSDataBaseStatementCreator {
     public func statement(forQuery: String) throws -> SSDataBaseStatementProtocol {
@@ -179,7 +139,7 @@ extension SSDataBase: SSDataBaseStatementCreator {
     }
 }
 
-//MARK: - SSDataBaseTransactionCreator
+// MARK: - SSDataBaseTransactionCreator
 
 extension SSDataBase: SSDataBaseTransactionCreator {
     public func createTransaction() throws -> SSDataBaseTransaction {
@@ -187,7 +147,7 @@ extension SSDataBase: SSDataBaseTransactionCreator {
     }
 }
 
-//MARK: - SSDataBaseQueryExecutor
+// MARK: - SSDataBaseQueryExecutor
 
 extension SSDataBase: SSDataBaseQueryExecutor {
     public func exec(query: String) throws {
@@ -198,7 +158,7 @@ extension SSDataBase: SSDataBaseQueryExecutor {
     }
 }
 
-//MARK: - SSCacheContainer
+// MARK: - SSCacheContainer
 
 extension SSDataBase: SSCacheContainer {
     public func fitCache() {
@@ -207,5 +167,74 @@ extension SSDataBase: SSCacheContainer {
     
     public func clearCache() throws {
         try statementsCache.clearAll()
+    }
+}
+
+// MARK: - SSFileBasedDataBase
+
+extension SSDataBase: SSFileBasedDataBase {
+    public func close() {
+        try? statementsCache.clearAll()
+        if (connection.isOpen) {
+            connection.close()
+        }
+    }
+
+    /// Close connection and removes DB file.
+    ///
+    /// It's not necessary to call`clese()` before call this method. It will be called within.
+    ///
+    /// - Warning: U can't use `SSDataBase` once this method has been called.
+    /// - Throws: Rethrows errors from `FileManager.default.removeItem`
+    public func remove() throws {
+        close()
+        if (FileManager.default.fileExists(atPath: self.path.path)) {
+            try FileManager.default.removeItem(at: self.path)
+        }
+    }
+
+    // MARK: Deprecated
+
+    /// - Warning: **Deprecated**. Use `remove()` instead.
+    @available(*, deprecated, renamed: "remove()")
+    public func removeDB() throws {
+        try remove()
+    }
+
+    /// - Warning: **Deprecated**. Use `close()` instead.
+    @available(*, deprecated, renamed: "close()")
+    public func finish() {
+        close()
+    }
+}
+
+// MARK: - SSFileBasedDataBaseStaticCreator
+
+extension SSDataBase: SSFileBasedDataBaseStaticCreator {
+    public static func dbWith(baseDir: BaseDir, name: String, prefix: String? = nil) throws -> SSDataBaseProtocol & SSFileBasedDataBase {
+        var path = baseDir.url
+
+        if let prefix = prefix {
+            path.appendPathComponent(prefix)
+        }
+        if (!FileManager.default.fileExists(atPath: path.path)) {
+            try FileManager.default.createDirectory(atPath: path.path, withIntermediateDirectories: true, attributes: nil)
+        }
+        path.appendPathComponent("\(name).sqlite3")
+        NSLog("Data Base path:\n\(path)")
+
+        return SSDataBase(path: path) as! Self
+    }
+
+    public static func dbWith(baseDir: URL, name: String, prefix: String? = nil) throws -> SSDataBaseProtocol & SSFileBasedDataBase {
+        return try dbWith(baseDir: .custom(baseDir), name: name, prefix: prefix)
+    }
+
+    public static func dbWith(name: String, prefix: String? = nil) throws -> SSDataBaseProtocol & SSFileBasedDataBase {
+#if os(iOS)
+        return try dbWith(baseDir: .documents, name: name, prefix: prefix)
+#else
+        return try dbWith(baseDir: .current, name: name, prefix: prefix)
+#endif
     }
 }
