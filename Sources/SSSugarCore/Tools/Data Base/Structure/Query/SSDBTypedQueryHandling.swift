@@ -18,13 +18,13 @@ public protocol SSDBTypedQueryHandling {
 public extension SSDBTypedQueryHandling {
     typealias PreBind = (TypedStmt) throws -> Void
     
-    func statment(db: SSDataBaseProtocol) throws -> TypedStmt {
+    func statment(db: SSDataBaseStatementCreator) throws -> TypedStmt {
         let stmt = try db.statement(forQuery: core.query.raw)
         
         return TypedStmt(stmt: transform(stmt: stmt), onBind: core.onBind, onGet: core.onGet)
     }
     
-    func withStmt<T>(db: SSDataBaseProtocol, exec: (TypedStmt) throws -> T ) throws -> T {
+    func withStmt<T>(db: SSDataBaseStatementCreator, exec: (TypedStmt) throws -> T ) throws -> T {
         let stmt = try statment(db: db)
         
         defer { try! stmt.release() }
@@ -32,29 +32,29 @@ public extension SSDBTypedQueryHandling {
         return try exec(stmt)
     }
     
-    func commit(db: SSDataBaseProtocol, args: BArgs) throws {
+    func commit(db: SSDataBaseStatementCreator, args: BArgs) throws {
         try commit(db: db, args: [args])
     }
     
-    func commit(db: SSDataBaseProtocol, args: [BArgs], preBind: PreBind? = nil) throws {
+    func commit(db: SSDataBaseStatementCreator, args: [BArgs], preBind: PreBind? = nil) throws {
         try commit(db: db, args: args, preBind: preBind) { try $0.bind(args: $1) }
     }
     
-    func selectFirst(db: SSDataBaseProtocol, args: BArgs) throws -> GArgs? {
+    func selectFirst(db: SSDataBaseStatementCreator, args: BArgs) throws -> GArgs? {
         return try selectFirst(db: db, optArgs: args)
     }
 
-    func selectAll(db: SSDataBaseProtocol, args: BArgs) throws -> [GArgs] {
+    func selectAll(db: SSDataBaseStatementCreator, args: BArgs) throws -> [GArgs] {
         return try selectAll(db: db, optArgs: args)
     }
     
-    func selectAll(db: SSDataBaseProtocol, forEach args: [BArgs]) throws -> [(BArgs, [GArgs])] {
+    func selectAll(db: SSDataBaseStatementCreator, forEach args: [BArgs]) throws -> [(BArgs, [GArgs])] {
         return try withStmt(db: db) {(stmt) in
             try args.map { ($0, try stmt.allFor(args: $0)) }
         }
     }
     
-    func selectUnion(db: SSDataBaseProtocol, forEach args: [BArgs]) throws -> [GArgs] {
+    func selectUnion(db: SSDataBaseStatementCreator, forEach args: [BArgs]) throws -> [GArgs] {
         return try withStmt(db: db) {(stmt) in
             try args.reduce(into: []) { $0 += try stmt.allFor(args: $1) }
         }
@@ -62,17 +62,17 @@ public extension SSDBTypedQueryHandling {
     
     //MARK: - private
     
-    private func selectFirst(db: SSDataBaseProtocol, optArgs: BArgs?) throws -> GArgs? {
+    private func selectFirst(db: SSDataBaseStatementCreator, optArgs: BArgs?) throws -> GArgs? {
         return try withStmt(db: db) { try $0.firstFor(args: optArgs) }
     }
     
-    private func selectAll(db: SSDataBaseProtocol, optArgs: BArgs? = nil) throws -> [GArgs] {
+    private func selectAll(db: SSDataBaseStatementCreator, optArgs: BArgs? = nil) throws -> [GArgs] {
         return try withStmt(db: db) {(stmt) in
             try stmt.allFor(args: optArgs)
         }
     }
     
-    private func commit(db: SSDataBaseProtocol, args: [BArgs], preBind: PreBind? = nil, bind: ((TypedStmt, BArgs) throws -> Void)?) throws {
+    private func commit(db: SSDataBaseStatementCreator, args: [BArgs], preBind: PreBind? = nil, bind: ((TypedStmt, BArgs) throws -> Void)?) throws {
         try withStmt(db: db) {(stmt) in
             try preBind?(stmt)
             try args.forEach {
@@ -86,7 +86,7 @@ public extension SSDBTypedQueryHandling {
     
     /// - Warning: **Deprecated**. Use `init(size:buildBlock:)` instead.
     @available(*, deprecated, message: "Use `selectFirst(db:args:)` instead")
-    func select(db: SSDataBaseProtocol, args: BArgs) throws -> GArgs? {
+    func select(db: SSDataBaseStatementCreator, args: BArgs) throws -> GArgs? {
         return try selectFirst(db: db, args: args)
     }
 }
@@ -104,21 +104,21 @@ public extension SSDBTypedQueryHandling where Stmt == SSDataBaseStatementProcess
 }
 
 public extension SSDBTypedQueryHandling where BArgs == Void {
-    func commit(db: SSDataBaseProtocol, preBind: PreBind? = nil) throws {
+    func commit(db: SSDataBaseStatementCreator, preBind: PreBind? = nil) throws {
         try commit(db: db, args: [()], preBind: preBind, bind: nil)
     }
     
-    func selectFirst(db: SSDataBaseProtocol) throws -> GArgs? {
+    func selectFirst(db: SSDataBaseStatementCreator) throws -> GArgs? {
         return try selectFirst(db: db, optArgs: nil)
     }
 
-    func selectAll(db: SSDataBaseProtocol) throws -> [GArgs] {
+    func selectAll(db: SSDataBaseStatementCreator) throws -> [GArgs] {
         return try selectAll(db: db, optArgs: nil)
     }
     
     /// - Warning: **Deprecated**. Use `init(size:buildBlock:)` instead.
     @available(*, deprecated, message: "Use `selectFirst(db:args:)` instead")
-    func select(db: SSDataBaseProtocol) throws -> GArgs? {
+    func select(db: SSDataBaseStatementCreator) throws -> GArgs? {
         return try selectAll(db: db, optArgs: nil).first
     }
 }
