@@ -67,7 +67,7 @@ public extension Dictionary {
         }
     }
 
-    func compactMap<T>(_ build: (Int, Key, Value) throws -> T) rethrows -> [T] {
+    func compactMap<T>(_ build: (Int, Key, Value) throws -> T?) rethrows -> [T] {
         return try compactMap() { idx, pair in
             return try build(idx, pair.key, pair.value)
         }

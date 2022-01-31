@@ -25,7 +25,7 @@ public extension Sequence {
         }
     }
 
-    func compactMap<T>(_ build: (Int, Element) throws -> T) rethrows -> [T] {
+    func compactMap<T>(_ build: (Int, Element) throws -> T?) rethrows -> [T] {
         var idx = 0
         return try compactMap() { element in
             defer { idx += 1}
