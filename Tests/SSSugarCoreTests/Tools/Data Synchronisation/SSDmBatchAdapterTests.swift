@@ -107,7 +107,7 @@ class SSDmBatchAdapterTests: XCTestCase {
         firstRevisionChanges = [TestChange(), TestChange()]
         secondRevisionChanges = [TestChange()]
         
-        batchRequests.forEach { idx, req in req.iCore.identifier = idx }
+        batchRequests.forEachIDx { idx, req in req.iCore.identifier = idx }
         firstRevisionChanges.forEach { $0.affectsAdaptation = true }
         secondRevisionChanges.forEach { $0.affectsAdaptation = true }
         
