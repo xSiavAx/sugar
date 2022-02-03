@@ -25,11 +25,11 @@ public struct StepSequence: Sequence, IteratorProtocol {
         return limited(from: start, limit: limit, step: step)
     }
     
-    static func counting(from start: Int = defaultStart, times: Int, step: Int = defaultStep) -> CountingSequence<Self> {
-        return .init(subSequence: StepSequence(start: start, step: step), times: times)
+    static func counting(from start: Int = defaultStart, times: Int, step: Int = defaultStep) -> CountingIterator<Self> {
+        return .init(sequence: StepSequence(start: start, step: step), times: times)
     }
     
-    static func c(_ start: Int, _ times: Int, _ step: Int) -> CountingSequence<Self> {
+    static func c(_ start: Int, _ times: Int, _ step: Int) -> CountingIterator<Self> {
         return counting(from: start, times: times, step: step)
     }
 }
