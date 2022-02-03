@@ -25,6 +25,27 @@ public protocol SSDBColumnProtocol: SSDBTableComponent {
     func nameFor(select: Bool) -> String
 }
 
+extension Array where Element: SSDBColumnProtocol {
+    func sameColsAs(_ cols: [SSDBColumnProtocol]?) -> Bool {
+        return sameCols(self, cols)
+    }
+}
+
+public func sameCols(_ lhs: [SSDBColumnProtocol]?, _ rhs: [SSDBColumnProtocol]?) -> Bool {
+    guard let lhs = lhs else { return rhs == nil }
+    guard let rhs = rhs else { return false }
+
+    return lhs.elementsEqual(rhs) { $0.sameAs(other: $1) }
+}
+
+extension SSDBColumnProtocol {
+    func sameAs(other: SSDBColumnProtocol) -> Bool {
+        return `optional` == other.optional &&
+                nameFor(select: false) == other.nameFor(select: false) &&
+                table == other.table
+    }
+}
+
 public protocol SSDBTypedColumnProtocol: SSDBColumnProtocol {
     associatedtype ColType: SSDBColType
 }

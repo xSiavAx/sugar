@@ -33,6 +33,7 @@ public extension SSDBTableIndexProtocol {
 
 enum SSDBTableIndexError: Error {
     case columsFromDifferentTables
+    case tableAlreadyHasPKOnIndexingCollums
 }
 
 public struct SSDBTableIndex: SSDBTableIndexProtocol {
@@ -46,6 +47,8 @@ public struct SSDBTableIndex: SSDBTableIndexProtocol {
     
     public init(isUnique unique: Bool, prefix mPrefix: String = defaultPrefix, cols: [SSDBColumnProtocol]) throws {
         guard let table = SSDBTableComponentHelp.commonTable(cols) else { throw TError.columsFromDifferentTables }
+        guard !sameCols(table.primaryKey?.cols, cols) else { throw TError.tableAlreadyHasPKOnIndexingCollums }
+        
         self.cols = cols
         self.table = table
         self.isUniqeu = unique
