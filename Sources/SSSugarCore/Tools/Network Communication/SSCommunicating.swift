@@ -39,7 +39,7 @@ public protocol SSCommunicating {
     ///   - handler: Callback. See `Handler` for more info.
     /// - Returns: Created communicating task.
     @discardableResult
-    func runTask(url: URL, headers:[String:String]?, body: Data?, handler: @escaping Handler) -> SSCommunicatingTask
+    func runTask(url: URL, headers:[String:String]?, body: Data?, acceptableStatuses: [Int], handler: @escaping Handler) -> SSCommunicatingTask
 }
 
 extension SSCommunicating {
@@ -51,7 +51,7 @@ extension SSCommunicating {
     ///   - handler: Callback. See `Handler` for more info.
     /// - Returns: Created communicating task.
     @discardableResult
-    func runTask(url: URL, body: Data? = nil, handler: @escaping Handler) -> SSCommunicatingTask {
-        runTask(url: url, headers: nil, body: body, handler: handler)
+    func runTask(url: URL, body: Data? = nil, acceptableStatuses: [Int] = [200], handler: @escaping Handler) -> SSCommunicatingTask {
+        runTask(url: url, headers: nil, body: body, acceptableStatuses: acceptableStatuses, handler: handler)
     }
 }

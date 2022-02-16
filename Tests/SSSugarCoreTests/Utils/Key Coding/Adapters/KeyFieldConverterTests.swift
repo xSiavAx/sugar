@@ -18,14 +18,14 @@ class SSKeyFieldConverterTests: XCTestCase {
     
     //MARK: - Int Date
     func testDateIntRead() {
-        let adapter = SSKeyFieldConverter.dateIntAdapter()
+        let adapter = SSKeyField<Date>.Adapter.intAdapter()
         let params = dateAndTs()
         
         XCTAssertEqual(params.date, adapter.read?(dummyStorage, dummyKey, params.ts))
     }
     
     func testDateIntWrite() {
-        let adapter = SSKeyFieldConverter.dateIntAdapter()
+        let adapter = SSKeyField<Date>.Adapter.intAdapter()
         let params = dateAndTs()
         
         XCTAssertEqual(params.ts, adapter.write?(&dummyStorage, dummyKey, params.date) as? Int)
@@ -42,14 +42,14 @@ class SSKeyFieldConverterTests: XCTestCase {
     
     //MARK: - UUID String
     func testUUIDStrRead() {
-        let adapter = SSKeyFieldConverter.uuidStringAdapter()
+        let adapter = SSKeyField<UUID>.Adapter.strAdapter()
         let params = uuidAndString()
         
         XCTAssertEqual(params.uuid, adapter.read?(dummyStorage, dummyKey, params.str))
     }
     
     func testUUIDStrWrite() {
-        let adapter = SSKeyFieldConverter.uuidStringAdapter()
+        let adapter = SSKeyField<UUID>.Adapter.strAdapter()
         let params = uuidAndString()
         
         XCTAssertEqual(params.str, adapter.write?(&dummyStorage, dummyKey, params.uuid) as? String)

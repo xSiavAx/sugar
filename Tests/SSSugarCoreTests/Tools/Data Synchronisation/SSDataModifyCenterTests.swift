@@ -70,10 +70,11 @@ class SSDataModifyCenterTests: XCTestCase {
             }
         }
 
-        wait() { (exp) in
+        wait(count: 2) { exp in
             func onDispatch(_ error: SSDmRevisionDispatcherError?) {
                 XCTAssert(error == nil)
                 checkUpdates()
+                exp.fulfill()
             }
             func onApply() {
                 XCTAssert(center.revNumber == expectedRevNumber)
@@ -273,14 +274,13 @@ class SSDataModifyCenterTests: XCTestCase {
         checkToolsCalled()
     }
     
-    func dispatch(revisions: [Revision], onDispatch: @escaping (SSDmRevisionDispatcherError?)->Void, onApply: @escaping ()->Void) {
-        func dispatch() {
-            let error = center.dispatchRevisions(revisions) {
-                onApply()
+    func dispatch(revisions: [Revision], onDispatch: @escaping (SSDmRevisionDispatcherError?)->Void, onApply: @escaping () -> Void) {
+        DispatchQueue.bg.async {[weak self] in
+            if let welf = self {
+                let error = welf.center.dispatchRevisions(revisions, onApply: onApply)
+                onDispatch(error)
             }
-            onDispatch(error)
         }
-        DispatchQueue.bg.async(execute: dispatch)
     }
     
     func checkRevNumber(handler: @escaping ()->Void) {
@@ -293,7 +293,7 @@ class SSDataModifyCenterTests: XCTestCase {
     
     func checkUpdates() {
         XCTAssert(notifier.notifies.count == expectedUpdates.count)
-        notifier.notifies.forEach { (lhs, idx) in
+        notifier.notifies.forEach { (idx, lhs) in
             let rhs = expectedUpdates[idx]
             
             XCTAssert(lhs.name == rhs.name)
@@ -382,8 +382,6 @@ class SSDMCenterTestNotifier: SSUpdateNotifier, SSOnMainExecutor {
     
     func notify(updates: [SSUpdate], onApply: (() -> Void)?) {
         notifies.append(contentsOf: updates)
-        if let mOnApply = onApply {
-            onMain(mOnApply)
-        }
+        onMain { onApply?() }
     }
 }

@@ -173,6 +173,7 @@ extension SSDataModifyCenter: SSDmRevisionDispatcher where
         guard !revisions.isEmpty else { return SSDmRevisionDispatcherError.emptyRevisions }
         
         notify(revisions: revisions, onApply: onApply)
+        
         return nil
     }
     
@@ -192,7 +193,7 @@ extension SSDataModifyCenter: SSDmRevisionDispatcher where
             }
         }
         notify(revision: revisions.last!) {[weak self] in
-            self?.onLastNotify(revision: revisions.last!)
+            self?.onLastNotify(revision: revisions.last!, onApply: onApply)
         }
     }
     
@@ -204,7 +205,7 @@ extension SSDataModifyCenter: SSDmRevisionDispatcher where
         adaptBatches(to: revision)
     }
     
-    private func onLastNotify(revision: SSDmRevision<Change>, onApply: (() -> Void)? = nil) {
+    private func onLastNotify(revision: SSDmRevision<Change>, onApply: (() -> Void)?) {
         onNotify(revision: revision)
         reaplySchedules()
         onApply?()
@@ -279,11 +280,11 @@ extension SSDataModifyCenter: SSDmRequestDispatcher where Request == Applier.Req
         case .revisionMissmatch:
             break //New dispatch already scheduled on Request adapting
         case .invalidData(let indexes):
-            schedules.forEach {
-                if (indexes.contains($1)) {
-                    $0.error = .invalidData
+            schedules.forEach { idx, schedule in
+                if (indexes.contains(idx)) {
+                    schedule.error = .invalidData
                 }
-                finish(scheduled: $0)
+                finish(scheduled: schedule)
             }
         case .none:
             schedules.forEach {

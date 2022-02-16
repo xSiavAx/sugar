@@ -26,14 +26,22 @@ public struct DBTypedStatemnt<Stmt: SSDataBaseStatementProtocol, BArgs, GArgs>: 
     public func allFor(args: BArgs?) throws -> [GArgs] {
         var result = [GArgs]()
         
-        if let args = args {
-            try bind(args: args)
-        }
+        try bindIfNeeded(args: args)
         
         while (try select()) {
             result.append(try get())
         }
         
         return result
+    }
+    
+    public func firstFor(args: BArgs?) throws -> GArgs? {
+        try bindIfNeeded(args: args)
+        return try select() ? try get() as GArgs : nil
+    }
+    
+    private func bindIfNeeded(args: BArgs?) throws {
+        guard let args = args else { return }
+        try bind(args: args)
     }
 }

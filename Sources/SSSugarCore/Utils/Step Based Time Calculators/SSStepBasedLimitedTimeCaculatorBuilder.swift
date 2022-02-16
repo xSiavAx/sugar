@@ -29,16 +29,19 @@ public class SSStepBasedLimitedTimeCaculatorBuilder {
     
     //MARK: - Mutators
     
+    @discardableResult
     public func setIgnoreLevel(_ ignoreLevel: Int) -> Self {
         self.ignoreLevel = ignoreLevel
         return self
     }
 
+    @discardableResult
     public func setBaseTimeout(_ baseTimeout: TimeInterval) -> Self {
         self.baseTimeout = baseTimeout
         return self
     }
 
+    @discardableResult
     public func setMaxTimeout(_ maxTimeout: TimeInterval) -> Self {
         self.maxTimeout = maxTimeout
         return self
