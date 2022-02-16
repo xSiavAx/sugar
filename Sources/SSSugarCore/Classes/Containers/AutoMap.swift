@@ -268,7 +268,7 @@ extension Array : ReplaceableCollection where Element : Equatable {
     }
 }
 
-extension Set : InsertableCollection {
+extension Set : ReplaceableCollection {
     public mutating func insert(e: Element) -> Bool {
         return insert(e).inserted
     }
@@ -278,7 +278,7 @@ extension Set : InsertableCollection {
     }
 }
 
-extension IndexSet : InsertableCollection {
+extension IndexSet : ReplaceableCollection {
     public mutating func insert(e: Element) -> Bool {
         return insert(e).inserted
     }
