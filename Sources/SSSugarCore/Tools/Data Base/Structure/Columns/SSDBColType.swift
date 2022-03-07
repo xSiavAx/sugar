@@ -35,6 +35,9 @@ public extension SSDBColType {
     }
 }
 
+// Protocol gives ability to separate types that conforms to SSDBColType 1) as SSDBColTypeBased and 2) as raw values
+public protocol SSDBRawColType: SSDBColType {}
+
 /// Protocol for types, which value may be represented via other type that conforms to `DBColType`.
 ///
 /// Provides default implementation for `DBColType` via proxing calls to `BaseCol` type and `baseCol` property.
@@ -67,7 +70,7 @@ public extension SSDBColTypeBased {
 
 //MARK: - Base Types
 
-extension Int: SSDBColType {
+extension Int: SSDBRawColType {
     public static var colName: String { "integer" }
     
     public func asColDefault() -> String { "\(self)" }
@@ -81,7 +84,7 @@ extension Int: SSDBColType {
     }
 }
 
-extension Int64: SSDBColType {
+extension Int64: SSDBRawColType {
     public static var colName: String { "integer" }
     
     public func asColDefault() -> String { "\(self)" }
@@ -95,7 +98,7 @@ extension Int64: SSDBColType {
     }
 }
 
-extension Double: SSDBColType {
+extension Double: SSDBRawColType {
     public static var colName: String { "real" }
     
     public func asColDefault() -> String { "\(self)" }
@@ -109,7 +112,7 @@ extension Double: SSDBColType {
     }
 }
 
-extension String: SSDBColType {
+extension String: SSDBRawColType {
     public static var colName: String { "text" }
     
     public func asColDefault() -> String { "\(self)" }
@@ -123,7 +126,7 @@ extension String: SSDBColType {
     }
 }
 
-extension Data: SSDBColType {
+extension Data: SSDBRawColType {
     public static var colName: String { "blob" }
     
     public func asColDefault() -> String { fatalError("Not implemented") }
