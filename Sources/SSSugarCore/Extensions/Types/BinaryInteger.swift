@@ -1,6 +1,6 @@
 import Foundation
 
-extension BinaryInteger {
+public extension BinaryInteger {
     var isEven: Bool { self % 2 == 0 }
     var isOdd: Bool { self % 2 != 0 }
 }
