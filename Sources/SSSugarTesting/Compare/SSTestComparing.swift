@@ -57,6 +57,19 @@ extension Dictionary: SSTestComparing where Key: Equatable, Value: SSTestCompari
     }
 }
 
+extension Optional: SSTestComparing where Wrapped: SSTestComparing {
+    public func testSameAs(other: Wrapped?) -> Bool {
+        switch (self, other) {
+        case (.none, .none):
+            return false
+        case (.some(let lVal), .some(let rVal)):
+            return lVal.testSameAs(other: rVal)
+        default:
+            return false
+        }
+    }
+}
+
 extension Result: SSTestComparing where Success: SSTestComparing {
     public func testSameAs(other: Result<Success, Failure>) -> Bool {
         switch (self, other) {
