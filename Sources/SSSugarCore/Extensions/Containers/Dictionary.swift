@@ -55,26 +55,26 @@ public extension Dictionary where Value: SSCopying {
 //MARK: - Sequence
 
 public extension Dictionary {
-    func forEach(_ body: (_ idx: Int, _ key: Key, _ val: Value) throws -> Void) rethrows {
-        try self.forEach { idx, pair in
+    func forEachIDx(_ body: (_ idx: Int, _ key: Key, _ val: Value) throws -> Void) rethrows {
+        try forEachIDx { idx, pair in
             try body(idx, pair.key, pair.value)
         }
     }
     
-    func map<T>(_ build: (Int, Key, Value) throws -> T) rethrows -> [T] {
-        return try map() { idx, pair in
+    func mapIDx<T>(_ build: (Int, Key, Value) throws -> T) rethrows -> [T] {
+        return try mapIDx() { idx, pair in
             return try build(idx, pair.key, pair.value)
         }
     }
 
-    func compactMap<T>(_ build: (Int, Key, Value) throws -> T?) rethrows -> [T] {
-        return try compactMap() { idx, pair in
+    func compactMapIDx<T>(_ build: (Int, Key, Value) throws -> T?) rethrows -> [T] {
+        return try compactMapIDx() { idx, pair in
             return try build(idx, pair.key, pair.value)
         }
     }
 
-    func filter(_ isIncluded: (Int, Key, Value) throws -> Bool) rethrows -> [Element] {
-        return try filter() { idx, pair in
+    func filterIDx(_ isIncluded: (Int, Key, Value) throws -> Bool) rethrows -> [Element] {
+        return try filterIDx() { idx, pair in
             return try isIncluded(idx, pair.key, pair.value)
         }
     }

@@ -43,6 +43,12 @@ public extension SSDBTypedQueryHandling {
     func selectFirst(db: SSDataBaseStatementCreator, args: BArgs) throws -> GArgs? {
         return try selectFirst(db: db, optArgs: args)
     }
+    
+    func selectFirst(db: SSDataBaseStatementCreator, forEach args: [BArgs]) throws -> [(BArgs, GArgs?)] {
+        return try withStmt(db: db) { stmt in
+            try args.map { ($0, try stmt.firstFor(args: $0)) }
+        }
+    }
 
     func selectAll(db: SSDataBaseStatementCreator, args: BArgs) throws -> [GArgs] {
         return try selectAll(db: db, optArgs: args)
