@@ -12,7 +12,7 @@ public struct ValueBasedSequence<T>: Sequence, IteratorProtocol {
 
     public init(first: T?, onChange: @escaping (T?) -> T?) {
         self.value = first
-        self.onChange = closure
+        self.onChange = onChange
     }
     
     public mutating func next() -> T? {
