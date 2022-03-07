@@ -1,4 +1,5 @@
 import Foundation
+import XCTest
 
 public class JobTestHelper {
     public enum AsssertResult<Result> {
