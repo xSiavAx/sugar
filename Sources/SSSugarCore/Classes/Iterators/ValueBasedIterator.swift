@@ -6,7 +6,7 @@ import Foundation
 ///
 /// # Conforms to:
 /// `Sequence`, `IteratorProtocol`
-public struct ValueBasedSequence<T>: Sequence, IteratorProtocol {
+public struct ValueBasedIterator<T>: Sequence, IteratorProtocol {
     public private(set) var value: T?
     public let onChange: (T?) -> T?
 

@@ -10,7 +10,7 @@ import Foundation
 /// - Complexity:
 /// O(N), N - rawValue
 ///
-public struct OptionSetIterator<Set: OptionSet>: IteratorProtocol where Set.RawValue == Int, Set.Element == Set {
+public struct OptionSetIterator<Set: OptionSet>: Sequence, IteratorProtocol where Set.RawValue == Int, Set.Element == Set {
     let set: Set
     private let rawValue: Int
     private var nextBitMask = 1
