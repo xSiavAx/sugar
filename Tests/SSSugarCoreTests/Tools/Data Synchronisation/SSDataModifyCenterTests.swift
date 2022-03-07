@@ -293,7 +293,7 @@ class SSDataModifyCenterTests: XCTestCase {
     
     func checkUpdates() {
         XCTAssert(notifier.notifies.count == expectedUpdates.count)
-        notifier.notifies.forEach { (idx, lhs) in
+        notifier.notifies.forEachIDx { (idx, lhs) in
             let rhs = expectedUpdates[idx]
             
             XCTAssert(lhs.name == rhs.name)

@@ -28,6 +28,8 @@ public protocol SSDataBaseBindingStatement {
     func bindNull(pos: Int) throws
 }
 
+// MARK: - SSDataBaseGettingStatement
+
 public protocol SSDataBaseGettingStatement {
     func getInt(pos: Int) throws -> Int
     func getInt64(pos: Int) throws -> Int64
@@ -38,6 +40,8 @@ public protocol SSDataBaseGettingStatement {
     func isNull(pos: Int) throws -> Bool
 }
 
+// MARK: - SSDataBaseStatementProtocol
+
 public protocol SSDataBaseStatementProtocol: SSDataBaseBindingStatement, SSDataBaseGettingStatement, SSReleasable {
     func select() throws -> Bool
     func commit() throws
@@ -45,35 +49,74 @@ public protocol SSDataBaseStatementProtocol: SSDataBaseBindingStatement, SSDataB
     func reset() throws
 }
 
+public extension SSDataBaseStatementProtocol {
+    func bind<T: SSDBColType>(_ val: T, pos: Int) throws {
+        try val.bindTo(stmt: self, pos: pos)
+    }
+
+    func get<T: SSDBColType>(pos: Int) throws -> T {
+        return try T.from(stmt: self, pos: pos)
+    }
+
+    // MARK: Deprecated
+
+    /// - Warning: **Deprecated**. Use `init(size:buildBlock:)` instead.
+    @available(*, deprecated, message: "Use `bind<T: SSDBColType>(_ val: T, pos: Int)` instead")
+    func bind<T: SSDBColType>(val: T, pos: Int) throws {
+        try bind(val, pos: pos)
+    }
+}
+
+// MARK: - SSDataBaseSavePointProtocol
+
 public protocol SSDataBaseSavePointProtocol: SSReleasable {
     /// Revert all changes withing save point.
     /// - Importnat: Doesnt cause releasing. U should call release() on your own, nevermind did `rollBack` called or not.
     func rollBack() throws
 }
 
+// MARK: - SSDataBaseStatementCreator
+
 public protocol SSDataBaseStatementCreator: AnyObject {
     func statement(forQuery : String) throws -> SSDataBaseStatementProtocol
 }
 
+// MARK: - SSDataBaseProtocol
+
 public protocol SSDataBaseProtocol: SSTransacted, SSDataBaseStatementCreator, SSDataBaseQueryExecutor, SSCacheContainer {
+    func stmtProcessor(query: String) throws -> SSDataBaseStatementProcessor
     func savePoint(withTitle: String) throws -> SSDataBaseSavePointProtocol
     func lastInsrtedRowID() -> Int64
+    func transacted(queries: [String]) throws
+
+    // MARK: Deprecated
+
+    /// - Warning: **Deprecated**. Use `transacted(queries:)` insted.
+    @available(*, deprecated, renamed: "transacted(queries:)")
+    func exec(queries: [String]) throws
 }
 
-public extension SSDataBaseStatementProtocol {
-    func bind<T: SSDBColType>(_ val: T, pos: Int) throws {
-        try val.bindTo(stmt: self, pos: pos)
-    }
-    
-    func get<T: SSDBColType>(pos: Int) throws -> T {
-        return try T.from(stmt: self, pos: pos)
-    }
-    
-    //MARK: - deprecated
-    
-    /// - Warning: **Deprecated**. Use `init(size:buildBlock:)` instead.
-    @available(*, deprecated, message: "Use `bind<T: SSDBColType>(_ val: T, pos: Int)` instead")
-    func bind<T: SSDBColType>(val: T, pos: Int) throws {
-        try bind(val, pos: pos)
-    }
+// MARK: - SSFileBasedDataBase
+
+public protocol SSFileBasedDataBase {
+    func close()
+    func remove() throws
+
+    // MARK: Deprecated
+
+    /// - Warning: **Deprecated**. Use `remove()` instead.
+    @available(*, deprecated, renamed: "remove()")
+    func removeDB() throws
+
+    /// - Warning: **Deprecated**. Use `close()` instead.
+    @available(*, deprecated, renamed: "close()")
+    func finish()
+}
+
+// MARK: - SSFileBasedDataBaseStaticCreator
+
+public protocol SSFileBasedDataBaseStaticCreator {
+    static func dbWith(baseDir: SSDataBase.BaseDir, name: String, prefix: String?) throws -> SSDataBaseProtocol & SSFileBasedDataBase
+    static func dbWith(baseDir: URL, name: String, prefix: String?) throws -> SSDataBaseProtocol & SSFileBasedDataBase
+    static func dbWith(name: String, prefix: String?) throws -> SSDataBaseProtocol & SSFileBasedDataBase
 }

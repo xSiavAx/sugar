@@ -105,10 +105,12 @@ public extension SSDBTable {
         return try! query(.insert).add(cols: cols).build()
     }
 
+    /// Select every field without where clause
     static func selectAllQuery() -> String {
         return try! selectAllQueryBuilder().build()
     }
     
+    /// Select every field with where primary key clause
     static func selectQuery() -> String {
         return try! wherePK(selectAllQueryBuilder()).build()
     }
@@ -122,8 +124,14 @@ public extension SSDBTable {
         return try! wherePK(.delete).build()
     }
     
+    /// Delete every filed without where clause
+    static func removeAllQuery() -> String {
+        return try! query(.delete).build()
+    }
+    
+    /// Delete every filed without where clause
     static func removeAll() -> SSDBQueryProcessor<Void, Void> {
-        return SSDBQueryProcessor(try! query(.delete).build())
+        return SSDBQueryProcessor(removeAllQuery())
     }
     
     static func updateQuery(cols: [SSDBColumnProtocol]) -> String {
@@ -142,6 +150,7 @@ public extension SSDBTable {
         return builder
     }
     
+    /// Builder for select every field without where clause
     static func selectAllQueryBuilder() -> SSDBQueryBuilder {
         return try! query(.select).add(cols: colums)
     }

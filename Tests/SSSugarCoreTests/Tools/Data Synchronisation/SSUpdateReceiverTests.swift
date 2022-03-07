@@ -21,62 +21,49 @@ class SSUpdateReceiverTests: XCTestCase, TestUpdate {
     
     override func tearDown() {
         center.removeReceiver(receiver)
+        receiver.applies.removeAll()
+        receiver.recives.removeAll()
+        receiver = nil
     }
     
     func testUpdate() {
         let receives: [SomeTestUpdateReceiver.Received] = [.first]
         let notifications = [firstUpdate()]
         
-        wait { (exp) in
-            notify(notifications, exp: exp, receives: receives)
-        }
-        check(receives)
+        checkNotify(notifications, receives: receives)
     }
     
     func testTwoUpdates() {
         let receives: [SomeTestUpdateReceiver.Received] = [.first, .second]
         let notifications = [firstUpdate(), secondUpdate()]
         
-        wait { (exp) in
-            notify(notifications, exp: exp, receives: receives)
-        }
-        check(receives)
+        checkNotify(notifications, receives: receives)
     }
     
     func testSingleArgUpdate() {
         let receives: [SomeTestUpdateReceiver.Received] = [.withArg(arg: true)]
         let notifications = [oneArgUpdate(arg: true)]
         
-        wait { (exp) in
-            notify(notifications, exp: exp, receives: receives)
-        }
-        check(receives)
+        checkNotify(notifications, receives: receives)
     }
     
     func testMultipleArgsUpdate() {
         let receives: [SomeTestUpdateReceiver.Received] = [.withMultipleArg(first: false, second: 5, third: ["lol"])]
         let notifications = [multipleArgsUpdate(first: false, second: 5, third: ["lol"])]
         
-        wait { (exp) in
-            notify(notifications, exp: exp, receives: receives)
-        }
-        check(receives)
+        checkNotify(notifications, receives: receives)
     }
     
-    func notify(_ updates: [SSUpdate], exp: XCTestExpectation, receives: [SomeTestUpdateReceiver.Received]) {
-        func onBG() {
-            center.notify(updates: updates) {
-                exp.fulfill()
+    func checkNotify(_ updates: [SSUpdate], receives: [SomeTestUpdateReceiver.Received]) {
+        wait() { exp in
+            DispatchQueue.bg.async {
+                self.center.notify(updates: updates) {
+                    exp.fulfill()
+                    XCTAssert(self.receiver.applies == receives)
+                }
+                XCTAssert(self.receiver.recives == receives)
             }
-            XCTAssert(receiver.recives == receives)
-            XCTAssert(receiver.applies == [])
         }
-        DispatchQueue.bg.async(execute: onBG)
-    }
-    
-    func check(_ applies: [SomeTestUpdateReceiver.Received]) {
-        XCTAssert(receiver.applies == applies)
-        receiver.reset()
     }
 }
 

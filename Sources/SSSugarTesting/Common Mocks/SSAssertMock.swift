@@ -5,7 +5,8 @@ public class SSAssertMock: SSMock {
         try! super.call(msg)
     }
     
-    public func expectCall() {
+    @discardableResult
+    public func expectCall() -> SSMockCallExpectation {
         expect() { $0.report(msg: $1.any("Dummy msg")) }
     }
 }

@@ -1,9 +1,9 @@
 import Foundation
 
 open class SSMock: SSMocking {
-    public var calls = [SSMockCallExpectation]()
-    public var registration: SSExpectRegistration!
-    public var onFail: (String?) -> Void
+    open var calls = [SSMockCallExpectation]()
+    open var registration: SSExpectRegistration!
+    open var onFail: (String?) -> Void
     
     public init(onFail: @escaping (String?) -> Void) {
         self.onFail = onFail
