@@ -1,4 +1,5 @@
 import Foundation
+import SSSugarCore
 
 public protocol SSDBColTypeTesting: SSDBColType {
     associatedtype TestResult: SSDBColType & Equatable
