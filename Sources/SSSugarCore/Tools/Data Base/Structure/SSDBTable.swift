@@ -124,8 +124,14 @@ public extension SSDBTable {
         return try! wherePK(.delete).build()
     }
     
+    /// Delete every filed without where clause
+    static func removeAllQuery() -> String {
+        return try! query(.delete).build()
+    }
+    
+    /// Delete every filed without where clause
     static func removeAll() -> SSDBQueryProcessor<Void, Void> {
-        return SSDBQueryProcessor(try! query(.delete).build())
+        return SSDBQueryProcessor(removeAllQuery())
     }
     
     static func updateQuery(cols: [SSDBColumnProtocol]) -> String {
