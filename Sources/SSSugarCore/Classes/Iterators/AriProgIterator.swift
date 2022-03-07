@@ -17,19 +17,19 @@ public struct AriProgIterator: Sequence, IteratorProtocol {
         return current
     }
     
-    static func limited(from start: Int = defaultStart, limit: Int, step: Int = defaultStep) -> LimitedSequenceIterator<Self> {
+    public static func limited(from start: Int = defaultStart, limit: Int, step: Int = defaultStep) -> LimitedSequenceIterator<Self> {
         return .init(subSequence: AriProgIterator(start: start, step: step), limit: limit)
     }
     
-    static func l(_ start: Int, _ limit: Int, _ step: Int) -> LimitedSequenceIterator<Self> {
+    public static func l(_ start: Int, _ limit: Int, _ step: Int) -> LimitedSequenceIterator<Self> {
         return limited(from: start, limit: limit, step: step)
     }
     
-    static func counting(from start: Int = defaultStart, times: Int, step: Int = defaultStep) -> CountingIterator<Self> {
+    public static func counting(from start: Int = defaultStart, times: Int, step: Int = defaultStep) -> CountingIterator<Self> {
         return .init(sequence: AriProgIterator(start: start, step: step), times: times)
     }
     
-    static func c(_ start: Int, _ times: Int, _ step: Int) -> CountingIterator<Self> {
+    public static func c(_ start: Int, _ times: Int, _ step: Int) -> CountingIterator<Self> {
         return counting(from: start, times: times, step: step)
     }
 }

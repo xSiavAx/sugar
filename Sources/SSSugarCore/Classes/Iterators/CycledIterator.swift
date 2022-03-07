@@ -20,7 +20,7 @@ public struct CycledIterator<SubSequence: Sequence>: Sequence, IteratorProtocol 
         return nil //Iterator is empty and recreating wouldn't give any results
     }
 
-    static func counting(_ subSequence: SubSequence, times: Int) -> CountingIterator<Self> {
+    public static func counting(_ subSequence: SubSequence, times: Int) -> CountingIterator<Self> {
         return .init(sequence: CycledIterator(subSequence), times: times)
     }
 }
