@@ -21,6 +21,22 @@ public extension Array {
     }
 }
 
+public extension Array where Element: Hashable {
+    /// Removes dublicating objects from array, doesn't change objects order.
+    mutating func removeDuplicates() {
+        var elements = Set<Element>()
+        removeAll() { elements.insert($0).inserted }
+    }
+    
+    /// Creates new array removing dublicating objects but with same order.
+    func uniques() -> [Element] {
+        var result = self
+        
+        result.removeDuplicates()
+        return result
+    }
+}
+
 //MARK: - Binary Search
 
 public extension Array {
