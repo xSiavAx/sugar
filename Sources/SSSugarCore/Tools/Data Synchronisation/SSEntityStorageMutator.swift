@@ -17,7 +17,7 @@ open class SSEntityDBMutator<Source: SSMutatingEntitySource> {
     /// Marker generator
     ///
     /// Generally for Test purpouses. If nill, self.newMarker() will be used instead (default behaviour).
-    weak var markerGenerator: SSEntityDBMutatorMarkerGenerator?
+    public weak var markerGenerator: SSEntityDBMutatorMarkerGenerator?
 
     public init(executor mExecutor: SSExecutor, notifier mNotifier: SSUpdateNotifier, source mSource: Source) {
         executor = mExecutor
