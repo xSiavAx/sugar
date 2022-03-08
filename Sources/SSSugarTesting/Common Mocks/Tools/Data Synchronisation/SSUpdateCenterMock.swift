@@ -45,7 +45,7 @@ open class SSUpdateCenterMock: SSMock, SSUpdateCenter {
             .andAsync() { captor.released?() }
     }
     
-    func applyCaptor() -> OnApplyCaptor {
+    open func applyCaptor() -> OnApplyCaptor {
         return .forClosure()
     }
 }
