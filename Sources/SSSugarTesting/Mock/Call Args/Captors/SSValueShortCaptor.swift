@@ -52,3 +52,30 @@ extension SSValueShortCaptor {
         return .init(dummy: SSClosureStubFactory.it())
     }
 }
+
+extension SSValueShortCaptor {
+    public static func forClosure<Ret>() -> SSValueShortCaptor<(() -> Ret)?> {
+        return .init(dummy: SSClosureStubFactory.it())
+    }
+
+    public static func forClosure<Ret, Arg1>() -> SSValueShortCaptor<((Arg1) -> Ret)?> {
+        return .init(dummy: SSClosureStubFactory.it())
+    }
+
+    public static func forClosure<Ret, Arg1, Arg2>() -> SSValueShortCaptor<((Arg1, Arg2) -> Ret)?> {
+        return .init(dummy: SSClosureStubFactory.it())
+    }
+
+    public static func forClosure<Ret, Arg1, Arg2, Arg3>() -> SSValueShortCaptor<((Arg1, Arg2, Arg3) -> Ret)?> {
+        return .init(dummy: SSClosureStubFactory.it())
+    }
+
+    public static func forClosure<Ret, Arg1, Arg2, Arg3, Arg4>() -> SSValueShortCaptor<((Arg1, Arg2, Arg3, Arg4) -> Ret)?> {
+        return .init(dummy: SSClosureStubFactory.it())
+    }
+
+    public static func forClosure<Ret, Arg1, Arg2, Arg3, Arg4, Arg5>() -> SSValueShortCaptor<((Arg1, Arg2, Arg3, Arg4, Arg5) -> Ret)?> {
+        return .init(dummy: SSClosureStubFactory.it())
+    }
+}
+
