@@ -103,3 +103,12 @@ extension SSApiCallOptions: SSTestComparing {
         type(of: self.argsConverter) == type(of: other.argsConverter)
     }
 }
+
+extension SSUpdate: SSTestComparing {
+    public func testSameAs(other: SSUpdate) -> Bool {
+        name == other.name &&
+        marker == other.marker &&
+        nsTestCompare(args, eqaulTo: other.args)
+    }
+}
+

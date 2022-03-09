@@ -61,7 +61,7 @@ public class SSCommunicatingMock: SSMock, SSCommunicating {
         
         return expect(result: task) { $0.runTask(url: $1.eq(url),
                                                  headers: $1.eq(headers),
-                                                 body: $1.ceq(body) { json(try! coder.args(from: $0), eqaulTo: try! coder.args(from: $1)) },
+                                                 body: $1.ceq(body) { nsCompare(try! coder.args(from: $0), eqaulTo: try! coder.args(from: $1)) },
                                                  acceptableStatuses: $1.ceq(acceptableStatuses) { $0.testSameAs(other: $1) },
                                                  handler: $1.capture(captor)) }
     }
