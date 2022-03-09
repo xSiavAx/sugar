@@ -21,3 +21,5 @@ public func cycledZip<LE, RE>(_ arrayL: [LE], _ arrayR: [RE])
     return zip(CycledIterator.counting(arrayL, times: max),
                CycledIterator.counting(arrayR, times: max))
 }
+
+public func void() -> Void { () }
