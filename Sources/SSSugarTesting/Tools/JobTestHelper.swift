@@ -86,36 +86,45 @@ public extension JobTestHelper {
 //Async job
 
 public extension JobTestHelper {
-    func checkNoAssert<Result>(job: (@escaping (Result)->Void)->Void) -> Result {
+    func checkNoAssert<Result>(job: (@escaping (Result)->Void) throws -> Void) -> Result {
         return check(assert: nil, job: job)
     }
     
-    func check<Result>(expResult: Result, compare: @escaping (Result, Result) -> Bool, job: (@escaping (Result)->Void)->Void) {
+    func check<Result>(expResult: Result, compare: @escaping (Result, Result) -> Bool, job: (@escaping (Result)->Void) throws -> Void) {
         let _ = check(assert: { self.assertWith(result: $0, expResult: expResult, compare: compare) }, job: job)
     }
     
-    func check<Result: Equatable>(expResult: Result, job: (@escaping (Result)->Void)->Void) {
+    func check<Result: Equatable>(expResult: Result, job: (@escaping (Result)->Void) throws -> Void) {
         check(expResult: expResult, compare: ==, job: job)
     }
     
-    func checkTC<Result: SSTestComparing>(expResult: Result, job: (@escaping (Result)->Void)->Void) {
+    func checkTC<Result: SSTestComparing>(expResult: Result, job: (@escaping (Result)->Void) throws -> Void) {
         check(expResult: expResult, compare: { $0.testSameAs(other: $1) }, job: job)
     }
     
-    func check(expError: Error? = nil, job: (@escaping (Error?)->Void)->Void) {
+    func check(expError: Error? = nil, job: (@escaping (Error?)->Void) throws -> Void) {
         check(expResult: expError, compare: testCompare(loError:roError:), job: job)
     }
     
-    private func check<Result>(assert: ((Result) -> AsssertResult<Result>)?, job: (@escaping (Result)->Void)->Void) -> Result {
+    func doesThrow<Result>(error: Error, asynJob: (@escaping (Result)->Void) throws -> Void) {
+        doesThrow(error: error, job: { try asynJob() { _ in XCTFail("Shouldn't call") } })
+    }
+    
+    private func check<Result>(assert: ((Result) -> AsssertResult<Result>)?,
+                               job: (@escaping (Result)->Void) throws -> Void) -> Result {
         var result: Result?
         
         setUp?()
         
         test.wait() { exp in
-            job() {
-                result = $0
-                self.process(assertResult: assert?($0), for: $0)
-                exp.fulfill()
+            do {
+                try job() {
+                    result = $0
+                    self.process(assertResult: assert?($0), for: $0)
+                    exp.fulfill()
+                }
+            } catch {
+                XCTFail("Unexpected error \(error)")
             }
         }
         tearDown?()
