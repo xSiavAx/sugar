@@ -66,6 +66,9 @@ public class SSUpdateCompare {
     }
     
     public func isMatch(_ update: SSUpdate) -> Bool {
-        return update.name == update.name && update.marker == update.marker && checkArgs(update.args)
+        return update.name == update.name &&
+        update.marker == update.marker &&
+        update.args.count == update.args.count &&
+        checkArgs(update.args)
     }
 }
