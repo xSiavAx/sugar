@@ -33,12 +33,18 @@ open class SSUpdateCenterMock: SSMock, SSUpdateCenter {
     }
     
     @discardableResult
-    open func expectNotify(updates: [SSUpdate], onApply: OnApplyCaptor) -> SSMockCallExpectation {
-        return expect() { $0.notify(updates: $1.tseq(updates), onApply: $1.capture(onApply)) }
+    open func expectNotify(updates: [SSUpdateCompare], onApply: OnApplyCaptor) -> SSMockCallExpectation {
+        return expect() {
+            let _ = $1.match(updates) { compares, updates in
+                guard let updates = updates as? [SSUpdate] else { return false }
+                return compares.elementsEqual(updates) { $0.isMatch($1) }
+            }
+            return $0.notify(updates: updates.map { $0.update }, onApply: $1.capture(onApply))
+        }
     }
     
     @discardableResult
-    open func expectNotifyAndAsync(updates: [SSUpdate]) -> SSMockCallExpectation {
+    open func expectNotifyAndAsync(updates: [SSUpdateCompare]) -> SSMockCallExpectation {
         let captor = applyCaptor()
         
         return expectNotify(updates: updates, onApply: captor)
@@ -47,5 +53,19 @@ open class SSUpdateCenterMock: SSMock, SSUpdateCenter {
     
     open func applyCaptor() -> OnApplyCaptor {
         return .forClosure()
+    }
+}
+
+public class SSUpdateCompare {
+    let update: SSUpdate
+    let checkArgs: ([AnyHashable : Any]) -> Bool
+    
+    public init(update: SSUpdate, checkArgs: @escaping ([AnyHashable : Any]) -> Bool) {
+        self.update = update
+        self.checkArgs = checkArgs
+    }
+    
+    public func isMatch(_ update: SSUpdate) -> Bool {
+        return update.name == update.name && update.marker == update.marker && checkArgs(update.args)
     }
 }
