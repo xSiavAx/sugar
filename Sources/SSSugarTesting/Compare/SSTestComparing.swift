@@ -108,7 +108,7 @@ extension SSUpdate: SSTestComparing {
     public func testSameAs(other: SSUpdate) -> Bool {
         name == other.name &&
         marker == other.marker &&
-        nsTestCompare(args, eqaulTo: other.args)
+        nsCompare(args, eqaulTo: other.args)
     }
 }
 

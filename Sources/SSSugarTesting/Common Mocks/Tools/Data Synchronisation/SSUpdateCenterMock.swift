@@ -33,12 +33,12 @@ open class SSUpdateCenterMock: SSMock, SSUpdateCenter {
     }
     
     @discardableResult
-    open func expectNotify(updates: SSValueCaptor<[SSUpdate]>, onApply: OnApplyCaptor) -> SSMockCallExpectation {
-        return expect() { $0.notify(updates: $1.capture(updates), onApply: $1.capture(onApply)) }
+    open func expectNotify(updates: [SSUpdate], onApply: OnApplyCaptor) -> SSMockCallExpectation {
+        return expect() { $0.notify(updates: $1.tseq(updates), onApply: $1.capture(onApply)) }
     }
     
     @discardableResult
-    open func expectNotifyAndAsync(updates: SSValueCaptor<[SSUpdate]>) -> SSMockCallExpectation {
+    open func expectNotifyAndAsync(updates: [SSUpdate]) -> SSMockCallExpectation {
         let captor = applyCaptor()
         
         return expectNotify(updates: updates, onApply: captor)
