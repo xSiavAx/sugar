@@ -23,3 +23,8 @@ public func cycledZip<LE, RE>(_ arrayL: [LE], _ arrayR: [RE])
 }
 
 public func void() -> Void { () }
+
+public func address(of obj: AnyObject) -> UnsafeMutableRawPointer {
+    return Unmanaged.passUnretained(obj).toOpaque()
+}
+
