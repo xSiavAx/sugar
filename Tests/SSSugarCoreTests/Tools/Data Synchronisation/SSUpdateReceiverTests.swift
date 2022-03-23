@@ -200,13 +200,3 @@ extension URTUpdateReceiver {
         updateWithMultipleArgsDidReceive(first: first, second: second, third: third)
     }
 }
-
-//extension SSUpdate {
-//    #warning("Move me to Updater tests")
-//    func hasSameArgs(as other: SSUpdate) -> Bool {
-//        if name != other.name || args.count != other.args.count {
-//            return false
-//        }
-//        return NSDictionary(dictionary: self.args).isEqual(to: other.args)
-//    }
-//}

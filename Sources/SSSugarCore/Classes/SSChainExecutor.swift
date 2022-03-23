@@ -4,6 +4,7 @@ public protocol SSChainExecuting {
     typealias Handler = () -> Void
     typealias Task = (@escaping Handler) -> Void
     
+    @discardableResult
     func add(_ task: @escaping Task) -> Self
     func finish(executor: SSExecutor, _ handler: @escaping Handler)
     func finish(_ handler: @escaping Handler)
@@ -18,7 +19,8 @@ public class SSChainExecutor: SSChainExecuting {
     
     public init() {}
 
-    @discardableResult public func add(_ task: @escaping Task) -> Self {
+    @discardableResult
+    public func add(_ task: @escaping Task) -> Self {
         tasks.append(task)
         return self
     }
