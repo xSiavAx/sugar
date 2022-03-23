@@ -1,30 +1,30 @@
 import Foundation
 import SSSugarCore
 
-public class SSGroupExecutorBuilderMock: SSMock, SSGroupExecutorBuilding {
-    public func executor() -> SSGroupExecuting {
+open class SSGroupExecutorBuilderMock: SSMock, SSGroupExecutorBuilding {
+    open func executor() -> SSGroupExecuting {
         try! super.call()
     }
     
     @discardableResult
-    public func expectBuild(group: SSGroupExecutorMock) -> SSMockCallExpectation {
+    open func expectBuild(group: SSGroupExecutorMock) -> SSMockCallExpectation {
         expect(result: group) { mock, _ in mock.executor() }
     }
 }
 
-public class SSGroupExecutorMock: SSMock, SSGroupExecuting {
+open class SSGroupExecutorMock: SSMock, SSGroupExecuting {
     public typealias Task = SSGroupExecuting.Task
     
     @discardableResult
-    public func add(_ task: @escaping Task) -> Self {
+    open func add(_ task: @escaping Task) -> Self {
         try! super.call(task)
     }
     
-    public func finish(executor: SSExecutor, _ handler: @escaping () -> Void) {
+    open func finish(executor: SSExecutor, _ handler: @escaping () -> Void) {
         try! super.call(executor, handler)
     }
     
-    public func expectAndAsync<Ex: AnyObject & SSExecutor>(executor: Ex, times: Int) {
+    open func expectAndAsync<Ex: AnyObject & SSExecutor>(executor: Ex, times: Int) {
         let finishCaptor = captor()
         let taskCaptors = (0..<times).map() { _ -> SSValueShortCaptor<Task> in
             let captor = taskCaptor()
@@ -47,11 +47,11 @@ public class SSGroupExecutorMock: SSMock, SSGroupExecuting {
              }
     }
     
-    public func taskCaptor() -> SSValueShortCaptor<Task> {
+    open func taskCaptor() -> SSValueShortCaptor<Task> {
         return .forClosure()
     }
     
-    public func captor() -> SSValueShortCaptor<() -> Void> {
+    open func captor() -> SSValueShortCaptor<() -> Void> {
         return .forClosure()
     }
 }

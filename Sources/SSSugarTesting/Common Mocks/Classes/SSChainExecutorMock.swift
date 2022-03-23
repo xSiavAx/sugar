@@ -33,12 +33,12 @@ open class SSChainExecutorMock: SSMock, SSChainExecuting {
     }
     
     @discardableResult
-    public func expectAndAsync(times: Int) -> SSMockCallExpectation {
+    open func expectAndAsync(times: Int) -> SSMockCallExpectation {
         expectAndAsync(executor: nil as SSExecutorMock?, times: times)
     }
     
     @discardableResult
-    public func expectAndAsync<Ex: AnyObject & SSExecutor>(executor: Ex?, times: Int) -> SSMockCallExpectation {
+    open func expectAndAsync<Ex: AnyObject & SSExecutor>(executor: Ex?, times: Int) -> SSMockCallExpectation {
         let finishCaptor = captor()
         
         let taskCaptors = (0..<times).map() { _ -> SSValueShortCaptor<Task> in
@@ -69,11 +69,11 @@ open class SSChainExecutorMock: SSMock, SSChainExecuting {
              }
     }
     
-    public func taskCaptor() -> SSValueShortCaptor<Task> {
+    open func taskCaptor() -> SSValueShortCaptor<Task> {
         return .forClosure()
     }
     
-    public func captor() -> SSValueShortCaptor<() -> Void> {
+    open func captor() -> SSValueShortCaptor<() -> Void> {
         return .forClosure()
     }
 }

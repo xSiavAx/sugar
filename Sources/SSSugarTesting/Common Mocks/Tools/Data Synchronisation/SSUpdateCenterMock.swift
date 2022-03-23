@@ -56,7 +56,7 @@ open class SSUpdateCenterMock: SSMock, SSUpdateCenter {
     }
 }
 
-public class SSUpdateCompare {
+open class SSUpdateCompare {
     let update: SSUpdate
     let checkArgs: ([AnyHashable : Any]) -> Bool
     
@@ -65,7 +65,7 @@ public class SSUpdateCompare {
         self.checkArgs = checkArgs
     }
     
-    public func isMatch(_ update: SSUpdate) -> Bool {
+    open func isMatch(_ update: SSUpdate) -> Bool {
         return update.name == update.name &&
         update.marker == update.marker &&
         update.args.count == update.args.count &&

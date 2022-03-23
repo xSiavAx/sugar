@@ -1,24 +1,24 @@
 import Foundation
 import SSSugarCore
 
-public class SSMockCallExpectation: CustomStringConvertible {
+open class SSMockCallExpectation: CustomStringConvertible {
     public enum FailCause: Error {
         case invalidFunction(String)
         case invalidArgs(String)
         case invalidReturnType
     }
-    public var id: String
-    public var function: String
-    public var mockArgs: SSMockCallArgs
-    public var result: Any?
-    public var error: Error?
-    public var onReturn: (() -> Any?)?
-    public var preJobs = [()->Void]()
-    public var jobs = [()->Void]()
-    public var asyncJobs = [()->Void]()
-    public var futures = [()->Void]()
+    open var id: String
+    open var function: String
+    open var mockArgs: SSMockCallArgs
+    open var result: Any?
+    open var error: Error?
+    open var onReturn: (() -> Any?)?
+    open var preJobs = [()->Void]()
+    open var jobs = [()->Void]()
+    open var asyncJobs = [()->Void]()
+    open var futures = [()->Void]()
     
-    public var description: String { return id }
+    open var description: String { return id }
 
     public init(id: String, function: String, mockArgs: SSMockCallArgs, result: Any?) {
         self.id = id
@@ -27,9 +27,9 @@ public class SSMockCallExpectation: CustomStringConvertible {
         self.result = result
     }
     
-    //MARK: - public
+    //MARK: - open
     
-    public func process<T>(function mFunction: String, args: [Any?]) throws -> Result<T, FailCause> {
+    open func process<T>(function mFunction: String, args: [Any?]) throws -> Result<T, FailCause> {
         doPreJobs()
         if let cause = check(function: mFunction) ?? check(args:args) {
             return .failure(cause)
@@ -45,49 +45,49 @@ public class SSMockCallExpectation: CustomStringConvertible {
     }
     
     @discardableResult
-    public func andReturn(_ mOnReturn: @escaping () -> Any?) -> SSMockCallExpectation {
+    open func andReturn(_ mOnReturn: @escaping () -> Any?) -> SSMockCallExpectation {
         onReturn = mOnReturn
         return self
     }
     
     @discardableResult
-    public func andDo(_ job: @escaping () -> Void) -> SSMockCallExpectation {
+    open func andDo(_ job: @escaping () -> Void) -> SSMockCallExpectation {
         jobs.append(job)
         return self
     }
     
     @discardableResult
-    public func andPre(_ job: @escaping () -> Void) -> SSMockCallExpectation {
+    open func andPre(_ job: @escaping () -> Void) -> SSMockCallExpectation {
         preJobs.append(job)
         return self
     }
     
     @discardableResult
-    public func andAsync(executor: SSExecutor = DispatchQueue.bg, _ job: @escaping () -> Void) -> SSMockCallExpectation {
+    open func andAsync(executor: SSExecutor = DispatchQueue.bg, _ job: @escaping () -> Void) -> SSMockCallExpectation {
         asyncJobs.append { executor.execute(job) }
         return self
     }
     
     @discardableResult
-    public func andThrow(_ mError: Error) -> SSMockCallExpectation {
+    open func andThrow(_ mError: Error) -> SSMockCallExpectation {
         error = mError
         return self
     }
     
     @discardableResult
-    public func andFuture(_ job: @escaping () -> Void) -> SSMockCallExpectation {
+    open func andFuture(_ job: @escaping () -> Void) -> SSMockCallExpectation {
         futures.append(job)
         return self
     }
     
     @discardableResult
-    public func doFutures() -> SSMockCallExpectation {
+    open func doFutures() -> SSMockCallExpectation {
         futures.forEach() { $0() }
         return self
     }
     
     @discardableResult
-    public func andAsyncFutures(executor: SSExecutor = DispatchQueue.bg) -> SSMockCallExpectation {
+    open func andAsyncFutures(executor: SSExecutor = DispatchQueue.bg) -> SSMockCallExpectation {
         andAsync(executor: executor) {[weak self] in self?.doFutures() }
     }
     

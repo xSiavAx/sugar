@@ -1,11 +1,11 @@
 import Foundation
 
-public class SSExpectRegistration {
-    public var id: String
-    public var label: String?
-    public var result: Any
-    public var args: SSMockCallArgs = SSMockCallArgs()
-    public var call: SSMockCallExpectation!
+open class SSExpectRegistration {
+    open var id: String
+    open var label: String?
+    open var result: Any
+    open var args: SSMockCallArgs = SSMockCallArgs()
+    open var call: SSMockCallExpectation!
     
     public init(result: Any, label: String?, id: String = UUID().uuidString) {
         self.result = result
@@ -14,7 +14,7 @@ public class SSExpectRegistration {
     }
 
     @discardableResult
-    public func initCallExp(function: String) -> SSMockCallExpectation {
+    open func initCallExp(function: String) -> SSMockCallExpectation {
         call = SSMockCallExpectation(id: callIDFor(function: function), function: function, mockArgs: args, result: result)
         return call
     }
