@@ -11,19 +11,19 @@ open class SSJobPlannerMock: SSMock, SSJobPlanning {
     open func expectScheduled(_ scheduled: Bool) {
         expect(result: scheduled) { mock, _ in mock.scheduled }
     }
-    
+
     @discardableResult
     open func expectSchedule(captor: SSValueShortCaptor<(@escaping (SSJobPlannerTOStrategy) -> Void) -> Void>) -> SSMockCallExpectation {
         expect() { $0.scheduleNew(job: $1.capture(captor)) }
     }
     
     @discardableResult
-    open func expecetAndIgnore() -> SSMockCallExpectation {
+    open func expectAndIgnore() -> SSMockCallExpectation {
         return expect() { $0.scheduleNew(job: $1.any({ _ in })) }
     }
     
     @discardableResult
-    open func expecetScheduleAndAsync(handler: @escaping (SSJobPlannerTOStrategy) -> Void) -> SSMockCallExpectation {
+    open func expectScheduleAndAsync(handler: @escaping (SSJobPlannerTOStrategy) -> Void) -> SSMockCallExpectation {
         let captor = captor()
         
         return expect() { $0.scheduleNew(job: $1.capture(captor)) }
