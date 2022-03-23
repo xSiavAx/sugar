@@ -44,6 +44,17 @@ open class SSCommunicatingMock: SSMock, SSCommunicating {
             req.headers = headers
             return self
         }
+        
+        @discardableResult
+        open func setResp(headers: [String : String]) -> Self {
+            return setResp(addon: SSResponseAddonMock(headers: headers))
+        }
+        
+        @discardableResult
+        open func setResp(addon: SSResponseAdditionData) -> Self {
+            resp.addon = addon
+            return self
+        }
     }
     
     open func runTask(url: URL, headers: [String : String]?, body: Data?, acceptableStatuses: [Int], handler: @escaping Handler) -> SSCommunicatingTask {
