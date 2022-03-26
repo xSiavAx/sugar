@@ -1,16 +1,16 @@
 import Foundation
 import SSSugarCore
 
-public class SSExecutorMock: SSMock, SSExecutor, SSTimeoutExecutor {
-    public func execute(_ work: @escaping () -> Void) {
+open class SSExecutorMock: SSMock, SSExecutor, SSTimeoutExecutor {
+    open func execute(_ work: @escaping () -> Void) {
         try! super.call(work)
     }
     
-    public func executeAfter(sec: Int, _ work: @escaping () -> Void) {
+    open func executeAfter(sec: Int, _ work: @escaping () -> Void) {
         try! super.call(sec, work)
     }
     
-    public func executeAfter(sec: Double, _ work: @escaping () -> Void) {
+    open func executeAfter(sec: Double, _ work: @escaping () -> Void) {
         try! super.call(sec, work)
     }
     

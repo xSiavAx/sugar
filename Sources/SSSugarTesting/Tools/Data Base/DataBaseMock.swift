@@ -97,7 +97,7 @@ open class DataBaseMock: SSMock, SSDataBaseProtocol {
     }
 
     @discardableResult
-    func expectCreateTransaction(result: SSDataBaseTransaction) -> SSMockCallExpectation {
+    open func expectCreateTransaction(result: SSDataBaseTransaction) -> SSMockCallExpectation {
         return expect(result: result) { try $0.createTransaction() }
     }
 
