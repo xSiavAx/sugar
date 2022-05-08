@@ -14,7 +14,7 @@ public protocol SSChainExecuting {
     func add(_ task: @escaping Task) -> Self
     
     /// Runs added tasks one by one and calls handler on finish.
-    /// - Parameter executor: Executor to call handler on.
+    /// - Parameter executor: SSExecutor to call handler on.
     /// - Parameter handler: Finish handler to be called on last task finished.
     func finish(executor: SSExecutor, _ handler: @escaping Handler)
     
