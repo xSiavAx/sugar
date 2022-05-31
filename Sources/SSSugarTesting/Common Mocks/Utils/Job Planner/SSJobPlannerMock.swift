@@ -1,5 +1,6 @@
 import Foundation
 import SSSugarCore
+import SSSugarExecutors
 
 open class SSJobPlannerMock: SSMock, SSJobPlanning {
     open var scheduled: Bool { try! super.call() }

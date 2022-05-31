@@ -1,5 +1,6 @@
 import Foundation
 import SSSugarCore
+import SSSugarDataSynchronisation
 
 open class SSUpdateCenterMock: SSMock, SSUpdateCenter {
     public typealias OnApplyCaptor = SSValueShortCaptor<(() -> Void)?>

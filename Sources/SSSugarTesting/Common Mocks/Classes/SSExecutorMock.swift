@@ -1,5 +1,6 @@
 import Foundation
 import SSSugarCore
+import SSSugarExecutors
 
 open class SSExecutorMock: SSMock, SSExecutor, SSTimeoutExecutor {
     open func execute(_ work: @escaping () -> Void) {

@@ -24,6 +24,15 @@ struct Additions {
     }
 }
 
+let allMacTargets = [
+    "SSSugarCore",
+    "SSSugarExecutors",
+    "SSSugarDataSynchronisation",
+    "SSSugarTesting"
+]
+
+let allTargets = allMacTargets + ["SSSugarUIKit"]
+
 let package = Package(
     name: "SSSugar",
     platforms: [
@@ -32,21 +41,30 @@ let package = Package(
     ],
     products: [
         .library(
-            name: "SSSugar",
-            targets: ["SSSugarUIKit", "SSSugarCore"]),
-        .library(
             name: "SSSugarCore",
-            targets: ["SSSugarCore"]),
+            targets: ["SSSugarCore"]
+        ),
+        .library(
+            name: "SSSugarExecutors",
+            targets: ["SSSugarExecutors"]
+        ),
+        .library(
+            name: "SSSugarDataSynchronisation",
+            targets: ["SSSugarDataSynchronisation"]
+        ),
         .library(
             name: "SSSugarTesting",
-            targets: ["SSSugarTesting"]),
+            targets: ["SSSugarTesting"]
+        ),
         .library(
             name: "SSSugarDynamic",
             type: .dynamic,
-            targets: ["SSSugarUIKit", "SSSugarCore"]),
+            targets: allTargets
+        ),
         .executable(
-            name: "SSSugarPG",
-            targets: ["SSSugarPG"]),
+            name: "SSSugarMacPG",
+            targets: ["SSSugarMacPG"]
+        ),
     ],
     dependencies: [
         .package(url: "https://github.com/apple/swift-argument-parser", from: "0.4.0"),
@@ -54,20 +72,36 @@ let package = Package(
     + Additions.ForPackage.dependecies(),
     targets: [
         .target(
-            name: "SSSugarCore", dependencies: [] + Additions.ForTarget.dependecies() ),
+            name: "SSSugarCore",
+            dependencies: [] + Additions.ForTarget.dependecies()
+        ),
         .target(
-            name: "SSSugarUIKit", dependencies: ["SSSugarCore"]),
+            name: "SSSugarUIKit",
+            dependencies: ["SSSugarCore"]
+        ),
         .target(
-            name: "SSSugarTesting", dependencies: ["SSSugarCore"]),
+            name: "SSSugarExecutors",
+            dependencies: ["SSSugarCore"]
+        ),
         .target(
-            name: "SSSugarPG",
-            dependencies: ["SSSugarCore",
-                           .product(name: "ArgumentParser", package: "swift-argument-parser")]),
+            name: "SSSugarDataSynchronisation",
+            dependencies: ["SSSugarExecutors"]
+        ),
+        .target(
+            name: "SSSugarTesting",
+            dependencies: ["SSSugarCore"]
+        ),
+        .target(
+            name: "SSSugarMacPG",
+            dependencies: [.product(name: "ArgumentParser", package: "swift-argument-parser")] + allMacTargets.map { .init(stringLiteral: $0) }
+        ),
         .testTarget(
-            name: "SSSugarCoreTests",
-            dependencies: ["SSSugarCore", "SSSugarTesting"]),
+            name: "SSSugarTests",
+            dependencies: allMacTargets.map { .init(stringLiteral: $0) }
+        ),
         .testTarget(
             name: "SSSugarUIKitTests",
-            dependencies: ["SSSugarUIKit", "SSSugarCore", "SSSugarTesting"]),
+            dependencies: ["SSSugarUIKit", "SSSugarCore", "SSSugarTesting"]
+        ),
     ]
 )

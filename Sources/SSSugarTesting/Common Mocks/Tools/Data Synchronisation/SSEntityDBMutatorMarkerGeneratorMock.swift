@@ -1,5 +1,6 @@
 import Foundation
 import SSSugarCore
+import SSSugarDataSynchronisation
 
 open class SSEntityDBMutatorMarkerGeneratorMock: SSMock, SSEntityDBMutatorMarkerGenerator {
     open func newMarker() -> String {
