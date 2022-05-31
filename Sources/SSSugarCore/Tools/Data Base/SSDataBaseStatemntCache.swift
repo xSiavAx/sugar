@@ -16,7 +16,7 @@ public class SSDataBaseStatementCache {
     
     public let lifeTime : TimeInterval
     public unowned var creator : SSDataBaseStatementCreator
-    private var holders = AutoMap<String, [SSDataBaseStatementCacheHolder]>()
+    private var holders = [String : [SSDataBaseStatementCacheHolder]]()
     
     public init(lifeTime mLifeTime: TimeInterval = SSDataBaseStatementCache.kDefaultLifeTime, statementsCreator: SSDataBaseStatementCreator) {
         lifeTime = mLifeTime
@@ -46,27 +46,36 @@ extension SSDataBaseStatementCache: SSDataBaseStatementCacheProtocol {
     }
     
     public func clearOlderThen(interval: TimeInterval) {
-        var indexes = AutoMap<String, [Int]>()
+        var indexes = [String : [Int]]()
         
         for query in holders.keys {
             for (idx, holder) in holders[query]!.enumerated() {
                 if (!holder.occupied && holder.olderThen(age: interval)) {
-                    indexes.add(idx, for: query)
+                    indexes[query, default: []].append(idx)
                     do { try holder.statement.release() } catch { fatalError("\(error)") }
                 }
             }
         }
-        if (!indexes.isEmpty) {
-            holders.remove(forKeyAndIndexes: indexes)
+        indexes.forEach() { key, idxs in
+            var keyHolders = holders[key]
+            
+            if (keyHolders?.count == idxs.count) {
+                holders[key] = nil
+            } else {
+                idxs.reversed().forEach { keyHolders?.remove(at: $0) }
+                holders[key] = keyHolders
+            }
         }
     }
     
     public func clearAll() throws {
-        for (_, _, holder) in holders {
-            guard !holder.occupied else {
-                throw mError.statementsAreInUse
+        try holders.values.forEach {
+            try $0.forEach { holder in
+                guard !holder.occupied else {
+                    throw mError.statementsAreInUse
+                }
+                do { try holder.statement.release() } catch { fatalError("\(error)") }
             }
-            do { try holder.statement.release() } catch { fatalError("\(error)") }
         }
         holders.removeAll()
     }
@@ -86,7 +95,7 @@ extension SSDataBaseStatementCache: SSDataBaseStatementCacheProtocol {
     private func createHolderForQuery(_ query: String) throws -> SSDataBaseStatementCacheHolder {
         let holder = SSDataBaseStatementCacheHolder(stmt: try creator.statement(forQuery: query))
         
-        holders.add(holder, for: query)
+        holders[query, default: []].append(holder)
         return holder
     }
     
