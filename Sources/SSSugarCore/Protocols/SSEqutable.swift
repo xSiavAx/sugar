@@ -1,5 +1,8 @@
 import Foundation
 
+#warning("Remove me")
+// It's unsafe to use operator== on inheritors and causes a lot of problems. If u need Equtable use Value Types.
+
 /// Requirements for `Equtable` that could be implemented with two new methods (instead of operator==).
 ///
 /// # Provides:
