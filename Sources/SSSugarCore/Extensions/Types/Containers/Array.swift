@@ -12,6 +12,14 @@ public extension Array {
         return element
     }
     
+    func inserting(_ element: Element, at pos: Int) -> Self {
+        var result = self
+        
+        result.insert(element, at: pos)
+        
+        return result
+    }
+    
     //MARK: deprecated
     
     /// - Warning: **Deprecated**. Use `init(size:buildBlock:)` instead.
@@ -162,7 +170,7 @@ public extension Array {
     }
 }
 
-public extension Array where Element : Comparable {
+public extension Array where Element: Comparable {
     /// Shortcut for Array whose elements implements Comparable. See `binarySearch(_ needle: Element, comparator: (_ cNeedle:Element, _ cElement:Element)->ComparisonResult) -> Int?` for full description.
     func binarySearch(_ needle: Element) -> Int? {
         return binarySearch(needle) {$0.compare($1)}
