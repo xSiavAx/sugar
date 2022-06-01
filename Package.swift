@@ -55,8 +55,36 @@ let package = Package(
             targets: ["SSSugarExecutors"]
         ),
         .library(
+            name: "SSSugarExecutorsAndTesting",
+            targets: ["SSSugarExecutors", "SSSugarExecutorsTesting"]
+        ),
+        .library(
+            name: "SSSugarDatabase",
+            targets: ["SSSugarDatabase"]
+        ),
+        .library(
+            name: "SSSugarDatabaseAndTesting",
+            targets: ["SSSugarDatabase", "SSSugarDatabaseTesting"]
+        ),
+        .library(
+            name: "SSSugarNetwork",
+            targets: ["SSSugarNetwork"]
+        ),
+        .library(
+            name: "SSSugarNetworkAndTesting",
+            targets: ["SSSugarNetwork", "SSSugarNetworkTesting"]
+        ),
+        .library(
+            name: "SSSugarKeyCoding",
+            targets: ["SSSugarKeyCoding"]
+        ),
+        .library(
             name: "SSSugarDataSynchronisation",
             targets: ["SSSugarDataSynchronisation"]
+        ),
+        .library(
+            name: "SSSugarDataSynchronisationAndTesting",
+            targets: ["SSSugarDataSynchronisation", "SSSugarDataSynchronisationTesting"]
         ),
         .library(
             name: "SSSugarTesting",
