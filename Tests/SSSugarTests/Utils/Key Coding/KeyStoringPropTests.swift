@@ -1,6 +1,7 @@
 import XCTest
 
 @testable import SSSugarCore
+@testable import SSSugarKeyCoding
 
 /// # Cases:
 /// _access_ – access to dict val via property

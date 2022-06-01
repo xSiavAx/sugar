@@ -1,6 +1,7 @@
 import XCTest
 
 @testable import SSSugarCore
+@testable import SSSugarNetwork
 
 /// # Cases:
 /// **bodyFromArgs**
