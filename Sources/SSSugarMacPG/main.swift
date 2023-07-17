@@ -47,7 +47,7 @@ struct DynamicStorage: SSDBStoraging {
     private(set) var db: SSDataBaseProtocol
     
     init(identifier: String) throws {
-        self.db = try SSDataBase.dbWith(name: Self.name, prefix: identifier)
+        self.db = try SSDataBase.dbWith(url: SSDataBase.dataBasePath(name: Self.name, prefix: identifier))
     }
     
     struct Message: SSDBIDTable {

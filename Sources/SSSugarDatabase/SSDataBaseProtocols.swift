@@ -117,7 +117,19 @@ public protocol SSFileBasedDataBase {
 // MARK: - SSFileBasedDataBaseStaticCreator
 
 public protocol SSFileBasedDataBaseStaticCreator {
+    static func dataBasePath(baseDir: SSDataBase.BaseDir, name: String, prefix: String?) -> URL
+    static func dataBasePath(baseDir: URL, name: String, prefix: String?) -> URL
+    static func dataBasePath(name: String, prefix: String?) -> URL
+    static func defaultDBBaseDir() -> SSDataBase.BaseDir
+    static func dbWith(url: URL) throws -> SSDataBaseProtocol & SSFileBasedDataBase
+
+    /// - Warning: **Deprecated**. Use `dbWith(url:)` in pair with `dataBasePath(baseDir:name:prefix:)` instead.
+    @available(*, deprecated, message: "Use `dbWith(url:)` in pair with `dataBasePath(baseDir:name:prefix:)` instead")
     static func dbWith(baseDir: SSDataBase.BaseDir, name: String, prefix: String?) throws -> SSDataBaseProtocol & SSFileBasedDataBase
+    /// - Warning: **Deprecated**. Use `dbWith(url:)` in pair with `dataBasePath(baseDir:name:prefix:)` instead.
+    @available(*, deprecated, message: "Use `dbWith(url:)` in pair with `dataBasePath(baseDir:name:prefix:)` instead")
     static func dbWith(baseDir: URL, name: String, prefix: String?) throws -> SSDataBaseProtocol & SSFileBasedDataBase
+    /// - Warning: **Deprecated**. Use `dbWith(url:)` in pair with `dataBasePath(name:prefix:)` instead.
+    @available(*, deprecated, message: "Use `dbWith(url:)` in pair with `dataBasePath(name:prefix:)` instead")
     static func dbWith(name: String, prefix: String?) throws -> SSDataBaseProtocol & SSFileBasedDataBase
 }
