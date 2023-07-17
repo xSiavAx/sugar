@@ -212,30 +212,59 @@ extension SSDataBase: SSFileBasedDataBase {
 // MARK: - SSFileBasedDataBaseStaticCreator
 
 extension SSDataBase: SSFileBasedDataBaseStaticCreator {
-    public static func dbWith(baseDir: BaseDir, name: String, prefix: String? = nil) throws -> SSDataBaseProtocol & SSFileBasedDataBase {
-        var path = baseDir.url
+    public static func dataBasePath(baseDir: BaseDir, name: String, prefix: String? = nil) -> URL {
+        var url = baseDir.url
 
         if let prefix = prefix {
-            path.appendPathComponent(prefix)
+            url.appendPathComponent(prefix)
         }
-        if (!FileManager.default.fileExists(atPath: path.path)) {
-            try FileManager.default.createDirectory(atPath: path.path, withIntermediateDirectories: true, attributes: nil)
-        }
-        path.appendPathComponent("\(name).sqlite3")
-        NSLog("Data Base path:\n\(path)")
+        url.appendPathComponent("\(name).sqlite3")
 
-        return SSDataBase(path: path) as! Self
+        return url
     }
 
-    public static func dbWith(baseDir: URL, name: String, prefix: String? = nil) throws -> SSDataBaseProtocol & SSFileBasedDataBase {
-        return try dbWith(baseDir: .custom(baseDir), name: name, prefix: prefix)
+    public static func dataBasePath(baseDir: URL, name: String, prefix: String?) -> URL {
+        return dataBasePath(baseDir: .custom(baseDir), name: name, prefix: prefix)
     }
 
-    public static func dbWith(name: String, prefix: String? = nil) throws -> SSDataBaseProtocol & SSFileBasedDataBase {
+    public static func dataBasePath(name: String, prefix: String?) -> URL {
+        return dataBasePath(baseDir: defaultDBBaseDir(), name: name, prefix: prefix)
+    }
+
+    public static func defaultDBBaseDir() -> BaseDir {
 #if os(iOS)
-        return try dbWith(baseDir: .documents, name: name, prefix: prefix)
+        return .documents
 #else
-        return try dbWith(baseDir: .current, name: name, prefix: prefix)
+        return .current
 #endif
+    }
+
+    public static func dbWith(url: URL) throws -> SSDataBaseProtocol & SSFileBasedDataBase {
+        let dir = url.deletingLastPathComponent()
+
+        if (!FileManager.default.fileExists(atPath: dir.path)) {
+            try FileManager.default.createDirectory(atPath: dir.path, withIntermediateDirectories: true, attributes: nil)
+        }
+        return SSDataBase(path: url)
+    }
+
+    //MARK: deprecated
+
+    /// - Warning: **Deprecated**. Use `dbWith(url:)` in pair with `dataBasePath(baseDir:name:prefix:)` instead.
+    @available(*, deprecated, message: "Use `dbWith(url:)` in pair with `dataBasePath(baseDir:name:prefix:)` instead")
+    public static func dbWith(baseDir: BaseDir, name: String, prefix: String? = nil) throws -> SSDataBaseProtocol & SSFileBasedDataBase {
+        return try dbWith(url: dataBasePath(baseDir: baseDir, name: name, prefix: prefix))
+    }
+
+    /// - Warning: **Deprecated**. Use `dbWith(url:)` in pair with `dataBasePath(baseDir:name:prefix:)` instead.
+    @available(*, deprecated, message: "Use `dbWith(url:)` in pair with `dataBasePath(baseDir:name:prefix:)` instead")
+    public static func dbWith(baseDir: URL, name: String, prefix: String? = nil) throws -> SSDataBaseProtocol & SSFileBasedDataBase {
+        return try dbWith(url: dataBasePath(baseDir: .custom(baseDir), name: name, prefix: prefix))
+    }
+
+    /// - Warning: **Deprecated**. Use `dbWith(url:)` in pair with `dataBasePath(name:prefix:)` instead.
+    @available(*, deprecated, message: "Use `dbWith(url:)` in pair with `dataBasePath(name:prefix:)` instead")
+    public static func dbWith(name: String, prefix: String? = nil) throws -> SSDataBaseProtocol & SSFileBasedDataBase {
+        return try dbWith(url: dataBasePath(baseDir: defaultDBBaseDir(), name: name, prefix: prefix))
     }
 }
