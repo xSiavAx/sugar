@@ -34,7 +34,8 @@ let allMacTargets = [
     "SSSugarNetworkTesting",
     "SSSugarTesting",
     "SSSugarKeyCoding",
-    "SSSugarDataSynchronisation"
+    "SSSugarDataSynchronisation",
+    "SSSugarSwiftUI"
 ]
 
 let allTargets = allMacTargets + ["SSSugarUIKit"]
@@ -85,6 +86,10 @@ let package = Package(
         .library(
             name: "SSSugarDataSynchronisationAndTesting",
             targets: ["SSSugarDataSynchronisation", "SSSugarDataSynchronisationTesting"]
+        ),
+        .library(
+            name: "SSSugarSwiftUI",
+            targets: ["SSSugarSwiftUI"]
         ),
         .library(
             name: "SSSugarTesting",
@@ -152,6 +157,10 @@ let package = Package(
         .target(
             name: "SSSugarDataSynchronisationTesting",
             dependencies: ["SSSugarExecutors", "SSSugarDataSynchronisation", "SSSugarTesting"]
+        ),
+        .target(
+            name: "SSSugarSwiftUI",
+            dependencies: ["SSSugarExecutors"]
         ),
         .target(
             name: "SSSugarMacPG",
