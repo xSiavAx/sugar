@@ -5,7 +5,7 @@ import PackageDescription
 
 struct DBAdditions {
     struct ForPackage {
-        static func dependecies() -> [Package.Dependency] {
+        static func dependencies() -> [Package.Dependency] {
             #if os(Linux)
             return [.package(name: "CSQLiteSS", url: "git@bitbucket.org:SiavA/csqlitess.git", from: "1.0.0")]
             #else
@@ -14,7 +14,7 @@ struct DBAdditions {
         }
     }
     struct ForTarget {
-        static func dependecies() -> [Target.Dependency] {
+        static func dependencies() -> [Target.Dependency] {
             #if os(Linux)
             return ["CSQLiteSS"]
             #else
@@ -27,23 +27,26 @@ struct DBAdditions {
 let allMacTargets = [
     "SSSugarCore",
     "SSSugarExecutors",
-    "SSSugarExecutorsTesting",
     "SSSugarDatabase",
-    "SSSugarDatabaseTesting",
     "SSSugarNetwork",
-    "SSSugarNetworkTesting",
-    "SSSugarTesting",
     "SSSugarKeyCoding",
-    "SSSugarDataSynchronisation"
+    "SSSugarDataSynchronisation",
+    "SSSugarSwiftUI"
 ]
 
-let allTargets = allMacTargets + ["SSSugarUIKit"]
+let allTargets = allMacTargets + [
+    "SSSugarUIKit",
+    "SSSugarTesting",
+    "SSSugarExecutorsTesting",
+    "SSSugarDatabaseTesting",
+    "SSSugarNetworkTesting"
+]
 
 let package = Package(
     name: "SSSugar",
     platforms: [
         .macOS(.v11),
-        .iOS(.v11)
+        .iOS(.v14)
     ],
     products: [
         .library(
@@ -87,6 +90,10 @@ let package = Package(
             targets: ["SSSugarDataSynchronisation", "SSSugarDataSynchronisationTesting"]
         ),
         .library(
+            name: "SSSugarSwiftUI",
+            targets: ["SSSugarSwiftUI"]
+        ),
+        .library(
             name: "SSSugarTesting",
             targets: ["SSSugarTesting"]
         ),
@@ -103,7 +110,7 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/apple/swift-argument-parser", from: "0.4.0"),
     ]
-    + DBAdditions.ForPackage.dependecies(),
+    + DBAdditions.ForPackage.dependencies(),
     targets: [
         .target(
             name: "SSSugarCore",
@@ -123,11 +130,11 @@ let package = Package(
         ),
         .target(
             name: "SSSugarDatabase",
-            dependencies: ["SSSugarCore"] + DBAdditions.ForTarget.dependecies()
+            dependencies: ["SSSugarCore"] + DBAdditions.ForTarget.dependencies()
         ),
         .target(
             name: "SSSugarDatabaseTesting",
-            dependencies: ["SSSugarCore", "SSSugarDatabase", "SSSugarTesting"] + DBAdditions.ForTarget.dependecies()
+            dependencies: ["SSSugarCore", "SSSugarDatabase", "SSSugarTesting"] + DBAdditions.ForTarget.dependencies()
         ),
         .target(
             name: "SSSugarNetwork",
@@ -154,12 +161,16 @@ let package = Package(
             dependencies: ["SSSugarExecutors", "SSSugarDataSynchronisation", "SSSugarTesting"]
         ),
         .target(
+            name: "SSSugarSwiftUI",
+            dependencies: ["SSSugarExecutors"]
+        ),
+        .target(
             name: "SSSugarMacPG",
             dependencies: [.product(name: "ArgumentParser", package: "swift-argument-parser")] + allMacTargets.map { .init(stringLiteral: $0) }
         ),
         .testTarget(
             name: "SSSugarTests",
-            dependencies: allMacTargets.map { .init(stringLiteral: $0) }
+            dependencies: allTargets.map { .init(stringLiteral: $0) }
         ),
         .testTarget(
             name: "SSSugarUIKitTests",
