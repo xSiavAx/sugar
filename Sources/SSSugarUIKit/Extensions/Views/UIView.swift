@@ -2,10 +2,7 @@ import UIKit
 
 public extension UIView {
     var safeFrame: CGRect {
-        if #available(iOS 11, *) {
-            return bounds.inset(by: safeAreaInsets)
-        }
-        return bounds
+        return bounds.inset(by: safeAreaInsets)
     }
     
     static var defaultAnimationDuration: TimeInterval { 0.25 }
