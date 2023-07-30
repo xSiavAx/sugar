@@ -80,8 +80,9 @@ func main() {
 //    try! dynamic.deinitializeStructure(strictExist: false)
 //    try! dynamic.initializeStructure()
 //    try! dynamic.deinitializeStructure()
-    
-//    RunLoop.current.run()
+
+    print("Hello, Mac!")
+    RunLoop.current.run()
 }
 
 main()

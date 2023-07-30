@@ -27,18 +27,20 @@ struct DBAdditions {
 let allMacTargets = [
     "SSSugarCore",
     "SSSugarExecutors",
-    "SSSugarExecutorsTesting",
     "SSSugarDatabase",
-    "SSSugarDatabaseTesting",
     "SSSugarNetwork",
-    "SSSugarNetworkTesting",
-    "SSSugarTesting",
     "SSSugarKeyCoding",
     "SSSugarDataSynchronisation",
     "SSSugarSwiftUI"
 ]
 
-let allTargets = allMacTargets + ["SSSugarUIKit"]
+let allTargets = allMacTargets + [
+    "SSSugarUIKit",
+    "SSSugarTesting",
+    "SSSugarExecutorsTesting",
+    "SSSugarDatabaseTesting",
+    "SSSugarNetworkTesting"
+]
 
 let package = Package(
     name: "SSSugar",
@@ -168,7 +170,7 @@ let package = Package(
         ),
         .testTarget(
             name: "SSSugarTests",
-            dependencies: allMacTargets.map { .init(stringLiteral: $0) }
+            dependencies: allTargets.map { .init(stringLiteral: $0) }
         ),
         .testTarget(
             name: "SSSugarUIKitTests",
