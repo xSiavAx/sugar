@@ -15,14 +15,8 @@ extension CTCarrier: SSCarrierInfo {
 public extension CTCarrier {
     /// Returns set of carriers (if available)
     static func current() -> [CTCarrier]? {
-        if #available(iOS 12, *) {
-            if let carriers = CTTelephonyNetworkInfo().serviceSubscriberCellularProviders {
-                return Array(carriers.values)
-            }
-        } else {
-            if let carrier = CTTelephonyNetworkInfo().subscriberCellularProvider {
-                return [carrier]
-            }
+        if let carriers = CTTelephonyNetworkInfo().serviceSubscriberCellularProviders {
+            return Array(carriers.values)
         }
         return nil
     }
