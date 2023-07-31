@@ -1,6 +1,8 @@
 import Foundation
 import SSSugarCore
 import SSSugarDatabase
+import SSSugarSwiftUI
+import SwiftUI
 
 struct Contact: SSDBIDTable {
     static var tableName: String { "contact" }
@@ -80,7 +82,6 @@ func main() {
 //    try! dynamic.deinitializeStructure(strictExist: false)
 //    try! dynamic.initializeStructure()
 //    try! dynamic.deinitializeStructure()
-
     print("Hello, Mac!")
     RunLoop.current.run()
 }
