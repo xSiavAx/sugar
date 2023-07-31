@@ -82,7 +82,7 @@ func main() {
 //    try! dynamic.deinitializeStructure(strictExist: false)
 //    try! dynamic.initializeStructure()
 //    try! dynamic.deinitializeStructure()
-    print("Hello, Mac!")
+    print("Hello, Mac!\n\(UUID())")
     RunLoop.current.run()
 }
 

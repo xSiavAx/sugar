@@ -1,13 +1,5 @@
 import SwiftUI
-
-public struct ErrorAlertContext: Identifiable {
-    public let id = UUID()
-
-    var title = "Error"
-    var details: String
-
-    var retryAction: (() -> Void)?
-}
+import SSSugarCore
 
 public struct ErrorHandlingViewModifier: ViewModifier {
     @Binding var context: ErrorAlertContext?
