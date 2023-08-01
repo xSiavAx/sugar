@@ -7,6 +7,16 @@ public struct ErrorAlertContext: Identifiable {
     public var details: String
 
     public var retryAction: (() -> Void)?
+
+    public init(
+        title: String = "Error",
+        details: String,
+        retryAction: (() -> Void)? = nil
+    ) {
+        self.title = title
+        self.details = details
+        self.retryAction = retryAction
+    }
 }
 
 public protocol ErrorAlertProcessor: AnyObject {
