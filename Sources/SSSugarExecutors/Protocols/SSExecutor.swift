@@ -7,6 +7,24 @@ public protocol SSExecutor {
     func execute(_ work: @escaping ()->Void)
 }
 
+extension SSExecutor {
+    public func execute<T>(job: @escaping () throws -> T) async throws -> T {
+        try await withCheckedThrowingContinuation { handler in
+            execute {
+                handler.resume(with: .init(catching: job))
+            }
+        }
+    }
+
+    public func execute<T>(job: @escaping () -> T) async -> T {
+        await withCheckedContinuation { handler in
+            execute {
+                handler.resume(returning: job())
+            }
+        }
+    }
+}
+
 /// Requirements for tool that executes passed jobs after some timeout.
 ///
 /// Usually used to encapsulate some implementation (DispatchQueue for ex), it simplifies unit-tests.
@@ -22,6 +40,40 @@ public protocol SSTimeoutExecutor: SSExecutor {
     ///   - sec: Time interval length in secconds
     ///   - work: Joib to be executed
     func executeAfter(sec: Int, _ work: @escaping () -> Void)
+}
+
+extension SSTimeoutExecutor {
+    public func executeAfter<T>(sec: Double, job: @escaping () throws -> T) async throws -> T {
+        try await withCheckedThrowingContinuation { handler in
+            executeAfter(sec: sec) {
+                handler.resume(with: .init(catching: job))
+            }
+        }
+    }
+
+    public func execute<T>(sec: Double, job: @escaping () -> T) async -> T {
+        await withCheckedContinuation { handler in
+            executeAfter(sec: sec) {
+                handler.resume(returning: job())
+            }
+        }
+    }
+
+    public func executeAfter<T>(sec: Int, job: @escaping () throws -> T) async throws -> T {
+        try await withCheckedThrowingContinuation { handler in
+            executeAfter(sec: sec) {
+                handler.resume(with: .init(catching: job))
+            }
+        }
+    }
+
+    public func execute<T>(sec: Int, job: @escaping () -> T) async -> T {
+        await withCheckedContinuation { handler in
+            executeAfter(sec: sec) {
+                handler.resume(returning: job())
+            }
+        }
+    }
 }
 
 /// Requirements for SSTimeoutExecutor that owns underlied gcd queue
