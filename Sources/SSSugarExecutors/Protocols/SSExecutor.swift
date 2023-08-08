@@ -51,7 +51,7 @@ extension SSTimeoutExecutor {
         }
     }
 
-    public func execute<T>(sec: Double, job: @escaping () -> T) async -> T {
+    public func executeAfter<T>(sec: Double, job: @escaping () -> T) async -> T {
         await withCheckedContinuation { handler in
             executeAfter(sec: sec) {
                 handler.resume(returning: job())
@@ -67,7 +67,7 @@ extension SSTimeoutExecutor {
         }
     }
 
-    public func execute<T>(sec: Int, job: @escaping () -> T) async -> T {
+    public func executeAfter<T>(sec: Int, job: @escaping () -> T) async -> T {
         await withCheckedContinuation { handler in
             executeAfter(sec: sec) {
                 handler.resume(returning: job())
