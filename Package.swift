@@ -28,8 +28,7 @@ let allMacTargets = [
     "SSSugarCore",
     "SSSugarExecutors",
     "SSSugarDatabase",
-    "SSSugarNetwork",
-    "SSSugarKeyCoding",
+    "SSSugarNetworking",
     "SSSugarDataSynchronisation",
     "SSSugarSwiftUI"
 ]
@@ -39,7 +38,6 @@ let allTargets = allMacTargets + [
     "SSSugarTesting",
     "SSSugarExecutorsTesting",
     "SSSugarDatabaseTesting",
-    "SSSugarNetworkTesting"
 ]
 
 let package = Package(
@@ -70,16 +68,8 @@ let package = Package(
             targets: ["SSSugarDatabase", "SSSugarDatabaseTesting"]
         ),
         .library(
-            name: "SSSugarNetwork",
-            targets: ["SSSugarNetwork"]
-        ),
-        .library(
-            name: "SSSugarNetworkAndTesting",
-            targets: ["SSSugarNetwork", "SSSugarNetworkTesting"]
-        ),
-        .library(
-            name: "SSSugarKeyCoding",
-            targets: ["SSSugarKeyCoding"]
+            name: "SSSugarNetworking",
+            targets: ["SSSugarNetworking"]
         ),
         .library(
             name: "SSSugarDataSynchronisation",
@@ -137,20 +127,12 @@ let package = Package(
             dependencies: ["SSSugarCore", "SSSugarDatabase", "SSSugarTesting"] + DBAdditions.ForTarget.dependencies()
         ),
         .target(
-            name: "SSSugarNetwork",
+            name: "SSSugarNetworking",
             dependencies: ["SSSugarCore"]
-        ),
-        .target(
-            name: "SSSugarNetworkTesting",
-            dependencies: ["SSSugarCore", "SSSugarNetwork", "SSSugarTesting"]
         ),
         .target(
             name: "SSSugarTesting",
             dependencies: ["SSSugarCore", "SSSugarExecutors"]
-        ),
-        .target(
-            name: "SSSugarKeyCoding",
-            dependencies: ["SSSugarCore", "SSSugarNetwork"]
         ),
         .target(
             name: "SSSugarDataSynchronisation",

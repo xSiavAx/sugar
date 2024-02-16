@@ -1,4 +1,5 @@
 import Foundation
+import Combine
 
 /// Banch of methods that helps reduce code amount and avoid code duplication in `Result` processing
 public extension Result {
@@ -41,6 +42,35 @@ public extension Result {
     
     func onSuccess(_ job: (Success) -> Void) {
         unwrap(onFail: { _ in }, onSuccess: job)
+    }
+
+    func asAnyPublisher() -> AnyPublisher<Success, Failure> {
+        switch self {
+        case .success(let output):
+            return Just(output).setFailureType(to: Failure.self).eraseToAnyPublisher()
+        case .failure(let error):
+            return Fail(error: error).eraseToAnyPublisher()
+        }
+    }
+
+    func trySuccess() throws -> Success {
+        switch self {
+        case .success(let success):
+            return success
+        case .failure(let failure):
+            throw failure
+        }
+    }
+
+    func asyncFlatMap<NewSuccess>(
+        _ transform: (Success) async -> (Result<NewSuccess, Failure>)
+    ) async -> Result<NewSuccess, Failure> {
+        switch self {
+        case .success(let val):
+            return await transform(val)
+        case .failure(let error):
+            return .failure(error)
+        }
     }
 }
 
