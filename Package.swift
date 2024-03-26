@@ -97,10 +97,7 @@ let package = Package(
             targets: ["SSSugarMacPG"]
         ),
     ],
-    dependencies: [
-        .package(url: "https://github.com/apple/swift-argument-parser", from: "0.4.0"),
-    ]
-    + DBAdditions.ForPackage.dependencies(),
+    dependencies: DBAdditions.ForPackage.dependencies(),
     targets: [
         .target(
             name: "SSSugarCore",
@@ -148,7 +145,7 @@ let package = Package(
         ),
         .target(
             name: "SSSugarMacPG",
-            dependencies: [.product(name: "ArgumentParser", package: "swift-argument-parser")] + allMacTargets.map { .init(stringLiteral: $0) }
+            dependencies: allMacTargets.map { .init(stringLiteral: $0) }
         ),
         .testTarget(
             name: "SSSugarTests",
