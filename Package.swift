@@ -7,6 +7,7 @@ struct DBAdditions {
     struct ForPackage {
         static func dependencies() -> [Package.Dependency] {
             #if os(Linux)
+            //TODO: Update with GitHub URL
             return [.package(name: "CSQLiteSS", url: "git@bitbucket.org:SiavA/csqlitess.git", from: "1.0.0")]
             #else
             return []
